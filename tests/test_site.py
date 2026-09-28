@@ -36,12 +36,13 @@ class MusicOnlySiteTests(unittest.TestCase):
         self.assertEqual(len(set(purchase_urls)),60)
         self.assertGreaterEqual(ready,6)
 
-    def test_public_pages_do_not_reference_full_audio_source(self):
+    def test_public_pages_are_github_native_and_do_not_reference_full_audio_source(self):
         for p in DOCS.rglob("*"):
             if not p.is_file() or p.suffix.lower() not in {".html",".js",".css",".json",".xml",".txt"}:
                 continue
             text=p.read_text(encoding="utf-8",errors="ignore")
             self.assertNotIn("downloads"+"/"+"bgm",text,p)
+            self.assertNotIn("dolzore"+"."+"lovable"+".app",text,p)
 
     def test_home_and_music_surface_are_music_only(self):
         home=(DOCS/"index.html").read_text(encoding="utf-8")
