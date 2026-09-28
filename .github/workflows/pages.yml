@@ -38,10 +38,22 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate public-site contracts
         run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Ensure GitHub Pages site exists
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          gh api repos/DeeDee-Lab/Dolzore/pages --silent 2>$null
+          if ($LASTEXITCODE -ne 0) {
+            gh api --method POST repos/DeeDee-Lab/Dolzore/pages -f build_type=workflow
+            if ($LASTEXITCODE -ne 0) {
+              throw "PAGES_SITE_CREATE_FAILED:$LASTEXITCODE"
+            }
+            Write-Host "PAGES_SITE_CREATED"
+          } else {
+            Write-Host "PAGES_SITE_ALREADY_EXISTS"
+          }
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:
