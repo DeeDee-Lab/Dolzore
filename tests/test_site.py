@@ -42,12 +42,22 @@ class MusicOnlySiteTests(unittest.TestCase):
         self.assertNotIn("Buying Guide",home)
         self.assertNotIn("SmartBuy",home)
 
+    def test_support_and_legal_surfaces_preserve_current_routes(self):
+        support=(DOCS/"support/index.html").read_text(encoding="utf-8")
+        legal=(DOCS/"legal/index.html").read_text(encoding="utf-8")
+        self.assertIn("Creator BGM",support)
+        self.assertIn("instagram.com/dolzoreofficial",support)
+        for route in ("privacy","terms","refund","tokusho"):
+            self.assertIn(f"https://dolzore.lovable.app/{route}",legal)
+        self.assertNotIn("Business Packs",legal)
+        self.assertNotIn("SmartBuy",legal)
+
     def test_sitemap_excludes_stopped_non_music_lanes(self):
         sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
         for blocked in ("business","apps","buying-guide","smartbuy","qa"):
             self.assertNotIn(blocked,sitemap.lower())
-        self.assertIn("/music/",sitemap)
-        self.assertIn("/journal/",sitemap)
+        for required in ("/music/","/journal/","/support/","/legal/"):
+            self.assertIn(required,sitemap)
 
 if __name__=="__main__":
     unittest.main()
