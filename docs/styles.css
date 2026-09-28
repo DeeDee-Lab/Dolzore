@@ -71,7 +71,9 @@ button,input{font:inherit}
 .tiny-traveler{position:absolute;right:29%;bottom:94px;width:20px;height:36px}
 .tiny-traveler .head{position:absolute;left:4px;top:0;width:12px;height:12px;background:#f0b07f;border:3px solid #2b2333}
 .tiny-traveler .body{position:absolute;left:1px;top:12px;width:18px;height:22px;background:#5d78ff;border:3px solid #2b2333;box-shadow:-5px 10px 0 -2px #2b2333,18px 10px 0 -2px #2b2333}
-.world-intro{position:relative;z-index:5;max-width:620px;padding:100px 24px 0 max(24px,calc((100vw - 1180px)/2))}
+.world-intro{position:relative;z-index:5;max-width:760px;padding:100px 24px 0 max(24px,calc((100vw - 1180px)/2))}
+.world-intro h1{max-width:720px;font-size:clamp(46px,5.2vw,70px)}
+.intro-window{max-width:620px}
 .world-intro h1,.music-hero h1,.journal-hero h1,.plain-page h1{
   font-family:"DotGothic16",monospace;font-weight:400;line-height:1.18;font-size:clamp(42px,6vw,78px);margin:0 0 28px;
   color:#2a2340;text-shadow:3px 3px 0 rgba(255,255,255,.55)
@@ -153,7 +155,7 @@ button,input{font:inherit}
 .journal-page{min-height:76vh;background:linear-gradient(#6aaed8,#b4e3e2 36%,#d8e8b7 36%)}
 .journal-list{max-width:1000px;margin:auto;padding:20px 24px 90px}.journal-empty{max-width:720px}.muted-pixel{font-size:12px;color:#cfc5d4}
 .plain-page{min-height:70vh}.plain-page .rpg-window{max-width:800px}.plain-page .pixel-kicker{color:#6c4f7f}
-.inactive-page{min-height:70vh;display:grid;place-items:center;padding:40px;background:#efe0ab}.inactive-page .rpg-window{max-width:680px}
+.inactive-page{min-height:70vh;display:grid;place-items:center;padding:40px;background:#efe0ab}.inactive-page .rpg-window{max-width:680px}.inactive-page h1{font-family:"DotGothic16",monospace;font-size:clamp(34px,5vw,58px);line-height:1.2;margin:8px 0 20px}.pixel-kicker.light{color:#ffe273}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:940px){
   .world-nav{gap:2px}.world-nav a{font-size:11px;padding:7px}
@@ -163,8 +165,9 @@ button,input{font:inherit}
 }
 @media(max-width:680px){
   .world-header{align-items:flex-start}.world-nav{display:grid;grid-template-columns:repeat(3,auto);justify-content:end}
-  .world-stage{min-height:760px}.world-intro{padding-top:64px}
-  .world-intro h1,.music-hero h1,.journal-hero h1,.plain-page h1{font-size:40px}
+  .world-stage{min-height:930px}.world-intro{padding-top:56px;max-width:none}
+  .world-intro h1,.music-hero h1,.journal-hero h1,.plain-page h1{font-size:35px}
+  .intro-window{max-width:none}
   .world-building{bottom:145px;width:145px;height:145px}.record-shop{right:4%}.journal-house{right:47%}
   .world-building .door{left:50px;width:42px;height:60px}.world-building .window{width:34px;height:34px;bottom:46px}
   .world-section{grid-template-columns:1fr;padding:52px 18px}.world-footer{display:block;padding:30px 18px}.footer-links{margin-top:18px}
