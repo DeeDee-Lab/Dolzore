@@ -1,86 +1,53 @@
-import importlib.util
-import pathlib
+from __future__ import annotations
+import json
+from pathlib import Path
 import unittest
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("dolzore_runtime", ROOT / "src" / "runtime.py")
-runtime = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(runtime)
+ROOT=Path(__file__).resolve().parents[1]
+DOCS=ROOT/"docs"
 
+class MusicOnlySiteTests(unittest.TestCase):
+    def test_track_catalog_is_exactly_60_and_music_only(self):
+        data=json.loads((DOCS/"data/tracks.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(data["tracks"]),60)
+        self.assertEqual(data["policy"]["saleScope"],"music-only")
+        self.assertTrue(data["policy"]["sampleOnlyPublic"])
+        self.assertFalse(data["policy"]["fullAudioPublic"])
+        ids=[x["id"] for x in data["tracks"]]
+        self.assertEqual(ids[0],"BGM-001")
+        self.assertEqual(ids[-1],"BGM-060")
+        self.assertEqual(len(set(ids)),60)
 
-class RecommendationGateTests(unittest.TestCase):
-    def base(self):
-        return {
-            "target_category": "projector",
-            "matched_priority_model": "BenQ TK700STi",
-            "fit_status": "ELIGIBLE",
-            "live_status": "live",
-            "detail_verification_status": "verified",
-            "price": 75000,
-            "price_status": "strong_buy",
-            "market": "yahoo_flea",
-            "title": "BenQ TK700STi 4K プロジェクター 美品",
-            "url": "https://paypayfleamarket.yahoo.co.jp/item/z123456789",
-        }
+    def test_every_track_has_exact_purchase_and_sample_contract(self):
+        data=json.loads((DOCS/"data/tracks.json").read_text(encoding="utf-8"))
+        for t in data["tracks"]:
+            self.assertTrue(t["purchaseUrl"].startswith("https://buy.stripe.com/"))
+            self.assertEqual(t["priceYen"],200)
+            self.assertEqual(t["sampleSeconds"],20)
+            self.assertRegex(t["sampleFile"],r"^bgm-\d{3}\.mp3$")
 
-    def test_valid_individual_listing_passes(self):
-        self.assertTrue(runtime.eligible(self.base()))
+    def test_public_pages_do_not_reference_full_audio_source(self):
+        for p in DOCS.rglob("*"):
+            if not p.is_file() or p.suffix.lower() not in {".html",".js",".css",".json",".xml",".txt"}:
+                continue
+            text=p.read_text(encoding="utf-8",errors="ignore")
+            self.assertNotIn("downloads/bgm",text,p)
 
-    def test_search_page_is_rejected(self):
-        row = self.base()
-        row["url"] = "https://paypayfleamarket.yahoo.co.jp/search/BenQ%20TK700STi"
-        self.assertFalse(runtime.eligible(row))
+    def test_home_and_music_surface_are_music_only(self):
+        home=(DOCS/"index.html").read_text(encoding="utf-8")
+        music=(DOCS/"music/index.html").read_text(encoding="utf-8")
+        self.assertIn("いま売っているのは、音楽だけです",home)
+        self.assertIn("data-jukebox",music)
+        self.assertNotIn("Business",home)
+        self.assertNotIn("Buying Guide",home)
+        self.assertNotIn("SmartBuy",home)
 
-    def test_sold_listing_is_rejected(self):
-        row = self.base()
-        row["live_status"] = "sold"
-        self.assertFalse(runtime.eligible(row))
+    def test_sitemap_excludes_stopped_non_music_lanes(self):
+        sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
+        for blocked in ("business","apps","buying-guide","smartbuy","qa"):
+            self.assertNotIn(blocked,sitemap.lower())
+        self.assertIn("/music/",sitemap)
+        self.assertIn("/journal/",sitemap)
 
-    def test_accessory_is_rejected(self):
-        row = self.base()
-        row["title"] = "BenQ TK700STi 交換ランプ"
-        self.assertFalse(runtime.eligible(row))
-
-    def test_low_price_is_rejected(self):
-        row = self.base()
-        row["price"] = 500
-        self.assertFalse(runtime.eligible(row))
-
-    def test_unknown_price_status_is_rejected(self):
-        row = self.base()
-        row["price_status"] = "unknown"
-        self.assertFalse(runtime.eligible(row))
-
-
-class PublicSiteContractTests(unittest.TestCase):
-    def test_static_pages_exist(self):
-        expected = [
-            ROOT / "docs" / "index.html",
-            ROOT / "docs" / "buying-guide" / "index.html",
-            ROOT / "docs" / "buying-guide" / "projectors" / "index.html",
-            ROOT / "docs" / "buying-guide" / "projectors" / "tk700sti" / "index.html",
-        ]
-        for path in expected:
-            self.assertTrue(path.exists(), str(path))
-
-    def test_projector_page_has_ten_cards(self):
-        text = (ROOT / "docs" / "buying-guide" / "projectors" / "index.html").read_text(encoding="utf-8")
-        self.assertEqual(text.count('class="product-card"'), 10)
-        self.assertIn("人気だけで決めない。", text)
-
-    def test_tk700_page_has_required_sections(self):
-        text = (ROOT / "docs" / "buying-guide" / "projectors" / "tk700sti" / "index.html").read_text(encoding="utf-8")
-        for needle in (
-            "中古なら、まだかなりアリ。",
-            "こんな人向け",
-            "こんな人は別候補",
-            "150インチ設置イメージ",
-            "中古は、値札より白画面を見る。",
-            "SmartBuy",
-            "実機レビューではなく",
-        ):
-            self.assertIn(needle, text)
-
-
-if __name__ == "__main__":
+if __name__=="__main__":
     unittest.main()
