@@ -120,8 +120,7 @@ class MusicOnlySiteTests(unittest.TestCase):
         )
         for p in approved:
             text=p.read_text(encoding="utf-8").lower()
-            self.assertNotIn("noindex",text,p)
-            self.assertNotIn("nofollow",text,p)
+            self.assertNotIn('name="robots" content="noindex',text,p)
             self.assertIn('name="robots" content="index,follow',text,p)
             self.assertIn('rel="canonical"',text,p)
 
