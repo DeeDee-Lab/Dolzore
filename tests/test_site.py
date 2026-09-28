@@ -20,11 +20,21 @@ class MusicOnlySiteTests(unittest.TestCase):
 
     def test_every_track_has_exact_purchase_and_sample_contract(self):
         data=json.loads((DOCS/"data/tracks.json").read_text(encoding="utf-8"))
+        purchase_urls=[]
+        ready=0
         for t in data["tracks"]:
             self.assertTrue(t["purchaseUrl"].startswith("https://buy.stripe.com/"))
+            purchase_urls.append(t["purchaseUrl"])
             self.assertEqual(t["priceYen"],200)
             self.assertEqual(t["sampleSeconds"],20)
             self.assertRegex(t["sampleFile"],r"^bgm-\d{3}\.mp3$")
+            if t.get("previewReady"):
+                ready += 1
+                self.assertTrue(str(t.get("previewUrl","")).startswith("https://"))
+            else:
+                self.assertFalse(t.get("previewUrl"))
+        self.assertEqual(len(set(purchase_urls)),60)
+        self.assertGreaterEqual(ready,6)
 
     def test_public_pages_do_not_reference_full_audio_source(self):
         for p in DOCS.rglob("*"):
