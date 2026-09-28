@@ -9,7 +9,9 @@
     "generatedWithAI": true,
     "commercialAndMonetizedVideoUse": true,
     "contentIdRegistrationProhibited": true,
-    "standaloneRedistributionProhibited": true
+    "standaloneRedistributionProhibited": true,
+    "currentPreviewCount": 6,
+    "previewExpansionStatus": "54 additional track samples pending; does not block site publication"
   },
   "tracks": [
     {
@@ -22,7 +24,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/8x25kE4NT3L45yL0QCbbG02",
       "sampleFile": "bgm-001.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-002",
@@ -34,7 +38,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/28E28sgwB3L47GTbvgbbG0l",
       "sampleFile": "bgm-002.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-003",
@@ -46,7 +52,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/dRm14o4NT95o2mz42ObbG03",
       "sampleFile": "bgm-003.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-004",
@@ -58,7 +66,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/4gM00kdkpftMe5h42ObbG04",
       "sampleFile": "bgm-004.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-005",
@@ -70,7 +80,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/4gM00keotepI0ergPAbbG05",
       "sampleFile": "bgm-005.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": "https://gcdn.picsart.com/media-engine/1b160b8b-7232-4de3-966c-a4e9a2517a29.mp4",
+      "previewReady": true
     },
     {
       "id": "BGM-006",
@@ -82,7 +94,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/7sY6oI9496Xg3qDczkbbG06",
       "sampleFile": "bgm-006.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-007",
@@ -94,7 +108,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/5kQ3cwdkpftMbX9czkbbG07",
       "sampleFile": "bgm-007.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": "https://gcdn.picsart.com/media-engine/c70f973f-c73d-409d-b13e-c05e331854e0.mp4",
+      "previewReady": true
     },
     {
       "id": "BGM-008",
@@ -106,7 +122,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/7sYaEY3JP2H0f9l2YKbbG08",
       "sampleFile": "bgm-008.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-009",
@@ -118,7 +136,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/8x26oIfsxbdw4uH56SbbG09",
       "sampleFile": "bgm-009.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-010",
@@ -130,7 +150,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/cNi9AUdkp81k4uHeHsbbG0a",
       "sampleFile": "bgm-010.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": "https://gcdn.picsart.com/media-engine/daad6efe-d81a-475a-acda-49fdded4c15b.mp4",
+      "previewReady": true
     },
     {
       "id": "BGM-011",
@@ -142,7 +164,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/4gMcN6bch6Xgd1ddDobbG0b",
       "sampleFile": "bgm-011.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-012",
@@ -154,7 +178,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/8x25kEdkpgxQd1d6aWbbG0c",
       "sampleFile": "bgm-012.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-013",
@@ -166,7 +192,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/00weVe94981k7GTeHsbbG0d",
       "sampleFile": "bgm-013.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-014",
@@ -178,7 +206,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/cNicN6cgl5Tc7GT56SbbG0e",
       "sampleFile": "bgm-014.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-015",
@@ -190,7 +220,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/6oUfZigwBepI0er9n8bbG0f",
       "sampleFile": "bgm-015.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-016",
@@ -202,7 +234,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/fZu9AUfsx2H05yLczkbbG0g",
       "sampleFile": "bgm-016.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-017",
@@ -214,7 +248,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/28EaEY2FL1CWbX9fLwbbG0h",
       "sampleFile": "bgm-017.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-018",
@@ -226,7 +262,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/14AfZi0xD81k7GTgPAbbG0i",
       "sampleFile": "bgm-018.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-019",
@@ -238,7 +276,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/28E8wQ949dlE1ivarcbbG0j",
       "sampleFile": "bgm-019.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-020",
@@ -250,7 +290,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/3cIcN6a8dgxQ0erczkbbG0k",
       "sampleFile": "bgm-020.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": "https://gcdn.picsart.com/media-engine/30b75c1f-969e-4019-9a90-3628da80d3f3.mp4",
+      "previewReady": true
     },
     {
       "id": "BGM-021",
@@ -262,7 +304,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/fZu14o4NTdlEf9l42ObbG0F",
       "sampleFile": "bgm-021.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-022",
@@ -274,7 +318,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/aFa6oI6W15Tcd1d9n8bbG0I",
       "sampleFile": "bgm-022.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-023",
@@ -286,7 +332,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/6oUfZi4NTepIgdp9n8bbG0J",
       "sampleFile": "bgm-023.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": "https://gcdn.picsart.com/media-engine/35c4ef3a-63fb-4947-a499-4d82ba2a6831.mp4",
+      "previewReady": true
     },
     {
       "id": "BGM-024",
@@ -298,7 +346,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/3cI8wQgwBbdw6CP8j4bbG0M",
       "sampleFile": "bgm-024.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-025",
@@ -310,7 +360,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/8x28wQ0xDbdw1iv42ObbG0O",
       "sampleFile": "bgm-025.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-026",
@@ -322,7 +374,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/aFabJ21BHchA8KXgPAbbG0Q",
       "sampleFile": "bgm-026.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-027",
@@ -334,7 +388,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/6oUcN6dkpchAbX9arcbbG0S",
       "sampleFile": "bgm-027.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-028",
@@ -346,7 +402,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/aFabJ25RX5Tc5yLbvgbbG0V",
       "sampleFile": "bgm-028.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-029",
@@ -358,7 +416,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/14AcN61BHa9s4uHdDobbG0X",
       "sampleFile": "bgm-029.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-030",
@@ -370,7 +430,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/9B6cN66W1gxQd1d2YKbbG0Z",
       "sampleFile": "bgm-030.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-031",
@@ -382,7 +444,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/9B6dRadkp0ySf9l8j4bbG10",
       "sampleFile": "bgm-031.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-032",
@@ -394,7 +458,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/bJe5kEfsxbdw4uH0QCbbG11",
       "sampleFile": "bgm-032.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-033",
@@ -406,7 +472,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/cNi14o0xD2H0f9l42ObbG12",
       "sampleFile": "bgm-033.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-034",
@@ -418,7 +486,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/cNicN64NT81kf9l2YKbbG13",
       "sampleFile": "bgm-034.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-035",
@@ -430,7 +500,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/fZuaEY2FLdlE7GT1UGbbG14",
       "sampleFile": "bgm-035.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-036",
@@ -442,7 +514,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/3cIfZi9495Tc5yLfLwbbG15",
       "sampleFile": "bgm-036.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-037",
@@ -454,7 +528,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/8x27sMdkp81kgdpdDobbG16",
       "sampleFile": "bgm-037.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": "https://gcdn.picsart.com/media-engine/93324376-dcc9-4b69-ac3e-4c37a792cb84.mp4",
+      "previewReady": true
     },
     {
       "id": "BGM-038",
@@ -466,7 +542,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/3cIfZi6W16Xgd1dfLwbbG17",
       "sampleFile": "bgm-038.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-039",
@@ -478,7 +556,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/5kQcN6cgl6Xggdp2YKbbG18",
       "sampleFile": "bgm-039.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-040",
@@ -490,7 +570,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/14A9AU4NT1CWgdp6aWbbG19",
       "sampleFile": "bgm-040.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-041",
@@ -502,7 +584,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/3cI8wQ5RX2H0gdp2YKbbG1a",
       "sampleFile": "bgm-041.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-042",
@@ -514,7 +598,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/cNicN6eotepI7GTfLwbbG1b",
       "sampleFile": "bgm-042.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-043",
@@ -526,7 +612,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/fZu5kE1BH0yS7GTgPAbbG1c",
       "sampleFile": "bgm-043.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-044",
@@ -538,7 +626,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/7sY6oI0xD5Tc7GT6aWbbG1d",
       "sampleFile": "bgm-044.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-045",
@@ -550,7 +640,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/fZu5kEgwB0yS5yL1UGbbG1e",
       "sampleFile": "bgm-045.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-046",
@@ -562,7 +654,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/dRm4gA3JP4P82mz56SbbG1f",
       "sampleFile": "bgm-046.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-047",
@@ -574,7 +668,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/6oU28seotepI5yL1UGbbG1g",
       "sampleFile": "bgm-047.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-048",
@@ -586,7 +682,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/cNi14o80581k1ivfLwbbG1h",
       "sampleFile": "bgm-048.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-049",
@@ -598,7 +696,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/14A4gAeot6Xg7GTbvgbbG1i",
       "sampleFile": "bgm-049.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-050",
@@ -610,7 +710,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/7sY7sMdkp81k2mz42ObbG1j",
       "sampleFile": "bgm-050.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-051",
@@ -622,7 +724,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/dRm6oI5RX95o1ivczkbbG1k",
       "sampleFile": "bgm-051.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-052",
@@ -634,7 +738,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/8x200k949epIgdpfLwbbG1l",
       "sampleFile": "bgm-052.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-053",
@@ -646,7 +752,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/6oUeVefsx6Xg0er42ObbG1m",
       "sampleFile": "bgm-053.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-054",
@@ -658,7 +766,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/fZucN66W181k7GT2YKbbG1n",
       "sampleFile": "bgm-054.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-055",
@@ -670,7 +780,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/5kQdRa3JP1CW3qD0QCbbG1o",
       "sampleFile": "bgm-055.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-056",
@@ -682,7 +794,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/7sYfZi4NT6Xg0erczkbbG1p",
       "sampleFile": "bgm-056.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-057",
@@ -694,7 +808,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/8x24gA949epI8KXczkbbG1q",
       "sampleFile": "bgm-057.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-058",
@@ -706,7 +822,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/aFa00k94981k7GTdDobbG1r",
       "sampleFile": "bgm-058.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-059",
@@ -718,7 +836,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/6oU4gAeot5Tc8KX1UGbbG1s",
       "sampleFile": "bgm-059.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     },
     {
       "id": "BGM-060",
@@ -730,7 +850,9 @@
       "priceLabel": "¥200 / 1曲・買い切り（税込）",
       "purchaseUrl": "https://buy.stripe.com/9B64gA805gxQ4uH2YKbbG1t",
       "sampleFile": "bgm-060.mp3",
-      "sampleSeconds": 20
+      "sampleSeconds": 20,
+      "previewUrl": null,
+      "previewReady": false
     }
   ]
 }
