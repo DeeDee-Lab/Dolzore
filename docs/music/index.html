@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DOLZORE JUKEBOX | Creator BGM 全60曲</title>
+  <meta name="description" content="DOLZORE Creator BGM 全60曲。レトロなジュークボックスを操作するように曲を選び、20秒サンプルを試聴して1曲¥200で購入できます。">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../site.js" defer></script>
+</head>
+<body class="world-body">
+<header class="world-header">
+  <a class="world-brand" href="../"><span class="brand-mark">DOLZORE</span><small>ドルゾーレ</small></a>
+  <nav class="world-nav" aria-label="メインナビゲーション">
+    <a href="../">WORLD</a><a class="active" href="./">MUSIC</a><a href="../journal/">JOURNAL</a><a href="../about/">ABOUT</a><a href="../contact/">CONTACT</a>
+  </nav>
+</header>
+
+<main class="music-page" data-jukebox>
+  <section class="music-hero">
+    <p class="pixel-kicker">DOLZORE MUSIC SHOP</p>
+    <h1>コインはいりません。<br>気になる曲を選んでください。</h1>
+    <div class="rpg-window">
+      <p>このジュークボックスには、DOLZOREの60曲が入っています。</p>
+      <p>試聴は各曲20秒。購入は1曲¥200の買い切りです。</p>
+    </div>
+  </section>
+
+  <section class="jukebox-room" aria-label="DOLZORE ジュークボックス">
+    <div class="jukebox-cabinet">
+      <div class="jukebox-top">
+        <span class="jukebox-neon">DOLZORE</span>
+        <span class="jukebox-sub">JUKEBOX 60</span>
+      </div>
+      <div class="jukebox-window">
+        <div class="record-stage" aria-hidden="true">
+          <div class="record-disc" data-record-disc><span class="record-label">DZ</span></div>
+          <div class="tonearm"></div>
+        </div>
+        <div class="now-playing">
+          <span class="now-number" data-track-number>001</span>
+          <strong data-track-title>Bright Morning</strong>
+          <span data-track-usecase>Vlog・料理・旅行・解説</span>
+        </div>
+      </div>
+
+      <div class="jukebox-display">
+        <p class="display-label">EDIT MOMENT</p>
+        <p data-track-moment>最初の1カットに、朝の空気をそっと入れる。</p>
+      </div>
+
+      <div class="jukebox-controls" role="group" aria-label="試聴操作">
+        <button type="button" class="juke-key" data-prev aria-label="前の曲">◀</button>
+        <button type="button" class="juke-key play-key" data-play aria-label="再生または一時停止">▶</button>
+        <button type="button" class="juke-key" data-stop aria-label="停止">■</button>
+        <button type="button" class="juke-key" data-next aria-label="次の曲">▶</button>
+      </div>
+
+      <div class="sample-progress-wrap">
+        <progress data-progress max="20" value="0">0</progress>
+        <span data-time>00:00 / 00:20</span>
+      </div>
+
+      <div class="jukebox-status rpg-window compact" aria-live="polite">
+        <p data-status>曲を選んで、再生ボタンを押してください。</p>
+      </div>
+
+      <div class="purchase-panel">
+        <div>
+          <small>1 TRACK / BUY ONCE</small>
+          <strong>¥200</strong>
+        </div>
+        <a class="pixel-button primary" data-purchase href="#" target="_blank" rel="noopener noreferrer">この曲を使う →</a>
+      </div>
+    </div>
+
+    <aside class="selector-console">
+      <div class="selector-head">
+        <div>
+          <p class="pixel-kicker">SELECT A RECORD</p>
+          <h2>60曲から選ぶ</h2>
+        </div>
+        <label class="track-search">曲を検索
+          <input type="search" data-track-search placeholder="タイトル・用途">
+        </label>
+      </div>
+      <div class="track-selector" data-track-selector aria-label="曲選択"></div>
+    </aside>
+  </section>
+
+  <section class="music-rules">
+    <div class="rpg-window">
+      <h2>この音楽のルール</h2>
+      <ul>
+        <li>1曲 ¥200、買い切り。</li>
+        <li>商用動画・収益化動画で使用できます。</li>
+        <li>MP3音源はAIを用いて生成されています。</li>
+        <li>音源単体の再販売・再配布、第三者への素材配布、Content ID等への登録は禁止です。</li>
+        <li>試聴は販売用フル音源とは別の短いサンプルだけを再生します。</li>
+      </ul>
+    </div>
+  </section>
+
+  <audio data-audio preload="none"></audio>
+</main>
+
+<footer class="world-footer">
+  <div><strong>DOLZORE</strong><p>選曲で止まる時間を、編集に戻す。</p></div>
+  <div class="footer-links"><a href="../">World</a><a href="../journal/">Journal</a><a href="https://dolzore.lovable.app/tokusho">特商法</a><a href="https://dolzore.lovable.app/refund">返金</a></div>
+</footer>
+</body>
+</html>
