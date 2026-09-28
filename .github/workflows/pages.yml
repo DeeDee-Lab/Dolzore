@@ -59,7 +59,7 @@ jobs:
           for ($i=0; $i -lt 24; $i++) {
             try {
               $r = Invoke-WebRequest -UseBasicParsing "https://deedee-lab.github.io/Dolzore/"
-              if ($r.StatusCode -eq 200 -and $r.Content -match '音を探す旅') {
+              if ($r.StatusCode -eq 200 -and $r.Content -match 'DOLZORE') {
                 Write-Host "PUBLIC_READBACK=PASS"
                 exit 0
               }
