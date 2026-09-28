@@ -91,7 +91,7 @@ def main() -> None:
         screenshot(m, "mobile-music.png")
         preview(m, "mobile-music-preview.jpg")
 
-        for path in ("/journal/", "/about/", "/support/", "/legal/"):
+        for path in ("/journal/", "/about/", "/support/", "/legal/", "/privacy/", "/terms/", "/refund/", "/tokusho/", "/disclosure/"):
             m.goto(BASE + path, wait_until="load")
             assert m.locator("body").count() == 1
             no_overflow(m, "mobile " + path.strip("/"))
