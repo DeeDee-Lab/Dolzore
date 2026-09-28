@@ -7,7 +7,7 @@ IMPORTANT:
 - The source endpoint is migration-only and must not be referenced by public HTML/JS.
 """
 from __future__ import annotations
-import json, subprocess, tempfile, urllib.request
+import json, subprocess, tempfile, urllib.request, shutil
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -37,8 +37,15 @@ def main() -> None:
             dst=OUT/track["sampleFile"]
             print(f'{track["id"]}: {track["title"]}')
             urllib.request.urlretrieve(url,src)
+            ffmpeg=shutil.which("ffmpeg")
+            if not ffmpeg:
+                try:
+                    import imageio_ffmpeg
+                    ffmpeg=imageio_ffmpeg.get_ffmpeg_exe()
+                except Exception as exc:
+                    raise SystemExit("ffmpeg unavailable; install ffmpeg or imageio-ffmpeg") from exc
             subprocess.run([
-                "ffmpeg","-hide_banner","-loglevel","error","-y",
+                ffmpeg,"-hide_banner","-loglevel","error","-y",
                 "-ss",str(START_SECONDS),"-i",str(src),"-t",str(DURATION_SECONDS),
                 "-af","afade=t=in:st=0:d=0.25,afade=t=out:st=19.5:d=0.5",
                 "-codec:a","libmp3lame","-b:a","96k",str(dst)
