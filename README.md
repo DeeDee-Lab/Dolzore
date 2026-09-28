@@ -73,3 +73,10 @@ The existing `https://dolzore.lovable.app` site remains available during migrati
 ## Long-task checkpointing
 
 Material implementation phases are recorded in GitHub Issues/PRs so work can resume safely after timeouts or provider interruptions.
+
+
+## Private repository automation
+
+This repository remains private by design.
+
+Market refresh prefers the existing DOLZORE self-hosted runner label `dolzore-osk222` so GitHub-hosted private-repository minute limits do not block normal operation. If that runner is repository-scoped elsewhere, register a second runner instance for this repository on the same host rather than making internal repositories public.

@@ -1,0 +1,77 @@
+name: Update DOLZORE market snapshot
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/update_market_snapshot.py'
+      - 'tests/**'
+      - '.github/workflows/update-market.yml'
+  workflow_dispatch: {}
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dolzore-market-snapshot
+  cancel-in-progress: true
+
+jobs:
+  update-market:
+    runs-on: [dolzore-osk222]
+    timeout-minutes: 25
+
+    steps:
+      - name: Enforce DOLZORE runner
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Write-Host "RUNNER_NAME=$env:RUNNER_NAME"
+          Write-Host "COMPUTERNAME=$env:COMPUTERNAME"
+          if (([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'OSK222') {
+            throw "DOLZORE_WRONG_HOST:$env:COMPUTERNAME"
+          }
+
+      - name: Checkout DOLZORE site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Install collector dependencies
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          python -m pip install --disable-pip-version-check requests beautifulsoup4
+          if ($LASTEXITCODE -ne 0) { throw "PIP_INSTALL_FAILED:$LASTEXITCODE" }
+
+      - name: Run public-site contract tests
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          python tests/test_site.py
+          if ($LASTEXITCODE -ne 0) { throw "DOLZORE_TEST_FAILED:$LASTEXITCODE" }
+
+      - name: Refresh strict market snapshot
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          python scripts/update_market_snapshot.py --output docs/data/smartbuy-projectors.json
+          if ($LASTEXITCODE -ne 0) { throw "MARKET_REFRESH_FAILED:$LASTEXITCODE" }
+
+      - name: Commit changed snapshot
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          git config user.name "dolzore-market-bot"
+          git config user.email "dolzore-market-bot@users.noreply.github.com"
+          git add docs/data/smartbuy-projectors.json
+          $diff = git diff --cached --name-only
+          if (-not $diff) {
+            Write-Host "NO_MARKET_CHANGES"
+            exit 0
+          }
+          git commit -m "chore: refresh DOLZORE market snapshot"
+          git push origin HEAD:main
