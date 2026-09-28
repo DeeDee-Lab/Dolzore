@@ -52,7 +52,9 @@ jobs:
         run: |
           $ErrorActionPreference = 'Stop'
           python tests/test_site.py
-          if ($LASTEXITCODE -ne 0) { throw "DOLZORE_TEST_FAILED:$LASTEXITCODE" }
+          if ($LASTEXITCODE -ne 0) { throw "DOLZORE_SITE_TEST_FAILED:$LASTEXITCODE" }
+          python tests/test_market_collector.py
+          if ($LASTEXITCODE -ne 0) { throw "DOLZORE_MARKET_TEST_FAILED:$LASTEXITCODE" }
 
       - name: Refresh strict market snapshot
         shell: powershell
