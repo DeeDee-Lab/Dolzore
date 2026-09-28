@@ -1,9 +1,0 @@
-{
-  "ok": true,
-  "generatedAt": null,
-  "observedProjectorRows": 0,
-  "used": [],
-  "newItems": [],
-  "source": "github-static-initial",
-  "note": "GitHub hosted runner is currently unavailable, so automated market refresh is paused. The site itself is independent of Railway/Lovable."
-}
