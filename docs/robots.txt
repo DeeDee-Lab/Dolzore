@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://deedee-lab.github.io/Automation/sitemap.xml
