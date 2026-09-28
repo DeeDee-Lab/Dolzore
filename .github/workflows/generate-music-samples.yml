@@ -1,0 +1,43 @@
+name: Generate DOLZORE music samples
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - music-only-site-20260928
+    paths:
+      - "scripts/generate_music_samples.py"
+      - "docs/data/tracks.json"
+      - ".github/workflows/generate-music-samples.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  samples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: music-only-site-20260928
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Generate bounded 20-second samples only
+        run: python scripts/generate_music_samples.py
+      - name: Verify no full-track migration into public docs
+        run: |
+          test "$(find docs/audio/samples -type f -name 'bgm-*.mp3' | wc -l)" -eq 60
+          ! grep -R "downloads/bgm" docs
+      - name: Commit samples to the implementation branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audio/samples
+          if git diff --cached --quiet; then
+            echo "No sample changes."
+          else
+            git commit -m "assets: generate 20-second jukebox samples [skip ci]"
+            git push origin HEAD:music-only-site-20260928
+          fi
