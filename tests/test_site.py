@@ -53,6 +53,25 @@ class MusicOnlySiteTests(unittest.TestCase):
         self.assertNotIn("Buying Guide",home)
         self.assertNotIn("SmartBuy",home)
 
+
+    def test_about_and_old_business_brand_story_are_not_public_navigation(self):
+        forbidden_copy="繰り返し作業を減らし、つくる時間を増やす"
+        findings=[]
+        for p in DOCS.rglob("*.html"):
+            text=p.read_text(encoding="utf-8",errors="ignore")
+            rel=str(p.relative_to(DOCS))
+            if p != DOCS/"about/index.html":
+                if ">ABOUT<" in text or "/about/" in text or 'href="about/"' in text:
+                    findings.append((rel,"ABOUT navigation"))
+            if forbidden_copy in text:
+                findings.append((rel,"obsolete business-brand story"))
+        self.assertEqual(findings,[],f"obsolete ABOUT/business copy remains: {findings}")
+
+        about=(DOCS/"about/index.html").read_text(encoding="utf-8")
+        self.assertIn('http-equiv="refresh"',about)
+        self.assertNotIn("Creator BGMだけです",about)
+        self.assertNotIn("アプリやその他の商品",about)
+
     def test_support_and_legal_surfaces_are_github_native(self):
         support=(DOCS/"support/index.html").read_text(encoding="utf-8")
         legal=(DOCS/"legal/index.html").read_text(encoding="utf-8")
@@ -114,7 +133,7 @@ class MusicOnlySiteTests(unittest.TestCase):
 
     def test_sitemap_excludes_stopped_non_music_lanes(self):
         sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
-        for blocked in ("business","apps","buying-guide","smartbuy","qa"):
+        for blocked in ("business","apps","buying-guide","smartbuy","qa","about"):
             self.assertNotIn(blocked,sitemap.lower())
         for required in ("/music/","/journal/","/support/","/legal/","/privacy/","/terms/","/refund/","/tokusho/","/disclosure/"):
             self.assertIn(required,sitemap)
