@@ -118,6 +118,39 @@
     readJson("data/tracks.json").then(d=>{tracks=d.tracks||[];filtered=[...tracks];render()}).catch(()=>setStatus("曲一覧を読み込めませんでした。"));
   }
 
+  function initMarketSnapshot(){
+    const box=document.querySelector("[data-smartbuy-market]");if(!box)return;
+    const meta=box.querySelector("[data-market-meta]");
+    const used=box.querySelector("[data-market-used]");
+    const fresh=box.querySelector("[data-market-new]");
+    const statusLabel={strong_buy:"買い価格",consider:"検討価格",acceptable:"条件内"};
+    const yen=v=>Number.isFinite(Number(v))?"¥"+Number(v).toLocaleString("ja-JP"):"—";
+    const fmt=v=>{
+      if(!v)return "未同期";
+      try{return new Intl.DateTimeFormat("ja-JP",{timeZone:"Asia/Tokyo",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}).format(new Date(v))}
+      catch{return String(v)}
+    };
+    const render=(target,items)=>{
+      if(!items.length){
+        target.innerHTML='<div class="market-empty">現在、厳格条件を通過した販売中候補は0件です。無理に1位を作りません。</div>';
+        return;
+      }
+      target.innerHTML=items.map(x=>`<div class="market-item"><div><a href="${x.url}" target="_blank" rel="noopener noreferrer nofollow"></a><small></small></div><div class="market-price"><strong>${yen(x.price)}</strong><span>${statusLabel[x.priceStatus]||"確認済み"}</span></div></div>`).join("");
+      [...target.querySelectorAll(".market-item")].forEach((el,i)=>{
+        el.querySelector("a").textContent=items[i].title;
+        el.querySelector("small").textContent=(items[i].marketLabel||items[i].market||"")+" · "+(items[i].model||"");
+      });
+    };
+    readJson("data/smartbuy-projectors.json").then(d=>{
+      const u=d.used||[],n=d.newItems||[];
+      meta.textContent=`最終更新 ${fmt(d.generatedAt)} / 中古 ${u.length}件・新品 ${n.length}件`;
+      render(used,u);render(fresh,n);
+    }).catch(()=>{
+      meta.textContent="市場データを一時取得できません。記事本文はそのまま読めます。";
+      render(used,[]);render(fresh,[]);
+    });
+  }
+
   function initJournal(){
     const target=document.querySelector("[data-journal-list]");if(!target)return;
     readJson("data/articles.json").then(d=>{
@@ -129,4 +162,5 @@
 
   initJukebox();
   initJournal();
+  initMarketSnapshot();
 })();
