@@ -11,8 +11,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: dolzore-pages
@@ -22,9 +20,6 @@ jobs:
   deploy:
     runs-on: [dolzore-site-osk222]
     timeout-minutes: 20
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Enforce DOLZORE site runner
         shell: powershell
@@ -38,26 +33,40 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate public-site contracts
         run: python -m unittest discover -s tests -p "test_*.py" -v
-      - name: Ensure GitHub Pages site exists
+      - name: Configure Pages to publish main/docs
         shell: powershell
         run: |
           $ErrorActionPreference = 'Continue'
           gh api repos/DeeDee-Lab/Dolzore/pages --silent 2>$null
           if ($LASTEXITCODE -ne 0) {
-            gh api --method POST repos/DeeDee-Lab/Dolzore/pages -f build_type=workflow
-            if ($LASTEXITCODE -ne 0) {
-              throw "PAGES_SITE_CREATE_FAILED:$LASTEXITCODE"
-            }
-            Write-Host "PAGES_SITE_CREATED"
-          } else {
-            Write-Host "PAGES_SITE_ALREADY_EXISTS"
+            gh api --method POST repos/DeeDee-Lab/Dolzore/pages -f "source[branch]=main" -f "source[path]=/docs"
+            if ($LASTEXITCODE -ne 0) { throw "PAGES_CREATE_FAILED:$LASTEXITCODE" }
           }
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Upload static site
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: docs
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+          gh api --method PUT repos/DeeDee-Lab/Dolzore/pages -f build_type=legacy -f "source[branch]=main" -f "source[path]=/docs"
+          if ($LASTEXITCODE -ne 0) { throw "PAGES_SOURCE_CONFIG_FAILED:$LASTEXITCODE" }
+          Write-Host "PAGES_SOURCE=main:/docs"
+      - name: Trigger Pages build
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          gh api --method POST repos/DeeDee-Lab/Dolzore/pages/builds | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw "PAGES_BUILD_TRIGGER_FAILED:$LASTEXITCODE" }
+      - name: Wait for public Pages build
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          for ($i=0; $i -lt 40; $i++) {
+            $json = gh api repos/DeeDee-Lab/Dolzore/pages/builds/latest
+            if ($LASTEXITCODE -ne 0) { throw "PAGES_BUILD_READ_FAILED:$LASTEXITCODE" }
+            $build = $json | ConvertFrom-Json
+            Write-Host "PAGES_BUILD_STATUS=$($build.status)"
+            if ($build.status -eq 'built') {
+              Write-Host "PAGES_URL=https://deedee-lab.github.io/Dolzore/"
+              exit 0
+            }
+            if ($build.status -eq 'errored') {
+              throw "PAGES_BUILD_ERRORED"
+            }
+            Start-Sleep -Seconds 5
+          }
+          throw "PAGES_BUILD_TIMEOUT"
