@@ -62,6 +62,17 @@ class MusicOnlySiteTests(unittest.TestCase):
         self.assertNotIn("Business Packs",legal)
         self.assertNotIn("SmartBuy",legal)
 
+
+    def test_all_public_html_excludes_stopped_sales_navigation(self):
+        blocked=("Buying Guide","SmartBuy","Business Packs","/business","/apps","QA-001","QA-002","QA-003","QA-004")
+        findings=[]
+        for p in DOCS.rglob("*.html"):
+            text=p.read_text(encoding="utf-8",errors="ignore")
+            for marker in blocked:
+                if marker.lower() in text.lower():
+                    findings.append((str(p.relative_to(DOCS)),marker))
+        self.assertEqual(findings,[],f"stopped public sales surface remains: {findings}")
+
     def test_sitemap_excludes_stopped_non_music_lanes(self):
         sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
         for blocked in ("business","apps","buying-guide","smartbuy","qa"):
