@@ -80,14 +80,37 @@ class MusicOnlySiteTests(unittest.TestCase):
 
 
     def test_all_public_html_excludes_stopped_sales_navigation(self):
-        blocked=("Buying Guide","SmartBuy","Business Packs","/business","/apps","QA-001","QA-002","QA-003","QA-004")
+        blocked=("Buying Guide","Business Packs","/business","/apps","QA-001","QA-002","QA-003","QA-004")
         findings=[]
         for p in DOCS.rglob("*.html"):
             text=p.read_text(encoding="utf-8",errors="ignore")
+            rel=p.relative_to(DOCS)
             for marker in blocked:
                 if marker.lower() in text.lower():
-                    findings.append((str(p.relative_to(DOCS)),marker))
+                    findings.append((str(rel),marker))
+            # SmartBuy is allowed only as editorial market information inside Journal.
+            if "smartbuy" in text.lower() and "journal" not in rel.parts:
+                findings.append((str(rel),"SmartBuy outside Journal"))
         self.assertEqual(findings,[],f"stopped public sales surface remains: {findings}")
+
+    def test_projector_journal_is_editorial_not_sales(self):
+        article=DOCS/"journal/projector-150inch-4k-2026/index.html"
+        self.assertTrue(article.exists())
+        text=article.read_text(encoding="utf-8")
+        self.assertIn("150インチで後悔しない4Kプロジェクター10選",text)
+        self.assertIn("実機レビューではありません",text)
+        self.assertIn("data-smartbuy-market",text)
+        self.assertNotIn("buy.stripe.com",text)
+        self.assertNotIn("購入する",text)
+        self.assertNotIn("カートに入れる",text)
+
+        articles=json.loads((DOCS/"data/articles.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(articles["articles"]),1)
+        self.assertEqual(articles["articles"][0]["url"],"projector-150inch-4k-2026/")
+
+        snapshot=json.loads((DOCS/"data/smartbuy-projectors.json").read_text(encoding="utf-8"))
+        self.assertIn("used",snapshot)
+        self.assertIn("newItems",snapshot)
 
     def test_sitemap_excludes_stopped_non_music_lanes(self):
         sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")

@@ -197,3 +197,79 @@ button,input{font:inherit}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}
 }
+
+
+/* JOURNAL article system */
+.journal-card{background:#fff9df;border:4px solid #2b2437;box-shadow:6px 6px 0 rgba(43,36,55,.24);padding:24px;margin-bottom:20px}
+.journal-card h2{font-family:"DotGothic16",monospace;font-size:clamp(24px,3vw,34px);line-height:1.35;margin:8px 0 12px}
+.journal-card .excerpt{color:#625b67;line-height:1.9;margin:0 0 18px}
+.journal-article{background:linear-gradient(#8bd4e7 0 9%,#f6e8b8 9% 100%);min-height:100vh}
+.article-hero,.article-section{max-width:1080px;margin:auto;padding:72px 24px}
+.article-hero{padding-top:88px}
+.article-hero h1,.article-section h2{
+  font-family:"DotGothic16",monospace;font-weight:400;line-height:1.25;color:#2a2340
+}
+.article-hero h1{font-size:clamp(38px,6vw,72px);margin:10px 0 28px;text-shadow:3px 3px 0 rgba(255,255,255,.55)}
+.article-section h2{font-size:clamp(30px,4.2vw,48px);margin:6px 0 24px}
+.article-section h3{font-family:"DotGothic16",monospace;font-weight:400}
+.article-lead{max-width:780px}
+.article-meta{margin:24px 0 0;font-size:11px;color:#665f6b;letter-spacing:.04em}
+.article-soft{max-width:none;background:#e7efbf;border-top:4px dashed rgba(58,44,99,.18);border-bottom:4px dashed rgba(58,44,99,.18)}
+.article-soft>*{max-width:1080px;margin-left:auto;margin-right:auto}
+.article-summary-grid,.article-steps,.new-used-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.article-summary-grid .rpg-window strong{font-family:"DotGothic16",monospace;color:var(--yellow);font-size:22px}
+.article-steps>div,.new-used-grid>article{background:#fff9df;border:4px solid #2b2437;padding:22px;box-shadow:5px 5px 0 rgba(43,36,55,.2)}
+.article-steps span{display:block;color:#865ca1;font-family:"DotGothic16",monospace;font-size:18px}
+.article-steps h3,.new-used-grid h3{font-size:24px;margin:8px 0}
+.article-steps p,.new-used-grid p,.article-note{color:#645d68;line-height:1.9}
+.projector-journal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
+.projector-journal-card{background:#fff9df;border:4px solid #2b2437;padding:20px;box-shadow:6px 6px 0 rgba(43,36,55,.22)}
+.projector-journal-card.featured{background:#fff0a7;border-color:#493760}
+.projector-journal-card h3{font-size:28px;margin:8px 0 12px}
+.projector-journal-card>p:not(.pixel-kicker):not(.quip){line-height:1.8;color:#5e5864}
+.projector-journal-card .fit{font-size:13px;background:#e4f4d1;border-left:4px solid #4c9c60;padding:10px 12px}
+.projector-journal-card .quip{font-family:"DotGothic16",monospace;background:#201d28;color:#fff7d7;border:3px solid #fff4c3;padding:12px;line-height:1.65}
+.projector-journal-card>a{display:inline-block;margin-top:12px;color:#5b3a8f;font-size:12px;text-underline-offset:3px}
+.pixel-projector{position:relative;height:126px;background:#d9e7d3;border:4px solid #2b2437;overflow:hidden;margin-bottom:18px}
+.pixel-projector:before{content:"";position:absolute;left:16%;right:16%;bottom:24px;height:54px;background:#f7efcf;border:4px solid #2b2437;box-shadow:6px 6px 0 rgba(43,36,55,.2)}
+.pixel-projector:after{content:"";position:absolute;right:23%;bottom:35px;width:38px;height:38px;border-radius:50%;background:#25212e;border:6px solid #534962;box-shadow:inset 0 0 0 8px #7bd7e7}
+.pixel-projector span{position:absolute;left:20%;bottom:50px;width:76px;height:8px;background:#5d5364;z-index:2;box-shadow:0 16px 0 #aaa0a6}
+.pixel-projector.jumbo{height:220px}
+.p-red{background:#f2a6aa}.p-gold{background:#f4d88a}.p-blue{background:#9ec8ef}.p-mint{background:#a7e0cb}.p-purple{background:#c4afe6}
+.p-pink{background:#f4b9d0}.p-cyan{background:#9ee0e5}.p-orange{background:#f5bf87}.p-green{background:#b5d78a}.p-navy{background:#99a8d5}
+.tk700-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:start}
+.pixel-checklist{padding:0;list-style:none;display:grid;gap:8px}
+.pixel-checklist li{padding:10px 12px;background:#fff9df;border:3px solid #2b2437}
+.market-section{max-width:none;background:#1b1821;color:#fff7df;border-top:5px solid var(--yellow);border-bottom:5px solid var(--yellow)}
+.market-section>*{max-width:1080px;margin-left:auto;margin-right:auto}
+.market-section h2{color:#fff7df}
+.market-section>p{color:#cfc5d4}
+.market-heading{display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
+.market-live{font-family:"DotGothic16",monospace;border:3px solid #73dfaf;color:#94efc6;padding:7px 10px;box-shadow:4px 4px 0 #0e5039}
+.market-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.market-columns>div{background:#292431;border:3px solid #4b4059;padding:18px}
+.market-columns h3{font-size:24px;color:#ffe477;margin:0 0 12px}
+.market-list{display:grid;gap:10px}
+.market-item{display:grid;grid-template-columns:1fr auto;gap:14px;padding:12px 0;border-top:1px solid #51485b}
+.market-item:first-child{border-top:0}
+.market-item a{color:#fff8d8;text-decoration:underline;text-underline-offset:3px}
+.market-item small{display:block;color:#bfb3c9;margin-top:4px}
+.market-price{text-align:right}
+.market-price strong{display:block;color:#fff;font-size:16px}
+.market-price span{font-size:10px;color:#91edbd}
+.market-empty{border:2px dashed #6d6375;padding:14px;color:#cfc5d4}
+.market-meta{font-family:"DotGothic16",monospace;color:#ffe477!important}
+.market-note{font-size:11px!important}
+.source-section .source-links{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.source-section .source-links a{background:#fff9df;border:3px solid #2b2437;padding:10px 12px;font-size:12px}
+.article-instagram{margin-top:22px}
+@media(max-width:820px){
+  .article-summary-grid,.article-steps,.projector-journal-grid,.new-used-grid,.market-columns,.tk700-layout{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .article-hero,.article-section{padding:52px 18px}
+  .article-hero h1{font-size:36px}
+  .projector-journal-card{padding:16px}
+  .projector-journal-card h3{font-size:25px}
+  .market-heading{display:block}.market-live{display:inline-block;margin-top:10px}
+}

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": null,
+  "source": "github-actions-market-snapshot",
+  "used": [],
+  "newItems": [],
+  "note": "Initial empty snapshot. Scheduled public-repo collector will populate strict verified candidates."
+}

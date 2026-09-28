@@ -13,6 +13,8 @@ DOLZORE is currently a **music-only storefront plus Journal**.
 - Full purchased audio must never be published in this repository's public site
 - Non-music products/services are stopped and hidden until explicitly re-authorized
 - Journal articles are produced through a GitHub handoff with the article Agent
+- Editorial product research / buying guides may appear in Journal, but they do not re-enable non-music product sales
+- SmartBuy may provide non-affiliate market snapshots inside Journal as editorial decision support
 
 ## Experience direction
 

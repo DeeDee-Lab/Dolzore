@@ -1,0 +1,257 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import argparse
+import concurrent.futures
+import json
+import re
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import quote, quote_plus, unquote, urljoin, urlparse
+
+import requests
+from bs4 import BeautifulSoup
+
+HEADERS={"User-Agent":"Mozilla/5.0 (compatible; DOLZORE-MarketBot/1.0; public editorial snapshot)"}
+
+MODELS={
+    "BenQ TK700STi":{"terms":["tk700sti"],"strong":75000,"consider":90000},
+    "BenQ TK705STi":{"terms":["tk705sti"],"strong":130000,"consider":145000},
+    "BenQ TK710STi":{"terms":["tk710sti"],"strong":160000,"consider":180000},
+    "Optoma UHD35STx":{"terms":["uhd35stx"],"strong":80000,"consider":100000},
+}
+
+MARKETS={
+    "mercari":("メルカリ","jp.mercari.com","used"),
+    "yahoo_auction":("Yahoo!オークション","auctions.yahoo.co.jp","used"),
+    "hardoff":("ハードオフ","hardoff.co.jp","used"),
+    "secondstreet":("セカンドストリート","2ndstreet.jp","used"),
+    "yahoo_flea":("Yahoo!フリマ","paypayfleamarket.yahoo.co.jp","used"),
+    "rakuma":("ラクマ","fril.jp","used"),
+    "amazon":("Amazon","amazon.co.jp","new"),
+    "rakuten":("楽天市場","rakuten.co.jp","new"),
+    "yahoo_shopping":("Yahoo!ショッピング","shopping.yahoo.co.jp","new"),
+}
+
+BAD_TERMS=(
+    "交換ランプ","互換ランプ","ランプモジュール","プロジェクター用ランプ",
+    "スタンド","スクリーン","リモコン","ケーブル","金具","部品",
+    "ジャンク","故障","投影不可","投影不良","映らない","電源のみ",
+)
+SOLD_TOKENS=("売り切れ","売却済み","sold out","取引完了","販売終了","この商品は削除","売れました")
+BUY_TOKENS=("購入手続きへ","購入する","今すぐ購入","カートに入れる","入札する","落札する","購入できます")
+
+
+def compact(v):
+    return re.sub(r"[^a-z0-9ぁ-んァ-ヶ一-龠々ー]+","",str(v or "").lower())
+
+
+def match_model(title):
+    t=compact(title)
+    for name,cfg in MODELS.items():
+        if any(compact(term) in t for term in cfg["terms"]):
+            return name,cfg
+    return None,None
+
+
+def direct_url(market,query):
+    q=quote_plus(query)
+    return {
+        "mercari":f"https://jp.mercari.com/search?keyword={q}&status=on_sale",
+        "yahoo_auction":f"https://auctions.yahoo.co.jp/search/search?p={q}",
+        "hardoff":f"https://netmall.hardoff.co.jp/search/?q={q}",
+        "secondstreet":f"https://www.2ndstreet.jp/search?keyword={q}",
+        "yahoo_flea":f"https://paypayfleamarket.yahoo.co.jp/search/{quote(query)}",
+        "rakuma":f"https://fril.jp/s?query={q}",
+        "amazon":f"https://www.amazon.co.jp/s?k={q}",
+        "rakuten":f"https://search.rakuten.co.jp/search/mall/{quote(query)}/",
+        "yahoo_shopping":f"https://shopping.yahoo.co.jp/search?p={q}",
+    }[market]
+
+
+def individual_url(market,raw):
+    try:
+        u=urlparse(raw); host=(u.hostname or "").lower(); p=u.path.lower()
+        if market=="mercari": return host.endswith("mercari.com") and p.startswith("/item/")
+        if market=="yahoo_flea": return host=="paypayfleamarket.yahoo.co.jp" and p.startswith("/item/")
+        if market=="yahoo_auction": return host=="page.auctions.yahoo.co.jp" or (host=="auctions.yahoo.co.jp" and p.startswith("/jp/auction/"))
+        if market=="hardoff": return "hardoff.co.jp" in host and "/product/" in p
+        if market=="secondstreet": return "2ndstreet.jp" in host and "/goods/detail/" in p
+        if market=="rakuma": return host=="item.fril.jp" and bool(p.strip("/"))
+        if market=="amazon": return "amazon.co.jp" in host and ("/dp/" in p or "/gp/product/" in p)
+        if market=="rakuten": return host=="item.rakuten.co.jp" and len([x for x in p.split("/") if x])>=2
+        if market=="yahoo_shopping": return host.endswith("shopping.yahoo.co.jp") and "/search" not in p and len(p)>8
+    except Exception:
+        return False
+    return False
+
+
+def unwrap(href):
+    if not href: return ""
+    if "uddg=" in href:
+        m=re.search(r"uddg=([^&]+)",href)
+        if m: return unquote(m.group(1))
+    return href
+
+
+def parse_price(text):
+    vals=[]
+    for m in re.finditer(r"(?:¥|￥)\s*([0-9][0-9,]{2,})|([0-9][0-9,]{2,})\s*円",text or ""):
+        raw=(m.group(1) or m.group(2) or "").replace(",","")
+        try:
+            n=int(raw)
+            if 10000<=n<=2000000: vals.append(n)
+        except Exception:
+            pass
+    return min(vals) if vals else None
+
+
+def parse_jsonld_price(soup):
+    for script in soup.find_all("script",type="application/ld+json")[:24]:
+        try:
+            obj=json.loads(script.string or "{}")
+            stack=obj if isinstance(obj,list) else [obj]
+            for row in stack:
+                if not isinstance(row,dict): continue
+                offers=row.get("offers")
+                if isinstance(offers,list): offers=offers[0] if offers else None
+                if isinstance(offers,dict) and offers.get("price") is not None:
+                    n=int(float(str(offers["price"]).replace(",","")))
+                    if 10000<=n<=2000000: return n
+        except Exception:
+            pass
+    return None
+
+
+def inspect_listing(market,url,fallback_title):
+    try:
+        r=requests.get(url,headers=HEADERS,timeout=10,allow_redirects=True)
+        if r.status_code>=400 or not individual_url(market,r.url): return None
+        soup=BeautifulSoup(r.text[:900000],"html.parser")
+        meta=soup.find("meta",property="og:title")
+        title=(meta.get("content") if meta else None) or (soup.title.get_text(" ",strip=True) if soup.title else fallback_title)
+        title=str(title)[:240]
+        if any(x.lower() in title.lower() for x in BAD_TERMS): return None
+        model,cfg=match_model(title)
+        if not model: return None
+
+        text=soup.get_text(" ",strip=True)[:220000]
+        lower=text.lower()
+        if any(x in lower for x in SOLD_TOKENS): return None
+
+        # Consumer-to-consumer pages may remain indexed after sale. Require a positive buy action.
+        if market in {"mercari","yahoo_flea","rakuma","yahoo_auction"} and not any(x in lower for x in BUY_TOKENS):
+            return None
+
+        price=parse_jsonld_price(soup) or parse_price(text)
+        if price is None: return None
+
+        lane=MARKETS[market][2]
+        if lane=="used":
+            if price<=cfg["strong"]: price_status="strong_buy"
+            elif price<=cfg["consider"]: price_status="consider"
+            else: return None
+        else:
+            price_status="acceptable"
+
+        return {
+            "title":title,
+            "model":model,
+            "market":market,
+            "marketLabel":MARKETS[market][0],
+            "price":price,
+            "priceStatus":price_status,
+            "url":r.url,
+        }
+    except Exception:
+        return None
+
+
+def discover_links(model,market):
+    _,domain,_=MARKETS[market]
+    links=[]
+    try:
+        r=requests.get(direct_url(market,model),headers=HEADERS,timeout=10)
+        soup=BeautifulSoup(r.text,"html.parser")
+        for a in soup.select("a[href]"):
+            href=urljoin(r.url,unwrap(a.get("href") or ""))
+            if individual_url(market,href):
+                links.append((href,a.get_text(" ",strip=True) or model))
+                if len(links)>=3: break
+    except Exception:
+        pass
+    if links: return links
+
+    try:
+        q=quote_plus(f"site:{domain} {model}")
+        r=requests.get(f"https://html.duckduckgo.com/html/?q={q}",headers=HEADERS,timeout=10)
+        soup=BeautifulSoup(r.text,"html.parser")
+        for a in soup.select("a[href]"):
+            href=unwrap(a.get("href") or "")
+            if individual_url(market,href):
+                links.append((href,a.get_text(" ",strip=True) or model))
+                if len(links)>=2: break
+    except Exception:
+        pass
+    return links
+
+
+def collect_one(model,market):
+    for href,title in discover_links(model,market):
+        row=inspect_listing(market,href,title)
+        if row and row["model"]==model:
+            return row
+    return None
+
+
+def stable_view(payload):
+    return {
+        "used":[{k:r.get(k) for k in ("title","model","market","marketLabel","price","priceStatus","url")} for r in payload.get("used",[])],
+        "newItems":[{k:r.get(k) for k in ("title","model","market","marketLabel","price","priceStatus","url")} for r in payload.get("newItems",[])],
+    }
+
+
+def main(output:Path):
+    rows=[]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
+        futs=[pool.submit(collect_one,model,market) for model in MODELS for market in MARKETS]
+        for fut in concurrent.futures.as_completed(futs):
+            row=fut.result()
+            if row: rows.append(row)
+
+    # De-duplicate exact listing URLs.
+    unique={r["url"]:r for r in rows}
+    rows=list(unique.values())
+    rank={"strong_buy":0,"consider":1,"acceptable":2}
+    rows.sort(key=lambda r:(rank.get(r["priceStatus"],9),r["price"]))
+
+    payload={
+        "schemaVersion":1,
+        "generatedAt":datetime.now(timezone.utc).isoformat(),
+        "source":"github-hosted-public-market-snapshot",
+        "used":[r for r in rows if MARKETS[r["market"]][2]=="used"][:10],
+        "newItems":[r for r in rows if MARKETS[r["market"]][2]=="new"][:10],
+        "trackedModels":list(MODELS),
+        "note":"Only strict individual listings are published. Zero results are allowed."
+    }
+
+    # Avoid one commit per hour when the recommendation set did not change.
+    if output.exists():
+        try:
+            old=json.loads(output.read_text(encoding="utf-8"))
+            if stable_view(old)==stable_view(payload):
+                print("MARKET_SNAPSHOT_UNCHANGED")
+                return
+        except Exception:
+            pass
+
+    output.parent.mkdir(parents=True,exist_ok=True)
+    output.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    print(json.dumps({"used":len(payload["used"]),"new":len(payload["newItems"])},ensure_ascii=False))
+
+
+if __name__=="__main__":
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--output",required=True)
+    args=ap.parse_args()
+    main(Path(args.output))
