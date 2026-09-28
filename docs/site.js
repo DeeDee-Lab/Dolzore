@@ -48,7 +48,7 @@
       time.textContent=`00:00 / 00:${pad(track.sampleSeconds||20)}`;
       if(!audio.paused){audio.pause();disc.classList.remove("playing");play.textContent="▶"}
       audio.removeAttribute("src");audio.load();loadedId=null;
-      setStatus(`${track.id} を選びました。再生で20秒試聴できます。`);
+      setStatus(`${track.number} をセットしました。PLAYで20秒きけます。`);
       updateButtons();
     }
     function render(){
@@ -57,8 +57,9 @@
         const b=document.createElement("button");
         b.type="button";b.className="track-choice";b.dataset.id=track.id;
         b.innerHTML=`<span class="n">${track.number}</span><strong></strong><small></small>`;
+        b.classList.toggle("preview-ready",!!track.previewReady);
         b.querySelector("strong").textContent=track.title;
-        b.querySelector("small").textContent=track.useCase + (track.previewReady ? " · 試聴OK" : " · 試聴準備中");
+        b.querySelector("small").textContent=track.useCase + (track.previewReady ? " · 20秒きけます" : " · 試聴は準備中");
         b.addEventListener("click",()=>selectByTrack(track));
         selector.appendChild(b);
       });
@@ -69,7 +70,7 @@
     function ensureAudio(){
       const track=current();if(!track)return false;
       if(!track.previewReady){
-        setStatus("この曲の試聴は準備中です。購入リンクは利用できます。");
+        setStatus("この番号の試聴は、まだ準備中です。購入リンクは使えます。");
         return false;
       }
       if(loadedId!==track.id){
@@ -82,7 +83,7 @@
       if(!ensureAudio()) return;
       if(audio.paused){
         try{await audio.play();disc.classList.add("playing");play.textContent="Ⅱ";setStatus(`${current().title} を試聴中です。`)}
-        catch(e){disc.classList.remove("playing");play.textContent="▶";setStatus("この曲の試聴サンプルはまだ準備中です。")}
+        catch(e){disc.classList.remove("playing");play.textContent="▶";setStatus("うまく再生できませんでした。少し時間をおいて試してください。")}
       }else{audio.pause();disc.classList.remove("playing");play.textContent="▶";setStatus("一時停止しました。")}
     }
     function stopAudio(){audio.pause();audio.currentTime=0;disc.classList.remove("playing");play.textContent="▶";setStatus("停止しました。")}
@@ -105,7 +106,7 @@
       const max=current()?.sampleSeconds||20;
       progress.value=Math.min(audio.currentTime,max);
       time.textContent=`${timeText(audio.currentTime)} / 00:${pad(max)}`;
-      if(audio.currentTime>=max){stopAudio();setStatus("20秒の試聴が終わりました。次の曲もどうぞ。")}
+      if(audio.currentTime>=max){stopAudio();setStatus("20秒、おしまいです。次の番号もどうぞ。")}
     });
     audio.addEventListener("ended",()=>{disc.classList.remove("playing");play.textContent="▶";setStatus("試聴が終わりました。")});
     audio.addEventListener("error",()=>{disc.classList.remove("playing");play.textContent="▶";setStatus("この曲の試聴サンプルはまだ準備中です。")});

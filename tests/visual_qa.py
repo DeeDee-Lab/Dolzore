@@ -35,6 +35,7 @@ def main() -> None:
         page.wait_for_timeout(800)
         assert "DOLZORE" in page.title()
         assert page.locator("text=いま売っているのは、音楽だけです").count() == 1
+        assert page.locator("text=急がなくても、曲は逃げません。").count() == 1
         assert page.locator('a[href="music/"]').count() >= 1
         no_overflow(page, "desktop home")
         screenshot(page, "desktop-home.png")
@@ -43,6 +44,8 @@ def main() -> None:
         page.goto(BASE + "/music/", wait_until="load")
         page.wait_for_function("document.querySelectorAll('.track-choice').length === 60")
         assert page.locator(".track-choice").count() == 60
+        assert page.locator(".jukebox-machine").count() == 1
+        assert page.locator(".songbook-panel").count() == 1
         no_overflow(page, "desktop music")
 
         search = page.locator("[data-track-search]")

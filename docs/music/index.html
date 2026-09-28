@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DOLZORE JUKEBOX | Creator BGM 全60曲</title>
   <meta name="description" content="DOLZORE Creator BGM 全60曲。レトロなジュークボックスを操作するように曲を選び、20秒サンプルを試聴して1曲¥200で購入できます。">
-  <meta name="robots" content="noindex,nofollow">
+  <meta name="robots" content="index,follow">
   <link rel="stylesheet" href="../styles.css">
   <script src="../site.js" defer></script>
 </head>
-<body class="world-body">
+<body class="world-body music-v3">
 <header class="world-header">
   <a class="world-brand" href="../"><span class="brand-mark">DOLZORE</span><small>ドルゾーレ</small></a>
   <nav class="world-nav" aria-label="メインナビゲーション">
@@ -17,44 +17,46 @@
   </nav>
 </header>
 
-<main class="music-page" data-jukebox>
-  <section class="music-hero">
-    <p class="pixel-kicker">DOLZORE MUSIC SHOP</p>
-    <h1>コインはいりません。<br>気になる曲を選んでください。</h1>
-    <div class="rpg-window">
-      <p>このジュークボックスには、DOLZOREの60曲が入っています。</p>
-      <p>試聴は各曲20秒。購入は1曲¥200の買い切りです。</p>
+<main class="music-page music-shop" data-jukebox>
+  <section class="music-shop-hero">
+    <div>
+      <p class="pixel-kicker warm">DOLZORE MUSIC SHOP / JUKEBOX No.60</p>
+      <h1>気になる番号を、<br>ひとつ押してください。</h1>
+    </div>
+    <div class="shop-message">
+      <p>この店のジュークボックスには、60曲はいっています。</p>
+      <p>試聴は20秒。気に入った曲だけ、¥200で連れて帰れます。</p>
     </div>
   </section>
 
-  <section class="jukebox-room" aria-label="DOLZORE ジュークボックス">
-    <div class="jukebox-cabinet">
-      <div class="jukebox-top">
-        <span class="jukebox-neon">DOLZORE</span>
-        <span class="jukebox-sub">JUKEBOX 60</span>
-      </div>
-      <div class="jukebox-window">
+  <section class="music-shop-floor" aria-label="DOLZORE ジュークボックス">
+    <div class="jukebox-machine">
+      <img class="jukebox-art" src="../assets/dolzore-jukebox.svg" alt="">
+      <div class="juke-marquee" aria-hidden="true"><strong>DOLZORE</strong><span>JUKEBOX 60</span></div>
+
+      <div class="juke-glass">
         <div class="record-stage" aria-hidden="true">
           <div class="record-disc" data-record-disc><span class="record-label">DZ</span></div>
           <div class="tonearm"></div>
         </div>
-        <div class="now-playing">
-          <span class="now-number" data-track-number>001</span>
-          <strong data-track-title>Bright Morning</strong>
-          <span data-track-usecase>Vlog・料理・旅行・解説</span>
-        </div>
       </div>
 
-      <div class="jukebox-display">
-        <p class="display-label">EDIT MOMENT</p>
+      <div class="juke-ticket">
+        <span class="now-number" data-track-number>001</span>
+        <strong data-track-title>Bright Morning</strong>
+        <span data-track-usecase>Vlog・料理・旅行・解説</span>
+      </div>
+
+      <div class="juke-message">
+        <span>EDIT NOTE</span>
         <p data-track-moment>最初の1カットに、朝の空気をそっと入れる。</p>
       </div>
 
       <div class="jukebox-controls" role="group" aria-label="試聴操作">
-        <button type="button" class="juke-key" data-prev aria-label="前の曲">◀</button>
-        <button type="button" class="juke-key play-key" data-play aria-label="再生または一時停止">▶</button>
-        <button type="button" class="juke-key" data-stop aria-label="停止">■</button>
-        <button type="button" class="juke-key" data-next aria-label="次の曲">▶</button>
+        <button type="button" class="juke-key" data-prev aria-label="前の曲"><span>◀</span><small>PREV</small></button>
+        <button type="button" class="juke-key play-key" data-play aria-label="再生または一時停止"><span>▶</span><small>PLAY</small></button>
+        <button type="button" class="juke-key" data-stop aria-label="停止"><span>■</span><small>STOP</small></button>
+        <button type="button" class="juke-key" data-next aria-label="次の曲"><span>▶</span><small>NEXT</small></button>
       </div>
 
       <div class="sample-progress-wrap">
@@ -62,51 +64,55 @@
         <span data-time>00:00 / 00:20</span>
       </div>
 
-      <div class="jukebox-status rpg-window compact" aria-live="polite">
-        <p data-status>曲を選んで、再生ボタンを押してください。</p>
+      <div class="juke-status" aria-live="polite">
+        <span class="status-light" aria-hidden="true"></span>
+        <p data-status>番号を選んで、PLAYを押してください。</p>
       </div>
 
       <div class="purchase-panel">
         <div>
-          <small>1 TRACK / BUY ONCE</small>
+          <small>ONE TRACK / BUY ONCE</small>
           <strong>¥200</strong>
         </div>
-        <a class="pixel-button primary" data-purchase href="#" target="_blank" rel="noopener noreferrer">この曲を使う →</a>
+        <a class="town-button primary" data-purchase href="#" target="_blank" rel="noopener noreferrer">この曲を買う</a>
       </div>
     </div>
 
-    <aside class="selector-console">
-      <div class="selector-head">
+    <aside class="songbook-panel">
+      <div class="songbook-top">
         <div>
-          <p class="pixel-kicker">SELECT A RECORD</p>
-          <h2>60曲から選ぶ</h2>
+          <p class="pixel-kicker">SONG BOOK / 001—060</p>
+          <h2>曲を選ぶ</h2>
+          <p>紙のラベルをめくるように、番号から探せます。</p>
         </div>
         <label class="track-search">曲を検索
           <input type="search" data-track-search placeholder="タイトル・用途">
         </label>
       </div>
-      <div class="track-selector" data-track-selector aria-label="曲選択"></div>
+      <div class="songbook-glass">
+        <div class="track-selector" data-track-selector aria-label="曲選択"></div>
+      </div>
     </aside>
   </section>
 
-  <section class="music-rules">
-    <div class="rpg-window">
-      <h2>この音楽のルール</h2>
-      <ul>
-        <li>1曲 ¥200、買い切り。</li>
-        <li>商用動画・収益化動画で使用できます。</li>
-        <li>MP3音源はAIを用いて生成されています。</li>
-        <li>音源単体の再販売・再配布、第三者への素材配布、Content ID等への登録は禁止です。</li>
-        <li>試聴は販売用フル音源とは別の短いサンプルだけを再生します。</li>
-      </ul>
+  <section class="music-rules music-rules-v3">
+    <div>
+      <p class="pixel-kicker">BEFORE YOU BUY</p>
+      <h2>この店のルール。</h2>
     </div>
+    <ul>
+      <li><strong>¥200 / 1曲</strong><span>買い切り。継続課金はありません。</span></li>
+      <li><strong>商用利用OK</strong><span>収益化動画でも使えます。</span></li>
+      <li><strong>AI生成音源</strong><span>MP3音源はAIを用いて生成しています。</span></li>
+      <li><strong>再配布NG</strong><span>音源単体の再販売・再配布、Content ID登録は禁止です。</span></li>
+    </ul>
   </section>
 
   <audio data-audio preload="none"></audio>
 </main>
 
 <footer class="world-footer">
-  <div><strong>DOLZORE</strong><p>選曲で止まる時間を、編集に戻す。</p></div>
+  <div><strong>DOLZORE MUSIC SHOP</strong><p>最後まで聴かなくても、合う曲はだいたい分かります。</p></div>
   <div class="footer-links"><a href="../">World</a><a href="../journal/">Journal</a><a href="../support/">Support</a><a href="../legal/">Legal</a></div>
 </footer>
 </body>

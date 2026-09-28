@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>DOLZORE | 音楽とことばの小さな世界</title>
-  <meta name="description" content="DOLZOREは、動画編集者向けCreator BGMを1曲¥200で販売する音楽サイトです。レトロな世界を歩くように音楽と記事を見つけられます。">
-  <meta name="robots" content="noindex,nofollow">
+  <title>DOLZORE | 音楽屋と読みもののある小さな町</title>
+  <meta name="description" content="DOLZOREは、動画編集者向けCreator BGMを1曲¥200で販売する小さな音楽サイトです。町を歩くように曲と読みものを見つけられます。">
+  <meta name="robots" content="index,follow">
   <link rel="stylesheet" href="styles.css">
   <script src="site.js" defer></script>
 </head>
-<body class="world-body">
+<body class="world-body world-v3">
 <header class="world-header">
   <a class="world-brand" href="./" aria-label="DOLZORE ホーム">
     <span class="brand-mark">DOLZORE</span><small>ドルゾーレ</small>
@@ -25,58 +25,52 @@
 </header>
 
 <main>
-  <section class="world-stage" aria-labelledby="world-title">
-    <div class="pixel-sun" aria-hidden="true"></div>
-    <div class="pixel-cloud cloud-a" aria-hidden="true"></div>
-    <div class="pixel-cloud cloud-b" aria-hidden="true"></div>
-    <div class="pixel-hills" aria-hidden="true"></div>
-    <div class="world-ground" aria-hidden="true"></div>
-    <a class="world-building record-shop" href="music/" aria-label="音楽店へ">
-      <span class="roof"></span><span class="sign">MUSIC</span><span class="door"></span><span class="window"></span>
-    </a>
-    <a class="world-building journal-house" href="journal/" aria-label="ジャーナルへ">
-      <span class="roof"></span><span class="sign">JOURNAL</span><span class="door"></span><span class="window"></span>
-    </a>
-    <div class="pixel-tree tree-a" aria-hidden="true"></div>
-    <div class="pixel-tree tree-b" aria-hidden="true"></div>
-    <div class="tiny-traveler" aria-hidden="true"><span class="head"></span><span class="body"></span></div>
+  <section class="town-hero" aria-labelledby="world-title">
+    <div class="town-art-wrap" aria-hidden="true">
+      <img class="town-art" src="assets/dolzore-town.svg" alt="">
+      <a class="town-hotspot town-hotspot-music" href="music/" aria-label="MUSICの店へ"></a>
+      <a class="town-hotspot town-hotspot-journal" href="journal/" aria-label="JOURNALの掲示板へ"></a>
+    </div>
 
-    <div class="world-intro">
-      <p class="pixel-kicker">DOLZORE WORLD / 001</p>
-      <h1 id="world-title">音を探す旅は、<br>ここから始まる。</h1>
-      <div class="rpg-window intro-window">
-        <p>ここは DOLZORE。</p>
+    <div class="town-copy">
+      <p class="pixel-kicker town-label">DOLZORE / TOWN MAP 01</p>
+      <h1 id="world-title">ようこそ。<br>DOLZOREの町へ。</h1>
+      <div class="dialogue-box">
+        <span class="dialogue-cursor" aria-hidden="true">◆</span>
         <p>いま売っているのは、音楽だけです。</p>
-        <p>右の建物には曲があり、左の建物にはことばがあります。</p>
+        <p>赤い看板が音楽屋。みどりの掲示板が読みもの。</p>
+        <p>急がなくても、曲は逃げません。</p>
         <div class="dialogue-actions">
-          <a class="pixel-button primary" href="music/">ジュークボックスへ</a>
-          <a class="pixel-button" href="journal/">記事を読みにいく</a>
+          <a class="town-button primary" href="music/">音楽屋へ</a>
+          <a class="town-button" href="journal/">掲示板を見る</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="world-section music-gate">
+  <section class="town-stop music-stop">
+    <div class="stop-sign" aria-hidden="true"><span>♪</span></div>
     <div>
-      <p class="pixel-kicker">MUSIC SHOP</p>
+      <p class="pixel-kicker">MUSIC SHOP / OPEN</p>
       <h2>60曲。1曲 ¥200。</h2>
-      <p>動画の空気に合う曲を、ジュークボックスを回すように探せます。試聴は短いサンプルだけ。気に入った曲だけ買えます。</p>
+      <p>用途で探して、20秒だけ聴いて、気に入った曲だけ買えます。選曲に迷ったら、まずはジュークボックスの番号をひとつ押してください。</p>
     </div>
-    <a class="pixel-button primary large" href="music/">MUSICへ入る →</a>
+    <a class="town-button primary large" href="music/">ジュークボックスを使う</a>
   </section>
 
-  <section class="world-section journal-gate">
+  <section class="town-stop journal-stop">
+    <div class="notice-icon" aria-hidden="true"><span>!</span></div>
     <div>
-      <p class="pixel-kicker">JOURNAL</p>
-      <h2>音のとなりに、読みものを。</h2>
-      <p>道具、制作、音楽。調べたことを記事にして、完成したものからこの世界に少しずつ増やしていきます。</p>
+      <p class="pixel-kicker">TOWN NOTICE BOARD</p>
+      <h2>町の掲示板です。</h2>
+      <p>音楽のこと、道具のこと、つくってみて分かったこと。記事になった順に、ここへ貼っていきます。</p>
     </div>
-    <a class="pixel-button large" href="journal/">JOURNALを見る →</a>
+    <a class="town-button large" href="journal/">掲示板を見にいく</a>
   </section>
 </main>
 
 <footer class="world-footer">
-  <div><strong>DOLZORE</strong><p>音楽とことばの、小さな世界。</p></div>
+  <div><strong>DOLZORE</strong><p>今日は、どの音から帰りますか。</p></div>
   <div class="footer-links">
     <a href="music/">Music</a>
     <a href="journal/">Journal</a>

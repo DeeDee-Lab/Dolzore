@@ -3,29 +3,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>DOLZORE JOURNAL | 音のとなりの読みもの</title>
-  <meta name="description" content="DOLZORE JOURNAL。音楽、制作、道具、日々の気づきを記事として公開していきます。">
-  <meta name="robots" content="noindex,nofollow">
+  <title>DOLZORE JOURNAL | 町の掲示板</title>
+  <meta name="description" content="DOLZOREの町の掲示板。音楽、制作、道具、試して分かったことを記事として公開します。">
+  <meta name="robots" content="index,follow">
   <link rel="stylesheet" href="../styles.css">
   <script src="../site.js" defer></script>
 </head>
-<body class="world-body">
+<body class="world-body journal-v3">
 <header class="world-header">
   <a class="world-brand" href="../"><span class="brand-mark">DOLZORE</span><small>ドルゾーレ</small></a>
-  <nav class="world-nav"><a href="../">WORLD</a><a href="../music/">MUSIC</a><a class="active" href="./">JOURNAL</a><a href="../about/">ABOUT</a><a href="../contact/">CONTACT</a></nav>
+  <nav class="world-nav"><a href="../">WORLD</a><a href="../music/">MUSIC</a><a class="active" href="./">JOURNAL</a><a href="../about/">ABOUT</a><a href="../support/">SUPPORT</a><a href="../legal/">LEGAL</a></nav>
 </header>
-<main class="journal-page">
-  <section class="journal-hero">
-    <p class="pixel-kicker">DOLZORE JOURNAL</p>
-    <h1>音のとなりに、<br>ことばを置く。</h1>
-    <div class="rpg-window"><p>道具、音楽、制作。気になったものを、少し深く調べて置いていきます。</p><p>できた記事から、ここに本棚のように並びます。</p></div>
+
+<main class="journal-page journal-board-page">
+  <section class="journal-board-hero">
+    <div class="board-sign">
+      <span class="board-pin pin-a" aria-hidden="true"></span>
+      <span class="board-pin pin-b" aria-hidden="true"></span>
+      <p class="pixel-kicker">TOWN NOTICE BOARD</p>
+      <h1>町の掲示板です。</h1>
+      <p>音楽のこと。つくること。道具のこと。<br>試して分かったことを、記事になった順に貼っていきます。</p>
+      <small>まだ何も貼っていない日もあります。そういう日もあります。</small>
+    </div>
+    <div class="board-side-art" aria-hidden="true">
+      <div class="pixel-lamp"></div>
+      <div class="pixel-bench"></div>
+      <div class="pixel-bird"></div>
+    </div>
   </section>
-  <section class="journal-list" data-journal-list>
-    <div class="journal-empty rpg-window">
-      <p>記事一覧を読み込んでいます。</p>
-      <p class="muted-pixel">読み込みに失敗した場合は、少し時間をおいて再読み込みしてください。</p>
+
+  <section class="journal-board">
+    <div class="journal-board-title">
+      <span>NEW POSTS</span>
+      <strong>新しい掲示</strong>
+    </div>
+    <div class="journal-list" data-journal-list>
+      <div class="journal-empty note-paper">
+        <span class="paper-pin" aria-hidden="true"></span>
+        <strong>まだ新しい掲示はありません。</strong>
+        <p>店主が書いているところです。少しだけ待ってください。</p>
+      </div>
     </div>
   </section>
 </main>
-<footer class="world-footer"><div><strong>DOLZORE</strong><p>記事担当AgentとGitHubで制作中。</p></div><div class="footer-links"><a href="../">World</a><a href="../music/">Music</a></div></footer>
-</body></html>
+
+<footer class="world-footer">
+  <div><strong>DOLZORE JOURNAL</strong><p>読んだあと、少し役に立てば十分です。</p></div>
+  <div class="footer-links"><a href="../">World</a><a href="../music/">Music</a><a href="../support/">Support</a><a href="../legal/">Legal</a></div>
+</footer>
+</body>
+</html>
