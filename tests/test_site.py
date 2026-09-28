@@ -41,7 +41,7 @@ class MusicOnlySiteTests(unittest.TestCase):
             if not p.is_file() or p.suffix.lower() not in {".html",".js",".css",".json",".xml",".txt"}:
                 continue
             text=p.read_text(encoding="utf-8",errors="ignore")
-            self.assertNotIn("downloads/bgm",text,p)
+            self.assertNotIn("downloads"+"/"+"bgm",text,p)
 
     def test_home_and_music_surface_are_music_only(self):
         home=(DOCS/"index.html").read_text(encoding="utf-8")
