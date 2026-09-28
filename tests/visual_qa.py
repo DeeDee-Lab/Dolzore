@@ -37,6 +37,7 @@ def main() -> None:
         assert page.locator("text=いま売っているのは、音楽だけです").count() == 1
         assert page.locator("text=急がなくても、曲は逃げません。").count() == 1
         assert page.locator('a[href="music/"]').count() >= 1
+        assert page.locator("nav").get_by_text("ABOUT", exact=True).count() == 0
         no_overflow(page, "desktop home")
         screenshot(page, "desktop-home.png")
         preview(page, "desktop-home-preview.jpg")
@@ -94,7 +95,7 @@ def main() -> None:
         screenshot(m, "mobile-music.png")
         preview(m, "mobile-music-preview.jpg")
 
-        for path in ("/journal/", "/journal/projector-150inch-4k-2026/", "/about/", "/support/", "/legal/", "/privacy/", "/terms/", "/refund/", "/tokusho/", "/disclosure/"):
+        for path in ("/journal/", "/journal/projector-150inch-4k-2026/", "/support/", "/legal/", "/privacy/", "/terms/", "/refund/", "/tokusho/", "/disclosure/"):
             m.goto(BASE + path, wait_until="load")
             assert m.locator("body").count() == 1
             no_overflow(m, "mobile " + path.strip("/"))
