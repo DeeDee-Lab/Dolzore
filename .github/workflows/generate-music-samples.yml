@@ -1,14 +1,7 @@
-name: Generate DOLZORE music samples
+name: Generate remaining DOLZORE music samples
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - music-only-site-20260928
-    paths:
-      - "scripts/generate_music_samples.py"
-      - "docs/data/tracks.json"
-      - ".github/workflows/generate-music-samples.yml"
 
 permissions:
   contents: write
