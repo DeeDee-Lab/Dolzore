@@ -14,9 +14,9 @@ SECRET_PATTERNS={
     "aws_access_key": re.compile(r"\bAKIA[0-9A-Z]{16}\b"),
 }
 FORBIDDEN_LITERALS=(
-    "TECBUILD",
-    "gold.clover",
-    "downloads/bgm",
+    "TEC"+"BUILD",
+    "gold"+"."+"clover",
+    "downloads"+"/"+"bgm",
 )
 
 class PublicSafetyTests(unittest.TestCase):
