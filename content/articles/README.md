@@ -3,7 +3,7 @@
 This directory is the GitHub handoff boundary for the Agent responsible for DOLZORE website articles.
 
 ## Current public rule
-The public website is MUSIC + JOURNAL + About/Support/Legal. Articles are editorial content, not a path for re-enabling stopped non-music product sales. Editorial product research, buying guides, and non-affiliate market snapshots are allowed inside Journal when they are clearly identified as research and do not create a DOLZORE checkout/sales lane for those products.
+The public website is MUSIC + JOURNAL + Support/Legal. Articles are editorial content, not a path for re-enabling stopped non-music product sales. Editorial product research, buying guides, and non-affiliate market snapshots are allowed inside Journal when they are clearly identified as research and do not create a DOLZORE checkout/sales lane for those products.
 
 ## Ownership
 - Article Agent owns article research/copy and article-specific factual citations.
@@ -20,7 +20,7 @@ Until a richer generator is added, update `docs/data/articles.json` with:
 Create the article page under:
 `docs/journal/<slug>/index.html`
 
-Use the shared `../../styles.css` or the correct relative path and preserve the DOLZORE world navigation.
+Use the shared `../../styles.css` or the correct relative path and preserve the DOLZORE world navigation (WORLD / MUSIC / JOURNAL / SUPPORT / LEGAL).
 
 ## Truthfulness
 Do not invent publication dates, interviews, test results, product usage or personal experiences.
