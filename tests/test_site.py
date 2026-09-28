@@ -52,15 +52,30 @@ class MusicOnlySiteTests(unittest.TestCase):
         self.assertNotIn("Buying Guide",home)
         self.assertNotIn("SmartBuy",home)
 
-    def test_support_and_legal_surfaces_preserve_current_routes(self):
+    def test_support_and_legal_surfaces_are_github_native(self):
         support=(DOCS/"support/index.html").read_text(encoding="utf-8")
         legal=(DOCS/"legal/index.html").read_text(encoding="utf-8")
         self.assertIn("Creator BGM",support)
         self.assertIn("instagram.com/dolzoreofficial",support)
-        for route in ("privacy","terms","refund","tokusho"):
-            self.assertIn(f"https://dolzore.lovable.app/{route}",legal)
-        self.assertNotIn("Business Packs",legal)
-        self.assertNotIn("SmartBuy",legal)
+        for route in ("privacy","terms","refund","tokusho","disclosure"):
+            self.assertIn(f"../{route}/",legal)
+            self.assertTrue((DOCS/route/"index.html").exists(),route)
+        for p in (DOCS/"legal/index.html", DOCS/"privacy/index.html", DOCS/"terms/index.html", DOCS/"refund/index.html", DOCS/"tokusho/index.html", DOCS/"disclosure/index.html"):
+            text=p.read_text(encoding="utf-8",errors="ignore")
+            self.assertNotIn("dolzore.lovable.app",text,p)
+            self.assertNotIn("Business Packs",text,p)
+            self.assertNotIn("SmartBuy",text,p)
+            self.assertNotIn("AI検収",text,p)
+
+    def test_music_only_legal_truth(self):
+        terms=(DOCS/"terms/index.html").read_text(encoding="utf-8")
+        refund=(DOCS/"refund/index.html").read_text(encoding="utf-8")
+        tokusho=(DOCS/"tokusho/index.html").read_text(encoding="utf-8")
+        disclosure=(DOCS/"disclosure/index.html").read_text(encoding="utf-8")
+        self.assertIn("現在一般販売している商品は、DOLZORE Creator BGM",terms)
+        self.assertIn("DOLZORE Creator BGM",refund)
+        self.assertIn("1曲 200円",tokusho)
+        self.assertIn("現在の一般販売",disclosure)
 
 
     def test_all_public_html_excludes_stopped_sales_navigation(self):
@@ -77,7 +92,7 @@ class MusicOnlySiteTests(unittest.TestCase):
         sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
         for blocked in ("business","apps","buying-guide","smartbuy","qa"):
             self.assertNotIn(blocked,sitemap.lower())
-        for required in ("/music/","/journal/","/support/","/legal/"):
+        for required in ("/music/","/journal/","/support/","/legal/","/privacy/","/terms/","/refund/","/tokusho/","/disclosure/"):
             self.assertIn(required,sitemap)
 
 if __name__=="__main__":
