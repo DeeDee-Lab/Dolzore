@@ -135,10 +135,16 @@
         target.innerHTML='<div class="market-empty">現在、厳格条件を通過した販売中候補は0件です。無理に1位を作りません。</div>';
         return;
       }
-      target.innerHTML=items.map(x=>`<div class="market-item"><div><a href="${x.url}" target="_blank" rel="noopener noreferrer nofollow"></a><small></small></div><div class="market-price"><strong>${yen(x.price)}</strong><span>${statusLabel[x.priceStatus]||"確認済み"}</span></div></div>`).join("");
+      target.innerHTML=items.map(x=>`<div class="market-item"><div><a href="#" target="_blank" rel="noopener noreferrer nofollow"></a><small></small></div><div class="market-price"><strong>${yen(x.price)}</strong><span>${statusLabel[x.priceStatus]||"確認済み"}</span></div></div>`).join("");
       [...target.querySelectorAll(".market-item")].forEach((el,i)=>{
-        el.querySelector("a").textContent=items[i].title;
-        el.querySelector("small").textContent=(items[i].marketLabel||items[i].market||"")+" · "+(items[i].model||"");
+        const item=items[i]||{};
+        const link=el.querySelector("a");
+        try{
+          const u=new URL(item.url);
+          link.href=u.protocol==="https:"?u.href:"#";
+        }catch{link.href="#"}
+        link.textContent=item.title||"商品ページ";
+        el.querySelector("small").textContent=(item.marketLabel||item.market||"")+" · "+(item.model||"");
       });
     };
     readJson("data/smartbuy-projectors.json").then(d=>{
