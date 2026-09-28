@@ -1,0 +1,30 @@
+name: Validate DOLZORE music-only site
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [music-only-site-20260928]
+    paths:
+      - "docs/**"
+      - "tests/**"
+      - "content/articles/**"
+      - ".github/workflows/validate-site.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run public-site contract tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Ensure no full-track source URL is public
+        run: |
+          ! grep -R "downloads/bgm" docs
+      - name: Ensure stopped non-music routes are absent
+        run: |
+          test ! -e docs/buying-guide
+          test ! -e docs/data/smartbuy-projectors.json
