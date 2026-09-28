@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   update-market:
-    runs-on: [dolzore-osk222]
+    runs-on: [dolzore-site-osk222]
     timeout-minutes: 25
 
     steps:
