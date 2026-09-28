@@ -58,7 +58,7 @@
         b.type="button";b.className="track-choice";b.dataset.id=track.id;
         b.innerHTML=`<span class="n">${track.number}</span><strong></strong><small></small>`;
         b.querySelector("strong").textContent=track.title;
-        b.querySelector("small").textContent=track.useCase;
+        b.querySelector("small").textContent=track.useCase + (track.previewReady ? " · 試聴OK" : " · 試聴準備中");
         b.addEventListener("click",()=>selectByTrack(track));
         selector.appendChild(b);
       });
@@ -68,8 +68,12 @@
     }
     function ensureAudio(){
       const track=current();if(!track)return false;
+      if(!track.previewReady){
+        setStatus("この曲の試聴は準備中です。購入リンクは利用できます。");
+        return false;
+      }
       if(loadedId!==track.id){
-        audio.src=new URL(`audio/samples/${track.sampleFile}`,root).href;
+        audio.src=track.previewUrl || new URL(`audio/samples/${track.sampleFile}`,root).href;
         loadedId=track.id;
       }
       return true;
