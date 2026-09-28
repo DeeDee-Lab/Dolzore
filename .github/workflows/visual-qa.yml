@@ -1,0 +1,57 @@
+name: DOLZORE visual QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "tests/visual_qa.py"
+      - ".github/workflows/visual-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visual:
+    runs-on: [dolzore-site-osk222]
+    timeout-minutes: 25
+    steps:
+      - name: Enforce DOLZORE site runner
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'OSK222') {
+            throw "DOLZORE_WRONG_HOST:$env:COMPUTERNAME"
+          }
+      - uses: actions/checkout@v4
+      - name: Contract tests
+        run: python -m unittest discover -s tests -p "test_site.py" -v
+      - name: Install browser QA dependency
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install chromium
+      - name: Start local static server
+        shell: powershell
+        run: |
+          $p = Start-Process python -ArgumentList "-m","http.server","8765","--directory","docs","--bind","127.0.0.1" -PassThru
+          Set-Content -Path "$env:RUNNER_TEMP\dolzore-http.pid" -Value $p.Id
+          Start-Sleep -Seconds 2
+          Invoke-WebRequest -UseBasicParsing "http://127.0.0.1:8765/" | Out-Null
+      - name: Desktop mobile and jukebox QA
+        run: python tests/visual_qa.py
+      - name: Upload QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-visual-qa
+          path: qa-screenshots
+          retention-days: 7
+      - name: Stop local static server
+        if: always()
+        shell: powershell
+        run: |
+          if (Test-Path "$env:RUNNER_TEMP\dolzore-http.pid") {
+            $id = Get-Content "$env:RUNNER_TEMP\dolzore-http.pid"
+            Stop-Process -Id $id -Force -ErrorAction SilentlyContinue
+          }
