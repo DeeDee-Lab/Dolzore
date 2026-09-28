@@ -91,10 +91,16 @@ def main() -> None:
         screenshot(m, "mobile-music.png")
         preview(m, "mobile-music-preview.jpg")
 
-        for path in ("/journal/", "/about/", "/support/", "/legal/", "/privacy/", "/terms/", "/refund/", "/tokusho/", "/disclosure/"):
+        for path in ("/journal/", "/journal/projector-150inch-4k-2026/", "/about/", "/support/", "/legal/", "/privacy/", "/terms/", "/refund/", "/tokusho/", "/disclosure/"):
             m.goto(BASE + path, wait_until="load")
             assert m.locator("body").count() == 1
             no_overflow(m, "mobile " + path.strip("/"))
+
+        m.goto(BASE + "/journal/projector-150inch-4k-2026/", wait_until="load")
+        assert m.locator(".projector-journal-card").count() == 10
+        assert m.locator("[data-smartbuy-market]").count() == 1
+        screenshot(m, "mobile-projector-journal.png")
+        preview(m, "mobile-projector-journal-preview.jpg")
         mobile.close()
         browser.close()
 
@@ -106,6 +112,7 @@ def main() -> None:
     print("DESKTOP_MUSIC=PASS")
     print("MOBILE_HOME=PASS")
     print("MOBILE_MUSIC=PASS")
+    print("MOBILE_PROJECTOR_JOURNAL=PASS")
     print("HORIZONTAL_OVERFLOW=0")
 
 if __name__ == "__main__":
