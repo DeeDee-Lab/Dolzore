@@ -1,8 +1,12 @@
 name: Publish DOLZORE GitHub Pages
 
-# Current GitHub plan does not support Pages for this PRIVATE repository.
-# Keep this workflow manual until repository visibility or plan authority changes.
 on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "tests/**"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
