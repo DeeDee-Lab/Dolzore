@@ -112,6 +112,27 @@ class MusicOnlySiteTests(unittest.TestCase):
         self.assertIn("used",snapshot)
         self.assertIn("newItems",snapshot)
 
+    def test_approved_search_pages_are_indexable(self):
+        approved=(
+            DOCS/"index.html",
+            DOCS/"journal/index.html",
+            DOCS/"journal/projector-150inch-4k-2026/index.html",
+        )
+        for p in approved:
+            text=p.read_text(encoding="utf-8").lower()
+            self.assertNotIn("noindex",text,p)
+            self.assertNotIn("nofollow",text,p)
+            self.assertIn('name="robots" content="index,follow',text,p)
+            self.assertIn('rel="canonical"',text,p)
+
+        robots=(DOCS/"robots.txt").read_text(encoding="utf-8")
+        self.assertIn("Allow: /",robots)
+        self.assertNotIn("Disallow: /",robots)
+        self.assertIn("https://deedee-lab.github.io/Dolzore/sitemap.xml",robots)
+
+        sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
+        self.assertIn("/journal/projector-150inch-4k-2026/",sitemap)
+
     def test_sitemap_excludes_stopped_non_music_lanes(self):
         sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
         for blocked in ("business","apps","buying-guide","smartbuy","qa"):
