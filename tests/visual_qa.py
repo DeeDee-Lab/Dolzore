@@ -17,6 +17,9 @@ def no_overflow(page, label: str) -> None:
 def screenshot(page, name: str) -> None:
     page.screenshot(path=str(OUT / name), full_page=True)
 
+def preview(page, name: str) -> None:
+    page.screenshot(path=str(OUT / name), full_page=False, type="jpeg", quality=45)
+
 def main() -> None:
     OUT.mkdir(exist_ok=True)
     tracks = json.loads((ROOT / "docs/data/tracks.json").read_text(encoding="utf-8"))["tracks"]
@@ -35,6 +38,7 @@ def main() -> None:
         assert page.locator('a[href="music/"]').count() >= 1
         no_overflow(page, "desktop home")
         screenshot(page, "desktop-home.png")
+        preview(page, "desktop-home-preview.jpg")
 
         page.goto(BASE + "/music/", wait_until="load")
         page.wait_for_function("document.querySelectorAll('.track-choice').length === 60")
@@ -48,6 +52,7 @@ def main() -> None:
         assert page.locator("[data-purchase]").get_attribute("href") == weekend["purchaseUrl"]
         assert page.locator("[data-track-title]").text_content().strip() == "Weekend Drive"
         screenshot(page, "desktop-jukebox-weekend-drive.png")
+        preview(page, "desktop-jukebox-preview.jpg")
 
         page.locator("[data-play]").click()
         try:
@@ -78,11 +83,13 @@ def main() -> None:
         m.wait_for_timeout(500)
         no_overflow(m, "mobile home")
         screenshot(m, "mobile-home.png")
+        preview(m, "mobile-home-preview.jpg")
 
         m.goto(BASE + "/music/", wait_until="load")
         m.wait_for_function("document.querySelectorAll('.track-choice').length === 60")
         no_overflow(m, "mobile music")
         screenshot(m, "mobile-music.png")
+        preview(m, "mobile-music-preview.jpg")
 
         for path in ("/journal/", "/about/", "/support/", "/legal/"):
             m.goto(BASE + path, wait_until="load")
