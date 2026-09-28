@@ -10,12 +10,12 @@ from bs4 import BeautifulSoup
 
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; DOLZORE-SmartBuy-GitHub/1.0)"}
 MODELS={
- "BenQ TK700STi":{"terms":["tk700sti"],"strong":75000,"consider":90000,"fit":True},
- "BenQ TK705STi":{"terms":["tk705sti"],"strong":130000,"consider":145000,"fit":True},
- "Optoma UHD35STx":{"terms":["uhd35stx"],"strong":80000,"consider":100000,"fit":True},
- "BenQ TK710STi":{"terms":["tk710sti"],"strong":160000,"consider":180000,"fit":True},
- "ViewSonic X10-4K":{"terms":["x10-4k","x10 4k"],"strong":60000,"consider":65000,"fit":False},
- "XGIMI AURA":{"terms":["xgimi aura","aura xm03a"],"strong":90000,"consider":100000,"fit":False},
+ "BenQ TK700STi":{"terms":["tk700sti"],"strong":75000,"consider":90000,"fit":True,"used_floor":30000,"new_floor":70000},
+ "BenQ TK705STi":{"terms":["tk705sti"],"strong":130000,"consider":145000,"fit":True,"used_floor":50000,"new_floor":100000},
+ "Optoma UHD35STx":{"terms":["uhd35stx"],"strong":80000,"consider":100000,"fit":True,"used_floor":30000,"new_floor":70000},
+ "BenQ TK710STi":{"terms":["tk710sti"],"strong":160000,"consider":180000,"fit":True,"used_floor":60000,"new_floor":120000},
+ "ViewSonic X10-4K":{"terms":["x10-4k","x10 4k"],"strong":60000,"consider":65000,"fit":False,"used_floor":25000,"new_floor":50000},
+ "XGIMI AURA":{"terms":["xgimi aura","aura xm03a"],"strong":90000,"consider":100000,"fit":False,"used_floor":40000,"new_floor":80000},
 }
 MARKETS={
  "mercari":("メルカリ","jp.mercari.com"),
@@ -80,6 +80,92 @@ def parse_price(text):
         except Exception: pass
     return min(vals) if vals else None
 
+def parse_numeric_price(value):
+    if value is None:
+        return None
+    raw=re.sub(r"[^0-9.]", "", str(value).replace(",", ""))
+    if not raw:
+        return None
+    try:
+        n=int(float(raw))
+        return n if 1000 <= n <= 2000000 else None
+    except Exception:
+        return None
+
+def jsonld_offer_prices(soup):
+    prices=[]
+    for script in soup.find_all("script",type="application/ld+json")[:30]:
+        try:
+            obj=json.loads(script.string or "{}")
+        except Exception:
+            continue
+        stack=obj if isinstance(obj,list) else [obj]
+        for row in stack:
+            if not isinstance(row,dict):
+                continue
+            offers=row.get("offers")
+            offers=offers if isinstance(offers,list) else [offers]
+            for offer in offers:
+                if not isinstance(offer,dict):
+                    continue
+                for key in ("price","lowPrice","highPrice"):
+                    p=parse_numeric_price(offer.get(key))
+                    if p is not None:
+                        prices.append(p)
+    return prices
+
+def selector_price(soup, selectors):
+    for selector in selectors:
+        node=soup.select_one(selector)
+        if not node:
+            continue
+        value=node.get("content") if node.has_attr("content") else node.get_text(" ",strip=True)
+        p=parse_numeric_price(value)
+        if p is not None:
+            return p
+    return None
+
+def extract_trusted_price(market,soup,text,cfg):
+    """Return (price, confidence/source). New-market rows fail closed."""
+    structured=jsonld_offer_prices(soup)
+    floor=int(cfg.get("new_floor" if market in NEW else "used_floor") or 10000)
+    plausible=[p for p in structured if floor <= p <= 2000000]
+    if plausible:
+        # Offer data is tied to the Product schema; use the lowest plausible offer.
+        return min(plausible),"jsonld_offer"
+
+    common_selectors=[
+        'meta[itemprop="price"]',
+        'meta[property="product:price:amount"]',
+        '[itemprop="price"][content]',
+    ]
+    p=selector_price(soup,common_selectors)
+    if p is not None and floor <= p <= 2000000:
+        return p,"structured_price"
+
+    if market=="amazon":
+        p=selector_price(soup,[
+            '#corePriceDisplay_desktop_feature_div .a-price .a-offscreen',
+            '#corePrice_feature_div .a-price .a-offscreen',
+            '.priceToPay .a-offscreen',
+            '#price_inside_buybox',
+            '#newBuyBoxPrice',
+        ])
+        if p is not None and floor <= p <= 2000000:
+            return p,"amazon_buybox"
+        # Never use arbitrary page-wide currency values for Amazon:
+        # coupons, points, accessories and related items can be cheaper.
+        return None,"unverified_amazon_price"
+
+    if market in NEW:
+        # New-market recommendations require product-tied structured price data.
+        return None,"unverified_new_price"
+
+    p=parse_price(text)
+    if p is not None and floor <= p <= 2000000:
+        return p,"used_page_text"
+    return None,"unverified_used_price"
+
 def detail(market,url,fallback):
     try:
         r=requests.get(url,headers=HEADERS,timeout=10,allow_redirects=True)
@@ -92,21 +178,8 @@ def detail(market,url,fallback):
         model,cfg=model_match(title)
         if not model or not cfg.get("fit"): return None
         text=soup.get_text(" ",strip=True)[:220000]
-        price=None
-        for script in soup.find_all("script",type="application/ld+json")[:20]:
-            try:
-                obj=json.loads(script.string or "{}")
-                stack=obj if isinstance(obj,list) else [obj]
-                for row in stack:
-                    if not isinstance(row,dict): continue
-                    offers=row.get("offers")
-                    if isinstance(offers,list): offers=offers[0] if offers else None
-                    if isinstance(offers,dict) and offers.get("price") is not None:
-                        price=int(float(str(offers["price"]).replace(",",""))); break
-                if price is not None: break
-            except Exception: pass
-        if price is None: price=parse_price(text)
-        if price is None or price<10000 or price>2000000: return None
+        price,price_source=extract_trusted_price(market,soup,text,cfg)
+        if price is None: return None
         lower=text.lower()
         sold=("売り切れ","売却済み","sold out","取引完了","販売終了","この商品は削除","売れました")
         live_tokens=("購入手続きへ","購入する","今すぐ購入","カートに入れる","入札する","落札する","購入できます")
@@ -117,7 +190,7 @@ def detail(market,url,fallback):
         elif price<=cfg["strong"]: status="strong_buy"
         elif price<=cfg["consider"]: status="consider"
         else: return None
-        return {"title":title,"model":model,"market":market,"marketLabel":MARKETS[market][0],"price":price,"priceStatus":status,"capturedAt":datetime.now(timezone.utc).isoformat(),"url":r.url}
+        return {"title":title,"model":model,"market":market,"marketLabel":MARKETS[market][0],"price":price,"priceStatus":status,"priceSource":price_source,"capturedAt":datetime.now(timezone.utc).isoformat(),"url":r.url}
     except Exception:
         return None
 
