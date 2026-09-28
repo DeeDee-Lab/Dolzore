@@ -12,6 +12,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: dolzore-visual-qa
+  cancel-in-progress: true
+
 jobs:
   visual:
     runs-on: [dolzore-site-osk222]
