@@ -1,3 +1,4 @@
 User-agent: *
-Allow: /
-Sitemap: https://deedee-lab.github.io/Dolzore/sitemap.xml
+Disallow: /
+
+# Migration preview only. Search indexing stays disabled until production acceptance.
