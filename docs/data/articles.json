@@ -1,5 +1,12 @@
 {
   "schemaVersion": 1,
-  "updatedAt": null,
-  "articles": []
+  "updatedAt": "2026-09-28",
+  "articles": [
+    {
+      "title": "動画BGMを選ぶ前に、先に決める5つのこと",
+      "excerpt": "曲を探し始める前に、場面・尺・声との距離・利用条件・比較方法を決める。選曲を短くするための実務メモ。",
+      "date": "2026-09-28",
+      "url": "video-bgm-5-checks/"
+    }
+  ]
 }
