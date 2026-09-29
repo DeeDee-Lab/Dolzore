@@ -2,7 +2,7 @@ name: DOLZORE visual QA
 
 on:
   push:
-    branches: [main, "redesign/interactive-town-characters-20260929"]
+    branches: [main, "redesign/final-site-20260929"]
     paths:
       - "docs/**/*.html"
       - "docs/styles.css"
