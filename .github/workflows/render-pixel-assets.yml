@@ -5,6 +5,7 @@ on:
     branches: [main, "redesign/interactive-town-characters-20260929"]
     paths:
       - "scripts/render_pixel_assets.py"
+      - "scripts/verify_pixel_assets.py"
       - ".github/workflows/render-pixel-assets.yml"
   workflow_dispatch:
 
