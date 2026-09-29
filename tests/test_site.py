@@ -184,6 +184,30 @@ class MusicOnlySiteTests(unittest.TestCase):
             if image:
                 self.assertTrue(str(image).startswith("https://"))
 
+    def test_smartbuy_instant_price_decision_contract(self):
+        article=(DOCS/"journal/projector-150inch-4k-2026/index.html").read_text(encoding="utf-8")
+        script=(DOCS/"site.js").read_text(encoding="utf-8")
+        snapshot=json.loads((DOCS/"data/smartbuy-projectors.json").read_text(encoding="utf-8"))
+
+        self.assertIn("data-market-decision",article)
+        self.assertIn("監視中モデルの現在地",article)
+        self.assertIn("今買ってよい中古",article)
+
+        self.assertIn("現在確認価格",script)
+        self.assertIn("高いので待ち",script)
+        self.assertIn("updateProductCards",script)
+        self.assertIn("observedUsed",script)
+        self.assertIn("modelSummaries",script)
+
+        self.assertGreaterEqual(snapshot.get("schemaVersion",0),3)
+        self.assertIn("observedUsed",snapshot)
+        self.assertEqual(len(snapshot.get("modelSummaries",[])),10)
+        self.assertEqual(len(snapshot.get("targets",[])),10)
+        self.assertEqual(len(snapshot.get("trackedModels",[])),10)
+
+        with_threshold=[x for x in snapshot["targets"] if x.get("strongBuy") is not None and x.get("consider") is not None]
+        self.assertGreaterEqual(len(with_threshold),6)
+
     def test_product_media_manifest_has_real_photos(self):
         media=json.loads((DOCS/"data/product-media.json").read_text(encoding="utf-8"))
         products=media.get("products",[])
