@@ -56,9 +56,11 @@ def main() -> None:
         page.goto(BASE + "/music/", wait_until="load")
         page.wait_for_function("document.querySelectorAll('.track-choice').length === 60")
         assert page.locator(".track-choice").count() == 60
-        assert page.locator(".jukebox-machine-v4").count() == 1
-        assert page.locator(".jukebox-pixel-art").count() == 1
-        assert page.locator(".songbook-v4").count() == 1
+        assert page.locator(".track-choice .track-scene").first.text_content().startswith("BEST FOR")
+        assert "V2" not in page.locator(".track-choice").nth(1).text_content()
+        assert page.locator(".jukebox-cabinet-v6").count() == 1
+        assert page.locator(".jukebox-pixel-art-v6").count() == 1
+        assert page.locator(".scene-browser-v6").count() == 1
         no_overflow(page, "desktop music")
 
         search = page.locator("[data-track-search]")
