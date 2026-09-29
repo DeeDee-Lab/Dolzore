@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: dolzore-unity-initial-screen
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -112,6 +112,38 @@ jobs:
           }
           $hash = (Get-FileHash (Join-Path $project "BuildArtifacts\initial-screen.png") -Algorithm SHA256).Hash.ToLowerInvariant()
           Write-Host "DOLZORE_INITIAL_SCREEN_SHA256=$hash"
+
+      - name: Verify FF11-derived architecture contracts
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          foreach ($rel in @(
+            "Assets\Scripts\CoreRpgModels.cs",
+            "Assets\Scripts\WorldIdentity.cs",
+            "Assets\Scripts\FirstTownRuntime.cs",
+            "Assets\Scenes\FirstTownShell.unity"
+          )) {
+            $path = Join-Path $project $rel
+            if (-not (Test-Path $path)) {
+              throw "DOLZORE_ARCHITECTURE_FILE_MISSING:$rel"
+            }
+          }
+
+          $scene = Get-Content (Join-Path $project "Assets\Scenes\FirstTownShell.unity") -Raw
+          foreach ($token in @(
+            "region.first_town.present",
+            "entity.first_town.bar_13",
+            "entity.first_town.journal",
+            "private.first_town.player_home",
+            "interior.first_town.bar_13",
+            "vocation.wanderer"
+          )) {
+            if ($scene -notmatch [regex]::Escape($token)) {
+              throw "DOLZORE_ARCHITECTURE_TOKEN_MISSING:$token"
+            }
+            Write-Host "DOLZORE_ARCHITECTURE_OK=$token"
+          }
 
       - name: Build WebGL player
         shell: powershell
