@@ -36,6 +36,27 @@ class MusicOnlySiteTests(unittest.TestCase):
         self.assertEqual(len(set(purchase_urls)),60)
         self.assertGreaterEqual(ready,6)
 
+    def test_public_track_titles_and_descriptions_are_selection_friendly(self):
+        data=json.loads((DOCS/"data/tracks.json").read_text(encoding="utf-8"))
+        for t in data["tracks"]:
+            title=t["title"]
+            self.assertNotRegex(title,r"(?i)(?:\bv\d+\b|version\s*\d+)")
+            self.assertTrue(t.get("sceneEn"),t["id"])
+            self.assertTrue(t.get("sceneJa"),t["id"])
+            self.assertTrue(t.get("descriptionJa"),t["id"])
+            self.assertNotIn("・",t["sceneEn"])
+        self.assertEqual(next(t for t in data["tracks"] if t["id"]=="BGM-002")["title"],"Sunny Everyday")
+
+    def test_music_positioning_is_for_video_creators(self):
+        music=(DOCS/"music/index.html").read_text(encoding="utf-8")
+        self.assertIn("動画制作向けBGM",music)
+        self.assertIn("YouTube",music)
+        self.assertIn("TikTok",music)
+        self.assertIn("Reels",music)
+        self.assertIn("商用・収益化動画",music)
+        self.assertNotIn("音楽屋",music)
+        self.assertNotIn("MUSIC SHOP",music)
+
     def test_public_pages_are_github_native_and_do_not_reference_full_audio_source(self):
         for p in DOCS.rglob("*"):
             if not p.is_file() or p.suffix.lower() not in {".html",".js",".css",".json",".xml",".txt"}:
@@ -47,9 +68,15 @@ class MusicOnlySiteTests(unittest.TestCase):
     def test_home_and_music_surface_are_music_only(self):
         home=(DOCS/"index.html").read_text(encoding="utf-8")
         music=(DOCS/"music/index.html").read_text(encoding="utf-8")
-        self.assertIn("いま買えるものは、音楽だけ",home)
         self.assertIn("data-jukebox",music)
-        self.assertIn("dolzore-town.png",home)
+        self.assertIn("data-town-canvas",home)
+        game=(DOCS/"town-game.js").read_text(encoding="utf-8")
+        self.assertIn("dolzore-characters.png",game)
+        for name in ("SORA","MELO","YUZU","PON"):
+            self.assertIn(name,home+game)
+        self.assertIn("town-game.js",home)
+        self.assertIn("data-place-label=\"music\"",home)
+        self.assertIn("data-place-label=\"journal\"",home)
         self.assertIn("dolzore-jukebox.png",music)
         self.assertNotIn("dolzore-town.svg",home)
         self.assertNotIn("dolzore-jukebox.svg",music)

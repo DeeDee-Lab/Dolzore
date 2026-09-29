@@ -690,3 +690,128 @@ button,input{font:inherit}
   .live-market-price em{grid-column:1/-1}
   .live-market-price a{grid-column:1/-1}
 }
+
+/* ===== DOLZORE WORLD v5 — interactive town ===== */
+.world-v5{background:#d8d2ae}
+.walkable-world{max-width:1120px;margin:0 auto;padding:38px 20px 26px}
+.world-titlebar{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:16px}
+.world-titlebar h1{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:clamp(30px,4vw,46px);letter-spacing:-.04em;margin:2px 0 0}
+.world-control-hint{margin:0;font-size:11px;color:#5d5661}
+.world-control-hint strong{font-family:"DotGothic16",monospace;font-size:10px;color:#332c38}
+.game-viewport{position:relative;aspect-ratio:16/9;background:#2a2530;border:5px solid #302832;box-shadow:8px 8px 0 rgba(50,40,55,.24);overflow:hidden}
+.town-canvas{display:block;width:100%;height:100%;image-rendering:pixelated;image-rendering:crisp-edges;outline:none}
+.town-canvas:focus-visible{box-shadow:inset 0 0 0 4px #e1b852}
+.game-building-label{position:absolute;z-index:4;transform:translate(-50%,-50%);padding:5px 10px;background:#1d1921;color:#fff3d0;border:2px solid #efe3b6;text-decoration:none;font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-weight:800;font-size:clamp(10px,1.2vw,14px);letter-spacing:.08em;box-shadow:3px 3px 0 rgba(39,31,43,.35)}
+.game-building-label:hover,.game-building-label:focus-visible{outline:3px solid #e4b54d;outline-offset:2px}
+.game-building-label.cafe{left:18.7%;top:26%}.game-building-label.journal{left:49.2%;top:24%}.game-building-label.music{left:82%;top:23%}
+.game-dialogue-panel{position:absolute;z-index:5;left:2.4%;bottom:3.5%;width:min(430px,48%);background:#17151b;color:#f4ecd2;border:3px solid #efe3ba;outline:4px solid #332b38;padding:14px 17px;box-shadow:6px 7px 0 rgba(34,26,38,.34)}
+.game-dialogue-panel strong{display:block;font-family:"DotGothic16",monospace;font-size:10px;letter-spacing:.12em;color:#e4bd5d;margin-bottom:5px}
+.game-dialogue-panel p{margin:0;font-size:13px;line-height:1.65}
+.game-control-row{display:grid;grid-template-columns:auto auto 1fr;gap:18px;align-items:center;padding:18px 2px 0}
+.dpad{display:grid;grid-template-columns:36px 36px 36px;grid-template-rows:34px 34px;gap:3px}
+.dpad button,.action-button{border:2px solid #332b38;background:#f3e7c1;color:#2e2732;font-weight:800;box-shadow:3px 3px 0 #72596d;cursor:pointer}
+.dpad button:active,.action-button:active{transform:translate(1px,1px);box-shadow:1px 1px 0 #72596d}
+.dpad-up{grid-column:2}.dpad-left{grid-column:1;grid-row:2}.dpad-down{grid-column:2;grid-row:2}.dpad-right{grid-column:3;grid-row:2}
+.action-button{min-height:70px;padding:0 18px;background:#e1b44e}
+.resident-list{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;font-family:"DotGothic16",monospace;font-size:9px;color:#514956}
+.resident-list span{display:flex;align-items:center;gap:5px}.resident-dot{width:10px;height:10px;display:inline-block;border:2px solid #2d2731}.resident-dot.sora{background:#4f978b}.resident-dot.melo{background:#a44f60}.resident-dot.yuzu{background:#d4a746}.resident-dot.pon{background:#557ca9}
+.world-fallback-links{max-width:1120px;margin:0 auto;padding:18px 20px 58px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.world-fallback-links a{background:#f0e5bd;border:3px solid #3d3441;box-shadow:5px 5px 0 rgba(49,40,53,.2);padding:18px;text-decoration:none;display:grid;gap:4px}
+.world-fallback-links span{font-family:"DotGothic16",monospace;font-size:9px;color:#8d5960}.world-fallback-links strong{font-size:20px}.world-fallback-links small{color:#6b6268}
+
+@media(max-width:700px){
+  .walkable-world{padding:24px 8px 18px}.world-titlebar{align-items:start;display:block}.world-control-hint{margin-top:8px}
+  .game-viewport{border-width:3px}
+  .game-building-label{padding:3px 6px;font-size:9px;border-width:1px;box-shadow:2px 2px 0 rgba(39,31,43,.35)}
+  .game-dialogue-panel{left:2%;bottom:2.5%;width:64%;padding:9px 11px;border-width:2px;outline-width:2px}
+  .game-dialogue-panel p{font-size:10px}.game-dialogue-panel strong{font-size:8px}
+  .game-control-row{grid-template-columns:auto 1fr;gap:12px;padding:14px 4px 0}.resident-list{grid-column:1/-1;justify-content:flex-start}
+  .action-button{min-height:70px}
+  .world-fallback-links{grid-template-columns:1fr;padding:16px 10px 42px}
+}
+
+
+
+.music-v4 .track-choice .track-scene{display:block;margin-top:5px;font-family:"DotGothic16",monospace;font-size:7px;line-height:1.35;letter-spacing:.04em;color:#8c5b55}
+.music-v4 .track-choice .track-description{margin:5px 0 0;font-size:9px;line-height:1.45;color:#625957}
+.music-v4 .track-choice{min-height:116px}
+@media(max-width:680px){
+  .music-v4 .track-choice{min-height:108px}
+  .music-v4 .track-choice .track-description{font-size:10px}
+}
+
+
+
+/* ===== DOLZORE MUSIC v6 — readable controls + recognizable classic jukebox ===== */
+.music-v6{background:#342f3a}
+.music-v6-main{max-width:1180px;margin:auto;padding:48px 24px 72px;color:#eee4c7}
+.music-v6-intro{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:end;margin-bottom:34px}
+.music-v6-intro h1{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:clamp(42px,5.5vw,68px);letter-spacing:-.045em;line-height:1.05;margin:8px 0 14px}
+.music-v6-lead{max-width:680px;margin:0;color:#cfc6cc;line-height:1.8;font-size:14px}.music-v6-lead strong{color:#f0d475}
+.music-v6-price{min-width:150px;background:#17151b;border:3px solid #eadcb4;outline:3px solid #514353;padding:16px 18px;text-align:right}
+.music-v6-price small,.music-v6-price span{display:block;font-family:"DotGothic16",monospace;font-size:8px;color:#bcb1b9}.music-v6-price strong{display:block;font-size:34px;color:#f2df9b}
+.music-v6-layout{display:grid;grid-template-columns:minmax(360px,.82fr) minmax(480px,1.18fr);gap:40px;align-items:start}
+.music-v6-left{min-width:0}.jukebox-cabinet-v6{position:relative;width:min(100%,480px);margin:auto;background:#17141b;padding:8px 10px 0}
+.jukebox-pixel-art-v6{display:block;width:100%;height:auto;image-rendering:pixelated;image-rendering:crisp-edges}
+.jukebox-logo-v6{position:absolute;top:8.5%;left:31%;right:31%;text-align:center;color:#302830}
+.jukebox-logo-v6 strong{display:block;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:clamp(13px,1.6vw,20px);letter-spacing:.06em}.jukebox-logo-v6 span{font-family:"DotGothic16",monospace;font-size:7px;color:#756650}
+.juke-console-v6{width:min(100%,500px);margin:14px auto 0;background:#e9dbb2;color:#2d2730;border:4px solid #2c2530;box-shadow:7px 7px 0 #17141b;padding:16px}
+.now-v6{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;border-bottom:2px solid #8f795e;padding-bottom:12px}
+.number-v6{font-family:"DotGothic16",monospace;font-size:23px;color:#9b505b}.now-v6 strong{display:block;font-size:22px;line-height:1.15}.now-v6 small{display:block;margin-top:4px;font-family:"DotGothic16",monospace;font-size:8px;color:#785a5d;line-height:1.35}
+.description-v6{min-height:42px;margin:12px 0;color:#5d5354;font-size:12px;line-height:1.7}
+.controls-v6{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.controls-v6 button{min-height:48px;border:2px solid #302830;background:#f8ecc9;box-shadow:3px 3px 0 #71545f;display:grid;place-items:center;font-size:17px;cursor:pointer}.controls-v6 button.play{background:#72b89a}.controls-v6 small{font-family:"DotGothic16",monospace;font-size:6px}
+.progress-v6{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:center;margin:14px 0 8px}.progress-v6 progress{width:100%;height:10px;accent-color:#a65364}.progress-v6 span{font-family:"DotGothic16",monospace;font-size:8px}
+.status-v6{display:flex;gap:8px;align-items:center;min-height:32px}.status-v6>span{width:8px;height:8px;background:#6aaa83;border:2px solid #2c4939}.status-v6 p{margin:0;font-size:10px;line-height:1.45;color:#665c5c}
+.purchase-v6{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding:12px 14px;background:#deb04a;color:#2b2530;border:3px solid #302830;text-decoration:none;font-weight:800}.purchase-v6 span{font-family:"DotGothic16",monospace;font-size:8px}.purchase-v6 strong{font-size:26px}
+.scene-browser-v6{background:#d8c59b;color:#2e2730;border:5px solid #2f2831;box-shadow:8px 8px 0 #17141b,inset 0 0 0 4px #eee0b6;padding:20px}
+.scene-browser-head-v6{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;padding-bottom:16px;border-bottom:2px solid #8d775d}.scene-browser-head-v6 h2{font-size:38px;margin:4px 0 4px}.scene-browser-head-v6 p:not(.pixel-kicker){max-width:480px;margin:0;color:#655b58;font-size:11px;line-height:1.6}
+.scene-browser-v6 .track-search{font-size:9px;font-weight:800}.scene-browser-v6 .track-search input{min-width:190px;background:#fff9df;border:2px solid #433745}
+.scene-browser-list-v6{margin-top:14px;background:#776866;border:4px solid #4b3f4d;padding:10px;box-shadow:inset 0 0 0 3px #ad9875}
+.music-v6 .track-selector{grid-template-columns:repeat(2,1fr);gap:8px;max-height:720px}.music-v6 .track-choice{min-height:124px;background:#fff2cf;border:2px solid #51434e;box-shadow:inset 0 0 0 2px #dfd0aa,2px 2px 0 #393039;padding:11px}.music-v6 .track-choice:hover,.music-v6 .track-choice:focus-visible,.music-v6 .track-choice.active{background:#fff8df;outline:3px solid #d6aa47;outline-offset:1px}.music-v6 .track-choice .n{font-size:9px;color:#a05a57}.music-v6 .track-choice strong{font-size:13px}.music-v6 .track-choice .track-scene{display:block;margin-top:5px;font-family:"DotGothic16",monospace;font-size:7px;line-height:1.4;color:#96565b}.music-v6 .track-choice .track-description{margin:6px 0 0;font-size:9px;line-height:1.5;color:#625857}
+.music-rules-v6{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:38px}.music-rules-v6>div{background:#222029;border:2px solid #514758;padding:14px}.music-rules-v6 strong{display:block;font-family:"DotGothic16",monospace;color:#e0c666;font-size:9px;margin-bottom:6px}.music-rules-v6 span{font-size:10px;color:#c9c0c8}
+@media(max-width:900px){.music-v6-layout{grid-template-columns:1fr}.music-v6-intro{grid-template-columns:1fr}.music-v6-price{text-align:left;width:max-content}.jukebox-cabinet-v6,.juke-console-v6{max-width:500px}}
+@media(max-width:680px){.music-v6-main{padding:34px 12px 54px}.music-v6-intro h1{font-size:38px}.scene-browser-v6{padding:12px}.scene-browser-head-v6{grid-template-columns:1fr}.scene-browser-v6 .track-search input{width:100%;min-width:0}.music-v6 .track-selector{grid-template-columns:1fr;max-height:620px}.music-v6 .track-choice{min-height:116px}.music-rules-v6{grid-template-columns:1fr 1fr}.controls-v6 button{min-height:44px}}
+
+
+
+/* ===== MUSIC creator positioning ===== */
+.creator-use-strip{display:flex;gap:7px;flex-wrap:wrap;margin:-8px 0 28px}
+.creator-use-strip span{font-family:"DotGothic16",monospace;font-size:8px;letter-spacing:.06em;padding:6px 8px;border:1px solid #5a4d61;background:#26222b;color:#e9dfc3}
+.music-v6-price em{display:block;margin-top:7px;font-style:normal;font-family:"DotGothic16",monospace;font-size:7px;color:#83c7a3}
+
+/* ===== JOURNAL v5 — readable editorial hierarchy ===== */
+.journal-v5{background:#d8d2ae}
+.journal-v5-main{min-height:78vh;background:#91cbd2;color:#28212d;padding:56px 0 72px}
+.journal-v5-hero,.journal-tools-v5,.journal-posts-v5{max-width:1120px;margin:0 auto;padding-left:24px;padding-right:24px}
+.journal-v5-hero{padding-bottom:38px}
+.journal-v5-hero h1{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:clamp(42px,5vw,64px);line-height:1.12;letter-spacing:-.04em;margin:8px 0 14px}
+.journal-v5-hero>p:last-child{max-width:720px;margin:0;color:#54505a;line-height:1.85;font-size:15px}
+.journal-tools-v5{display:grid;grid-template-columns:minmax(240px,.62fr) 1.38fr;gap:34px;align-items:start;padding-top:30px;padding-bottom:44px;border-top:1px solid rgba(45,38,49,.18)}
+.journal-tools-copy h2{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:clamp(30px,3.5vw,44px);line-height:1.2;letter-spacing:-.03em;margin:5px 0 12px}
+.journal-tools-copy>p:last-child{margin:0;color:#5c5860;line-height:1.8;font-size:13px}
+.journal-tool-grid-v5{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.journal-tool-card-v5{min-height:210px;background:#f4e6bb;border:3px solid #392f3d;box-shadow:6px 6px 0 rgba(55,44,59,.22);padding:24px;text-decoration:none;display:flex;flex-direction:column;align-items:flex-start}
+.journal-tool-card-v5.projector{background:#d7edf2}.journal-tool-card-v5.audio{background:#e9d7df}
+.journal-tool-card-v5>span{font-family:"DotGothic16",monospace;font-size:10px;letter-spacing:.09em;color:#8f5661}
+.journal-tool-card-v5>strong{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:25px;line-height:1.3;margin:20px 0 8px}
+.journal-tool-card-v5>small{color:#615a62;line-height:1.6;font-size:12px}
+.journal-tool-card-v5>b{margin-top:auto;padding:8px 11px;border:2px solid #392f3d;background:#fff8de;font-size:12px}
+.journal-tool-card-v5:not(.is-soon):hover,.journal-tool-card-v5:not(.is-soon):focus-visible{transform:translateY(-3px);outline:3px solid #e2b64b;outline-offset:2px}
+.journal-tool-card-v5.is-soon{opacity:.68}
+.journal-posts-v5{padding-top:38px}
+.journal-posts-head-v5{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:18px}
+.journal-posts-head-v5 h2{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:32px;margin:4px 0 0}
+.journal-posts-head-v5>p{margin:0;color:#5d5860;font-size:12px}
+.journal-v5 .journal-list{max-width:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.journal-v5 .journal-card,.journal-v5 .note-paper{background:#fff3d3;color:#342e31;border:0;padding:24px;box-shadow:5px 6px 0 rgba(45,33,32,.25);transform:none}
+.journal-v5 .journal-card h2{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:24px;line-height:1.4;margin:6px 0 10px}
+.journal-v5 .journal-card .excerpt{font-size:12px;line-height:1.8;color:#645b58}
+@media(max-width:800px){
+  .journal-tools-v5{grid-template-columns:1fr}.journal-tool-grid-v5{grid-template-columns:1fr}
+  .journal-v5 .journal-list{grid-template-columns:1fr}.journal-posts-head-v5{display:block}.journal-posts-head-v5>p{margin-top:8px}
+}
+@media(max-width:680px){
+  .journal-v5-main{padding:40px 0 54px}.journal-v5-hero,.journal-tools-v5,.journal-posts-v5{padding-left:14px;padding-right:14px}
+  .journal-v5-hero h1{font-size:40px}.journal-tools-copy h2{font-size:30px}
+}
+

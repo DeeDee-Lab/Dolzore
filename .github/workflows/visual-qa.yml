@@ -1,12 +1,14 @@
 name: DOLZORE visual QA
+# final integrated QA v2
 
 on:
   push:
-    branches: [main]
+    branches: [main, "redesign/final-site-20260929"]
     paths:
       - "docs/**/*.html"
       - "docs/styles.css"
       - "docs/site.js"
+      - "docs/town-game.js"
       - "docs/assets/**"
       - "tests/**"
       - ".github/workflows/visual-qa.yml"
@@ -57,7 +59,7 @@ jobs:
       - name: Emit compact visual previews to log
         shell: powershell
         run: |
-          foreach ($name in @("desktop-home-preview.jpg","desktop-jukebox-preview.jpg","mobile-home-preview.jpg","mobile-music-preview.jpg")) {
+          foreach ($name in @("desktop-home-preview.jpg","desktop-jukebox-preview.jpg","desktop-journal-preview.jpg","mobile-home-preview.jpg","mobile-music-preview.jpg","mobile-journal-preview.jpg")) {
             $path=Join-Path "qa-screenshots" $name
             $b64=[Convert]::ToBase64String([IO.File]::ReadAllBytes($path))
             Write-Host "DOLZORE_SCREENSHOT_B64_BEGIN:$name"

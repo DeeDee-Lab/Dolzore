@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>DOLZORE | 音楽屋と掲示板のある町</title>
-  <meta name="description" content="DOLZOREは、動画編集者向けCreator BGMを1曲¥200で販売する音楽サイトです。町を歩くように曲と記事を見つけられます。">
+  <title>DOLZORE | 歩ける小さな町</title>
+  <meta name="description" content="DOLZOREの小さな町を歩いて、Creator BGMと読みものを見つけられます。">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://deedee-lab.github.io/Dolzore/">
   <link rel="stylesheet" href="styles.css">
-  <script src="site.js" defer></script>
+  <script src="town-game.js" defer></script>
 </head>
-<body class="world-body world-v4">
+<body class="world-body world-v5">
 <header class="world-header">
   <a class="world-brand" href="./" aria-label="DOLZORE ホーム">
     <span class="brand-mark">DOLZORE</span><small>ドルゾーレ</small>
@@ -25,44 +25,53 @@
 </header>
 
 <main>
-  <section class="town-screen" aria-labelledby="world-title">
-    <div class="town-map">
-      <img class="town-pixel-art" src="assets/dolzore-town.png" alt="DOLZOREの町。音楽屋、掲示板、カフェ、道路、車、人が並ぶドット絵の街並み。">
-      <a class="town-hotspot-v4 music" href="music/" aria-label="音楽屋へ"></a>
-      <a class="town-hotspot-v4 journal" href="journal/" aria-label="掲示板へ"></a>
+  <section class="walkable-world" data-town-world aria-labelledby="town-title">
+    <div class="world-titlebar">
+      <div>
+        <p class="pixel-kicker">DOLZORE TOWN / AREA 01</p>
+        <h1 id="town-title">町を歩いてみる。</h1>
+      </div>
+      <p class="world-control-hint"><strong>PC</strong> 矢印 / WASD　<strong>話す・入る</strong> Enter</p>
     </div>
-    <div class="town-dialogue-wrap">
-      <p class="pixel-kicker">DOLZORE TOWN</p>
-      <h1 id="world-title">DOLZORE</h1>
-      <div class="dialogue-box-v4">
-        <p>ここは DOLZORE。</p>
-        <p>音楽屋と、掲示板のある小さな町です。</p>
-        <p>いま買えるものは、音楽だけ。</p>
-        <p>気になるほうから、どうぞ。</p>
-        <div class="dialogue-actions">
-          <a class="town-button primary" href="music/">MUSIC</a>
-          <a class="town-button" href="journal/">JOURNAL</a>
-        </div>
+
+    <div class="game-viewport" data-game-viewport>
+      <canvas class="town-canvas" data-town-canvas width="480" height="270" tabindex="0" aria-label="歩けるDOLZOREの町"></canvas>
+
+      <a class="game-building-label cafe" href="#" data-place-label="cafe" aria-label="CAFE">CAFE</a>
+      <a class="game-building-label journal" href="journal/" data-place-label="journal">JOURNAL</a>
+      <a class="game-building-label music" href="music/" data-place-label="music">MUSIC</a>
+
+      <div class="game-dialogue-panel" data-town-dialogue aria-live="polite">
+        <strong data-dialogue-name>DOLZORE</strong>
+        <p data-dialogue-text>ソラを動かして、町を歩けます。</p>
+      </div>
+    </div>
+
+    <div class="game-control-row">
+      <div class="dpad" aria-label="移動ボタン">
+        <button type="button" class="dpad-up" data-move="up" aria-label="上へ">▲</button>
+        <button type="button" class="dpad-left" data-move="left" aria-label="左へ">◀</button>
+        <button type="button" class="dpad-down" data-move="down" aria-label="下へ">▼</button>
+        <button type="button" class="dpad-right" data-move="right" aria-label="右へ">▶</button>
+      </div>
+      <button type="button" class="action-button" data-action>話す / 入る</button>
+      <div class="resident-list" aria-label="町の住人">
+        <span><b class="resident-dot sora"></b>SORA</span>
+        <span><b class="resident-dot melo"></b>MELO</span>
+        <span><b class="resident-dot yuzu"></b>YUZU</span>
+        <span><b class="resident-dot pon"></b>PON</span>
       </div>
     </div>
   </section>
 
-  <section class="town-guide" aria-label="町の案内">
-    <article>
-      <span class="guide-icon">♪</span>
-      <div><p class="pixel-kicker">MUSIC SHOP</p><h2>60曲。1曲 ¥200。</h2><p>用途で探して、20秒だけ試聴。気に入った曲だけ購入できます。</p></div>
-      <a class="town-button primary" href="music/">音楽屋へ</a>
-    </article>
-    <article>
-      <span class="guide-icon notice">!</span>
-      <div><p class="pixel-kicker">NOTICE BOARD</p><h2>町の掲示板</h2><p>音楽、道具、制作。調べたことや試したことを、記事になった順に貼っています。</p></div>
-      <a class="town-button" href="journal/">掲示板へ</a>
-    </article>
+  <section class="world-fallback-links" aria-label="直接開く">
+    <a href="music/"><span>MUSIC</span><strong>Creator BGM 60曲</strong><small>試聴・購入はこちら</small></a>
+    <a href="journal/"><span>JOURNAL</span><strong>町の掲示板</strong><small>記事を読む</small></a>
   </section>
 </main>
 
 <footer class="world-footer">
-  <div><strong>DOLZORE</strong><p>Creator BGM / Journal</p></div>
+  <div><strong>DOLZORE</strong><p>Music / Journal</p></div>
   <div class="footer-links"><a href="music/">Music</a><a href="journal/">Journal</a><a href="support/">Support</a><a href="legal/">Legal</a></div>
 </footer>
 </body>

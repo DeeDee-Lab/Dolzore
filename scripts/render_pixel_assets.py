@@ -112,39 +112,96 @@ def town():
     im.resize((960,540),Image.Resampling.NEAREST).save(OUT/"dolzore-town.png")
 
 def jukebox():
-    w,h=160,240
+    # Draw at 240×360 and upscale exactly 2×. No text is rasterized into the cabinet.
+    w,h=240,360
     im=Image.new("RGBA",(w,h),(0,0,0,0));d=ImageDraw.Draw(im)
     R=lambda a,c:d.rectangle(a,fill=c)
-    # stepped silhouette
-    R((15,8,145,235),"#17131b");R((20,28,140,224),"#17131b");R((28,18,132,230),"#17131b");R((40,10,120,234),"#17131b")
-    # chrome / wood / glow
-    R((27,48,133,210),"#d7c796");R((33,32,127,219),"#d7c796");R((43,19,117,226),"#d7c796")
-    R((34,49,126,207),P["red2"]);R((40,34,120,215),P["red2"]);R((49,24,111,222),P["red2"])
-    R((39,46,45,202),P["gold2"]);R((115,46,121,202),P["gold2"]);R((40,46,43,202),"#f0cc65");R((117,46,120,202),"#f0cc65")
-    R((47,38,113,193),"#3e736c");R((50,34,110,197),"#4f877c")
-    # glass chamber
-    R((53,39,107,102),P["ink"]);R((56,42,104,99),"#24383e")
-    R((58,28,102,39),P["ink"]);R((60,30,100,37),P["cream"])
-    for x in range(61,100,5):d.point((x,31),fill="#ead36f")
-    d.ellipse((65,51,95,81),fill="#0f0d11");d.ellipse((67,53,93,79),outline="#443a47",width=2);d.ellipse((76,62,84,70),fill=P["pink"])
-    R((89,50,92,73),"#d7c9a7");R((86,51,92,54),"#d7c9a7")
-    # song ticket
-    R((49,106,111,137),P["ink"]);R((52,109,108,134),P["cream2"]);R((55,112,105,131),P["white"])
-    # chrome selection strip
-    R((43,143,117,162),"#241e27");R((47,147,113,158),"#4a4149")
-    for x in (51,66,81,96):R((x,149,x+9,156),P["cream"]);R((x+2,151,x+7,154),"#715963")
-    # message panel / controls / speaker
-    R((48,167,112,185),P["ink"]);R((51,170,109,182),"#1f4740")
-    for x in range(54,106,4):
-        if x%8==0:d.point((x,172),fill="#79b899")
-    for x,c in ((49,"#e9dfbe"),(66,"#74b99a"),(83,"#e9dfbe"),(100,"#e9dfbe")):
-        R((x,190,x+12,202),P["ink"]);R((x+2,192,x+10,200),c)
-    R((48,207,112,226),P["ink"]);R((51,210,109,223),"#302832")
-    for yy in range(211,223,3):
-        for xx in range(52,109,4):d.point((xx,yy),fill="#64555e")
-    R((38,222,51,231),P["ink"]);R((109,222,122,231),P["ink"]);R((31,70,34,118),"#f1db86");R((126,70,129,118),"#f1db86")
-    im.resize((480,720),Image.Resampling.NEAREST).save(OUT/"dolzore-jukebox.png")
+    L=lambda p,c,wid=1:d.line(p,fill=c,width=wid)
 
+    ink="#1c1820"; deep="#2b2028"; burg="#7e3549"; red="#a9485b"
+    gold="#d2a84a"; light="#f4dc76"; cream="#eadcb7"; chrome="#c9bea4"
+    glass="#223a3e"; glass2="#315258"; teal="#4f8277"; speaker="#342b35"
+
+    # Ground shadow / feet
+    R((36,337,204,349),ink);R((48,348,78,357),ink);R((162,348,192,357),ink)
+
+    # Strong classic stepped arch silhouette
+    R((26,92,214,336),ink)
+    R((32,70,208,336),ink)
+    R((40,50,200,336),ink)
+    R((52,34,188,336),ink)
+    R((68,22,172,336),ink)
+    R((84,14,156,336),ink)
+
+    # Outer chrome/cream arch
+    R((31,95,209,330),chrome)
+    R((37,72,203,330),chrome)
+    R((45,53,195,330),chrome)
+    R((57,38,183,330),chrome)
+    R((72,27,168,330),chrome)
+    R((88,20,152,330),chrome)
+
+    # Body arch
+    R((37,98,203,326),burg)
+    R((43,75,197,326),burg)
+    R((51,56,189,326),burg)
+    R((63,42,177,326),burg)
+    R((78,32,162,326),burg)
+    R((92,27,148,326),burg)
+
+    # Illuminated side tubes — high contrast readable silhouette
+    for x1,x2 in ((43,51),(189,197)):
+        R((x1,82,x2,286),gold);R((x1+2,84,x2-2,284),light)
+    for x1,x2,y1,y2 in ((53,62,58,88),(178,187,58,88),(64,74,44,62),(166,176,44,62),(79,91,33,47),(149,161,33,47)):
+        R((x1,y1,x2,y2),gold);R((x1+2,y1+2,x2-2,y2-2),light)
+
+    # Inner dark frame and glass record chamber
+    R((61,66,179,166),ink)
+    R((66,70,174,161),glass)
+    R((72,76,168,155),glass2)
+    # soft pixel reflections
+    R((78,80,82,145),"#42676c");R((86,76,91,84),"#557b7d");R((158,82,163,145),"#172c30")
+
+    # Record carousel: central spindle + several records
+    for cx,cy,r,col in ((91,115,25,"#17131b"),(113,111,27,"#1b161d"),(137,116,25,"#17131b")):
+        d.ellipse((cx-r,cy-r,cx+r,cy+r),fill=ink)
+        d.ellipse((cx-r+4,cy-r+4,cx+r-4,cy+r-4),outline="#554756",width=2)
+        d.ellipse((cx-5,cy-5,cx+5,cy+5),fill=col)
+    d.ellipse((108,104,132,128),fill="#17131b")
+    d.ellipse((113,109,127,123),fill="#d75c78")
+    d.ellipse((118,114,122,118),fill=cream)
+    # changer arm
+    L(((139,83),(128,114)),chrome,4);L(((139,83),(147,79)),chrome,3)
+
+    # Selection label window: recognizably jukebox-like rows
+    R((52,172,188,225),ink);R((57,177,183,220),cream)
+    for row in range(3):
+        y=181+row*12
+        for col in range(4):
+            x=61+col*30
+            R((x,y,x+25,y+8),"#fff5d4")
+            R((x+2,y+2,x+6,y+3),red)
+            R((x+8,y+2,x+22,y+3),"#8d7d68")
+            R((x+8,y+5,x+19,y+6),"#b4a181")
+
+    # Selector chrome strip
+    R((47,230,193,255),ink);R((53,235,187,250),"#4b414a")
+    for x in (61,91,121,151):
+        R((x,238,x+18,248),chrome);R((x+4,241,x+14,245),"#6a5664")
+
+    # Huge lower speaker grille is the key jukebox cue
+    R((51,261,189,326),ink)
+    R((58,268,182,318),speaker)
+    for yy in range(270,318,5):
+        for xx in range(60,182,6):
+            col="#76636d" if (xx//6+yy//5)%2==0 else "#493d47"
+            R((xx,yy,xx+2,yy+2),col)
+
+    # Decorative bottom rails
+    R((43,326,197,334),gold);R((49,326,191,330),light)
+    R((39,107,44,286),red);R((196,107,201,286),red)
+
+    im.resize((480,720),Image.Resampling.NEAREST).save(OUT/"dolzore-jukebox.png")
 town();jukebox()
 
 def town_game():
@@ -230,72 +287,92 @@ def town_game():
     # small flowers
     for x,y,c in ((28,104,"#e5b04f"),(151,107,"#c95e78"),(457,113,"#e8d66a"),(414,245,"#d66a7f"),(42,243,"#ead159")):
         d.point((x,y),fill=c);d.point((x+1,y),fill=c);d.point((x,y+1),fill="#3e7b4b")
-    im.resize((960,540),Image.Resampling.NEAREST).save(OUT/"dolzore-town-game.png")
+    im.save(OUT/"dolzore-town-game.png")
 
 def characters():
-    cell_w,cell_h=16,24
-    sheet=Image.new("RGBA",(cell_w*8,cell_h*4),(0,0,0,0))
+    CELL_W,CELL_H=24,32
+    sheet=Image.new("RGBA",(CELL_W*8,CELL_H*4),(0,0,0,0))
 
+    # hair, skin, top, accent, bottom, shoes, detail
     chars=[
-        # hair, skin, top, accent, bottom, shoes
-        ("#2d2832","#d9a078","#4d9a8e","#e7d8a5","#344153","#241f28"), # Sora
-        ("#6d3d3b","#d8a078","#a44f5c","#e2bd62","#60434c","#271f27"), # Melo
-        ("#332e36","#d7a177","#d3a443","#6a8d78","#4d5a50","#272229"), # Yuzu
-        ("#31405e","#d59c73","#5379a8","#d87f4a","#43516c","#231f27"), # Pon
+        ("#2b2630","#d79c74","#4f978b","#ead7a2","#35445b","#2a222c","#bf6a5f"), # SORA
+        ("#74413e","#d99e77","#a44f60","#e1ad4d","#563d50","#282129","#f2c45e"), # MELO
+        ("#322d35","#d7a178","#d4a746","#70856d","#53604d","#282328","#efe4bd"), # YUZU
+        ("#435271","#d59a72","#557ca9","#dc7e4e","#354762","#26212a","#b56b45"), # PON
     ]
 
-    def px(d,x,y,w,h,c): d.rectangle((x,y,x+w-1,y+h-1),fill=c)
+    def rect(d,x,y,w,h,c): d.rectangle((x,y,x+w-1,y+h-1),fill=c)
+    def pix(d,x,y,c): d.point((x,y),fill=c)
 
-    def draw_frame(row,col,direction,step,pal):
-        hair,skin,top,accent,bottom,shoes=pal
-        ox=col*cell_w;oy=row*cell_h
-        imf=Image.new("RGBA",(cell_w,cell_h),(0,0,0,0));d=ImageDraw.Draw(imf)
+    def frame(row,col,direction,step,pal):
+        hair,skin,top,accent,bottom,shoes,detail=pal
+        f=Image.new("RGBA",(CELL_W,CELL_H),(0,0,0,0));d=ImageDraw.Draw(f)
 
-        # shadow is drawn at runtime, keep sprite clean
-        if direction=="down":
-            px(d,4,1,8,7,"#25212a");px(d,5,2,6,6,hair);px(d,5,5,6,4,skin)
-            px(d,6,6,1,1,"#3a2a2d");px(d,9,6,1,1,"#3a2a2d")
-            px(d,4,9,8,8,"#25212a");px(d,5,10,6,6,top)
-            px(d,3,11,2,6,skin);px(d,11,11,2,6,skin)
-            # character-specific accent
-            if row==0: px(d,10,10,2,7,accent);px(d,9,13,2,2,"#6f5b45")
-            elif row==1: px(d,5,9,6,2,accent);px(d,3,8,2,3,"#d3a443");px(d,11,8,2,3,"#d3a443")
-            elif row==2: px(d,6,6,1,1,"#eee0c0");px(d,9,6,1,1,"#eee0c0");px(d,5,12,6,2,accent)
-            elif row==3: px(d,5,9,6,2,accent);px(d,8,10,2,6,"#b65e47")
-            lx=5+(1 if step else 0);rx=9-(1 if step else 0)
-            px(d,lx,17,2,5,bottom);px(d,rx,17,2,5,bottom);px(d,lx,22,2,2,shoes);px(d,rx,22,2,2,shoes)
-        elif direction=="up":
-            px(d,4,1,8,8,"#25212a");px(d,5,2,6,7,hair)
-            px(d,4,9,8,8,"#25212a");px(d,5,10,6,6,top)
-            if row==0:px(d,10,10,2,7,accent)
-            elif row==1:px(d,5,9,6,2,accent)
-            elif row==2:px(d,5,12,6,2,accent)
-            elif row==3:px(d,5,9,6,2,accent);px(d,8,10,2,6,"#b65e47")
-            px(d,3,11,2,6,skin);px(d,11,11,2,6,skin)
-            lx=5+(1 if step else 0);rx=9-(1 if step else 0)
-            px(d,lx,17,2,5,bottom);px(d,rx,17,2,5,bottom);px(d,lx,22,2,2,shoes);px(d,rx,22,2,2,shoes)
+        # 11x11 head, intentionally larger than torso.
+        if direction in ("down","up"):
+            rect(d,6,1,12,11,"#25212a")
+            if row==0:  # Sora rounded hair + side fringe
+                rect(d,7,2,10,8,hair);rect(d,6,4,2,5,hair);rect(d,15,3,3,5,hair)
+            elif row==1: # Melo asymmetric auburn bob
+                rect(d,7,2,10,8,hair);rect(d,5,5,3,7,hair);rect(d,16,4,3,6,hair);rect(d,17,3,2,2,accent)
+            elif row==2: # Yuzu wavy hair
+                rect(d,7,2,10,8,hair);rect(d,5,5,3,6,hair);rect(d,16,5,3,6,hair);pix(d,6,3,hair);pix(d,17,2,hair)
+            else: # Pon angular blue-violet hair
+                rect(d,7,2,10,8,hair);rect(d,5,4,4,4,hair);rect(d,15,3,4,5,hair);rect(d,10,1,6,2,hair)
+
+            if direction=="down":
+                rect(d,8,6,8,6,skin)
+                pix(d,10,8,"#3b2d30");pix(d,14,8,"#3b2d30")
+                pix(d,12,10,"#a66f5b")
+            else:
+                rect(d,8,7,8,5,hair)
         else:
             left=direction=="left"
-            px(d,4,1,8,7,"#25212a");px(d,5 if left else 4,2,6,6,hair);px(d,6 if left else 5,5,5,4,skin)
-            eye_x=6 if left else 9;px(d,eye_x,6,1,1,"#3a2a2d")
-            px(d,4,9,8,8,"#25212a");px(d,5,10,6,6,top)
-            arm_x=3 if left else 11;px(d,arm_x,11,2,6,skin)
-            if row==0:px(d,10 if left else 4,10,2,7,accent)
-            elif row==1:px(d,5,9,6,2,accent)
-            elif row==2:px(d,6,12,5,2,accent)
-            elif row==3:px(d,5,9,6,2,accent);px(d,8,10,2,6,"#b65e47")
-            if step:
-                px(d,5,17,2,5,bottom);px(d,9,18,2,4,bottom);px(d,5,22,2,2,shoes);px(d,9,22,2,2,shoes)
+            rect(d,6,1,12,11,"#25212a")
+            if row==0:
+                rect(d,7,2,10,8,hair);rect(d,6 if left else 16,4,3,5,hair)
+            elif row==1:
+                rect(d,7,2,10,8,hair);rect(d,5 if left else 16,5,4,7,hair);rect(d,16 if left else 6,3,2,2,accent)
+            elif row==2:
+                rect(d,7,2,10,8,hair);rect(d,5,5,4,6,hair);rect(d,15,5,4,6,hair)
             else:
-                px(d,6,17,2,5,bottom);px(d,9,17,2,5,bottom);px(d,6,22,2,2,shoes);px(d,9,22,2,2,shoes)
+                rect(d,7,2,10,8,hair);rect(d,5 if left else 15,4,5,4,hair)
+            rect(d,8 if left else 7,6,8,6,skin)
+            pix(d,9 if left else 14,8,"#3b2d30")
 
-        sheet.alpha_composite(imf,(ox,oy))
+        # torso outline + clothing
+        rect(d,5,12,14,11,"#25212a")
+        rect(d,7,13,10,9,top)
+        # arms
+        rect(d,3,14,3,8,"#25212a");rect(d,18,14,3,8,"#25212a")
+        rect(d,4,15,2,6,skin);rect(d,18,15,2,6,skin)
 
+        # signature details
+        if row==0: # diagonal cream bag strap + coral bag
+            for i in range(7): pix(d,8+i,13+i//2,accent)
+            rect(d,14,18,4,4,detail)
+        elif row==1: # broad amber collar + small side pouch
+            rect(d,8,13,8,2,accent);rect(d,17,17,3,4,detail)
+        elif row==2: # cream scarf + olive belt
+            rect(d,8,13,8,2,detail);rect(d,7,19,10,2,accent)
+        else: # orange scarf + square backpack edge
+            rect(d,8,13,8,2,accent);rect(d,16,15,4,7,detail)
+
+        # legs / walk stance
+        if step:
+            rect(d,7,23,4,6,bottom);rect(d,14,24,4,5,bottom)
+            rect(d,6,29,5,3,shoes);rect(d,14,29,5,3,shoes)
+        else:
+            rect(d,8,23,4,6,bottom);rect(d,13,23,4,6,bottom)
+            rect(d,7,29,5,3,shoes);rect(d,13,29,5,3,shoes)
+
+        sheet.alpha_composite(f,(col*CELL_W,row*CELL_H))
+
+    frames=[("down",0),("down",1),("left",0),("left",1),("right",0),("right",1),("up",0),("up",1)]
     for row,pal in enumerate(chars):
-        frames=[("down",0),("down",1),("left",0),("left",1),("right",0),("right",1),("up",0),("up",1)]
-        for col,(direction,step) in enumerate(frames):draw_frame(row,col,direction,step,pal)
+        for col,(direction,step) in enumerate(frames):
+            frame(row,col,direction,step,pal)
     sheet.save(OUT/"dolzore-characters.png")
-
 town_game();characters()
 
 print("rendered",OUT/"dolzore-town.png",OUT/"dolzore-jukebox.png",OUT/"dolzore-town-game.png",OUT/"dolzore-characters.png")

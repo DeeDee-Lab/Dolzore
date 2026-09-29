@@ -4,8 +4,8 @@ from PIL import Image
 EXPECTED={
     "docs/assets/dolzore-town.png":(960,540),
     "docs/assets/dolzore-jukebox.png":(480,720),
-    "docs/assets/dolzore-town-game.png":(960,540),
-    "docs/assets/dolzore-characters.png":(128,96),
+    "docs/assets/dolzore-town-game.png":(480,270),
+    "docs/assets/dolzore-characters.png":(192,128),
 }
 for raw,size in EXPECTED.items():
     p=Path(raw)
