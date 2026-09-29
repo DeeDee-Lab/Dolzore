@@ -250,7 +250,57 @@ combine world exploration, character relationships and music.
 
 ---
 
-## Slice 11+ — broader RPG systems
+## Slice 11 — FISHING v1
+
+Adds:
+- first fishing rod;
+- 4–6 fish species;
+- location/time/bait conditions;
+- tension-based catch interaction;
+- fish log;
+- NPC sell value;
+- local personal-best records.
+
+No public ranking yet; local-only while server authority is absent.
+
+## Slice 12 — COOKING v1
+
+Adds:
+- 5–8 recipes;
+- caught fish as ingredients;
+- food quality;
+- exploration/combat preparation effects;
+- recipe book.
+
+## Slice 13 — LOCAL HOUSING ROOM
+
+Adds:
+- personal instanced room;
+- furniture placement;
+- fish trophy / aquarium slot;
+- storage;
+- no server dependency yet.
+
+## Slice 14 — INVENTORY / EQUIPMENT / LEVEL FOUNDATION
+
+Adds:
+- BODY / SHOES / CHARM / TOOL;
+- local inventory;
+- level/XP;
+- weapon/profession progression placeholders;
+- no battle required yet.
+
+## Slice 15 — COMBAT MVP
+
+Adds:
+- 3 initial combat jobs;
+- first enemy ecology set;
+- weapon skills;
+- resonance magic;
+- dangerous field zone;
+- first party-oriented boss prototype.
+
+## Slice 16+ — broader RPG / social systems
 
 After exploration feels genuinely good:
 - inventory
