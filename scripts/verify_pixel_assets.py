@@ -6,6 +6,7 @@ EXPECTED={
     "docs/assets/dolzore-jukebox.png":(480,720),
     "docs/assets/dolzore-town-game.png":(480,270),
     "docs/assets/dolzore-characters.png":(256,160),
+    "docs/assets/dolzore-first-town.png":(1536,1152),
 }
 for raw,size in EXPECTED.items():
     p=Path(raw)

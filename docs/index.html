@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>DOLZORE | 歩ける小さな町</title>
-  <meta name="description" content="DOLZOREの小さな町を歩いて、Creator BGMと読みものを見つけられます。">
+  <title>DOLZORE | 最初の街</title>
+  <meta name="description" content="DOLZOREの最初の街を歩く。住宅丘陵、中央通り、市場、川沿い、駅へ続くオープンリージョンの入口です。">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://deedee-lab.github.io/Dolzore/">
   <link rel="stylesheet" href="styles.css">
@@ -28,18 +28,16 @@
   <section class="walkable-world" data-town-world aria-labelledby="town-title">
     <div class="world-titlebar">
       <div>
-        <p class="pixel-kicker">DOLZORE TOWN / AREA 01</p>
-        <h1 id="town-title">町を歩いてみる。</h1>
+        <p class="pixel-kicker">DOLZORE / FIRST TOWN</p>
+        <h1 id="town-title">最初の街。</h1>
       </div>
       <p class="world-control-hint"><strong>MOVE</strong> 矢印 / WASD　<strong>JUMP</strong> Space　<strong>TALK / ENTER</strong> Enter</p>
     </div>
 
     <div class="game-viewport" data-game-viewport>
       <canvas class="town-canvas" data-town-canvas width="480" height="270" tabindex="0" aria-label="歩けるDOLZOREの町"></canvas>
-
-      <a class="game-building-label cafe" href="#" data-place-label="cafe" aria-label="CAFE">CAFE</a>
-      <a class="game-building-label journal" href="journal/" data-place-label="journal">JOURNAL</a>
-      <a class="game-building-label music" href="music/" data-place-label="music">MUSIC</a>
+      <div class="world-label-layer" data-world-label-layer aria-hidden="true"></div>
+      <div class="world-district-badge"><span data-district-name>RESIDENTIAL HILL</span></div>
 
       <div class="game-dialogue-panel" data-town-dialogue aria-live="polite">
         <strong data-dialogue-name>DOLZORE</strong>

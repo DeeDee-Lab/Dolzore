@@ -2,7 +2,7 @@ name: Render DOLZORE pixel assets
 
 on:
   push:
-    branches: [main, "redesign/final-site-20260929"]
+    branches: [main, "redesign/first-town-20260929"]
     paths:
       - "scripts/render_pixel_assets.py"
       - "scripts/verify_pixel_assets.py"
@@ -34,7 +34,7 @@ jobs:
           $ErrorActionPreference = 'Stop'
           $assetTemp = Join-Path $env:RUNNER_TEMP "dolzore-pixel-assets"
           New-Item -ItemType Directory -Force -Path $assetTemp | Out-Null
-          foreach ($name in @("dolzore-town.png","dolzore-jukebox.png","dolzore-town-game.png","dolzore-characters.png")) {
+          foreach ($name in @("dolzore-town.png","dolzore-jukebox.png","dolzore-town-game.png","dolzore-characters.png","dolzore-first-town.png")) {
             Copy-Item (Join-Path "docs/assets" $name) (Join-Path $assetTemp $name) -Force
           }
 
@@ -43,13 +43,13 @@ jobs:
           git fetch origin $env:GITHUB_REF_NAME
           git reset --hard "origin/$env:GITHUB_REF_NAME"
 
-          foreach ($name in @("dolzore-town.png","dolzore-jukebox.png","dolzore-town-game.png","dolzore-characters.png")) {
+          foreach ($name in @("dolzore-town.png","dolzore-jukebox.png","dolzore-town-game.png","dolzore-characters.png","dolzore-first-town.png")) {
             Copy-Item (Join-Path $assetTemp $name) (Join-Path "docs/assets" $name) -Force
           }
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/assets/dolzore-town.png docs/assets/dolzore-jukebox.png docs/assets/dolzore-town-game.png docs/assets/dolzore-characters.png
+          git add docs/assets/dolzore-town.png docs/assets/dolzore-jukebox.png docs/assets/dolzore-town-game.png docs/assets/dolzore-characters.png docs/assets/dolzore-first-town.png
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
             git commit -m "assets: render deliberate pixel town and jukebox [skip ci]"

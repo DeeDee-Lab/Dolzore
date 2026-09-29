@@ -417,4 +417,289 @@ def characters():
     sheet.save(OUT/"dolzore-characters.png")
 town_game();characters()
 
-print("rendered",OUT/"dolzore-town.png",OUT/"dolzore-jukebox.png",OUT/"dolzore-town-game.png",OUT/"dolzore-characters.png")
+
+def first_town():
+    W,H=1536,1152
+    im=Image.new("RGB",(W,H),"#78b866")
+    d=ImageDraw.Draw(im)
+    R=lambda a,c:d.rectangle(a,fill=c)
+    L=lambda p,c,w=1:d.line(p,fill=c,width=w)
+    Poly=lambda p,c:d.polygon(p,fill=c)
+
+    # palette
+    grass="#79b966"; grass2="#66a956"; grass3="#4e884b"
+    road="#9f9978"; road2="#8a8569"; curb="#d2c8a0"; curb2="#b7ad87"
+    ink="#2d2831"; shadow="#587f4d"
+    cream="#eadfb8"; teal="#72ad99"; tealSide="#548777"
+    rose="#cf7882"; roseSide="#a85b66"; ochre="#d9b36b"; ochreSide="#b58d55"
+    blue="#6b91b0"; blueSide="#4c6d88"; olive="#89996a"; oliveSide="#687650"
+    window="#9fd4cf"; window2="#d7eee3"; brown="#6d4e39"; gold="#deb64f"
+
+    # subtle ground texture
+    R((0,0,W,H),grass)
+    for x in range(12,W,19):
+        for y in range(12,H,19):
+            if ((x*7+y*3)//19)%11==0:
+                d.point((x,y),fill=grass2)
+                if (x+y)%3==0:d.point((x+1,y),fill="#92c97b")
+
+    # Riverside band
+    R((0,905,W,1030),"#5fa5b2")
+    R((0,897,W,910),"#d4c89b")
+    for x in range(0,W,24):
+        R((x,900,min(x+12,W),904),"#a9a07c")
+    for x in range(18,W,64):
+        L(((x,936),(x+18,934)),"#85c6cf",2)
+        L(((x+10,995),(x+34,993)),"#4e8797",2)
+    # south bank
+    R((0,1030,W,1151),grass2)
+    R((0,1030,W,1042),"#d4c89b")
+    for x in range(8,W,41):
+        L(((x,1047),(x+2,1062)),grass3,2)
+
+    # riverbank greens / reeds
+    R((0,850,W,897),grass2)
+    for x in range(10,W,37):
+        L(((x,888),(x+2,871)),grass3,2)
+        L(((x+5,891),(x+7,875)),grass3,2)
+
+    # Residential hill plateau
+    R((0,0,650,380),"#82bf6b")
+    R((0,370,650,390),"#6a9d57")
+    for x in range(0,650,24):
+        R((x,376,min(x+15,650),381),"#557b49")
+
+    # roads: loops
+    # main east-west
+    R((120,430,1450,560),road)
+    R((120,420,1450,432),curb)
+    R((120,560,1450,572),curb)
+    # residential descent
+    R((470,240,590,760),road)
+    R((458,240,470,760),curb)
+    R((590,240,602,760),curb)
+    # civic loop
+    R((250,680,1050,790),road)
+    R((250,668,1050,680),curb)
+    R((250,790,1050,802),curb)
+    # station road
+    R((1040,500,1160,940),road)
+    R((1028,500,1040,940),curb)
+    R((1160,500,1172,940),curb)
+    # riverside road
+    R((180,790,1320,875),road)
+    R((180,778,1320,790),curb)
+    R((180,875,1320,887),curb)
+    # market lane
+    R((930,300,1010,760),road2)
+    R((918,300,930,760),curb)
+    R((1010,300,1022,760),curb)
+
+    # lane markings
+    for x in range(150,1430,90): R((x,492,x+42,497),"#e8ddb1")
+    for y in range(270,730,74): R((528,y,533,y+34),"#e8ddb1")
+    for x in range(280,1030,80): R((x,733,x+34,738),"#e8ddb1")
+    for y in range(530,920,78): R((1098,y,1103,y+36),"#e8ddb1")
+
+    # bridge
+    R((790,875,860,1058),"#81664c")
+    R((798,881,852,1052),"#c49a69")
+    for y in range(888,1048,22): R((801,y,849,y+7),"#a87d55")
+    R((790,875,797,1058),ink);R((853,875,860,1058),ink)
+
+    def building(x,y,w,h,front,side,roof):
+        # contact shadow only
+        R((x+8,y+h+5,x+w+10,y+h+9),shadow)
+        R((x+w+1,y+18,x+w+9,y+h+4),side)
+        R((x,y+18,x+w,y+h+5),ink)
+        R((x+3,y+21,x+w-3,y+h+2),front)
+        # roof plane
+        Poly(((x-7,y+20),(x+18,y),(x+w-25,y),(x+w+8,y+20),(x+w,y+28),(x,y+28)),ink)
+        Poly(((x+1,y+18),(x+20,y+5),(x+w-27,y+5),(x+w,y+18),(x+w-1,y+23),(x+2,y+23)),roof)
+        # windows
+        R((x+14,y+42,x+43,y+69),ink);R((x+17,y+45,x+40,y+66),window)
+        R((x+w-46,y+42,x+w-17,y+69),ink);R((x+w-43,y+45,x+w-20,y+66),window2)
+        # door
+        dx=x+w//2-12
+        R((dx,y+h-34,dx+24,y+h+3),ink);R((dx+3,y+h-31,dx+21,y+h+3),"#554451")
+        R((dx+17,y+h-16,dx+19,y+h-13),gold)
+        return {"door":(dx+12,y+h+5),"rect":(x,y,x+w+9,y+h+9)}
+
+    def tree(x,y,scale=1.0):
+        tr=int(6*scale)
+        R((x-tr//2,y,x+tr//2,y+int(28*scale)),brown)
+        blobs=[(-14,-12,16,16),(1,-18,18,17),(-4,-30,17,18),(-19,-4,14,14),(12,-6,14,14)]
+        for dx,dy,bw,bh in blobs:
+            R((x+int(dx*scale)-2,y+int(dy*scale)-2,x+int((dx+bw)*scale)+2,y+int((dy+bh)*scale)+2),"#2e6747")
+            R((x+int(dx*scale),y+int(dy*scale),x+int((dx+bw)*scale),y+int((dy+bh)*scale)),"#438b58")
+        R((x-int(3*scale),y-int(27*scale),x+int(8*scale),y-int(21*scale)),"#67ac69")
+
+    def lamp(x,y):
+        R((x,y,x+3,y+34),"#38464c");R((x-6,y-2,x+9,y+2),"#38464c")
+        R((x-3,y-10,x+6,y-2),gold);R((x-1,y-8,x+4,y-4),"#fff0a5")
+
+    def bench(x,y):
+        R((x,y,x+52,y+6),brown);R((x+5,y-7,x+47,y-2),brown)
+        R((x+7,y+6,x+12,y+22),ink);R((x+40,y+6,x+45,y+22),ink)
+
+    def planter(x,y,color="#bd5966"):
+        R((x,y+8,x+26,y+18),brown)
+        R((x+3,y+2,x+8,y+10),grass3);R((x+11,y,x+16,y+11),color);R((x+18,y+3,x+23,y+10),grass3)
+
+    def mailbox(x,y,color="#c05b67"):
+        R((x,y,x+15,y+13),ink);R((x+2,y+2,x+13,y+11),color);R((x+7,y+13,x+9,y+28),ink)
+
+    def fence(x1,y,x2):
+        for x in range(x1,x2,22):
+            R((x,y,x+4,y+20),brown)
+        R((x1,y+5,x2,y+9),brown);R((x1,y+14,x2,y+18),brown)
+
+    def crate_stack(x,y):
+        for dx,dy in ((0,12),(18,12),(9,0)):
+            R((x+dx,y+dy,x+dx+15,y+dy+15),"#7f5a3c")
+            R((x+dx+2,y+dy+2,x+dx+13,y+dy+13),"#a9794e")
+            L(((x+dx+3,y+dy+3),(x+dx+12,y+dy+12)),brown,1)
+
+    def bin_box(x,y,color="#4f6d62"):
+        R((x,y,x+20,y+24),ink);R((x+2,y+3,x+18,y+22),color);R((x-2,y-3,x+22,y+3),ink)
+
+    def awning(x,y,w,color1,color2):
+        R((x,y,x+w,y+10),ink)
+        step=12
+        for sx in range(x+2,x+w-2,step):
+            R((sx,y+2,min(sx+step-3,x+w-2),y+8),color1 if ((sx-x)//step)%2==0 else color2)
+
+    def signpost(x,y,w=34,h=16,color="#334b58"):
+        R((x,y,x+w,y+h),ink);R((x+2,y+2,x+w-2,y+h-2),color)
+        R((x+w//2-1,y+h,x+w//2+2,y+h+26),ink)
+
+    # Residential Hill
+    home=building(115,105,150,96,ochre,ochreSide,"#5f6e67")
+    building(315,90,135,92,"#d49b72","#aa7656","#6d5f68")
+    building(92,245,122,82,"#9eb779","#74895a","#596b5c")
+    building(285,230,145,88,"#7ba9c0","#587d92","#4f596b")
+    # water tower landmark
+    R((535,92,600,140),ink);R((541,98,594,135),blue)
+    R((548,140,554,205),ink);R((581,140,587,205),ink)
+    R((540,203,596,210),ink)
+    # small park / lived-in residential details
+    for t in ((55,165,1.0),(62,300,.9),(448,120,1.1),(430,320,.9)): tree(*t)
+    fence(18,344,220);fence(300,344,452)
+    mailbox(278,188,"#c35f69");mailbox(70,306,"#557e96")
+    bench(22,218);planter(245,325,"#e2b54a");planter(415,208,"#c85f82")
+    signpost(500,222,46,18,"#536c73")
+
+    # Main Street buildings
+    bar=building(610,330,180,105,rose,roseSide,"#6f3546")
+    cafe=building(820,345,145,94,ochre,ochreSide,"#616e65")
+    store=building(1080,330,160,100,teal,tealSide,"#475c58")
+    service=building(1265,350,140,92,blue,blueSide,"#4b5364")
+    # central plaza + distinct storefront language
+    R((620,575,900,655),"#d8cc9f")
+    for x in range(640,880,46): R((x,590,x+28,596),"#b9ac84")
+    bench(690,606);bench(808,606)
+    planter(640,620,"#c95d75");planter(870,620,"#e0ad47")
+    awning(625,410,150,"#80344b","#e5d6a8")
+    awning(835,418,116,"#d6a848","#f0e2b7")
+    signpost(680,360,46,18,"#7e354a")
+    R((1170,463,1202,477),ink);R((1174,466,1198,474),"#d8c49a") # bike rack
+    for bx in range(1177,1197,7): L(((bx,468),(bx-4,480)),ink,1)
+    bin_box(1018,535,"#536a5d");mailbox(1260,420,"#4d7590")
+
+    # Market / workshop
+    workshop=building(1015,195,165,96,"#a9836f","#7c604f","#4c5057")
+    secondhand=building(1210,200,145,92,"#8ca57a","#697c5c","#57604f")
+    building(1360,245,125,80,"#d4a875","#ad845a","#6e5960")
+    # stalls / workshop clutter
+    for x,c in ((1045,"#bd5966"),(1125,"#5b8e78"),(1205,"#d0a84e")):
+        R((x,615,x+62,652),cream);R((x,605,x+62,618),c)
+        R((x+5,652,x+9,676),brown);R((x+53,652,x+57,676),brown)
+    awning(1025,270,138,"#6d4e3f","#c39773")
+    awning(1222,270,112,"#66785a","#d8c695")
+    crate_stack(1380,370);crate_stack(1250,660)
+    bin_box(1175,265,"#566860");bin_box(1440,350,"#5c6f65")
+    signpost(1040,170,58,18,"#66504a")
+    for px,py in ((1080,355),(1120,355),(1160,355),(1300,345)):
+        planter(px,py,"#d6a347")
+
+    # Civic / JOURNAL
+    journal=building(320,600,190,110,teal,tealSide,"#4c4152")
+    building(540,625,145,90,"#c2a276","#9d7c57","#5e5b63")
+    # civic map kiosk / plaza
+    R((715,650,770,720),ink);R((720,655,765,710),cream)
+    R((726,662,758,667),rose);R((726,675,752,680),blue);R((726,688,760,693),teal)
+    for py in range(806,842,12):
+        for px in range(330,760,28):
+            R((px,py,px+16,py+4),"#c9be97")
+    bench(570,816);planter(355,812,"#b95869");planter(748,812,"#5c8f76")
+    signpost(390,570,64,18,"#3d625b")
+    mailbox(680,705,"#c05e69")
+
+    # Riverside structures
+    building(130,775,145,88,"#a7b47a","#7e895a","#586052")
+    building(1020,785,155,94,"#c7907e","#9e695c","#60536a")
+    # big landmark tree
+    tree(560,842,1.7)
+    # fishing pier / riverside life
+    R((370,880,465,925),brown);R((377,886,458,920),"#a17750")
+    for x in range(382,458,18): R((x,889,x+5,917),"#7e5c40")
+    bench(640,858);signpost(505,826,52,18,"#4d746a")
+    for rx,ry in ((300,875),(720,890),(935,880),(1100,892)):
+        R((rx,ry,rx+8,ry+5),"#66706a")
+    for fx in range(210,760,90):
+        L(((fx,895),(fx+3,878)),grass3,2);L(((fx+7,897),(fx+10,882)),grass3,2)
+    planter(980,860,"#d9ac49")
+
+    # Station / East Gate
+    station=building(1220,690,220,125,"#8da7b3","#667b85","#485260")
+    # station clock tower
+    R((1315,620,1365,690),ink);R((1321,626,1359,686),"#d2c59e")
+    d.ellipse((1328,636,1352,660),fill="#f3e7c5",outline=ink,width=3)
+    L(((1340,648),(1340,641)),ink,2);L(((1340,648),(1347,653)),ink,2)
+    # station platform identity + east gate continuation
+    R((1190,850,1490,885),"#c8bd95")
+    R((1190,850,1490,858),ink)
+    for px in range(1205,1470,38): R((px,866,px+20,870),"#918a72")
+    R((1240,812,1435,824),ink);R((1245,815,1430,821),"#546879")
+    signpost(1440,742,58,18,"#4f6476")
+    bench(1180,735);bench(1410,735)
+    R((1450,430,1535,560),road);R((1450,420,1535,432),curb);R((1450,560,1535,572),curb)
+
+    # Back alley pocket
+    R((790,205,900,320),"#659f58")
+    R((807,236,830,300),ink);R((811,240,826,296),"#426d8d") # vending machine
+    R((840,282,892,288),brown);R((846,289,851,310),brown);R((883,289,888,310),brown)
+    # graffiti-ish pixel marks / alley clutter
+    for x,y,c in ((795,219,rose),(803,214,gold),(812,220,blue),(821,214,teal)):
+        R((x,y,x+6,y+3),c)
+    bin_box(770,278,"#48675e");crate_stack(895,300)
+    R((875,332,882,338),ink);R((883,330,889,338),ink) # small cat silhouette
+    L(((878,330),(875,326)),ink,1);L(((886,330),(889,326)),ink,1)
+    signpost(748,190,54,18,"#444052")
+
+    # trees around districts
+    for t in [(45,80,1),(70,390,1),(220,360,1),(690,260,1),(900,270,1),(1460,380,1),
+              (260,850,1),(690,850,1),(900,850,1),(1180,900,1),(1450,860,1)]:
+        tree(*t)
+
+    # lamps
+    for x,y in [(180,410),(410,410),(650,410),(900,410),(1130,410),(1380,410),
+                (300,660),(520,660),(810,660),(980,660),(1210,770)]:
+        lamp(x,y)
+
+    # parked cars
+    def car(x,y,color):
+        R((x,y+8,x+52,y+28),ink);R((x+4,y+5,x+47,y+24),color);R((x+13,y,x+37,y+10),color)
+        R((x+16,y+2,x+34,y+8),window);R((x+7,y+24,x+14,y+31),ink);R((x+39,y+24,x+46,y+31),ink)
+    car(280,468,rose);car(1180,500,blue);car(850,720,"#7f936d")
+
+    # district boundary details / drains
+    for x,y in [(210,565),(470,565),(740,565),(1010,565),(1280,565),(420,795),(840,795),(1110,875)]:
+        R((x,y,x+22,y+5),"#56554e")
+        for gx in range(x+3,x+22,5): L(((gx,y+1),(gx,y+4)),"#999274")
+
+    im.save(OUT/"dolzore-first-town.png")
+
+first_town()
+
+print("rendered",OUT/"dolzore-town.png",OUT/"dolzore-jukebox.png",OUT/"dolzore-town-game.png",OUT/"dolzore-characters.png",OUT/"dolzore-first-town.png")
