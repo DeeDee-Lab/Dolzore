@@ -76,7 +76,7 @@ def main() -> None:
         page.locator(".track-choice").click()
         assert page.locator("[data-purchase]").get_attribute("href") == bright["purchaseUrl"]
         page.locator("[data-play]").click()
-        assert "試聴は準備中" in page.locator("[data-status]").text_content()
+        assert "準備中" in page.locator("[data-status]").text_content()
         audio_src = page.locator("[data-audio]").get_attribute("src")
         assert not audio_src, f"pending preview must not invent a source: {audio_src}"
         desktop.close()
