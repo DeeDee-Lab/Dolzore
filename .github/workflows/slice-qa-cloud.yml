@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: dolzore-slice-qa-cloud
+  group: dolzore-slice-qa-cloud-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
