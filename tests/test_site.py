@@ -184,6 +184,16 @@ class MusicOnlySiteTests(unittest.TestCase):
             if image:
                 self.assertTrue(str(image).startswith("https://"))
 
+    def test_product_media_manifest_has_real_photos(self):
+        media=json.loads((DOCS/"data/product-media.json").read_text(encoding="utf-8"))
+        products=media.get("products",[])
+        self.assertEqual(len(products),10)
+        resolved=[x for x in products if x.get("imageUrl")]
+        self.assertGreaterEqual(len(resolved),8)
+        for row in resolved:
+            self.assertTrue(str(row["imageUrl"]).startswith("https://"))
+            self.assertTrue(str(row["sourceUrl"]).startswith("https://"))
+
     def test_sitemap_excludes_stopped_non_music_lanes(self):
         sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
         for blocked in ("business","apps","buying-guide","smartbuy","qa","about"):
