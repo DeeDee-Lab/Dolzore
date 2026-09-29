@@ -126,6 +126,7 @@ namespace Dolzore.Editor
             FirstTownShellController shell = runtimeGo.AddComponent<FirstTownShellController>();
             shell.clockLabel = canvas.transform.Find("World Clock")?.GetComponent<Text>();
 
+            FirstTownVisualEnhancer.Apply();
             MakeEventSystem();
             EditorSceneManager.SaveScene(scene, scenePath);
         }
