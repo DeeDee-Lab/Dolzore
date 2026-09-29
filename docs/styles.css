@@ -833,3 +833,17 @@ button,input{font:inherit}
   .action-cluster .bgm-button{min-height:38px}
 }
 
+
+
+/* ===== FIRST TOWN scrolling world ===== */
+.world-label-layer{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:hidden}
+.world-place-label{position:absolute;left:0;top:0;pointer-events:auto;border:2px solid #342b38;background:#1d1921;color:#f7ebc8;padding:4px 8px;font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-weight:800;font-size:10px;letter-spacing:.06em;box-shadow:3px 3px 0 rgba(39,31,43,.3);white-space:nowrap}
+.world-place-label:hover,.world-place-label:focus-visible{outline:3px solid #e2b64b;outline-offset:2px}
+.world-district-badge{position:absolute;left:12px;top:12px;z-index:5;background:rgba(23,21,27,.9);border:2px solid #efe3ba;color:#f1e7ca;padding:6px 9px;pointer-events:none}
+.world-district-badge span{font-family:"DotGothic16",monospace;font-size:8px;letter-spacing:.09em}
+@media(max-width:700px){
+  .world-place-label{font-size:8px;padding:3px 5px;border-width:1px}
+  .world-district-badge{left:7px;top:7px;padding:4px 6px;border-width:1px}
+  .world-district-badge span{font-size:7px}
+}
+
