@@ -39,6 +39,7 @@ export class TownScene extends Phaser.Scene {
   private jumpKey!: Phaser.Input.Keyboard.Key;
   private mapKey!: Phaser.Input.Keyboard.Key;
   private statusKey!: Phaser.Input.Keyboard.Key;
+  private escKey!: Phaser.Input.Keyboard.Key;
   private mapCamera!: Phaser.Cameras.Scene2D.Camera;
   private miniCamera!: Phaser.Cameras.Scene2D.Camera;
   private mapOpen = false;
@@ -97,7 +98,44 @@ export class TownScene extends Phaser.Scene {
     this.bindMobileControls();
 
     this.showDialogue('DOLZORE', '最初の街。目的地を決めずに歩いてもいい。違和感があれば、覚えておこう。');
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.cleanupMobile.forEach((fn) => fn()));
+
+    const debugWindow = window as Window & {
+      __DOLZORE_GAME__?: {
+        ready: boolean;
+        state: () => {
+          x: number; y: number; zone: string; mapOpen: boolean; statusOpen: boolean;
+          worldWidth: number; worldHeight: number;
+        };
+        teleport: (x: number, y: number) => void;
+        openMap: () => void;
+        openStatus: () => void;
+      }
+    };
+    debugWindow.__DOLZORE_GAME__ = {
+      ready: true,
+      state: () => ({
+        x: this.playerBody.x,
+        y: this.playerBody.y,
+        zone: this.zoneText.text,
+        mapOpen: this.mapOpen,
+        statusOpen: this.statusOpen,
+        worldWidth: WORLD_W,
+        worldHeight: WORLD_H
+      }),
+      teleport: (x: number, y: number) => {
+        this.playerBody.setPosition(x, y);
+        this.syncPlayerVisuals();
+        this.cameras.main.centerOn(x, y);
+        this.updateZone();
+      },
+      openMap: () => { if (!this.mapOpen) this.toggleMap(); },
+      openStatus: () => { if (!this.statusOpen) this.toggleStatus(); }
+    };
+
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.cleanupMobile.forEach((fn) => fn());
+      delete debugWindow.__DOLZORE_GAME__;
+    });
   }
 
   private createTerrain(roads: MapObject[], water: MapObject[]) {
@@ -278,6 +316,7 @@ export class TownScene extends Phaser.Scene {
     this.jumpKey = keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     this.mapKey = keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
     this.statusKey = keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
+    this.escKey = keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
   }
 
   private createHud() {
@@ -420,7 +459,7 @@ export class TownScene extends Phaser.Scene {
   update(time: number) {
     if (Phaser.Input.Keyboard.JustDown(this.mapKey)) this.toggleMap();
     if (Phaser.Input.Keyboard.JustDown(this.statusKey)) this.toggleStatus();
-    if (this.input.keyboard && Phaser.Input.Keyboard.JustDown(this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC))) {
+    if (Phaser.Input.Keyboard.JustDown(this.escKey)) {
       if (this.mapOpen) this.toggleMap();
       if (this.statusOpen) this.toggleStatus();
     }
