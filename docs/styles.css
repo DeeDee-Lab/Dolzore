@@ -619,3 +619,44 @@ button,input{font:inherit}
   .projector-product-card h3{font-size:24px}
   .market-listing{grid-template-columns:62px 1fr}.market-listing-image{width:62px;height:58px}.market-listing-cta{grid-column:2;text-align:left}
 }
+
+
+/* ===== DOLZORE WORLD v5 — interactive town ===== */
+.world-v5{background:#d8d2ae}
+.walkable-world{max-width:1120px;margin:0 auto;padding:38px 20px 26px}
+.world-titlebar{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:16px}
+.world-titlebar h1{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:clamp(30px,4vw,46px);letter-spacing:-.04em;margin:2px 0 0}
+.world-control-hint{margin:0;font-size:11px;color:#5d5661}
+.world-control-hint strong{font-family:"DotGothic16",monospace;font-size:10px;color:#332c38}
+.game-viewport{position:relative;aspect-ratio:16/9;background:#2a2530;border:5px solid #302832;box-shadow:8px 8px 0 rgba(50,40,55,.24);overflow:hidden}
+.town-canvas{display:block;width:100%;height:100%;image-rendering:pixelated;image-rendering:crisp-edges;outline:none}
+.town-canvas:focus-visible{box-shadow:inset 0 0 0 4px #e1b852}
+.game-building-label{position:absolute;z-index:4;transform:translate(-50%,-50%);padding:5px 10px;background:#1d1921;color:#fff3d0;border:2px solid #efe3b6;text-decoration:none;font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-weight:800;font-size:clamp(10px,1.2vw,14px);letter-spacing:.08em;box-shadow:3px 3px 0 rgba(39,31,43,.35)}
+.game-building-label:hover,.game-building-label:focus-visible{outline:3px solid #e4b54d;outline-offset:2px}
+.game-building-label.cafe{left:18.7%;top:26%}.game-building-label.journal{left:49.2%;top:24%}.game-building-label.music{left:82%;top:23%}
+.game-dialogue-panel{position:absolute;z-index:5;left:2.4%;bottom:3.5%;width:min(430px,48%);background:#17151b;color:#f4ecd2;border:3px solid #efe3ba;outline:4px solid #332b38;padding:14px 17px;box-shadow:6px 7px 0 rgba(34,26,38,.34)}
+.game-dialogue-panel strong{display:block;font-family:"DotGothic16",monospace;font-size:10px;letter-spacing:.12em;color:#e4bd5d;margin-bottom:5px}
+.game-dialogue-panel p{margin:0;font-size:13px;line-height:1.65}
+.game-control-row{display:grid;grid-template-columns:auto auto 1fr;gap:18px;align-items:center;padding:18px 2px 0}
+.dpad{display:grid;grid-template-columns:36px 36px 36px;grid-template-rows:34px 34px;gap:3px}
+.dpad button,.action-button{border:2px solid #332b38;background:#f3e7c1;color:#2e2732;font-weight:800;box-shadow:3px 3px 0 #72596d;cursor:pointer}
+.dpad button:active,.action-button:active{transform:translate(1px,1px);box-shadow:1px 1px 0 #72596d}
+.dpad-up{grid-column:2}.dpad-left{grid-column:1;grid-row:2}.dpad-down{grid-column:2;grid-row:2}.dpad-right{grid-column:3;grid-row:2}
+.action-button{min-height:70px;padding:0 18px;background:#e1b44e}
+.resident-list{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;font-family:"DotGothic16",monospace;font-size:9px;color:#514956}
+.resident-list span{display:flex;align-items:center;gap:5px}.resident-dot{width:10px;height:10px;display:inline-block;border:2px solid #2d2731}.resident-dot.sora{background:#4f978b}.resident-dot.melo{background:#a44f60}.resident-dot.yuzu{background:#d4a746}.resident-dot.pon{background:#557ca9}
+.world-fallback-links{max-width:1120px;margin:0 auto;padding:18px 20px 58px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.world-fallback-links a{background:#f0e5bd;border:3px solid #3d3441;box-shadow:5px 5px 0 rgba(49,40,53,.2);padding:18px;text-decoration:none;display:grid;gap:4px}
+.world-fallback-links span{font-family:"DotGothic16",monospace;font-size:9px;color:#8d5960}.world-fallback-links strong{font-size:20px}.world-fallback-links small{color:#6b6268}
+
+@media(max-width:700px){
+  .walkable-world{padding:24px 8px 18px}.world-titlebar{align-items:start;display:block}.world-control-hint{margin-top:8px}
+  .game-viewport{border-width:3px}
+  .game-building-label{padding:3px 6px;font-size:9px;border-width:1px;box-shadow:2px 2px 0 rgba(39,31,43,.35)}
+  .game-dialogue-panel{left:2%;bottom:2.5%;width:64%;padding:9px 11px;border-width:2px;outline-width:2px}
+  .game-dialogue-panel p{font-size:10px}.game-dialogue-panel strong{font-size:8px}
+  .game-control-row{grid-template-columns:auto 1fr;gap:12px;padding:14px 4px 0}.resident-list{grid-column:1/-1;justify-content:flex-start}
+  .action-button{min-height:70px}
+  .world-fallback-links{grid-template-columns:1fr;padding:16px 10px 42px}
+}
+
