@@ -108,6 +108,16 @@ def main() -> None:
         assert m.locator("[data-smartbuy-market]").count() == 1
         assert m.locator("[data-market-targets] .market-target-card").count() >= 6
 
+        # Official manufacturer photos are primary; pixel art is fallback.
+        m.wait_for_function(
+            "Array.from(document.querySelectorAll('.official-product-photo')).filter(i => i.complete && i.naturalWidth > 0).length >= 8",
+            timeout=30000,
+        )
+        loaded_photos = m.locator(".official-product-photo").evaluate_all(
+            "(els)=>els.filter(i=>i.complete && i.naturalWidth>0).length"
+        )
+        assert loaded_photos >= 8, loaded_photos
+
         # Product filters must visibly reduce and restore the card set.
         m.locator('[data-filter="short"]').click()
         m.wait_for_timeout(100)
@@ -143,6 +153,7 @@ def main() -> None:
     print("PROJECTOR_FILTERS=PASS")
     print("THROW_CALCULATOR=PASS")
     print("MARKET_AFFORDANCES=PASS")
+    print("OFFICIAL_PRODUCT_PHOTOS=PASS")
     print("HORIZONTAL_OVERFLOW=0")
 
 if __name__ == "__main__":
