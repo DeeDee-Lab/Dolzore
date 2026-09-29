@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>DOLZORE | 音楽屋と読みもののある小さな町</title>
-  <meta name="description" content="DOLZOREは、動画編集者向けCreator BGMを1曲¥200で販売する小さな音楽サイトです。町を歩くように曲と読みものを見つけられます。">
+  <title>DOLZORE | 音楽屋と掲示板のある町</title>
+  <meta name="description" content="DOLZOREは、動画編集者向けCreator BGMを1曲¥200で販売する音楽サイトです。町を歩くように曲と記事を見つけられます。">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://deedee-lab.github.io/Dolzore/">
   <link rel="stylesheet" href="styles.css">
   <script src="site.js" defer></script>
 </head>
-<body class="world-body world-v3">
+<body class="world-body world-v4">
 <header class="world-header">
   <a class="world-brand" href="./" aria-label="DOLZORE ホーム">
     <span class="brand-mark">DOLZORE</span><small>ドルゾーレ</small>
@@ -25,58 +25,45 @@
 </header>
 
 <main>
-  <section class="town-hero" aria-labelledby="world-title">
-    <div class="town-art-wrap" aria-hidden="true">
-      <img class="town-art" src="assets/dolzore-town.svg" alt="">
-      <a class="town-hotspot town-hotspot-music" href="music/" aria-label="MUSICの店へ"></a>
-      <a class="town-hotspot town-hotspot-journal" href="journal/" aria-label="JOURNALの掲示板へ"></a>
+  <section class="town-screen" aria-labelledby="world-title">
+    <div class="town-map">
+      <img class="town-pixel-art" src="assets/dolzore-town.png" alt="DOLZOREの町。音楽屋、掲示板、カフェ、道路、車、人が並ぶドット絵の街並み。">
+      <a class="town-hotspot-v4 music" href="music/" aria-label="音楽屋へ"></a>
+      <a class="town-hotspot-v4 journal" href="journal/" aria-label="掲示板へ"></a>
     </div>
-
-    <div class="town-copy">
-      <p class="pixel-kicker town-label">DOLZORE / TOWN MAP 01</p>
-      <h1 id="world-title">ようこそ。<br>DOLZOREの町へ。</h1>
-      <div class="dialogue-box">
-        <span class="dialogue-cursor" aria-hidden="true">◆</span>
-        <p>いま売っているのは、音楽だけです。</p>
-        <p>赤い看板が音楽屋。みどりの掲示板が読みもの。</p>
-        <p>急がなくても、曲は逃げません。</p>
+    <div class="town-dialogue-wrap">
+      <p class="pixel-kicker">DOLZORE TOWN</p>
+      <h1 id="world-title">DOLZORE</h1>
+      <div class="dialogue-box-v4">
+        <p>ここは DOLZORE。</p>
+        <p>音楽屋と、掲示板のある小さな町です。</p>
+        <p>いま買えるものは、音楽だけ。</p>
+        <p>気になるほうから、どうぞ。</p>
         <div class="dialogue-actions">
-          <a class="town-button primary" href="music/">音楽屋へ</a>
-          <a class="town-button" href="journal/">掲示板を見る</a>
+          <a class="town-button primary" href="music/">MUSIC</a>
+          <a class="town-button" href="journal/">JOURNAL</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="town-stop music-stop">
-    <div class="stop-sign" aria-hidden="true"><span>♪</span></div>
-    <div>
-      <p class="pixel-kicker">MUSIC SHOP / OPEN</p>
-      <h2>60曲。1曲 ¥200。</h2>
-      <p>用途で探して、20秒だけ聴いて、気に入った曲だけ買えます。選曲に迷ったら、まずはジュークボックスの番号をひとつ押してください。</p>
-    </div>
-    <a class="town-button primary large" href="music/">ジュークボックスを使う</a>
-  </section>
-
-  <section class="town-stop journal-stop">
-    <div class="notice-icon" aria-hidden="true"><span>!</span></div>
-    <div>
-      <p class="pixel-kicker">TOWN NOTICE BOARD</p>
-      <h2>町の掲示板です。</h2>
-      <p>音楽のこと、道具のこと、つくってみて分かったこと。記事になった順に、ここへ貼っていきます。</p>
-    </div>
-    <a class="town-button large" href="journal/">掲示板を見にいく</a>
+  <section class="town-guide" aria-label="町の案内">
+    <article>
+      <span class="guide-icon">♪</span>
+      <div><p class="pixel-kicker">MUSIC SHOP</p><h2>60曲。1曲 ¥200。</h2><p>用途で探して、20秒だけ試聴。気に入った曲だけ購入できます。</p></div>
+      <a class="town-button primary" href="music/">音楽屋へ</a>
+    </article>
+    <article>
+      <span class="guide-icon notice">!</span>
+      <div><p class="pixel-kicker">NOTICE BOARD</p><h2>町の掲示板</h2><p>音楽、道具、制作。調べたことや試したことを、記事になった順に貼っています。</p></div>
+      <a class="town-button" href="journal/">掲示板へ</a>
+    </article>
   </section>
 </main>
 
 <footer class="world-footer">
-  <div><strong>DOLZORE</strong><p>今日は、どの音から帰りますか。</p></div>
-  <div class="footer-links">
-    <a href="music/">Music</a>
-    <a href="journal/">Journal</a>
-    <a href="support/">Support</a>
-    <a href="legal/">Legal</a>
-  </div>
+  <div><strong>DOLZORE</strong><p>Creator BGM / Journal</p></div>
+  <div class="footer-links"><a href="music/">Music</a><a href="journal/">Journal</a><a href="support/">Support</a><a href="legal/">Legal</a></div>
 </footer>
 </body>
 </html>
