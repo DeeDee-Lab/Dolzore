@@ -34,14 +34,14 @@
   ];
 
   const places=[
-    {id:"home",name:"HOME",x:190,y:215,r:40,label:"HOME",text:"ここが今の拠点。坂を下りると中央通り。"},
-    {id:"bar",name:"BAR",x:700,y:447,r:46,label:"BAR",text:"最初のBAR。中はまだ準備中だけど、ここから音楽の街が始まる。"},
-    {id:"cafe",name:"CAFE",x:892,y:450,r:38,label:"CAFE",text:"昼は人が多いらしい。今日は静かだ。"},
-    {id:"journal",name:"JOURNAL",x:415,y:722,r:46,label:"JOURNAL",text:"町の記録を集めている場所。"},
-    {id:"market",name:"MARKET",x:1110,y:672,r:54,label:"MARKET",text:"工房と露店が集まる路地。"},
-    {id:"river",name:"RIVERSIDE",x:565,y:860,r:58,label:"RIVERSIDE",text:"川沿い。ここは最初の釣り場になる予定。"},
-    {id:"station",name:"STATION",x:1330,y:835,r:56,label:"STATION",text:"東へ続く駅と街道。次の地域はこの先だ。"},
-    {id:"alley",name:"ALLEY",x:845,y:300,r:42,label:"",text:"行き止まりみたいだけど、妙に風が通る。"},
+    {id:"home",name:"HOME",district:"RESIDENTIAL HILL",x:190,y:215,r:40,label:"HOME",text:"ここが今の拠点。坂を下りると中央通り。"},
+    {id:"bar",name:"BAR",district:"CENTRAL MAIN STREET",x:700,y:447,r:46,label:"BAR",text:"最初のBAR。中はまだ準備中だけど、ここから音楽の街が始まる。"},
+    {id:"cafe",name:"CAFE",district:"CENTRAL MAIN STREET",x:892,y:450,r:38,label:"CAFE",text:"昼は人が多いらしい。今日は静かだ。"},
+    {id:"journal",name:"JOURNAL",district:"CIVIC / JOURNAL",x:415,y:722,r:46,label:"JOURNAL",text:"町の記録を集めている場所。"},
+    {id:"market",name:"MARKET",district:"MARKET / WORKSHOP",x:1110,y:672,r:54,label:"MARKET",text:"工房と露店が集まる路地。"},
+    {id:"river",name:"RIVERSIDE",district:"RIVERSIDE",x:565,y:860,r:58,label:"RIVERSIDE",text:"川沿い。ここは最初の釣り場になる予定。"},
+    {id:"station",name:"STATION",district:"STATION / EAST GATE",x:1330,y:835,r:56,label:"STATION",text:"東へ続く駅と街道。次の地域はこの先だ。"},
+    {id:"alley",name:"ALLEY",district:"BACK ALLEY",x:845,y:300,r:42,label:"",text:"行き止まりみたいだけど、妙に風が通る。"},
   ];
 
   const blockers=[
@@ -121,7 +121,8 @@
     for(const place of places.filter(p=>p.label)){
       const el=labelEls.get(place.id);if(!el)continue;
       const sx=place.x-camera.x,sy=place.y-camera.y-48;
-      const visible=sx>-60&&sx<VIEW_W+60&&sy>-40&&sy<VIEW_H+30;
+      const currentDistrict=districtFor(player.x,player.y);
+      const visible=place.district===currentDistrict&&sx>-60&&sx<VIEW_W+60&&sy>-40&&sy<VIEW_H+30;
       el.hidden=!visible;
       if(visible)el.style.transform=`translate(${Math.round(sx)}px,${Math.round(sy)}px) translate(-50%,-50%)`;
     }
@@ -274,7 +275,7 @@
         camera:{...camera},
         world:{width:WORLD_W,height:WORLD_H,viewportWidth:VIEW_W,viewportHeight:VIEW_H},
         district:districtFor(player.x,player.y),
-        places:places.map(p=>({id:p.id,name:p.name,x:p.x,y:p.y,label:p.label})),
+        places:places.map(p=>({id:p.id,name:p.name,district:p.district,x:p.x,y:p.y,label:p.label})),
         residents:residents.map(x=>({name:x.name,x:x.x,y:x.y})),
         bgm:{enabled:bgmEnabled,playing:!!(audioCtx&&audioCtx.state==="running")}
       }),
