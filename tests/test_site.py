@@ -155,6 +155,35 @@ class MusicOnlySiteTests(unittest.TestCase):
         sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("/journal/projector-150inch-4k-2026/",sitemap)
 
+    def test_electronics_journal_decision_ui_contract(self):
+        journal=(DOCS/"journal/index.html").read_text(encoding="utf-8")
+        article=(DOCS/"journal/projector-150inch-4k-2026/index.html").read_text(encoding="utf-8")
+        self.assertIn("TOOLS DISTRICT",journal)
+        self.assertIn("PROJECTOR",journal)
+        self.assertIn("AUDIO",journal)
+        self.assertIn("projector-150inch-4k-2026/",journal)
+
+        self.assertEqual(article.count('data-product-card'),10)
+        self.assertIn("data-projector-filters",article)
+        self.assertIn("data-throw-tool",article)
+        self.assertIn("data-market-targets",article)
+        self.assertIn("買い目安・市場を見る",article)
+        self.assertIn("メルカリ検索",article)
+        self.assertNotIn("buy.stripe.com",article)
+
+        snapshot=json.loads((DOCS/"data/smartbuy-projectors.json").read_text(encoding="utf-8"))
+        self.assertGreaterEqual(len(snapshot.get("targets",[])),6)
+        self.assertIn("used",snapshot)
+        self.assertIn("newItems",snapshot)
+
+        media=json.loads((DOCS/"data/product-media.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(media.get("products",[])),10)
+        for row in media["products"]:
+            self.assertTrue(str(row.get("sourceUrl","")).startswith("https://"))
+            image=row.get("imageUrl")
+            if image:
+                self.assertTrue(str(image).startswith("https://"))
+
     def test_sitemap_excludes_stopped_non_music_lanes(self):
         sitemap=(DOCS/"sitemap.xml").read_text(encoding="utf-8")
         for blocked in ("business","apps","buying-guide","smartbuy","qa","about"):

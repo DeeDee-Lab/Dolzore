@@ -1,8 +1,40 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "generatedAt": null,
-  "source": "github-actions-market-snapshot",
+  "source": "github-hosted-public-market-snapshot",
   "used": [],
   "newItems": [],
-  "note": "Initial empty snapshot. Scheduled public-repo collector will populate strict verified candidates."
+  "targets": [
+    {
+      "model": "BenQ TK700STi",
+      "strongBuy": 75000,
+      "consider": 90000
+    },
+    {
+      "model": "BenQ TK705STi",
+      "strongBuy": 130000,
+      "consider": 145000
+    },
+    {
+      "model": "BenQ TK710STi",
+      "strongBuy": 160000,
+      "consider": 180000
+    },
+    {
+      "model": "Optoma UHD35STx",
+      "strongBuy": 80000,
+      "consider": 100000
+    },
+    {
+      "model": "ViewSonic X10-4K",
+      "strongBuy": 60000,
+      "consider": 65000
+    },
+    {
+      "model": "XGIMI AURA",
+      "strongBuy": 90000,
+      "consider": 100000
+    }
+  ],
+  "note": "Initial snapshot. Strict candidates may be zero; target buy bands remain visible."
 }

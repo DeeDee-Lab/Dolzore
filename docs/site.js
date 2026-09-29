@@ -119,11 +119,88 @@
     readJson("data/tracks.json").then(d=>{tracks=d.tracks||[];filtered=[...tracks];render()}).catch(()=>setStatus("曲一覧を読み込めませんでした。"));
   }
 
+  function safeHttps(raw){
+    try{
+      const u=new URL(raw);
+      return u.protocol==="https:"?u.href:"";
+    }catch{return ""}
+  }
+
+  function initProductMedia(){
+    const slots=[...document.querySelectorAll("[data-product-media]")];
+    if(!slots.length)return;
+    readJson("data/product-media.json").then(data=>{
+      const map=new Map((data.products||[]).map(x=>[x.model,x]));
+      slots.forEach(slot=>{
+        const model=slot.dataset.productMedia||"";
+        const row=map.get(model);
+        const url=safeHttps(row&&row.imageUrl);
+        if(!url)return;
+        const img=document.createElement("img");
+        img.className="official-product-photo";
+        img.alt=model+" メーカー公式画像";
+        img.loading=slot.closest(".electronics-hero")?"eager":"lazy";
+        img.decoding="async";
+        img.src=url;
+        img.addEventListener("load",()=>{
+          slot.classList.add("has-official-photo");
+          const fallback=slot.querySelector(".pixel-projector");
+          const placeholder=slot.querySelector(".official-photo-placeholder");
+          if(fallback)fallback.setAttribute("hidden","");
+          if(placeholder)placeholder.setAttribute("hidden","");
+        },{once:true});
+        img.addEventListener("error",()=>img.remove(),{once:true});
+        slot.prepend(img);
+      });
+    }).catch(()=>{});
+  }
+
+  function initProjectorFilters(){
+    const controls=document.querySelector("[data-projector-filters]");
+    const cards=[...document.querySelectorAll("[data-product-card]")];
+    if(!controls||!cards.length)return;
+    controls.querySelectorAll("[data-filter]").forEach(btn=>{
+      btn.setAttribute("aria-pressed",btn.classList.contains("is-active")?"true":"false");
+      btn.addEventListener("click",()=>{
+        const filter=btn.dataset.filter||"all";
+        controls.querySelectorAll("[data-filter]").forEach(x=>{
+          const active=x===btn;
+          x.classList.toggle("is-active",active);
+          x.setAttribute("aria-pressed",active?"true":"false");
+        });
+        cards.forEach(card=>{
+          const visible=filter==="all"||(card.dataset.tags||"").split(/\s+/).includes(filter);
+          card.hidden=!visible;
+        });
+      });
+    });
+  }
+
+  function initThrowTool(){
+    const tool=document.querySelector("[data-throw-tool]");if(!tool)return;
+    const model=tool.querySelector("[data-throw-model]");
+    const size=tool.querySelector("[data-screen-size]");
+    const sizeLabel=tool.querySelector("[data-screen-label]");
+    const result=tool.querySelector("[data-throw-result]");
+    const update=()=>{
+      const inches=Number(size.value||150);
+      const ratios=String(model.value||"1,1").split(",").map(Number);
+      const widthM=inches*(16/Math.sqrt(16*16+9*9))*0.0254;
+      const min=widthM*ratios[0],max=widthM*ratios[1];
+      sizeLabel.textContent=String(inches);
+      result.textContent=Math.abs(max-min)<0.03 ? "約"+min.toFixed(2)+"m" : "約"+min.toFixed(2)+"〜"+max.toFixed(2)+"m";
+    };
+    model.addEventListener("change",update);
+    size.addEventListener("input",update);
+    update();
+  }
+
   function initMarketSnapshot(){
     const box=document.querySelector("[data-smartbuy-market]");if(!box)return;
     const meta=box.querySelector("[data-market-meta]");
     const used=box.querySelector("[data-market-used]");
     const fresh=box.querySelector("[data-market-new]");
+    const targetBoard=box.querySelector("[data-market-targets]");
     const statusLabel={strong_buy:"買い価格",consider:"検討価格",acceptable:"条件内"};
     const yen=v=>Number.isFinite(Number(v))?"¥"+Number(v).toLocaleString("ja-JP"):"—";
     const fmt=v=>{
@@ -131,29 +208,60 @@
       try{return new Intl.DateTimeFormat("ja-JP",{timeZone:"Asia/Tokyo",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}).format(new Date(v))}
       catch{return String(v)}
     };
-    const render=(target,items)=>{
-      if(!items.length){
-        target.innerHTML='<div class="market-empty">現在、厳格条件を通過した販売中候補は0件です。無理に1位を作りません。</div>';
+    const searchLinks=model=>{
+      const q=encodeURIComponent(model);
+      return [
+        ["メルカリ","https://jp.mercari.com/search?keyword="+q+"&status=on_sale"],
+        ["Yahoo!フリマ","https://paypayfleamarket.yahoo.co.jp/search/"+q],
+        ["Yahoo!オークション","https://auctions.yahoo.co.jp/search/search?p="+q]
+      ];
+    };
+    const renderTargets=(targets,items)=>{
+      if(!targetBoard)return;
+      if(!targets.length){
+        targetBoard.innerHTML='<div class="market-empty">買い目安データを読み込めません。</div>';
         return;
       }
-      target.innerHTML=items.map(x=>`<div class="market-item"><div><a href="#" target="_blank" rel="noopener noreferrer nofollow"></a><small></small></div><div class="market-price"><strong>${yen(x.price)}</strong><span>${statusLabel[x.priceStatus]||"確認済み"}</span></div></div>`).join("");
-      [...target.querySelectorAll(".market-item")].forEach((el,i)=>{
-        const item=items[i]||{};
-        const link=el.querySelector("a");
-        try{
-          const u=new URL(item.url);
-          link.href=u.protocol==="https:"?u.href:"#";
-        }catch{link.href="#"}
-        link.textContent=item.title||"商品ページ";
-        el.querySelector("small").textContent=(item.marketLabel||item.market||"")+" · "+(item.model||"");
+      targetBoard.innerHTML=targets.map(t=>{
+        const candidates=items.filter(x=>x.model===t.model).sort((a,b)=>Number(a.price)-Number(b.price));
+        const best=candidates[0];
+        const links=searchLinks(t.model).map(pair=>'<a href="'+pair[1]+'" target="_blank" rel="noopener noreferrer nofollow">'+pair[0]+'で探す ↗</a>').join("");
+        const current=best?'<div class="current"><small>現在候補</small><b>'+yen(best.price)+'</b></div>':"";
+        return '<article class="market-target-card" data-market-model="'+t.model+'"><div class="market-target-head"><strong>'+t.model+'</strong><span>'+(best?"候補あり":"候補なし")+'</span></div><div class="market-target-prices"><div><small>強く注目</small><b>〜'+yen(t.strongBuy)+'</b></div><div><small>検討上限</small><b>〜'+yen(t.consider)+'</b></div>'+current+'</div><div class="market-search-links">'+links+'</div></article>';
+      }).join("");
+    };
+    const render=(target,items)=>{
+      if(!items.length){
+        target.innerHTML='<div class="market-empty">現在、厳格条件を通過した販売中候補は0件です。上の買い目安は残してあるので、市場検索から確認できます。</div>';
+        return;
+      }
+      target.innerHTML=items.map(item=>{
+        const image=safeHttps(item.imageUrl);
+        const url=safeHttps(item.url)||"#";
+        const media=image?'<img src="'+image+'" alt="" loading="lazy" decoding="async">':'<span>NO PHOTO</span>';
+        return '<article class="market-listing"><div class="market-listing-image">'+media+'</div><div class="market-listing-copy"><small>'+(item.marketLabel||item.market||"")+' · '+(item.model||"")+'</small><a href="'+url+'" target="_blank" rel="noopener noreferrer nofollow"></a><span>'+(statusLabel[item.priceStatus]||"確認済み")+'</span></div><div class="market-listing-cta"><strong>'+yen(item.price)+'</strong><a href="'+url+'" target="_blank" rel="noopener noreferrer nofollow">商品を見る →</a></div></article>';
+      }).join("");
+      [...target.querySelectorAll(".market-listing")].forEach((el,i)=>{
+        const link=el.querySelector(".market-listing-copy>a");
+        if(link)link.textContent=items[i]&&items[i].title?items[i].title:"商品ページ";
       });
     };
     readJson("data/smartbuy-projectors.json").then(d=>{
-      const u=d.used||[],n=d.newItems||[];
-      meta.textContent=`最終更新 ${fmt(d.generatedAt)} / 中古 ${u.length}件・新品 ${n.length}件`;
+      const u=d.used||[],n=d.newItems||[],targets=d.targets||[];
+      meta.textContent="最終確認 "+fmt(d.generatedAt)+" / 厳格候補 中古 "+u.length+"件・新品 "+n.length+"件";
+      renderTargets(targets,[...u,...n]);
       render(used,u);render(fresh,n);
+      document.querySelectorAll("[data-market-jump]").forEach(link=>{
+        link.addEventListener("click",()=>{
+          const model=link.dataset.marketJump||"";
+          requestAnimationFrame(()=>{
+            document.querySelectorAll(".market-target-card").forEach(card=>card.classList.toggle("is-highlight",card.dataset.marketModel===model));
+          });
+        });
+      });
     }).catch(()=>{
-      meta.textContent="市場データを一時取得できません。記事本文はそのまま読めます。";
+      meta.textContent="市場データを一時取得できません。買い目安と記事本文はそのまま利用できます。";
+      renderTargets([],[]);
       render(used,[]);render(fresh,[]);
     });
   }
@@ -169,5 +277,8 @@
 
   initJukebox();
   initJournal();
+  initProductMedia();
+  initProjectorFilters();
+  initThrowTool();
   initMarketSnapshot();
 })();

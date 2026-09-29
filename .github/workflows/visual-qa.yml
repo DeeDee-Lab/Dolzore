@@ -4,7 +4,10 @@ on:
   push:
     branches: [main]
     paths:
-      - "docs/**"
+      - "docs/**/*.html"
+      - "docs/styles.css"
+      - "docs/site.js"
+      - "docs/assets/**"
       - "tests/**"
       - ".github/workflows/visual-qa.yml"
   workflow_dispatch:
