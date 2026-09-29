@@ -1,0 +1,56 @@
+name: FF11 DPC Static Reference Scan
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/ff11_dpc_inventory.ps1
+      - .github/workflows/ff11-dpc-static-scan.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ff11-dpc-static-reference
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    name: Read-only FF11 static scan on DPC
+    runs-on: [self-hosted, Windows, X64, utpc-personal, dpc-primary]
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact main commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: true
+
+      - name: Assert DPC authority and scan FF11
+        shell: powershell -NoProfile -ExecutionPolicy Bypass -Command ". '{0}'"
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if(([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'DPC'){ throw "Unexpected host: $env:COMPUTERNAME" }
+          if([string]$env:RUNNER_NAME -ne 'PERSONAL-UTPC-DPC'){ throw "Unexpected runner: $env:RUNNER_NAME" }
+          $out = Join-Path (Get-Location) 'research\ff11\dpc'
+          & .\scripts\ff11_dpc_inventory.ps1 -OutputDir $out
+          if($LASTEXITCODE -ne 0){ throw "FF11 inventory scanner exit=$LASTEXITCODE" }
+
+      - name: Show compact evidence
+        shell: powershell -NoProfile -ExecutionPolicy Bypass -Command ". '{0}'"
+        run: |
+          Get-Content -LiteralPath research\ff11\dpc\LATEST_SCAN.json
+          Get-Content -LiteralPath research\ff11\dpc\dpc_static_observations.md
+
+      - name: Commit derived metadata only
+        shell: powershell -NoProfile -ExecutionPolicy Bypass -Command ". '{0}'"
+        run: |
+          $ErrorActionPreference = 'Stop'
+          git config user.name "dolzore-ff11-evidence-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add research/ff11/dpc
+          if (-not (git status --porcelain)) {
+            Write-Host 'No FF11 evidence delta to commit.'
+            exit 0
+          }
+          git commit -m "research: record DPC FF11 static inventory"
+          git push origin HEAD:main
