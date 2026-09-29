@@ -335,4 +335,6 @@ Never:
 - push placeholder characters/art to public main
 
 Current active slice:
-**Slice 1 — CHARACTER + JUMP + SOUND**
+**Slice 2 — FIRST BAR + JUKEBOX SALES**
+
+Fresh continuity: the rebuilt first-town exterior foundation is already accepted as the public world base. Slice 2 must remain isolated on its own branch until desktop/mobile/regression acceptance.
