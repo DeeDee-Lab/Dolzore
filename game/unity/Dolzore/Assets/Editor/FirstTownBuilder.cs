@@ -21,12 +21,14 @@ namespace Dolzore.Editor
         private static readonly Color Ink = Hex("#0A1020");
         private static readonly Color Panel = Hex("#0D1728E8");
         private static readonly Color Muted = Hex("#94A0B8");
+        private static List<InteractionAnchor> ActiveLandmarkAnchors = new List<InteractionAnchor>();
 
         public static void Build(string scenePath)
         {
             EnsureDirectories();
             GenerateTownArt();
             GenerateTownMinimap();
+            ActiveLandmarkAnchors = new List<InteractionAnchor>();
 
             Scene scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             Camera camera = BuildCamera();
@@ -52,6 +54,7 @@ namespace Dolzore.Editor
 
             List<Transform> landmarks = new List<Transform>();
             List<string> landmarkNames = new List<string>();
+            List<InteractionAnchor> landmarkAnchors = ActiveLandmarkAnchors;
 
             AddBuilding("HOME / RESIDENTIAL", "house_blue.png", new Vector2(-15f, 12.5f), new Vector2(3.4f, 2.3f), "#5B7CA6", landmarks, landmarkNames, "HOME");
             AddBuilding("HOUSE / NORTH", "house_cream.png", new Vector2(-8.5f, 13f), new Vector2(3.2f, 2.2f), "#B79268", null, null, null);
@@ -86,21 +89,39 @@ namespace Dolzore.Editor
             follow.maxBounds = new Vector2(14.5f, 8.5f);
 
             Canvas canvas = BuildHudCanvas(camera);
+            Text playerNameLabel;
+            Text metaLabel;
             Text districtLabel;
+            Text statusTargetLabel;
             Text promptLabel;
             RectTransform marker;
             RectTransform mapRect;
-            BuildHud(canvas.transform, out districtLabel, out promptLabel, out marker, out mapRect);
+            BuildHud(
+                canvas.transform,
+                out playerNameLabel,
+                out metaLabel,
+                out districtLabel,
+                out statusTargetLabel,
+                out promptLabel,
+                out marker,
+                out mapRect);
 
             GameObject runtimeGo = new GameObject("First Town Runtime");
+            WorldStateService worldState = runtimeGo.AddComponent<WorldStateService>();
             FirstTownRuntime runtime = runtimeGo.AddComponent<FirstTownRuntime>();
             runtime.player = playerGo.GetComponent<DolzorePlayerController>();
+            runtime.playerState = playerGo.GetComponent<PlayerStateComponent>();
+            runtime.worldState = worldState;
+            runtime.playerNameLabel = playerNameLabel;
+            runtime.metaLabel = metaLabel;
             runtime.districtLabel = districtLabel;
+            runtime.statusTargetLabel = statusTargetLabel;
             runtime.interactionLabel = promptLabel;
             runtime.minimapMarker = marker;
             runtime.minimapRect = mapRect;
             runtime.landmarks = landmarks.ToArray();
             runtime.landmarkNames = landmarkNames.ToArray();
+            runtime.landmarkAnchors = landmarkAnchors.ToArray();
 
             FirstTownShellController shell = runtimeGo.AddComponent<FirstTownShellController>();
             shell.clockLabel = canvas.transform.Find("World Clock")?.GetComponent<Text>();
@@ -193,6 +214,8 @@ namespace Dolzore.Editor
         private static void AddBridge()
         {
             GameObject bridge = new GameObject("Riverside Bridge");
+            EntityIdentity identity = bridge.AddComponent<EntityIdentity>();
+            identity.Configure(DolzoreIds.FirstTownBridge, DolzoreIds.FirstTownRegion, "world.bridge");
             SpriteRenderer sr = bridge.AddComponent<SpriteRenderer>();
             sr.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(ArtRoot + "/bridge.png");
             sr.sortingOrder = 9;
@@ -220,15 +243,81 @@ namespace Dolzore.Editor
             collider.size = colliderSize;
             collider.offset = new Vector2(0f, -0.95f);
 
+            string stableEntityId = StableEntityIdFor(objectName);
+            EntityIdentity identity = go.AddComponent<EntityIdentity>();
+            identity.Configure(stableEntityId, DolzoreIds.FirstTownRegion, ArchetypeIdFor(objectName));
+
+            string destinationRegionId = InteriorRegionIdFor(stableEntityId);
+            if (!string.IsNullOrEmpty(destinationRegionId))
+            {
+                WorldPortal portal = go.AddComponent<WorldPortal>();
+                portal.Configure(
+                    "portal." + stableEntityId,
+                    destinationRegionId,
+                    InteriorKindFor(stableEntityId));
+            }
+
             AddWorldLabel(objectName, position + new Vector2(0f, -3.0f), Hex(accentHex), 0.12f);
 
             if (landmarks != null && landmarkNames != null && !string.IsNullOrEmpty(interactionName))
             {
                 GameObject point = new GameObject(objectName + " Interaction");
                 point.transform.position = new Vector3(position.x, position.y - 2.35f, 0f);
+                InteractionAnchor anchor = point.AddComponent<InteractionAnchor>();
+                anchor.Configure(stableEntityId);
                 landmarks.Add(point.transform);
                 landmarkNames.Add(interactionName);
+                ActiveLandmarkAnchors.Add(anchor);
             }
+        }
+
+        private static string StableEntityIdFor(string objectName)
+        {
+            switch (objectName)
+            {
+                case "HOME / RESIDENTIAL": return DolzoreIds.FirstTownHome;
+                case "CAFE LUMA": return DolzoreIds.FirstTownCafe;
+                case "BAR 13": return DolzoreIds.FirstTownBar;
+                case "MARKET HALL": return DolzoreIds.FirstTownMarket;
+                case "JOURNAL": return DolzoreIds.FirstTownJournal;
+                case "CIVIC CLOCK": return DolzoreIds.FirstTownCivic;
+                case "WORKSHOP": return DolzoreIds.FirstTownWorkshop;
+                case "RIVERSIDE KIOSK": return DolzoreIds.FirstTownRiverside;
+                case "STATION": return DolzoreIds.FirstTownStation;
+                case "BACK ALLEY DEPOT": return DolzoreIds.FirstTownDepot;
+                case "HOUSE / NORTH": return "entity.first_town.house_north";
+                case "HOUSE / EAST": return "entity.first_town.house_east";
+                default: return "entity.first_town.unknown";
+            }
+        }
+
+        private static string ArchetypeIdFor(string objectName)
+        {
+            if (objectName.Contains("HOUSE") || objectName.Contains("HOME")) return "world.building.residential";
+            if (objectName.Contains("BAR")) return "world.building.bar";
+            if (objectName.Contains("MARKET")) return "world.building.market";
+            if (objectName.Contains("JOURNAL")) return "world.building.journal";
+            if (objectName.Contains("STATION")) return "world.building.station";
+            if (objectName.Contains("WORKSHOP")) return "world.building.workshop";
+            return "world.building.civic";
+        }
+
+        private static string InteriorRegionIdFor(string stableEntityId)
+        {
+            if (stableEntityId == DolzoreIds.FirstTownHome) return "private.first_town.player_home";
+            if (stableEntityId == DolzoreIds.FirstTownBar) return "interior.first_town.bar_13";
+            if (stableEntityId == DolzoreIds.FirstTownCafe) return "interior.first_town.cafe_luma";
+            if (stableEntityId == DolzoreIds.FirstTownMarket) return "interior.first_town.market_hall";
+            if (stableEntityId == DolzoreIds.FirstTownJournal) return "interior.first_town.journal";
+            if (stableEntityId == DolzoreIds.FirstTownStation) return "interior.first_town.east_station";
+            return "";
+        }
+
+        private static WorldSpaceKind InteriorKindFor(string stableEntityId)
+        {
+            return stableEntityId == DolzoreIds.FirstTownHome
+                ? WorldSpaceKind.PrivateInstance
+                : WorldSpaceKind.Interior;
         }
 
         private static void AddWorldLabel(string value, Vector2 position, Color color, float size)
@@ -311,6 +400,12 @@ namespace Dolzore.Editor
             capsule.size = new Vector2(0.68f, 0.92f);
             capsule.offset = new Vector2(0f, -0.26f);
 
+            EntityIdentity identity = go.AddComponent<EntityIdentity>();
+            identity.Configure("entity.player.local.review", DolzoreIds.FirstTownRegion, "player.avatar");
+
+            PlayerStateComponent playerState = go.AddComponent<PlayerStateComponent>();
+            playerState.ConfigureForFirstTown();
+
             go.AddComponent<DolzorePlayerController>();
             AddWorldLabel("SORA", new Vector2(0f, 8.45f), Cream, 0.10f);
             return go;
@@ -343,7 +438,10 @@ namespace Dolzore.Editor
 
         private static void BuildHud(
             Transform parent,
+            out Text playerNameLabel,
+            out Text metaLabel,
             out Text districtLabel,
+            out Text statusTargetLabel,
             out Text promptLabel,
             out RectTransform marker,
             out RectTransform mapRect)
@@ -359,12 +457,14 @@ namespace Dolzore.Editor
             GameObject hud = PanelUi(parent, "Player HUD", new Color(Panel.r, Panel.g, Panel.b, 0.93f));
             Anchor(hud.GetComponent<RectTransform>(), new Vector2(0f, 0f), new Vector2(430f, 150f), new Vector2(34f, 34f), new Vector2(0f, 0f));
             AddOutline(hud, Cyan, 1f);
-            Text player = TextUi(hud.transform, "SORA", 23, Cream, TextAnchor.MiddleLeft, FontStyle.Bold);
-            Anchor(player.rectTransform, new Vector2(0f, 1f), new Vector2(190f, 34f), new Vector2(22f, -18f), new Vector2(0f, 1f));
-            Text meta = TextUi(hud.transform, "LV 01   JOB WANDERER", 13, Muted, TextAnchor.MiddleLeft, FontStyle.Bold);
-            Anchor(meta.rectTransform, new Vector2(0f, 1f), new Vector2(300f, 24f), new Vector2(22f, -49f), new Vector2(0f, 1f));
-            BarUi(hud.transform, "HEART", 22f, -83f, 0.82f, Orange);
-            BarUi(hud.transform, "FOCUS", 22f, -118f, 0.64f, Cyan);
+            playerNameLabel = TextUi(hud.transform, "SORA", 23, Cream, TextAnchor.MiddleLeft, FontStyle.Bold);
+            Anchor(playerNameLabel.rectTransform, new Vector2(0f, 1f), new Vector2(190f, 34f), new Vector2(22f, -18f), new Vector2(0f, 1f));
+            metaLabel = TextUi(hud.transform, "LV 01   VOCATION WANDERER", 13, Muted, TextAnchor.MiddleLeft, FontStyle.Bold);
+            Anchor(metaLabel.rectTransform, new Vector2(0f, 1f), new Vector2(330f, 24f), new Vector2(22f, -49f), new Vector2(0f, 1f));
+            statusTargetLabel = TextUi(hud.transform, "STATUS CLEAR   TARGET --", 11, Cyan, TextAnchor.MiddleLeft, FontStyle.Bold);
+            Anchor(statusTargetLabel.rectTransform, new Vector2(0f, 1f), new Vector2(360f, 20f), new Vector2(22f, -70f), new Vector2(0f, 1f));
+            BarUi(hud.transform, "HEART", 22f, -99f, 0.82f, Orange);
+            BarUi(hud.transform, "FOCUS", 22f, -131f, 0.64f, Cyan);
 
             GameObject mapPanel = PanelUi(parent, "Minimap Panel", new Color(Panel.r, Panel.g, Panel.b, 0.93f));
             Anchor(mapPanel.GetComponent<RectTransform>(), new Vector2(1f, 1f), new Vector2(330f, 258f), new Vector2(-34f, -34f), new Vector2(1f, 1f));
