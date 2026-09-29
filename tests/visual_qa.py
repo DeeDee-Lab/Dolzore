@@ -38,7 +38,16 @@ def main() -> None:
         assert page.locator("text=いま買えるものは、音楽だけ。").count() == 1
         assert page.locator('a[href="music/"]').count() >= 1
         assert page.locator("nav").get_by_text("ABOUT", exact=True).count() == 0
-        assert page.locator(".town-pixel-art").count() == 1
+        assert page.locator("[data-town-canvas]").count() == 1
+        assert page.locator('[data-place-label="music"]').text_content().strip() == "MUSIC"
+        assert page.locator('[data-place-label="journal"]').text_content().strip() == "JOURNAL"
+        page.wait_for_function("window.__DOLZORE_WORLD__ && window.__DOLZORE_WORLD__.ready === true")
+        before = page.evaluate("window.__DOLZORE_WORLD__.getState().player.x")
+        page.keyboard.down("ArrowRight")
+        page.wait_for_timeout(450)
+        page.keyboard.up("ArrowRight")
+        after = page.evaluate("window.__DOLZORE_WORLD__.getState().player.x")
+        assert after > before + 8, (before, after)
         no_overflow(page, "desktop home")
         screenshot(page, "desktop-home.png")
         preview(page, "desktop-home-preview.jpg")
@@ -87,6 +96,9 @@ def main() -> None:
         m = mobile.new_page()
         m.goto(BASE + "/", wait_until="load")
         m.wait_for_timeout(500)
+        m.wait_for_function("window.__DOLZORE_WORLD__ && window.__DOLZORE_WORLD__.ready === true")
+        assert m.locator("[data-move]").count() == 4
+        assert m.locator("[data-action]").count() == 1
         no_overflow(m, "mobile home")
         screenshot(m, "mobile-home.png")
         preview(m, "mobile-home-preview.jpg")
@@ -150,9 +162,9 @@ def main() -> None:
     print("TRACK_BUTTONS=60")
     print("PROVEN_PREVIEW_PLAYBACK=BGM-005_PASS")
     print("PENDING_PREVIEW_FAIL_CLOSED=BGM-001_PASS")
-    print("DESKTOP_HOME=PASS")
+    print("DESKTOP_HOME_INTERACTIVE=PASS")
     print("DESKTOP_MUSIC=PASS")
-    print("MOBILE_HOME=PASS")
+    print("MOBILE_HOME_CONTROLS=PASS")
     print("MOBILE_MUSIC=PASS")
     print("MOBILE_PROJECTOR_JOURNAL=PASS")
     print("PROJECTOR_FILTERS=PASS")
