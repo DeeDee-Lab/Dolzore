@@ -19,6 +19,8 @@ MODELS={
     "BenQ TK705STi":{"terms":["tk705sti"],"strong":130000,"consider":145000},
     "BenQ TK710STi":{"terms":["tk710sti"],"strong":160000,"consider":180000},
     "Optoma UHD35STx":{"terms":["uhd35stx"],"strong":80000,"consider":100000},
+    "ViewSonic X10-4K":{"terms":["x10-4k","x104k"],"strong":60000,"consider":65000},
+    "XGIMI AURA":{"terms":["xgimiaura","auraxm03a"],"strong":90000,"consider":100000},
 }
 
 MARKETS={
@@ -106,6 +108,24 @@ def parse_price(text):
     return min(vals) if vals else None
 
 
+def parse_og_image(soup, base_url):
+    for attrs in (
+        {"property":"og:image"},
+        {"property":"og:image:secure_url"},
+        {"name":"twitter:image"},
+    ):
+        tag=soup.find("meta",attrs=attrs)
+        if tag and tag.get("content"):
+            url=urljoin(base_url,tag["content"])
+            try:
+                u=urlparse(url)
+                if u.scheme=="https" and u.netloc:
+                    return url
+            except Exception:
+                pass
+    return None
+
+
 def parse_jsonld_price(soup):
     for script in soup.find_all("script",type="application/ld+json")[:24]:
         try:
@@ -145,6 +165,7 @@ def inspect_listing(market,url,fallback_title):
 
         price=parse_jsonld_price(soup) or parse_price(text)
         if price is None: return None
+        image_url=parse_og_image(soup,r.url)
 
         lane=MARKETS[market][2]
         if lane=="used":
@@ -161,6 +182,7 @@ def inspect_listing(market,url,fallback_title):
             "marketLabel":MARKETS[market][0],
             "price":price,
             "priceStatus":price_status,
+            "imageUrl":image_url,
             "url":r.url,
         }
     except Exception:
@@ -204,13 +226,6 @@ def collect_one(model,market):
     return None
 
 
-def stable_view(payload):
-    return {
-        "used":[{k:r.get(k) for k in ("title","model","market","marketLabel","price","priceStatus","url")} for r in payload.get("used",[])],
-        "newItems":[{k:r.get(k) for k in ("title","model","market","marketLabel","price","priceStatus","url")} for r in payload.get("newItems",[])],
-    }
-
-
 def main(output:Path):
     rows=[]
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
@@ -226,24 +241,22 @@ def main(output:Path):
     rows.sort(key=lambda r:(rank.get(r["priceStatus"],9),r["price"]))
 
     payload={
-        "schemaVersion":1,
+        "schemaVersion":2,
         "generatedAt":datetime.now(timezone.utc).isoformat(),
         "source":"github-hosted-public-market-snapshot",
         "used":[r for r in rows if MARKETS[r["market"]][2]=="used"][:10],
         "newItems":[r for r in rows if MARKETS[r["market"]][2]=="new"][:10],
+        "targets":[
+            {
+                "model":model,
+                "strongBuy":cfg["strong"],
+                "consider":cfg["consider"],
+            }
+            for model,cfg in MODELS.items()
+        ],
         "trackedModels":list(MODELS),
-        "note":"Only strict individual listings are published. Zero results are allowed."
+        "note":"Only strict individual listings are published. Zero results are allowed. generatedAt is refreshed every successful run."
     }
-
-    # Avoid one commit per hour when the recommendation set did not change.
-    if output.exists():
-        try:
-            old=json.loads(output.read_text(encoding="utf-8"))
-            if stable_view(old)==stable_view(payload):
-                print("MARKET_SNAPSHOT_UNCHANGED")
-                return
-        except Exception:
-            pass
 
     output.parent.mkdir(parents=True,exist_ok=True)
     output.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
