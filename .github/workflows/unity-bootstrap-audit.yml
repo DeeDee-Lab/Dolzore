@@ -1,0 +1,68 @@
+name: DOLZORE Unity Bootstrap Audit
+
+on:
+  push:
+    branches: ["rebuild/unity-first-town-20260929"]
+    paths:
+      - ".github/workflows/unity-bootstrap-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: [dolzore-site-osk222]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Detect Unity editors and build modules
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'OSK222') {
+            throw "DOLZORE_WRONG_HOST:$env:COMPUTERNAME"
+          }
+          $roots = @(
+            "C:\Program Files\Unity\Hub\Editor",
+            "C:\Program Files\Unity\Editor",
+            "$env:LOCALAPPDATA\Programs\Unity\Hub\Editor"
+          )
+          $editors = @()
+          foreach ($root in $roots) {
+            if (Test-Path $root) {
+              $editors += Get-ChildItem -Path $root -Filter Unity.exe -Recurse -ErrorAction SilentlyContinue |
+                Where-Object { $_.FullName -match "\\Editor\\Unity\.exe$" }
+            }
+          }
+          $editors = $editors | Sort-Object FullName -Unique
+          if (-not $editors) {
+            throw "UNITY_EDITOR_NOT_FOUND"
+          }
+          Write-Host "UNITY_EDITOR_COUNT=$($editors.Count)"
+          foreach ($editor in $editors) {
+            Write-Host "UNITY_EDITOR=$($editor.FullName)"
+            $editorDir = Split-Path $editor.FullName -Parent
+            $webgl = Join-Path $editorDir "Data\PlaybackEngines\WebGLSupport"
+            $win = Join-Path $editorDir "Data\PlaybackEngines\windowsstandalonesupport"
+            Write-Host "  WEBGL_SUPPORT=$(Test-Path $webgl)"
+            Write-Host "  WINDOWS_SUPPORT=$(Test-Path $win)"
+            $versionInfo = $editor.VersionInfo
+            Write-Host "  FILE_VERSION=$($versionInfo.FileVersion)"
+            Write-Host "  PRODUCT_VERSION=$($versionInfo.ProductVersion)"
+          }
+          $preferred = $editors |
+            Sort-Object { try { [version]$_.VersionInfo.ProductVersion.Split('f')[0] } catch { [version]'0.0' } } -Descending |
+            Select-Object -First 1
+          Write-Host "UNITY_PREFERRED=$($preferred.FullName)"
+          "UNITY_PREFERRED=$($preferred.FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Verify Unity CLI
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          & "$env:UNITY_PREFERRED" -version
+          $code = $LASTEXITCODE
+          Write-Host "UNITY_VERSION_EXIT=$code"
+          if ($code -ne 0) {
+            Write-Host "Unity -version returned non-zero; editor path detection remains authoritative."
+          }
