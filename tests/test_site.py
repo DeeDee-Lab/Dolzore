@@ -47,6 +47,16 @@ class MusicOnlySiteTests(unittest.TestCase):
             self.assertNotIn("・",t["sceneEn"])
         self.assertEqual(next(t for t in data["tracks"] if t["id"]=="BGM-002")["title"],"Sunny Everyday")
 
+    def test_music_positioning_is_for_video_creators(self):
+        music=(DOCS/"music/index.html").read_text(encoding="utf-8")
+        self.assertIn("動画制作向けBGM",music)
+        self.assertIn("YouTube",music)
+        self.assertIn("TikTok",music)
+        self.assertIn("Reels",music)
+        self.assertIn("商用・収益化動画",music)
+        self.assertNotIn("音楽屋",music)
+        self.assertNotIn("MUSIC SHOP",music)
+
     def test_public_pages_are_github_native_and_do_not_reference_full_audio_source(self):
         for p in DOCS.rglob("*"):
             if not p.is_file() or p.suffix.lower() not in {".html",".js",".css",".json",".xml",".txt"}:
