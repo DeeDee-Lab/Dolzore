@@ -958,6 +958,15 @@ namespace Dolzore.Editor
 
         private static void SaveSprite(string file, int w, int h, Color32[] pixels, float ppu)
         {
+            if (!file.StartsWith("grass_", StringComparison.Ordinal) &&
+                !file.StartsWith("road_", StringComparison.Ordinal) &&
+                !file.StartsWith("sidewalk_", StringComparison.Ordinal) &&
+                !file.StartsWith("plaza_", StringComparison.Ordinal) &&
+                !file.StartsWith("water_", StringComparison.Ordinal))
+            {
+                pixels = AddReadableOutline(pixels, w, h);
+            }
+
             string assetPath = ArtRoot + "/" + file;
             Texture2D tex = new Texture2D(w, h, TextureFormat.RGBA32, false);
             tex.SetPixels32(pixels);
@@ -979,6 +988,41 @@ namespace Dolzore.Editor
                 importer.alphaIsTransparency = true;
                 importer.SaveAndReimport();
             }
+        }
+
+        private static Color32[] AddReadableOutline(Color32[] source, int w, int h)
+        {
+            Color32[] result = (Color32[])source.Clone();
+            Color32 outline = C("#293247");
+
+            for (int y = 0; y < h; y++)
+            {
+                for (int x = 0; x < w; x++)
+                {
+                    int index = y * w + x;
+                    if (source[index].a > 48) continue;
+
+                    bool neighbor = false;
+                    for (int oy = -1; oy <= 1 && !neighbor; oy++)
+                    {
+                        for (int ox = -1; ox <= 1; ox++)
+                        {
+                            if (ox == 0 && oy == 0) continue;
+                            int nx = x + ox, ny = y + oy;
+                            if (nx < 0 || nx >= w || ny < 0 || ny >= h) continue;
+                            if (source[ny * w + nx].a >= 220)
+                            {
+                                neighbor = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (neighbor) result[index] = outline;
+                }
+            }
+
+            return result;
         }
 
         private static Color32[] Transparent(int count)
