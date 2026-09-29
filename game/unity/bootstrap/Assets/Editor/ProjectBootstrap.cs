@@ -6,7 +6,6 @@ using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -302,8 +301,8 @@ namespace Dolzore.Editor
         {
             GameObject go = new GameObject("EventSystem");
             go.AddComponent<EventSystem>();
-            InputSystemUIInputModule module = go.AddComponent<InputSystemUIInputModule>();
-            module.AssignDefaultActions();
+            StandaloneInputModule module = go.AddComponent<StandaloneInputModule>();
+            module.forceModuleActive = true;
         }
 
         private static Camera MakeCamera(string name, Color color)
