@@ -46,6 +46,47 @@ namespace Dolzore.Editor
             True("vocation-echo-magic", DolzoreInternalRulesDatabase.Echo.Rank(SkillFamily.Resonance) == SkillRank.APlus);
             True("vocation-lantern-heal", DolzoreInternalRulesDatabase.Lantern.Rank(SkillFamily.Restoration) == SkillRank.APlus);
 
+
+            InternalStatBlock balancedWarden = DolzoreFfxiStatGradeRules.CalculateBaseStats(
+                LineageArchetype.Balanced, VocationId.Warden, 1, VocationId.Lantern, 0, false);
+            Eq("grade-balanced-warden-hp", 31, balancedWarden.hp);
+            Eq("grade-balanced-warden-mp", 0, balancedWarden.mp);
+            Eq("grade-balanced-warden-str", 8, balancedWarden.str);
+            Eq("grade-balanced-warden-dex", 7, balancedWarden.dex);
+            Eq("grade-balanced-warden-vit", 6, balancedWarden.vit);
+            Eq("grade-balanced-warden-agi", 7, balancedWarden.agi);
+            Eq("grade-balanced-warden-int", 5, balancedWarden.intel);
+            Eq("grade-balanced-warden-mnd", 5, balancedWarden.mnd);
+            Eq("grade-balanced-warden-chr", 6, balancedWarden.chr);
+
+            InternalStatBlock vanguardWarden = DolzoreFfxiStatGradeRules.CalculateBaseStats(
+                LineageArchetype.Vanguard, VocationId.Warden, 1, VocationId.Lantern, 0, false);
+            Eq("grade-vanguard-warden-hp", 33, vanguardWarden.hp);
+            Eq("grade-vanguard-warden-str", 9, vanguardWarden.str);
+
+            InternalStatBlock mysticWarden = DolzoreFfxiStatGradeRules.CalculateBaseStats(
+                LineageArchetype.Mystic, VocationId.Warden, 1, VocationId.Lantern, 0, false);
+            Eq("grade-mystic-warden-hp", 27, mysticWarden.hp);
+            Eq("grade-mystic-warden-int", 7, mysticWarden.intel);
+
+            InternalStatBlock agileWarden = DolzoreFfxiStatGradeRules.CalculateBaseStats(
+                LineageArchetype.Agile, VocationId.Warden, 1, VocationId.Lantern, 0, false);
+            Eq("grade-agile-warden-dex", 9, agileWarden.dex);
+
+            InternalStatBlock stalwartWarden = DolzoreFfxiStatGradeRules.CalculateBaseStats(
+                LineageArchetype.Stalwart, VocationId.Warden, 1, VocationId.Lantern, 0, false);
+            Eq("grade-stalwart-warden-hp", 36, stalwartWarden.hp);
+            Eq("grade-stalwart-warden-vit", 8, stalwartWarden.vit);
+
+            InternalStatBlock balancedLantern = DolzoreFfxiStatGradeRules.CalculateBaseStats(
+                LineageArchetype.Balanced, VocationId.Lantern, 1, VocationId.Warden, 0, false);
+            Eq("grade-balanced-lantern-hp", 27, balancedLantern.hp);
+            Eq("grade-balanced-lantern-mp", 22, balancedLantern.mp);
+
+            InternalStatBlock supportCaster = DolzoreFfxiStatGradeRules.CalculateBaseStats(
+                LineageArchetype.Balanced, VocationId.Warden, 30, VocationId.Lantern, 99, true);
+            True("grade-support-caster-mp", supportCaster.mp > 0);
+
             Debug.Log("DOLZORE_INTERNAL_RULES_REFERENCE_TESTS=PASS");
         }
 
