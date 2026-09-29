@@ -817,7 +817,7 @@ button,input{font:inherit}
 
 
 
-/* ===== TOWN GAME v2 controls ===== */
+/* ===== TOWN GAME controls ===== */
 .game-control-row{grid-template-columns:auto minmax(260px,auto) 1fr}
 .action-cluster{display:grid;grid-template-columns:1.2fr .8fr;gap:8px;min-width:300px}
 .action-cluster .bgm-button{grid-column:1/-1}
