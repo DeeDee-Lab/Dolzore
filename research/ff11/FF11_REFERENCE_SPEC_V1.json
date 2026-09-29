@@ -1,0 +1,298 @@
+{
+  "schema": "dolzore.ff11.reference_spec.v1",
+  "authority_date_jst": "2026-09-29",
+  "consumer": [
+    "DOLZORE_GAME_AGENT",
+    "UNITY_AGENT",
+    "MMO_ARCHITECTURE_AGENT"
+  ],
+  "canonical_issue": "DeeDee-Lab/Dolzore#25",
+  "interpretation": {
+    "cloning_forbidden": true,
+    "protected_asset_reuse_forbidden": true,
+    "source_code_copy_from_retail_forbidden": true,
+    "required_evidence_classes": [
+      "OFFICIAL_CURRENT",
+      "OFFICIAL_HISTORICAL",
+      "COMMUNITY_RESEARCH",
+      "OPEN_SOURCE_EMULATION_REFERENCE",
+      "CLIENT_COMPATIBILITY_RESEARCH",
+      "DPC_STATIC_OBSERVED",
+      "DPC_RUNTIME_OBSERVED",
+      "INFERENCE",
+      "SERVER_SIDE_UNKNOWN"
+    ]
+  },
+  "current_service": {
+    "evidence_class": "OFFICIAL_CURRENT",
+    "facts": [
+      "FFXI remains actively maintained in 2026.",
+      "September 2026 continued Trust/alter-ego upgrades.",
+      "2026 policy emphasizes expanded solo play and strengthening alter egos."
+    ],
+    "sources": [
+      "https://www.playonline.com/ff11us/",
+      "https://www.playonline.com/pcd2/topics/ff11us/detail/40038/detail.html",
+      "https://www.playonline.com/ff11us/topics/backnumber/202602/topics_all.html"
+    ]
+  },
+  "mechanics": {
+    "character_jobs": {
+      "evidence_class": "OFFICIAL_CURRENT",
+      "facts": [
+        "Character creation separates race/job/gender/face/body size.",
+        "Official guide documents five races and six initial jobs.",
+        "Jobs can be changed.",
+        "Support jobs permit a main-job plus support-job combination.",
+        "Additional jobs unlock later."
+      ],
+      "source": "https://www.playonline.com/ff11us/guide/system/index.html?pageID=system"
+    },
+    "combat_core": {
+      "evidence_class": "OFFICIAL_CURRENT",
+      "state_machine": [
+        "basic_combat_activity",
+        "resource_TP_accumulation",
+        "weapon_skill_execution",
+        "multi_player_timing",
+        "skillchain",
+        "magic_burst"
+      ],
+      "facts": [
+        "Dealing or taking damage generates TP.",
+        "TP enables weapon skills.",
+        "Timed weapon skills can form Skillchains.",
+        "Magic timed into the interaction can produce Magic Bursts."
+      ],
+      "source": "https://www.playonline.com/ff11us/guide/system/battle.html"
+    },
+    "party_roles": {
+      "evidence_class": "COMMUNITY_RESEARCH",
+      "facts": [
+        "Common party size is six.",
+        "Alliance size is commonly 18 as three six-member parties.",
+        "Common role vocabulary includes tank/healer/damage/support/hybrid."
+      ],
+      "source": "https://www.bg-wiki.com/ffxi/Jobs_%26_party_roles"
+    },
+    "enmity": {
+      "evidence_class": "OFFICIAL_HISTORICAL",
+      "source_date": "2013-02-20",
+      "conceptual_model": {
+        "target_selection": "highest combined enmity",
+        "components": [
+          "time_volatile",
+          "damage_volatile"
+        ],
+        "action_relations": [
+          "direct",
+          "indirect",
+          "none"
+        ],
+        "calculation_classes": [
+          "fixed",
+          "effect_dependent"
+        ]
+      },
+      "historical_examples_not_current_contract": {
+        "time_volatile_decay_per_second": 60,
+        "provoke_time_volatile": 1800,
+        "provoke_nominal_decay_seconds": 30,
+        "damage_example": {
+          "time_volatile": "240*d/standard_damage",
+          "damage_volatile": "80*d/standard_damage"
+        }
+      },
+      "warning": "The same official post discussed adjustments. Do not assume these constants/formulas are unchanged retail behavior.",
+      "source": "https://forum.square-enix.com/ffxi/threads/threads/30629-Enmity-System-Explanation-and-Planned-Adjustments?mode=hybrid"
+    },
+    "attack_cadence_tp": {
+      "evidence_class": "COMMUNITY_RESEARCH",
+      "facts": [
+        "Weapon Delay is tied to attack cadence.",
+        "Modified delay participates in TP-per-hit math.",
+        "Haste and delay-reduction categories behave differently.",
+        "Community research documents multiple haste/delay caps and interactions."
+      ],
+      "sources": [
+        "https://www.bg-wiki.com/ffxi/Delay",
+        "https://www.bg-wiki.com/ffxi/Attack_Speed",
+        "https://www.bg-wiki.com/ffxi/Tactical_Points"
+      ],
+      "warning": "Do not copy community formulas into DOLZORE without independent design/tuning."
+    },
+    "level_sync": {
+      "evidence_class": "OFFICIAL_HISTORICAL",
+      "facts": [
+        "Party members above the designated target temporarily scale to the target level.",
+        "Original implementation documented a minimum sync target of level 10.",
+        "Leader and target had to be in the same area.",
+        "Original deactivation buffer was 30 seconds.",
+        "High-level equipment was scaled and some properties suppressed under restriction."
+      ],
+      "source": "https://www.playonline.com/pcd2/topics/ff11us/detail/3599/detail.html"
+    },
+    "content_channels": {
+      "evidence_class": "OFFICIAL_CURRENT",
+      "facts": {
+        "quests": "optional requests from individuals/shops/organizations",
+        "missions": "nation/institution-oriented assignments",
+        "conquest": "regional nation competition affecting influence/economic state and rewards"
+      },
+      "source": "https://www.playonline.com/ff11us/guide/system/quests.html"
+    },
+    "economy_life": {
+      "evidence_class": "OFFICIAL_CURRENT",
+      "systems": [
+        "secure player trade",
+        "auction house",
+        "player bazaar",
+        "crystal synthesis",
+        "fishing",
+        "transportation"
+      ],
+      "source": "https://www.playonline.com/ff11us/guide/system/other.html"
+    },
+    "housing": {
+      "evidence_class": "OFFICIAL_HISTORICAL",
+      "concept": "private player housing/room with controlled guest access",
+      "source": "https://www.playonline.com/pcd2/topics/ff11us/detail/2507/detail.html"
+    },
+    "equipment_sets": {
+      "evidence_class": "OFFICIAL_HISTORICAL",
+      "fact": "2015 update planning included server-side retention of equipment-set macros and party-member status-effect display.",
+      "source": "https://www.playonline.com/ff11us/topics/backnumber/201507/topics_all.html"
+    }
+  },
+  "client_research": {
+    "dat_resources": {
+      "evidence_class": "CLIENT_COMPATIBILITY_RESEARCH",
+      "facts": [
+        "Windower ResourceExtractor extracts internal resources from FFXI DAT files.",
+        "Windower Resources combines automatically parsed DAT resources with manual fixes.",
+        "FFXI updates can change structures and require extractor updates."
+      ],
+      "sources": [
+        "https://github.com/Windower/Resources",
+        "https://github.com/Windower/ResourceExtractor"
+      ]
+    },
+    "packet_domains": {
+      "evidence_class": "CLIENT_COMPATIBILITY_RESEARCH",
+      "observed_categories": [
+        "client_connect",
+        "zone_in",
+        "zone_out",
+        "position",
+        "update_request",
+        "action",
+        "pc_update",
+        "npc_update",
+        "job_info",
+        "inventory",
+        "trade",
+        "chat",
+        "party_invite"
+      ],
+      "sources": [
+        "https://github.com/Windower/Lua/blob/dev/addons/libs/packets/data.lua",
+        "https://github.com/Windower/Lua/blob/dev/addons/libs/packets/fields.lua"
+      ],
+      "warning": "Protocol metadata describes client-facing behavior, not Square Enix server implementation."
+    }
+  },
+  "emulator_reference": {
+    "evidence_class": "OPEN_SOURCE_EMULATION_REFERENCE",
+    "project": "LandSandBoat",
+    "architecture_patterns": [
+      "packet handlers route incoming client requests",
+      "zones own entity logic",
+      "zones can wake on player presence and sleep when empty",
+      "scheduled tasks handle world-time/cleanup/persistence duties",
+      "C++ core plus Lua scripting and SQL-backed data"
+    ],
+    "warning": "This is one open-source emulator architecture, not proof of retail FFXI internals.",
+    "sources": [
+      "https://github.com/LandSandBoat/server/wiki/Development-Server-Startup-Tutorial",
+      "https://github.com/LandSandBoat/server/blob/base/src/map/zone_entities.cpp"
+    ]
+  },
+  "dpc": {
+    "evidence_state": "DPC_STATIC_PENDING",
+    "latest_scan_run": 36574471567,
+    "dolzore_scanner_commit": "73e9e36140e748a7d6966b1ab59225a9c4914a4f",
+    "automation_scanner_commit": "8cc42893737d4688ea0d973f609d028d92a98a93",
+    "workflow_commit": "4ba9ac30d6c43c700c3a9c4bd2cecbcd1c304bb2",
+    "transport_issue": "DeeDee-Lab/Automation#602",
+    "recovery_run": 36574620463,
+    "recovery": {
+      "spc_job_id": 109426924586,
+      "spc_result": "FAIL_ACCESS_DENIED_QUERYING_DPC_SCHEDULED_TASK",
+      "motoca_job_id": 109426924229,
+      "motoca_result_at_last_readback": "QUEUED"
+    },
+    "do_not_claim": [
+      "DPC is powered off",
+      "DPC FF11 install topology has been observed",
+      "DPC DAT counts are known",
+      "DPC retail formulas are known"
+    ]
+  },
+  "dolzore_recommendations": {
+    "before_or_near_first_unity_slice": [
+      "separate permanent character identity from vocation/job state",
+      "use stable region/zone IDs independent of Unity scene filenames",
+      "use durable entity IDs independent of scene object names",
+      "model inventory/equipment/loadouts as persistent data",
+      "separate public world, interiors, and private instance boundaries",
+      "reserve HUD model for level/resources/vocation/zone/status/target"
+    ],
+    "combat_prototype": [
+      "paced weapon cadence",
+      "build-spend combat resource",
+      "weapon/skill burst actions",
+      "original cooperative timing/chain mechanic",
+      "multi-component threat model",
+      "visible party-role contributions",
+      "loadout switching",
+      "preparation/enemy-knowledge value"
+    ],
+    "persistent_rpg": [
+      "linked fishing/gathering/crafting/cooking economies",
+      "secure trade ledger",
+      "central market plus optional player storefront model",
+      "separate local request/story mission/public world-state channels",
+      "original solo companion system",
+      "original mentor/sync system"
+    ],
+    "staged_mmo": [
+      "server-authoritative persistent state",
+      "activation-aware zone/region workers",
+      "separate simulation cadence from persistence/world-time jobs",
+      "party layer before multi-party public events",
+      "shards/instances hidden behind coherent authored world"
+    ]
+  },
+  "pending_questions": [
+    "DPC installed build/version metadata",
+    "DPC exact ROM/DAT topology",
+    "DPC executable/DLL hashes and versions",
+    "DPC graphics/config metadata",
+    "runtime zone transition timing",
+    "runtime movement/input latency",
+    "runtime UI state transitions",
+    "current retail battle/enmity/TP formulas",
+    "retail server AI and RNG",
+    "retail persistence/database topology",
+    "retail auction internals",
+    "retail anti-cheat internals"
+  ],
+  "resume_protocol": [
+    "read AGENT_READ_FIRST.md",
+    "read this JSON",
+    "read DPC_SCAN_STATUS.json",
+    "read Dolzore issue #25 latest checkpoint",
+    "prefer fresh DPC observations over inference",
+    "append deltas only; never restart from zero"
+  ]
+}
