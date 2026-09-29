@@ -243,31 +243,29 @@ def town_game():
     for p in ((10,57),(153,81),(451,72),(398,219),(18,224)):tree(*p)
 
     def building(x,y,w,h,front,side,roof):
-        # Architectural side plane. This is wall material, not a cast shadow.
-        Poly(((x+w,y+12),(x+w+7,y+17),(x+w+7,y+h-1),(x+w,y+h+4)),side)
-        # front
+        # One 3/4 projection rule: upper-left light and a shallow right wall plane.
+        # Keep that plane narrow so it reads as architecture, never a duplicated shadow.
+        depth=3
+        Poly(((x+5,y+h+3),(x+w+2,y+h+3),(x+w+6,y+h+6),(x+9,y+h+7)),"#5b824d")
+        Poly(((x+w-1,y+14),(x+w+depth,y+16),(x+w+depth,y+h),(x+w-1,y+h+3)),side)
         R((x,y+12,x+w,y+h+4),"#2e2932")
         R((x+2,y+14,x+w-2,y+h+2),front)
-        # roof 3/4
-        Poly(((x-3,y+13),(x+9,y+2),(x+w-15,y+2),(x+w+4,y+13),(x+w,y+18),(x,y+18)),"#2e2932")
-        Poly(((x+1,y+12),(x+10,y+5),(x+w-17,y+5),(x+w,y+12),(x+w-1,y+15),(x+2,y+15)),roof)
-        # awning and windows
+        Poly(((x-3,y+13),(x+9,y+2),(x+w-15,y+2),(x+w+2,y+13),(x+w,y+17),(x,y+17)),"#2e2932")
+        Poly(((x+1,y+12),(x+10,y+5),(x+w-17,y+5),(x+w-1,y+12),(x+w-2,y+14),(x+2,y+14)),roof)
+        L(((x+4,y+15),(x+4,y+h-3)),"#e7dcb7")
+        L(((x+5,y+15),(x+w-4,y+15)),"#e7dcb7")
         for ix in range(x+8,x+w-8,10):
             R((ix,y+34,min(ix+6,x+w-8),y+38),"#f1e0ad" if ((ix-x)//10)%2==0 else front)
         R((x+10,y+43,x+34,y+65),"#2b2630");R((x+12,y+45,x+32,y+63),"#9fd4cf")
         R((x+w-37,y+43,x+w-13,y+65),"#2b2630");R((x+w-35,y+45,x+w-15,y+63),"#cfe8da")
-        # door
         dx=x+w//2-10
         R((dx,y+h-25,dx+20,y+h+2),"#2b2630");R((dx+2,y+h-23,dx+18,y+h+2),"#554451")
         R((dx+14,y+h-12,dx+16,y+h-10),"#d1a94a")
-        # short contact shadow only; light source is upper-left
-        R((x+5,y+h+4,x+w+6,y+h+6),"#557f4a")
-        R((x+w+1,y+h+2,x+w+8,y+h+5),"#557f4a")
         return (dx+2,y+h-8,16,12)
 
     cafe_door=building(34,44,112,70,"#d6b16c","#b68e59","#596c68")
     journal_door=building(174,38,124,80,"#70ac98","#4d8275","#493e4d")
-    music_door=building(336,35,116,84,"#d9848a","#b85e69","#864254")
+    bar_door=building(336,35,116,84,"#d9848a","#c56d75","#864254")
 
     # sidewalk furniture, parked car, postbox, vending machine
     R((226,105,272,110),"#71523c");R((232,99,266,103),"#8a6648");R((232,110,235,121),"#4b3b32");R((263,110,266,121),"#4b3b32")
