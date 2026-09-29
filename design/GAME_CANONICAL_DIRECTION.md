@@ -405,3 +405,31 @@ Priority conflict order:
 5. older design docs.
 
 `GAME_CANONICAL_READY=true`
+
+
+## 16. Mother2 comprehensive research is now active production input
+
+The comprehensive `research/mother2/` V1 corpus is no longer merely advisory backlog; it has been read and applied to the Unity First Town.
+
+Current visual principles:
+- small readable symbolic characters;
+- silhouette/color-block first;
+- ordinary streets/homes/services before anomaly;
+- roads as authored navigation surfaces;
+- density modulation D0/D1/D2/D3;
+- social pockets + quiet edges;
+- multi-channel landmarks;
+- mundane props with purpose;
+- roof/front/side architectural semantics;
+- connected-world illusion with separate collision/navigation data.
+
+Current V3 proof:
+- run `36636292647 = SUCCESS`
+- generated branch source `5e1b945f0cd2801417aa0f81111359764d27dc2a`
+- collider mandatory-route acceptance PASS for BAR/JOURNAL/RIVERSIDE/STATION.
+
+Canonical town concept:
+`design/FIRST_TOWN_TOWN_CONCEPT.md`
+
+Do not undo the FF11 internal core while iterating visuals.
+Do not trace/reference-copy MOTHER2 protected expression.
