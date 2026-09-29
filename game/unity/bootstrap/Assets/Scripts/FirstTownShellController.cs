@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,7 +15,7 @@ namespace Dolzore
 
         private void Update()
         {
-            if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+            if (Input.GetKeyDown(KeyCode.Escape))
                 SceneManager.LoadScene("Title");
 
             if (clockLabel != null)
