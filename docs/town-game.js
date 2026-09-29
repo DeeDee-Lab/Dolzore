@@ -271,7 +271,10 @@
       ready:true,
       getState:()=>({
         player:{x:player.x,y:player.y,dir:player.dir,jumpActive:player.jumpActive,jumpHeight:player.jumpHeight},
-        camera:{...camera},district:districtFor(player.x,player.y),
+        camera:{...camera},
+        world:{width:WORLD_W,height:WORLD_H,viewportWidth:VIEW_W,viewportHeight:VIEW_H},
+        district:districtFor(player.x,player.y),
+        places:places.map(p=>({id:p.id,name:p.name,x:p.x,y:p.y,label:p.label})),
         residents:residents.map(x=>({name:x.name,x:x.x,y:x.y})),
         bgm:{enabled:bgmEnabled,playing:!!(audioCtx&&audioCtx.state==="running")}
       }),
