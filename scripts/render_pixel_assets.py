@@ -414,7 +414,7 @@ def characters():
         for col,(direction,step) in enumerate(frames):
             frame(row,col,direction,step,p)
 
-    sheet.save(OUT/"dolzore-characters.png",OUT/"dolzore-first-town.png")
+    sheet.save(OUT/"dolzore-characters.png")
 town_game();characters()
 
 
@@ -625,4 +625,6 @@ def first_town():
 
     im.save(OUT/"dolzore-first-town.png")
 
-print("rendered",OUT/"dolzore-town.png",OUT/"dolzore-jukebox.png",OUT/"dolzore-town-game.png",OUT/"dolzore-characters.png")
+first_town()
+
+print("rendered",OUT/"dolzore-town.png",OUT/"dolzore-jukebox.png",OUT/"dolzore-town-game.png",OUT/"dolzore-characters.png",OUT/"dolzore-first-town.png")
