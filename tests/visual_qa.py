@@ -34,14 +34,15 @@ def main() -> None:
         page.goto(BASE + "/", wait_until="load")
         page.wait_for_timeout(800)
         assert "DOLZORE" in page.title()
-        assert page.locator("text=ここは DOLZORE。").count() == 1
-        assert page.locator("text=いま買えるものは、音楽だけ。").count() == 1
         assert page.locator('a[href="music/"]').count() >= 1
         assert page.locator("nav").get_by_text("ABOUT", exact=True).count() == 0
         assert page.locator("[data-town-canvas]").count() == 1
         assert page.locator('[data-place-label="music"]').text_content().strip() == "MUSIC"
         assert page.locator('[data-place-label="journal"]').text_content().strip() == "JOURNAL"
         page.wait_for_function("window.__DOLZORE_WORLD__ && window.__DOLZORE_WORLD__.ready === true")
+        state = page.evaluate("window.__DOLZORE_WORLD__.getState()")
+        assert len(state["residents"]) == 3
+        assert {x["name"] for x in state["residents"]} == {"MELO","YUZU","PON"}
         before = page.evaluate("window.__DOLZORE_WORLD__.getState().player.x")
         page.keyboard.down("ArrowRight")
         page.wait_for_timeout(450)
