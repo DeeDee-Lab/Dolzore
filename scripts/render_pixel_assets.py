@@ -243,10 +243,8 @@ def town_game():
     for p in ((10,57),(153,81),(451,72),(398,219),(18,224)):tree(*p)
 
     def building(x,y,w,h,front,side,roof):
-        # back shadow
-        Poly(((x+7,y+8),(x+w+10,y+8),(x+w+16,y+14),(x+w+16,y+h+7),(x+14,y+h+7),(x+7,y+h)), "#413744")
-        # side plane
-        Poly(((x+w,y+12),(x+w+8,y+18),(x+w+8,y+h-2),(x+w,y+h+5)),side)
+        # Architectural side plane. This is wall material, not a cast shadow.
+        Poly(((x+w,y+12),(x+w+7,y+17),(x+w+7,y+h-1),(x+w,y+h+4)),side)
         # front
         R((x,y+12,x+w,y+h+4),"#2e2932")
         R((x+2,y+14,x+w-2,y+h+2),front)
@@ -262,6 +260,9 @@ def town_game():
         dx=x+w//2-10
         R((dx,y+h-25,dx+20,y+h+2),"#2b2630");R((dx+2,y+h-23,dx+18,y+h+2),"#554451")
         R((dx+14,y+h-12,dx+16,y+h-10),"#d1a94a")
+        # short contact shadow only; light source is upper-left
+        R((x+5,y+h+4,x+w+6,y+h+6),"#557f4a")
+        R((x+w+1,y+h+2,x+w+8,y+h+5),"#557f4a")
         return (dx+2,y+h-8,16,12)
 
     cafe_door=building(34,44,112,70,"#d6b16c","#b68e59","#596c68")
