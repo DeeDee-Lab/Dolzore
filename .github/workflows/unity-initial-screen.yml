@@ -1,0 +1,137 @@
+name: DOLZORE Unity Initial Screen
+
+on:
+  push:
+    branches: ["rebuild/unity-first-town-20260929"]
+    paths:
+      - "game/unity/bootstrap/**"
+      - ".github/workflows/unity-initial-screen.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dolzore-unity-initial-screen
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: [dolzore-site-osk222]
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Resolve validated Unity editor
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'OSK222') {
+            throw "DOLZORE_WRONG_HOST:$env:COMPUTERNAME"
+          }
+          $unity = "C:\Program Files\Unity\Hub\Editor\6000.5.1f1\Editor\Unity.exe"
+          if (-not (Test-Path $unity)) {
+            throw "DOLZORE_UNITY_6000_5_1_NOT_FOUND"
+          }
+          $webgl = Join-Path (Split-Path $unity -Parent) "Data\PlaybackEngines\WebGLSupport"
+          if (-not (Test-Path $webgl)) {
+            throw "DOLZORE_WEBGL_MODULE_NOT_FOUND"
+          }
+          "UNITY_EXE=$unity" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          Write-Host "UNITY_EXE=$unity"
+
+      - name: Materialize canonical Unity project settings
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $settings = Join-Path $project "ProjectSettings\ProjectSettings.asset"
+          if (-not (Test-Path $settings)) {
+            $template = Join-Path $env:RUNNER_TEMP "DolzoreUnityTemplate"
+            if (Test-Path $template) { Remove-Item $template -Recurse -Force }
+            $createLog = Join-Path $env:RUNNER_TEMP "dolzore-unity-create.log"
+            & "$env:UNITY_EXE" -quit -batchmode -createProject "$template" -logFile "$createLog"
+            $code = $LASTEXITCODE
+            Get-Content $createLog -Tail 180
+            if ($code -ne 0) {
+              throw "DOLZORE_UNITY_CREATE_FAILED:$code"
+            }
+            New-Item -ItemType Directory -Path $project -Force | Out-Null
+            Copy-Item -Path (Join-Path $template "ProjectSettings") -Destination $project -Recurse -Force
+            Copy-Item -Path (Join-Path $template "Packages") -Destination $project -Recurse -Force
+          }
+
+      - name: Sync authored Unity source
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $source = Join-Path $env:GITHUB_WORKSPACE "game\unity\bootstrap"
+          New-Item -ItemType Directory -Path (Join-Path $project "Assets") -Force | Out-Null
+          New-Item -ItemType Directory -Path (Join-Path $project "Packages") -Force | Out-Null
+          Copy-Item -Path (Join-Path $source "Assets\*") -Destination (Join-Path $project "Assets") -Recurse -Force
+          Copy-Item -Path (Join-Path $source "Packages\manifest.json") -Destination (Join-Path $project "Packages\manifest.json") -Force
+
+      - name: Generate scenes preview and WebGL build
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $log = Join-Path $env:RUNNER_TEMP "dolzore-unity-build.log"
+          & "$env:UNITY_EXE" -quit -batchmode -projectPath "$project" -buildTarget WebGL -executeMethod Dolzore.Editor.ProjectBootstrap.BuildInitialSlice -logFile "$log"
+          $code = $LASTEXITCODE
+          Get-Content $log -Tail 420
+          if ($code -ne 0) {
+            throw "DOLZORE_UNITY_BUILD_FAILED:$code"
+          }
+
+      - name: Verify generated deliverables
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $required = @(
+            "Assets\Scenes\Title.unity",
+            "Assets\Scenes\FirstTownShell.unity",
+            "Assets\Art\Generated\title_background.png",
+            "Assets\Art\Generated\dolzore_logo.png",
+            "Assets\Art\Generated\first_town_minimap.png",
+            "BuildArtifacts\initial-screen.png",
+            "Builds\WebGL\index.html"
+          )
+          foreach ($rel in $required) {
+            $path = Join-Path $project $rel
+            if (-not (Test-Path $path)) {
+              throw "DOLZORE_MISSING_DELIVERABLE:$rel"
+            }
+            Write-Host "DOLZORE_OK=$rel"
+          }
+          $hash = (Get-FileHash (Join-Path $project "BuildArtifacts\initial-screen.png") -Algorithm SHA256).Hash.ToLowerInvariant()
+          Write-Host "DOLZORE_INITIAL_SCREEN_SHA256=$hash"
+
+      - name: Upload Unity visual and WebGL receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-unity-initial-screen
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            game/unity/Dolzore/BuildArtifacts/initial-screen.png
+            game/unity/Dolzore/Builds/WebGL/**
+
+      - name: Preserve generated Unity project source
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          git config user.name "DOLZORE Unity Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add game/unity/Dolzore/Assets game/unity/Dolzore/Packages game/unity/Dolzore/ProjectSettings
+          git diff --cached --quiet
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "UNITY_PROJECT_SOURCE_ALREADY_CURRENT=true"
+            exit 0
+          }
+          git commit -m "unity: generate initial screen project [skip ci]"
+          git push origin HEAD:rebuild/unity-first-town-20260929
