@@ -100,6 +100,12 @@ def main() -> None:
         assert not audio_src, f"pending preview must not invent a source: {audio_src}"
         assert audio_time == 0, audio_time
         assert audio_paused is True
+        page.goto(BASE + "/journal/", wait_until="load")
+        no_overflow(page, "desktop journal")
+        assert page.locator(".journal-tools-v5").count() == 1
+        assert page.locator("text=道具の記事").count() == 1
+        screenshot(page, "desktop-journal.png")
+        preview(page, "desktop-journal-preview.jpg")
         desktop.close()
 
         mobile = browser.new_context(viewport={"width": 390, "height": 844}, is_mobile=True)
@@ -112,6 +118,12 @@ def main() -> None:
         no_overflow(m, "mobile home")
         screenshot(m, "mobile-home.png")
         preview(m, "mobile-home-preview.jpg")
+
+        m.goto(BASE + "/journal/", wait_until="load")
+        no_overflow(m, "mobile journal")
+        assert m.locator(".journal-tools-v5").count() == 1
+        screenshot(m, "mobile-journal.png")
+        preview(m, "mobile-journal-preview.jpg")
 
         m.goto(BASE + "/music/", wait_until="load")
         m.wait_for_function("document.querySelectorAll('.track-choice').length === 60")
