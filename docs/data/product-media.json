@@ -1,47 +1,47 @@
 {
   "schemaVersion": 1,
-  "updatedAt": null,
+  "updatedAt": "2026-09-29T00:35:28.333782+00:00",
   "policy": "Use manufacturer-hosted official page og:image only. Do not download/copy marketplace or user images into repository.",
   "products": [
     {
       "model": "BenQ TK705STi",
       "sourceUrl": "https://www.benq.com/ja-jp/projector/cinema/tk705sti.html",
-      "imageUrl": null
+      "imageUrl": "https://image.benq.com/is/image/benqco/tk705sti-right30-1-2?$ResponsivePreset$"
     },
     {
       "model": "BenQ TK710STi",
       "sourceUrl": "https://www.benq.com/ja-jp/projector/gaming/tk710sti.html",
-      "imageUrl": null
+      "imageUrl": "https://image.benq.com/is/image/benqco/tk710sti-right30?$ResponsivePreset$"
     },
     {
       "model": "BenQ TK700STi",
       "sourceUrl": "https://www.benq.com/ja-jp/projector/gaming/tk700sti.html",
-      "imageUrl": null
+      "imageUrl": "https://image.benq.com/is/image/benqco/TK700STi-3?$ResponsivePreset$"
     },
     {
       "model": "Optoma UHD35STx",
       "sourceUrl": "https://www.optomausa.com/product/uhd35stx",
-      "imageUrl": null
+      "imageUrl": "https://region-resource.optoma.com/country/ig4Jh8LWF0uqQAoDpEV0qNhWtjuQPVexkNYv4Q3k.png"
     },
     {
       "model": "ViewSonic X10-4K",
       "sourceUrl": "https://www.viewsonic.com/jp/products/projectors/X10-4K",
-      "imageUrl": null
+      "imageUrl": "https://www.viewsonic.com/jp/vsAssetFile/jp/img/slides/0projector/X10-4K/scaled/X10-4K_silver_t.jpg"
     },
     {
       "model": "XGIMI AURA",
       "sourceUrl": "https://jp.xgimi.com/products/xgimi-aura",
-      "imageUrl": null
+      "imageUrl": "https://jp.xgimi.com/cdn/shop/products/1c670cec47157180456030cfc6dad4c7_1200x1200.png?v=1723512917"
     },
     {
       "model": "XGIMI HORIZON S Max",
       "sourceUrl": "https://jp.xgimi.com/products/horizon-s-max",
-      "imageUrl": null
+      "imageUrl": "https://jp.xgimi.com/cdn/shop/files/02_1200x1200.jpg?v=1754015413"
     },
     {
       "model": "JMGO N1S Ultra 4K",
       "sourceUrl": "https://jmgo.jp/products/jmgo-n1s-ultra-4k",
-      "imageUrl": null
+      "imageUrl": "https://jmgo.jp/cdn/shop/files/n1s_ultra_4k_01_main_renewal_1200x1200.jpg?v=1759908547"
     },
     {
       "model": "Epson EH-LS800",
@@ -51,7 +51,7 @@
     {
       "model": "BenQ X3100i",
       "sourceUrl": "https://www.benq.com/ja-jp/projector/gaming/x3100i.html",
-      "imageUrl": null
+      "imageUrl": "https://image.benq.com/is/image/benqco/gaming-x3100i-gallery03?$ResponsivePreset$"
     }
   ]
 }
