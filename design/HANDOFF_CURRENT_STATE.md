@@ -469,3 +469,52 @@ Next work after resume:
 3. improve First Town visual quality toward the canonical exterior direction;
 4. keep combat math dormant until town presentation/interaction quality passes;
 5. when combat starts, use the existing internal formula engine rather than inventing a new one.
+
+
+---
+
+# 13. 2026-09-30 Mother2 research -> FirstTown V3 implementation
+
+Canonical Mother2 research is now production-consumed.
+
+Read before further FirstTown visual iteration:
+- `research/mother2/AGENT_READ_FIRST.md`
+- `research/mother2/FIRST_TOWN_AUTHORING_CONTRACT_V1.json`
+- `research/mother2/WORLD_MAP_FIELD_GRAMMAR.md`
+- `research/mother2/VISUAL_CHARACTER_EFFECT_GRAMMAR.md`
+- `research/mother2/NPC_LIFE_SOCIAL_TEXTURE_GRAMMAR.md`
+- `research/mother2/DIFFERENTIATION_GUARDRAILS.md`
+- `design/FIRST_TOWN_TOWN_CONCEPT.md`
+
+Implemented V3 changes:
+- smaller field-character scale;
+- stronger silhouette outlines;
+- brighter broad palette families;
+- narrower authored road composition;
+- roof-dominant 3/4 building treatment;
+- residential lawns/fences/trees;
+- main-street social pocket;
+- ordinary props/vehicles/utilities;
+- quiet riverside edge;
+- oddity pocket;
+- named residents;
+- giant world labels remain removed.
+
+Latest green proof:
+- Unity run `36636292647 = SUCCESS`
+- active generated-source commit `5e1b945f0cd2801417aa0f81111359764d27dc2a`
+- BAR route PASS steps=19
+- JOURNAL route PASS steps=30
+- RIVERSIDE route PASS steps=47
+- STATION route PASS steps=82
+- HUD object/runtime binding contract PASS
+- WebGL PASS
+- generated-source preservation PASS
+
+The requested visual direction is interpreted as:
+**strongly apply the MOTHER2-derived design grammar, but never clone protected maps/sprites/UI/dialogue/music/exact palette layouts.**
+
+FF11-derived internal simulation remains frozen/green underneath this visual work.
+
+Resume remains:
+**Gameひきついで**
