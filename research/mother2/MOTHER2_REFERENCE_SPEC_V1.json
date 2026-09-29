@@ -357,11 +357,72 @@
     "LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md",
     "VISUAL_CHARACTER_EFFECT_GRAMMAR.md",
     "AUDIO_ATMOSPHERE_GRAMMAR.md",
+    "MUSIC_ROLE_MATRIX.md",
     "DIALOGUE_WORLDVIEW_GRAMMAR.md",
+    "NPC_LIFE_SOCIAL_TEXTURE_GRAMMAR.md",
     "GAMEPLAY_UI_BATTLE_PRESENTATION_GRAMMAR.md",
+    "ENEMY_ITEM_SERVICE_SYSTEM_GRAMMAR.md",
+    "NARRATIVE_PACING_MEMORY_GRAMMAR.md",
     "TECHNICAL_ARCHITECTURE_FINDINGS.md",
     "DOLZORE_UNITY_IMPLEMENTATION_CHECKLIST.md",
     "SOURCE_INDEX.md",
     "RESEARCH_STATUS.json"
-  ]
+  ],
+  "enemy_item_service": {
+    "principles": [
+      "ordinary-world objects and services can carry RPG mechanics",
+      "enemy identity begins in field behavior before battle",
+      "food and services are travel/worldbuilding systems",
+      "frequent utility NPCs need fast repeat paths",
+      "save safety should be modern even if save fiction is diegetic"
+    ]
+  },
+  "npc_life": {
+    "evidence_warning": "Schedule simulation details are DOLZORE recommendations; MOTHER2 evidence supports rich NPC placement/dialogue/state reactions but not a modern schedule system claim.",
+    "roles": [
+      "SERVICE",
+      "ORIENT",
+      "LOCAL",
+      "RELATION",
+      "RUMOR",
+      "COMIC",
+      "UNEASE",
+      "STORY",
+      "MEMORY",
+      "MOBILE",
+      "AUTHORITY",
+      "CHILD_YOUTH",
+      "OUTSIDER"
+    ],
+    "principles": [
+      "NPC placement is narrative data",
+      "not every visible NPC should be a quest terminal",
+      "post-event reactions and social relationships make towns persistent",
+      "reused visual construction must still produce distinct social identities"
+    ]
+  },
+  "narrative_pacing": {
+    "principles": [
+      "simple macro objective can support rich episodic local arcs",
+      "travel and place are narrative content",
+      "recovery valleys are intentional content",
+      "genre can shift by region while world identity persists",
+      "optional memory anchors make player memories non-uniform",
+      "late abstraction gains impact from long ordinary-world attachment"
+    ]
+  },
+  "music_role_matrix": {
+    "source": "Nintendo official soundtrack listing + creator interviews",
+    "roles": [
+      "town_identity",
+      "transit_identity",
+      "service_identity",
+      "venue_performance",
+      "climate_region",
+      "battle_experimental",
+      "memory_macro_motif",
+      "ending_reflection"
+    ],
+    "dolzore_rule": "Music state granularity should follow place/action/drama roles rather than a single town/battle/dungeon taxonomy."
+  }
 }
