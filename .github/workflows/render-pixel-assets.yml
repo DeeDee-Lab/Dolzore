@@ -26,12 +26,23 @@ jobs:
       - name: Render true low-resolution pixel assets
         run: python scripts/render_pixel_assets.py
       - name: Verify assets
-        shell: powershell
         run: |
-          foreach ($p in @("docs/assets/dolzore-town.png","docs/assets/dolzore-jukebox.png","docs/assets/dolzore-town-game.png","docs/assets/dolzore-characters.png")) {
-            if (!(Test-Path $p)) { throw "MISSING_ASSET:$p" }
-            if ((Get-Item $p).Length -lt 2000) { throw "ASSET_TOO_SMALL:$p" }
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          expected={
+              "docs/assets/dolzore-town.png":(960,540),
+              "docs/assets/dolzore-jukebox.png":(480,720),
+              "docs/assets/dolzore-town-game.png":(960,540),
+              "docs/assets/dolzore-characters.png":(128,96),
           }
+          for raw,size in expected.items():
+              p=Path(raw)
+              assert p.exists(), f"MISSING_ASSET:{p}"
+              with Image.open(p) as im:
+                  assert im.size==size, f"BAD_DIMENSIONS:{p}:{im.size}"
+          print("PIXEL_ASSET_DIMENSIONS_PASS")
+          PY
       - name: Commit generated assets
         shell: powershell
         run: |
