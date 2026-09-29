@@ -9,24 +9,57 @@ namespace Dolzore
         public string characterId = "player.local.review";
         public string displayName = "SORA";
         public string appearancePresetId = "appearance.sora.default";
+        public string lineageId = "lineage.balance";
     }
 
     [Serializable]
     public sealed class VocationStateData
     {
-        public string primaryVocationId = "vocation.wanderer";
-        public string secondaryVocationId = "";
-        public int vocationLevel = 1;
+        public string primaryVocationId = "vocation.warden";
+        public string supportVocationId = "";
+        public int primaryVocationLevel = 1;
+        public int supportVocationNativeLevel = 0;
+
+        public int SupportVocationEffectiveLevel =>
+            DolzoreFfxiDerivedMath.SupportVocationEffectiveLevel(primaryVocationLevel, supportVocationNativeLevel);
     }
 
     [Serializable]
     public sealed class VitalStateData
     {
         public int level = 1;
-        public int heartCurrent = 82;
-        public int heartMax = 100;
-        public int focusCurrent = 64;
-        public int focusMax = 100;
+
+        // Internal simulation follows the HP/MP model.
+        public int hpCurrent = 82;
+        public int hpMax = 100;
+        public int mpCurrent = 64;
+        public int mpMax = 100;
+
+        // Player-facing aliases remain HEART / FOCUS.
+        public int HeartCurrent => hpCurrent;
+        public int HeartMax => hpMax;
+        public int FocusCurrent => mpCurrent;
+        public int FocusMax => mpMax;
+
+        public InternalStatBlock baseStats = new InternalStatBlock
+        {
+            hp = 100,
+            mp = 60,
+            str = 7,
+            dex = 7,
+            vit = 7,
+            agi = 7,
+            intel = 7,
+            mnd = 7,
+            chr = 7
+        };
+    }
+
+    [Serializable]
+    public sealed class SkillProgressData
+    {
+        public string skillId;
+        public int currentSkill;
     }
 
     [Serializable]
@@ -66,10 +99,12 @@ namespace Dolzore
         public CharacterIdentityData identity = new CharacterIdentityData();
         public VocationStateData vocation = new VocationStateData();
         public VitalStateData vitals = new VitalStateData();
+        public List<SkillProgressData> skills = new List<SkillProgressData>();
         public List<StatusEffectData> statuses = new List<StatusEffectData>();
         public List<InventoryItemData> inventory = new List<InventoryItemData>();
         public List<LoadoutData> loadouts = new List<LoadoutData>();
         public string activeLoadoutId = "loadout.exploration.default";
+        public int techniqueResource = 0;
         public string currentRegionId = "region.first_town.present";
         public string currentDistrictId = "district.first_town.central";
         public string targetEntityId = "";
