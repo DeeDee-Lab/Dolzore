@@ -426,9 +426,8 @@ namespace Dolzore.Editor
         {
             GameObject go = new GameObject("HUD Canvas");
             Canvas canvas = go.AddComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceCamera;
-            canvas.worldCamera = camera;
-            canvas.planeDistance = 10f;
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.worldCamera = null;
 
             CanvasScaler scaler = go.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
