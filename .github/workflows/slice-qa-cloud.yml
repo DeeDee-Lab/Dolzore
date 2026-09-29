@@ -1,4 +1,5 @@
 name: DOLZORE Slice QA Cloud
+# Slice 1 current-assets verification
 
 on:
   push:
