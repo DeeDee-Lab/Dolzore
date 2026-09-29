@@ -428,3 +428,61 @@ The rejected one-screen town as canonical world foundation.
 
 NEXT ACTION:
 Implement the first BAR interior and in-game jukebox purchase path while preserving the first-town map and regression QA.
+
+
+---
+
+## 2026-09-29 — Full game-engine rebuild
+
+DECISION:
+The current Canvas/direct-draw game implementation is rejected as the quality foundation.
+
+Replace the game layer with:
+- Phaser 3
+- TypeScript
+- Vite
+- Tiled-compatible map data / Tiled authoring workflow
+- layered HUD
+- minimap/world map
+- proper collision/object layers
+- data-driven NPC/event/interaction definitions
+- save-ready player/stat model
+
+Free/CC0 asset policy:
+- use CC0 assets as production-quality base/reference where appropriate;
+- Kenney RPG Urban Pack is approved as a temporary high-quality urban base;
+- DOLZORE-specific character art, landmarks and key buildings must become original;
+- every third-party asset must have source/license recorded.
+
+WHY:
+The current approach caps visual quality and creates fragile collision/layout behavior.
+The user explicitly rejects the current art, character design, blocked routes, lack of map UI and lack of status UI.
+
+SUPERSEDES:
+- further incremental patching of the current Canvas town as the primary production path.
+
+IMPLEMENTATION IMPACT:
+- existing Canvas game remains only as temporary public prototype until the Phaser build passes acceptance;
+- JOURNAL / SUPPORT / LEGAL remain static HTML;
+- music purchase direction remains BAR -> JUKEBOX -> preview -> Stripe;
+- current story/MMO/life-system decisions remain valid;
+- first town is rebuilt in the new engine instead of copied pixel-for-pixel.
+
+FIRST-TOWN QUALITY GATE:
+- no trapped/blocked mandatory path;
+- collision comes from authored collision/object layers;
+- minimap always available;
+- player HUD shows name, level, HP/HEART, FOCUS, current job placeholder and zone;
+- town has distinct districts and landmarks;
+- no generic box-house repetition;
+- readable, coherent character sprites;
+- keyboard + mobile controls;
+- camera follow;
+- interaction prompt;
+- BGM control;
+- desktop/mobile QA;
+- screenshot visual review before public replacement.
+
+NEXT ACTION:
+Build new Phaser/Tiled first-town vertical slice on branch:
+`rebuild/game-engine-20260929`
