@@ -1,4 +1,5 @@
 name: DOLZORE visual QA
+# final integrated QA
 
 on:
   push:
