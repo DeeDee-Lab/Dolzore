@@ -1,7 +1,7 @@
 {
   "schema": "dolzore.ff11.dpc_scan_status.v1",
-  "updated_jst": "2026-09-29T22:23:00+09:00",
-  "state": "BLOCKED_DPC_RUNNER",
+  "updated_jst": "2026-09-29T22:30:00+09:00",
+  "state": "BLOCKED_DPC_RUNNER_ANTI_LOOP_HOLD",
   "target_host": "DPC",
   "mode": "READ_ONLY_GITHUB_BOUND",
   "desktop_commander_used": false,
@@ -47,5 +47,20 @@
       "credentials_read": false
     }
   },
-  "next_exact_action": "When an existing authorized DPC GitHub runner reconnects, allow the already-queued scan or trigger exactly one successor scan; on success fetch artifact and commit derived evidence to research/ff11/dpc/. Do not repeat SPC scheduled-task query with unchanged method."
+  "next_exact_action": "When an existing authorized DPC GitHub runner reconnects, allow the already-queued scan or trigger exactly one successor scan; on success fetch artifact and commit derived evidence to research/ff11/dpc/. Do not repeat SPC scheduled-task query with unchanged method.",
+  "latest_readback": {
+    "scan_run_36574471567": "queued",
+    "rescue_spc_job_109426924586": "completed/failure/access_denied",
+    "rescue_motoca_job_109426924229": "queued"
+  },
+  "control_plane_cleanup": {
+    "noncanonical_dolzore_workflow_removed": true,
+    "cleanup_commit": "23d1760a717f9f7fe4db874158dd35bb3fc6bfa3",
+    "canonical_execution_repo": "DeeDee-Lab/Automation"
+  },
+  "anti_loop": {
+    "same_spc_remote_schtasks_retry_forbidden": true,
+    "same_dolzore_direct_runner_retry_forbidden": true,
+    "next_trigger": "existing authorized DPC runner reconnects OR a materially different pre-existing authorized recovery carrier becomes available"
+  }
 }
