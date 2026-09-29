@@ -82,7 +82,10 @@ def main() -> None:
             status = page.locator("[data-status]").text_content()
             src = page.locator("[data-audio]").get_attribute("src")
             raise AssertionError(f"proven preview failed to play; status={status!r} src={src!r}")
-        assert "試聴中" in page.locator("[data-status]").text_content()
+        proven_audio_paused = page.locator("[data-audio]").evaluate("(el)=>el.paused")
+        proven_audio_time = page.locator("[data-audio]").evaluate("(el)=>el.currentTime")
+        assert proven_audio_paused is False, proven_audio_paused
+        assert proven_audio_time > 0.15, proven_audio_time
         page.locator("[data-stop]").click()
 
         search.fill("Bright Morning")
@@ -106,6 +109,13 @@ def main() -> None:
         m.wait_for_function("window.__DOLZORE_WORLD__ && window.__DOLZORE_WORLD__.ready === true")
         assert m.locator("[data-move]").count() == 4
         assert m.locator("[data-action]").count() == 1
+        mobile_before = m.evaluate("window.__DOLZORE_WORLD__.getState().player.x")
+        mobile_right = m.locator('[data-move="right"]')
+        mobile_right.dispatch_event("pointerdown")
+        m.wait_for_timeout(450)
+        mobile_right.dispatch_event("pointerup")
+        mobile_after = m.evaluate("window.__DOLZORE_WORLD__.getState().player.x")
+        assert mobile_after > mobile_before + 8, (mobile_before, mobile_after)
         no_overflow(m, "mobile home")
         screenshot(m, "mobile-home.png")
         preview(m, "mobile-home-preview.jpg")
