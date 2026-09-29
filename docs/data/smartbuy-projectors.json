@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": null,
+  "generatedAt": "2026-09-29T00:33:25.135328+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
   "newItems": [],
@@ -36,5 +36,13 @@
       "consider": 100000
     }
   ],
-  "note": "Initial snapshot. Strict candidates may be zero; target buy bands remain visible."
+  "trackedModels": [
+    "BenQ TK700STi",
+    "BenQ TK705STi",
+    "BenQ TK710STi",
+    "Optoma UHD35STx",
+    "ViewSonic X10-4K",
+    "XGIMI AURA"
+  ],
+  "note": "Only strict individual listings are published. Zero results are allowed. generatedAt is refreshed every successful run."
 }
