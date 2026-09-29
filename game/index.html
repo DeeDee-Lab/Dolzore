@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#111018" />
+  <title>DOLZORE — FIRST TOWN</title>
+</head>
+<body>
+  <main id="game-shell">
+    <div id="game-root" aria-label="DOLZORE game"></div>
+    <div id="mobile-controls" aria-hidden="true">
+      <div class="mobile-dpad">
+        <button data-key="up">▲</button>
+        <button data-key="left">◀</button>
+        <button data-key="down">▼</button>
+        <button data-key="right">▶</button>
+      </div>
+      <div class="mobile-actions">
+        <button data-action="interact">TALK</button>
+        <button data-action="jump">JUMP</button>
+        <button data-action="map">MAP</button>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
