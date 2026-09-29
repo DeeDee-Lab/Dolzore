@@ -31,13 +31,29 @@ jobs:
       - name: Commit generated assets
         shell: powershell
         run: |
+          $ErrorActionPreference = 'Stop'
+          $assetTemp = Join-Path $env:RUNNER_TEMP "dolzore-pixel-assets"
+          New-Item -ItemType Directory -Force -Path $assetTemp | Out-Null
+          foreach ($name in @("dolzore-town.png","dolzore-jukebox.png","dolzore-town-game.png","dolzore-characters.png")) {
+            Copy-Item (Join-Path "docs/assets" $name) (Join-Path $assetTemp $name) -Force
+          }
+
+          # The redesign branch may advance while rendering. Rebase the generated
+          # binary assets onto the newest remote branch rather than overwriting work.
+          git fetch origin $env:GITHUB_REF_NAME
+          git reset --hard "origin/$env:GITHUB_REF_NAME"
+
+          foreach ($name in @("dolzore-town.png","dolzore-jukebox.png","dolzore-town-game.png","dolzore-characters.png")) {
+            Copy-Item (Join-Path $assetTemp $name) (Join-Path "docs/assets" $name) -Force
+          }
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/assets/dolzore-town.png docs/assets/dolzore-jukebox.png docs/assets/dolzore-town-game.png docs/assets/dolzore-characters.png
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
             git commit -m "assets: render deliberate pixel town and jukebox [skip ci]"
-            git push origin HEAD:$env:GITHUB_REF_NAME
+            git push origin "HEAD:$env:GITHUB_REF_NAME"
           } else {
             Write-Host "Pixel assets already current."
           }
