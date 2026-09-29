@@ -141,6 +141,7 @@
         img.alt=model+" メーカー公式画像";
         img.loading=slot.closest(".electronics-hero")?"eager":"lazy";
         img.decoding="async";
+        img.referrerPolicy="no-referrer";
         img.src=url;
         img.addEventListener("load",()=>{
           slot.classList.add("has-official-photo");
