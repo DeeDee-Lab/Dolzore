@@ -36,6 +36,18 @@ class MusicOnlySiteTests(unittest.TestCase):
         self.assertEqual(len(set(purchase_urls)),60)
         self.assertGreaterEqual(ready,6)
 
+
+    def test_public_track_titles_and_descriptions_are_selection_friendly(self):
+        data=json.loads((DOCS/"data/tracks.json").read_text(encoding="utf-8"))
+        for t in data["tracks"]:
+            title=t["title"]
+            self.assertNotRegex(title,r"(?i)(?:\bv\d+\b|version\s*\d+)")
+            self.assertTrue(t.get("sceneEn"),t["id"])
+            self.assertTrue(t.get("sceneJa"),t["id"])
+            self.assertTrue(t.get("descriptionJa"),t["id"])
+            self.assertNotIn("・",t["sceneEn"])
+        self.assertEqual(next(t for t in data["tracks"] if t["id"]=="BGM-002")["title"],"Sunny Everyday")
+
     def test_public_pages_are_github_native_and_do_not_reference_full_audio_source(self):
         for p in DOCS.rglob("*"):
             if not p.is_file() or p.suffix.lower() not in {".html",".js",".css",".json",".xml",".txt"}:
