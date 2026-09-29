@@ -1,20 +1,21 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-09-29T12:57:04.937877+00:00",
+  "generatedAt": "2026-09-29T18:40:37.779316+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
-  "newItems": [],
-  "observedUsed": [
+  "newItems": [
     {
-      "title": " ViewSonic X10-4K 4K UHD 短焦点スマートLEDプ... - Yahoo!オークション",
-      "model": "ViewSonic X10-4K",
-      "market": "yahoo_auction",
-      "marketLabel": "Yahoo!オークション",
-      "price": 72800,
-      "priceStatus": "over_target",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/3d98737b80432900cf1534b4b5a67963d416705e8c8a828ca33da4b9c4478efe/i-img1200x900-17901387733240lnamj033.jpg",
-      "url": "https://auctions.yahoo.co.jp/jp/auction/m1245633828"
-    },
+      "title": "Amazon.co.jp: エプソン ドリーミオ ホームプロジェクター EH-LS800B 4KE 4000lm : 家電＆カメラ",
+      "model": "Epson EH-LS800",
+      "market": "amazon",
+      "marketLabel": "Amazon",
+      "price": 119800,
+      "priceStatus": "new_market",
+      "imageUrl": null,
+      "url": "https://www.amazon.co.jp/%E3%82%A8%E3%83%97%E3%82%BD%E3%83%B3-%E3%83%89%E3%83%AA%E3%83%BC%E3%83%9F%E3%82%AA-%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%BF%E3%83%BC-EH-LS800B-4KE-4000lm/dp/B0BFWZHF45"
+    }
+  ],
+  "observedUsed": [
     {
       "title": "【正規品】ViewSonic X10-4K 4Kプロジェクター ID275｜Yahoo!フリマ（旧PayPayフリマ）",
       "model": "ViewSonic X10-4K",
@@ -24,26 +25,6 @@
       "priceStatus": "over_target",
       "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
-    },
-    {
-      "title": "【未開封】N1S Ultra 4K 3色レーザー プロジェク... - Yahoo!オークション",
-      "model": "JMGO N1S Ultra 4K",
-      "market": "yahoo_auction",
-      "marketLabel": "Yahoo!オークション",
-      "price": 160000,
-      "priceStatus": "market_price",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/e4c8a6d2909351524bf3abaf7356ce22ba5b510b1a769553605140bd0acff918/i-img1200x948-17895615871084tadsbm342.jpg",
-      "url": "https://auctions.yahoo.co.jp/jp/auction/v1244828746"
-    },
-    {
-      "title": "EPSON EH-LS800B dreamio LCD プロジェクター エ... - Yahoo!オークション",
-      "model": "Epson EH-LS800",
-      "market": "yahoo_auction",
-      "marketLabel": "Yahoo!オークション",
-      "price": 290950,
-      "priceStatus": "market_price",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/34d8e2b2484dc352c38cc5926de6bfed14a7d94c91c44aaafe61901742bf3188/i-img1200x1200-17904961446581fo9er638.jpg",
-      "url": "https://auctions.yahoo.co.jp/jp/auction/1246103469"
     }
   ],
   "modelSummaries": [
@@ -80,14 +61,14 @@
       "strongBuy": 60000,
       "consider": 65000,
       "bestUsed": {
-        "title": " ViewSonic X10-4K 4K UHD 短焦点スマートLEDプ... - Yahoo!オークション",
+        "title": "【正規品】ViewSonic X10-4K 4Kプロジェクター ID275｜Yahoo!フリマ（旧PayPayフリマ）",
         "model": "ViewSonic X10-4K",
-        "market": "yahoo_auction",
-        "marketLabel": "Yahoo!オークション",
-        "price": 72800,
+        "market": "yahoo_flea",
+        "marketLabel": "Yahoo!フリマ",
+        "price": 90000,
         "priceStatus": "over_target",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/3d98737b80432900cf1534b4b5a67963d416705e8c8a828ca33da4b9c4478efe/i-img1200x900-17901387733240lnamj033.jpg",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/m1245633828"
+        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
+        "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
       },
       "bestNew": null
     },
@@ -109,33 +90,24 @@
       "model": "JMGO N1S Ultra 4K",
       "strongBuy": null,
       "consider": null,
-      "bestUsed": {
-        "title": "【未開封】N1S Ultra 4K 3色レーザー プロジェク... - Yahoo!オークション",
-        "model": "JMGO N1S Ultra 4K",
-        "market": "yahoo_auction",
-        "marketLabel": "Yahoo!オークション",
-        "price": 160000,
-        "priceStatus": "market_price",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/e4c8a6d2909351524bf3abaf7356ce22ba5b510b1a769553605140bd0acff918/i-img1200x948-17895615871084tadsbm342.jpg",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/v1244828746"
-      },
+      "bestUsed": null,
       "bestNew": null
     },
     {
       "model": "Epson EH-LS800",
       "strongBuy": null,
       "consider": null,
-      "bestUsed": {
-        "title": "EPSON EH-LS800B dreamio LCD プロジェクター エ... - Yahoo!オークション",
+      "bestUsed": null,
+      "bestNew": {
+        "title": "Amazon.co.jp: エプソン ドリーミオ ホームプロジェクター EH-LS800B 4KE 4000lm : 家電＆カメラ",
         "model": "Epson EH-LS800",
-        "market": "yahoo_auction",
-        "marketLabel": "Yahoo!オークション",
-        "price": 290950,
-        "priceStatus": "market_price",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/34d8e2b2484dc352c38cc5926de6bfed14a7d94c91c44aaafe61901742bf3188/i-img1200x1200-17904961446581fo9er638.jpg",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/1246103469"
-      },
-      "bestNew": null
+        "market": "amazon",
+        "marketLabel": "Amazon",
+        "price": 119800,
+        "priceStatus": "new_market",
+        "imageUrl": null,
+        "url": "https://www.amazon.co.jp/%E3%82%A8%E3%83%97%E3%82%BD%E3%83%B3-%E3%83%89%E3%83%AA%E3%83%BC%E3%83%9F%E3%82%AA-%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%BF%E3%83%BC-EH-LS800B-4KE-4000lm/dp/B0BFWZHF45"
+      }
     },
     {
       "model": "BenQ X3100i",
