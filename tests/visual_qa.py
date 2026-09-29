@@ -49,6 +49,12 @@ def main() -> None:
         page.keyboard.up("ArrowRight")
         after = page.evaluate("window.__DOLZORE_WORLD__.getState().player.x")
         assert after > before + 8, (before, after)
+
+        page.keyboard.press("Space")
+        page.wait_for_timeout(130)
+        jump_state = page.evaluate("window.__DOLZORE_WORLD__.getState().player")
+        assert jump_state["jumpActive"] is True
+        assert jump_state["jumpHeight"] > 2
         no_overflow(page, "desktop home")
         screenshot(page, "desktop-home.png")
         preview(page, "desktop-home-preview.jpg")
@@ -116,6 +122,8 @@ def main() -> None:
         m.wait_for_function("window.__DOLZORE_WORLD__ && window.__DOLZORE_WORLD__.ready === true")
         assert m.locator("[data-move]").count() == 4
         assert m.locator("[data-action]").count() == 1
+        assert m.locator("[data-jump]").count() == 1
+        assert m.locator("[data-bgm-toggle]").count() == 1
         no_overflow(m, "mobile home")
         screenshot(m, "mobile-home.png")
         preview(m, "mobile-home-preview.jpg")
@@ -185,7 +193,7 @@ def main() -> None:
     print("TRACK_BUTTONS=60")
     print("PROVEN_PREVIEW_PLAYBACK=BGM-005_PASS")
     print("PENDING_PREVIEW_FAIL_CLOSED=BGM-001_PASS")
-    print("DESKTOP_HOME_INTERACTIVE=PASS")
+    print("DESKTOP_HOME_INTERACTIVE=PASS")\n    print("SPACE_JUMP=PASS")\n    print("BGM_TOGGLE_PRESENT=PASS")
     print("DESKTOP_MUSIC=PASS")
     print("MOBILE_HOME_CONTROLS=PASS")
     print("MOBILE_MUSIC=PASS")
