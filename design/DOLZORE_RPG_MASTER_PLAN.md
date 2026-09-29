@@ -8,8 +8,9 @@ DOLZORE WORLD is no longer treated as a decorative website hero.
 
 Target:
 A browser-native, original 16-bit-inspired town RPG that gradually grows into a full game, while preserving:
-- MUSIC as the only paid product lane;
-- JOURNAL as editorial/read-only content;
+- music remains the only paid product category;
+- all music purchasing happens inside in-game BAR jukeboxes;
+- JOURNAL remains editorial/read-only content;
 - SUPPORT / LEGAL as normal web pages;
 - SEO-friendly static pages outside the game canvas.
 
@@ -282,21 +283,29 @@ Phase 2:
 
 ## 6. Interior system
 
-### MUSIC
-Purpose:
-DOLZORE music experience, not a literal shop.
+### BAR / JUKEBOX
+Every town gets one BAR.
+The BAR is the canonical music-discovery and purchase location.
 
-Interior:
+Interior baseline:
+- bar counter;
+- stools / small tables;
+- lighting unique to the town;
 - large classic jukebox;
-- record sleeves;
-- speakers;
-- small sofa;
-- posters;
-- MELO interaction.
+- speakers / record sleeves / posters;
+- one bartender or recurring resident;
+- optional town-specific NPCs.
 
 Interact with jukebox:
-- opens in-game preview selector;
-- optional link to full MUSIC page.
+- opens the in-game 60-track selector;
+- 20-second preview only where a proven sample exists;
+- scene-first discovery;
+- purchase button opens the exact Stripe checkout URL;
+- no separate web sales page is required.
+
+Town variation:
+- each BAR has its own name, palette, resident dialogue and recommended playlist;
+- the same global 60-track catalog may be filtered/recommended differently by town.
 
 ### JOURNAL
 Interior:
@@ -347,9 +356,9 @@ Original Town Theme:
 
 Area themes:
 - Town Day
-- MUSIC interior
+- BAR interior / jukebox purchase
 - JOURNAL interior
-- CAFE
+- CAFE or other non-sales world-building interiors
 - Town Evening
 - River / outskirts
 
@@ -500,7 +509,8 @@ Important:
 Do not turn everything into Canvas.
 
 Keep:
-- /music/ HTML = SEO + preview + Stripe checkout;
+- /music/ is NOT a checkout/sales page; it may remain only as a non-sales guide/archive or redirect into WORLD;
+- music checkout is initiated only from BAR jukebox interactions inside the RPG;
 - /journal/ HTML = SEO + articles;
 - /legal/ HTML = legal;
 - /support/ HTML = support.
