@@ -192,31 +192,31 @@ jobs:
           git config user.name "DOLZORE Unity Builder"
           git config user.email "actions@users.noreply.github.com"
 
-          git add game/unity/Dolzore/Assets game/unity/Dolzore/Packages game/unity/Dolzore/ProjectSettings
-          git diff --cached --quiet
-          if ($LASTEXITCODE -eq 0) {
-            Write-Host "UNITY_PROJECT_SOURCE_ALREADY_CURRENT=true"
-            exit 0
-          }
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $snapshot = Join-Path $env:RUNNER_TEMP "dolzore-generated-snapshot"
+          if (Test-Path $snapshot) { Remove-Item $snapshot -Recurse -Force }
+          New-Item -ItemType Directory -Path $snapshot -Force | Out-Null
 
-          $patch = Join-Path $env:RUNNER_TEMP "dolzore-generated-source.patch"
-          $lines = @(git diff --cached --binary --no-ext-diff)
-          [System.IO.File]::WriteAllLines($patch, $lines, (New-Object System.Text.UTF8Encoding($false)))
-          git reset | Out-Null
+          Copy-Item -Path (Join-Path $project "Assets") -Destination $snapshot -Recurse -Force
+          Copy-Item -Path (Join-Path $project "Packages") -Destination $snapshot -Recurse -Force
+          Copy-Item -Path (Join-Path $project "ProjectSettings") -Destination $snapshot -Recurse -Force
 
           for ($attempt = 1; $attempt -le 3; $attempt++) {
             Write-Host "UNITY_SOURCE_PRESERVE_ATTEMPT=$attempt"
+
             git fetch origin rebuild/unity-first-town-20260929
             if ($LASTEXITCODE -ne 0) { throw "UNITY_SOURCE_FETCH_FAILED:$attempt" }
 
             git reset --hard origin/rebuild/unity-first-town-20260929
             if ($LASTEXITCODE -ne 0) { throw "UNITY_SOURCE_RESET_FAILED:$attempt" }
 
-            git apply --index --binary --whitespace=nowarn $patch
-            if ($LASTEXITCODE -ne 0) {
-              throw "UNITY_SOURCE_PATCH_APPLY_FAILED:$attempt"
+            foreach ($name in @("Assets","Packages","ProjectSettings")) {
+              $target = Join-Path $project $name
+              if (Test-Path $target) { Remove-Item $target -Recurse -Force }
+              Copy-Item -Path (Join-Path $snapshot $name) -Destination $project -Recurse -Force
             }
 
+            git add -A game/unity/Dolzore/Assets game/unity/Dolzore/Packages game/unity/Dolzore/ProjectSettings
             git diff --cached --quiet
             if ($LASTEXITCODE -eq 0) {
               Write-Host "UNITY_PROJECT_SOURCE_ALREADY_CURRENT_AFTER_FETCH=true"
