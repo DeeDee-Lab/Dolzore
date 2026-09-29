@@ -660,3 +660,13 @@ button,input{font:inherit}
   .world-fallback-links{grid-template-columns:1fr;padding:16px 10px 42px}
 }
 
+
+
+.music-v4 .track-choice .track-scene{display:block;margin-top:5px;font-family:"DotGothic16",monospace;font-size:7px;line-height:1.35;letter-spacing:.04em;color:#8c5b55}
+.music-v4 .track-choice .track-description{margin:5px 0 0;font-size:9px;line-height:1.45;color:#625957}
+.music-v4 .track-choice{min-height:116px}
+@media(max-width:680px){
+  .music-v4 .track-choice{min-height:108px}
+  .music-v4 .track-choice .track-description{font-size:10px}
+}
+
