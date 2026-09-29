@@ -230,72 +230,92 @@ def town_game():
     # small flowers
     for x,y,c in ((28,104,"#e5b04f"),(151,107,"#c95e78"),(457,113,"#e8d66a"),(414,245,"#d66a7f"),(42,243,"#ead159")):
         d.point((x,y),fill=c);d.point((x+1,y),fill=c);d.point((x,y+1),fill="#3e7b4b")
-    im.resize((960,540),Image.Resampling.NEAREST).save(OUT/"dolzore-town-game.png")
+    im.save(OUT/"dolzore-town-game.png")
 
 def characters():
-    cell_w,cell_h=16,24
-    sheet=Image.new("RGBA",(cell_w*8,cell_h*4),(0,0,0,0))
+    CELL_W,CELL_H=24,32
+    sheet=Image.new("RGBA",(CELL_W*8,CELL_H*4),(0,0,0,0))
 
+    # hair, skin, top, accent, bottom, shoes, detail
     chars=[
-        # hair, skin, top, accent, bottom, shoes
-        ("#2d2832","#d9a078","#4d9a8e","#e7d8a5","#344153","#241f28"), # Sora
-        ("#6d3d3b","#d8a078","#a44f5c","#e2bd62","#60434c","#271f27"), # Melo
-        ("#332e36","#d7a177","#d3a443","#6a8d78","#4d5a50","#272229"), # Yuzu
-        ("#31405e","#d59c73","#5379a8","#d87f4a","#43516c","#231f27"), # Pon
+        ("#2b2630","#d79c74","#4f978b","#ead7a2","#35445b","#2a222c","#bf6a5f"), # SORA
+        ("#74413e","#d99e77","#a44f60","#e1ad4d","#563d50","#282129","#f2c45e"), # MELO
+        ("#322d35","#d7a178","#d4a746","#70856d","#53604d","#282328","#efe4bd"), # YUZU
+        ("#435271","#d59a72","#557ca9","#dc7e4e","#354762","#26212a","#b56b45"), # PON
     ]
 
-    def px(d,x,y,w,h,c): d.rectangle((x,y,x+w-1,y+h-1),fill=c)
+    def rect(d,x,y,w,h,c): d.rectangle((x,y,x+w-1,y+h-1),fill=c)
+    def pix(d,x,y,c): d.point((x,y),fill=c)
 
-    def draw_frame(row,col,direction,step,pal):
-        hair,skin,top,accent,bottom,shoes=pal
-        ox=col*cell_w;oy=row*cell_h
-        imf=Image.new("RGBA",(cell_w,cell_h),(0,0,0,0));d=ImageDraw.Draw(imf)
+    def frame(row,col,direction,step,pal):
+        hair,skin,top,accent,bottom,shoes,detail=pal
+        f=Image.new("RGBA",(CELL_W,CELL_H),(0,0,0,0));d=ImageDraw.Draw(f)
 
-        # shadow is drawn at runtime, keep sprite clean
-        if direction=="down":
-            px(d,4,1,8,7,"#25212a");px(d,5,2,6,6,hair);px(d,5,5,6,4,skin)
-            px(d,6,6,1,1,"#3a2a2d");px(d,9,6,1,1,"#3a2a2d")
-            px(d,4,9,8,8,"#25212a");px(d,5,10,6,6,top)
-            px(d,3,11,2,6,skin);px(d,11,11,2,6,skin)
-            # character-specific accent
-            if row==0: px(d,10,10,2,7,accent);px(d,9,13,2,2,"#6f5b45")
-            elif row==1: px(d,5,9,6,2,accent);px(d,3,8,2,3,"#d3a443");px(d,11,8,2,3,"#d3a443")
-            elif row==2: px(d,6,6,1,1,"#eee0c0");px(d,9,6,1,1,"#eee0c0");px(d,5,12,6,2,accent)
-            elif row==3: px(d,5,9,6,2,accent);px(d,8,10,2,6,"#b65e47")
-            lx=5+(1 if step else 0);rx=9-(1 if step else 0)
-            px(d,lx,17,2,5,bottom);px(d,rx,17,2,5,bottom);px(d,lx,22,2,2,shoes);px(d,rx,22,2,2,shoes)
-        elif direction=="up":
-            px(d,4,1,8,8,"#25212a");px(d,5,2,6,7,hair)
-            px(d,4,9,8,8,"#25212a");px(d,5,10,6,6,top)
-            if row==0:px(d,10,10,2,7,accent)
-            elif row==1:px(d,5,9,6,2,accent)
-            elif row==2:px(d,5,12,6,2,accent)
-            elif row==3:px(d,5,9,6,2,accent);px(d,8,10,2,6,"#b65e47")
-            px(d,3,11,2,6,skin);px(d,11,11,2,6,skin)
-            lx=5+(1 if step else 0);rx=9-(1 if step else 0)
-            px(d,lx,17,2,5,bottom);px(d,rx,17,2,5,bottom);px(d,lx,22,2,2,shoes);px(d,rx,22,2,2,shoes)
+        # 11x11 head, intentionally larger than torso.
+        if direction in ("down","up"):
+            rect(d,6,1,12,11,"#25212a")
+            if row==0:  # Sora rounded hair + side fringe
+                rect(d,7,2,10,8,hair);rect(d,6,4,2,5,hair);rect(d,15,3,3,5,hair)
+            elif row==1: # Melo asymmetric auburn bob
+                rect(d,7,2,10,8,hair);rect(d,5,5,3,7,hair);rect(d,16,4,3,6,hair);rect(d,17,3,2,2,accent)
+            elif row==2: # Yuzu wavy hair
+                rect(d,7,2,10,8,hair);rect(d,5,5,3,6,hair);rect(d,16,5,3,6,hair);pix(d,6,3,hair);pix(d,17,2,hair)
+            else: # Pon angular blue-violet hair
+                rect(d,7,2,10,8,hair);rect(d,5,4,4,4,hair);rect(d,15,3,4,5,hair);rect(d,10,1,6,2,hair)
+
+            if direction=="down":
+                rect(d,8,6,8,6,skin)
+                pix(d,10,8,"#3b2d30");pix(d,14,8,"#3b2d30")
+                pix(d,12,10,"#a66f5b")
+            else:
+                rect(d,8,7,8,5,hair)
         else:
             left=direction=="left"
-            px(d,4,1,8,7,"#25212a");px(d,5 if left else 4,2,6,6,hair);px(d,6 if left else 5,5,5,4,skin)
-            eye_x=6 if left else 9;px(d,eye_x,6,1,1,"#3a2a2d")
-            px(d,4,9,8,8,"#25212a");px(d,5,10,6,6,top)
-            arm_x=3 if left else 11;px(d,arm_x,11,2,6,skin)
-            if row==0:px(d,10 if left else 4,10,2,7,accent)
-            elif row==1:px(d,5,9,6,2,accent)
-            elif row==2:px(d,6,12,5,2,accent)
-            elif row==3:px(d,5,9,6,2,accent);px(d,8,10,2,6,"#b65e47")
-            if step:
-                px(d,5,17,2,5,bottom);px(d,9,18,2,4,bottom);px(d,5,22,2,2,shoes);px(d,9,22,2,2,shoes)
+            rect(d,6,1,12,11,"#25212a")
+            if row==0:
+                rect(d,7,2,10,8,hair);rect(d,6 if left else 16,4,3,5,hair)
+            elif row==1:
+                rect(d,7,2,10,8,hair);rect(d,5 if left else 16,5,4,7,hair);rect(d,16 if left else 6,3,2,2,accent)
+            elif row==2:
+                rect(d,7,2,10,8,hair);rect(d,5,5,4,6,hair);rect(d,15,5,4,6,hair)
             else:
-                px(d,6,17,2,5,bottom);px(d,9,17,2,5,bottom);px(d,6,22,2,2,shoes);px(d,9,22,2,2,shoes)
+                rect(d,7,2,10,8,hair);rect(d,5 if left else 15,4,5,4,hair)
+            rect(d,8 if left else 7,6,8,6,skin)
+            pix(d,9 if left else 14,8,"#3b2d30")
 
-        sheet.alpha_composite(imf,(ox,oy))
+        # torso outline + clothing
+        rect(d,5,12,14,11,"#25212a")
+        rect(d,7,13,10,9,top)
+        # arms
+        rect(d,3,14,3,8,"#25212a");rect(d,18,14,3,8,"#25212a")
+        rect(d,4,15,2,6,skin);rect(d,18,15,2,6,skin)
 
+        # signature details
+        if row==0: # diagonal cream bag strap + coral bag
+            for i in range(7): pix(d,8+i,13+i//2,accent)
+            rect(d,14,18,4,4,detail)
+        elif row==1: # broad amber collar + small side pouch
+            rect(d,8,13,8,2,accent);rect(d,17,17,3,4,detail)
+        elif row==2: # cream scarf + olive belt
+            rect(d,8,13,8,2,detail);rect(d,7,19,10,2,accent)
+        else: # orange scarf + square backpack edge
+            rect(d,8,13,8,2,accent);rect(d,16,15,4,7,detail)
+
+        # legs / walk stance
+        if step:
+            rect(d,7,23,4,6,bottom);rect(d,14,24,4,5,bottom)
+            rect(d,6,29,5,3,shoes);rect(d,14,29,5,3,shoes)
+        else:
+            rect(d,8,23,4,6,bottom);rect(d,13,23,4,6,bottom)
+            rect(d,7,29,5,3,shoes);rect(d,13,29,5,3,shoes)
+
+        sheet.alpha_composite(f,(col*CELL_W,row*CELL_H))
+
+    frames=[("down",0),("down",1),("left",0),("left",1),("right",0),("right",1),("up",0),("up",1)]
     for row,pal in enumerate(chars):
-        frames=[("down",0),("down",1),("left",0),("left",1),("right",0),("right",1),("up",0),("up",1)]
-        for col,(direction,step) in enumerate(frames):draw_frame(row,col,direction,step,pal)
+        for col,(direction,step) in enumerate(frames):
+            frame(row,col,direction,step,pal)
     sheet.save(OUT/"dolzore-characters.png")
-
 town_game();characters()
 
 print("rendered",OUT/"dolzore-town.png",OUT/"dolzore-jukebox.png",OUT/"dolzore-town-game.png",OUT/"dolzore-characters.png")
