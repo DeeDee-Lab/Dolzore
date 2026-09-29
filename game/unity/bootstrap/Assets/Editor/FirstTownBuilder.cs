@@ -127,7 +127,9 @@ namespace Dolzore.Editor
             shell.clockLabel = canvas.transform.Find("World Clock")?.GetComponent<Text>();
 
             FirstTownVisualEnhancer.Apply();
+            FirstTownVisualRebuildV3.Apply();
             MakeEventSystem();
+            FirstTownAcceptanceVerifier.AssertCurrentScene();
             EditorSceneManager.SaveScene(scene, scenePath);
         }
 
