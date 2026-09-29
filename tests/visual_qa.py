@@ -38,6 +38,7 @@ def main() -> None:
         assert page.locator("text=急がなくても、曲は逃げません。").count() == 1
         assert page.locator('a[href="music/"]').count() >= 1
         assert page.locator("nav").get_by_text("ABOUT", exact=True).count() == 0
+        assert page.locator(".town-pixel-art").count() == 1
         no_overflow(page, "desktop home")
         screenshot(page, "desktop-home.png")
         preview(page, "desktop-home-preview.jpg")
@@ -45,8 +46,9 @@ def main() -> None:
         page.goto(BASE + "/music/", wait_until="load")
         page.wait_for_function("document.querySelectorAll('.track-choice').length === 60")
         assert page.locator(".track-choice").count() == 60
-        assert page.locator(".jukebox-machine").count() == 1
-        assert page.locator(".songbook-panel").count() == 1
+        assert page.locator(".jukebox-machine-v4").count() == 1
+        assert page.locator(".jukebox-pixel-art").count() == 1
+        assert page.locator(".songbook-v4").count() == 1
         no_overflow(page, "desktop music")
 
         search = page.locator("[data-track-search]")
