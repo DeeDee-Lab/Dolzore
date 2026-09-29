@@ -436,3 +436,36 @@ Do not expand to second town before First Town visual acceptance.
 
 `GAME_HANDOFF_READY=true`
 `GAME_RESUME_PHRASE=Gameひきついで`
+
+
+---
+
+# 12. 2026-09-30 latest game implementation proof
+
+Canonical exterior/internal split:
+- Exterior: original DOLZORE presentation using MOTHER2 high-level town-RPG lessons.
+- Internal: FFXI-derived deep RPG simulation.
+
+Latest full green validation:
+- Unity run: `36593013783 = SUCCESS`
+- generated Unity source: `aa2af226102c22659944ffc07aff526310638ee4`
+- internal rule tests: PASS
+- lineage/vocation grade tests: PASS
+- FirstTown scene generation: PASS
+- stable region/entity/interior contract: PASS
+- WebGL: PASS
+- artifact: PASS
+- generated-source preservation: PASS
+
+The generated-source preservation loop was permanently changed from stale patch replay to:
+Unity output snapshot -> fresh remote reset -> snapshot overlay -> stage -> commit -> push with retry.
+
+Resume phrase remains:
+**Gameひきついで**
+
+Next work after resume:
+1. do NOT change engines;
+2. do NOT re-derive internal architecture;
+3. improve First Town visual quality toward the canonical exterior direction;
+4. keep combat math dormant until town presentation/interaction quality passes;
+5. when combat starts, use the existing internal formula engine rather than inventing a new one.
