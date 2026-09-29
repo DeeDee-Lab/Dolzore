@@ -47,8 +47,12 @@ class MusicOnlySiteTests(unittest.TestCase):
     def test_home_and_music_surface_are_music_only(self):
         home=(DOCS/"index.html").read_text(encoding="utf-8")
         music=(DOCS/"music/index.html").read_text(encoding="utf-8")
-        self.assertIn("いま売っているのは、音楽だけです",home)
+        self.assertIn("いま買えるものは、音楽だけ",home)
         self.assertIn("data-jukebox",music)
+        self.assertIn("dolzore-town.png",home)
+        self.assertIn("dolzore-jukebox.png",music)
+        self.assertNotIn("dolzore-town.svg",home)
+        self.assertNotIn("dolzore-jukebox.svg",music)
         self.assertNotIn("Business",home)
         self.assertNotIn("Buying Guide",home)
         self.assertNotIn("SmartBuy",home)
