@@ -102,7 +102,8 @@ jobs:
             "Assets\Art\Generated\dolzore_logo.png",
             "Assets\Art\Generated\first_town_minimap.png",
             "BuildArtifacts\initial-screen.png",
-            "BuildArtifacts\first-town.png"
+            "BuildArtifacts\first-town.png",
+            "BuildArtifacts\first-town-acceptance.json"
           )
           foreach ($rel in $required) {
             $path = Join-Path $project $rel
@@ -183,6 +184,7 @@ jobs:
           path: |
             game/unity/Dolzore/BuildArtifacts/initial-screen.png
             game/unity/Dolzore/BuildArtifacts/first-town.png
+            game/unity/Dolzore/BuildArtifacts/first-town-acceptance.json
             game/unity/Dolzore/Builds/WebGL/**
 
       - name: Preserve generated Unity project source
