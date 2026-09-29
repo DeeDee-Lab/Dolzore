@@ -29,7 +29,13 @@ namespace Dolzore.Editor
 
         public static void BuildInitialSlice()
         {
-            Debug.Log("DOLZORE_BOOTSTRAP_BEGIN");
+            GenerateInitialSlice();
+            BuildWebGLOnly();
+        }
+
+        public static void GenerateInitialSlice()
+        {
+            Debug.Log("DOLZORE_GENERATE_BEGIN");
             ConfigureProject();
             EnsureDirectories();
             GenerateBackground();
@@ -47,8 +53,14 @@ namespace Dolzore.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             RenderPreview(TitleScene, "BuildArtifacts/initial-screen.png");
+            Debug.Log("DOLZORE_GENERATE_SUCCESS");
+        }
+
+        public static void BuildWebGLOnly()
+        {
+            Debug.Log("DOLZORE_WEBGL_BEGIN");
             BuildWebGL();
-            Debug.Log("DOLZORE_BOOTSTRAP_SUCCESS");
+            Debug.Log("DOLZORE_WEBGL_SUCCESS");
         }
 
         private static void ConfigureProject()
