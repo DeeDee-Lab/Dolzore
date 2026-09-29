@@ -19,7 +19,7 @@ namespace Dolzore
 
         public Transform[] landmarks;
         public string[] landmarkNames;
-        public EntityIdentity[] landmarkEntities;
+        public InteractionAnchor[] landmarkAnchors;
 
         private int nearbyLandmark = -1;
 
@@ -80,8 +80,8 @@ namespace Dolzore
             if (nearbyLandmark >= 0)
             {
                 targetName = landmarkNames[nearbyLandmark];
-                if (landmarkEntities != null && nearbyLandmark < landmarkEntities.Length && landmarkEntities[nearbyLandmark] != null)
-                    targetId = landmarkEntities[nearbyLandmark].EntityId;
+                if (landmarkAnchors != null && nearbyLandmark < landmarkAnchors.Length && landmarkAnchors[nearbyLandmark] != null)
+                    targetId = landmarkAnchors[nearbyLandmark].TargetEntityId;
             }
 
             if (playerState != null)
