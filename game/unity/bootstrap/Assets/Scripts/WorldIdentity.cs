@@ -38,6 +38,18 @@ namespace Dolzore
         }
     }
 
+    public sealed class InteractionAnchor : MonoBehaviour
+    {
+        [SerializeField] private string targetEntityId;
+
+        public string TargetEntityId => targetEntityId;
+
+        public void Configure(string stableTargetEntityId)
+        {
+            targetEntityId = stableTargetEntityId;
+        }
+    }
+
     public sealed class WorldPortal : MonoBehaviour
     {
         [SerializeField] private string portalId;
