@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": null,
+  "policy": "Use manufacturer-hosted official page og:image only. Do not download/copy marketplace or user images into repository.",
+  "products": [
+    {
+      "model": "BenQ TK705STi",
+      "sourceUrl": "https://www.benq.com/ja-jp/projector/cinema/tk705sti.html",
+      "imageUrl": null
+    },
+    {
+      "model": "BenQ TK710STi",
+      "sourceUrl": "https://www.benq.com/ja-jp/projector/gaming/tk710sti.html",
+      "imageUrl": null
+    },
+    {
+      "model": "BenQ TK700STi",
+      "sourceUrl": "https://www.benq.com/ja-jp/projector/gaming/tk700sti.html",
+      "imageUrl": null
+    },
+    {
+      "model": "Optoma UHD35STx",
+      "sourceUrl": "https://www.optomausa.com/product/uhd35stx",
+      "imageUrl": null
+    },
+    {
+      "model": "ViewSonic X10-4K",
+      "sourceUrl": "https://www.viewsonic.com/jp/products/projectors/X10-4K",
+      "imageUrl": null
+    },
+    {
+      "model": "XGIMI AURA",
+      "sourceUrl": "https://jp.xgimi.com/products/xgimi-aura",
+      "imageUrl": null
+    },
+    {
+      "model": "XGIMI HORIZON S Max",
+      "sourceUrl": "https://jp.xgimi.com/products/horizon-s-max",
+      "imageUrl": null
+    },
+    {
+      "model": "JMGO N1S Ultra 4K",
+      "sourceUrl": "https://jmgo.jp/products/jmgo-n1s-ultra-4k",
+      "imageUrl": null
+    },
+    {
+      "model": "Epson EH-LS800",
+      "sourceUrl": "https://www.epson.jp/products/back/homeprojector/ehls800/",
+      "imageUrl": null
+    },
+    {
+      "model": "BenQ X3100i",
+      "sourceUrl": "https://www.benq.com/ja-jp/projector/gaming/x3100i.html",
+      "imageUrl": null
+    }
+  ]
+}
