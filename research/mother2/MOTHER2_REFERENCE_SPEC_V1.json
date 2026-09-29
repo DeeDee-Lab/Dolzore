@@ -352,6 +352,8 @@
   "research_files": [
     "AGENT_READ_FIRST.md",
     "MOTHER2_REFERENCE_SPEC_V1.json",
+    "FIRST_TOWN_AUTHORING_CONTRACT_V1.json",
+    "DIFFERENTIATION_GUARDRAILS.md",
     "WORLD_MAP_FIELD_GRAMMAR.md",
     "OFFICIAL_SCREENSHOT_VISUAL_OBSERVATIONS_V1.md",
     "LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md",
@@ -424,5 +426,13 @@
       "ending_reflection"
     ],
     "dolzore_rule": "Music state granularity should follow place/action/drama roles rather than a single town/battle/dungeon taxonomy."
+  },
+  "first_town_authoring_contract": "FIRST_TOWN_AUTHORING_CONTRACT_V1.json",
+  "differentiation_guardrails": "DIFFERENTIATION_GUARDRAILS.md",
+  "completion_truth": {
+    "comprehensive_v1_ready": true,
+    "exhaustive_frame_by_frame_measurement_complete": false,
+    "original_asset_extraction_performed": false,
+    "ongoing_research_expected": true
   }
 }
