@@ -109,13 +109,18 @@ def main() -> None:
         assert m.locator("[data-market-targets] .market-target-card").count() >= 6
 
         # Official manufacturer photos are primary; pixel art is fallback.
-        m.wait_for_timeout(12000)
-        photo_state = m.locator(".official-product-photo").evaluate_all(
+        # Lazy product photos load only when the user reaches each card.
+        cards = m.locator("[data-product-card]")
+        for i in range(cards.count()):
+            cards.nth(i).scroll_into_view_if_needed()
+            m.wait_for_timeout(350)
+        m.wait_for_timeout(2500)
+        photo_state = m.locator("[data-product-card] .official-product-photo").evaluate_all(
             "(els)=>els.map(i=>({src:i.src,complete:i.complete,naturalWidth:i.naturalWidth,naturalHeight:i.naturalHeight}))"
         )
         loaded_photos = sum(1 for x in photo_state if x["complete"] and x["naturalWidth"] > 0)
-        print("OFFICIAL_PHOTO_STATE="+json.dumps(photo_state,ensure_ascii=False))
-        print(f"OFFICIAL_PRODUCT_PHOTO_COUNT={loaded_photos}")
+        print("OFFICIAL_PRODUCT_CARD_PHOTO_STATE="+json.dumps(photo_state,ensure_ascii=False))
+        print(f"OFFICIAL_PRODUCT_CARD_PHOTO_COUNT={loaded_photos}")
         assert loaded_photos >= 8, photo_state
 
         # Product filters must visibly reduce and restore the card set.
