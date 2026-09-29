@@ -48,11 +48,11 @@ IMPLEMENTATION IMPACT:
 Do not expand the world directly from the current one-screen town.
 
 NEXT:
-Rebuild first town v2.
+Rebuild first town.
 
 ---
 
-## 2026-09-29 — First town v2 architecture
+## 2026-09-29 — First town architecture
 DECISION:
 Build a larger scrolling first town with multiple districts and loops.
 
@@ -366,13 +366,13 @@ Server-authoritative before public competitive/economic use:
 
 ## 2026-09-29 — Current top implementation priority
 DECISION:
-**FIRST TOWN v2 comes before BAR interior, fishing, combat, second town or MMO implementation.**
+**FIRST TOWN comes before BAR interior, fishing, combat, second town or MMO implementation.**
 
 WHY:
 The world foundation is not yet visually/spatially acceptable.
 
 NEXT ACTION:
-Build first-town v2 exterior:
+Build first-town exterior:
 - larger scrolling map
 - coherent 3/4 projection
 - districts
@@ -381,5 +381,5 @@ Build first-town v2 exterior:
 - consistent lighting/shadows
 - physically reachable BAR/JOURNAL/river/station
 
-Only after v2 exterior reaches acceptance:
+Only after the first-town exterior reaches acceptance:
 add BAR interior as next slice.
