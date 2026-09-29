@@ -34,8 +34,8 @@ def main() -> None:
         page.goto(BASE + "/", wait_until="load")
         page.wait_for_timeout(800)
         assert "DOLZORE" in page.title()
-        assert page.locator("text=いま売っているのは、音楽だけです").count() == 1
-        assert page.locator("text=急がなくても、曲は逃げません。").count() == 1
+        assert page.locator("text=ここは DOLZORE。").count() == 1
+        assert page.locator("text=いま買えるものは、音楽だけ。").count() == 1
         assert page.locator('a[href="music/"]').count() >= 1
         assert page.locator("nav").get_by_text("ABOUT", exact=True).count() == 0
         assert page.locator(".town-pixel-art").count() == 1
