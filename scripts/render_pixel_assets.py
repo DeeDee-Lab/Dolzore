@@ -444,13 +444,18 @@ def first_town():
                 if (x+y)%3==0:d.point((x+1,y),fill="#92c97b")
 
     # Riverside band
-    R((0,905,W,1151),"#5fa5b2")
+    R((0,905,W,1030),"#5fa5b2")
     R((0,897,W,910),"#d4c89b")
     for x in range(0,W,24):
         R((x,900,min(x+12,W),904),"#a9a07c")
     for x in range(18,W,64):
         L(((x,936),(x+18,934)),"#85c6cf",2)
-        L(((x+10,1010),(x+34,1008)),"#4e8797",2)
+        L(((x+10,995),(x+34,993)),"#4e8797",2)
+    # south bank
+    R((0,1030,W,1151),grass2)
+    R((0,1030,W,1042),"#d4c89b")
+    for x in range(8,W,41):
+        L(((x,1047),(x+2,1062)),grass3,2)
 
     # riverbank greens / reeds
     R((0,850,W,897),grass2)
@@ -497,10 +502,10 @@ def first_town():
     for y in range(530,920,78): R((1098,y,1103,y+36),"#e8ddb1")
 
     # bridge
-    R((760,875,930,930),"#81664c")
-    R((768,881,922,924),"#c49a69")
-    for x in range(775,920,24): R((x,884,x+8,921),"#a87d55")
-    R((760,874,930,880),ink);R((760,924,930,930),ink)
+    R((790,875,860,1058),"#81664c")
+    R((798,881,852,1052),"#c49a69")
+    for y in range(888,1048,22): R((801,y,849,y+7),"#a87d55")
+    R((790,875,797,1058),ink);R((853,875,860,1058),ink)
 
     def building(x,y,w,h,front,side,roof):
         # contact shadow only
