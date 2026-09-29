@@ -43,7 +43,7 @@ jobs:
           git fetch origin $env:GITHUB_REF_NAME
           git reset --hard "origin/$env:GITHUB_REF_NAME"
 
-          foreach ($name in @("dolzore-town.png","dolzore-jukebox.png","dolzore-town-game.png","dolzore-characters.png")) {
+          foreach ($name in @("dolzore-town.png","dolzore-jukebox.png","dolzore-town-game.png","dolzore-characters.png","dolzore-first-town.png")) {
             Copy-Item (Join-Path $assetTemp $name) (Join-Path "docs/assets" $name) -Force
           }
 
