@@ -5,7 +5,7 @@ on:
     branches: ["redesign/first-town-20260929"]
     paths:
       - "docs/**"
-      - "tests/first_town_qa.py"
+      - "tests/**"
       - ".github/workflows/first-town-qa.yml"
   workflow_dispatch:
 
