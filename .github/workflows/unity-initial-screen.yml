@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: dolzore-unity-initial-screen
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
