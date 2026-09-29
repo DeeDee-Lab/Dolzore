@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DOLZORE JUKEBOX | Creator BGM 全60曲</title>
-  <meta name="description" content="DOLZORE Creator BGM 全60曲。ジュークボックスで番号を選ぶように曲を探し、20秒サンプルを試聴して1曲¥200で購入できます。">
+  <meta name="description" content="Creator BGM 全60曲。BEST FORから場面を選び、20秒サンプルを試聴して1曲¥200で購入できます。">
   <meta name="robots" content="index,follow">
   <link rel="stylesheet" href="../styles.css">
   <script src="../site.js" defer></script>
 </head>
-<body class="world-body music-v4">
+<body class="world-body music-v6">
 <header class="world-header">
   <a class="world-brand" href="../"><span class="brand-mark">DOLZORE</span><small>ドルゾーレ</small></a>
   <nav class="world-nav" aria-label="メインナビゲーション">
@@ -17,71 +17,67 @@
   </nav>
 </header>
 
-<main class="music-page music-shop-v4" data-jukebox>
-  <section class="music-shop-intro">
+<main class="music-v6-main" data-jukebox>
+  <section class="music-v6-intro">
     <div>
-      <p class="pixel-kicker warm">DOLZORE MUSIC SHOP</p>
-      <h1>音楽屋のジュークボックス</h1>
+      <p class="pixel-kicker warm">MUSIC / CREATOR BGM</p>
+      <h1>DOLZORE JUKEBOX</h1>
+      <p class="music-v6-lead">曲名が分からなくても大丈夫です。<strong>BEST FOR</strong>から、使いたい場面を選べます。</p>
     </div>
-    <div class="shop-message-v4">
-      <p>番号を選ぶと、20秒だけ試聴できます。</p>
-      <p>気に入った曲は、1曲 ¥200。</p>
-    </div>
+    <div class="music-v6-price"><small>60 TRACKS</small><strong>¥200</strong><span>1曲・買い切り</span></div>
   </section>
 
-  <section class="jukebox-layout" aria-label="DOLZORE ジュークボックス">
-    <div class="jukebox-stage">
-      <div class="jukebox-machine-v4">
-        <img class="jukebox-pixel-art" src="../assets/dolzore-jukebox.png" alt="アーチ型のレトロなジュークボックスのドット絵。">
-        <div class="juke-marquee-v4"><strong>DOLZORE</strong><span>JUKEBOX 60</span></div>
-        <div class="juke-disc-overlay" aria-hidden="true">
-          <div class="record-disc" data-record-disc><span class="record-label">DZ</span></div>
-          <div class="tonearm"></div>
+  <section class="music-v6-layout" aria-label="DOLZORE JUKEBOX">
+    <div class="music-v6-left">
+      <div class="jukebox-cabinet-v6">
+        <img class="jukebox-pixel-art-v6" src="../assets/dolzore-jukebox.png" alt="発光アーチ、レコード機構、選曲ラベル、スピーカーグリルを備えたクラシックなジュークボックスのドット絵。">
+        <div class="jukebox-logo-v6"><strong>DOLZORE</strong><span>JUKEBOX</span></div>
+      </div>
+
+      <div class="juke-console-v6">
+        <div class="now-v6">
+          <span class="number-v6" data-track-number>001</span>
+          <div>
+            <strong data-track-title>Bright Morning</strong>
+            <small data-track-usecase>Vlog · Food · Travel · Explainer</small>
+          </div>
         </div>
-        <div class="juke-ticket-v4">
-          <span data-track-number>001</span>
-          <strong data-track-title>Bright Morning</strong>
-          <small data-track-usecase>Vlog・料理・旅行・解説</small>
-        </div>
-        <div class="juke-note-v4"><span>EDIT NOTE</span><p data-track-moment>最初の1カットに、朝の空気をそっと入れる。</p></div>
-        <div class="jukebox-controls-v4" role="group" aria-label="試聴操作">
+        <p class="description-v6" data-track-moment>朝のVlogや料理動画を、明るく自然に始めたいとき。</p>
+
+        <div class="controls-v6" role="group" aria-label="試聴操作">
           <button type="button" data-prev aria-label="前の曲">◀<small>PREV</small></button>
           <button type="button" class="play" data-play aria-label="再生または一時停止">▶<small>PLAY</small></button>
           <button type="button" data-stop aria-label="停止">■<small>STOP</small></button>
           <button type="button" data-next aria-label="次の曲">▶<small>NEXT</small></button>
         </div>
-        <div class="sample-progress-v4"><progress data-progress max="20" value="0">0</progress><span data-time>00:00 / 00:20</span></div>
-        <div class="juke-status-v4" aria-live="polite"><span></span><p data-status>番号を選んで、PLAYを押してください。</p></div>
-      </div>
 
-      <div class="purchase-bar-v4">
-        <div><small>ONE TRACK / BUY ONCE</small><strong>¥200</strong></div>
-        <a class="town-button primary" data-purchase href="#" target="_blank" rel="noopener noreferrer">この曲を購入</a>
+        <div class="progress-v6"><progress data-progress max="20" value="0">0</progress><span data-time>00:00 / 00:20</span></div>
+        <div class="status-v6" aria-live="polite"><span></span><p data-status>場面か番号を選んで、PLAYを押してください。</p></div>
+        <a class="purchase-v6" data-purchase href="#" target="_blank" rel="noopener noreferrer"><span>BUY THIS TRACK</span><strong>¥200</strong></a>
       </div>
     </div>
 
-    <aside class="songbook-v4">
-      <div class="songbook-heading-v4">
-        <div><p class="pixel-kicker">SELECTION LABELS / 001—060</p><h2>曲を選ぶ</h2><p>番号、曲名、用途から探せます。</p></div>
-        <label class="track-search">検索<input type="search" data-track-search placeholder="タイトル・用途"></label>
+    <aside class="scene-browser-v6">
+      <div class="scene-browser-head-v6">
+        <div><p class="pixel-kicker">FIND BY SCENE / 001—060</p><h2>場面から選ぶ</h2><p>BEST FOR → 日本語説明 → 曲名の順に見ると、音を想像しやすくなります。</p></div>
+        <label class="track-search">SEARCH<input type="search" data-track-search placeholder="Travel / Vlog / 商品紹介"></label>
       </div>
-      <div class="songbook-window-v4"><div class="track-selector" data-track-selector aria-label="曲選択"></div></div>
+      <div class="scene-browser-list-v6"><div class="track-selector" data-track-selector aria-label="曲選択"></div></div>
     </aside>
   </section>
 
-  <section class="music-rules-v4">
-    <h2>購入前に</h2>
-    <div><strong>¥200 / 1曲</strong><span>買い切り</span></div>
-    <div><strong>商用利用OK</strong><span>収益化動画にも使用可能</span></div>
-    <div><strong>AI生成音源</strong><span>MP3形式</span></div>
-    <div><strong>再配布NG</strong><span>Content ID登録も不可</span></div>
+  <section class="music-rules-v6">
+    <div><strong>¥200 / TRACK</strong><span>買い切り</span></div>
+    <div><strong>COMMERCIAL USE</strong><span>収益化動画にも使用可能</span></div>
+    <div><strong>AI-GENERATED AUDIO</strong><span>MP3形式</span></div>
+    <div><strong>NO REDISTRIBUTION</strong><span>再配布・Content ID登録は禁止</span></div>
   </section>
 
   <audio data-audio preload="none"></audio>
 </main>
 
 <footer class="world-footer">
-  <div><strong>DOLZORE MUSIC SHOP</strong><p>Creator BGM / 60 Tracks</p></div>
+  <div><strong>DOLZORE JUKEBOX</strong><p>Creator BGM / 60 Tracks</p></div>
   <div class="footer-links"><a href="../">World</a><a href="../journal/">Journal</a><a href="../support/">Support</a><a href="../legal/">Legal</a></div>
 </footer>
 </body>
