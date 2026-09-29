@@ -34,11 +34,21 @@ def main() -> None:
         page.goto(BASE + "/", wait_until="load")
         page.wait_for_timeout(800)
         assert "DOLZORE" in page.title()
-        assert page.locator("text=ここは DOLZORE。").count() == 1
-        assert page.locator("text=いま買えるものは、音楽だけ。").count() == 1
         assert page.locator('a[href="music/"]').count() >= 1
         assert page.locator("nav").get_by_text("ABOUT", exact=True).count() == 0
-        assert page.locator(".town-pixel-art").count() == 1
+        assert page.locator("[data-town-canvas]").count() == 1
+        assert page.locator('[data-place-label="music"]').text_content().strip() == "MUSIC"
+        assert page.locator('[data-place-label="journal"]').text_content().strip() == "JOURNAL"
+        page.wait_for_function("window.__DOLZORE_WORLD__ && window.__DOLZORE_WORLD__.ready === true")
+        state = page.evaluate("window.__DOLZORE_WORLD__.getState()")
+        assert len(state["residents"]) == 3
+        assert {x["name"] for x in state["residents"]} == {"MELO","YUZU","PON"}
+        before = page.evaluate("window.__DOLZORE_WORLD__.getState().player.x")
+        page.keyboard.down("ArrowRight")
+        page.wait_for_timeout(450)
+        page.keyboard.up("ArrowRight")
+        after = page.evaluate("window.__DOLZORE_WORLD__.getState().player.x")
+        assert after > before + 8, (before, after)
         no_overflow(page, "desktop home")
         screenshot(page, "desktop-home.png")
         preview(page, "desktop-home-preview.jpg")
@@ -46,9 +56,11 @@ def main() -> None:
         page.goto(BASE + "/music/", wait_until="load")
         page.wait_for_function("document.querySelectorAll('.track-choice').length === 60")
         assert page.locator(".track-choice").count() == 60
-        assert page.locator(".jukebox-machine-v4").count() == 1
-        assert page.locator(".jukebox-pixel-art").count() == 1
-        assert page.locator(".songbook-v4").count() == 1
+        assert page.locator(".track-choice .track-scene").first.text_content().startswith("BEST FOR")
+        assert "V2" not in page.locator(".track-choice").nth(1).text_content()
+        assert page.locator(".jukebox-cabinet-v6").count() == 1
+        assert page.locator(".jukebox-pixel-art-v6").count() == 1
+        assert page.locator(".scene-browser-v6").count() == 1
         no_overflow(page, "desktop music")
 
         search = page.locator("[data-track-search]")
@@ -78,15 +90,22 @@ def main() -> None:
         page.locator(".track-choice").click()
         assert page.locator("[data-purchase]").get_attribute("href") == bright["purchaseUrl"]
         page.locator("[data-play]").click()
-        assert "準備中" in page.locator("[data-status]").text_content()
+        page.wait_for_timeout(150)
         audio_src = page.locator("[data-audio]").get_attribute("src")
+        audio_time = page.locator("[data-audio]").evaluate("(el)=>el.currentTime")
+        audio_paused = page.locator("[data-audio]").evaluate("(el)=>el.paused")
         assert not audio_src, f"pending preview must not invent a source: {audio_src}"
+        assert audio_time == 0, audio_time
+        assert audio_paused is True
         desktop.close()
 
         mobile = browser.new_context(viewport={"width": 390, "height": 844}, is_mobile=True)
         m = mobile.new_page()
         m.goto(BASE + "/", wait_until="load")
         m.wait_for_timeout(500)
+        m.wait_for_function("window.__DOLZORE_WORLD__ && window.__DOLZORE_WORLD__.ready === true")
+        assert m.locator("[data-move]").count() == 4
+        assert m.locator("[data-action]").count() == 1
         no_overflow(m, "mobile home")
         screenshot(m, "mobile-home.png")
         preview(m, "mobile-home-preview.jpg")
@@ -150,9 +169,9 @@ def main() -> None:
     print("TRACK_BUTTONS=60")
     print("PROVEN_PREVIEW_PLAYBACK=BGM-005_PASS")
     print("PENDING_PREVIEW_FAIL_CLOSED=BGM-001_PASS")
-    print("DESKTOP_HOME=PASS")
+    print("DESKTOP_HOME_INTERACTIVE=PASS")
     print("DESKTOP_MUSIC=PASS")
-    print("MOBILE_HOME=PASS")
+    print("MOBILE_HOME_CONTROLS=PASS")
     print("MOBILE_MUSIC=PASS")
     print("MOBILE_PROJECTOR_JOURNAL=PASS")
     print("PROJECTOR_FILTERS=PASS")
