@@ -41,7 +41,7 @@ namespace Dolzore.Editor
             GenerateLogo();
             GenerateMinimap();
             BuildTitleScene();
-            BuildTownShellScene();
+            FirstTownBuilder.Build(TownScene);
 
             EditorBuildSettings.scenes = new[]
             {
@@ -52,6 +52,7 @@ namespace Dolzore.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             RenderPreview(TitleScene, "BuildArtifacts/initial-screen.png");
+            RenderPreview(TownScene, "BuildArtifacts/first-town.png");
             Debug.Log("DOLZORE_GENERATE_SUCCESS");
         }
 
