@@ -38,6 +38,25 @@ namespace Dolzore
         }
     }
 
+    public sealed class WorldPortal : MonoBehaviour
+    {
+        [SerializeField] private string portalId;
+        [SerializeField] private string sourceRegionId = DolzoreIds.FirstTownRegion;
+        [SerializeField] private string destinationRegionId;
+        [SerializeField] private WorldSpaceKind destinationKind = WorldSpaceKind.Interior;
+
+        public string PortalId => portalId;
+        public string DestinationRegionId => destinationRegionId;
+        public WorldSpaceKind DestinationKind => destinationKind;
+
+        public void Configure(string stablePortalId, string destinationId, WorldSpaceKind kind)
+        {
+            portalId = stablePortalId;
+            destinationRegionId = destinationId;
+            destinationKind = kind;
+        }
+    }
+
     public sealed class PlayerStateComponent : MonoBehaviour
     {
         [SerializeField] private PlayerPersistentStateData state = new PlayerPersistentStateData();
