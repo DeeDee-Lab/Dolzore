@@ -1,0 +1,57 @@
+name: DOLZORE Slice QA Cloud
+# Slice 1 current-assets verification
+
+on:
+  push:
+    branches: ["feature/first-town-slice1-20260929"]
+    paths:
+      - "docs/**"
+      - "tests/**"
+      - ".github/workflows/slice-qa-cloud.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dolzore-slice-qa-cloud
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Contract and public-safety tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Start local site
+        run: |
+          python -m http.server 8765 --directory docs --bind 127.0.0.1 > "$RUNNER_TEMP/dolzore-http.log" 2>&1 &
+          echo $! > "$RUNNER_TEMP/dolzore-http.pid"
+          sleep 2
+          curl -fsS http://127.0.0.1:8765/ >/dev/null
+
+      - name: Desktop mobile and game QA
+        run: python tests/game_slice_qa.py
+
+      - name: Screenshot fingerprints
+        if: always()
+        run: |
+          if [ -d qa-screenshots ]; then
+            sha256sum qa-screenshots/* || true
+          fi
+
+      - name: Stop local site
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/dolzore-http.pid" ]; then
+            kill "$(cat "$RUNNER_TEMP/dolzore-http.pid")" || true
+          fi
