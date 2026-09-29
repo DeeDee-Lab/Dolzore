@@ -58,7 +58,7 @@ jobs:
       - name: Emit compact visual previews to log
         shell: powershell
         run: |
-          foreach ($name in @("desktop-home-preview.jpg","desktop-jukebox-preview.jpg","mobile-home-preview.jpg","mobile-music-preview.jpg")) {
+          foreach ($name in @("desktop-home-preview.jpg","desktop-jukebox-preview.jpg","desktop-journal-preview.jpg","mobile-home-preview.jpg","mobile-music-preview.jpg","mobile-journal-preview.jpg")) {
             $path=Join-Path "qa-screenshots" $name
             $b64=[Convert]::ToBase64String([IO.File]::ReadAllBytes($path))
             Write-Host "DOLZORE_SCREENSHOT_B64_BEGIN:$name"
