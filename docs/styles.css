@@ -670,3 +670,35 @@ button,input{font:inherit}
   .music-v4 .track-choice .track-description{font-size:10px}
 }
 
+
+
+/* ===== DOLZORE MUSIC v6 — readable controls + recognizable classic jukebox ===== */
+.music-v6{background:#342f3a}
+.music-v6-main{max-width:1180px;margin:auto;padding:48px 24px 72px;color:#eee4c7}
+.music-v6-intro{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:end;margin-bottom:34px}
+.music-v6-intro h1{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:clamp(42px,5.5vw,68px);letter-spacing:-.045em;line-height:1.05;margin:8px 0 14px}
+.music-v6-lead{max-width:680px;margin:0;color:#cfc6cc;line-height:1.8;font-size:14px}.music-v6-lead strong{color:#f0d475}
+.music-v6-price{min-width:150px;background:#17151b;border:3px solid #eadcb4;outline:3px solid #514353;padding:16px 18px;text-align:right}
+.music-v6-price small,.music-v6-price span{display:block;font-family:"DotGothic16",monospace;font-size:8px;color:#bcb1b9}.music-v6-price strong{display:block;font-size:34px;color:#f2df9b}
+.music-v6-layout{display:grid;grid-template-columns:minmax(360px,.82fr) minmax(480px,1.18fr);gap:40px;align-items:start}
+.music-v6-left{min-width:0}.jukebox-cabinet-v6{position:relative;width:min(100%,480px);margin:auto;background:#17141b;padding:8px 10px 0}
+.jukebox-pixel-art-v6{display:block;width:100%;height:auto;image-rendering:pixelated;image-rendering:crisp-edges}
+.jukebox-logo-v6{position:absolute;top:8.5%;left:31%;right:31%;text-align:center;color:#302830}
+.jukebox-logo-v6 strong{display:block;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:clamp(13px,1.6vw,20px);letter-spacing:.06em}.jukebox-logo-v6 span{font-family:"DotGothic16",monospace;font-size:7px;color:#756650}
+.juke-console-v6{width:min(100%,500px);margin:14px auto 0;background:#e9dbb2;color:#2d2730;border:4px solid #2c2530;box-shadow:7px 7px 0 #17141b;padding:16px}
+.now-v6{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;border-bottom:2px solid #8f795e;padding-bottom:12px}
+.number-v6{font-family:"DotGothic16",monospace;font-size:23px;color:#9b505b}.now-v6 strong{display:block;font-size:22px;line-height:1.15}.now-v6 small{display:block;margin-top:4px;font-family:"DotGothic16",monospace;font-size:8px;color:#785a5d;line-height:1.35}
+.description-v6{min-height:42px;margin:12px 0;color:#5d5354;font-size:12px;line-height:1.7}
+.controls-v6{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.controls-v6 button{min-height:48px;border:2px solid #302830;background:#f8ecc9;box-shadow:3px 3px 0 #71545f;display:grid;place-items:center;font-size:17px;cursor:pointer}.controls-v6 button.play{background:#72b89a}.controls-v6 small{font-family:"DotGothic16",monospace;font-size:6px}
+.progress-v6{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:center;margin:14px 0 8px}.progress-v6 progress{width:100%;height:10px;accent-color:#a65364}.progress-v6 span{font-family:"DotGothic16",monospace;font-size:8px}
+.status-v6{display:flex;gap:8px;align-items:center;min-height:32px}.status-v6>span{width:8px;height:8px;background:#6aaa83;border:2px solid #2c4939}.status-v6 p{margin:0;font-size:10px;line-height:1.45;color:#665c5c}
+.purchase-v6{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding:12px 14px;background:#deb04a;color:#2b2530;border:3px solid #302830;text-decoration:none;font-weight:800}.purchase-v6 span{font-family:"DotGothic16",monospace;font-size:8px}.purchase-v6 strong{font-size:26px}
+.scene-browser-v6{background:#d8c59b;color:#2e2730;border:5px solid #2f2831;box-shadow:8px 8px 0 #17141b,inset 0 0 0 4px #eee0b6;padding:20px}
+.scene-browser-head-v6{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;padding-bottom:16px;border-bottom:2px solid #8d775d}.scene-browser-head-v6 h2{font-size:38px;margin:4px 0 4px}.scene-browser-head-v6 p:not(.pixel-kicker){max-width:480px;margin:0;color:#655b58;font-size:11px;line-height:1.6}
+.scene-browser-v6 .track-search{font-size:9px;font-weight:800}.scene-browser-v6 .track-search input{min-width:190px;background:#fff9df;border:2px solid #433745}
+.scene-browser-list-v6{margin-top:14px;background:#776866;border:4px solid #4b3f4d;padding:10px;box-shadow:inset 0 0 0 3px #ad9875}
+.music-v6 .track-selector{grid-template-columns:repeat(2,1fr);gap:8px;max-height:720px}.music-v6 .track-choice{min-height:124px;background:#fff2cf;border:2px solid #51434e;box-shadow:inset 0 0 0 2px #dfd0aa,2px 2px 0 #393039;padding:11px}.music-v6 .track-choice:hover,.music-v6 .track-choice:focus-visible,.music-v6 .track-choice.active{background:#fff8df;outline:3px solid #d6aa47;outline-offset:1px}.music-v6 .track-choice .n{font-size:9px;color:#a05a57}.music-v6 .track-choice strong{font-size:13px}.music-v6 .track-choice .track-scene{display:block;margin-top:5px;font-family:"DotGothic16",monospace;font-size:7px;line-height:1.4;color:#96565b}.music-v6 .track-choice .track-description{margin:6px 0 0;font-size:9px;line-height:1.5;color:#625857}
+.music-rules-v6{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:38px}.music-rules-v6>div{background:#222029;border:2px solid #514758;padding:14px}.music-rules-v6 strong{display:block;font-family:"DotGothic16",monospace;color:#e0c666;font-size:9px;margin-bottom:6px}.music-rules-v6 span{font-size:10px;color:#c9c0c8}
+@media(max-width:900px){.music-v6-layout{grid-template-columns:1fr}.music-v6-intro{grid-template-columns:1fr}.music-v6-price{text-align:left;width:max-content}.jukebox-cabinet-v6,.juke-console-v6{max-width:500px}}
+@media(max-width:680px){.music-v6-main{padding:34px 12px 54px}.music-v6-intro h1{font-size:38px}.scene-browser-v6{padding:12px}.scene-browser-head-v6{grid-template-columns:1fr}.scene-browser-v6 .track-search input{width:100%;min-width:0}.music-v6 .track-selector{grid-template-columns:1fr;max-height:620px}.music-v6 .track-choice{min-height:116px}.music-rules-v6{grid-template-columns:1fr 1fr}.controls-v6 button{min-height:44px}}
+
