@@ -53,25 +53,32 @@ same town, but it feels more alive.
 
 ---
 
-## Slice 2 — MUSIC INTERIOR
+## Slice 2 — FIRST BAR + JUKEBOX SALES
 Ship independently after Slice 1.
 
 Exterior change:
-- MUSIC door becomes true scene transition.
+- the current MUSIC building is replaced by the first town BAR.
+- BAR is a real scene transition.
 
 Interior:
+- bar counter
+- stools
+- two small tables
 - jukebox
-- record sleeves
-- small sofa
-- speakers
-- poster wall
-- MELO
+- record sleeves / speakers / posters
+- bartender / MELO presence
 
 Interaction:
-- Enter at jukebox shows 60-track preview selector
+- Enter at jukebox opens the 60-track selector inside the game
 - preview stays 20 sec
-- "full details / buy" opens static /music/
+- track cards show BEST FOR + concrete video-use description
+- BUY opens the exact Stripe checkout URL
+- no separate web sales page is used
 - exit door returns to the exact exterior doorway
+
+Sales rule:
+- canonical purchase path = WORLD -> BAR -> JUKEBOX -> TRACK -> STRIPE
+- /music/ must not contain purchase buttons
 
 Acceptance:
 - enter / exit without page reload if possible
@@ -205,6 +212,12 @@ This is cheaper and richer than immediately making a huge new map.
 ---
 
 ## Slice 9 — STATION / SECOND DISTRICT
+
+Adds:
+- a second town BAR with different interior palette / resident / recommended jukebox set;
+- the same global catalog is available, but recommendations differ by location.
+
+
 
 Adds:
 - station
