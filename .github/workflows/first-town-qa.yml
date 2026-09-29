@@ -4,7 +4,7 @@ name: DOLZORE First Town QA
 
 on:
   push:
-    branches: ["redesign/first-town-20260929"]
+    branches: [main, "redesign/first-town-20260929"]
     paths:
       - "docs/**"
       - "tests/**"
