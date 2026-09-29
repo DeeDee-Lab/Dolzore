@@ -103,8 +103,29 @@ def main() -> None:
             no_overflow(m, "mobile " + path.strip("/"))
 
         m.goto(BASE + "/journal/projector-150inch-4k-2026/", wait_until="load")
-        assert m.locator(".projector-journal-card").count() == 10
+        m.wait_for_function("document.querySelectorAll('[data-product-card]').length === 10")
+        assert m.locator("[data-product-card]").count() == 10
         assert m.locator("[data-smartbuy-market]").count() == 1
+        assert m.locator("[data-market-targets] .market-target-card").count() >= 6
+
+        # Product filters must visibly reduce and restore the card set.
+        m.locator('[data-filter="short"]').click()
+        m.wait_for_timeout(100)
+        visible_short = m.locator("[data-product-card]:visible").count()
+        assert 1 <= visible_short < 10, visible_short
+        m.locator('[data-filter="all"]').click()
+        assert m.locator("[data-product-card]:visible").count() == 10
+
+        # Throw calculator must react to screen-size changes.
+        before = m.locator("[data-throw-result]").text_content()
+        m.locator("[data-screen-size]").evaluate("(el)=>{el.value='100';el.dispatchEvent(new Event('input',{bubbles:true}))}")
+        after = m.locator("[data-throw-result]").text_content()
+        assert before != after, (before, after)
+
+        # Market target/search affordances must remain clickable even when strict candidates are zero.
+        assert m.locator(".market-search-links a").count() >= 6
+        assert m.locator(".product-actions a").count() >= 20
+        no_overflow(m, "mobile projector journal")
         screenshot(m, "mobile-projector-journal.png")
         preview(m, "mobile-projector-journal-preview.jpg")
         mobile.close()
@@ -119,6 +140,9 @@ def main() -> None:
     print("MOBILE_HOME=PASS")
     print("MOBILE_MUSIC=PASS")
     print("MOBILE_PROJECTOR_JOURNAL=PASS")
+    print("PROJECTOR_FILTERS=PASS")
+    print("THROW_CALCULATOR=PASS")
+    print("MARKET_AFFORDANCES=PASS")
     print("HORIZONTAL_OVERFLOW=0")
 
 if __name__ == "__main__":
