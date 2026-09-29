@@ -538,6 +538,41 @@ def first_town():
         R((x,y,x+3,y+34),"#38464c");R((x-6,y-2,x+9,y+2),"#38464c")
         R((x-3,y-10,x+6,y-2),gold);R((x-1,y-8,x+4,y-4),"#fff0a5")
 
+    def bench(x,y):
+        R((x,y,x+52,y+6),brown);R((x+5,y-7,x+47,y-2),brown)
+        R((x+7,y+6,x+12,y+22),ink);R((x+40,y+6,x+45,y+22),ink)
+
+    def planter(x,y,color="#bd5966"):
+        R((x,y+8,x+26,y+18),brown)
+        R((x+3,y+2,x+8,y+10),grass3);R((x+11,y,x+16,y+11),color);R((x+18,y+3,x+23,y+10),grass3)
+
+    def mailbox(x,y,color="#c05b67"):
+        R((x,y,x+15,y+13),ink);R((x+2,y+2,x+13,y+11),color);R((x+7,y+13,x+9,y+28),ink)
+
+    def fence(x1,y,x2):
+        for x in range(x1,x2,22):
+            R((x,y,x+4,y+20),brown)
+        R((x1,y+5,x2,y+9),brown);R((x1,y+14,x2,y+18),brown)
+
+    def crate_stack(x,y):
+        for dx,dy in ((0,12),(18,12),(9,0)):
+            R((x+dx,y+dy,x+dx+15,y+dy+15),"#7f5a3c")
+            R((x+dx+2,y+dy+2,x+dx+13,y+dy+13),"#a9794e")
+            L(((x+dx+3,y+dy+3),(x+dx+12,y+dy+12)),brown,1)
+
+    def bin_box(x,y,color="#4f6d62"):
+        R((x,y,x+20,y+24),ink);R((x+2,y+3,x+18,y+22),color);R((x-2,y-3,x+22,y+3),ink)
+
+    def awning(x,y,w,color1,color2):
+        R((x,y,x+w,y+10),ink)
+        step=12
+        for sx in range(x+2,x+w-2,step):
+            R((sx,y+2,min(sx+step-3,x+w-2),y+8),color1 if ((sx-x)//step)%2==0 else color2)
+
+    def signpost(x,y,w=34,h=16,color="#334b58"):
+        R((x,y,x+w,y+h),ink);R((x+2,y+2,x+w-2,y+h-2),color)
+        R((x+w//2-1,y+h,x+w//2+2,y+h+26),ink)
+
     # Residential Hill
     home=building(115,105,150,96,ochre,ochreSide,"#5f6e67")
     building(315,90,135,92,"#d49b72","#aa7656","#6d5f68")
@@ -547,43 +582,73 @@ def first_town():
     R((535,92,600,140),ink);R((541,98,594,135),blue)
     R((548,140,554,205),ink);R((581,140,587,205),ink)
     R((540,203,596,210),ink)
-    # small park
+    # small park / lived-in residential details
     for t in ((55,165,1.0),(62,300,.9),(448,120,1.1),(430,320,.9)): tree(*t)
+    fence(18,344,220);fence(300,344,452)
+    mailbox(278,188,"#c35f69");mailbox(70,306,"#557e96")
+    bench(22,218);planter(245,325,"#e2b54a");planter(415,208,"#c85f82")
+    signpost(500,222,46,18,"#536c73")
 
     # Main Street buildings
     bar=building(610,330,180,105,rose,roseSide,"#6f3546")
     cafe=building(820,345,145,94,ochre,ochreSide,"#616e65")
     store=building(1080,330,160,100,teal,tealSide,"#475c58")
     service=building(1265,350,140,92,blue,blueSide,"#4b5364")
-    # central plaza
+    # central plaza + distinct storefront language
     R((620,575,900,655),"#d8cc9f")
     for x in range(640,880,46): R((x,590,x+28,596),"#b9ac84")
-    R((735,605,790,612),brown);R((744,613,750,635),brown);R((780,613,786,635),brown)
+    bench(690,606);bench(808,606)
+    planter(640,620,"#c95d75");planter(870,620,"#e0ad47")
+    awning(625,410,150,"#80344b","#e5d6a8")
+    awning(835,418,116,"#d6a848","#f0e2b7")
+    signpost(680,360,46,18,"#7e354a")
+    R((1170,463,1202,477),ink);R((1174,466,1198,474),"#d8c49a") # bike rack
+    for bx in range(1177,1197,7): L(((bx,468),(bx-4,480)),ink,1)
+    bin_box(1018,535,"#536a5d");mailbox(1260,420,"#4d7590")
 
     # Market / workshop
     workshop=building(1015,195,165,96,"#a9836f","#7c604f","#4c5057")
     secondhand=building(1210,200,145,92,"#8ca57a","#697c5c","#57604f")
     building(1360,245,125,80,"#d4a875","#ad845a","#6e5960")
-    # stalls
+    # stalls / workshop clutter
     for x,c in ((1045,"#bd5966"),(1125,"#5b8e78"),(1205,"#d0a84e")):
         R((x,615,x+62,652),cream);R((x,605,x+62,618),c)
         R((x+5,652,x+9,676),brown);R((x+53,652,x+57,676),brown)
+    awning(1025,270,138,"#6d4e3f","#c39773")
+    awning(1222,270,112,"#66785a","#d8c695")
+    crate_stack(1380,370);crate_stack(1250,660)
+    bin_box(1175,265,"#566860");bin_box(1440,350,"#5c6f65")
+    signpost(1040,170,58,18,"#66504a")
+    for px,py in ((1080,355),(1120,355),(1160,355),(1300,345)):
+        planter(px,py,"#d6a347")
 
     # Civic / JOURNAL
     journal=building(320,600,190,110,teal,tealSide,"#4c4152")
     building(540,625,145,90,"#c2a276","#9d7c57","#5e5b63")
-    # civic map kiosk
+    # civic map kiosk / plaza
     R((715,650,770,720),ink);R((720,655,765,710),cream)
     R((726,662,758,667),rose);R((726,675,752,680),blue);R((726,688,760,693),teal)
+    for py in range(806,842,12):
+        for px in range(330,760,28):
+            R((px,py,px+16,py+4),"#c9be97")
+    bench(570,816);planter(355,812,"#b95869");planter(748,812,"#5c8f76")
+    signpost(390,570,64,18,"#3d625b")
+    mailbox(680,705,"#c05e69")
 
     # Riverside structures
     building(130,775,145,88,"#a7b47a","#7e895a","#586052")
     building(1020,785,155,94,"#c7907e","#9e695c","#60536a")
     # big landmark tree
     tree(560,842,1.7)
-    # fishing pier
+    # fishing pier / riverside life
     R((370,880,465,925),brown);R((377,886,458,920),"#a17750")
     for x in range(382,458,18): R((x,889,x+5,917),"#7e5c40")
+    bench(640,858);signpost(505,826,52,18,"#4d746a")
+    for rx,ry in ((300,875),(720,890),(935,880),(1100,892)):
+        R((rx,ry,rx+8,ry+5),"#66706a")
+    for fx in range(210,760,90):
+        L(((fx,895),(fx+3,878)),grass3,2);L(((fx+7,897),(fx+10,882)),grass3,2)
+    planter(980,860,"#d9ac49")
 
     # Station / East Gate
     station=building(1220,690,220,125,"#8da7b3","#667b85","#485260")
@@ -591,16 +656,26 @@ def first_town():
     R((1315,620,1365,690),ink);R((1321,626,1359,686),"#d2c59e")
     d.ellipse((1328,636,1352,660),fill="#f3e7c5",outline=ink,width=3)
     L(((1340,648),(1340,641)),ink,2);L(((1340,648),(1347,653)),ink,2)
-    # east gate road continuation
+    # station platform identity + east gate continuation
+    R((1190,850,1490,885),"#c8bd95")
+    R((1190,850,1490,858),ink)
+    for px in range(1205,1470,38): R((px,866,px+20,870),"#918a72")
+    R((1240,812,1435,824),ink);R((1245,815,1430,821),"#546879")
+    signpost(1440,742,58,18,"#4f6476")
+    bench(1180,735);bench(1410,735)
     R((1450,430,1535,560),road);R((1450,420,1535,432),curb);R((1450,560,1535,572),curb)
 
     # Back alley pocket
     R((790,205,900,320),"#659f58")
     R((807,236,830,300),ink);R((811,240,826,296),"#426d8d") # vending machine
     R((840,282,892,288),brown);R((846,289,851,310),brown);R((883,289,888,310),brown)
-    # graffiti-ish pixel marks
+    # graffiti-ish pixel marks / alley clutter
     for x,y,c in ((795,219,rose),(803,214,gold),(812,220,blue),(821,214,teal)):
         R((x,y,x+6,y+3),c)
+    bin_box(770,278,"#48675e");crate_stack(895,300)
+    R((875,332,882,338),ink);R((883,330,889,338),ink) # small cat silhouette
+    L(((878,330),(875,326)),ink,1);L(((886,330),(889,326)),ink,1)
+    signpost(748,190,54,18,"#444052")
 
     # trees around districts
     for t in [(45,80,1),(70,390,1),(220,360,1),(690,260,1),(900,270,1),(1460,380,1),
