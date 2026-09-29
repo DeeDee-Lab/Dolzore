@@ -85,7 +85,8 @@ def main() -> None:
             status = page.locator("[data-status]").text_content()
             src = page.locator("[data-audio]").get_attribute("src")
             raise AssertionError(f"proven preview failed to play; status={status!r} src={src!r}")
-        assert "試聴中" in page.locator("[data-status]").text_content()
+        assert page.locator("[data-audio]").evaluate("(el)=>el.currentTime") > 0.15
+        assert page.locator("[data-audio]").evaluate("(el)=>el.paused") is False
         page.locator("[data-stop]").click()
 
         search.fill("Bright Morning")
