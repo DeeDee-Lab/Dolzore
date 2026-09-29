@@ -44,6 +44,10 @@ BAD_TERMS=(
     "スタンド","スクリーン","リモコン","ケーブル","金具","部品",
     "ジャンク","故障","投影不可","投影不良","映らない","電源のみ",
 )
+BAD_BODY_TERMS=(
+    "使用できない","使用出来ない","修理できる方","修理出来る方",
+    "メーカーに修理","要修理","動作未確認","現状品","部品取り",
+)
 SOLD_TOKENS=("売り切れ","売却済み","sold out","取引完了","販売終了","この商品は削除","売れました")
 BUY_TOKENS=("購入手続きへ","購入する","今すぐ購入","カートに入れる","入札する","落札する","購入できます")
 
@@ -162,6 +166,7 @@ def inspect_listing(market,url,fallback_title):
         text=soup.get_text(" ",strip=True)[:220000]
         lower=text.lower()
         if any(x in lower for x in SOLD_TOKENS): return None
+        if any(x.lower() in lower for x in BAD_BODY_TERMS): return None
 
         # Consumer-to-consumer pages may remain indexed after sale. Require a positive buy action.
         if market in {"mercari","yahoo_flea","rakuma","yahoo_auction"} and not any(x in lower for x in BUY_TOKENS):
