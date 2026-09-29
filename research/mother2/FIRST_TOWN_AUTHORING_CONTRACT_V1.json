@@ -1,0 +1,251 @@
+{
+  "schema": "dolzore.first_town_authoring_contract.v1",
+  "authority": "DOLZORE original design recommendation derived from reference research; NOT a MOTHER2 measurement",
+  "canonical_research": "research/mother2/",
+  "applies_to": "current Unity first-town vertical slice",
+  "non_copy_rule": "All names, map geometry, sprites, music, dialogue, formulas, UI and narrative events must be original DOLZORE work.",
+  "town_concept_required": {
+    "fields": [
+      "emotional_role",
+      "everyday_function",
+      "local_anomaly",
+      "mandatory_story_function",
+      "local_population_types",
+      "food_leisure_culture",
+      "audio_identity",
+      "visual_identity",
+      "traversal_identity",
+      "danger_profile",
+      "arrival_experience",
+      "exit_experience",
+      "post_event_state"
+    ]
+  },
+  "topology": {
+    "primary_loop_min": 1,
+    "optional_spurs_min": 1,
+    "shortcuts_or_alt_return_min": 1,
+    "mandatory_route_reachability_test_required": true,
+    "mandatory_destinations": [
+      "BAR",
+      "JOURNAL",
+      "RIVERSIDE",
+      "STATION_OR_EAST_EXIT"
+    ],
+    "route_fail_conditions": [
+      "mandatory destination unreachable",
+      "NPC or prop can permanently block critical route",
+      "decorative collision trap",
+      "pixel-perfect movement required for normal critical path"
+    ]
+  },
+  "districts": {
+    "minimum_distinct_functional_districts": 4,
+    "identity_channels_required_per_district_min": 3,
+    "identity_channels": [
+      "ground_or_road_grammar",
+      "architecture",
+      "props",
+      "population",
+      "lighting_palette",
+      "audio_ambience",
+      "interaction_profile"
+    ],
+    "label_hidden_visual_recognition_test_required": true
+  },
+  "landmarks": {
+    "major_landmarks_min": 3,
+    "multi_channel_identity_required": true,
+    "channels": [
+      "silhouette",
+      "color_or_material_family",
+      "prop_cluster",
+      "audio_or_ambience",
+      "NPC_reference",
+      "route_position"
+    ],
+    "minimap_registration_required": true
+  },
+  "social_life": {
+    "named_or_distinct_npc_min": 6,
+    "major_recurring_npc_min": 3,
+    "npc_with_non_quest_life_detail_ratio_min": 0.5,
+    "npc_with_at_least_one_relation_ratio_min": 0.5,
+    "local_event_post_reaction_clusters_min": 3,
+    "required_population_roles": [
+      "SERVICE_OR_WORKER",
+      "PRACTICAL_LOCAL",
+      "YOUTH_OR_CHILD",
+      "WANDERER_OR_VISITOR",
+      "ODD_BUT_LOCALLY_COHERENT_RESIDENT"
+    ],
+    "repeat_talk_variants_required_for_selected_npcs": true
+  },
+  "dialogue": {
+    "semantic_functions_per_district_min": 3,
+    "semantic_function_pool": [
+      "ORIENT",
+      "WORLD",
+      "CHARACTER",
+      "QUEST",
+      "ATMOSPHERE",
+      "HUMOR",
+      "FORESHADOW",
+      "REFLECT",
+      "SECRET"
+    ],
+    "state_variants_required": [
+      "BASE",
+      "POST_LOCAL_EVENT"
+    ],
+    "mandatory_information_fallback_required": true,
+    "imitate_itoi_style_forbidden": true,
+    "nonstop_quirky_one_liners_forbidden": true
+  },
+  "memory_anchors": {
+    "optional_memory_anchors_min": 3,
+    "required_channel_coverage": [
+      "DIALOGUE_OR_SOCIAL",
+      "VISUAL_OR_ENVIRONMENT",
+      "AUDIO_OR_INTERACTION"
+    ],
+    "loot_reward_required": false,
+    "revisit_or_callback_potential_required": true
+  },
+  "interactions": {
+    "optional_object_interactions_per_district_min": 1,
+    "prop_purpose_categories": [
+      "ORIENT",
+      "IMPLY_DAILY_LIFE",
+      "SHAPE_ROUTE",
+      "INVITE_INTERACTION",
+      "HUMOR_OR_ODDITY"
+    ],
+    "meaningless_prop_clutter_rejected": true,
+    "context_interaction_prompt_required": true
+  },
+  "visual": {
+    "player_world_scale_bible_required": true,
+    "comparison_objects": [
+      "STANDARD_DOOR",
+      "ROAD_LANE",
+      "SIDEWALK",
+      "BENCH",
+      "VEHICLE",
+      "TREE"
+    ],
+    "major_npc_silhouette_test_required": true,
+    "grayscale_test_required": true,
+    "color_block_test_required": true,
+    "critical_hud_legibility_all_districts_required": true,
+    "collision_separate_from_visual_art_required": true,
+    "protected_reference_asset_use_forbidden": true
+  },
+  "audio": {
+    "minimum_states": [
+      "TOWN_DAY",
+      "QUIET_EDGE_OR_RIVER",
+      "BAR_DIEGETIC_OR_INTERIOR",
+      "JOURNAL_INTERIOR",
+      "ANOMALY_OR_EVENT_OVERRIDE"
+    ],
+    "footsteps_surface_profiles_min": 3,
+    "object_bound_audio_emitter_min": 1,
+    "intentional_silence_or_music_light_zone_min": 1,
+    "one_generic_loop_for_whole_town_rejected": true,
+    "copyrighted_reference_audio_forbidden": true
+  },
+  "world_state": {
+    "states_required": [
+      "BASE",
+      "LOCAL_INCIDENT_OR_ANOMALY",
+      "POST_INCIDENT"
+    ],
+    "at_least_two_channels_change_between_states": true,
+    "state_change_channels": [
+      "NPC_PLACEMENT",
+      "DIALOGUE",
+      "AUDIO",
+      "LIGHTING_OR_PALETTE",
+      "PROPS",
+      "SERVICE_AVAILABILITY",
+      "ENCOUNTER_PROFILE"
+    ],
+    "save_persistence_by_stable_id_required": true
+  },
+  "encounters": {
+    "required_for_first_town": false,
+    "if_present": {
+      "visible_threat_readability_required": true,
+      "safe_margin_near_critical_doors_npcs_required": true,
+      "contact_context_preserved": true,
+      "trivial_resolve_design_documented_before_implementation": true
+    }
+  },
+  "ui_map": {
+    "hud_required": [
+      "PLAYER_NAME_OR_ID",
+      "LEVEL",
+      "HEART_OR_HP",
+      "FOCUS_OR_PRIMARY_RESOURCE",
+      "JOB",
+      "ZONE_OR_DISTRICT",
+      "INTERACTION_PROMPT"
+    ],
+    "minimap_required": true,
+    "expandable_town_map_required": true,
+    "player_marker_required": true,
+    "landmark_markers_required": true,
+    "original_ui_visual_language_required": true,
+    "mother2_window_layout_copy_forbidden": true
+  },
+  "pacing": {
+    "density_classes_to_use_min": 3,
+    "density_classes": [
+      "D0_QUIET",
+      "D1_LIVED_IN",
+      "D2_SOCIAL",
+      "D3_EVENT"
+    ],
+    "sustained_D3_for_entire_town_rejected": true,
+    "recovery_space_required": true,
+    "quiet_edge_required": true,
+    "social_pocket_required": true
+  },
+  "qa": {
+    "desktop_screenshot_review": true,
+    "webgl_or_target_platform_runtime_review": true,
+    "mobile_path_review_if_mobile_targeted": true,
+    "collision_route_validation": true,
+    "hud_legibility_review": true,
+    "labels_hidden_district_recognition_review": true,
+    "player_character_world_scale_review": true,
+    "audio_state_transition_review": true,
+    "copyright_differentiation_review": true,
+    "no_branch_only_completion_claim": true
+  },
+  "production_order": [
+    "TownConcept",
+    "district_graph",
+    "blockout_and_collision",
+    "player_controller_and_camera",
+    "landmarks",
+    "character_scale_bible",
+    "NPC_placements",
+    "HUD_and_minimap",
+    "interaction_and_dialogue",
+    "audio_zones",
+    "memory_anchors",
+    "world_state_variants",
+    "encounter_zones_if_needed",
+    "visual_polish",
+    "runtime_QA",
+    "user_visible_review"
+  ],
+  "defer_until_first_town_accepted": [
+    "full_combat_production",
+    "second_town_final_art",
+    "large_scale_MMO_networking",
+    "broad_life_system_implementation"
+  ]
+}
