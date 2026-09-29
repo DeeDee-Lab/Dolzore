@@ -326,5 +326,42 @@
     "battle feedback and status-effect presentation taxonomy",
     "NPC behavior/schedule taxonomy",
     "quantitative DOLZORE first-town authoring checklist"
+  ],
+  "official_visual_observation": {
+    "evidence_class": "VISUAL_OBSERVATION+OFFICIAL_ARCHIVE",
+    "sources": [
+      "https://www.nintendo.co.jp/n08/a2uj/mother2/screen/index.html",
+      "https://www.nintendo.co.jp/data/software/manual/man_jbbj.pdf"
+    ],
+    "findings": [
+      "field composition uses broad readable architecture/ground masses with small but high-contrast characters",
+      "ordinary infrastructure and services coexist with strange events in the same visual grammar",
+      "scene categories remain distinguishable through broad shape/color/population changes",
+      "field threats and interaction candidates exist inside ordinary navigable space",
+      "battle presentation separates expressive center/background from stable command/status information",
+      "strong scene identity relies more on broad composition than fine texture"
+    ],
+    "dolzore_rules": [
+      "district identity must survive with labels hidden",
+      "major NPCs must pass silhouette and color-block tests at gameplay scale",
+      "enemy approach must be readable before contact",
+      "critical HUD values must remain legible across every district",
+      "special visual states need a learned normal baseline"
+    ]
+  },
+  "research_files": [
+    "AGENT_READ_FIRST.md",
+    "MOTHER2_REFERENCE_SPEC_V1.json",
+    "WORLD_MAP_FIELD_GRAMMAR.md",
+    "OFFICIAL_SCREENSHOT_VISUAL_OBSERVATIONS_V1.md",
+    "LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md",
+    "VISUAL_CHARACTER_EFFECT_GRAMMAR.md",
+    "AUDIO_ATMOSPHERE_GRAMMAR.md",
+    "DIALOGUE_WORLDVIEW_GRAMMAR.md",
+    "GAMEPLAY_UI_BATTLE_PRESENTATION_GRAMMAR.md",
+    "TECHNICAL_ARCHITECTURE_FINDINGS.md",
+    "DOLZORE_UNITY_IMPLEMENTATION_CHECKLIST.md",
+    "SOURCE_INDEX.md",
+    "RESEARCH_STATUS.json"
   ]
 }
