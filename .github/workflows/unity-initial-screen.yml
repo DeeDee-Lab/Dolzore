@@ -137,7 +137,7 @@ jobs:
             "entity.first_town.journal",
             "private.first_town.player_home",
             "interior.first_town.bar_13",
-            "vocation.wanderer"
+            "vocation.warden"
           )) {
             if ($scene -notmatch [regex]::Escape($token)) {
               throw "DOLZORE_ARCHITECTURE_TOKEN_MISSING:$token"
