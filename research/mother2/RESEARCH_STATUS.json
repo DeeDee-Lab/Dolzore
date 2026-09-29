@@ -1,7 +1,7 @@
 {
   "schema": "dolzore.mother2.research_status.v1",
-  "updated_jst": "2026-09-30T00:55:00+09:00",
-  "state": "REFERENCE_V1_PERSISTED_RESEARCH_CONTINUES",
+  "updated_jst": "2026-09-30T01:05:00+09:00",
+  "state": "COMPREHENSIVE_REFERENCE_V1_READY_CONTINUOUS_RESEARCH",
   "canonical_repo": "DeeDee-Lab/Dolzore",
   "canonical_issue": "DeeDee-Lab/Dolzore#26",
   "canonical_path": "research/mother2/",
@@ -28,7 +28,9 @@
     "enemy_item_service_system_grammar",
     "npc_life_social_texture_grammar",
     "narrative_pacing_memory_grammar",
-    "music_role_matrix"
+    "music_role_matrix",
+    "first_town_authoring_contract_v1",
+    "differentiation_guardrails"
   ],
   "in_progress_domains": [
     "quantitative_visual_density_measurement_without_asset_copy",
@@ -38,15 +40,17 @@
     "cross_reference_with_ff11_and_ff14_without_merging_distinct_design_goals"
   ],
   "exact_next_actions": [
-    "quantify first-town validator-friendly authoring contracts from the current research",
-    "perform a second-pass source audit for any unsupported/inferred claims",
-    "cross-check production design files so Unity agents consume research without overwriting current DOLZORE authority",
-    "continue optional NPC/status/effect measurement only as additive deltas"
+    "production agent reads canonical research before further Unity town iteration",
+    "apply FIRST_TOWN_AUTHORING_CONTRACT_V1 as advisory QA without overriding current DOLZORE authority",
+    "continue only additive research deltas: precise visual density, NPC movement observations, status/effect taxonomy",
+    "record future deltas in issue #26 and RESEARCH_STATUS.json"
   ],
   "evidence_warning": "No original maps, sprites, music, full script text, ROM content or copyrighted asset bodies are stored.",
   "files": [
     "AGENT_READ_FIRST.md",
     "MOTHER2_REFERENCE_SPEC_V1.json",
+    "FIRST_TOWN_AUTHORING_CONTRACT_V1.json",
+    "DIFFERENTIATION_GUARDRAILS.md",
     "WORLD_MAP_FIELD_GRAMMAR.md",
     "OFFICIAL_SCREENSHOT_VISUAL_OBSERVATIONS_V1.md",
     "LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md",
@@ -62,5 +66,11 @@
     "DOLZORE_UNITY_IMPLEMENTATION_CHECKLIST.md",
     "SOURCE_INDEX.md",
     "RESEARCH_STATUS.json"
-  ]
+  ],
+  "validation": {
+    "directory_readback_required": true,
+    "structured_json_parse_required": true,
+    "copyrighted_asset_bodies_stored": false,
+    "original_dialogue_or_audio_copied": false
+  }
 }
