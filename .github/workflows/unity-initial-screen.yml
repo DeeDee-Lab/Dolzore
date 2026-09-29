@@ -101,7 +101,8 @@ jobs:
             "Assets\Art\Generated\title_background.png",
             "Assets\Art\Generated\dolzore_logo.png",
             "Assets\Art\Generated\first_town_minimap.png",
-            "BuildArtifacts\initial-screen.png"
+            "BuildArtifacts\initial-screen.png",
+            "BuildArtifacts\first-town.png"
           )
           foreach ($rel in $required) {
             $path = Join-Path $project $rel
@@ -122,6 +123,9 @@ jobs:
             "Assets\Scripts\CoreRpgModels.cs",
             "Assets\Scripts\WorldIdentity.cs",
             "Assets\Scripts\FirstTownRuntime.cs",
+            "Assets\Scripts\InternalRpgRulesData.cs",
+            "Assets\Scripts\InternalCombatMath.cs",
+            "Assets\Scripts\FfxiStatGradeRules.cs",
             "Assets\Scenes\FirstTownShell.unity"
           )) {
             $path = Join-Path $project $rel
@@ -187,11 +191,48 @@ jobs:
           $ErrorActionPreference = 'Stop'
           git config user.name "DOLZORE Unity Builder"
           git config user.email "actions@users.noreply.github.com"
+
           git add game/unity/Dolzore/Assets game/unity/Dolzore/Packages game/unity/Dolzore/ProjectSettings
           git diff --cached --quiet
           if ($LASTEXITCODE -eq 0) {
             Write-Host "UNITY_PROJECT_SOURCE_ALREADY_CURRENT=true"
             exit 0
           }
-          git commit -m "unity: generate initial screen project [skip ci]"
-          git push origin HEAD:rebuild/unity-first-town-20260929
+
+          $patch = Join-Path $env:RUNNER_TEMP "dolzore-generated-source.patch"
+          $lines = @(git diff --cached --binary --no-ext-diff)
+          [System.IO.File]::WriteAllLines($patch, $lines, (New-Object System.Text.UTF8Encoding($false)))
+          git reset | Out-Null
+
+          for ($attempt = 1; $attempt -le 3; $attempt++) {
+            Write-Host "UNITY_SOURCE_PRESERVE_ATTEMPT=$attempt"
+            git fetch origin rebuild/unity-first-town-20260929
+            if ($LASTEXITCODE -ne 0) { throw "UNITY_SOURCE_FETCH_FAILED:$attempt" }
+
+            git reset --hard origin/rebuild/unity-first-town-20260929
+            if ($LASTEXITCODE -ne 0) { throw "UNITY_SOURCE_RESET_FAILED:$attempt" }
+
+            git apply --index --binary --whitespace=nowarn $patch
+            if ($LASTEXITCODE -ne 0) {
+              throw "UNITY_SOURCE_PATCH_APPLY_FAILED:$attempt"
+            }
+
+            git diff --cached --quiet
+            if ($LASTEXITCODE -eq 0) {
+              Write-Host "UNITY_PROJECT_SOURCE_ALREADY_CURRENT_AFTER_FETCH=true"
+              exit 0
+            }
+
+            git commit -m "unity: generate initial screen project [skip ci]"
+            if ($LASTEXITCODE -ne 0) { throw "UNITY_SOURCE_COMMIT_FAILED:$attempt" }
+
+            git push origin HEAD:rebuild/unity-first-town-20260929
+            if ($LASTEXITCODE -eq 0) {
+              Write-Host "UNITY_SOURCE_PRESERVE_SUCCESS=true"
+              exit 0
+            }
+
+            Write-Host "UNITY_SOURCE_PUSH_RETRY=$attempt"
+          }
+
+          throw "UNITY_SOURCE_PRESERVE_RETRIES_EXHAUSTED"
