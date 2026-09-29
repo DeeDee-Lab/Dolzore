@@ -52,9 +52,10 @@ jobs:
             $template = Join-Path $env:RUNNER_TEMP "DolzoreUnityTemplate"
             if (Test-Path $template) { Remove-Item $template -Recurse -Force }
             $createLog = Join-Path $env:RUNNER_TEMP "dolzore-unity-create.log"
-            & "$env:UNITY_EXE" -quit -batchmode -createProject "$template" -logFile "$createLog"
-            $code = $LASTEXITCODE
-            Get-Content $createLog -Tail 180
+            $args = @("-quit","-batchmode","-createProject",$template,"-logFile",$createLog)
+            $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+            $code = $proc.ExitCode
+            if (Test-Path $createLog) { Get-Content $createLog -Tail 180 }
             if ($code -ne 0) {
               throw "DOLZORE_UNITY_CREATE_FAILED:$code"
             }
@@ -80,9 +81,10 @@ jobs:
           $ErrorActionPreference = 'Continue'
           $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
           $log = Join-Path $env:RUNNER_TEMP "dolzore-unity-build.log"
-          & "$env:UNITY_EXE" -quit -batchmode -projectPath "$project" -buildTarget WebGL -executeMethod Dolzore.Editor.ProjectBootstrap.BuildInitialSlice -logFile "$log"
-          $code = $LASTEXITCODE
-          Get-Content $log -Tail 420
+          $args = @("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.ProjectBootstrap.BuildInitialSlice","-logFile",$log)
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+          $code = $proc.ExitCode
+          if (Test-Path $log) { Get-Content $log -Tail 420 }
           if ($code -ne 0) {
             throw "DOLZORE_UNITY_BUILD_FAILED:$code"
           }
