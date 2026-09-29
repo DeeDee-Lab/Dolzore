@@ -40,7 +40,7 @@
       if(idx>=0) currentIndex=idx;
       number.textContent=track.number;
       title.textContent=track.title;
-      useCase.textContent=track.useCase;
+      useCase.textContent=track.sceneEn||track.sceneJa||track.useCase;
       moment.textContent=track.moment;
       purchase.href=track.purchaseUrl;
       purchase.setAttribute("aria-label",`${track.title}を¥200で購入`);
@@ -56,10 +56,11 @@
       filtered.forEach(track=>{
         const b=document.createElement("button");
         b.type="button";b.className="track-choice";b.dataset.id=track.id;
-        b.innerHTML=`<span class="n">${track.number}</span><strong></strong><small></small>`;
+        b.innerHTML=`<span class="n">${track.number}</span><strong></strong><small class="track-scene"></small><p class="track-description"></p>`;
         b.classList.toggle("preview-ready",!!track.previewReady);
         b.querySelector("strong").textContent=track.title;
-        b.querySelector("small").textContent=track.useCase + (track.previewReady ? " · 20秒きけます" : " · 試聴は準備中");
+        b.querySelector(".track-scene").textContent="BEST FOR · "+(track.sceneEn||track.sceneJa||"");
+        b.querySelector(".track-description").textContent=track.descriptionJa||track.moment||"";
         b.addEventListener("click",()=>selectByTrack(track));
         selector.appendChild(b);
       });
@@ -99,7 +100,7 @@
     play.addEventListener("click",togglePlay);
     search.addEventListener("input",()=>{
       const q=search.value.trim().toLowerCase();
-      filtered=!q?tracks:tracks.filter(t=>[t.id,t.title,t.useCase,t.moment].join(" ").toLowerCase().includes(q));
+      filtered=!q?tracks:tracks.filter(t=>[t.id,t.title,t.useCase,t.sceneJa,t.sceneEn,t.descriptionJa,t.moment].join(" ").toLowerCase().includes(q));
       currentIndex=0;render();
     });
     audio.addEventListener("timeupdate",()=>{
