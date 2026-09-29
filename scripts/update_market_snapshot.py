@@ -21,6 +21,10 @@ MODELS={
     "Optoma UHD35STx":{"terms":["uhd35stx"],"strong":80000,"consider":100000},
     "ViewSonic X10-4K":{"terms":["x10-4k","x104k"],"strong":60000,"consider":65000},
     "XGIMI AURA":{"terms":["xgimiaura","auraxm03a"],"strong":90000,"consider":100000},
+    "XGIMI HORIZON S Max":{"terms":["horizonsmax","horizon s max"],"strong":None,"consider":None},
+    "JMGO N1S Ultra 4K":{"terms":["n1sultra4k","n1s ultra 4k"],"strong":None,"consider":None},
+    "Epson EH-LS800":{"terms":["ehls800","eh-ls800"],"strong":None,"consider":None},
+    "BenQ X3100i":{"terms":["x3100i"],"strong":None,"consider":None},
 }
 
 MARKETS={
@@ -169,11 +173,18 @@ def inspect_listing(market,url,fallback_title):
 
         lane=MARKETS[market][2]
         if lane=="used":
-            if price<=cfg["strong"]: price_status="strong_buy"
-            elif price<=cfg["consider"]: price_status="consider"
-            else: return None
+            strong=cfg.get("strong")
+            consider=cfg.get("consider")
+            if strong is not None and price<=strong:
+                price_status="strong_buy"
+            elif consider is not None and price<=consider:
+                price_status="consider"
+            elif consider is not None:
+                price_status="over_target"
+            else:
+                price_status="market_price"
         else:
-            price_status="acceptable"
+            price_status="new_market"
 
         return {
             "title":title,
@@ -237,25 +248,43 @@ def main(output:Path):
     # De-duplicate exact listing URLs.
     unique={r["url"]:r for r in rows}
     rows=list(unique.values())
-    rank={"strong_buy":0,"consider":1,"acceptable":2}
+    rank={"strong_buy":0,"consider":1,"over_target":2,"market_price":3,"new_market":4}
     rows.sort(key=lambda r:(rank.get(r["priceStatus"],9),r["price"]))
 
+    observed_used=[r for r in rows if MARKETS[r["market"]][2]=="used"]
+    observed_new=[r for r in rows if MARKETS[r["market"]][2]=="new"]
+    recommended_used=[r for r in observed_used if r["priceStatus"] in {"strong_buy","consider"}]
+
+    model_summaries=[]
+    for model,cfg in MODELS.items():
+        used_for_model=sorted((r for r in observed_used if r["model"]==model),key=lambda r:r["price"])
+        new_for_model=sorted((r for r in observed_new if r["model"]==model),key=lambda r:r["price"])
+        model_summaries.append({
+            "model":model,
+            "strongBuy":cfg.get("strong"),
+            "consider":cfg.get("consider"),
+            "bestUsed":used_for_model[0] if used_for_model else None,
+            "bestNew":new_for_model[0] if new_for_model else None,
+        })
+
     payload={
-        "schemaVersion":2,
+        "schemaVersion":3,
         "generatedAt":datetime.now(timezone.utc).isoformat(),
         "source":"github-hosted-public-market-snapshot",
-        "used":[r for r in rows if MARKETS[r["market"]][2]=="used"][:10],
-        "newItems":[r for r in rows if MARKETS[r["market"]][2]=="new"][:10],
+        "used":recommended_used[:10],
+        "newItems":observed_new[:10],
+        "observedUsed":observed_used[:30],
+        "modelSummaries":model_summaries,
         "targets":[
             {
                 "model":model,
-                "strongBuy":cfg["strong"],
-                "consider":cfg["consider"],
+                "strongBuy":cfg.get("strong"),
+                "consider":cfg.get("consider"),
             }
             for model,cfg in MODELS.items()
         ],
         "trackedModels":list(MODELS),
-        "note":"Only strict individual listings are published. Zero results are allowed. generatedAt is refreshed every successful run."
+        "note":"Verified live listings are retained even when above target so the page can show current market price and a WAIT decision. Recommendation remains separate."
     }
 
     output.parent.mkdir(parents=True,exist_ok=True)
