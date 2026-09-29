@@ -486,3 +486,48 @@ FIRST-TOWN QUALITY GATE:
 NEXT ACTION:
 Build new Phaser/Tiled first-town vertical slice on branch:
 `rebuild/game-engine-20260929`
+
+
+---
+
+## 2026-09-29 — Unity game-layer migration
+
+DECISION:
+The DOLZORE game/world layer will migrate from the current hand-coded Canvas + generated-background prototype to Unity.
+
+WHY:
+The target is no longer a lightweight interactive homepage. It is a long-lived high-quality RPG/shared-world game with:
+- authored pixel-art towns;
+- scrolling/open-region world;
+- character creation;
+- interiors;
+- minimap/status/UI;
+- fishing/cooking/housing;
+- deep jobs/magic/skills/combat;
+- eventual realtime multiplayer/MMO.
+
+The current Canvas/Pillow approach proved controls and deployment but is a bottleneck for visual quality, level iteration, collision authoring, animation, UI and large-world content.
+
+IMPLEMENTATION IMPACT:
+- current public Canvas town becomes a temporary prototype/reference only;
+- do not keep investing in its art as the production game foundation;
+- WORLD/game client moves to Unity 2D;
+- JOURNAL / SUPPORT / LEGAL and other SEO/editorial surfaces remain normal web pages;
+- BAR jukebox commerce remains an in-world game interaction that opens exact Stripe checkout;
+- online/MMO authority remains a separate backend concern and is not solved by Unity alone.
+
+UNITY DIRECTION:
+- Unity Personal while eligible;
+- Unity 2D project;
+- Pixel Perfect Camera;
+- Tilemap/Tile Palette;
+- Input System;
+- Addressables when world assets grow;
+- GitHub remains canonical source control.
+
+ORIGINALITY:
+Learn from high-level spatial/system qualities of reference RPGs, but do not copy protected characters, maps, dialogue, music, UI or other assets.
+
+NEXT ACTION:
+Freeze the current Canvas town as prototype.
+Create a Unity first-town vertical slice before expanding BAR/fishing/combat/MMO implementation.
