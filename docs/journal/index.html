@@ -3,54 +3,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>DOLZORE JOURNAL | 町の掲示板</title>
-  <meta name="description" content="DOLZOREの町の掲示板。音楽、制作、道具、試して分かったことを記事として公開します。">
+  <title>DOLZORE JOURNAL | 記事を読む</title>
+  <meta name="description" content="DOLZORE JOURNAL。道具・制作・音楽について、比較・価格・使い方を分かりやすく整理した記事を掲載します。">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://deedee-lab.github.io/Dolzore/journal/">
   <link rel="stylesheet" href="../styles.css">
   <script src="../site.js" defer></script>
 </head>
-<body class="world-body journal-v4">
+<body class="world-body journal-v5">
 <header class="world-header">
   <a class="world-brand" href="../"><span class="brand-mark">DOLZORE</span><small>ドルゾーレ</small></a>
   <nav class="world-nav"><a href="../">WORLD</a><a href="../music/">MUSIC</a><a class="active" href="./">JOURNAL</a><a href="../support/">SUPPORT</a><a href="../legal/">LEGAL</a></nav>
 </header>
 
-<main class="journal-v4-main">
-  <section class="notice-board-intro">
-    <div class="notice-board-sign">
-      <span class="pin red"></span><span class="pin green"></span>
-      <p class="pixel-kicker">DOLZORE / NOTICE BOARD</p>
-      <h1>町の掲示板</h1>
-      <p>音楽のこと、道具のこと、つくってみて分かったこと。<br>まとまったものから、ここに貼っています。</p>
-    </div>
+<main class="journal-v5-main">
+  <section class="journal-v5-hero">
+    <p class="pixel-kicker">DOLZORE JOURNAL</p>
+    <h1>記事を読む。</h1>
+    <p>道具・制作・音楽について、調べたことを比較しやすい形でまとめています。</p>
   </section>
 
-  <section class="guide-district" aria-labelledby="guide-district-title">
-    <div class="guide-district-copy">
+  <section class="journal-tools-v5" aria-labelledby="journal-tools-title">
+    <div class="journal-tools-copy">
       <p class="pixel-kicker">TOOLS DISTRICT</p>
-      <h2 id="guide-district-title">道具の記事は、店ごとに。</h2>
-      <p>世界観は入口だけ。中に入ったら、写真・価格・比較を見やすくします。</p>
+      <h2 id="journal-tools-title">道具の記事</h2>
+      <p>スペック、価格、比較、使い方をまとめた記事です。大きな見出しや装飾より、必要な情報を読みやすく並べます。</p>
     </div>
-    <div class="guide-district-map">
-      <a class="district-building projector-shop" href="projector-150inch-4k-2026/" aria-label="プロジェクターの記事へ">
-        <span class="district-roof" aria-hidden="true"></span>
-        <span class="district-sign">PROJECTOR</span>
-        <strong>大画面の店</strong>
-        <small>150インチ / 4K / 中古相場</small>
-        <span class="district-enter">入る →</span>
+    <div class="journal-tool-grid-v5">
+      <a class="journal-tool-card-v5 projector" href="projector-150inch-4k-2026/">
+        <span>PROJECTOR</span>
+        <strong>4Kプロジェクター</strong>
+        <small>150インチ / 4K / 投写距離 / 中古相場</small>
+        <b>記事を見る →</b>
       </a>
-      <div class="district-building speaker-shop is-soon" aria-label="スピーカー記事は準備中">
-        <span class="district-roof" aria-hidden="true"></span>
-        <span class="district-sign">AUDIO</span>
-        <strong>音の道具屋</strong>
+      <div class="journal-tool-card-v5 audio is-soon" aria-label="スピーカー記事は準備中">
+        <span>AUDIO</span>
+        <strong>スピーカー・AV</strong>
         <small>スピーカー / AV / 中古相場</small>
-        <span class="district-enter">準備中</span>
+        <b>準備中</b>
       </div>
     </div>
   </section>
 
-  <section class="notice-board-list">
+  <section class="journal-posts-v5">
+    <div class="journal-posts-head-v5">
+      <div><p class="pixel-kicker">LATEST</p><h2>新しい記事</h2></div>
+      <p>更新した順に追加します。</p>
+    </div>
     <div class="journal-list" data-journal-list>
       <div class="journal-empty note-paper">
         <strong>ただいま準備中です。</strong>
@@ -61,7 +60,7 @@
 </main>
 
 <footer class="world-footer">
-  <div><strong>DOLZORE JOURNAL</strong><p>Research / Notes / Stories</p></div>
+  <div><strong>DOLZORE JOURNAL</strong><p>Research / Notes / Guides</p></div>
   <div class="footer-links"><a href="../">World</a><a href="../music/">Music</a><a href="../support/">Support</a><a href="../legal/">Legal</a></div>
 </footer>
 </body>
