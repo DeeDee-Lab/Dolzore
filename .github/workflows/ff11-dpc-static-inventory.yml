@@ -1,0 +1,51 @@
+name: FF11 DPC Static Inventory
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/ff11-dpc-static-inventory.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ff11-dpc-static-inventory
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    name: Read-only FF11 static scan on DPC
+    runs-on: [self-hosted, Windows, X64, utpc-personal, dpc-primary]
+    timeout-minutes: 30
+    steps:
+      - name: Checkout canonical repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Assert DPC and run read-only scanner
+        shell: powershell -NoProfile -ExecutionPolicy Bypass -Command ". '{0}'"
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if(([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'DPC'){ throw "Unexpected host: $env:COMPUTERNAME" }
+          if([string]$env:RUNNER_NAME -ne 'PERSONAL-UTPC-DPC'){ throw "Unexpected runner: $env:RUNNER_NAME" }
+          $out = Join-Path (Get-Location) 'research\ff11\dpc'
+          New-Item -ItemType Directory -Path $out -Force | Out-Null
+          & powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\ff11_dpc_inventory.ps1 -OutputDir $out
+          if($LASTEXITCODE -ne 0){ throw "FF11 scanner failed: $LASTEXITCODE" }
+
+      - name: Commit derived metadata only
+        shell: powershell -NoProfile -ExecutionPolicy Bypass -Command ". '{0}'"
+        run: |
+          $ErrorActionPreference = 'Stop'
+          git config user.name "dolzore-research-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -- research/ff11/dpc
+          if(-not (git diff --cached --quiet)){
+            git commit -m "research: record DPC FF11 static inventory"
+            git push origin HEAD:main
+          } else {
+            Write-Host "NO_DERIVED_METADATA_CHANGES=true"
+          }
