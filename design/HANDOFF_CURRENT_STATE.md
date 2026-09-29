@@ -340,3 +340,99 @@ or simply:
 **「引き継いで」**
 
 and continue at the Unity first-town vertical slice without asking the user to repeat requirements.
+
+
+---
+
+# 11. 2026-09-30 CANONICAL GAME DIRECTION UPDATE
+
+Direct-user authority supersedes older ambiguity.
+
+## Resume phrase
+
+If the user says:
+
+**Gameひきついで**
+
+do not ask them to restate the project.
+
+Immediately read:
+1. `design/GAME_CANONICAL_DIRECTION.md`
+2. this file
+3. `design/DECISION_LOG.md`
+4. `design/FF11_DERIVED_UNITY_ARCHITECTURE.md`
+5. `research/ff11/AGENT_READ_FIRST.md`
+6. `research/ff11/FF11_REFERENCE_SPEC_V1.json`
+7. latest Issue #3 / Issue #25 checkpoints
+8. active Unity branch head and latest green workflow
+
+## Presentation authority
+
+Exterior/presentation target:
+**original DOLZORE game using MOTHER2 high-level town-RPG lessons.**
+
+Meaning:
+- warm readable 16-bit-inspired town;
+- small expressive characters;
+- everyday roads/houses/shops as real exploration space;
+- readable landmarks;
+- dense props and NPC life;
+- ordinary/strange contrast;
+- simple approachable field presentation.
+
+Do not copy protected MOTHER2:
+maps / sprites / characters / dialogue / UI / music / logo / exact palette/layout.
+
+## Internal simulation authority
+
+Internal design target:
+**FFXI-derived deep RPG systems.**
+
+Locked internal model:
+- HP / MP
+- STR / DEX / VIT / AGI / INT / MND / CHR
+- 5 differentiated original DOLZORE lineage profiles
+- main vocation + support vocation
+- support effective level capped at half main level
+- weapon/magic skill ranks
+- skill caps by level
+- Accuracy / Evasion / Hit Rate math
+- Attack / Defense
+- fSTR
+- WSC / fTP
+- Attack/Defense Ratio -> pDIF
+- critical chance/damage structure
+- TP-like build/spend resource based on weapon delay
+- weapon technique / chain / magic-burst architecture
+- magic damage with dSTAT / resist / affinity / burst / MAB-MDB / target adjustment
+- volatile + durable threat
+- named equipment loadouts
+- horizontal progression
+- preparation/enemy knowledge emphasis
+- life/economy systems and staged MMO remain binding
+
+Current-retail constants that are not actually proven are NOT to be represented as observed truth.
+All uncertain values live in data/tuning tables so they can be replaced without architecture changes.
+
+## Active implementation
+
+Canonical detailed rule:
+`design/GAME_CANONICAL_DIRECTION.md`
+
+New Unity source:
+- `Assets/Scripts/InternalRpgRulesData.cs`
+- `Assets/Scripts/InternalCombatMath.cs`
+- `Assets/Editor/InternalRulesSelfTest.cs`
+
+Current game work remains on:
+`rebuild/unity-first-town-20260929`
+
+Do not reopen:
+- Canvas as production engine;
+- Phaser as active production engine;
+- engine-selection debate.
+
+Do not expand to second town before First Town visual acceptance.
+
+`GAME_HANDOFF_READY=true`
+`GAME_RESUME_PHRASE=Gameひきついで`
