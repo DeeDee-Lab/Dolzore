@@ -90,9 +90,13 @@ def main() -> None:
         page.locator(".track-choice").click()
         assert page.locator("[data-purchase]").get_attribute("href") == bright["purchaseUrl"]
         page.locator("[data-play]").click()
-        assert "準備中" in page.locator("[data-status]").text_content()
+        page.wait_for_timeout(150)
         audio_src = page.locator("[data-audio]").get_attribute("src")
+        audio_time = page.locator("[data-audio]").evaluate("(el)=>el.currentTime")
+        audio_paused = page.locator("[data-audio]").evaluate("(el)=>el.paused")
         assert not audio_src, f"pending preview must not invent a source: {audio_src}"
+        assert audio_time == 0, audio_time
+        assert audio_paused is True
         desktop.close()
 
         mobile = browser.new_context(viewport={"width": 390, "height": 844}, is_mobile=True)
