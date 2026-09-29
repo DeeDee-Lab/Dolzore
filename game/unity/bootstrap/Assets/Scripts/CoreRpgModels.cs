@@ -10,6 +10,7 @@ namespace Dolzore
         public string displayName = "SORA";
         public string appearancePresetId = "appearance.sora.default";
         public string lineageId = "lineage.balance";
+        public LineageArchetype lineageArchetype = LineageArchetype.Balanced;
     }
 
     [Serializable]
@@ -17,8 +18,11 @@ namespace Dolzore
     {
         public string primaryVocationId = "vocation.warden";
         public string supportVocationId = "";
+        public VocationId primaryVocation = VocationId.Warden;
+        public VocationId supportVocation = VocationId.Lantern;
         public int primaryVocationLevel = 1;
         public int supportVocationNativeLevel = 0;
+        public bool supportVocationEnabled = false;
 
         public int SupportVocationEffectiveLevel =>
             DolzoreFfxiDerivedMath.SupportVocationEffectiveLevel(primaryVocationLevel, supportVocationNativeLevel);
@@ -41,18 +45,14 @@ namespace Dolzore
         public int FocusCurrent => mpCurrent;
         public int FocusMax => mpMax;
 
-        public InternalStatBlock baseStats = new InternalStatBlock
-        {
-            hp = 100,
-            mp = 60,
-            str = 7,
-            dex = 7,
-            vit = 7,
-            agi = 7,
-            intel = 7,
-            mnd = 7,
-            chr = 7
-        };
+        public InternalStatBlock baseStats =
+            DolzoreFfxiStatGradeRules.CalculateBaseStats(
+                LineageArchetype.Balanced,
+                VocationId.Warden,
+                1,
+                VocationId.Lantern,
+                0,
+                false);
     }
 
     [Serializable]
