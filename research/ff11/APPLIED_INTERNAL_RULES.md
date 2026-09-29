@@ -236,3 +236,29 @@ Still not proven from DPC/current retail server:
 Do not fill these gaps by pretending inference is observed fact.
 
 When better evidence arrives, update tables/constants without changing the overall architecture.
+
+
+## 2026-09-30 stat-grade implementation extension
+
+Added `FfxiStatGradeRules.cs`.
+
+The five original DOLZORE lineages now use A-G stat-grade vectors preserving the broad mechanical pattern of the five FFXI race profiles while retaining original DOLZORE names/culture/art.
+
+The six initial DOLZORE vocations use A-G stat-grade vectors preserving the broad mechanical pattern of the six basic FFXI jobs.
+
+Implemented calculated base stats:
+- Race HP + Main Vocation HP + half Support Vocation HP;
+- MP only when main/support vocation has MP capability;
+- race + main vocation + half support-vocation contribution for STR/DEX/VIT/AGI/INT/MND/CHR;
+- support effective level remains capped at floor(main level / 2).
+
+Regression tests now lock representative level-1 results for all five lineage archetypes and a caster/support-MP case.
+
+Latest proof:
+- Unity run `36593013783 = SUCCESS`
+- generated-source commit `aa2af226102c22659944ffc07aff526310638ee4`
+- `DOLZORE_INTERNAL_RULES_REFERENCE_TESTS=PASS`
+- WebGL PASS
+- generated-source preservation PASS
+
+These values remain isolated/tunable so stronger current-retail evidence can replace constants without changing the architecture.
