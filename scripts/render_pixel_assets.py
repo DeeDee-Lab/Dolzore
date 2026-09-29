@@ -290,88 +290,129 @@ def town_game():
     im.save(OUT/"dolzore-town-game.png")
 
 def characters():
-    CELL_W,CELL_H=24,32
+    CELL_W,CELL_H=32,40
     sheet=Image.new("RGBA",(CELL_W*8,CELL_H*4),(0,0,0,0))
 
-    # hair, skin, top, accent, bottom, shoes, detail
+    # canonical character palettes from CHARACTER_BIBLE_V1
     chars=[
-        ("#2b2630","#d79c74","#4f978b","#ead7a2","#35445b","#2a222c","#bf6a5f"), # SORA
-        ("#74413e","#d99e77","#a44f60","#e1ad4d","#563d50","#282129","#f2c45e"), # MELO
-        ("#322d35","#d7a178","#d4a746","#70856d","#53604d","#282328","#efe4bd"), # YUZU
-        ("#435271","#d59a72","#557ca9","#dc7e4e","#354762","#26212a","#b56b45"), # PON
+        dict(name="SORA",hair="#332A2D",skin="#D89C78",top="#58A394",accent="#EFE0B0",detail="#C96E63",bottom="#3D4B5C",shoe="#E9E0C9"),
+        dict(name="MELO",hair="#7B453F",skin="#D99E78",top="#A85063",accent="#F0E2BF",detail="#E0AD45",bottom="#5C4051",shoe="#2B232B"),
+        dict(name="YUZU",hair="#332F35",skin="#D7A178",top="#D4A747",accent="#F0E4BF",detail="#B85D62",bottom="#64745B",shoe="#29242A"),
+        dict(name="PON",hair="#4B5A78",skin="#D69B74",top="#567EAD",accent="#DE7F45",detail="#B77A4D",bottom="#354765",shoe="#28222A"),
     ]
 
-    def rect(d,x,y,w,h,c): d.rectangle((x,y,x+w-1,y+h-1),fill=c)
-    def pix(d,x,y,c): d.point((x,y),fill=c)
+    outline="#26212A"
+    eye="#38282C"
+    mouth="#9C6658"
 
-    def frame(row,col,direction,step,pal):
-        hair,skin,top,accent,bottom,shoes,detail=pal
-        f=Image.new("RGBA",(CELL_W,CELL_H),(0,0,0,0));d=ImageDraw.Draw(f)
+    def rect(d,x,y,w,h,c):
+        d.rectangle((x,y,x+w-1,y+h-1),fill=c)
 
-        # 11x11 head, intentionally larger than torso.
-        if direction in ("down","up"):
-            rect(d,6,1,12,11,"#25212a")
-            if row==0:  # Sora rounded hair + side fringe
-                rect(d,7,2,10,8,hair);rect(d,6,4,2,5,hair);rect(d,15,3,3,5,hair)
-            elif row==1: # Melo asymmetric auburn bob
-                rect(d,7,2,10,8,hair);rect(d,5,5,3,7,hair);rect(d,16,4,3,6,hair);rect(d,17,3,2,2,accent)
-            elif row==2: # Yuzu wavy hair
-                rect(d,7,2,10,8,hair);rect(d,5,5,3,6,hair);rect(d,16,5,3,6,hair);pix(d,6,3,hair);pix(d,17,2,hair)
-            else: # Pon angular blue-violet hair
-                rect(d,7,2,10,8,hair);rect(d,5,4,4,4,hair);rect(d,15,3,4,5,hair);rect(d,10,1,6,2,hair)
+    def px(d,x,y,c):
+        d.point((x,y),fill=c)
 
-            if direction=="down":
-                rect(d,8,6,8,6,skin)
-                pix(d,10,8,"#3b2d30");pix(d,14,8,"#3b2d30")
-                pix(d,12,10,"#a66f5b")
-            else:
-                rect(d,8,7,8,5,hair)
+    def hair_shape(d,row,direction,p):
+        h=p["hair"]
+        # common head outline mass
+        rect(d,8,1,16,14,outline)
+        if row==0: # SORA rounded hair + lifted forelock
+            rect(d,9,2,14,10,h)
+            rect(d,7,6,3,6,h);rect(d,22,5,3,6,h)
+            rect(d,13,0,5,3,h);rect(d,17,1,5,2,h)
+        elif row==1: # MELO asymmetric bob + longer left side
+            rect(d,9,2,14,10,h)
+            rect(d,6,6,4,9,h);rect(d,22,5,4,6,h)
+            rect(d,7,12,4,5,h)
+            rect(d,23,3,3,3,p["detail"]) # amber clip
+        elif row==2: # YUZU wider wavy lower contour
+            rect(d,9,2,14,10,h)
+            rect(d,6,7,4,8,h);rect(d,22,7,4,8,h)
+            px(d,7,4,h);px(d,24,3,h);px(d,5,11,h);px(d,26,10,h)
+        else: # PON tousled angular hair
+            rect(d,9,3,14,9,h)
+            rect(d,6,5,5,5,h);rect(d,21,4,5,6,h)
+            rect(d,11,1,6,3,h);rect(d,16,0,6,4,h);rect(d,22,2,3,3,h)
+
+        # face/ back
+        if direction=="down":
+            rect(d,10,8,12,8,p["skin"])
+            px(d,12,10,eye);px(d,19,10,eye)
+            px(d,15,13,mouth);px(d,16,13,mouth)
+        elif direction=="up":
+            rect(d,10,9,12,6,h)
+        elif direction=="left":
+            rect(d,9,8,11,8,p["skin"])
+            px(d,11,10,eye);px(d,10,13,mouth)
+            rect(d,21,7,3,7,h)
         else:
-            left=direction=="left"
-            rect(d,6,1,12,11,"#25212a")
-            if row==0:
-                rect(d,7,2,10,8,hair);rect(d,6 if left else 16,4,3,5,hair)
-            elif row==1:
-                rect(d,7,2,10,8,hair);rect(d,5 if left else 16,5,4,7,hair);rect(d,16 if left else 6,3,2,2,accent)
-            elif row==2:
-                rect(d,7,2,10,8,hair);rect(d,5,5,4,6,hair);rect(d,15,5,4,6,hair)
-            else:
-                rect(d,7,2,10,8,hair);rect(d,5 if left else 15,4,5,4,hair)
-            rect(d,8 if left else 7,6,8,6,skin)
-            pix(d,9 if left else 14,8,"#3b2d30")
+            rect(d,12,8,11,8,p["skin"])
+            px(d,20,10,eye);px(d,21,13,mouth)
+            rect(d,8,7,3,7,h)
 
-        # torso outline + clothing
-        rect(d,5,12,14,11,"#25212a")
-        rect(d,7,13,10,9,top)
+    def body_shape(d,row,direction,step,p):
+        # torso outline and inner layer
+        rect(d,7,16,18,14,outline)
+        rect(d,9,17,14,12,p["top"])
+
+        # collar / scarf / inner shirt
+        if row==0:
+            # SORA cream diagonal strap is the signature
+            for i in range(11):
+                x=10+i
+                y=17+(i//3)
+                px(d,x,y,p["accent"])
+                if i<8: px(d,x,y+1,p["accent"])
+            rect(d,21,24,5,5,p["detail"]) # coral pouch
+        elif row==1:
+            rect(d,11,17,10,4,p["accent"])
+            rect(d,8,17,4,2,p["top"])
+            rect(d,23,22,4,5,p["detail"]) # square record-sleeve bag edge
+        elif row==2:
+            rect(d,11,17,10,3,p["accent"])
+            rect(d,9,26,14,3,p["bottom"])
+            rect(d,7,23,4,6,p["accent"]) # notebook
+            px(d,8,24,p["detail"]);px(d,8,27,p["detail"]) # bookmark
+        else:
+            rect(d,10,17,12,3,p["accent"]) # orange scarf
+            rect(d,22,19,5,9,outline)
+            rect(d,23,20,4,7,p["detail"]) # box backpack
+
         # arms
-        rect(d,3,14,3,8,"#25212a");rect(d,18,14,3,8,"#25212a")
-        rect(d,4,15,2,6,skin);rect(d,18,15,2,6,skin)
-
-        # signature details
-        if row==0: # diagonal cream bag strap + coral bag
-            for i in range(7): pix(d,8+i,13+i//2,accent)
-            rect(d,14,18,4,4,detail)
-        elif row==1: # broad amber collar + small side pouch
-            rect(d,8,13,8,2,accent);rect(d,17,17,3,4,detail)
-        elif row==2: # cream scarf + olive belt
-            rect(d,8,13,8,2,detail);rect(d,7,19,10,2,accent)
-        else: # orange scarf + square backpack edge
-            rect(d,8,13,8,2,accent);rect(d,16,15,4,7,detail)
-
-        # legs / walk stance
-        if step:
-            rect(d,7,23,4,6,bottom);rect(d,14,24,4,5,bottom)
-            rect(d,6,29,5,3,shoes);rect(d,14,29,5,3,shoes)
+        arm_y=18 if direction in ("left","right") else 19
+        if direction=="left":
+            rect(d,5,arm_y,4,9,outline);rect(d,6,arm_y+1,3,7,p["skin"])
+            rect(d,24,20,3,7,outline)
+        elif direction=="right":
+            rect(d,23,arm_y,4,9,outline);rect(d,23,arm_y+1,3,7,p["skin"])
+            rect(d,5,20,3,7,outline)
         else:
-            rect(d,8,23,4,6,bottom);rect(d,13,23,4,6,bottom)
-            rect(d,7,29,5,3,shoes);rect(d,13,29,5,3,shoes)
+            rect(d,5,19,4,9,outline);rect(d,6,20,3,7,p["skin"])
+            rect(d,23,19,4,9,outline);rect(d,23,20,3,7,p["skin"])
 
+        # legs / stance
+        if step:
+            rect(d,10,30,5,7,p["bottom"]);rect(d,18,31,5,6,p["bottom"])
+            rect(d,9,37,6,3,p["shoe"]);rect(d,18,37,6,3,p["shoe"])
+        else:
+            rect(d,11,30,5,7,p["bottom"]);rect(d,17,30,5,7,p["bottom"])
+            rect(d,10,37,6,3,p["shoe"]);rect(d,17,37,6,3,p["shoe"])
+
+        # PON wider stance
+        if row==3 and step:
+            rect(d,8,37,7,3,p["shoe"]);rect(d,19,37,7,3,p["shoe"])
+
+    def frame(row,col,direction,step,p):
+        f=Image.new("RGBA",(CELL_W,CELL_H),(0,0,0,0))
+        d=ImageDraw.Draw(f)
+        hair_shape(d,row,direction,p)
+        body_shape(d,row,direction,step,p)
         sheet.alpha_composite(f,(col*CELL_W,row*CELL_H))
 
     frames=[("down",0),("down",1),("left",0),("left",1),("right",0),("right",1),("up",0),("up",1)]
-    for row,pal in enumerate(chars):
+    for row,p in enumerate(chars):
         for col,(direction,step) in enumerate(frames):
-            frame(row,col,direction,step,pal)
+            frame(row,col,direction,step,p)
+
     sheet.save(OUT/"dolzore-characters.png")
 town_game();characters()
 
