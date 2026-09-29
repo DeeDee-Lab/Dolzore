@@ -383,3 +383,48 @@ Build first-town exterior:
 
 Only after the first-town exterior reaches acceptance:
 add BAR interior as next slice.
+
+
+---
+
+## 2026-09-29 — First town foundation deployed
+DECISION:
+The rebuilt first-town foundation is now public and becomes the canonical world base.
+
+PUBLIC FOUNDATION:
+- 1536×1152 logical world
+- 480×270 scrolling camera
+- Residential Hill
+- Central Main Street
+- Market / Workshop
+- Civic / JOURNAL
+- Riverside
+- Station / East Gate
+- Back Alley
+- BAR / JOURNAL / Riverside / Station landmark points
+- Arrow/WASD movement
+- Space jump
+- Enter interaction
+- BGM ON/OFF
+- mobile controls
+
+WHY:
+The old one-screen prototype was too shallow to support the planned RPG/MMO world.
+The new foundation creates an expandable open-region structure.
+
+STATUS:
+PUBLIC FOUNDATION, NOT FINAL TOWN.
+Do not freeze visual design.
+Continue adding interiors, residents, fishing, story and world detail on top of this map.
+
+PROOF:
+- merge commit: `9e77ef8894f882aa4d774ecb26806b5d14e3fc56`
+- first-town QA main run: `36538543897` SUCCESS
+- Pages run: `36538543369` SUCCESS
+- fresh public readback: PASS
+
+SUPERSEDES:
+The rejected one-screen town as canonical world foundation.
+
+NEXT ACTION:
+Implement the first BAR interior and in-game jukebox purchase path while preserving the first-town map and regression QA.
