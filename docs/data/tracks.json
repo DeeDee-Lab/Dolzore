@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "sourceCheckedAt": "2026-09-28",
   "source": "migrated-production-catalog-2026-09-28",
   "policy": {
@@ -11,7 +11,8 @@
     "contentIdRegistrationProhibited": true,
     "standaloneRedistributionProhibited": true,
     "currentPreviewCount": 6,
-    "previewExpansionStatus": "54 additional track samples pending; does not block site publication"
+    "previewExpansionStatus": "54 additional track samples pending; does not block site publication",
+    "publicVersionSuffixesForbidden": true
   },
   "tracks": [
     {
@@ -26,12 +27,15 @@
       "sampleFile": "bgm-001.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "Vlog / 料理 / 旅行 / 解説",
+      "sceneEn": "Vlog · Food · Travel · Explainer",
+      "descriptionJa": "最初の1カットに、朝の空気をそっと入れる。"
     },
     {
       "id": "BGM-002",
       "number": "002",
-      "title": "Sunny Everyday V2",
+      "title": "Sunny Everyday",
       "useCase": "Vlog・料理・旅行・日常・商品紹介・解説",
       "moment": "日常の映像を、明るいまま最後まで運ぶ。",
       "priceYen": 200,
@@ -40,7 +44,10 @@
       "sampleFile": "bgm-002.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "Vlog / 料理 / 旅行 / 日常 / 商品紹介 / 解説",
+      "sceneEn": "Vlog · Food · Travel · Lifestyle",
+      "descriptionJa": "日常の映像を、明るいまま最後まで運ぶ。"
     },
     {
       "id": "BGM-003",
@@ -54,7 +61,10 @@
       "sampleFile": "bgm-003.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "Vlog / 旅行 / 料理 / ライフスタイル / 解説",
+      "sceneEn": "Vlog · Travel · Food · Lifestyle",
+      "descriptionJa": "カットの切り替わりを、軽く自然に見せたいときに。"
     },
     {
       "id": "BGM-004",
@@ -68,7 +78,10 @@
       "sampleFile": "bgm-004.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "料理 / レシピ / フード動画",
+      "sceneEn": "Food",
+      "descriptionJa": "包丁の音や湯気を、邪魔せず引き立てる。"
     },
     {
       "id": "BGM-005",
@@ -82,7 +95,10 @@
       "sampleFile": "bgm-005.mp3",
       "sampleSeconds": 20,
       "previewUrl": "https://gcdn.picsart.com/media-engine/1b160b8b-7232-4de3-966c-a4e9a2517a29.mp4",
-      "previewReady": true
+      "previewReady": true,
+      "sceneJa": "旅行 / ロードトリップ / Vlog",
+      "sceneEn": "Travel · Road Trip · Vlog",
+      "descriptionJa": "走り出しのカットに、出発の気分を足す。"
     },
     {
       "id": "BGM-006",
@@ -96,7 +112,10 @@
       "sampleFile": "bgm-006.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "カフェ / ライフスタイル / 商品撮影",
+      "sceneEn": "Cafe · Lifestyle · Product",
+      "descriptionJa": "商品撮影の間に、居心地のよい余白をつくる。"
     },
     {
       "id": "BGM-007",
@@ -110,7 +129,10 @@
       "sampleFile": "bgm-007.mp3",
       "sampleSeconds": 20,
       "previewUrl": "https://gcdn.picsart.com/media-engine/c70f973f-c73d-409d-b13e-c05e331854e0.mp4",
-      "previewReady": true
+      "previewReady": true,
+      "sceneJa": "解説 / 教育 / ナレーション",
+      "sceneEn": "Explainer · Education · Voiceover",
+      "descriptionJa": "声を前に出したい解説の、下地として敷く。"
     },
     {
       "id": "BGM-008",
@@ -124,7 +146,10 @@
       "sampleFile": "bgm-008.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "企業紹介 / プレゼン / サービス説明",
+      "sceneEn": "Business · Presentation",
+      "descriptionJa": "会社紹介を、堅すぎず信頼できる印象に。"
     },
     {
       "id": "BGM-009",
@@ -138,7 +163,10 @@
       "sampleFile": "bgm-009.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "街歩き / 観光 / 旅行Vlog",
+      "sceneEn": "Urban · Travel",
+      "descriptionJa": "街歩きの足取りに、テンポを合わせやすい。"
     },
     {
       "id": "BGM-010",
@@ -152,7 +180,10 @@
       "sampleFile": "bgm-010.mp3",
       "sampleSeconds": 20,
       "previewUrl": "https://gcdn.picsart.com/media-engine/daad6efe-d81a-475a-acda-49fdded4c15b.mp4",
-      "previewReady": true
+      "previewReady": true,
+      "sceneJa": "商品紹介 / アプリデモ",
+      "sceneEn": "Product · App Demo",
+      "descriptionJa": "商品を主役のまま、カットに気持ちよいリズムを。"
     },
     {
       "id": "BGM-011",
@@ -166,7 +197,10 @@
       "sampleFile": "bgm-011.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "家族 / 日常 / 思い出",
+      "sceneEn": "Family · Lifestyle · Memories",
+      "descriptionJa": "何気ない家族のカットを、思い出の色にする。"
     },
     {
       "id": "BGM-012",
@@ -180,7 +214,10 @@
       "sampleFile": "bgm-012.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "朝ルーティン / 生活Vlog",
+      "sceneEn": "Morning · Lifestyle",
+      "descriptionJa": "支度のカット割りに、心地よい流れをつくる。"
     },
     {
       "id": "BGM-013",
@@ -194,7 +231,10 @@
       "sampleFile": "bgm-013.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "SaaS / アプリ / テック解説",
+      "sceneEn": "Technology",
+      "descriptionJa": "画面録画の説明を、退屈にさせない。"
     },
     {
       "id": "BGM-014",
@@ -208,7 +248,10 @@
       "sampleFile": "bgm-014.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ハンドメイド / クラフト / 小さなお店",
+      "sceneEn": "Craft · Small Business",
+      "descriptionJa": "手仕事の細かなカットに、やさしい温度を。"
     },
     {
       "id": "BGM-015",
@@ -222,7 +265,10 @@
       "sampleFile": "bgm-015.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "料理 / レシピ / 調理工程",
+      "sceneEn": "Food",
+      "descriptionJa": "調理工程の早送りが、楽しく見えてくる。"
     },
     {
       "id": "BGM-016",
@@ -236,7 +282,10 @@
       "sampleFile": "bgm-016.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "How-to / 教育 / 長い解説",
+      "sceneEn": "Tutorial · Education · Explainer",
+      "descriptionJa": "長い解説でも、聞き疲れさせにくい落ち着き。"
     },
     {
       "id": "BGM-017",
@@ -250,7 +299,10 @@
       "sampleFile": "bgm-017.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "落ち着いたVlog / 静かな旅行",
+      "sceneEn": "Vlog · Travel",
+      "descriptionJa": "静かな風景を、寂しくせず前向きに見せる。"
     },
     {
       "id": "BGM-018",
@@ -264,7 +316,10 @@
       "sampleFile": "bgm-018.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ライフスタイル / ファッション",
+      "sceneEn": "Lifestyle · Fashion",
+      "descriptionJa": "服や小物のカットを、軽やかに見せる。"
     },
     {
       "id": "BGM-019",
@@ -278,7 +333,10 @@
       "sampleFile": "bgm-019.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "成果報告 / 公開 / 小さな祝福",
+      "sceneEn": "Announcement · Launch · Celebration",
+      "descriptionJa": "「公開しました」の一言に、小さな拍手を。"
     },
     {
       "id": "BGM-020",
@@ -292,7 +350,10 @@
       "sampleFile": "bgm-020.mp3",
       "sampleSeconds": 20,
       "previewUrl": "https://gcdn.picsart.com/media-engine/30b75c1f-969e-4019-9a90-3628da80d3f3.mp4",
-      "previewReady": true
+      "previewReady": true,
+      "sceneJa": "作業 / 勉強 / デスクワーク / コーディング",
+      "sceneEn": "Work · Study · Coding",
+      "descriptionJa": "作業風景の長回しを、心地よい時間に変える。"
     },
     {
       "id": "BGM-021",
@@ -306,7 +367,10 @@
       "sampleFile": "bgm-021.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "物件紹介 / 内覧 / 不動産",
+      "sceneEn": "Real Estate",
+      "descriptionJa": "部屋を見せるカットに、清潔な余白を。"
     },
     {
       "id": "BGM-022",
@@ -320,7 +384,10 @@
       "sampleFile": "bgm-022.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ホテル / 上質旅行 / 宿泊施設",
+      "sceneEn": "Hotel · Luxury Travel",
+      "descriptionJa": "宿の質感を、落ち着いた上品さで支える。"
     },
     {
       "id": "BGM-023",
@@ -334,7 +401,10 @@
       "sampleFile": "bgm-023.mp3",
       "sampleSeconds": 20,
       "previewUrl": "https://gcdn.picsart.com/media-engine/35c4ef3a-63fb-4947-a499-4d82ba2a6831.mp4",
-      "previewReady": true
+      "previewReady": true,
+      "sceneJa": "美容 / スキンケア",
+      "sceneEn": "Beauty",
+      "descriptionJa": "肌や質感のアップを、清らかに見せる。"
     },
     {
       "id": "BGM-024",
@@ -348,7 +418,10 @@
       "sampleFile": "bgm-024.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "フィットネス / 運動 / アクティブ",
+      "sceneEn": "Fitness · Sports",
+      "descriptionJa": "動きのカットに、前へ進む勢いを足す。"
     },
     {
       "id": "BGM-025",
@@ -362,7 +435,10 @@
       "sampleFile": "bgm-025.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ウェルネス / ストレッチ / ヨガ",
+      "sceneEn": "Wellness",
+      "descriptionJa": "呼吸のテンポで、ゆっくり見せたいときに。"
     },
     {
       "id": "BGM-026",
@@ -376,7 +452,10 @@
       "sampleFile": "bgm-026.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ポッドキャスト / 対談 / 会話",
+      "sceneEn": "Podcast · Interview · Talk",
+      "descriptionJa": "会話の後ろで、静かに間を埋めてくれる。"
     },
     {
       "id": "BGM-027",
@@ -390,7 +469,10 @@
       "sampleFile": "bgm-027.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ゲーム配信 / 実況 / 配信",
+      "sceneEn": "Gaming · Streaming",
+      "descriptionJa": "配信の待機や雑談を、明るく持たせる。"
     },
     {
       "id": "BGM-028",
@@ -404,7 +486,10 @@
       "sampleFile": "bgm-028.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ペット / 家族 / 日常",
+      "sceneEn": "Pets · Family · Lifestyle",
+      "descriptionJa": "ペットの表情カットを、かわいく際立たせる。"
     },
     {
       "id": "BGM-029",
@@ -418,7 +503,10 @@
       "sampleFile": "bgm-029.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "DIY / リフォーム / 工程動画",
+      "sceneEn": "DIY · Renovation · Process",
+      "descriptionJa": "作業の積み上がりを、達成感につなげる。"
     },
     {
       "id": "BGM-030",
@@ -432,7 +520,10 @@
       "sampleFile": "bgm-030.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "工事 / 建築 / タイムラプス",
+      "sceneEn": "Construction · Architecture · Time-Lapse",
+      "descriptionJa": "タイムラプスの進行に、力強さを添える。"
     },
     {
       "id": "BGM-031",
@@ -446,7 +537,10 @@
       "sampleFile": "bgm-031.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "車 / 自動車紹介",
+      "sceneEn": "Automotive",
+      "descriptionJa": "車のディテールカットを、洗練して見せる。"
     },
     {
       "id": "BGM-032",
@@ -460,7 +554,10 @@
       "sampleFile": "bgm-032.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "開封 / 商品レビュー / 紹介",
+      "sceneEn": "Unboxing · Review · Product",
+      "descriptionJa": "箱を開ける瞬間の期待感を、ひと押しする。"
     },
     {
       "id": "BGM-033",
@@ -474,7 +571,10 @@
       "sampleFile": "bgm-033.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ファッション / ルックブック",
+      "sceneEn": "Fashion",
+      "descriptionJa": "ルックの切り替わりを、都会的にまとめる。"
     },
     {
       "id": "BGM-034",
@@ -488,7 +588,10 @@
       "sampleFile": "bgm-034.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "金融 / ビジネス解説",
+      "sceneEn": "Finance · Business",
+      "descriptionJa": "数字の説明を、落ち着いて聞かせたいときに。"
     },
     {
       "id": "BGM-035",
@@ -502,7 +605,10 @@
       "sampleFile": "bgm-035.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "クリニック / ウェルネス説明",
+      "sceneEn": "Medical · Wellness",
+      "descriptionJa": "不安を煽らず、安心して説明を届ける。"
     },
     {
       "id": "BGM-036",
@@ -516,7 +622,10 @@
       "sampleFile": "bgm-036.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "自然 / ドローン / 風景",
+      "sceneEn": "Nature · Drone · Landscape",
+      "descriptionJa": "ドローンの引きのカットを、より広く見せる。"
     },
     {
       "id": "BGM-037",
@@ -530,7 +639,10 @@
       "sampleFile": "bgm-037.mp3",
       "sampleSeconds": 20,
       "previewUrl": "https://gcdn.picsart.com/media-engine/93324376-dcc9-4b69-ac3e-4c37a792cb84.mp4",
-      "previewReady": true
+      "previewReady": true,
+      "sceneJa": "結婚式 / 思い出 / 家族イベント",
+      "sceneEn": "Wedding · Memories · Family",
+      "descriptionJa": "式の一場面に、静かな余韻を残す。"
     },
     {
       "id": "BGM-038",
@@ -544,7 +656,10 @@
       "sampleFile": "bgm-038.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "イベント振り返り / 成果紹介",
+      "sceneEn": "Event · Showcase",
+      "descriptionJa": "振り返りダイジェストを、前向きに締める。"
     },
     {
       "id": "BGM-039",
@@ -558,7 +673,10 @@
       "sampleFile": "bgm-039.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "飲食店 / メニュー / 料理紹介",
+      "sceneEn": "Restaurant · Food",
+      "descriptionJa": "メニュー紹介を、おいしそうな温度にする。"
     },
     {
       "id": "BGM-040",
@@ -572,7 +690,10 @@
       "sampleFile": "bgm-040.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "カフェ / コーヒー / ベーカリー",
+      "sceneEn": "Cafe",
+      "descriptionJa": "湯気と手元のカットに、朝の落ち着きを。"
     },
     {
       "id": "BGM-041",
@@ -586,7 +707,10 @@
       "sampleFile": "bgm-041.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "勉強 / 作業 / 集中",
+      "sceneEn": "Study · Work · Focus",
+      "descriptionJa": "勉強動画の長い尺を、静かに保つ。"
     },
     {
       "id": "BGM-042",
@@ -600,7 +724,10 @@
       "sampleFile": "bgm-042.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "コーディング / 開発タイムラプス",
+      "sceneEn": "Coding",
+      "descriptionJa": "手が止まらない感じを、映像側から支える。"
     },
     {
       "id": "BGM-043",
@@ -614,7 +741,10 @@
       "sampleFile": "bgm-043.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "アプリ / UI / オンボーディング説明",
+      "sceneEn": "Technology · App Demo",
+      "descriptionJa": "画面遷移の説明を、迷いなく見せる。"
     },
     {
       "id": "BGM-044",
@@ -628,7 +758,10 @@
       "sampleFile": "bgm-044.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "How-to / クイックTips / 手順解説",
+      "sceneEn": "Tutorial · Tips",
+      "descriptionJa": "短い手順動画を、テンポよく最後まで。"
     },
     {
       "id": "BGM-045",
@@ -642,7 +775,10 @@
       "sampleFile": "bgm-045.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ビフォーアフター / リノベーション",
+      "sceneEn": "Before & After · Renovation",
+      "descriptionJa": "変化を見せる瞬間に、気持ちよい山をつくる。"
     },
     {
       "id": "BGM-046",
@@ -656,7 +792,10 @@
       "sampleFile": "bgm-046.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "上質旅行 / リゾート / ホテル",
+      "sceneEn": "Luxury Travel · Hotel",
+      "descriptionJa": "リゾートの映像に、少し贅沢な空気を。"
     },
     {
       "id": "BGM-047",
@@ -670,7 +809,10 @@
       "sampleFile": "bgm-047.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "小さなお店 / 地域ブランド / 店舗紹介",
+      "sceneEn": "Small Business · Local Brand",
+      "descriptionJa": "小さなお店の話を、丁寧に聞かせる。"
     },
     {
       "id": "BGM-048",
@@ -684,7 +826,10 @@
       "sampleFile": "bgm-048.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "家族のお祝い / 誕生日 / 節目",
+      "sceneEn": "Family · Birthday · Milestone",
+      "descriptionJa": "節目のカットに、やわらかな祝福を。"
     },
     {
       "id": "BGM-049",
@@ -698,7 +843,10 @@
       "sampleFile": "bgm-049.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "夏 / アウトドア / 明るい旅行",
+      "sceneEn": "Summer · Outdoor · Travel",
+      "descriptionJa": "夏のカットを、汗より爽やかさに寄せる。"
     },
     {
       "id": "BGM-050",
@@ -712,7 +860,10 @@
       "sampleFile": "bgm-050.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "室内 / 夜ルーティン / 読書 / 落ち着いた生活",
+      "sceneEn": "Indoor · Night · Reading · Lifestyle",
+      "descriptionJa": "夜のルーティンを、静かに閉じる。"
     },
     {
       "id": "BGM-051",
@@ -726,7 +877,10 @@
       "sampleFile": "bgm-051.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ショート動画 / Reels / 商品編集 / テンポの速いカット割り",
+      "sceneEn": "Shorts · Product · Fast Edit",
+      "descriptionJa": "短いカットを重ねるたび、映像に前へ進む勢いを。"
     },
     {
       "id": "BGM-052",
@@ -740,7 +894,10 @@
       "sampleFile": "bgm-052.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "瞑想 / 呼吸 / スパ / ウェルネス / 静かなライフスタイル",
+      "sceneEn": "Meditation · Wellness · Lifestyle",
+      "descriptionJa": "呼吸や余白を見せたいカットに、静かな居場所をつくる。"
     },
     {
       "id": "BGM-053",
@@ -754,7 +911,10 @@
       "sampleFile": "bgm-053.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ドキュメンタリー / インタビュー / 舞台裏 / ブランドストーリー",
+      "sceneEn": "Documentary · Interview · Behind the Scenes · Brand Story",
+      "descriptionJa": "話す人の温度を残したまま、物語をそっとつなぐ。"
     },
     {
       "id": "BGM-054",
@@ -768,7 +928,10 @@
       "sampleFile": "bgm-054.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ショートストーリー / 物語の転換 / 展開前の溜め",
+      "sceneEn": "Story",
+      "descriptionJa": "答えを見せる直前の数秒に、静かな緊張を置く。"
     },
     {
       "id": "BGM-055",
@@ -782,7 +945,10 @@
       "sampleFile": "bgm-055.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "スポーツ / ガレージ / DIY / 屋外アクション / 力強いブランド動画",
+      "sceneEn": "Sports · Automotive · DIY · Outdoor",
+      "descriptionJa": "動きの強いカットを、荒くせず芯のある勢いにまとめる。"
     },
     {
       "id": "BGM-056",
@@ -796,7 +962,10 @@
       "sampleFile": "bgm-056.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "ファッション / モーショングラフィックス / 現代的な商品映像 / ブランドintro",
+      "sceneEn": "Fashion · Motion Graphics · Product · Brand Intro",
+      "descriptionJa": "画面の切り替わりを、今っぽく滑らかに見せる。"
     },
     {
       "id": "BGM-057",
@@ -810,7 +979,10 @@
       "sampleFile": "bgm-057.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "教育 / コミュニティ / 前向きな発表 / ブランド告知",
+      "sceneEn": "Education · Community · Announcement · Brand",
+      "descriptionJa": "前向きな発表の最後に、押しつけない希望を残す。"
     },
     {
       "id": "BGM-058",
@@ -824,7 +996,10 @@
       "sampleFile": "bgm-058.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "プレゼン / 教育動画 / サービス説明",
+      "sceneEn": "Presentation · Education · Business",
+      "descriptionJa": "情報を主役のまま、説明に一定のリズムをつくる。"
     },
     {
       "id": "BGM-059",
@@ -838,7 +1013,10 @@
       "sampleFile": "bgm-059.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "キッズ学習 / 工作 / 家族向けチュートリアル",
+      "sceneEn": "Kids · Craft · Family",
+      "descriptionJa": "小さな発見や工作の瞬間を、明るくやさしく弾ませる。"
     },
     {
       "id": "BGM-060",
@@ -852,7 +1030,10 @@
       "sampleFile": "bgm-060.mp3",
       "sampleSeconds": 20,
       "previewUrl": null,
-      "previewReady": false
+      "previewReady": false,
+      "sceneJa": "夜の街歩き / アーバン旅行 / 夜のライフスタイル / 街並み映像",
+      "sceneEn": "Urban · Urban Travel · Night",
+      "descriptionJa": "夜の街の余韻を、映像の外まで静かに引き伸ばす。"
     }
   ]
 }
