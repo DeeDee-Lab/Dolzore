@@ -1,0 +1,38 @@
+{
+  "schema": "dolzore.mother2.research_status.v1",
+  "updated_jst": "2026-09-30T00:15:00+09:00",
+  "state": "ACTIVE_RESEARCH",
+  "canonical_repo": "DeeDee-Lab/Dolzore",
+  "canonical_issue": "DeeDee-Lab/Dolzore#26",
+  "canonical_path": "research/mother2/",
+  "completed_domains": [
+    "source_hierarchy",
+    "copyright_boundary",
+    "town_first_authoring_process",
+    "visible_enemy_encounter_basis",
+    "rolling_hp_design_origin",
+    "road_movie_pacing_principle",
+    "dialogue_state_awareness",
+    "art_asset_reuse_principle",
+    "connected_world_sector_architecture_baseline",
+    "music_as_scene_design_baseline"
+  ],
+  "in_progress_domains": [
+    "world_map_field_grammar",
+    "visual_character_effect_grammar",
+    "audio_atmosphere_grammar",
+    "dialogue_worldview_grammar",
+    "technical_architecture_findings",
+    "unity_translation"
+  ],
+  "exact_next_actions": [
+    "persist first-pass domain files",
+    "quantify town/field/interior density patterns from official screenshots and technical references",
+    "classify major location archetypes and transition pacing",
+    "classify character/sprite readability and effect families",
+    "classify music role by place/event rather than copying tracks",
+    "expand dialogue/state matrix and memory-anchor taxonomy",
+    "derive DOLZORE Unity implementation contracts"
+  ],
+  "evidence_warning": "No original maps, sprites, music, full script text, ROM content or copyrighted asset bodies are stored."
+}
