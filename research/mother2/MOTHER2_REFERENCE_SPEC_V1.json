@@ -1,0 +1,330 @@
+{
+  "schema": "dolzore.mother2.reference_spec.v1",
+  "authority_date_jst": "2026-09-30",
+  "consumer": "DOLZORE_GAME_CREATION_AGENTS",
+  "canonical_issue": "DeeDee-Lab/Dolzore#26",
+  "canonical_path": "research/mother2/",
+  "status": "ACTIVE_RESEARCH_V1",
+  "copyright_boundary": {
+    "allowed": [
+      "design grammar",
+      "system decomposition",
+      "density/pacing analysis",
+      "technical data-domain observations",
+      "original DOLZORE recommendations",
+      "source references"
+    ],
+    "forbidden": [
+      "original maps",
+      "traced layouts",
+      "sprite sheets",
+      "original pixel arrangements",
+      "music/audio/melodies/samples",
+      "full or reconstructed dialogue/script",
+      "ROM content",
+      "proprietary code",
+      "copied battle-background art",
+      "proprietary names/content"
+    ]
+  },
+  "evidence_classes": [
+    "OFFICIAL_NINTENDO",
+    "CREATOR_INTERVIEW",
+    "OFFICIAL_MANUAL",
+    "OFFICIAL_ARCHIVE",
+    "COMMUNITY_REVERSE_ENGINEERING",
+    "COMMUNITY_REFERENCE",
+    "VISUAL_OBSERVATION",
+    "INFERENCE",
+    "DOLZORE_DESIGN_RECOMMENDATION"
+  ],
+  "high_confidence_findings": {
+    "authoring_process": {
+      "evidence": "CREATOR_INTERVIEW",
+      "finding": "Town concepts/events preceded final geometry/program; maps, dialogue and status systems were iterated as specifications.",
+      "dolzore_rule": "Require TownConcept contract before final map art."
+    },
+    "field_encounters": {
+      "evidence": "OFFICIAL_MANUAL+CREATOR_INTERVIEW",
+      "finding": "Visible field enemies integrate navigation and battle; contact direction affects advantage; trivial weak encounters can bypass normal battle display.",
+      "dolzore_rule": "Use visible threats, contact-context battle state and original fast-resolve logic."
+    },
+    "rolling_hp": {
+      "evidence": "CREATOR_INTERVIEW",
+      "finding": "Analog/drum HP creates a reaction window inside command-driven combat.",
+      "dolzore_rule": "If desired, build an original delayed-consequence health mechanic; do not copy the drum UI."
+    },
+    "road_movie": {
+      "evidence": "CREATOR_INTERVIEW",
+      "finding": "Scenery, food, rest and music were treated as travel experience; pleasant recovery space could precede harsh travel.",
+      "dolzore_rule": "Author recovery-value areas and journey pacing, not only combat difficulty."
+    },
+    "stateful_dialogue": {
+      "evidence": "CREATOR_INTERVIEW",
+      "finding": "Dialogue included rare conditional states and substantial post-event/endgame reactions.",
+      "dolzore_rule": "Dialogue must be state-matrix content."
+    },
+    "visual_style": {
+      "evidence": "CREATOR_INTERVIEW",
+      "finding": "Art direction intentionally prioritized design/readability over literal realism and relied on compact reusable materials.",
+      "dolzore_rule": "Use coherent symbolic art, modular pieces and authored exceptions."
+    },
+    "audio": {
+      "evidence": "CREATOR_INTERVIEW",
+      "finding": "Music was evaluated by scene fit and could range from accessible pop-like material to experimental battle/strange-area textures.",
+      "dolzore_rule": "Define AudioRole/AudioIdentity by dramatic function rather than one track per generic category."
+    },
+    "memory": {
+      "evidence": "CREATOR_INTERVIEW+OFFICIAL_ARCHIVE",
+      "finding": "Different players retain different small fragments—words, sounds, scenes, discomfort, humor, emotion.",
+      "dolzore_rule": "Seed optional multi-sensory MemoryAnchor content beyond critical path."
+    }
+  },
+  "world_map_field": {
+    "principles": [
+      "semantic place concept before geometry",
+      "connected journey illusion with sectorized implementation",
+      "density modulation instead of uniform maximal density",
+      "everyday civic functions establish normality",
+      "coherent oddity nodes create local identity",
+      "roads are pacing corridors",
+      "landmarks use multiple sensory/social channels",
+      "interiors are compact semantic spaces",
+      "places persist and react to events",
+      "field enemies are navigation obstacles/choices"
+    ],
+    "dolzore_density_classes": {
+      "D0": "quiet/breathing",
+      "D1": "lived-in sparse",
+      "D2": "social/service",
+      "D3": "event/exceptional"
+    },
+    "original_quality_targets": [
+      "at least one primary loop per town where scale permits",
+      "at least one optional spur",
+      "at least three optional memory anchors before final town art lock",
+      "mandatory-route automated reachability",
+      "major landmarks discoverable through world and map UI"
+    ],
+    "unity_assets": [
+      "WorldDefinition",
+      "RegionDefinition",
+      "SectorDefinition",
+      "TownConcept",
+      "DistrictDefinition",
+      "LandmarkData",
+      "BuildingData",
+      "InteriorDefinition",
+      "EncounterZone",
+      "NPCSchedule",
+      "WorldStateLayer",
+      "AudioZoneData",
+      "TransitionData",
+      "MapDisplayData"
+    ]
+  },
+  "character_visual_effect": {
+    "principles": [
+      "identity first by silhouette/color/motion, facial pixels last",
+      "character/world scale must be shared with doors, vehicles and props",
+      "sprite art and collider are separate",
+      "reusable modular art is composed into local variety",
+      "special worlds can transform familiar geometry via materials/palette/behavior/audio",
+      "battle motion can be parameterized/procedural instead of frame-heavy"
+    ],
+    "production_tiers": [
+      "principal_cast",
+      "recurring_named_npc",
+      "local_resident",
+      "ambient_object_or_creature"
+    ],
+    "effect_families": [
+      "positive_confirm",
+      "threat_damage",
+      "original_power_effect",
+      "world_anomaly"
+    ],
+    "quality_gates": [
+      "major NPC silhouette distinguishability",
+      "palette contrast at gameplay zoom",
+      "world-scale comparison with standard props",
+      "critical UI never obscured by effects",
+      "no protected sprite/layout/palette copying"
+    ]
+  },
+  "audio_atmosphere": {
+    "roles": [
+      "HOME",
+      "ARRIVAL",
+      "CIVIC_DAY",
+      "SOCIAL_REST",
+      "COMIC_ODDITY",
+      "UNEASE",
+      "WILDERNESS",
+      "NIGHT",
+      "DISCOVERY",
+      "BATTLE_LOW",
+      "BATTLE_HIGH",
+      "ANOMALY",
+      "AFTERMATH",
+      "MEMORY",
+      "ENDING_REFLECTION"
+    ],
+    "principles": [
+      "scene fit over generic music categories",
+      "audio participates in place identity",
+      "style contrast can strengthen identity",
+      "recovery zones need lower-stress sonic profiles",
+      "experimental audio should be meaningful and rare enough to register",
+      "ambience and object-bound sound are as important as BGM",
+      "silence is a designed state",
+      "trivial fast-resolved encounters should avoid full battle-music friction"
+    ],
+    "unity_systems": [
+      "AudioManager",
+      "AudioZone",
+      "MusicStateMachine",
+      "AmbienceEmitter",
+      "SurfaceFootstepSystem",
+      "SfxPool",
+      "MixerSnapshots",
+      "AccessibilityAudioSettings"
+    ]
+  },
+  "dialogue_worldview": {
+    "principles": [
+      "do not imitate a living/recognizable writer's prose",
+      "weirdness works because mundane life is established first",
+      "humor must come from character/situation rather than nonstop jokes",
+      "NPCs need local point of view beyond quest function",
+      "repeated interactions may transform",
+      "post-event dialogue makes the world persistent",
+      "vulnerability humanizes protagonists",
+      "small optional interactions create player-specific memory",
+      "localization should preserve intent/effect, not literal wording alone"
+    ],
+    "atmosphere_dimensions": [
+      "normality",
+      "humor",
+      "discomfort",
+      "tenderness",
+      "mystery",
+      "danger",
+      "loneliness",
+      "social_warmth",
+      "surrealism",
+      "nostalgia"
+    ],
+    "dialogue_variant_dimensions": [
+      "story_state",
+      "local_event_state",
+      "time_of_day",
+      "weather",
+      "party_composition",
+      "player_status",
+      "repeat_count",
+      "quest_state",
+      "relationship_state",
+      "rare_flag",
+      "postgame_state"
+    ],
+    "semantic_functions": [
+      "ORIENT",
+      "WORLD",
+      "CHARACTER",
+      "QUEST",
+      "ATMOSPHERE",
+      "HUMOR",
+      "FORESHADOW",
+      "REFLECT",
+      "SECRET"
+    ]
+  },
+  "technical_reverse_engineering": {
+    "evidence_class": "COMMUNITY_REVERSE_ENGINEERING",
+    "source": "pk-hack/CoilSnake",
+    "findings": {
+      "map_grid": "tool model exposes 256 x 320 map entries",
+      "sector_metadata": [
+        "tileset",
+        "palette",
+        "music",
+        "teleport",
+        "town_map",
+        "setting",
+        "item",
+        "town_map_arrow",
+        "town_map_image",
+        "town_map_x_y"
+      ],
+      "tile_model": "8x8 graphic minitiles composed into larger arrangements; tool model separates collision",
+      "map_event": "event-flag-driven tile changes",
+      "sprite_placement": "separate from sprite group/art data",
+      "sprite_group": "palette, dimensions, direction/mirroring and directional collision metadata are separate",
+      "enemy_placement": "enemy group definition separate from geographic placement",
+      "doors": "transition/destination data separate from map art",
+      "map_music": "music selection can vary by event flag",
+      "battle_background": "tile/palette/arrangement plus separate scroll and distortion parameters"
+    },
+    "interpretation_warning": "Reverse-engineered tool structure is not proof of original source-code class architecture."
+  },
+  "dolzore_unity_translation": {
+    "first_town_priority": [
+      "TownConcept contract",
+      "district/landmark plan",
+      "separate visual/collision/navigation layers",
+      "player+NPC scale bible",
+      "landmark/minimap data",
+      "stateful dialogue data",
+      "audio zones",
+      "optional memory anchors",
+      "automated route validation"
+    ],
+    "not_yet_priority": [
+      "large-scale MMO networking",
+      "full combat production",
+      "second-town art",
+      "copying retro quirks before first-town quality is accepted"
+    ],
+    "systems": [
+      "WorldStreamer",
+      "WorldStateService",
+      "SaveService",
+      "NPCScheduler",
+      "InteractionSystem",
+      "EncounterDirector",
+      "DialogueSystem",
+      "AudioStateMachine",
+      "TransitionSystem",
+      "BattleBridge"
+    ]
+  },
+  "sources": {
+    "nintendo_manual": "https://www.nintendo.co.jp/data/software/manual/man_jbbj.pdf",
+    "nintendo_vc": "https://www.nintendo.co.jp/wiiu/software/vc/jbbj/index.html",
+    "nintendo_archive": "https://www.nintendo.co.jp/n08/a2uj/mother2/screen/index.html",
+    "miura_interview": "https://www.1101.com/n/s/mother_project/miura_akihiko/index.html",
+    "oyama_interview": "https://www.1101.com/mother_project/entry/archives/MOTHER_them/oyama.html",
+    "mother2_himitsu": "https://www.1101.com/n/s/mother_project/mother2_himitsu_book/",
+    "suzuki_2024": "https://www.1101.com/n/s/mother_project/keiichi_suzuki2024/index.html",
+    "mother_music": "https://www.1101.com/mother_project/entry/archives/MOTHER_music/",
+    "mother2_revive": "https://www.1101.com/mother_project/entry/archives/mother2_wiiu/",
+    "coilsnake": "https://github.com/pk-hack/CoilSnake"
+  },
+  "resume_protocol": [
+    "read AGENT_READ_FIRST.md",
+    "read MOTHER2_REFERENCE_SPEC_V1.json",
+    "read domain grammar files",
+    "read RESEARCH_STATUS.json",
+    "read issue #26 latest checkpoint",
+    "append evidence deltas only; do not restart from zero"
+  ],
+  "next_research": [
+    "location archetype matrix",
+    "official screenshot-based density observation without copying layouts",
+    "field/interior transition rhythm taxonomy",
+    "battle feedback and status-effect presentation taxonomy",
+    "NPC behavior/schedule taxonomy",
+    "quantitative DOLZORE first-town authoring checklist"
+  ]
+}
