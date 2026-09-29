@@ -531,3 +531,54 @@ Learn from high-level spatial/system qualities of reference RPGs, but do not cop
 NEXT ACTION:
 Freeze the current Canvas town as prototype.
 Create a Unity first-town vertical slice before expanding BAR/fishing/combat/MMO implementation.
+
+
+---
+
+## 2026-09-30 — MOTHER2-high-level exterior / FF11-derived internal simulation
+
+DECISION:
+DOLZORE's permanent game identity is split deliberately:
+
+### Exterior / presentation
+Use original DOLZORE art/content while learning high-level presentation qualities from MOTHER2:
+- warm readable 16-bit-inspired town;
+- mundane streets/buildings used as adventure space;
+- small expressive characters;
+- everyday + strange contrast;
+- wandering/landmarks/props/NPC life.
+
+No protected maps, characters, sprites, UI layout, dialogue, music, logo or exact visual reproduction.
+
+### Internal / systems
+Use FFXI-derived internal RPG architecture:
+- HP/MP + STR/DEX/VIT/AGI/INT/MND/CHR;
+- five differentiated lineage-stat profiles;
+- main/support vocation model;
+- support effective level = min(native support level, floor(main level/2));
+- skill ranks/caps;
+- weapon/magic proficiency;
+- accuracy/evasion/hit-rate;
+- attack/defense ratio and pDIF-style physical damage pipeline;
+- fSTR/WSC/fTP;
+- TP-like delay-based build/spend resource;
+- chain + burst cooperation;
+- dSTAT/resist/MAB-MDB magic pipeline;
+- multi-component threat;
+- gear/loadout preparation and horizontal progression.
+
+WHY:
+The user wants an immediately approachable town adventure externally and deep, long-term, preparation-heavy RPG mechanics internally.
+
+IMPLEMENTATION IMPACT:
+- `design/GAME_CANONICAL_DIRECTION.md` is new canonical game identity authority.
+- Unity internal rules become data-driven and testable.
+- HEART/FOCUS remain player-facing aliases over internal HP/MP.
+- Existing First Town Unity topology remains; visual art/composition improves separately.
+- No unverified retail server values may be fabricated as facts.
+
+RESUME:
+A future agent must resume from **Gameひきついで** without requiring the user to repeat project context.
+
+NEXT:
+Finish Unity internal-rule compile/tests, then continue First Town visual-quality pass without enabling combat gameplay prematurely.
