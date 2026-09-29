@@ -1,0 +1,51 @@
+{
+  "schema": "dolzore.ff11.dpc_scan_status.v1",
+  "updated_jst": "2026-09-29T22:23:00+09:00",
+  "state": "BLOCKED_DPC_RUNNER",
+  "target_host": "DPC",
+  "mode": "READ_ONLY_GITHUB_BOUND",
+  "desktop_commander_used": false,
+  "canonical_issue": "DeeDee-Lab/Dolzore#25",
+  "transport_issue": "DeeDee-Lab/Automation#602",
+  "latest_scan_run": {
+    "repo": "DeeDee-Lab/Automation",
+    "run_id": 36574471567,
+    "status_at_last_readback": "queued",
+    "workflow": "DPC FF11 Static Reference Scan"
+  },
+  "recovery_run": {
+    "run_id": 36574620463,
+    "spc": {
+      "job_id": 109426924586,
+      "status": "completed",
+      "conclusion": "failure",
+      "fixed_action": "query/start UTPC-Personal-GitHub-Runner on DPC only",
+      "observed_error": "Access is denied",
+      "mutation_to_game": false
+    },
+    "motoca": {
+      "job_id": 109426924229,
+      "status_at_last_readback": "queued"
+    }
+  },
+  "scanner": {
+    "dolzore_commit": "73e9e36140e748a7d6966b1ab59225a9c4914a4f",
+    "automation_commit": "8cc42893737d4688ea0d973f609d028d92a98a93",
+    "workflow_commit": "4ba9ac30d6c43c700c3a9c4bd2cecbcd1c304bb2",
+    "planned_outputs": [
+      "LATEST_SCAN.json",
+      "dpc_static_inventory.json",
+      "dpc_pe_binaries.json",
+      "dpc_dat_topology.csv",
+      "dpc_file_manifest.tsv or .gz",
+      "dpc_static_observations.md"
+    ],
+    "privacy_contract": {
+      "binary_bodies_copied": false,
+      "dat_contents_copied": false,
+      "user_config_contents_read": false,
+      "credentials_read": false
+    }
+  },
+  "next_exact_action": "When an existing authorized DPC GitHub runner reconnects, allow the already-queued scan or trigger exactly one successor scan; on success fetch artifact and commit derived evidence to research/ff11/dpc/. Do not repeat SPC scheduled-task query with unchanged method."
+}
