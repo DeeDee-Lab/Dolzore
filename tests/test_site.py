@@ -252,5 +252,14 @@ class MusicOnlySiteTests(unittest.TestCase):
         for required in ("/music/","/journal/","/support/","/legal/","/privacy/","/terms/","/refund/","/tokusho/","/disclosure/"):
             self.assertIn(required,sitemap)
 
+
+    def test_town_building_projection_uses_shallow_architectural_depth(self):
+        render=(ROOT/"scripts/render_pixel_assets.py").read_text(encoding="utf-8")
+        self.assertIn("depth=3",render)
+        self.assertIn("upper-left light",render)
+        self.assertNotIn("x+w+7,y+17",render)
+        self.assertNotIn("x+w+8,y+h+5",render)
+
+
 if __name__=="__main__":
     unittest.main()
