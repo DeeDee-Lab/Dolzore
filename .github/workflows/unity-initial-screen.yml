@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: dolzore-unity-initial-screen
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -146,6 +146,7 @@ jobs:
           retention-days: 14
           path: |
             game/unity/Dolzore/BuildArtifacts/initial-screen.png
+            game/unity/Dolzore/BuildArtifacts/first-town.png
             game/unity/Dolzore/Builds/WebGL/**
 
       - name: Preserve generated Unity project source
