@@ -346,11 +346,20 @@ The active Unity First Town foundation already contains:
 - inventory/equipment/loadout model;
 - WebGL green build.
 
-Latest known green FF11-derived architecture validation:
-run `36588077904`.
+Latest green full Unity/FF11-derived validation:
+run `36593013783` = SUCCESS.
 
-Generated-source proof at that checkpoint:
-commit `fdd8437217565fbf88029bc835439f649d41ef5b`.
+Generated-source proof:
+commit `aa2af226102c22659944ffc07aff526310638ee4`.
+
+This run proves:
+- lineage/job stat-grade calculations;
+- internal math regression tests;
+- scene regeneration;
+- stable region/entity/interior contracts;
+- WebGL build;
+- artifact upload;
+- conflict-safe generated-source preservation.
 
 ## 14. Next implementation order
 
