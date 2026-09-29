@@ -43,7 +43,9 @@ jobs:
       - name: Start local static server
         shell: powershell
         run: |
-          $p = Start-Process python -ArgumentList "-m","http.server","8765","--directory","docs","--bind","127.0.0.1" -PassThru
+          $stdout = Join-Path $env:RUNNER_TEMP "dolzore-http.out.log"
+          $stderr = Join-Path $env:RUNNER_TEMP "dolzore-http.err.log"
+          $p = Start-Process python -ArgumentList "-m","http.server","8765","--directory","docs","--bind","127.0.0.1" -WindowStyle Hidden -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
           Set-Content -Path "$env:RUNNER_TEMP\dolzore-http.pid" -Value $p.Id
           Start-Sleep -Seconds 2
           Invoke-WebRequest -UseBasicParsing "http://127.0.0.1:8765/" | Out-Null
