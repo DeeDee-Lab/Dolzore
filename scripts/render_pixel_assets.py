@@ -146,4 +146,156 @@ def jukebox():
     im.resize((480,720),Image.Resampling.NEAREST).save(OUT/"dolzore-jukebox.png")
 
 town();jukebox()
-print("rendered",OUT/"dolzore-town.png",OUT/"dolzore-jukebox.png")
+
+def town_game():
+    W,H=480,270
+    im=Image.new("RGB",(W,H),"#90d3dc"); d=ImageDraw.Draw(im)
+    R=lambda a,c:d.rectangle(a,fill=c)
+    L=lambda p,c,w=1:d.line(p,fill=c,width=w)
+    Poly=lambda p,c:d.polygon(p,fill=c)
+
+    # sky strip and grass
+    R((0,0,W,34),"#9adbe2")
+    R((0,34,W,H),"#78b45f")
+    for x in range(0,W,9):
+        for y in range(42,H,9):
+            if (x*3+y)//9%7==0:
+                d.point((x+2,y+1),fill="#5f9952")
+                if (x+y)%4==0:d.point((x+3,y+1),fill="#90c775")
+
+    # road network (walkable)
+    R((0,126,W,198),"#9b9675")
+    R((304,104,372,H),"#9b9675")
+    R((0,118,W,126),"#cfc79b")
+    R((0,198,W,207),"#cfc79b")
+    R((296,104,304,H),"#cfc79b")
+    R((372,104,380,H),"#cfc79b")
+    for x in range(12,W,54):R((x,160,x+24,163),"#e8ddb0")
+    for y in range(214,H,34):R((336,y,339,y+15),"#e8ddb0")
+    # curb pixels
+    for x in range(0,W,12):
+        R((x,119,min(x+6,W),121),"#b8ad84")
+        R((x,202,min(x+6,W),204),"#b8ad84")
+
+    def tree(x,y):
+        R((x+7,y+18,x+11,y+34),"#6b4d37")
+        for a in ((x+2,y+9,x+16,y+22),(x,y+14,x+18,y+26),(x+5,y+3,x+14,y+17)):
+            R((a[0]-1,a[1]-1,a[2]+1,a[3]+1),"#2d6747")
+            R(a,"#458c58")
+        R((x+6,y+6,x+12,y+10),"#69aa67")
+    for p in ((10,57),(153,81),(451,72),(398,219),(18,224)):tree(*p)
+
+    def building(x,y,w,h,front,side,roof):
+        # back shadow
+        Poly(((x+7,y+8),(x+w+10,y+8),(x+w+16,y+14),(x+w+16,y+h+7),(x+14,y+h+7),(x+7,y+h)), "#413744")
+        # side plane
+        Poly(((x+w,y+12),(x+w+8,y+18),(x+w+8,y+h-2),(x+w,y+h+5)),side)
+        # front
+        R((x,y+12,x+w,y+h+4),"#2e2932")
+        R((x+2,y+14,x+w-2,y+h+2),front)
+        # roof 3/4
+        Poly(((x-3,y+13),(x+9,y+2),(x+w-15,y+2),(x+w+4,y+13),(x+w,y+18),(x,y+18)),"#2e2932")
+        Poly(((x+1,y+12),(x+10,y+5),(x+w-17,y+5),(x+w,y+12),(x+w-1,y+15),(x+2,y+15)),roof)
+        # awning and windows
+        for ix in range(x+8,x+w-8,10):
+            R((ix,y+34,min(ix+6,x+w-8),y+38),"#f1e0ad" if ((ix-x)//10)%2==0 else front)
+        R((x+10,y+43,x+34,y+65),"#2b2630");R((x+12,y+45,x+32,y+63),"#9fd4cf")
+        R((x+w-37,y+43,x+w-13,y+65),"#2b2630");R((x+w-35,y+45,x+w-15,y+63),"#cfe8da")
+        # door
+        dx=x+w//2-10
+        R((dx,y+h-25,dx+20,y+h+2),"#2b2630");R((dx+2,y+h-23,dx+18,y+h+2),"#554451")
+        R((dx+14,y+h-12,dx+16,y+h-10),"#d1a94a")
+        return (dx+2,y+h-8,16,12)
+
+    cafe_door=building(34,44,112,70,"#d6b16c","#b68e59","#596c68")
+    journal_door=building(174,38,124,80,"#70ac98","#4d8275","#493e4d")
+    music_door=building(336,35,116,84,"#d9848a","#b85e69","#864254")
+
+    # sidewalk furniture, parked car, postbox, vending machine
+    R((226,105,272,110),"#71523c");R((232,99,266,103),"#8a6648");R((232,110,235,121),"#4b3b32");R((263,110,266,121),"#4b3b32")
+    R((286,85,298,112),"#355c7a");R((288,87,296,110),"#4d7795");R((289,90,295,97),"#ece0b8");R((291,101,294,105),"#263a4b")
+    R((390,93,408,118),"#2e2932");R((392,95,406,116),"#e6d7aa");R((394,98,404,101),"#bb5966");R((394,105,402,107),"#4f7694");R((394,111,403,113),"#4d8375")
+    # car
+    R((78,145,120,164),"#29252c");R((81,141,116,160),"#b95764");R((90,137,108,146),"#b95764")
+    R((92,139,106,144),"#9fd4cf");R((84,159,91,166),"#29252c");R((108,159,115,166),"#29252c")
+    # crosswalk
+    for xx in range(309,367,10):R((xx,180,xx+6,194),"#e8ddb0")
+    # lamp posts
+    for x,y in ((158,105),(319,114),(432,109)):
+        R((x,y,x+2,y+30),"#36434a");R((x-4,y-1,x+6,y+3),"#36434a");R((x-2,y-6,x+4,y),"#e2c45f")
+    # drain grates
+    for x,y in ((132,199),(405,199),(346,232)):
+        R((x,y,x+14,y+4),"#55544c")
+        for xx in range(x+2,x+14,3):L(((xx,y+1),(xx,y+3)),"#999274")
+    # small flowers
+    for x,y,c in ((28,104,"#e5b04f"),(151,107,"#c95e78"),(457,113,"#e8d66a"),(414,245,"#d66a7f"),(42,243,"#ead159")):
+        d.point((x,y),fill=c);d.point((x+1,y),fill=c);d.point((x,y+1),fill="#3e7b4b")
+    im.resize((960,540),Image.Resampling.NEAREST).save(OUT/"dolzore-town-game.png")
+
+def characters():
+    cell_w,cell_h=16,24
+    sheet=Image.new("RGBA",(cell_w*8,cell_h*4),(0,0,0,0))
+
+    chars=[
+        # hair, skin, top, accent, bottom, shoes
+        ("#2d2832","#d9a078","#4d9a8e","#e7d8a5","#344153","#241f28"), # Sora
+        ("#6d3d3b","#d8a078","#a44f5c","#e2bd62","#60434c","#271f27"), # Melo
+        ("#332e36","#d7a177","#d3a443","#6a8d78","#4d5a50","#272229"), # Yuzu
+        ("#31405e","#d59c73","#5379a8","#d87f4a","#43516c","#231f27"), # Pon
+    ]
+
+    def px(d,x,y,w,h,c): d.rectangle((x,y,x+w-1,y+h-1),fill=c)
+
+    def draw_frame(row,col,direction,step,pal):
+        hair,skin,top,accent,bottom,shoes=pal
+        ox=col*cell_w;oy=row*cell_h
+        imf=Image.new("RGBA",(cell_w,cell_h),(0,0,0,0));d=ImageDraw.Draw(imf)
+
+        # shadow is drawn at runtime, keep sprite clean
+        if direction=="down":
+            px(d,4,1,8,7,"#25212a");px(d,5,2,6,6,hair);px(d,5,5,6,4,skin)
+            px(d,6,6,1,1,"#3a2a2d");px(d,9,6,1,1,"#3a2a2d")
+            px(d,4,9,8,8,"#25212a");px(d,5,10,6,6,top)
+            px(d,3,11,2,6,skin);px(d,11,11,2,6,skin)
+            # character-specific accent
+            if row==0: px(d,10,10,2,7,accent);px(d,9,13,2,2,"#6f5b45")
+            elif row==1: px(d,5,9,6,2,accent);px(d,3,8,2,3,"#d3a443");px(d,11,8,2,3,"#d3a443")
+            elif row==2: px(d,6,6,1,1,"#eee0c0");px(d,9,6,1,1,"#eee0c0");px(d,5,12,6,2,accent)
+            elif row==3: px(d,5,9,6,2,accent);px(d,8,10,2,6,"#b65e47")
+            lx=5+(1 if step else 0);rx=9-(1 if step else 0)
+            px(d,lx,17,2,5,bottom);px(d,rx,17,2,5,bottom);px(d,lx,22,2,2,shoes);px(d,rx,22,2,2,shoes)
+        elif direction=="up":
+            px(d,4,1,8,8,"#25212a");px(d,5,2,6,7,hair)
+            px(d,4,9,8,8,"#25212a");px(d,5,10,6,6,top)
+            if row==0:px(d,10,10,2,7,accent)
+            elif row==1:px(d,5,9,6,2,accent)
+            elif row==2:px(d,5,12,6,2,accent)
+            elif row==3:px(d,5,9,6,2,accent);px(d,8,10,2,6,"#b65e47")
+            px(d,3,11,2,6,skin);px(d,11,11,2,6,skin)
+            lx=5+(1 if step else 0);rx=9-(1 if step else 0)
+            px(d,lx,17,2,5,bottom);px(d,rx,17,2,5,bottom);px(d,lx,22,2,2,shoes);px(d,rx,22,2,2,shoes)
+        else:
+            left=direction=="left"
+            px(d,4,1,8,7,"#25212a");px(d,5 if left else 4,2,6,6,hair);px(d,6 if left else 5,5,5,4,skin)
+            eye_x=6 if left else 9;px(d,eye_x,6,1,1,"#3a2a2d")
+            px(d,4,9,8,8,"#25212a");px(d,5,10,6,6,top)
+            arm_x=3 if left else 11;px(d,arm_x,11,2,6,skin)
+            if row==0:px(d,10 if left else 4,10,2,7,accent)
+            elif row==1:px(d,5,9,6,2,accent)
+            elif row==2:px(d,6,12,5,2,accent)
+            elif row==3:px(d,5,9,6,2,accent);px(d,8,10,2,6,"#b65e47")
+            if step:
+                px(d,5,17,2,5,bottom);px(d,9,18,2,4,bottom);px(d,5,22,2,2,shoes);px(d,9,22,2,2,shoes)
+            else:
+                px(d,6,17,2,5,bottom);px(d,9,17,2,5,bottom);px(d,6,22,2,2,shoes);px(d,9,22,2,2,shoes)
+
+        sheet.alpha_composite(imf,(ox,oy))
+
+    for row,pal in enumerate(chars):
+        frames=[("down",0),("down",1),("left",0),("left",1),("right",0),("right",1),("up",0),("up",1)]
+        for col,(direction,step) in enumerate(frames):draw_frame(row,col,direction,step,pal)
+    sheet.save(OUT/"dolzore-characters.png")
+
+town_game();characters()
+
+print("rendered",OUT/"dolzore-town.png",OUT/"dolzore-jukebox.png",OUT/"dolzore-town-game.png",OUT/"dolzore-characters.png")
