@@ -28,7 +28,7 @@ jobs:
       - name: Verify assets
         shell: powershell
         run: |
-          foreach ($p in @("docs/assets/dolzore-town.png","docs/assets/dolzore-jukebox.png")) {
+          foreach ($p in @("docs/assets/dolzore-town.png","docs/assets/dolzore-jukebox.png","docs/assets/dolzore-town-game.png","docs/assets/dolzore-characters.png")) {
             if (!(Test-Path $p)) { throw "MISSING_ASSET:$p" }
             if ((Get-Item $p).Length -lt 2000) { throw "ASSET_TOO_SMALL:$p" }
           }
@@ -37,7 +37,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/assets/dolzore-town.png docs/assets/dolzore-jukebox.png
+          git add docs/assets/dolzore-town.png docs/assets/dolzore-jukebox.png docs/assets/dolzore-town-game.png docs/assets/dolzore-characters.png
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
             git commit -m "assets: render deliberate pixel town and jukebox [skip ci]"
