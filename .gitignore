@@ -216,3 +216,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Unity DOLZORE generated/cache directories
+game/unity/Dolzore/[Ll]ibrary/
+game/unity/Dolzore/[Tt]emp/
+game/unity/Dolzore/[Oo]bj/
+game/unity/Dolzore/[Ll]ogs/
+game/unity/Dolzore/[Uu]ser[Ss]ettings/
+game/unity/Dolzore/Builds/
+game/unity/Dolzore/BuildArtifacts/
+game/unity/Dolzore/MemoryCaptures/
