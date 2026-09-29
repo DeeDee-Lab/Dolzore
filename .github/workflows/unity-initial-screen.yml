@@ -75,21 +75,21 @@ jobs:
           Copy-Item -Path (Join-Path $source "Assets\*") -Destination (Join-Path $project "Assets") -Recurse -Force
           Copy-Item -Path (Join-Path $source "Packages\manifest.json") -Destination (Join-Path $project "Packages\manifest.json") -Force
 
-      - name: Generate scenes preview and WebGL build
+      - name: Compile generate scenes and render preview
         shell: powershell
         run: |
           $ErrorActionPreference = 'Continue'
           $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
-          $log = Join-Path $env:RUNNER_TEMP "dolzore-unity-build.log"
-          $args = @("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.ProjectBootstrap.BuildInitialSlice","-logFile",$log)
+          $log = Join-Path $env:RUNNER_TEMP "dolzore-unity-generate.log"
+          $args = @("-quit","-batchmode","-projectPath",$project,"-executeMethod","Dolzore.Editor.ProjectBootstrap.GenerateInitialSlice","-logFile",$log)
           $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
           $code = $proc.ExitCode
           if (Test-Path $log) { Get-Content $log -Tail 420 }
           if ($code -ne 0) {
-            throw "DOLZORE_UNITY_BUILD_FAILED:$code"
+            throw "DOLZORE_UNITY_GENERATE_FAILED:$code"
           }
 
-      - name: Verify generated deliverables
+      - name: Verify scene and preview receipts
         shell: powershell
         run: |
           $ErrorActionPreference = 'Stop'
@@ -100,18 +100,42 @@ jobs:
             "Assets\Art\Generated\title_background.png",
             "Assets\Art\Generated\dolzore_logo.png",
             "Assets\Art\Generated\first_town_minimap.png",
-            "BuildArtifacts\initial-screen.png",
-            "Builds\WebGL\index.html"
+            "BuildArtifacts\initial-screen.png"
           )
           foreach ($rel in $required) {
             $path = Join-Path $project $rel
             if (-not (Test-Path $path)) {
-              throw "DOLZORE_MISSING_DELIVERABLE:$rel"
+              throw "DOLZORE_MISSING_GENERATED_RECEIPT:$rel"
             }
             Write-Host "DOLZORE_OK=$rel"
           }
           $hash = (Get-FileHash (Join-Path $project "BuildArtifacts\initial-screen.png") -Algorithm SHA256).Hash.ToLowerInvariant()
           Write-Host "DOLZORE_INITIAL_SCREEN_SHA256=$hash"
+
+      - name: Build WebGL player
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $log = Join-Path $env:RUNNER_TEMP "dolzore-unity-webgl.log"
+          $args = @("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.ProjectBootstrap.BuildWebGLOnly","-logFile",$log)
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+          $code = $proc.ExitCode
+          if (Test-Path $log) { Get-Content $log -Tail 420 }
+          if ($code -ne 0) {
+            throw "DOLZORE_UNITY_WEBGL_FAILED:$code"
+          }
+
+      - name: Verify WebGL receipt
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $index = Join-Path $project "Builds\WebGL\index.html"
+          if (-not (Test-Path $index)) {
+            throw "DOLZORE_MISSING_WEBGL_INDEX"
+          }
+          Write-Host "DOLZORE_WEBGL_OK=$index"
 
       - name: Upload Unity visual and WebGL receipts
         uses: actions/upload-artifact@v4
