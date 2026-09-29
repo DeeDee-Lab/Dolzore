@@ -35,6 +35,7 @@ namespace Dolzore.Editor
         public static void GenerateInitialSlice()
         {
             Debug.Log("DOLZORE_GENERATE_BEGIN");
+            InternalRulesSelfTest.AssertReferenceContracts();
             ConfigureProject();
             EnsureDirectories();
             GenerateBackground();
