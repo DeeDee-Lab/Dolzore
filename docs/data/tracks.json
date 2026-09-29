@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceCheckedAt": "2026-09-28",
   "source": "migrated-production-catalog-2026-09-28",
   "policy": {
@@ -30,7 +30,7 @@
       "previewReady": false,
       "sceneJa": "Vlog / 料理 / 旅行 / 解説",
       "sceneEn": "Vlog · Food · Travel · Explainer",
-      "descriptionJa": "最初の1カットに、朝の空気をそっと入れる。"
+      "descriptionJa": "朝のVlog・料理・旅行動画のオープニング向け。明るく清潔な始まりを作りたいとき。"
     },
     {
       "id": "BGM-002",
@@ -47,7 +47,7 @@
       "previewReady": false,
       "sceneJa": "Vlog / 料理 / 旅行 / 日常 / 商品紹介 / 解説",
       "sceneEn": "Vlog · Food · Travel · Lifestyle",
-      "descriptionJa": "日常の映像を、明るいまま最後まで運ぶ。"
+      "descriptionJa": "日常Vlog・商品紹介・旅行動画向け。明るい雰囲気を最後まで保ちたいとき。"
     },
     {
       "id": "BGM-003",
@@ -64,7 +64,7 @@
       "previewReady": false,
       "sceneJa": "Vlog / 旅行 / 料理 / ライフスタイル / 解説",
       "sceneEn": "Vlog · Travel · Food · Lifestyle",
-      "descriptionJa": "カットの切り替わりを、軽く自然に見せたいときに。"
+      "descriptionJa": "旅行・料理・ライフスタイル動画向け。カットの切り替えを軽く自然につなぎたいとき。"
     },
     {
       "id": "BGM-004",
@@ -81,7 +81,7 @@
       "previewReady": false,
       "sceneJa": "料理 / レシピ / フード動画",
       "sceneEn": "Food",
-      "descriptionJa": "包丁の音や湯気を、邪魔せず引き立てる。"
+      "descriptionJa": "料理・レシピ・フード動画向け。調理音や手元を邪魔せず、清潔感を足したいとき。"
     },
     {
       "id": "BGM-005",
@@ -98,7 +98,7 @@
       "previewReady": true,
       "sceneJa": "旅行 / ロードトリップ / Vlog",
       "sceneEn": "Travel · Road Trip · Vlog",
-      "descriptionJa": "走り出しのカットに、出発の気分を足す。"
+      "descriptionJa": "旅行Vlog・ロードトリップ向け。出発シーンや移動カットに前向きな流れを作りたいとき。"
     },
     {
       "id": "BGM-006",
@@ -115,7 +115,7 @@
       "previewReady": false,
       "sceneJa": "カフェ / ライフスタイル / 商品撮影",
       "sceneEn": "Cafe · Lifestyle · Product",
-      "descriptionJa": "商品撮影の間に、居心地のよい余白をつくる。"
+      "descriptionJa": "カフェ・商品撮影・ライフスタイル動画向け。落ち着いた商品カットに居心地のよさを足したいとき。"
     },
     {
       "id": "BGM-007",
@@ -132,7 +132,7 @@
       "previewReady": true,
       "sceneJa": "解説 / 教育 / ナレーション",
       "sceneEn": "Explainer · Education · Voiceover",
-      "descriptionJa": "声を前に出したい解説の、下地として敷く。"
+      "descriptionJa": "解説・教育・ナレーション動画向け。声を主役にしたまま、無音感だけを減らしたいとき。"
     },
     {
       "id": "BGM-008",
@@ -149,7 +149,7 @@
       "previewReady": false,
       "sceneJa": "企業紹介 / プレゼン / サービス説明",
       "sceneEn": "Business · Presentation",
-      "descriptionJa": "会社紹介を、堅すぎず信頼できる印象に。"
+      "descriptionJa": "企業紹介・サービス説明・プレゼン動画向け。堅すぎず、信頼感のある背景にしたいとき。"
     },
     {
       "id": "BGM-009",
@@ -166,7 +166,7 @@
       "previewReady": false,
       "sceneJa": "街歩き / 観光 / 旅行Vlog",
       "sceneEn": "Urban · Travel",
-      "descriptionJa": "街歩きの足取りに、テンポを合わせやすい。"
+      "descriptionJa": "街歩き・観光・旅行Vlog向け。歩くテンポに合わせて映像を軽快につなぎたいとき。"
     },
     {
       "id": "BGM-010",
@@ -183,7 +183,7 @@
       "previewReady": true,
       "sceneJa": "商品紹介 / アプリデモ",
       "sceneEn": "Product · App Demo",
-      "descriptionJa": "商品を主役のまま、カットに気持ちよいリズムを。"
+      "descriptionJa": "商品紹介・アプリデモ向け。商品や画面を主役にしたまま、編集へリズムを足したいとき。"
     },
     {
       "id": "BGM-011",
@@ -200,7 +200,7 @@
       "previewReady": false,
       "sceneJa": "家族 / 日常 / 思い出",
       "sceneEn": "Family · Lifestyle · Memories",
-      "descriptionJa": "何気ない家族のカットを、思い出の色にする。"
+      "descriptionJa": "家族Vlog・日常・思い出動画向け。何気ない場面を温かい記録として見せたいとき。"
     },
     {
       "id": "BGM-012",
@@ -217,7 +217,7 @@
       "previewReady": false,
       "sceneJa": "朝ルーティン / 生活Vlog",
       "sceneEn": "Morning · Lifestyle",
-      "descriptionJa": "支度のカット割りに、心地よい流れをつくる。"
+      "descriptionJa": "朝ルーティン・生活Vlog向け。支度や準備の連続カットを心地よく見せたいとき。"
     },
     {
       "id": "BGM-013",
@@ -234,7 +234,7 @@
       "previewReady": false,
       "sceneJa": "SaaS / アプリ / テック解説",
       "sceneEn": "Technology",
-      "descriptionJa": "画面録画の説明を、退屈にさせない。"
+      "descriptionJa": "SaaS・アプリ・テック解説向け。画面録画や操作説明を単調に見せたくないとき。"
     },
     {
       "id": "BGM-014",
@@ -251,7 +251,7 @@
       "previewReady": false,
       "sceneJa": "ハンドメイド / クラフト / 小さなお店",
       "sceneEn": "Craft · Small Business",
-      "descriptionJa": "手仕事の細かなカットに、やさしい温度を。"
+      "descriptionJa": "ハンドメイド・クラフト・小さなお店の紹介向け。手仕事の細部をやさしく見せたいとき。"
     },
     {
       "id": "BGM-015",
@@ -268,7 +268,7 @@
       "previewReady": false,
       "sceneJa": "料理 / レシピ / 調理工程",
       "sceneEn": "Food",
-      "descriptionJa": "調理工程の早送りが、楽しく見えてくる。"
+      "descriptionJa": "料理・レシピ・調理工程動画向け。テンポの速い工程や早送りを楽しく見せたいとき。"
     },
     {
       "id": "BGM-016",
@@ -285,7 +285,7 @@
       "previewReady": false,
       "sceneJa": "How-to / 教育 / 長い解説",
       "sceneEn": "Tutorial · Education · Explainer",
-      "descriptionJa": "長い解説でも、聞き疲れさせにくい落ち着き。"
+      "descriptionJa": "How-to・教育・長めの解説動画向け。説明を邪魔せず、長時間でも聞き疲れしにくくしたいとき。"
     },
     {
       "id": "BGM-017",
@@ -302,7 +302,7 @@
       "previewReady": false,
       "sceneJa": "落ち着いたVlog / 静かな旅行",
       "sceneEn": "Vlog · Travel",
-      "descriptionJa": "静かな風景を、寂しくせず前向きに見せる。"
+      "descriptionJa": "静かなVlog・旅行・風景動画向け。落ち着いた映像を暗くしすぎず前向きに見せたいとき。"
     },
     {
       "id": "BGM-018",
@@ -319,7 +319,7 @@
       "previewReady": false,
       "sceneJa": "ライフスタイル / ファッション",
       "sceneEn": "Lifestyle · Fashion",
-      "descriptionJa": "服や小物のカットを、軽やかに見せる。"
+      "descriptionJa": "ライフスタイル・ファッション動画向け。服・小物・日常のカットを軽やかに見せたいとき。"
     },
     {
       "id": "BGM-019",
@@ -336,7 +336,7 @@
       "previewReady": false,
       "sceneJa": "成果報告 / 公開 / 小さな祝福",
       "sceneEn": "Announcement · Launch · Celebration",
-      "descriptionJa": "「公開しました」の一言に、小さな拍手を。"
+      "descriptionJa": "公開報告・成果発表・小さなお祝い動画向け。うれしいニュースを大げさにしすぎず伝えたいとき。"
     },
     {
       "id": "BGM-020",
@@ -353,7 +353,7 @@
       "previewReady": true,
       "sceneJa": "作業 / 勉強 / デスクワーク / コーディング",
       "sceneEn": "Work · Study · Coding",
-      "descriptionJa": "作業風景の長回しを、心地よい時間に変える。"
+      "descriptionJa": "作業・勉強・デスクワーク・コーディング動画向け。長回しを静かに見続けられる背景が欲しいとき。"
     },
     {
       "id": "BGM-021",
@@ -370,7 +370,7 @@
       "previewReady": false,
       "sceneJa": "物件紹介 / 内覧 / 不動産",
       "sceneEn": "Real Estate",
-      "descriptionJa": "部屋を見せるカットに、清潔な余白を。"
+      "descriptionJa": "物件紹介・内覧・不動産動画向け。部屋の広さや清潔感を邪魔せず見せたいとき。"
     },
     {
       "id": "BGM-022",
@@ -387,7 +387,7 @@
       "previewReady": false,
       "sceneJa": "ホテル / 上質旅行 / 宿泊施設",
       "sceneEn": "Hotel · Luxury Travel",
-      "descriptionJa": "宿の質感を、落ち着いた上品さで支える。"
+      "descriptionJa": "ホテル・宿泊施設・上質な旅行動画向け。客室や施設の質感を落ち着いて見せたいとき。"
     },
     {
       "id": "BGM-023",
@@ -404,7 +404,7 @@
       "previewReady": true,
       "sceneJa": "美容 / スキンケア",
       "sceneEn": "Beauty",
-      "descriptionJa": "肌や質感のアップを、清らかに見せる。"
+      "descriptionJa": "美容・スキンケア・コスメ動画向け。肌や商品の質感を清潔でやわらかく見せたいとき。"
     },
     {
       "id": "BGM-024",
@@ -421,7 +421,7 @@
       "previewReady": false,
       "sceneJa": "フィットネス / 運動 / アクティブ",
       "sceneEn": "Fitness · Sports",
-      "descriptionJa": "動きのカットに、前へ進む勢いを足す。"
+      "descriptionJa": "フィットネス・運動・アクティブ動画向け。動きのあるカットに前進感を足したいとき。"
     },
     {
       "id": "BGM-025",
@@ -438,7 +438,7 @@
       "previewReady": false,
       "sceneJa": "ウェルネス / ストレッチ / ヨガ",
       "sceneEn": "Wellness",
-      "descriptionJa": "呼吸のテンポで、ゆっくり見せたいときに。"
+      "descriptionJa": "ヨガ・ストレッチ・ウェルネス動画向け。ゆっくりした呼吸や動作を落ち着いて見せたいとき。"
     },
     {
       "id": "BGM-026",
@@ -455,7 +455,7 @@
       "previewReady": false,
       "sceneJa": "ポッドキャスト / 対談 / 会話",
       "sceneEn": "Podcast · Interview · Talk",
-      "descriptionJa": "会話の後ろで、静かに間を埋めてくれる。"
+      "descriptionJa": "ポッドキャスト・対談・会話動画向け。会話を邪魔せず、間や無音だけを自然に埋めたいとき。"
     },
     {
       "id": "BGM-027",
@@ -472,7 +472,7 @@
       "previewReady": false,
       "sceneJa": "ゲーム配信 / 実況 / 配信",
       "sceneEn": "Gaming · Streaming",
-      "descriptionJa": "配信の待機や雑談を、明るく持たせる。"
+      "descriptionJa": "ゲーム配信・実況・ライブ配信向け。待機画面や雑談パートを明るく保ちたいとき。"
     },
     {
       "id": "BGM-028",
@@ -489,7 +489,7 @@
       "previewReady": false,
       "sceneJa": "ペット / 家族 / 日常",
       "sceneEn": "Pets · Family · Lifestyle",
-      "descriptionJa": "ペットの表情カットを、かわいく際立たせる。"
+      "descriptionJa": "ペット・家族・日常動画向け。かわいい表情や小さな動きを楽しく見せたいとき。"
     },
     {
       "id": "BGM-029",
@@ -506,7 +506,7 @@
       "previewReady": false,
       "sceneJa": "DIY / リフォーム / 工程動画",
       "sceneEn": "DIY · Renovation · Process",
-      "descriptionJa": "作業の積み上がりを、達成感につなげる。"
+      "descriptionJa": "DIY・リフォーム・工程動画向け。作業が進んでいく過程と達成感を分かりやすく見せたいとき。"
     },
     {
       "id": "BGM-030",
@@ -523,7 +523,7 @@
       "previewReady": false,
       "sceneJa": "工事 / 建築 / タイムラプス",
       "sceneEn": "Construction · Architecture · Time-Lapse",
-      "descriptionJa": "タイムラプスの進行に、力強さを添える。"
+      "descriptionJa": "建築・工事・タイムラプス向け。工程が進む映像に力強さと前進感を足したいとき。"
     },
     {
       "id": "BGM-031",
@@ -540,7 +540,7 @@
       "previewReady": false,
       "sceneJa": "車 / 自動車紹介",
       "sceneEn": "Automotive",
-      "descriptionJa": "車のディテールカットを、洗練して見せる。"
+      "descriptionJa": "車・自動車紹介動画向け。外装・内装・走行カットをすっきり洗練して見せたいとき。"
     },
     {
       "id": "BGM-032",
@@ -557,7 +557,7 @@
       "previewReady": false,
       "sceneJa": "開封 / 商品レビュー / 紹介",
       "sceneEn": "Unboxing · Review · Product",
-      "descriptionJa": "箱を開ける瞬間の期待感を、ひと押しする。"
+      "descriptionJa": "開封・商品レビュー動画向け。箱を開ける瞬間や初見リアクションに期待感を足したいとき。"
     },
     {
       "id": "BGM-033",
@@ -574,7 +574,7 @@
       "previewReady": false,
       "sceneJa": "ファッション / ルックブック",
       "sceneEn": "Fashion",
-      "descriptionJa": "ルックの切り替わりを、都会的にまとめる。"
+      "descriptionJa": "ファッション・ルックブック向け。コーデやシーンの切り替えを都会的にまとめたいとき。"
     },
     {
       "id": "BGM-034",
@@ -591,7 +591,7 @@
       "previewReady": false,
       "sceneJa": "金融 / ビジネス解説",
       "sceneEn": "Finance · Business",
-      "descriptionJa": "数字の説明を、落ち着いて聞かせたいときに。"
+      "descriptionJa": "金融・ビジネス解説動画向け。数字や資料を落ち着いて信頼感のある印象で見せたいとき。"
     },
     {
       "id": "BGM-035",
@@ -608,7 +608,7 @@
       "previewReady": false,
       "sceneJa": "クリニック / ウェルネス説明",
       "sceneEn": "Medical · Wellness",
-      "descriptionJa": "不安を煽らず、安心して説明を届ける。"
+      "descriptionJa": "クリニック・医療系説明・ウェルネス動画向け。不安を煽らず、安心感を保って説明したいとき。"
     },
     {
       "id": "BGM-036",
@@ -625,7 +625,7 @@
       "previewReady": false,
       "sceneJa": "自然 / ドローン / 風景",
       "sceneEn": "Nature · Drone · Landscape",
-      "descriptionJa": "ドローンの引きのカットを、より広く見せる。"
+      "descriptionJa": "自然・ドローン・風景動画向け。広い景色や引きのカットに開放感を足したいとき。"
     },
     {
       "id": "BGM-037",
@@ -642,7 +642,7 @@
       "previewReady": true,
       "sceneJa": "結婚式 / 思い出 / 家族イベント",
       "sceneEn": "Wedding · Memories · Family",
-      "descriptionJa": "式の一場面に、静かな余韻を残す。"
+      "descriptionJa": "結婚式・家族イベント・思い出動画向け。大切な場面を温かく、余韻を残して見せたいとき。"
     },
     {
       "id": "BGM-038",
@@ -659,7 +659,7 @@
       "previewReady": false,
       "sceneJa": "イベント振り返り / 成果紹介",
       "sceneEn": "Event · Showcase",
-      "descriptionJa": "振り返りダイジェストを、前向きに締める。"
+      "descriptionJa": "イベント振り返り・成果紹介動画向け。ダイジェストを前向きに締めたいとき。"
     },
     {
       "id": "BGM-039",
@@ -676,7 +676,7 @@
       "previewReady": false,
       "sceneJa": "飲食店 / メニュー / 料理紹介",
       "sceneEn": "Restaurant · Food",
-      "descriptionJa": "メニュー紹介を、おいしそうな温度にする。"
+      "descriptionJa": "飲食店・メニュー・料理紹介動画向け。料理を温かく、おいしそうに見せたいとき。"
     },
     {
       "id": "BGM-040",
@@ -693,7 +693,7 @@
       "previewReady": false,
       "sceneJa": "カフェ / コーヒー / ベーカリー",
       "sceneEn": "Cafe",
-      "descriptionJa": "湯気と手元のカットに、朝の落ち着きを。"
+      "descriptionJa": "カフェ・コーヒー・ベーカリー動画向け。湯気や手元の静かなカットに落ち着きを足したいとき。"
     },
     {
       "id": "BGM-041",
@@ -710,7 +710,7 @@
       "previewReady": false,
       "sceneJa": "勉強 / 作業 / 集中",
       "sceneEn": "Study · Work · Focus",
-      "descriptionJa": "勉強動画の長い尺を、静かに保つ。"
+      "descriptionJa": "勉強・作業・集中動画向け。長い尺でも気が散りにくい静かな背景が欲しいとき。"
     },
     {
       "id": "BGM-042",
@@ -727,7 +727,7 @@
       "previewReady": false,
       "sceneJa": "コーディング / 開発タイムラプス",
       "sceneEn": "Coding",
-      "descriptionJa": "手が止まらない感じを、映像側から支える。"
+      "descriptionJa": "コーディング・開発タイムラプス向け。作業が進むテンポを保ち、止まって見せたくないとき。"
     },
     {
       "id": "BGM-043",
@@ -744,7 +744,7 @@
       "previewReady": false,
       "sceneJa": "アプリ / UI / オンボーディング説明",
       "sceneEn": "Technology · App Demo",
-      "descriptionJa": "画面遷移の説明を、迷いなく見せる。"
+      "descriptionJa": "アプリ・UI・オンボーディング動画向け。画面遷移や操作説明を滑らかに見せたいとき。"
     },
     {
       "id": "BGM-044",
@@ -761,7 +761,7 @@
       "previewReady": false,
       "sceneJa": "How-to / クイックTips / 手順解説",
       "sceneEn": "Tutorial · Tips",
-      "descriptionJa": "短い手順動画を、テンポよく最後まで。"
+      "descriptionJa": "短いHow-to・Tips・手順動画向け。短時間で情報をテンポよく伝えたいとき。"
     },
     {
       "id": "BGM-045",
@@ -778,7 +778,7 @@
       "previewReady": false,
       "sceneJa": "ビフォーアフター / リノベーション",
       "sceneEn": "Before & After · Renovation",
-      "descriptionJa": "変化を見せる瞬間に、気持ちよい山をつくる。"
+      "descriptionJa": "ビフォーアフター・リノベーション動画向け。変化を見せる瞬間に分かりやすい盛り上がりを作りたいとき。"
     },
     {
       "id": "BGM-046",
@@ -795,7 +795,7 @@
       "previewReady": false,
       "sceneJa": "上質旅行 / リゾート / ホテル",
       "sceneEn": "Luxury Travel · Hotel",
-      "descriptionJa": "リゾートの映像に、少し贅沢な空気を。"
+      "descriptionJa": "リゾート・ホテル・上質な旅行動画向け。景色や施設へ少し高級感を足したいとき。"
     },
     {
       "id": "BGM-047",
@@ -812,7 +812,7 @@
       "previewReady": false,
       "sceneJa": "小さなお店 / 地域ブランド / 店舗紹介",
       "sceneEn": "Small Business · Local Brand",
-      "descriptionJa": "小さなお店の話を、丁寧に聞かせる。"
+      "descriptionJa": "地域ブランド・店舗紹介・小さなお店の動画向け。店や人の物語を丁寧に伝えたいとき。"
     },
     {
       "id": "BGM-048",
@@ -829,7 +829,7 @@
       "previewReady": false,
       "sceneJa": "家族のお祝い / 誕生日 / 節目",
       "sceneEn": "Family · Birthday · Milestone",
-      "descriptionJa": "節目のカットに、やわらかな祝福を。"
+      "descriptionJa": "誕生日・家族のお祝い・節目の動画向け。大切な瞬間を明るくやわらかく祝いたいとき。"
     },
     {
       "id": "BGM-049",
@@ -846,7 +846,7 @@
       "previewReady": false,
       "sceneJa": "夏 / アウトドア / 明るい旅行",
       "sceneEn": "Summer · Outdoor · Travel",
-      "descriptionJa": "夏のカットを、汗より爽やかさに寄せる。"
+      "descriptionJa": "夏・アウトドア・旅行動画向け。日差しや外遊びのカットを爽やかに見せたいとき。"
     },
     {
       "id": "BGM-050",
@@ -863,7 +863,7 @@
       "previewReady": false,
       "sceneJa": "室内 / 夜ルーティン / 読書 / 落ち着いた生活",
       "sceneEn": "Indoor · Night · Reading · Lifestyle",
-      "descriptionJa": "夜のルーティンを、静かに閉じる。"
+      "descriptionJa": "夜ルーティン・読書・室内Vlog向け。一日の終わりを静かに落ち着かせたいとき。"
     },
     {
       "id": "BGM-051",
@@ -880,7 +880,7 @@
       "previewReady": false,
       "sceneJa": "ショート動画 / Reels / 商品編集 / テンポの速いカット割り",
       "sceneEn": "Shorts · Product · Fast Edit",
-      "descriptionJa": "短いカットを重ねるたび、映像に前へ進む勢いを。"
+      "descriptionJa": "Reels・Shorts・商品編集向け。短いカットを連続させ、スピード感を出したいとき。"
     },
     {
       "id": "BGM-052",
@@ -897,7 +897,7 @@
       "previewReady": false,
       "sceneJa": "瞑想 / 呼吸 / スパ / ウェルネス / 静かなライフスタイル",
       "sceneEn": "Meditation · Wellness · Lifestyle",
-      "descriptionJa": "呼吸や余白を見せたいカットに、静かな居場所をつくる。"
+      "descriptionJa": "瞑想・スパ・ウェルネス動画向け。呼吸や余白を主役にして静かな空気を保ちたいとき。"
     },
     {
       "id": "BGM-053",
@@ -914,7 +914,7 @@
       "previewReady": false,
       "sceneJa": "ドキュメンタリー / インタビュー / 舞台裏 / ブランドストーリー",
       "sceneEn": "Documentary · Interview · Behind the Scenes · Brand Story",
-      "descriptionJa": "話す人の温度を残したまま、物語をそっとつなぐ。"
+      "descriptionJa": "ドキュメンタリー・インタビュー・舞台裏向け。話す人の声と感情を邪魔せず物語をつなぎたいとき。"
     },
     {
       "id": "BGM-054",
@@ -931,7 +931,7 @@
       "previewReady": false,
       "sceneJa": "ショートストーリー / 物語の転換 / 展開前の溜め",
       "sceneEn": "Story",
-      "descriptionJa": "答えを見せる直前の数秒に、静かな緊張を置く。"
+      "descriptionJa": "ショートストーリー・物語の転換向け。答えを見せる直前に静かな緊張を作りたいとき。"
     },
     {
       "id": "BGM-055",
@@ -948,7 +948,7 @@
       "previewReady": false,
       "sceneJa": "スポーツ / ガレージ / DIY / 屋外アクション / 力強いブランド動画",
       "sceneEn": "Sports · Automotive · DIY · Outdoor",
-      "descriptionJa": "動きの強いカットを、荒くせず芯のある勢いにまとめる。"
+      "descriptionJa": "スポーツ・DIY・屋外アクション・ブランド動画向け。強い動きを荒くせず、芯のある勢いで見せたいとき。"
     },
     {
       "id": "BGM-056",
@@ -965,7 +965,7 @@
       "previewReady": false,
       "sceneJa": "ファッション / モーショングラフィックス / 現代的な商品映像 / ブランドintro",
       "sceneEn": "Fashion · Motion Graphics · Product · Brand Intro",
-      "descriptionJa": "画面の切り替わりを、今っぽく滑らかに見せる。"
+      "descriptionJa": "ファッション・モーショングラフィックス・商品映像向け。画面転換を現代的で滑らかに見せたいとき。"
     },
     {
       "id": "BGM-057",
@@ -982,7 +982,7 @@
       "previewReady": false,
       "sceneJa": "教育 / コミュニティ / 前向きな発表 / ブランド告知",
       "sceneEn": "Education · Community · Announcement · Brand",
-      "descriptionJa": "前向きな発表の最後に、押しつけない希望を残す。"
+      "descriptionJa": "教育・コミュニティ・発表・ブランド告知向け。締めに前向きな余韻と希望を残したいとき。"
     },
     {
       "id": "BGM-058",
@@ -999,7 +999,7 @@
       "previewReady": false,
       "sceneJa": "プレゼン / 教育動画 / サービス説明",
       "sceneEn": "Presentation · Education · Business",
-      "descriptionJa": "情報を主役のまま、説明に一定のリズムをつくる。"
+      "descriptionJa": "プレゼン・教育・サービス説明動画向け。情報を主役にしたまま、一定のリズムを保ちたいとき。"
     },
     {
       "id": "BGM-059",
@@ -1016,7 +1016,7 @@
       "previewReady": false,
       "sceneJa": "キッズ学習 / 工作 / 家族向けチュートリアル",
       "sceneEn": "Kids · Craft · Family",
-      "descriptionJa": "小さな発見や工作の瞬間を、明るくやさしく弾ませる。"
+      "descriptionJa": "キッズ学習・工作・家族向けチュートリアル向け。発見や作業の瞬間を明るくやさしく見せたいとき。"
     },
     {
       "id": "BGM-060",
@@ -1033,7 +1033,7 @@
       "previewReady": false,
       "sceneJa": "夜の街歩き / アーバン旅行 / 夜のライフスタイル / 街並み映像",
       "sceneEn": "Urban · Urban Travel · Night",
-      "descriptionJa": "夜の街の余韻を、映像の外まで静かに引き伸ばす。"
+      "descriptionJa": "夜の街歩き・アーバン旅行・夜景動画向け。街の光や余韻を静かに長く残したいとき。"
     }
   ]
 }
