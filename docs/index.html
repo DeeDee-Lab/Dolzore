@@ -31,7 +31,7 @@
         <p class="pixel-kicker">DOLZORE TOWN / AREA 01</p>
         <h1 id="town-title">町を歩いてみる。</h1>
       </div>
-      <p class="world-control-hint"><strong>PC</strong> 矢印 / WASD　<strong>話す・入る</strong> Enter</p>
+      <p class="world-control-hint"><strong>MOVE</strong> 矢印 / WASD　<strong>JUMP</strong> Space　<strong>TALK / ENTER</strong> Enter</p>
     </div>
 
     <div class="game-viewport" data-game-viewport>
@@ -54,7 +54,11 @@
         <button type="button" class="dpad-down" data-move="down" aria-label="下へ">▼</button>
         <button type="button" class="dpad-right" data-move="right" aria-label="右へ">▶</button>
       </div>
-      <button type="button" class="action-button" data-action>話す / 入る</button>
+      <div class="action-cluster">
+        <button type="button" class="action-button" data-action>話す / 入る</button>
+        <button type="button" class="jump-button" data-jump>JUMP</button>
+        <button type="button" class="bgm-button" data-bgm-toggle aria-pressed="true">♪ BGM ON</button>
+      </div>
       <div class="resident-list" aria-label="町の住人">
         <span><b class="resident-dot sora"></b>SORA</span>
         <span><b class="resident-dot melo"></b>MELO</span>
