@@ -1,6 +1,6 @@
 {
   "schema": "dolzore.mother2.research_status.v1",
-  "updated_jst": "2026-09-30T00:30:00+09:00",
+  "updated_jst": "2026-09-30T00:42:00+09:00",
   "state": "REFERENCE_V1_PERSISTED_RESEARCH_CONTINUES",
   "canonical_repo": "DeeDee-Lab/Dolzore",
   "canonical_issue": "DeeDee-Lab/Dolzore#26",
@@ -23,10 +23,11 @@
     "connected_world_sector_architecture_baseline",
     "technical_reverse_engineering_baseline",
     "unity_translation_checklist",
-    "structured_reference_spec_v1"
+    "structured_reference_spec_v1",
+    "official_screenshot_visual_observation_v1"
   ],
   "in_progress_domains": [
-    "screenshot_density_observation",
+    "quantitative_visual_density_measurement_without_asset_copy",
     "npc_behavior_schedule_taxonomy",
     "status_effect_presentation_taxonomy",
     "quantitative_first_town_authoring_metrics",
@@ -44,6 +45,7 @@
     "AGENT_READ_FIRST.md",
     "MOTHER2_REFERENCE_SPEC_V1.json",
     "WORLD_MAP_FIELD_GRAMMAR.md",
+    "OFFICIAL_SCREENSHOT_VISUAL_OBSERVATIONS_V1.md",
     "LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md",
     "VISUAL_CHARACTER_EFFECT_GRAMMAR.md",
     "AUDIO_ATMOSPHERE_GRAMMAR.md",
