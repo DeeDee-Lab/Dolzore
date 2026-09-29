@@ -39,7 +39,7 @@ jobs:
           curl -fsS http://127.0.0.1:8765/ >/dev/null
 
       - name: Desktop mobile and game QA
-        run: python tests/visual_qa.py
+        run: python tests/game_slice_qa.py
 
       - name: Screenshot fingerprints
         if: always()
