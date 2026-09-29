@@ -80,6 +80,19 @@ A real RPG needs:
 - time/area changes;
 - camera/scrolling.
 
+## 1.1 Living-world / hardcore gameplay authority
+
+Canonical depth design:
+`design/LIVING_WORLD_HARDCORE_RPG_DOCTRINE.md`
+
+Binding principles:
+- non-combat life/social play is a first-class path;
+- fishing/cooking/crafting/housing/market/social play must be enjoyable without story progression;
+- combat is preparation-heavy, role-driven, knowledge-driven and difficult;
+- horizontal progression and multiple gear sets matter;
+- named enemies, ecology, jobs, magic and weapon mastery are long-term core systems;
+- real-money music purchases never grant game power.
+
 ## 2. Engine architecture
 
 ### Decision
