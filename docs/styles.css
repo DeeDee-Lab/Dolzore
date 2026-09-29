@@ -772,3 +772,46 @@ button,input{font:inherit}
 @media(max-width:900px){.music-v6-layout{grid-template-columns:1fr}.music-v6-intro{grid-template-columns:1fr}.music-v6-price{text-align:left;width:max-content}.jukebox-cabinet-v6,.juke-console-v6{max-width:500px}}
 @media(max-width:680px){.music-v6-main{padding:34px 12px 54px}.music-v6-intro h1{font-size:38px}.scene-browser-v6{padding:12px}.scene-browser-head-v6{grid-template-columns:1fr}.scene-browser-v6 .track-search input{width:100%;min-width:0}.music-v6 .track-selector{grid-template-columns:1fr;max-height:620px}.music-v6 .track-choice{min-height:116px}.music-rules-v6{grid-template-columns:1fr 1fr}.controls-v6 button{min-height:44px}}
 
+
+
+/* ===== MUSIC creator positioning ===== */
+.creator-use-strip{display:flex;gap:7px;flex-wrap:wrap;margin:-8px 0 28px}
+.creator-use-strip span{font-family:"DotGothic16",monospace;font-size:8px;letter-spacing:.06em;padding:6px 8px;border:1px solid #5a4d61;background:#26222b;color:#e9dfc3}
+.music-v6-price em{display:block;margin-top:7px;font-style:normal;font-family:"DotGothic16",monospace;font-size:7px;color:#83c7a3}
+
+/* ===== JOURNAL v5 — readable editorial hierarchy ===== */
+.journal-v5{background:#d8d2ae}
+.journal-v5-main{min-height:78vh;background:#91cbd2;color:#28212d;padding:56px 0 72px}
+.journal-v5-hero,.journal-tools-v5,.journal-posts-v5{max-width:1120px;margin:0 auto;padding-left:24px;padding-right:24px}
+.journal-v5-hero{padding-bottom:38px}
+.journal-v5-hero h1{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:clamp(42px,5vw,64px);line-height:1.12;letter-spacing:-.04em;margin:8px 0 14px}
+.journal-v5-hero>p:last-child{max-width:720px;margin:0;color:#54505a;line-height:1.85;font-size:15px}
+.journal-tools-v5{display:grid;grid-template-columns:minmax(240px,.62fr) 1.38fr;gap:34px;align-items:start;padding-top:30px;padding-bottom:44px;border-top:1px solid rgba(45,38,49,.18)}
+.journal-tools-copy h2{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:clamp(30px,3.5vw,44px);line-height:1.2;letter-spacing:-.03em;margin:5px 0 12px}
+.journal-tools-copy>p:last-child{margin:0;color:#5c5860;line-height:1.8;font-size:13px}
+.journal-tool-grid-v5{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.journal-tool-card-v5{min-height:210px;background:#f4e6bb;border:3px solid #392f3d;box-shadow:6px 6px 0 rgba(55,44,59,.22);padding:24px;text-decoration:none;display:flex;flex-direction:column;align-items:flex-start}
+.journal-tool-card-v5.projector{background:#d7edf2}.journal-tool-card-v5.audio{background:#e9d7df}
+.journal-tool-card-v5>span{font-family:"DotGothic16",monospace;font-size:10px;letter-spacing:.09em;color:#8f5661}
+.journal-tool-card-v5>strong{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:25px;line-height:1.3;margin:20px 0 8px}
+.journal-tool-card-v5>small{color:#615a62;line-height:1.6;font-size:12px}
+.journal-tool-card-v5>b{margin-top:auto;padding:8px 11px;border:2px solid #392f3d;background:#fff8de;font-size:12px}
+.journal-tool-card-v5:not(.is-soon):hover,.journal-tool-card-v5:not(.is-soon):focus-visible{transform:translateY(-3px);outline:3px solid #e2b64b;outline-offset:2px}
+.journal-tool-card-v5.is-soon{opacity:.68}
+.journal-posts-v5{padding-top:38px}
+.journal-posts-head-v5{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:18px}
+.journal-posts-head-v5 h2{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:32px;margin:4px 0 0}
+.journal-posts-head-v5>p{margin:0;color:#5d5860;font-size:12px}
+.journal-v5 .journal-list{max-width:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.journal-v5 .journal-card,.journal-v5 .note-paper{background:#fff3d3;color:#342e31;border:0;padding:24px;box-shadow:5px 6px 0 rgba(45,33,32,.25);transform:none}
+.journal-v5 .journal-card h2{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:24px;line-height:1.4;margin:6px 0 10px}
+.journal-v5 .journal-card .excerpt{font-size:12px;line-height:1.8;color:#645b58}
+@media(max-width:800px){
+  .journal-tools-v5{grid-template-columns:1fr}.journal-tool-grid-v5{grid-template-columns:1fr}
+  .journal-v5 .journal-list{grid-template-columns:1fr}.journal-posts-head-v5{display:block}.journal-posts-head-v5>p{margin-top:8px}
+}
+@media(max-width:680px){
+  .journal-v5-main{padding:40px 0 54px}.journal-v5-hero,.journal-tools-v5,.journal-posts-v5{padding-left:14px;padding-right:14px}
+  .journal-v5-hero h1{font-size:40px}.journal-tools-copy h2{font-size:30px}
+}
+
