@@ -619,3 +619,74 @@ button,input{font:inherit}
   .projector-product-card h3{font-size:24px}
   .market-listing{grid-template-columns:62px 1fr}.market-listing-image{width:62px;height:58px}.market-listing-cta{grid-column:2;text-align:left}
 }
+
+
+/* SmartBuy instant decision UX */
+.market-decision-summary{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  margin:22px 0 14px;padding:20px 22px;border-radius:14px;
+  background:#242832;border:1px solid #3d4450
+}
+.market-decision-summary>div{display:grid;gap:4px}
+.market-decision-summary span{font-size:11px;font-weight:800;letter-spacing:.08em}
+.market-decision-summary strong{font-size:clamp(22px,3vw,34px);color:#fff;line-height:1.2}
+.market-decision-summary small{color:#b9c0c9;line-height:1.6}
+.market-decision-summary>a{
+  flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;
+  padding:10px 14px;border-radius:9px;text-decoration:none;font-weight:800;
+  background:#fff;color:#20242b
+}
+.market-decision-summary.is-buy{border-color:#49a879;background:#15382b}
+.market-decision-summary.is-buy span,.market-decision-summary.is-buy strong{color:#baf2d6}
+.market-decision-summary.is-consider{border-color:#d4aa43;background:#3b321d}
+.market-decision-summary.is-consider span,.market-decision-summary.is-consider strong{color:#ffe99c}
+.market-decision-summary.is-wait{border-color:#5c6674}
+.market-decision-summary.is-wait span{color:#ffd75a}
+.market-decision-summary.is-none{opacity:.92}
+.market-subhead{font-family:"Noto Sans JP",sans-serif!important;font-size:16px!important;margin:24px 0 8px!important;color:#e7ebef!important}
+
+.market-target-card.is-buy{border-color:#48a67a}
+.market-target-card.is-consider{border-color:#b9953b}
+.market-target-card.is-wait{border-color:#5a6370}
+.market-target-card.is-new{border-color:#5a78a7}
+.market-target-prices .current{order:-1;min-width:145px;border:1px solid #49515d}
+.market-target-prices .current b{font-size:21px}
+.market-target-prices .current em{display:block;margin-top:3px;color:#aeb6c0;font-size:9px;font-style:normal}
+.market-target-prices .current.buy{background:#17372b;border-color:#357f5d}.market-target-prices .current.buy b{color:#aef0d0}
+.market-target-prices .current.consider{background:#39311e;border-color:#947932}.market-target-prices .current.consider b{color:#ffe389}
+.market-target-prices .current.wait b{color:#ffd75a}
+.market-target-prices .current.none b{color:#7d8590}
+.market-target-prices .target-pending b{color:#b7bdc6}
+.market-target-reason{margin:6px 0 12px;color:#b8bec7;font-size:11px;line-height:1.6}
+.verified-market-link{
+  display:inline-flex;margin:0 0 10px;padding:8px 10px;border-radius:8px;
+  background:#f6df70;color:#201d28!important;text-decoration:none;font-size:11px;font-weight:800
+}
+
+.live-market-price{
+  display:grid;grid-template-columns:auto auto 1fr auto;gap:7px 10px;align-items:center;
+  margin:12px 0;padding:10px 12px;border-radius:10px;border:1px solid #d5d9df;background:#f8fafc
+}
+.live-market-price span{font-size:10px;color:#737984;font-weight:700}
+.live-market-price strong{font-size:19px;color:#20242b}
+.live-market-price em{font-style:normal;font-size:10px;color:#68707b}
+.live-market-price a{font-size:10px;font-weight:800;color:#20242b;text-decoration:underline;text-underline-offset:3px}
+.live-market-price.is-buy{background:#e5f5ec;border-color:#95ceb0}
+.live-market-price.is-buy strong{color:#17613f}
+.live-market-price.is-consider{background:#fff4cf;border-color:#dec56f}
+.live-market-price.is-consider strong{color:#7a5c00}
+.live-market-price.is-wait{background:#f4f5f7}
+.live-market-price.is-wait strong{color:#4e5661}
+.live-market-price.is-new{background:#eaf1fb;border-color:#a9beda}
+.live-market-price.is-none{opacity:.72}
+
+.market-listing.is-buy{border-left:3px solid #48a67a;padding-left:10px}
+.market-listing.is-consider{border-left:3px solid #d4aa43;padding-left:10px}
+
+@media(max-width:680px){
+  .market-decision-summary{align-items:flex-start;flex-direction:column}
+  .market-decision-summary>a{width:100%;justify-content:center}
+  .live-market-price{grid-template-columns:auto 1fr}
+  .live-market-price em{grid-column:1/-1}
+  .live-market-price a{grid-column:1/-1}
+}
