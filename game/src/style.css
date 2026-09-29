@@ -1,0 +1,13 @@
+:root{font-family:Inter,system-ui,sans-serif;color:#f3ecd7;background:#111018}
+*{box-sizing:border-box}
+html,body,#game-shell,#game-root{width:100%;height:100%;margin:0}
+body{overflow:hidden;background:#111018}
+#game-root canvas{display:block;margin:auto;image-rendering:pixelated;image-rendering:crisp-edges}
+#mobile-controls{display:none;position:fixed;inset:auto 0 max(10px,env(safe-area-inset-bottom)) 0;z-index:20;pointer-events:none;padding:0 14px;justify-content:space-between}
+.mobile-dpad,.mobile-actions{pointer-events:auto;display:grid;gap:6px}
+.mobile-dpad{grid-template-columns:48px 48px 48px;grid-template-rows:44px 44px}
+.mobile-dpad [data-key=up]{grid-column:2}.mobile-dpad [data-key=left]{grid-column:1;grid-row:2}.mobile-dpad [data-key=down]{grid-column:2;grid-row:2}.mobile-dpad [data-key=right]{grid-column:3;grid-row:2}
+.mobile-actions{grid-template-columns:64px 64px;align-content:end}
+.mobile-actions [data-action=map]{grid-column:1/-1}
+#mobile-controls button{border:2px solid #f1deb0;background:rgba(22,20,30,.88);color:#fff1c8;font:700 12px/1 monospace;min-height:44px;box-shadow:2px 2px 0 #6f536f;border-radius:4px}
+@media(max-width:760px),(pointer:coarse){#mobile-controls{display:flex}}
