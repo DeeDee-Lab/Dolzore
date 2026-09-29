@@ -1,4 +1,5 @@
 name: DOLZORE First Town QA
+# visual density verification
 
 on:
   push:
