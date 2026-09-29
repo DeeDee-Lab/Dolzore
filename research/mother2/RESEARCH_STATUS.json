@@ -1,7 +1,7 @@
 {
   "schema": "dolzore.mother2.research_status.v1",
-  "updated_jst": "2026-09-30T00:15:00+09:00",
-  "state": "ACTIVE_RESEARCH",
+  "updated_jst": "2026-09-30T00:30:00+09:00",
+  "state": "REFERENCE_V1_PERSISTED_RESEARCH_CONTINUES",
   "canonical_repo": "DeeDee-Lab/Dolzore",
   "canonical_issue": "DeeDee-Lab/Dolzore#26",
   "canonical_path": "research/mother2/",
@@ -9,30 +9,49 @@
     "source_hierarchy",
     "copyright_boundary",
     "town_first_authoring_process",
+    "world_map_field_grammar",
+    "location_experience_archetypes",
     "visible_enemy_encounter_basis",
+    "gameplay_ui_battle_presentation",
     "rolling_hp_design_origin",
     "road_movie_pacing_principle",
+    "dialogue_worldview_grammar",
     "dialogue_state_awareness",
+    "visual_character_effect_grammar",
     "art_asset_reuse_principle",
+    "audio_atmosphere_grammar",
     "connected_world_sector_architecture_baseline",
-    "music_as_scene_design_baseline"
+    "technical_reverse_engineering_baseline",
+    "unity_translation_checklist",
+    "structured_reference_spec_v1"
   ],
   "in_progress_domains": [
-    "world_map_field_grammar",
-    "visual_character_effect_grammar",
-    "audio_atmosphere_grammar",
-    "dialogue_worldview_grammar",
-    "technical_architecture_findings",
-    "unity_translation"
+    "screenshot_density_observation",
+    "npc_behavior_schedule_taxonomy",
+    "status_effect_presentation_taxonomy",
+    "quantitative_first_town_authoring_metrics",
+    "cross_reference_with_ff11_and_ff14_without_merging_distinct_design_goals"
   ],
   "exact_next_actions": [
-    "persist first-pass domain files",
-    "quantify town/field/interior density patterns from official screenshots and technical references",
-    "classify major location archetypes and transition pacing",
-    "classify character/sprite readability and effect families",
-    "classify music role by place/event rather than copying tracks",
-    "expand dialogue/state matrix and memory-anchor taxonomy",
-    "derive DOLZORE Unity implementation contracts"
+    "perform visual-observation pass over official screenshot sets without storing/copying images",
+    "classify NPC movement/placement/schedule patterns",
+    "expand effect/status presentation patterns",
+    "turn first-town recommendations into validator-friendly numeric contracts",
+    "feed only selected principles into current Unity first-town branch after agent reads canonical research"
   ],
-  "evidence_warning": "No original maps, sprites, music, full script text, ROM content or copyrighted asset bodies are stored."
+  "evidence_warning": "No original maps, sprites, music, full script text, ROM content or copyrighted asset bodies are stored.",
+  "files": [
+    "AGENT_READ_FIRST.md",
+    "MOTHER2_REFERENCE_SPEC_V1.json",
+    "WORLD_MAP_FIELD_GRAMMAR.md",
+    "LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md",
+    "VISUAL_CHARACTER_EFFECT_GRAMMAR.md",
+    "AUDIO_ATMOSPHERE_GRAMMAR.md",
+    "DIALOGUE_WORLDVIEW_GRAMMAR.md",
+    "GAMEPLAY_UI_BATTLE_PRESENTATION_GRAMMAR.md",
+    "TECHNICAL_ARCHITECTURE_FINDINGS.md",
+    "DOLZORE_UNITY_IMPLEMENTATION_CHECKLIST.md",
+    "SOURCE_INDEX.md",
+    "RESEARCH_STATUS.json"
+  ]
 }
