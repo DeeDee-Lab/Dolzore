@@ -1,0 +1,884 @@
+{
+  "compressionlevel": -1,
+  "height": 60,
+  "infinite": false,
+  "nextlayerid": 8,
+  "nextobjectid": 80,
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "tiledversion": "1.12.2",
+  "tileheight": 16,
+  "tilewidth": 16,
+  "type": "map",
+  "version": "1.10",
+  "width": 80,
+  "layers": [
+    {
+      "id": 1,
+      "name": "Roads",
+      "type": "objectgroup",
+      "visible": true,
+      "opacity": 1,
+      "objects": [
+        {
+          "id": 1,
+          "name": "Main Street",
+          "type": "road",
+          "x": 128,
+          "y": 320,
+          "width": 1056,
+          "height": 96,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 2,
+          "name": "Residential Road",
+          "type": "road",
+          "x": 256,
+          "y": 112,
+          "width": 96,
+          "height": 448,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 3,
+          "name": "Civic Loop",
+          "type": "road",
+          "x": 176,
+          "y": 528,
+          "width": 624,
+          "height": 80,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 4,
+          "name": "Station Road",
+          "type": "road",
+          "x": 928,
+          "y": 352,
+          "width": 96,
+          "height": 400,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 5,
+          "name": "Riverside Road",
+          "type": "road",
+          "x": 128,
+          "y": 688,
+          "width": 992,
+          "height": 64,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 6,
+          "name": "Market Lane",
+          "type": "road",
+          "x": 768,
+          "y": 176,
+          "width": 80,
+          "height": 464,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 7,
+          "name": "Back Alley",
+          "type": "road",
+          "x": 608,
+          "y": 224,
+          "width": 192,
+          "height": 48,
+          "rotation": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Water",
+      "type": "objectgroup",
+      "visible": true,
+      "opacity": 1,
+      "objects": [
+        {
+          "id": 10,
+          "name": "River",
+          "type": "water",
+          "x": 0,
+          "y": 800,
+          "width": 1280,
+          "height": 128,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 11,
+          "name": "Bridge",
+          "type": "bridge",
+          "x": 672,
+          "y": 752,
+          "width": 64,
+          "height": 208,
+          "rotation": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Buildings",
+      "type": "objectgroup",
+      "visible": true,
+      "opacity": 1,
+      "objects": [
+        {
+          "id": 20,
+          "name": "SORA HOME",
+          "type": "building",
+          "x": 96,
+          "y": 80,
+          "width": 128,
+          "height": 96,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "brick"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "HOME"
+            }
+          ]
+        },
+        {
+          "id": 21,
+          "name": "HILL HOUSE",
+          "type": "building",
+          "x": 288,
+          "y": 80,
+          "width": 112,
+          "height": 80,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "stone"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "id": 22,
+          "name": "BAR",
+          "type": "building",
+          "x": 512,
+          "y": 280,
+          "width": 144,
+          "height": 112,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "brick"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "BAR"
+            },
+            {
+              "name": "important",
+              "type": "bool",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 23,
+          "name": "CAFE",
+          "type": "building",
+          "x": 688,
+          "y": 296,
+          "width": 112,
+          "height": 96,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "wood"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "CAFE"
+            }
+          ]
+        },
+        {
+          "id": 24,
+          "name": "GENERAL",
+          "type": "building",
+          "x": 848,
+          "y": 280,
+          "width": 128,
+          "height": 112,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "glass"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "GENERAL"
+            }
+          ]
+        },
+        {
+          "id": 25,
+          "name": "WORKSHOP",
+          "type": "building",
+          "x": 824,
+          "y": 144,
+          "width": 144,
+          "height": 96,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "stone"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "WORKSHOP"
+            }
+          ]
+        },
+        {
+          "id": 26,
+          "name": "MARKET HALL",
+          "type": "building",
+          "x": 1016,
+          "y": 144,
+          "width": 128,
+          "height": 96,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "brick"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "MARKET"
+            }
+          ]
+        },
+        {
+          "id": 27,
+          "name": "JOURNAL",
+          "type": "building",
+          "x": 288,
+          "y": 512,
+          "width": 160,
+          "height": 112,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "glass"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "JOURNAL"
+            },
+            {
+              "name": "important",
+              "type": "bool",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 28,
+          "name": "CIVIC",
+          "type": "building",
+          "x": 480,
+          "y": 528,
+          "width": 112,
+          "height": 96,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "stone"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "CIVIC"
+            }
+          ]
+        },
+        {
+          "id": 29,
+          "name": "RIVER SHED",
+          "type": "building",
+          "x": 112,
+          "y": 672,
+          "width": 112,
+          "height": 96,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "wood"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "RIVER"
+            }
+          ]
+        },
+        {
+          "id": 30,
+          "name": "STATION",
+          "type": "building",
+          "x": 960,
+          "y": 608,
+          "width": 192,
+          "height": 128,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "glass"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "STATION"
+            },
+            {
+              "name": "important",
+              "type": "bool",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 31,
+          "name": "WAREHOUSE",
+          "type": "building",
+          "x": 1088,
+          "y": 512,
+          "width": 128,
+          "height": 96,
+          "visible": true,
+          "properties": [
+            {
+              "name": "style",
+              "type": "string",
+              "value": "brick"
+            },
+            {
+              "name": "sign",
+              "type": "string",
+              "value": "FREIGHT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Collisions",
+      "type": "objectgroup",
+      "visible": false,
+      "opacity": 1,
+      "objects": [
+        {
+          "id": 40,
+          "name": "home",
+          "type": "solid",
+          "x": 96,
+          "y": 80,
+          "width": 128,
+          "height": 96,
+          "visible": true
+        },
+        {
+          "id": 41,
+          "name": "hill-house",
+          "type": "solid",
+          "x": 288,
+          "y": 80,
+          "width": 112,
+          "height": 80,
+          "visible": true
+        },
+        {
+          "id": 42,
+          "name": "bar",
+          "type": "solid",
+          "x": 512,
+          "y": 280,
+          "width": 144,
+          "height": 112,
+          "visible": true
+        },
+        {
+          "id": 43,
+          "name": "cafe",
+          "type": "solid",
+          "x": 688,
+          "y": 296,
+          "width": 112,
+          "height": 96,
+          "visible": true
+        },
+        {
+          "id": 44,
+          "name": "general",
+          "type": "solid",
+          "x": 848,
+          "y": 280,
+          "width": 128,
+          "height": 112,
+          "visible": true
+        },
+        {
+          "id": 45,
+          "name": "workshop",
+          "type": "solid",
+          "x": 824,
+          "y": 144,
+          "width": 144,
+          "height": 96,
+          "visible": true
+        },
+        {
+          "id": 46,
+          "name": "market",
+          "type": "solid",
+          "x": 1016,
+          "y": 144,
+          "width": 128,
+          "height": 96,
+          "visible": true
+        },
+        {
+          "id": 47,
+          "name": "journal",
+          "type": "solid",
+          "x": 288,
+          "y": 512,
+          "width": 160,
+          "height": 112,
+          "visible": true
+        },
+        {
+          "id": 48,
+          "name": "civic",
+          "type": "solid",
+          "x": 480,
+          "y": 528,
+          "width": 112,
+          "height": 96,
+          "visible": true
+        },
+        {
+          "id": 49,
+          "name": "river-shed",
+          "type": "solid",
+          "x": 112,
+          "y": 672,
+          "width": 112,
+          "height": 96,
+          "visible": true
+        },
+        {
+          "id": 50,
+          "name": "station",
+          "type": "solid",
+          "x": 960,
+          "y": 608,
+          "width": 192,
+          "height": 128,
+          "visible": true
+        },
+        {
+          "id": 51,
+          "name": "warehouse",
+          "type": "solid",
+          "x": 1088,
+          "y": 512,
+          "width": 128,
+          "height": 96,
+          "visible": true
+        },
+        {
+          "id": 52,
+          "name": "river-west",
+          "type": "solid",
+          "x": 0,
+          "y": 800,
+          "width": 672,
+          "height": 128,
+          "visible": true
+        },
+        {
+          "id": 53,
+          "name": "river-east",
+          "type": "solid",
+          "x": 736,
+          "y": 800,
+          "width": 544,
+          "height": 128,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Districts",
+      "type": "objectgroup",
+      "visible": false,
+      "opacity": 1,
+      "objects": [
+        {
+          "id": 60,
+          "name": "RESIDENTIAL RIDGE",
+          "type": "district",
+          "x": 0,
+          "y": 0,
+          "width": 560,
+          "height": 304,
+          "visible": true
+        },
+        {
+          "id": 61,
+          "name": "CENTRAL MAIN STREET",
+          "type": "district",
+          "x": 336,
+          "y": 256,
+          "width": 832,
+          "height": 256,
+          "visible": true
+        },
+        {
+          "id": 62,
+          "name": "MARKET / WORKSHOP",
+          "type": "district",
+          "x": 720,
+          "y": 96,
+          "width": 560,
+          "height": 240,
+          "visible": true
+        },
+        {
+          "id": 63,
+          "name": "CIVIC / JOURNAL",
+          "type": "district",
+          "x": 160,
+          "y": 480,
+          "width": 640,
+          "height": 208,
+          "visible": true
+        },
+        {
+          "id": 64,
+          "name": "RIVERSIDE",
+          "type": "district",
+          "x": 0,
+          "y": 656,
+          "width": 928,
+          "height": 304,
+          "visible": true
+        },
+        {
+          "id": 65,
+          "name": "STATION / EAST GATE",
+          "type": "district",
+          "x": 896,
+          "y": 480,
+          "width": 384,
+          "height": 480,
+          "visible": true
+        },
+        {
+          "id": 66,
+          "name": "BACK ALLEY",
+          "type": "district",
+          "x": 576,
+          "y": 128,
+          "width": 224,
+          "height": 176,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "NPCs",
+      "type": "objectgroup",
+      "visible": true,
+      "opacity": 1,
+      "objects": [
+        {
+          "id": 70,
+          "name": "MELO",
+          "type": "npc",
+          "x": 592,
+          "y": 424,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true,
+          "properties": [
+            {
+              "name": "variant",
+              "type": "int",
+              "value": 6
+            },
+            {
+              "name": "role",
+              "type": "string",
+              "value": "music"
+            }
+          ]
+        },
+        {
+          "id": 71,
+          "name": "YUZU",
+          "type": "npc",
+          "x": 392,
+          "y": 656,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true,
+          "properties": [
+            {
+              "name": "variant",
+              "type": "int",
+              "value": 9
+            },
+            {
+              "name": "role",
+              "type": "string",
+              "value": "journal"
+            }
+          ]
+        },
+        {
+          "id": 72,
+          "name": "PON",
+          "type": "npc",
+          "x": 792,
+          "y": 440,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true,
+          "properties": [
+            {
+              "name": "variant",
+              "type": "int",
+              "value": 12
+            },
+            {
+              "name": "role",
+              "type": "string",
+              "value": "wanderer"
+            }
+          ]
+        },
+        {
+          "id": 73,
+          "name": "MIRA",
+          "type": "npc",
+          "x": 624,
+          "y": 560,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true,
+          "properties": [
+            {
+              "name": "variant",
+              "type": "int",
+              "value": 4
+            },
+            {
+              "name": "role",
+              "type": "string",
+              "value": "resident"
+            }
+          ]
+        },
+        {
+          "id": 74,
+          "name": "GENT",
+          "type": "npc",
+          "x": 1056,
+          "y": 424,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true,
+          "properties": [
+            {
+              "name": "variant",
+              "type": "int",
+              "value": 14
+            },
+            {
+              "name": "role",
+              "type": "string",
+              "value": "worker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Gameplay",
+      "type": "objectgroup",
+      "visible": false,
+      "opacity": 1,
+      "objects": [
+        {
+          "id": 75,
+          "name": "PLAYER_START",
+          "type": "spawn",
+          "x": 256,
+          "y": 240,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true
+        },
+        {
+          "id": 76,
+          "name": "BAR_DOOR",
+          "type": "interact",
+          "x": 584,
+          "y": 392,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true,
+          "properties": [
+            {
+              "name": "action",
+              "type": "string",
+              "value": "bar"
+            }
+          ]
+        },
+        {
+          "id": 77,
+          "name": "JOURNAL_DOOR",
+          "type": "interact",
+          "x": 368,
+          "y": 624,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true,
+          "properties": [
+            {
+              "name": "action",
+              "type": "string",
+              "value": "journal"
+            }
+          ]
+        },
+        {
+          "id": 78,
+          "name": "FISHING_SPOT",
+          "type": "interact",
+          "x": 512,
+          "y": 784,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true,
+          "properties": [
+            {
+              "name": "action",
+              "type": "string",
+              "value": "fishing"
+            }
+          ]
+        },
+        {
+          "id": 79,
+          "name": "EAST_EXIT",
+          "type": "interact",
+          "x": 1232,
+          "y": 480,
+          "width": 0,
+          "height": 0,
+          "point": true,
+          "visible": true,
+          "properties": [
+            {
+              "name": "action",
+              "type": "string",
+              "value": "east-exit"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "displayName",
+      "type": "string",
+      "value": "DOLZORE FIRST TOWN"
+    },
+    {
+      "name": "worldWidth",
+      "type": "int",
+      "value": 1280
+    },
+    {
+      "name": "worldHeight",
+      "type": "int",
+      "value": 960
+    }
+  ],
+  "tilesets": []
+}
