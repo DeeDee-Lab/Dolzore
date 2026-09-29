@@ -191,3 +191,37 @@ Treat exact counts/formulas as technical-reference facts, not required DOLZORE t
 
 EarthBound Wiki / Starmen.net may be used to enumerate locations, formulas or rare behavior.
 Never treat community pages as stronger evidence than official/manual/developer testimony.
+
+
+## Additional official system/reference pages
+
+### Nintendo — MOTHER 1+2 soundtrack listing
+https://www.nintendo.co.jp/n08/a2uj/sound/index.html
+Supports:
+- location-specific town themes;
+- travel-mode music;
+- service/interior music;
+- venue/performance music;
+- region identity;
+- recurring memory/ending music roles.
+Do not reproduce or transcribe compositions.
+
+### Nintendo — MOTHER2 enemy archive
+https://www.nintendo.co.jp/n08/a2uj/mother2/monster/index.html
+Supports:
+- enemy-concept range from people/creatures to everyday/abstract oddities;
+- ordinary-world concepts becoming combat content.
+Use only as concept taxonomy; do not copy enemy identities.
+
+### Nintendo — MOTHER2 item archive
+https://www.nintendo.co.jp/n08/a2uj/mother2/item/index.html
+Supports:
+- ordinary-looking objects carrying battle/equipment functions;
+- character-specific equipment context.
+Do not copy item identities or data.
+
+### Nintendo — MOTHER2 character archive
+https://www.nintendo.co.jp/n08/a2uj/mother2/hero/index.html
+Supports:
+- party member differentiation by background/role/ability framing.
+Do not copy characters, costumes or silhouettes.
