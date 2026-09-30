@@ -1,0 +1,87 @@
+{
+  "schema": "dolzore.ff11.agent_handoff_manifest.v1",
+  "authority": "direct-user-2026-09-30",
+  "canonical_repo": "DeeDee-Lab/Dolzore",
+  "canonical_issue": "DeeDee-Lab/Dolzore#25",
+  "global_policy": {
+    "repo": "DeeDee-Lab/AI-Supervisor",
+    "path": "config/agent_operating_policy.json",
+    "policy_version": "2026-09-30.1",
+    "commit": "bd732706c8049570f765b944949ee592d67131b1"
+  },
+  "mandatory_read_order": [
+    {
+      "layer": "RAW_SOURCE_CONTRACT",
+      "path": "research/ff11/RAW_SOURCE_HANDOFF_CONTRACT.md"
+    },
+    {
+      "layer": "RAW_SOURCE_INDEX",
+      "path": "research/ff11/RAW_SOURCE_INDEX.json"
+    },
+    {
+      "layer": "PINNED_RAW_EXTERNAL_SOURCE",
+      "path": "research/ff11/PINNED_EXTERNAL_SOURCE_POINTERS.json"
+    },
+    {
+      "layer": "VERIFIED_FACT_SCHEMA",
+      "path": "research/ff11/VERIFIED_FACT_RECORD_SCHEMA_V1.json"
+    },
+    {
+      "layer": "VERIFIED_FACT_INDEX",
+      "path": "research/ff11/FACT_CATALOG_INDEX.json"
+    },
+    {
+      "layer": "VERIFIED_FACT_FILES",
+      "path_glob": "research/ff11/facts/*.jsonl"
+    },
+    {
+      "layer": "INTERPRETATION",
+      "path": "research/ff11/AGENT_READ_FIRST.md"
+    },
+    {
+      "layer": "INTERPRETATION",
+      "path": "research/ff11/FF11_REFERENCE_SPEC_V1.json"
+    }
+  ],
+  "precedence": [
+    "RAW_SOURCE",
+    "VERIFIED_FACT",
+    "INTERPRETATION"
+  ],
+  "exact_fact_status": {
+    "validated_files": 9,
+    "validated_records": 80,
+    "exhaustive": false,
+    "parse_status": "PASS"
+  },
+  "external_pinned_source": {
+    "windower_resources_commit": "99f552fa7cdd8e4a65e3dfa5bbd7d9462ac60b89",
+    "resource_extractor_commit": "51bef175adb101b41de0a482f30ecb100d35cbba",
+    "pointer_file": "research/ff11/PINNED_EXTERNAL_SOURCE_POINTERS.json"
+  },
+  "installed_source_scans": {
+    "SPC": {
+      "issue": "DeeDee-Lab/Automation#603",
+      "run_id": 36671880365,
+      "job_id": 109748435664,
+      "last_known_state": "in_progress",
+      "target": "SPC/SowciePC",
+      "route": "GitHub self-hosted afk-sowciepc",
+      "source_bodies_copied": false
+    },
+    "DPC": {
+      "issue": "DeeDee-Lab/Automation#602",
+      "latest_known_scan_run": 36574471567,
+      "state": "runner_blocked",
+      "route": "GitHub self-hosted utpc-personal"
+    }
+  },
+  "consumer_invariants": [
+    "Do not implement from interpretation alone.",
+    "Do not normalize source discrepancies silently.",
+    "Do not infer nonexistence from missing catalog entries.",
+    "Do not substitute transformed images/audio for original source.",
+    "For protected installed FF11 asset bodies, use source-host original pointer plus hash and read original bytes in place when authorized.",
+    "Record additive deltas; preserve prior evidence."
+  ]
+}
