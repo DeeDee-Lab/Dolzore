@@ -433,3 +433,21 @@ Canonical town concept:
 
 Do not undo the FF11 internal core while iterating visuals.
 Do not trace/reference-copy MOTHER2 protected expression.
+
+
+## 17. Avatar customization is now a core identity system
+
+Avatar appearance is independent from FFXI-derived stats/vocations.
+
+Persistent customization dimensions:
+skin / body / face / hair / top / bottom / shoes / accessory / accent.
+
+SORA, MELO, YUZU and PON are canonical appearance presets built on the same modular avatar engine.
+
+Latest avatar/crosswalk/color full validation:
+- run `36656034405 = SUCCESS`
+- generated source `82510581568d9b868b06a5a89e4fb9db30e8c907`.
+
+First Town road markings are now Tilemap-aligned and verified.
+First Town active color authority:
+`design/FIRST_TOWN_COLOR_CONTRACT.md`.
