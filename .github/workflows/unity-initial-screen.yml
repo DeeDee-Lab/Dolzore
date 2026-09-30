@@ -76,6 +76,28 @@ jobs:
           Copy-Item -Path (Join-Path $source "Assets\*") -Destination (Join-Path $project "Assets") -Recurse -Force
           Copy-Item -Path (Join-Path $source "Packages\manifest.json") -Destination (Join-Path $project "Packages\manifest.json") -Force
 
+      - name: Clear stale Unity lock for this workspace only
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $normalized = [System.IO.Path]::GetFullPath($project)
+
+          $unityProcesses = Get-CimInstance Win32_Process -Filter "Name='Unity.exe'" -ErrorAction SilentlyContinue
+          foreach ($proc in $unityProcesses) {
+            $cmd = [string]$proc.CommandLine
+            if ($cmd -and $cmd.IndexOf($normalized, [System.StringComparison]::OrdinalIgnoreCase) -ge 0) {
+              Write-Host "DOLZORE_STOP_STALE_UNITY_PID=$($proc.ProcessId)"
+              Stop-Process -Id $proc.ProcessId -Force -ErrorAction SilentlyContinue
+            }
+          }
+
+          $lock = Join-Path $project "Temp\UnityLockfile"
+          if (Test-Path $lock) {
+            Remove-Item $lock -Force
+            Write-Host "DOLZORE_STALE_UNITY_LOCK_REMOVED=true"
+          }
+
       - name: Compile generate scenes and render preview
         shell: powershell
         run: |
