@@ -1,20 +1,9 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-09-29T22:59:46.059483+00:00",
+  "generatedAt": "2026-09-30T02:09:58.471103+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
-  "newItems": [
-    {
-      "title": "Amazon.co.jp: BenQ TK710STi 4K レーザー短焦点プロジェクター 3200ANSIルーメン/HDR10/フルHD/240Hz/Netflix対応 | 低入力遅延,Android TV搭載,120インチ大画面,縦横回転台形補正,5Wスピーカー,Rec.709 95%,RPG FPS シネマモード,ゲーミング,ベンキュージャパン : 家電＆カメラ",
-      "model": "BenQ TK710STi",
-      "market": "amazon",
-      "marketLabel": "Amazon",
-      "price": 310000,
-      "priceStatus": "new_market",
-      "imageUrl": null,
-      "url": "https://www.amazon.co.jp/%E3%83%99%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-TK710STi-%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E7%9F%AD%E7%84%A6%E7%82%B9%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%BF%E3%83%BC-3200ANSI%E3%83%AB%E3%83%BC%E3%83%A1%E3%83%B3-Netflix%E5%AF%BE%E5%BF%9CAndroid/dp/B0DWF5P7DM"
-    }
-  ],
+  "newItems": [],
   "observedUsed": [
     {
       "title": " ViewSonic X10-4K 4K UHD 短焦点スマートLEDプ... - Yahoo!オークション",
@@ -87,16 +76,7 @@
       "strongBuy": 160000,
       "consider": 180000,
       "bestUsed": null,
-      "bestNew": {
-        "title": "Amazon.co.jp: BenQ TK710STi 4K レーザー短焦点プロジェクター 3200ANSIルーメン/HDR10/フルHD/240Hz/Netflix対応 | 低入力遅延,Android TV搭載,120インチ大画面,縦横回転台形補正,5Wスピーカー,Rec.709 95%,RPG FPS シネマモード,ゲーミング,ベンキュージャパン : 家電＆カメラ",
-        "model": "BenQ TK710STi",
-        "market": "amazon",
-        "marketLabel": "Amazon",
-        "price": 310000,
-        "priceStatus": "new_market",
-        "imageUrl": null,
-        "url": "https://www.amazon.co.jp/%E3%83%99%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-TK710STi-%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E7%9F%AD%E7%84%A6%E7%82%B9%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%BF%E3%83%BC-3200ANSI%E3%83%AB%E3%83%BC%E3%83%A1%E3%83%B3-Netflix%E5%AF%BE%E5%BF%9CAndroid/dp/B0DWF5P7DM"
-      }
+      "bestNew": null
     },
     {
       "model": "Optoma UHD35STx",
