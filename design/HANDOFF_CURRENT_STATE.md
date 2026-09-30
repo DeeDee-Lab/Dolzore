@@ -558,3 +558,50 @@ Read:
 
 Resume phrase:
 **Gameひきついで**
+
+
+---
+
+# 14. 2026-09-30 Avatar / Dress-up V5 green checkpoint
+
+The user rejected the prior characters as unattractive and identified crosswalk misalignment in a screenshot.
+
+Canonical avatar implementation is now:
+- `game/unity/bootstrap/Assets/Scripts/AvatarSystem.cs`
+- `game/unity/bootstrap/Assets/Editor/AvatarAssetGenerator.cs`
+- `game/unity/bootstrap/Assets/Editor/AvatarQualityVerifier.cs`
+- `design/AVATAR_DRESSUP_SYSTEM_V2.md`
+
+Do not recreate a parallel avatar renderer.
+
+V5 changes:
+- improved body proportions / torso taper;
+- improved face/eyes/brows;
+- stronger hair silhouettes;
+- distinct lower-body silhouettes;
+- improved shoes/hands/arms;
+- contact shadow;
+- stronger front/side/back distinction;
+- stronger walk-frame distinction;
+- MELO back hair / record-bag placement fix after QA failure;
+- 8-look wardrobe showcase generated every town art pass;
+- stronger automated avatar QA.
+
+Latest green proof:
+- Unity run: `36662901682 = SUCCESS`
+- generated source: `fcb9e81348084c6f60268dfb4a23e824287ea488`
+- avatar quality: PASS
+- wardrobe combinations before color variants: 725,760
+- WebGL: PASS
+- generated-source preservation: PASS
+
+Street/crosswalk:
+- use `Road Markings` Tilemap only;
+- no free-positioned crosswalk decoration;
+- road-marking acceptance is executed before FirstTown acceptance receipt can be written.
+
+Next avatar work:
+**in-game wardrobe / character-creator UI**, not a second avatar rendering architecture.
+
+Resume:
+**Gameひきついで**
