@@ -199,9 +199,6 @@ namespace Dolzore.Editor
 
         private static void ShrinkFieldCharacters()
         {
-            // Avatar source stays 32x40; higher PPU makes it read as a compact town symbol.
-            AvatarAssetGenerator.OverridePixelsPerUnitForGeneratedSprites(30f);
-
             string[] residents = { "Player SORA", "MELO", "YUZU", "PON", "NAMI", "GARU", "MORI", "REI", "HANA" };
             for (int i = 0; i < residents.Length; i++)
             {
