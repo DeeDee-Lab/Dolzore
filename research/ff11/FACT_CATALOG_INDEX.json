@@ -1,0 +1,134 @@
+{
+  "schema": "dolzore.ff11.fact_catalog_index.v1",
+  "authority": "direct-user-2026-09-30",
+  "canonical_root": "research/ff11/",
+  "handoff_order": [
+    "RAW_SOURCE_HANDOFF_CONTRACT.md",
+    "RAW_SOURCE_INDEX.json",
+    "VERIFIED_FACT_RECORD_SCHEMA_V1.json",
+    "FACT_CATALOG_INDEX.json",
+    "facts/*.jsonl",
+    "AGENT_READ_FIRST.md",
+    "FF11_REFERENCE_SPEC_V1.json"
+  ],
+  "interpretation_after_facts_only": true,
+  "validated_record_count": 80,
+  "validation": "all JSONL records parse PASS on main readback",
+  "files": [
+    {
+      "file": "facts/CORE_JOBS_RACES_LEVELS_V1.jsonl",
+      "record_count": 8,
+      "blob_sha": "274f4fa79b89c1cf2f57c05c725321cf6a70daca",
+      "domains": [
+        "character_creation",
+        "race",
+        "job",
+        "level"
+      ]
+    },
+    {
+      "file": "facts/BASE_STATS_V1.jsonl",
+      "record_count": 6,
+      "blob_sha": "8e84ebe7dedaefb317de8c415f465f230149e7e9",
+      "domains": [
+        "base_stats"
+      ]
+    },
+    {
+      "file": "facts/SKILLS_V1.jsonl",
+      "record_count": 7,
+      "blob_sha": "c3c9d599dac9c29c9f6b607b94439c8a7d39ba64",
+      "domains": [
+        "skill"
+      ]
+    },
+    {
+      "file": "facts/SKILLCHAINS_MAGIC_BURST_V1.jsonl",
+      "record_count": 10,
+      "blob_sha": "77280c777298a957890ec61e2f7bccf9fed44ebd",
+      "domains": [
+        "skillchain",
+        "magic_burst"
+      ]
+    },
+    {
+      "file": "facts/PHYSICAL_DAMAGE_FORMULAS_V1.jsonl",
+      "record_count": 12,
+      "blob_sha": "04f0dc830d38da9430239ed48e04fecdccc23477",
+      "domains": [
+        "physical_damage",
+        "pDIF",
+        "weapon_rank",
+        "fSTR"
+      ]
+    },
+    {
+      "file": "facts/MAGIC_DAMAGE_RESIST_V1.jsonl",
+      "record_count": 10,
+      "blob_sha": "184d739435801092af22239f443e421c7ed8c952",
+      "domains": [
+        "magic",
+        "magic_damage",
+        "magic_accuracy",
+        "resist"
+      ]
+    },
+    {
+      "file": "facts/TP_DELAY_HASTE_V1.jsonl",
+      "record_count": 8,
+      "blob_sha": "0c5c7627848840cbc3a96a54774a8f0df759c037",
+      "domains": [
+        "tp",
+        "delay",
+        "haste"
+      ]
+    },
+    {
+      "file": "facts/ENMITY_OFFICIAL_2013_V1.jsonl",
+      "record_count": 7,
+      "blob_sha": "fde3176bc7a9a2555b671920432988cac7abb33c",
+      "domains": [
+        "enmity"
+      ]
+    },
+    {
+      "file": "facts/MACROS_BATTLE_MUSIC_V1.jsonl",
+      "record_count": 12,
+      "blob_sha": "94697e0368efb36fc68f07c32ea9efcff370c285",
+      "domains": [
+        "macro",
+        "battle_music"
+      ]
+    }
+  ],
+  "coverage_truth": {
+    "exhaustive": false,
+    "completed_exact_fact_tranche": [
+      "core jobs/races/levels",
+      "starting base stats",
+      "skill categories and historical merit limits",
+      "official skillchain properties",
+      "magic burst base bonuses",
+      "physical damage formula components",
+      "magic damage/resist/hit-rate formula components",
+      "TP/delay/haste formula components",
+      "official historical enmity formula tranche",
+      "macro syntax tranche",
+      "official /battlebgm behavior"
+    ],
+    "pending_exact_catalogs": [
+      "complete spell table: IDs, names, job levels, MP, cast, recast, target, element, skill, effect/status links",
+      "complete job ability and job trait tables",
+      "complete job gifts/job points/master level details",
+      "complete weapon skill table: IDs, skill, properties, fTP, WSC, hits, modifiers",
+      "complete per-job skill ranks/caps by level",
+      "complete HP/MP/stat growth values/formulas by race/job/level",
+      "complete current enmity action values/caps where source-proven",
+      "complete equipment and augment modifier facts",
+      "complete text command/macro catalog and exact limits",
+      "installed-client resource IDs/paths/hashes from SPC and DPC",
+      "battle music/audio exact file pointers/resource IDs from installed clients"
+    ]
+  },
+  "no_absence_inference": "A missing record means not yet extracted; it does not mean the FF11 feature/value does not exist."
+}
