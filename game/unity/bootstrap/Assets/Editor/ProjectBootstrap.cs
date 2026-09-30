@@ -43,7 +43,6 @@ namespace Dolzore.Editor
             GenerateMinimap();
             BuildTitleScene();
             FirstTownBuilder.Build(TownScene);
-            AvatarAssetGenerator.GenerateWardrobeSample();
             AvatarQualityVerifier.AssertAndWriteReceipt();
 
             EditorBuildSettings.scenes = new[]
