@@ -225,3 +225,29 @@ https://www.nintendo.co.jp/n08/a2uj/mother2/hero/index.html
 Supports:
 - party member differentiation by background/role/ability framing.
 Do not copy characters, costumes or silhouettes.
+
+
+## Gamepedia town/field image corpus — exact original references
+
+Added 2026-09-30 by direct user instruction.
+
+Entry point:
+https://gamepedia.jp/mother2/archives/76
+
+Canonical manifest:
+`research/mother2/GAMEPEDIA_TOWN_IMAGE_SOURCE_MANIFEST_V1.json`
+
+Coverage:
+- 15 town/field reference pages;
+- 70 exact original `media.gamepedia.jp` image URLs;
+- transformed `tfi.gamepedia.jp` WebP/thumbnail URLs are explicitly non-canonical;
+- third-party image bodies are not copied into the repository.
+
+Evidence class:
+COMMUNITY_REFERENCE + VISUAL_OBSERVATION.
+
+Rights/storage rule:
+The site states that game image/name/text intellectual-property rights in quoted game material belong to Nintendo. Therefore canonical handoff preserves source page + exact original media URL, not a republished repository copy.
+
+Production requirement:
+When a successor needs a visual reference, it must inspect/fetch the exact original media URL from the manifest. A text summary, OCR result, thumbnail, screenshot of the page, or resized derivative is not a substitute.
