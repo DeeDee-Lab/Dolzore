@@ -12,16 +12,16 @@ namespace Dolzore.Editor
         private const string ArtRoot = "Assets/Art/Generated/TownV3";
         private const string TileRoot = "Assets/Tiles/Generated";
 
-        private static readonly Color32 Grass = C("#6E9F58");
-        private static readonly Color32 Grass2 = C("#78A962");
-        private static readonly Color32 Road = C("#777A78");
-        private static readonly Color32 Road2 = C("#858783");
-        private static readonly Color32 Walk = C("#C6B98F");
-        private static readonly Color32 Walk2 = C("#D2C59D");
-        private static readonly Color32 Water = C("#3A8FA0");
-        private static readonly Color32 Water2 = C("#58A8B4");
-        private static readonly Color32 Ink = C("#263044");
-        private static readonly Color32 Shadow = new Color32(31, 40, 53, 105);
+        private static readonly Color32 Grass = C("#78C85A");
+        private static readonly Color32 Grass2 = C("#91DB73");
+        private static readonly Color32 Road = C("#7275A4");
+        private static readonly Color32 Road2 = C("#8589B8");
+        private static readonly Color32 Walk = C("#F0D783");
+        private static readonly Color32 Walk2 = C("#FFE9AA");
+        private static readonly Color32 Water = C("#32A8C5");
+        private static readonly Color32 Water2 = C("#62D0DE");
+        private static readonly Color32 Ink = C("#30305D");
+        private static readonly Color32 Shadow = new Color32(43, 43, 79, 92);
 
         public static void Apply()
         {
@@ -57,18 +57,18 @@ namespace Dolzore.Editor
             SaveTexturedTile("grass_v3.png", Grass, Grass2, 17, false);
             SaveTexturedTile("road_v3.png", Road, Road2, 10, true);
             SaveTexturedTile("sidewalk_v3.png", Walk, Walk2, 13, false);
-            SaveTexturedTile("plaza_v3.png", C("#B9A777"), C("#C9B88A"), 19, false);
+            SaveTexturedTile("plaza_v3.png", C("#E6C766"), C("#F5DD8C"), 19, false);
             SaveWaterTile("water_v3.png");
         }
 
         private static void GenerateBuildings()
         {
-            SaveHouse("home_v3.png", 80, 72, C("#4E7891"), C("#D4B77E"), C("#F1D89F"), C("#6F93A1"), true);
-            SaveHouse("house_north_v3.png", 76, 68, C("#B65D4F"), C("#E0C18B"), C("#F3DEA9"), C("#8F6C58"), false);
-            SaveHouse("house_east_v3.png", 78, 70, C("#65865C"), C("#D6BD82"), C("#F0D99D"), C("#54754F"), true);
+            SaveHouse("home_v3.png", 80, 72, C("#4B74CE"), C("#F4C95D"), C("#FFF0A6"), C("#7791D8"), true);
+            SaveHouse("house_north_v3.png", 76, 68, C("#E75A55"), C("#F7D97D"), C("#FFF0B3"), C("#D77A69"), false);
+            SaveHouse("house_east_v3.png", 78, 70, C("#48A874"), C("#F5D475"), C("#FFF0AA"), C("#5B8F72"), true);
 
-            SaveShop("cafe_v3.png", 88, 70, C("#B45D50"), C("#E5B66F"), C("#F4E1B1"), C("#7FB8B5"), "CAFE", true);
-            SaveShop("bar_v3.png", 92, 74, C("#5B3955"), C("#C87861"), C("#F1A457"), C("#75C4C0"), "BAR", true);
+            SaveShop("cafe_v3.png", 88, 70, C("#E24D59"), C("#FFCE67"), C("#FFF0A5"), C("#72D0C8"), "CAFE", true);
+            SaveShop("bar_v3.png", 92, 74, C("#6F4BA8"), C("#F1766B"), C("#FFD65A"), C("#6DD2D0"), "BAR", true);
             SaveMarket("market_v3.png");
             SaveJournal("journal_v3.png");
             SaveCivic("civic_v3.png");
@@ -501,7 +501,7 @@ namespace Dolzore.Editor
             if (cam != null)
             {
                 cam.orthographicSize = 8.35f;
-                cam.backgroundColor = Hex("#6E9F58");
+                cam.backgroundColor = Hex("#78C85A");
                 cam.transform.position = new Vector3(-1.5f, 5.7f, -10f);
 
                 TownCameraFollow follow = cam.GetComponent<TownCameraFollow>();
@@ -600,17 +600,17 @@ namespace Dolzore.Editor
             const int w = 110, h = 70;
             Color32[] p = Transparent(w * h);
             ShortShadow(p, w, h, 8, 5, 95, 9);
-            Rect(p, w, h, 8, 8, 94, 29, C("#C88A55"));
-            Rect(p, w, h, 94, 10, 8, 26, C("#8D5D42"));
-            Roof(p, w, h, 4, 36, 102, 26, C("#A04F46"), C("#E3C887"));
+            Rect(p, w, h, 8, 8, 94, 29, C("#E99A54"));
+            Rect(p, w, h, 94, 10, 8, 26, C("#C0694B"));
+            Roof(p, w, h, 4, 36, 102, 26, C("#D94C59"), C("#FFD871"));
             Rect(p, w, h, 13, 16, 22, 16, Ink);
             Rect(p, w, h, 42, 16, 22, 16, Ink);
             Rect(p, w, h, 71, 16, 19, 16, Ink);
-            Rect(p, w, h, 15, 19, 18, 10, C("#93B9B6"));
-            Rect(p, w, h, 44, 19, 18, 10, C("#93B9B6"));
-            Rect(p, w, h, 73, 19, 15, 10, C("#93B9B6"));
-            Rect(p, w, h, 45, 7, 13, 27, C("#624335"));
-            DrawTinySign(p, w, h, 34, 42, 42, 8, "MARKET", Ink, C("#F2D18A"));
+            Rect(p, w, h, 15, 19, 18, 10, C("#79D0C9"));
+            Rect(p, w, h, 44, 19, 18, 10, C("#79D0C9"));
+            Rect(p, w, h, 73, 19, 15, 10, C("#79D0C9"));
+            Rect(p, w, h, 45, 7, 13, 27, C("#7B4551"));
+            DrawTinySign(p, w, h, 34, 42, 42, 8, "MARKET", Ink, C("#FFE07A"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -619,15 +619,15 @@ namespace Dolzore.Editor
             const int w = 86, h = 76;
             Color32[] p = Transparent(w * h);
             ShortShadow(p, w, h, 8, 5, 70, 9);
-            Rect(p, w, h, 9, 9, 66, 30, C("#5C82A0"));
-            Rect(p, w, h, 69, 11, 8, 27, C("#3F627F"));
-            Roof(p, w, h, 5, 38, 73, 29, C("#3D5F7D"), C("#D7C797"));
+            Rect(p, w, h, 9, 9, 66, 30, C("#5E84DA"));
+            Rect(p, w, h, 69, 11, 8, 27, C("#4266B3"));
+            Roof(p, w, h, 5, 38, 73, 29, C("#3F5FAB"), C("#F7D76C"));
             Rect(p, w, h, 15, 17, 15, 16, Ink);
-            Rect(p, w, h, 18, 20, 9, 10, C("#7CC2C3"));
+            Rect(p, w, h, 18, 20, 9, 10, C("#72D7DB"));
             Rect(p, w, h, 48, 17, 15, 16, Ink);
-            Rect(p, w, h, 51, 20, 9, 10, C("#7CC2C3"));
+            Rect(p, w, h, 51, 20, 9, 10, C("#72D7DB"));
             Rect(p, w, h, 33, 8, 11, 27, Ink);
-            DrawTinySign(p, w, h, 24, 44, 38, 8, "JOURNAL", Ink, C("#E8D9A9"));
+            DrawTinySign(p, w, h, 24, 44, 38, 8, "JOURNAL", Ink, C("#FFE493"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -636,15 +636,15 @@ namespace Dolzore.Editor
             const int w = 78, h = 92;
             Color32[] p = Transparent(w * h);
             ShortShadow(p, w, h, 9, 5, 60, 10);
-            Rect(p, w, h, 10, 9, 55, 35, C("#7A8190"));
-            Rect(p, w, h, 59, 11, 8, 31, C("#5A6272"));
-            Roof(p, w, h, 7, 43, 61, 24, C("#5A6476"), C("#D7C99D"));
-            Rect(p, w, h, 25, 61, 29, 14, C("#5A6476"));
-            Roof(p, w, h, 22, 73, 35, 13, C("#465266"), C("#D7C99D"));
-            Circle(p, w, h, 39, 63, 7, C("#EEE1B4"));
+            Rect(p, w, h, 10, 9, 55, 35, C("#A990D0"));
+            Rect(p, w, h, 59, 11, 8, 31, C("#7A64A9"));
+            Roof(p, w, h, 7, 43, 61, 24, C("#6E58A0"), C("#FFD66D"));
+            Rect(p, w, h, 25, 61, 29, 14, C("#6E58A0"));
+            Roof(p, w, h, 22, 73, 35, 13, C("#58458D"), C("#FFD66D"));
+            Circle(p, w, h, 39, 63, 7, C("#FFF0A4"));
             Circle(p, w, h, 39, 63, 4, Ink);
-            Rect(p, w, h, 38, 63, 2, 4, C("#EEE1B4"));
-            Rect(p, w, h, 39, 62, 4, 2, C("#EEE1B4"));
+            Rect(p, w, h, 38, 63, 2, 4, C("#FFF0A4"));
+            Rect(p, w, h, 39, 62, 4, 2, C("#FFF0A4"));
             Rect(p, w, h, 16, 18, 12, 15, Ink);
             Rect(p, w, h, 48, 18, 12, 15, Ink);
             Rect(p, w, h, 33, 9, 11, 29, Ink);
@@ -656,11 +656,11 @@ namespace Dolzore.Editor
             const int w = 90, h = 66;
             Color32[] p = Transparent(w * h);
             ShortShadow(p, w, h, 8, 4, 76, 9);
-            Rect(p, w, h, 7, 8, 73, 29, C("#81746B"));
-            Rect(p, w, h, 74, 10, 8, 26, C("#5E5751"));
-            Roof(p, w, h, 3, 36, 81, 23, C("#5A5755"), C("#C3B18B"));
+            Rect(p, w, h, 7, 8, 73, 29, C("#D58A58"));
+            Rect(p, w, h, 74, 10, 8, 26, C("#A7624A"));
+            Roof(p, w, h, 3, 36, 81, 23, C("#95505A"), C("#F1C568"));
             Rect(p, w, h, 12, 13, 38, 20, C("#343B42"));
-            for (int y = 16; y < 31; y += 5) Rect(p, w, h, 15, y, 32, 2, C("#687177"));
+            for (int y = 16; y < 31; y += 5) Rect(p, w, h, 15, y, 32, 2, C("#8C7A8D"));
             Rect(p, w, h, 60, 12, 12, 22, Ink);
             SaveSprite(file, w, h, p, 16f);
         }
@@ -670,11 +670,11 @@ namespace Dolzore.Editor
             const int w = 58, h = 54;
             Color32[] p = Transparent(w * h);
             ShortShadow(p, w, h, 6, 4, 45, 8);
-            Rect(p, w, h, 7, 7, 42, 25, C("#579181"));
-            Rect(p, w, h, 43, 9, 7, 23, C("#3B6B62"));
-            Roof(p, w, h, 4, 31, 48, 18, C("#3D716B"), C("#E5C77E"));
+            Rect(p, w, h, 7, 7, 42, 25, C("#55B894"));
+            Rect(p, w, h, 43, 9, 7, 23, C("#38866F"));
+            Roof(p, w, h, 4, 31, 48, 18, C("#3D9276"), C("#F1CE66"));
             Rect(p, w, h, 12, 13, 31, 13, Ink);
-            Rect(p, w, h, 15, 16, 25, 7, C("#8BC1B5"));
+            Rect(p, w, h, 15, 16, 25, 7, C("#78D4B9"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -683,18 +683,18 @@ namespace Dolzore.Editor
             const int w = 120, h = 76;
             Color32[] p = Transparent(w * h);
             ShortShadow(p, w, h, 8, 5, 105, 9);
-            Rect(p, w, h, 7, 9, 104, 30, C("#58728E"));
-            Rect(p, w, h, 104, 11, 8, 27, C("#3F5872"));
-            Roof(p, w, h, 3, 38, 112, 26, C("#394D68"), C("#E0C67D"));
+            Rect(p, w, h, 7, 9, 104, 30, C("#5B86D5"));
+            Rect(p, w, h, 104, 11, 8, 27, C("#3C64A8"));
+            Roof(p, w, h, 3, 38, 112, 26, C("#405D9B"), C("#FFD15C"));
             Rect(p, w, h, 14, 17, 24, 16, Ink);
-            Rect(p, w, h, 17, 20, 18, 10, C("#83B6BE"));
+            Rect(p, w, h, 17, 20, 18, 10, C("#70C8D4"));
             Rect(p, w, h, 80, 17, 24, 16, Ink);
-            Rect(p, w, h, 83, 20, 18, 10, C("#83B6BE"));
+            Rect(p, w, h, 83, 20, 18, 10, C("#70C8D4"));
             Rect(p, w, h, 50, 8, 18, 29, Ink);
-            Rect(p, w, h, 55, 12, 8, 23, C("#B9945C"));
-            Circle(p, w, h, 59, 50, 7, C("#F2E2B1"));
+            Rect(p, w, h, 55, 12, 8, 23, C("#DDAA5A"));
+            Circle(p, w, h, 59, 50, 7, C("#FFF0AC"));
             Circle(p, w, h, 59, 50, 4, Ink);
-            DrawTinySign(p, w, h, 37, 43, 44, 7, "STATION", Ink, C("#E8D7A2"));
+            DrawTinySign(p, w, h, 37, 43, 44, 7, "STATION", Ink, C("#FFE58A"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -703,11 +703,11 @@ namespace Dolzore.Editor
             const int w = 92, h = 62;
             Color32[] p = Transparent(w * h);
             ShortShadow(p, w, h, 7, 4, 79, 9);
-            Rect(p, w, h, 6, 8, 78, 27, C("#63576A"));
-            Rect(p, w, h, 78, 10, 8, 24, C("#463D4E"));
-            Roof(p, w, h, 3, 34, 84, 21, C("#41384A"), C("#BDAA8A"));
+            Rect(p, w, h, 6, 8, 78, 27, C("#7962A0"));
+            Rect(p, w, h, 78, 10, 8, 24, C("#584779"));
+            Roof(p, w, h, 3, 34, 84, 21, C("#4E3A73"), C("#E6C66C"));
             Rect(p, w, h, 12, 12, 44, 20, C("#33323B"));
-            for (int x = 15; x < 54; x += 8) Rect(p, w, h, x, 15, 3, 15, C("#565762"));
+            for (int x = 15; x < 54; x += 8) Rect(p, w, h, x, 15, 3, 15, C("#786A9A"));
             Rect(p, w, h, 66, 12, 10, 21, Ink);
             SaveSprite(file, w, h, p, 16f);
         }
@@ -751,11 +751,11 @@ namespace Dolzore.Editor
             const int w = 34, h = 46;
             Color32[] p = Transparent(w * h);
             EllipseShadow(p, w, h, 17, 4, 12, 3);
-            Rect(p, w, h, 15, 5, 4, 18, C("#6F513B"));
-            Circle(p, w, h, 17, 29, 13, C("#4C8050"));
-            Circle(p, w, h, 10, 25, 8, C("#5C955B"));
-            Circle(p, w, h, 24, 25, 8, C("#5C955B"));
-            Circle(p, w, h, 17, 37, 8, C("#6BA566"));
+            Rect(p, w, h, 15, 5, 4, 18, C("#7B563B"));
+            Circle(p, w, h, 17, 29, 13, C("#48A951"));
+            Circle(p, w, h, 10, 25, 8, C("#62C35E"));
+            Circle(p, w, h, 24, 25, 8, C("#62C35E"));
+            Circle(p, w, h, 17, 37, 8, C("#83D66F"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -764,9 +764,9 @@ namespace Dolzore.Editor
             const int w = 20, h = 14;
             Color32[] p = Transparent(w * h);
             EllipseShadow(p, w, h, 10, 2, 8, 2);
-            Circle(p, w, h, 6, 7, 5, C("#4E854D"));
-            Circle(p, w, h, 12, 8, 6, C("#5D9659"));
-            Circle(p, w, h, 16, 7, 4, C("#4B7E49"));
+            Circle(p, w, h, 6, 7, 5, C("#51B054"));
+            Circle(p, w, h, 12, 8, 6, C("#6ACB67"));
+            Circle(p, w, h, 16, 7, 4, C("#41994A"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -774,8 +774,8 @@ namespace Dolzore.Editor
         {
             const int w = 44, h = 14;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 2, 5, 40, 3, C("#D7C79B"));
-            for (int x = 4; x < 42; x += 9) Rect(p, w, h, x, 2, 3, 10, C("#BDAE83"));
+            Rect(p, w, h, 2, 5, 40, 3, C("#F0D890"));
+            for (int x = 4; x < 42; x += 9) Rect(p, w, h, x, 2, 3, 10, C("#DDBE6A"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -784,8 +784,8 @@ namespace Dolzore.Editor
             const int w = 34, h = 18;
             Color32[] p = Transparent(w * h);
             EllipseShadow(p, w, h, 17, 2, 14, 2);
-            Rect(p, w, h, 4, 9, 26, 4, C("#9A7048"));
-            Rect(p, w, h, 6, 13, 22, 3, C("#B18152"));
+            Rect(p, w, h, 4, 9, 26, 4, C("#B9794E"));
+            Rect(p, w, h, 6, 13, 22, 3, C("#DA965B"));
             Rect(p, w, h, 8, 3, 3, 7, Ink);
             Rect(p, w, h, 23, 3, 3, 7, Ink);
             SaveSprite(file, w, h, p, 16f);
@@ -796,9 +796,9 @@ namespace Dolzore.Editor
             const int w = 18, h = 34;
             Color32[] p = Transparent(w * h);
             ShortShadow(p, w, h, 2, 2, 14, 5);
-            Rect(p, w, h, 2, 3, 14, 28, C("#D9675F"));
-            Rect(p, w, h, 4, 20, 10, 8, C("#F0E6CD"));
-            Rect(p, w, h, 5, 21, 8, 6, C("#79BBC0"));
+            Rect(p, w, h, 2, 3, 14, 28, C("#EE5C64"));
+            Rect(p, w, h, 4, 20, 10, 8, C("#FFF1B3"));
+            Rect(p, w, h, 5, 21, 8, 6, C("#67CFD1"));
             Rect(p, w, h, 5, 7, 8, 10, Ink);
             SaveSprite(file, w, h, p, 16f);
         }
@@ -807,10 +807,10 @@ namespace Dolzore.Editor
         {
             const int w = 18, h = 27;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 5, 6, 9, 14, C("#4E759A"));
-            Rect(p, w, h, 4, 18, 11, 4, C("#3B5C7D"));
+            Rect(p, w, h, 5, 6, 9, 14, C("#4F8CD0"));
+            Rect(p, w, h, 4, 18, 11, 4, C("#3E6FB0"));
             Rect(p, w, h, 7, 2, 5, 5, Ink);
-            Rect(p, w, h, 6, 11, 7, 2, C("#E6D7A4"));
+            Rect(p, w, h, 6, 11, 7, 2, C("#FFE48A"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -818,9 +818,9 @@ namespace Dolzore.Editor
         {
             const int w = 14, h = 20;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 5, 3, 5, 12, C("#D95A4E"));
-            Rect(p, w, h, 3, 12, 9, 4, C("#BB443F"));
-            Rect(p, w, h, 2, 7, 11, 3, C("#E87860"));
+            Rect(p, w, h, 5, 3, 5, 12, C("#F05855"));
+            Rect(p, w, h, 3, 12, 9, 4, C("#D74449"));
+            Rect(p, w, h, 2, 7, 11, 3, C("#FF8068"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -828,8 +828,8 @@ namespace Dolzore.Editor
         {
             const int w = 16, h = 22;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 4, 3, 8, 15, C("#5A6A6C"));
-            Rect(p, w, h, 3, 17, 10, 3, C("#38474A"));
+            Rect(p, w, h, 4, 3, 8, 15, C("#657B88"));
+            Rect(p, w, h, 3, 17, 10, 3, C("#3E5160"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -839,10 +839,10 @@ namespace Dolzore.Editor
             Color32[] p = Transparent(w * h);
             Ring(p, w, h, 8, 7, 5, Ink);
             Ring(p, w, h, 28, 7, 5, Ink);
-            Line(p, w, h, 8, 7, 18, 13, C("#C27646"));
-            Line(p, w, h, 18, 13, 28, 7, C("#C27646"));
-            Line(p, w, h, 8, 7, 22, 7, C("#C27646"));
-            Line(p, w, h, 22, 7, 18, 13, C("#C27646"));
+            Line(p, w, h, 8, 7, 18, 13, C("#E88349"));
+            Line(p, w, h, 18, 13, 28, 7, C("#E88349"));
+            Line(p, w, h, 8, 7, 22, 7, C("#E88349"));
+            Line(p, w, h, 22, 7, 18, 13, C("#E88349"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -851,10 +851,10 @@ namespace Dolzore.Editor
             const int w = 50, h = 25;
             Color32[] p = Transparent(w * h);
             EllipseShadow(p, w, h, 25, 2, 21, 2);
-            Rect(p, w, h, 4, 6, 42, 10, C("#6084A7"));
-            Rect(p, w, h, 12, 16, 28, 6, C("#466987"));
-            Rect(p, w, h, 16, 17, 10, 4, C("#9FC6C6"));
-            Rect(p, w, h, 28, 17, 9, 4, C("#9FC6C6"));
+            Rect(p, w, h, 4, 6, 42, 10, C("#5CA1D4"));
+            Rect(p, w, h, 12, 16, 28, 6, C("#3F78B5"));
+            Rect(p, w, h, 16, 17, 10, 4, C("#A5E1D8"));
+            Rect(p, w, h, 28, 17, 9, 4, C("#A5E1D8"));
             Circle(p, w, h, 13, 5, 4, Ink);
             Circle(p, w, h, 38, 5, 4, Ink);
             SaveSprite(file, w, h, p, 16f);
@@ -864,8 +864,8 @@ namespace Dolzore.Editor
         {
             const int w = 16, h = 52;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 7, 3, 3, 42, C("#5A4C3A"));
-            Rect(p, w, h, 2, 40, 13, 3, C("#4A3E31"));
+            Rect(p, w, h, 7, 3, 3, 42, C("#6B513D"));
+            Rect(p, w, h, 2, 40, 13, 3, C("#584332"));
             Rect(p, w, h, 3, 44, 3, 5, Ink);
             Rect(p, w, h, 11, 44, 3, 5, Ink);
             SaveSprite(file, w, h, p, 16f);
@@ -877,8 +877,8 @@ namespace Dolzore.Editor
             Color32[] p = Transparent(w * h);
             for (int x = 2; x < 23; x += 5)
             {
-                Rect(p, w, h, x, 1, 1, 7, C("#3D7B45"));
-                Circle(p, w, h, x, 8, 2, (x % 10 == 2) ? C("#F0A0A0") : C("#F0D06C"));
+                Rect(p, w, h, x, 1, 1, 7, C("#42A94D"));
+                Circle(p, w, h, x, 8, 2, (x % 10 == 2) ? C("#FF8EA4") : C("#FFD75E"));
             }
             SaveSprite(file, w, h, p, 16f);
         }
@@ -887,11 +887,11 @@ namespace Dolzore.Editor
         {
             const int w = 18, h = 12;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 4, 3, 9, 5, C("#D4A16A"));
-            Rect(p, w, h, 12, 6, 4, 3, C("#D4A16A"));
-            Rect(p, w, h, 13, 9, 1, 2, C("#D4A16A"));
-            Rect(p, w, h, 15, 9, 1, 2, C("#D4A16A"));
-            Rect(p, w, h, 2, 4, 3, 2, C("#D4A16A"));
+            Rect(p, w, h, 4, 3, 9, 5, C("#E8A45E"));
+            Rect(p, w, h, 12, 6, 4, 3, C("#E8A45E"));
+            Rect(p, w, h, 13, 9, 1, 2, C("#E8A45E"));
+            Rect(p, w, h, 15, 9, 1, 2, C("#E8A45E"));
+            Rect(p, w, h, 2, 4, 3, 2, C("#E8A45E"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -899,13 +899,13 @@ namespace Dolzore.Editor
         {
             const int w = 42, h = 78;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 10, 3, 3, 42, C("#50555A"));
-            Rect(p, w, h, 29, 3, 3, 42, C("#50555A"));
-            Line(p, w, h, 11, 13, 31, 40, C("#50555A"));
-            Line(p, w, h, 31, 13, 11, 40, C("#50555A"));
-            Rect(p, w, h, 8, 44, 26, 18, C("#71858A"));
-            Rect(p, w, h, 5, 50, 32, 10, C("#71858A"));
-            Rect(p, w, h, 11, 62, 20, 4, C("#4E5B61"));
+            Rect(p, w, h, 10, 3, 3, 42, C("#576978"));
+            Rect(p, w, h, 29, 3, 3, 42, C("#576978"));
+            Line(p, w, h, 11, 13, 31, 40, C("#576978"));
+            Line(p, w, h, 31, 13, 11, 40, C("#576978"));
+            Rect(p, w, h, 8, 44, 26, 18, C("#5AA8AD"));
+            Rect(p, w, h, 5, 50, 32, 10, C("#5AA8AD"));
+            Rect(p, w, h, 11, 62, 20, 4, C("#447E89"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -941,8 +941,8 @@ namespace Dolzore.Editor
         {
             const int w = 14, h = 14;
             Color32[] p = Transparent(w * h);
-            Circle(p, w, h, 7, 7, 5, C("#454A4D"));
-            Ring(p, w, h, 7, 7, 4, C("#747875"));
+            Circle(p, w, h, 7, 7, 5, C("#55577B"));
+            Ring(p, w, h, 7, 7, 4, C("#8B8AB3"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -950,9 +950,9 @@ namespace Dolzore.Editor
         {
             const int w = 24, h = 39;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 11, 2, 2, 24, C("#585D5C"));
-            Rect(p, w, h, 3, 25, 18, 9, C("#47788C"));
-            Rect(p, w, h, 6, 28, 12, 2, C("#ECE0B2"));
+            Rect(p, w, h, 11, 2, 2, 24, C("#5B6180"));
+            Rect(p, w, h, 3, 25, 18, 9, C("#4A9BC1"));
+            Rect(p, w, h, 6, 28, 12, 2, C("#FFF0A1"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -960,10 +960,10 @@ namespace Dolzore.Editor
         {
             const int w = 22, h = 42;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 10, 2, 3, 30, C("#535C61"));
-            Rect(p, w, h, 3, 27, 17, 10, C("#507D8F"));
-            Rect(p, w, h, 6, 30, 11, 2, C("#E8D8A8"));
-            Rect(p, w, h, 7, 33, 8, 2, C("#E8D8A8"));
+            Rect(p, w, h, 10, 2, 3, 30, C("#5C6280"));
+            Rect(p, w, h, 3, 27, 17, 10, C("#559DC1"));
+            Rect(p, w, h, 6, 30, 11, 2, C("#FFE493"));
+            Rect(p, w, h, 7, 33, 8, 2, C("#FFE493"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -971,11 +971,11 @@ namespace Dolzore.Editor
         {
             const int w = 26, h = 18;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 3, 2, 20, 7, C("#92704F"));
-            Rect(p, w, h, 5, 8, 16, 3, C("#4F8249"));
-            Circle(p, w, h, 8, 12, 3, C("#E79D9D"));
-            Circle(p, w, h, 14, 13, 3, C("#E9D06B"));
-            Circle(p, w, h, 19, 12, 3, C("#D896B1"));
+            Rect(p, w, h, 3, 2, 20, 7, C("#B87950"));
+            Rect(p, w, h, 5, 8, 16, 3, C("#55AB52"));
+            Circle(p, w, h, 8, 12, 3, C("#FF94A8"));
+            Circle(p, w, h, 14, 13, 3, C("#FFD85C"));
+            Circle(p, w, h, 19, 12, 3, C("#E88CC8"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -983,8 +983,8 @@ namespace Dolzore.Editor
         {
             const int w = 20, h = 10;
             Color32[] p = Transparent(w * h);
-            Rect(p, w, h, 2, 2, 16, 6, C("#52585A"));
-            for (int x = 4; x < 18; x += 3) Rect(p, w, h, x, 3, 1, 4, C("#252B2F"));
+            Rect(p, w, h, 2, 2, 16, 6, C("#5B5E7B"));
+            for (int x = 4; x < 18; x += 3) Rect(p, w, h, x, 3, 1, 4, C("#303251"));
             SaveSprite(file, w, h, p, 16f);
         }
 
@@ -1069,7 +1069,7 @@ namespace Dolzore.Editor
         private static Color32[] AddReadableOutline(Color32[] source, int w, int h)
         {
             Color32[] result = (Color32[])source.Clone();
-            Color32 outline = C("#293247");
+            Color32 outline = C("#30305D");
 
             for (int y = 0; y < h; y++)
             {
