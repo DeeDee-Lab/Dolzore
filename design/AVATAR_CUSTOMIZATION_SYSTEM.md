@@ -183,3 +183,38 @@ Implementation commits in progress:
 - crosswalks migrated to road-grid Tilemap.
 
 Do not call the avatar quality complete until the generated showcase and field screenshot are visually reviewed.
+
+
+## 2026-09-30 implementation proof
+
+Latest implementation now includes:
+- `AvatarAppearanceData` persisted separately from stats;
+- `AvatarPresets`;
+- `AvatarPixelComposer`;
+- `AvatarRuntimeRenderer`;
+- `AvatarAssetGenerator`;
+- 4 directions + 2 walking phases;
+- 8 hair-style IDs;
+- 6 top styles;
+- 5 bottom styles;
+- 4 shoe styles;
+- accessories + accent items;
+- skin/hair/top/bottom/shoe/accessory/accent colors independently stored;
+- enlarged wardrobe showcase artifact;
+- silhouette quality receipt.
+
+Core-four silhouettes are automatically hashed and must differ.
+
+Latest full green proof:
+- run `36656034405 = SUCCESS`
+- generated source `82510581568d9b868b06a5a89e4fb9db30e8c907`
+- `DOLZORE_AVATAR_QUALITY_SUCCESS`
+- road markings aligned: 27 cells PASS
+- WebGL PASS
+
+Review artifacts:
+- `BuildArtifacts/avatar-showcase.png`
+- `BuildArtifacts/avatar-quality.json`
+- `BuildArtifacts/first-town.png`
+
+The core four remain presets of the same player-customizable avatar engine.
