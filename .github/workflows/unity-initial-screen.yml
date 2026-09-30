@@ -104,6 +104,7 @@ jobs:
             "BuildArtifacts\initial-screen.png",
             "BuildArtifacts\first-town.png",
             "BuildArtifacts\avatar-showcase.png",
+            "BuildArtifacts\avatar-quality.json",
             "BuildArtifacts\first-town-acceptance.json"
           )
           foreach ($rel in $required) {
@@ -186,6 +187,7 @@ jobs:
             game/unity/Dolzore/BuildArtifacts/initial-screen.png
             game/unity/Dolzore/BuildArtifacts/first-town.png
             game/unity/Dolzore/BuildArtifacts/avatar-showcase.png
+            game/unity/Dolzore/BuildArtifacts/avatar-quality.json
             game/unity/Dolzore/BuildArtifacts/first-town-acceptance.json
             game/unity/Dolzore/Builds/WebGL/**
 
