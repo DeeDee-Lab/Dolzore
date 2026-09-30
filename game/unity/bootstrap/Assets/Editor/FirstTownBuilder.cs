@@ -129,7 +129,9 @@ namespace Dolzore.Editor
             FirstTownVisualEnhancer.Apply();
             FirstTownVisualRebuildV3.Apply();
             FirstTownVisualRebuildV6.Apply();
+            FirstTownVisualRebuildV7.Apply();
             MakeEventSystem();
+            FirstTownVisualPlacementVerifier.AssertCurrentScene();
             FirstTownAcceptanceVerifier.AssertCurrentScene();
             EditorSceneManager.SaveScene(scene, scenePath);
         }
