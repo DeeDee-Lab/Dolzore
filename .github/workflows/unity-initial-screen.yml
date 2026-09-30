@@ -105,9 +105,24 @@ jobs:
           $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
           $log = Join-Path $env:RUNNER_TEMP "dolzore-unity-generate.log"
           $args = @("-quit","-batchmode","-projectPath",$project,"-executeMethod","Dolzore.Editor.ProjectBootstrap.GenerateInitialSlice","-logFile",$log)
-          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+
+          $deadline = (Get-Date).AddMinutes(6)
+          while (-not $proc.HasExited -and (Get-Date) -lt $deadline) {
+            Start-Sleep -Seconds 2
+            $proc.Refresh()
+          }
+
+          if (-not $proc.HasExited) {
+            Write-Host "DOLZORE_UNITY_GENERATE_TIMEOUT_PID=$($proc.Id)"
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 2
+            if (Test-Path $log) { Get-Content $log -Tail 600 }
+            throw "DOLZORE_UNITY_GENERATE_TIMEOUT_6M"
+          }
+
           $code = $proc.ExitCode
-          if (Test-Path $log) { Get-Content $log -Tail 420 }
+          if (Test-Path $log) { Get-Content $log -Tail 600 }
           if ($code -ne 0) {
             throw "DOLZORE_UNITY_GENERATE_FAILED:$code"
           }
