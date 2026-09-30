@@ -1,3 +1,21 @@
+# CRITICAL — SOURCE FIDELITY ORDER (2026-09-30 DIRECT USER AUTHORITY)
+
+Before reading the rest of this document, read these in order:
+
+1. `research/ff11/RAW_SOURCE_HANDOFF_CONTRACT.md`
+2. `research/ff11/RAW_SOURCE_INDEX.json`
+3. `research/ff11/VERIFIED_FACT_RECORD_SCHEMA_V1.json`
+4. `research/ff11/FF11_VERIFIED_FACT_CATALOG_V1.jsonl` when present
+5. only then this document and `FF11_REFERENCE_SPEC_V1.json`
+
+This file is an **INTERPRETATION / SYNTHESIS layer**. It is not the raw source of truth.
+
+If this file conflicts with RAW_SOURCE or VERIFIED_FACT, RAW_SOURCE / VERIFIED_FACT wins and this file must be corrected.
+
+Do not hand another agent only this summary.
+
+---
+
 # FF11 REFERENCE — AGENT READ FIRST
 
 Authority date: 2026-09-29 JST  
