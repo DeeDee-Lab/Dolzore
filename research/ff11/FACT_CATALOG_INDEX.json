@@ -5,6 +5,7 @@
   "handoff_order": [
     "RAW_SOURCE_HANDOFF_CONTRACT.md",
     "RAW_SOURCE_INDEX.json",
+    "PINNED_EXTERNAL_SOURCE_POINTERS.json",
     "VERIFIED_FACT_RECORD_SCHEMA_V1.json",
     "FACT_CATALOG_INDEX.json",
     "facts/*.jsonl",
@@ -130,5 +131,9 @@
       "battle music/audio exact file pointers/resource IDs from installed clients"
     ]
   },
-  "no_absence_inference": "A missing record means not yet extracted; it does not mean the FF11 feature/value does not exist."
+  "no_absence_inference": "A missing record means not yet extracted; it does not mean the FF11 feature/value does not exist.",
+  "pinned_external_sources": {
+    "file": "PINNED_EXTERNAL_SOURCE_POINTERS.json",
+    "rule": "fetch pinned upstream file directly; do not substitute retyped/summary data"
+  }
 }
