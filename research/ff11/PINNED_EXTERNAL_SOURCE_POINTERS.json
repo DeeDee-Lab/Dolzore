@@ -1,0 +1,151 @@
+{
+  "schema": "dolzore.ff11.pinned_external_source_pointers.v1",
+  "authority": "direct-user-2026-09-30",
+  "rule": "Consumer agent must fetch the pinned upstream file directly. Do not substitute a summary or a retyped table.",
+  "sources": [
+    {
+      "source_id": "WINDOWER_RESOURCES_2026-09-10",
+      "repository": "Windower/Resources",
+      "commit_sha": "99f552fa7cdd8e4a65e3dfa5bbd7d9462ac60b89",
+      "commit_message": "September 10, 2026 FFXI Update",
+      "evidence_class": "CLIENT_COMPATIBILITY_RESEARCH",
+      "files": [
+        [
+          "resources_data/ability_recasts.lua",
+          "266a4be29c0cb4222b925eeafadf3908cf9e8813",
+          18919
+        ],
+        [
+          "resources_data/augments.lua",
+          "591c11421ce624c8674e805317d2ad136d887585",
+          117880
+        ],
+        [
+          "resources_data/buffs.lua",
+          "0c396b2e9b7c4894103492bdd98ab1b35f343b59",
+          66223
+        ],
+        [
+          "resources_data/elements.lua",
+          "5d020daa29bd3f2ca54b13522f40982e6dccc080",
+          1957
+        ],
+        [
+          "resources_data/items.lua",
+          "abd1e4103f4a640cafe2ca51e6753e8008c87e7a",
+          5016337
+        ],
+        [
+          "resources_data/job_abilities.lua",
+          "d49c858465f942fefd7fb169a6f2005aee93b4bf",
+          119082
+        ],
+        [
+          "resources_data/job_points.lua",
+          "5fe0b1341a47240e50e96a0790a9fd9ad54aaa91",
+          73774
+        ],
+        [
+          "resources_data/job_traits.lua",
+          "8a3879f7b3603a9969e0fa5b3982b65384fc284d",
+          14473
+        ],
+        [
+          "resources_data/jobs.lua",
+          "e82aa70d5ca84be989569646e5a668aa2c0ee2bb",
+          3221
+        ],
+        [
+          "resources_data/merit_points.lua",
+          "298283b83cba84f41474ba7e105813f24bb46139",
+          78902
+        ],
+        [
+          "resources_data/music.lua",
+          "a02a4557cd991b920b4db72473be4d10a24ff9d4",
+          11312
+        ],
+        [
+          "resources_data/races.lua",
+          "bb2209eecbe37144eb7d79dcbf7aea4d8f9b752a",
+          2817
+        ],
+        [
+          "resources_data/skills.lua",
+          "40c404e9dd9896aab5beddb8fd9070e84e130b8a",
+          4770
+        ],
+        [
+          "resources_data/spells.lua",
+          "c57e8179633d578418f219da757c82da750def1c",
+          267585
+        ],
+        [
+          "resources_data/statuses.lua",
+          "504e81b4704656a0bb974042d56019915ab81148",
+          3320
+        ],
+        [
+          "resources_data/weapon_skills.lua",
+          "3cc68a69d0b11b81969dfd1d94ea5b3d80fbb75b",
+          49666
+        ],
+        [
+          "resources_data/weather.lua",
+          "dca304ac8b2d8714d94de4ee805fc1927dcb609e",
+          2931
+        ],
+        [
+          "resources_data/zones.lua",
+          "2f898028888a49c8b48441a5a95046ee8ec657bf",
+          40076
+        ]
+      ]
+    },
+    {
+      "source_id": "WINDOWER_RESOURCE_EXTRACTOR_2026-09-10",
+      "repository": "Windower/ResourceExtractor",
+      "commit_sha": "51bef175adb101b41de0a482f30ecb100d35cbba",
+      "commit_message": "Updated to new item structures",
+      "evidence_class": "CLIENT_COMPATIBILITY_RESEARCH",
+      "files": [
+        [
+          "ResourceParser.cs",
+          "7c39f48ca8539527d4db9c03dbca16590df15d0f",
+          16760
+        ],
+        [
+          "DatParser.cs",
+          "ed2af136e055537f48d0656eb2446567bf2dfa27",
+          749
+        ],
+        [
+          "DMsgParser.cs",
+          "547b5f7254e53ed415cef67038a3e474b15e0f18",
+          3446
+        ],
+        [
+          "MapDats.json",
+          "774018d7e2ba7770f7362c02cdcc52349a9c321c",
+          9500
+        ],
+        [
+          "MapParser.cs",
+          "d6975596d03f3c101ea6aa24ae69ecacc7b24f81",
+          2171
+        ],
+        [
+          "MagicType.cs",
+          "5318818fb1c67f11fa316fc529f1fd8c7e5b337f",
+          199
+        ],
+        [
+          "AbilityType.cs",
+          "89e372d7286962f4ba14a50c377a51452576da89",
+          411
+        ]
+      ]
+    }
+  ],
+  "caveat": "These are third-party research/tool data and must retain their evidence class. They are not automatically authoritative Square Enix retail server facts."
+}
