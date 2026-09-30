@@ -107,10 +107,31 @@ namespace Dolzore.Editor
                     throw new InvalidOperationException("DOLZORE_CROSSWALK_OFF_ROAD:" + cell);
             }
 
-            if (markingCells < 18)
-                throw new InvalidOperationException("DOLZORE_CROSSWALK_MARKING_COUNT_TOO_LOW:" + markingCells);
+            Vector3Int[] expected =
+            {
+                new Vector3Int(1, 4, 0),
+                new Vector3Int(1, 5, 0),
+                new Vector3Int(1, 6, 0),
+                new Vector3Int(15, 4, 0),
+                new Vector3Int(15, 5, 0),
+                new Vector3Int(15, 6, 0),
+                new Vector3Int(14, -10, 0),
+                new Vector3Int(15, -10, 0),
+                new Vector3Int(16, -10, 0)
+            };
 
-            Debug.Log("DOLZORE_ROAD_MARKINGS_ALIGNED=PASS cells=" + markingCells);
+            if (markingCells != expected.Length)
+                throw new InvalidOperationException("DOLZORE_CROSSWALK_MARKING_COUNT_MISMATCH:" + markingCells + ":expected=" + expected.Length);
+
+            for (int i = 0; i < expected.Length; i++)
+            {
+                if (!markings.HasTile(expected[i]))
+                    throw new InvalidOperationException("DOLZORE_CROSSWALK_EXPECTED_CELL_MISSING:" + expected[i]);
+                if (!roads.HasTile(expected[i]))
+                    throw new InvalidOperationException("DOLZORE_CROSSWALK_EXPECTED_CELL_OFF_ROAD:" + expected[i]);
+            }
+
+            Debug.Log("DOLZORE_ROAD_MARKINGS_ALIGNED=PASS cells=" + markingCells + " v6_strips=3");
         }
 
         private static void AssertUiSurface()
