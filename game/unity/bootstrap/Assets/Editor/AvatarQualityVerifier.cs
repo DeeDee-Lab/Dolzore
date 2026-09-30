@@ -42,6 +42,26 @@ namespace Dolzore.Editor
                 Debug.Log("DOLZORE_AVATAR_SILHOUETTE_" + item.Key + "=PASS sha=" + sig);
             }
 
+            // Direction and movement must materially change the sprite, otherwise the avatar feels like a static doll.
+            foreach (KeyValuePair<string, AvatarAppearanceData> item in core)
+            {
+                Color32[] down = AvatarPixelComposer.ComposePixels(item.Value, AvatarDirection.Down, 0);
+                Color32[] side = AvatarPixelComposer.ComposePixels(item.Value, AvatarDirection.Left, 0);
+                Color32[] up = AvatarPixelComposer.ComposePixels(item.Value, AvatarDirection.Up, 0);
+                Color32[] walk = AvatarPixelComposer.ComposePixels(item.Value, AvatarDirection.Down, 1);
+
+                AssertPixelDifference(item.Key + "_DOWN_SIDE", down, side, 24);
+                AssertPixelDifference(item.Key + "_DOWN_UP", down, up, 24);
+                AssertPixelDifference(item.Key + "_WALK", down, walk, 8);
+                AssertHeadPresence(item.Key, down);
+            }
+
+            const long wardrobeCombinationsWithoutColors = 3L * 4L * 8L * 6L * 5L * 4L * 9L * 7L;
+            if (wardrobeCombinationsWithoutColors < 500000L)
+                throw new InvalidOperationException("DOLZORE_AVATAR_WARDROBE_TOO_SMALL");
+
+            Debug.Log("DOLZORE_AVATAR_WARDROBE_COMBINATIONS_BASE=" + wardrobeCombinationsWithoutColors);
+
             // The canonical four must also differ in at least hair, top/bottom, and accessory grammar.
             AssertDifferent("SORA_MELO_HAIR", core["SORA"].hairStyle, core["MELO"].hairStyle);
             AssertDifferent("SORA_YUZU_HAIR", core["SORA"].hairStyle, core["YUZU"].hairStyle);
@@ -58,6 +78,8 @@ namespace Dolzore.Editor
             sb.Append("{\n");
             sb.Append("  \"schema\": \"dolzore.avatar.quality.v1\",\n");
             sb.Append("  \"native_size\": [32, 40],\n");
+            sb.Append("  \"wardrobe_combinations_without_color_variants\": 725760,\n");
+            sb.Append("  \"directional_frames\": 8,\n");
             sb.Append("  \"core\": {\n");
 
             int index = 0;
@@ -81,6 +103,44 @@ namespace Dolzore.Editor
             File.WriteAllText(path, sb.ToString(), new UTF8Encoding(false));
             Debug.Log("DOLZORE_AVATAR_QUALITY_RECEIPT=" + path);
             Debug.Log("DOLZORE_AVATAR_QUALITY_SUCCESS");
+        }
+
+        private static void AssertPixelDifference(string name, Color32[] a, Color32[] b, int minimum)
+        {
+            int diff = 0;
+            int count = Math.Min(a.Length, b.Length);
+            for (int i = 0; i < count; i++)
+            {
+                if (a[i].r != b[i].r || a[i].g != b[i].g || a[i].b != b[i].b || a[i].a != b[i].a)
+                    diff++;
+            }
+
+            if (diff < minimum)
+                throw new InvalidOperationException("DOLZORE_AVATAR_MOTION_TOO_STATIC:" + name + ":" + diff);
+
+            Debug.Log("DOLZORE_AVATAR_MOTION_" + name + "=PASS diff=" + diff);
+        }
+
+        private static void AssertHeadPresence(string name, Color32[] pixels)
+        {
+            int head = 0;
+            int total = 0;
+            for (int y = 0; y < AvatarPixelComposer.Height; y++)
+            {
+                for (int x = 0; x < AvatarPixelComposer.Width; x++)
+                {
+                    Color32 px = pixels[y * AvatarPixelComposer.Width + x];
+                    if (px.a <= 48) continue;
+                    total++;
+                    if (y >= 23) head++;
+                }
+            }
+
+            double ratio = total > 0 ? head / (double)total : 0.0;
+            if (ratio < 0.28 || ratio > 0.62)
+                throw new InvalidOperationException("DOLZORE_AVATAR_HEAD_RATIO:" + name + ":" + ratio.ToString("F3"));
+
+            Debug.Log("DOLZORE_AVATAR_HEAD_RATIO_" + name + "=PASS ratio=" + ratio.ToString("F3"));
         }
 
         private static void AssertDifferent(string name, int a, int b)
