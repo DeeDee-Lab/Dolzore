@@ -293,10 +293,11 @@ Optional additional fields may exist but may not replace raw_value.
 Before implementing or changing any FF11-derived system:
 1. read this contract;
 2. load RAW_SOURCE_INDEX.json;
-3. load FF11_VERIFIED_FACT_CATALOG*.json/jsonl;
-4. if file-backed, validate source SHA-256 before using it;
-5. only then read interpretation/recommendation files;
-6. if interpretation conflicts with raw/verified source, raw/verified source wins and the interpretation must be corrected.
+3. load `FACT_CATALOG_INDEX.json`;
+4. load every `facts/*.jsonl` listed by that index;
+5. if file-backed, validate source SHA-256 before using it;
+6. only then read interpretation/recommendation files;
+7. if interpretation conflicts with raw/verified source, raw/verified source wins and the interpretation must be corrected.
 
 ## 8. Historical correction
 
