@@ -1,0 +1,48 @@
+{
+  "schema": "dolzore.ff11.verified_fact_record.v1",
+  "authority": "direct-user-2026-09-30",
+  "required_fields": [
+    "fact_id",
+    "domain",
+    "field_name",
+    "raw_value",
+    "raw_value_type",
+    "unit_or_encoding",
+    "conditions",
+    "source_id",
+    "source_type",
+    "source_location",
+    "source_version",
+    "evidence_class",
+    "observed_at_or_source_date",
+    "extraction_method",
+    "source_sha256_if_file_backed"
+  ],
+  "raw_value_types": [
+    "string",
+    "integer",
+    "number",
+    "boolean",
+    "enum",
+    "array",
+    "object",
+    "formula",
+    "bytes_ref",
+    "null"
+  ],
+  "evidence_classes": [
+    "OFFICIAL_CURRENT",
+    "OFFICIAL_HISTORICAL",
+    "CLIENT_STATIC_OBSERVED",
+    "CLIENT_RUNTIME_OBSERVED",
+    "COMMUNITY_RESEARCH",
+    "OPEN_SOURCE_EMULATION_REFERENCE",
+    "SERVER_SIDE_UNKNOWN"
+  ],
+  "no_overwrite_rule": "Derived, normalized, translated, converted, rounded, inferred, or calculated values must be additional fields and must never replace raw_value.",
+  "provenance_rules": {
+    "file_backed": "source_sha256_if_file_backed required when source is a local file",
+    "web_backed": "source_location must identify the exact URL/page/section or exact retrieval identity",
+    "versioned": "source_version/build/date must be retained where available"
+  }
+}
