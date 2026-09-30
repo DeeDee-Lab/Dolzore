@@ -4,10 +4,11 @@ Before reading the rest of this document, read these in order:
 
 1. `research/ff11/RAW_SOURCE_HANDOFF_CONTRACT.md`
 2. `research/ff11/RAW_SOURCE_INDEX.json`
-3. `research/ff11/VERIFIED_FACT_RECORD_SCHEMA_V1.json`
-4. `research/ff11/FACT_CATALOG_INDEX.json`
-5. every `research/ff11/facts/*.jsonl` file listed by that index
-6. only then this document and `FF11_REFERENCE_SPEC_V1.json`
+3. `research/ff11/PINNED_EXTERNAL_SOURCE_POINTERS.json`
+4. `research/ff11/VERIFIED_FACT_RECORD_SCHEMA_V1.json`
+5. `research/ff11/FACT_CATALOG_INDEX.json`
+6. every `research/ff11/facts/*.jsonl` file listed by that index
+7. only then this document and `FF11_REFERENCE_SPEC_V1.json`
 
 This file is an **INTERPRETATION / SYNTHESIS layer**. It is not the raw source of truth.
 
