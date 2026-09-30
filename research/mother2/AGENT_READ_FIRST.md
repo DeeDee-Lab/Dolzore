@@ -154,25 +154,26 @@ Do not assign one generic town track and one battle track. Music must be part of
 
 1. AGENT_READ_FIRST.md
 2. DIRECT_VISUAL_EVIDENCE_PACKET_V1.md
-3. MOTHER2_REFERENCE_SPEC_V1.json
-4. FIRST_TOWN_AUTHORING_CONTRACT_V1.json
-5. DIFFERENTIATION_GUARDRAILS.md
-6. WORLD_MAP_FIELD_GRAMMAR.md
-7. OFFICIAL_SCREENSHOT_VISUAL_OBSERVATIONS_V1.md
-8. LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md
-9. VISUAL_CHARACTER_EFFECT_GRAMMAR.md
-10. AUDIO_ATMOSPHERE_GRAMMAR.md
-11. MUSIC_ROLE_MATRIX.md
-12. DIALOGUE_WORLDVIEW_GRAMMAR.md
-13. NPC_LIFE_SOCIAL_TEXTURE_GRAMMAR.md
-14. GAMEPLAY_UI_BATTLE_PRESENTATION_GRAMMAR.md
-15. ENEMY_ITEM_SERVICE_SYSTEM_GRAMMAR.md
-16. NARRATIVE_PACING_MEMORY_GRAMMAR.md
-17. TECHNICAL_ARCHITECTURE_FINDINGS.md
-18. DOLZORE_UNITY_IMPLEMENTATION_CHECKLIST.md
-19. SOURCE_INDEX.md
-20. RESEARCH_STATUS.json
-21. Dolzore issue #26 latest checkpoint
+3. GAMEPEDIA_TOWN_IMAGE_SOURCE_MANIFEST_V1.json
+4. MOTHER2_REFERENCE_SPEC_V1.json
+5. FIRST_TOWN_AUTHORING_CONTRACT_V1.json
+6. DIFFERENTIATION_GUARDRAILS.md
+7. WORLD_MAP_FIELD_GRAMMAR.md
+8. OFFICIAL_SCREENSHOT_VISUAL_OBSERVATIONS_V1.md
+9. LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md
+10. VISUAL_CHARACTER_EFFECT_GRAMMAR.md
+11. AUDIO_ATMOSPHERE_GRAMMAR.md
+12. MUSIC_ROLE_MATRIX.md
+13. DIALOGUE_WORLDVIEW_GRAMMAR.md
+14. NPC_LIFE_SOCIAL_TEXTURE_GRAMMAR.md
+15. GAMEPLAY_UI_BATTLE_PRESENTATION_GRAMMAR.md
+16. ENEMY_ITEM_SERVICE_SYSTEM_GRAMMAR.md
+17. NARRATIVE_PACING_MEMORY_GRAMMAR.md
+18. TECHNICAL_ARCHITECTURE_FINDINGS.md
+19. DOLZORE_UNITY_IMPLEMENTATION_CHECKLIST.md
+20. SOURCE_INDEX.md
+21. RESEARCH_STATUS.json
+22. Dolzore issue #26 latest checkpoint
 
 ## 5. Translation into DOLZORE
 
@@ -224,3 +225,24 @@ Binding correction:
 - abstract summaries are navigation only, never the full handoff.
 
 This follows the global detailed-handoff policy registered in AgentHub canonical governance.
+
+
+## 8. Original-image handoff rule — permanent
+
+Global policy:
+`global.original-image-transfer.v1`
+
+For MOTHER2 visual research:
+- original image/reference is primary evidence;
+- summaries, OCR, captions, measurements and thumbnails are secondary only;
+- do not replace an original with compressed/resized/transcoded/cropped copies;
+- for third-party copyrighted references, preserve the exact original media URL + source page rather than copying the image body into this repository;
+- production Agents must inspect the original image reference, not only derived prose.
+
+Gamepedia exact-original manifest:
+`GAMEPEDIA_TOWN_IMAGE_SOURCE_MANIFEST_V1.json`
+
+Current corpus:
+- town/field pages: 15
+- exact original media URLs: 70
+- thumbnail/CDN transform URLs are non-canonical derivatives.
