@@ -120,6 +120,133 @@ namespace Dolzore.Editor
             utility.accessory = Hex("#B86A4A");
             utility.accent = Hex("#F0CB55");
             GeneratePreview("wardrobe_utility", utility);
+
+            GenerateShowcase(new[]
+            {
+                AvatarPresets.Sora(),
+                AvatarPresets.Melo(),
+                AvatarPresets.Yuzu(),
+                AvatarPresets.Pon(),
+                sporty,
+                street,
+                soft,
+                utility
+            });
+        }
+
+        public static void GenerateShowcase(AvatarAppearanceData[] appearances)
+        {
+            if (appearances == null || appearances.Length == 0) return;
+
+            const int scale = 7;
+            const int cardW = 208;
+            const int cardH = 292;
+            const int cols = 4;
+            const int rows = 2;
+            const int margin = 22;
+            int width = margin * 2 + cardW * cols;
+            int height = margin * 2 + cardH * rows;
+
+            Color32 bg = Hex("#F8E8A8");
+            Color32 ink = Hex("#34335F");
+            Color32[] cardColors =
+            {
+                Hex("#BFE8C5"), Hex("#F8B6B8"), Hex("#F7D76E"), Hex("#BFCDF6"),
+                Hex("#F7A277"), Hex("#81D8D2"), Hex("#E8B6D6"), Hex("#9BCB75")
+            };
+
+            Color32[] canvas = new Color32[width * height];
+            for (int i = 0; i < canvas.Length; i++) canvas[i] = bg;
+
+            for (int i = 0; i < appearances.Length && i < 8; i++)
+            {
+                int col = i % cols;
+                int row = i / cols;
+                int ox = margin + col * cardW;
+                int oy = margin + (rows - 1 - row) * cardH;
+
+                FillRect(canvas, width, height, ox + 4, oy + 4, cardW - 8, cardH - 8, cardColors[i % cardColors.Length]);
+                FrameRect(canvas, width, height, ox + 4, oy + 4, cardW - 8, cardH - 8, ink, 4);
+
+                Color32[] avatar = AvatarPixelComposer.ComposePixels(appearances[i], AvatarDirection.Down, 0);
+                int avatarW = AvatarPixelComposer.Width * scale;
+                int avatarH = AvatarPixelComposer.Height * scale;
+                int ax = ox + (cardW - avatarW) / 2;
+                int ay = oy + 28;
+
+                BlitNearest(canvas, width, height, avatar, AvatarPixelComposer.Width, AvatarPixelComposer.Height, ax, ay, scale);
+
+                // Small palette swatches communicate customization dimensions without text.
+                Color32[] swatches =
+                {
+                    appearances[i].hair,
+                    appearances[i].top,
+                    appearances[i].bottom,
+                    appearances[i].shoes,
+                    appearances[i].accessory,
+                    appearances[i].accent
+                };
+                int sw = 22;
+                int sx = ox + 27;
+                int sy = oy + cardH - 34;
+                for (int s = 0; s < swatches.Length; s++)
+                {
+                    FillRect(canvas, width, height, sx + s * 27, sy, sw, 12, swatches[s]);
+                    FrameRect(canvas, width, height, sx + s * 27, sy, sw, 12, ink, 1);
+                }
+            }
+
+            Texture2D output = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            output.filterMode = FilterMode.Point;
+            output.SetPixels32(canvas);
+            output.Apply(false, false);
+
+            string projectRoot = Directory.GetParent(Application.dataPath).FullName;
+            string artifacts = Path.Combine(projectRoot, "BuildArtifacts");
+            Directory.CreateDirectory(artifacts);
+            File.WriteAllBytes(Path.Combine(artifacts, "avatar-showcase.png"), output.EncodeToPNG());
+            UnityEngine.Object.DestroyImmediate(output);
+        }
+
+        private static void BlitNearest(Color32[] dst, int dw, int dh, Color32[] src, int sw, int sh, int ox, int oy, int scale)
+        {
+            for (int y = 0; y < sh; y++)
+            {
+                for (int x = 0; x < sw; x++)
+                {
+                    Color32 c = src[y * sw + x];
+                    if (c.a == 0) continue;
+                    for (int yy = 0; yy < scale; yy++)
+                    {
+                        for (int xx = 0; xx < scale; xx++)
+                        {
+                            int dx = ox + x * scale + xx;
+                            int dy = oy + y * scale + yy;
+                            if (dx >= 0 && dx < dw && dy >= 0 && dy < dh)
+                                dst[dy * dw + dx] = c;
+                        }
+                    }
+                }
+            }
+        }
+
+        private static void FillRect(Color32[] p, int w, int h, int x, int y, int rw, int rh, Color32 c)
+        {
+            int x0 = Mathf.Clamp(x, 0, w);
+            int x1 = Mathf.Clamp(x + rw, 0, w);
+            int y0 = Mathf.Clamp(y, 0, h);
+            int y1 = Mathf.Clamp(y + rh, 0, h);
+            for (int yy = y0; yy < y1; yy++)
+                for (int xx = x0; xx < x1; xx++)
+                    p[yy * w + xx] = c;
+        }
+
+        private static void FrameRect(Color32[] p, int w, int h, int x, int y, int rw, int rh, Color32 c, int thickness)
+        {
+            FillRect(p, w, h, x, y, rw, thickness, c);
+            FillRect(p, w, h, x, y + rh - thickness, rw, thickness, c);
+            FillRect(p, w, h, x, y, thickness, rh, c);
+            FillRect(p, w, h, x + rw - thickness, y, thickness, rh, c);
         }
 
         private static string Abs(string relative)
