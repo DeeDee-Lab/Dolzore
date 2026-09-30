@@ -71,11 +71,11 @@ namespace Dolzore
                 accentStyle = 1,
                 skin = Hex("#E5B58B"),
                 hair = Hex("#332A2D"),
-                top = Hex("#58A394"),
-                bottom = Hex("#3D4B5C"),
+                top = Hex("#55B7A4"),
+                bottom = Hex("#3D4B68"),
                 shoes = Hex("#F0E4C7"),
                 accessory = Hex("#EFE0B0"),
-                accent = Hex("#C96E63")
+                accent = Hex("#E27367")
             };
         }
 
@@ -93,11 +93,11 @@ namespace Dolzore
                 accentStyle = 2,
                 skin = Hex("#E2AF88"),
                 hair = Hex("#7B453F"),
-                top = Hex("#A85063"),
-                bottom = Hex("#5C4051"),
+                top = Hex("#B65370"),
+                bottom = Hex("#62405D"),
                 shoes = Hex("#3E3442"),
                 accessory = Hex("#F0E2BF"),
-                accent = Hex("#E0AD45")
+                accent = Hex("#F0BE4E")
             };
         }
 
@@ -115,11 +115,11 @@ namespace Dolzore
                 accentStyle = 3,
                 skin = Hex("#E2B089"),
                 hair = Hex("#332F35"),
-                top = Hex("#D4A747"),
-                bottom = Hex("#64745B"),
+                top = Hex("#E0B447"),
+                bottom = Hex("#5F7B55"),
                 shoes = Hex("#39393C"),
                 accessory = Hex("#F0E4BF"),
-                accent = Hex("#B85D62")
+                accent = Hex("#C45B6B")
             };
         }
 
@@ -136,12 +136,12 @@ namespace Dolzore
                 accessoryStyle = 4,
                 accentStyle = 4,
                 skin = Hex("#DEAC84"),
-                hair = Hex("#4B5A78"),
-                top = Hex("#567EAD"),
-                bottom = Hex("#354765"),
+                hair = Hex("#4A5E88"),
+                top = Hex("#5A89CF"),
+                bottom = Hex("#354B78"),
                 shoes = Hex("#EEE0C4"),
                 accessory = Hex("#B77A4D"),
-                accent = Hex("#DE7F45")
+                accent = Hex("#F28B42")
             };
         }
 
@@ -224,7 +224,7 @@ namespace Dolzore
         public const int Height = 40;
         public const float PixelsPerUnit = 24f;
 
-        private static readonly Color32 Ink = new Color32(35, 42, 63, 255);
+        private static readonly Color32 Ink = new Color32(48, 48, 93, 255);
         private static readonly Color32 Eye = new Color32(42, 37, 49, 255);
         private static readonly Color32 Mouth = new Color32(124, 72, 75, 255);
 
