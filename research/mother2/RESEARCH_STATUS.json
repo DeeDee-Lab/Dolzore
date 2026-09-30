@@ -1,7 +1,7 @@
 {
   "schema": "dolzore.mother2.research_status.v1",
-  "updated_jst": "2026-09-30T01:05:00+09:00",
-  "state": "COMPREHENSIVE_REFERENCE_V1_READY_CONTINUOUS_RESEARCH",
+  "updated_jst": "2026-09-30T13:23:00+09:00",
+  "state": "STRUCTURAL_REFERENCE_V1_READY_QUANTITATIVE_VISUAL_RESEARCH_ACTIVE",
   "canonical_repo": "DeeDee-Lab/Dolzore",
   "canonical_issue": "DeeDee-Lab/Dolzore#26",
   "canonical_path": "research/mother2/",
@@ -24,15 +24,16 @@
     "technical_reverse_engineering_baseline",
     "unity_translation_checklist",
     "structured_reference_spec_v1",
-    "official_screenshot_visual_observation_v1",
     "enemy_item_service_system_grammar",
     "npc_life_social_texture_grammar",
     "narrative_pacing_memory_grammar",
     "music_role_matrix",
     "first_town_authoring_contract_v1",
-    "differentiation_guardrails"
+    "differentiation_guardrails",
+    "official_screenshot_structural_observation_v1"
   ],
   "in_progress_domains": [
+    "direct_visual_evidence_packet_expansion",
     "quantitative_visual_density_measurement_without_asset_copy",
     "npc_behavior_schedule_taxonomy",
     "status_effect_presentation_taxonomy",
@@ -40,14 +41,17 @@
     "cross_reference_with_ff11_and_ff14_without_merging_distinct_design_goals"
   ],
   "exact_next_actions": [
-    "production agent reads canonical research before further Unity town iteration",
-    "apply FIRST_TOWN_AUTHORING_CONTRACT_V1 as advisory QA without overriding current DOLZORE authority",
-    "continue only additive research deltas: precise visual density, NPC movement observations, status/effect taxonomy",
-    "record future deltas in issue #26 and RESEARCH_STATUS.json"
+    "all production agents read DIRECT_VISUAL_EVIDENCE_PACKET_V1.md before visual implementation",
+    "expand representative screenshot set to 6-12 source-identified town scenes",
+    "measure approximate road/vegetation/architecture/character/density/value/saturation/edge-orientation metrics per representative scene",
+    "derive original DOLZORE target ranges without copying protected expression",
+    "compare every generated FirstTown screenshot against the concrete packet before claiming visual alignment",
+    "record every delta in issue #26 and RESEARCH_STATUS.json"
   ],
   "evidence_warning": "No original maps, sprites, music, full script text, ROM content or copyrighted asset bodies are stored.",
   "files": [
     "AGENT_READ_FIRST.md",
+    "DIRECT_VISUAL_EVIDENCE_PACKET_V1.md",
     "MOTHER2_REFERENCE_SPEC_V1.json",
     "FIRST_TOWN_AUTHORING_CONTRACT_V1.json",
     "DIFFERENTIATION_GUARDRAILS.md",
@@ -72,5 +76,13 @@
     "structured_json_parse_required": true,
     "copyrighted_asset_bodies_stored": false,
     "original_dialogue_or_audio_copied": false
+  },
+  "completion_truth": {
+    "structural_reference_v1_ready": true,
+    "quantitative_visual_research_complete": false,
+    "exhaustive_frame_by_frame_measurement_complete": false,
+    "direct_visual_evidence_packet_present": true,
+    "abstract_only_handoff_forbidden": true,
+    "copyrighted_asset_extraction": false
   }
 }
