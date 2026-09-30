@@ -451,3 +451,27 @@ Latest avatar/crosswalk/color full validation:
 First Town road markings are now Tilemap-aligned and verified.
 First Town active color authority:
 `design/FIRST_TOWN_COLOR_CONTRACT.md`.
+
+
+## 17. Avatar / dress-up is a first-class DOLZORE system
+
+Avatar appearance is now treated as long-term social/life content, not a fixed protagonist sprite.
+
+Canonical spec:
+`design/AVATAR_DRESSUP_SYSTEM_V2.md`
+
+Current base combinatorial appearance space:
+**725,760 style combinations before color variants.**
+
+The same appearance data model is used for the player and named/ambient residents.
+
+The base avatar must be attractive at field scale before collectible cosmetics are expanded.
+
+Latest green avatar validation:
+- run `36662901682 = SUCCESS`
+- source `fcb9e81348084c6f60268dfb4a23e824287ea488`
+- avatar-quality PASS
+- wardrobe showcase generated
+- WebGL PASS.
+
+Do not break the FF11-derived stat/vocation core when adding cosmetic choices. Cosmetic appearance and internal combat identity remain separate.
