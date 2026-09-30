@@ -655,3 +655,41 @@ The user must never have to explain this again.
 
 Resume phrase remains:
 **Gameひきついで**
+
+
+---
+
+# 16. 2026-09-30 permanent original-image transfer rule
+
+Direct-user permanent rule:
+**Images must be handed off as originals, not abstracted/summarized/compressed replacements.**
+
+Global canonical:
+- AgentHub: `canonical/agenthub/ORIGINAL_IMAGE_TRANSFER_POLICY.md`
+- AI-Supervisor: `policies/ORIGINAL_IMAGE_TRANSFER_POLICY.md`
+- constraint: `global.original-image-transfer.v1`
+
+Rules:
+- original bytes unchanged when technically/legally preservable;
+- derivative never replaces original;
+- thumbnails/compressed/crops/OCR/descriptions are derivative evidence only;
+- user-provided/owned images preserve original asset/reference;
+- third-party copyrighted images use exact original image URL + source page + identifier instead of unlawful repo duplication;
+- multi-image research requires an Image Source Manifest;
+- user must not have to resend an image because a predecessor only summarized it.
+
+Mother2/Gamepedia corpus:
+- `research/mother2/GAMEPEDIA_TOWN_IMAGE_SOURCE_MANIFEST_V1.json`
+- 15 town/field pages
+- 70 exact original image URLs
+- manifest commit `ffdc3eb33e47d2d28ed28c356edf97f2a71c9eb9`
+
+Before visual implementation:
+1. read original-image policy;
+2. read Direct Visual Evidence Packet;
+3. read Gamepedia Image Source Manifest;
+4. inspect original image references;
+5. only then use measurements/summaries as secondary data.
+
+Resume phrase remains:
+**Gameひきついで**
