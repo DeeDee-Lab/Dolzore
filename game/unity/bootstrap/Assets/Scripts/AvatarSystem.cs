@@ -607,6 +607,10 @@ namespace Dolzore
             else
             {
                 Rect(p, 9, 27, 14, 8, a.hair);
+                Rect(p, 10, 27, 12, 3, Darken(a.hair, 0.72f));
+                Rect(p, 12, 32, 8, 2, hairLight);
+                Set(p, 9, 30, Darken(a.hair, 0.66f));
+                Set(p, 22, 30, Darken(a.hair, 0.66f));
             }
         }
 
@@ -620,8 +624,17 @@ namespace Dolzore
             }
             else if (s == 2)
             {
-                Line(p, 12, 23, 22, 11, a.accessory);
-                Rect(p, 20, 9, 7, 9, a.accessory);
+                if (direction == AvatarDirection.Up)
+                {
+                    Line(p, 21, 23, 11, 12, a.accessory);
+                    Rect(p, 7, 10, 8, 9, a.accessory);
+                    Rect(p, 9, 12, 4, 5, Lighten(a.accessory, 1.10f));
+                }
+                else
+                {
+                    Line(p, 12, 23, 22, 11, a.accessory);
+                    Rect(p, 20, 9, 7, 9, a.accessory);
+                }
             }
             else if (s == 3)
             {
