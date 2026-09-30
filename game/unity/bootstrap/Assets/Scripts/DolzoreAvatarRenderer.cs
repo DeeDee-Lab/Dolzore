@@ -11,13 +11,20 @@ namespace Dolzore
         [SerializeField] private float walkFrameSeconds = 0.18f;
 
         private SpriteRenderer shadow;
+        private SpriteRenderer bodyOutline;
         private SpriteRenderer body;
         private SpriteRenderer face;
+        private SpriteRenderer bottomOutline;
         private SpriteRenderer bottom;
+        private SpriteRenderer topOutline;
         private SpriteRenderer top;
+        private SpriteRenderer topAccentOutline;
         private SpriteRenderer topAccent;
+        private SpriteRenderer shoesOutline;
         private SpriteRenderer shoes;
+        private SpriteRenderer hairOutline;
         private SpriteRenderer hair;
+        private SpriteRenderer accessoryOutline;
         private SpriteRenderer accessory;
         private Rigidbody2D rigidbody2d;
         private float walkClock;
@@ -78,13 +85,20 @@ namespace Dolzore
         {
             int worldOrder = 120 - Mathf.RoundToInt(transform.position.y * 2f);
             SetOrder(shadow, worldOrder - 2);
+            SetOrder(bodyOutline, worldOrder - 1);
             SetOrder(body, worldOrder);
+            SetOrder(bottomOutline, worldOrder);
             SetOrder(bottom, worldOrder + 1);
+            SetOrder(topOutline, worldOrder + 1);
             SetOrder(top, worldOrder + 2);
+            SetOrder(topAccentOutline, worldOrder + 2);
             SetOrder(topAccent, worldOrder + 3);
+            SetOrder(shoesOutline, worldOrder + 3);
             SetOrder(shoes, worldOrder + 4);
             SetOrder(face, worldOrder + 5);
+            SetOrder(hairOutline, worldOrder + 5);
             SetOrder(hair, worldOrder + 6);
+            SetOrder(accessoryOutline, worldOrder + 6);
             SetOrder(accessory, worldOrder + 7);
         }
 
@@ -106,13 +120,20 @@ namespace Dolzore
         private void EnsureLayers()
         {
             shadow = Layer("Avatar Shadow");
+            bodyOutline = Layer("Avatar Body Outline");
             body = Layer("Avatar Body");
+            bottomOutline = Layer("Avatar Bottom Outline");
             bottom = Layer("Avatar Bottom");
+            topOutline = Layer("Avatar Top Outline");
             top = Layer("Avatar Top");
+            topAccentOutline = Layer("Avatar Top Accent Outline");
             topAccent = Layer("Avatar Top Accent");
+            shoesOutline = Layer("Avatar Shoes Outline");
             shoes = Layer("Avatar Shoes");
             face = Layer("Avatar Face");
+            hairOutline = Layer("Avatar Hair Outline");
             hair = Layer("Avatar Hair");
+            accessoryOutline = Layer("Avatar Accessory Outline");
             accessory = Layer("Avatar Accessory");
 
             if (shadow != null)
@@ -145,21 +166,53 @@ namespace Dolzore
             string suffix = dir + "_" + frame;
 
             shadow.sprite = Load("shadow_" + suffix);
+            bodyOutline.sprite = Load("outline_body_" + suffix);
             body.sprite = Load("body_" + suffix);
             face.sprite = Load("face_" + suffix);
-            hair.sprite = Load("hair_" + appearance.hairStyle.ToString().ToLowerInvariant() + "_" + suffix);
-            top.sprite = Load("top_" + appearance.topStyle.ToString().ToLowerInvariant() + "_" + suffix);
-            topAccent.sprite = Load("topaccent_" + appearance.topStyle.ToString().ToLowerInvariant() + "_" + suffix);
-            bottom.sprite = Load("bottom_" + appearance.bottomStyle.ToString().ToLowerInvariant() + "_" + suffix);
-            shoes.sprite = Load("shoes_" + appearance.shoeStyle.ToString().ToLowerInvariant() + "_" + suffix);
+
+            string hairName = "hair_" + appearance.hairStyle.ToString().ToLowerInvariant() + "_" + suffix;
+            hairOutline.sprite = Load("outline_" + hairName);
+            hair.sprite = Load(hairName);
+
+            string topName = "top_" + appearance.topStyle.ToString().ToLowerInvariant() + "_" + suffix;
+            topOutline.sprite = Load("outline_" + topName);
+            top.sprite = Load(topName);
+
+            string accentName = "topaccent_" + appearance.topStyle.ToString().ToLowerInvariant() + "_" + suffix;
+            topAccentOutline.sprite = Load("outline_" + accentName);
+            topAccent.sprite = Load(accentName);
+
+            string bottomName = "bottom_" + appearance.bottomStyle.ToString().ToLowerInvariant() + "_" + suffix;
+            bottomOutline.sprite = Load("outline_" + bottomName);
+            bottom.sprite = Load(bottomName);
+
+            string shoesName = "shoes_" + appearance.shoeStyle.ToString().ToLowerInvariant() + "_" + suffix;
+            shoesOutline.sprite = Load("outline_" + shoesName);
+            shoes.sprite = Load(shoesName);
 
             if (appearance.accessoryStyle == AvatarAccessoryStyle.None)
+            {
                 accessory.sprite = null;
+                accessoryOutline.sprite = null;
+            }
             else
-                accessory.sprite = Load("accessory_" + appearance.accessoryStyle.ToString().ToLowerInvariant() + "_" + suffix);
+            {
+                string accessoryName = "accessory_" + appearance.accessoryStyle.ToString().ToLowerInvariant() + "_" + suffix;
+                accessoryOutline.sprite = Load("outline_" + accessoryName);
+                accessory.sprite = Load(accessoryName);
+            }
+
+            Color outlineColor = AvatarProfileLibrary.Hex("#28264A");
+            bodyOutline.color = outlineColor;
+            hairOutline.color = outlineColor;
+            topOutline.color = outlineColor;
+            topAccentOutline.color = outlineColor;
+            bottomOutline.color = outlineColor;
+            shoesOutline.color = outlineColor;
+            accessoryOutline.color = outlineColor;
 
             body.color = appearance.skinColor;
-            face.color = new Color(0.12f, 0.10f, 0.18f, 1f);
+            face.color = new Color(0.10f, 0.08f, 0.18f, 1f);
             hair.color = appearance.hairColor;
             top.color = appearance.topColor;
             topAccent.color = appearance.topAccentColor;
@@ -174,13 +227,20 @@ namespace Dolzore
         {
             bool flip = facing == AvatarFacing.Side && facingLeft;
             if (shadow != null) shadow.flipX = flip;
+            if (bodyOutline != null) bodyOutline.flipX = flip;
             if (body != null) body.flipX = flip;
             if (face != null) face.flipX = flip;
+            if (hairOutline != null) hairOutline.flipX = flip;
             if (hair != null) hair.flipX = flip;
+            if (topOutline != null) topOutline.flipX = flip;
             if (top != null) top.flipX = flip;
+            if (topAccentOutline != null) topAccentOutline.flipX = flip;
             if (topAccent != null) topAccent.flipX = flip;
+            if (bottomOutline != null) bottomOutline.flipX = flip;
             if (bottom != null) bottom.flipX = flip;
+            if (shoesOutline != null) shoesOutline.flipX = flip;
             if (shoes != null) shoes.flipX = flip;
+            if (accessoryOutline != null) accessoryOutline.flipX = flip;
             if (accessory != null) accessory.flipX = flip;
         }
 
