@@ -222,7 +222,7 @@ namespace Dolzore
     {
         public const int Width = 32;
         public const int Height = 40;
-        public const float PixelsPerUnit = 24f;
+        public const float PixelsPerUnit = 30f;
 
         private static readonly Color32 Ink = new Color32(48, 48, 93, 255);
         private static readonly Color32 Eye = new Color32(42, 37, 49, 255);
