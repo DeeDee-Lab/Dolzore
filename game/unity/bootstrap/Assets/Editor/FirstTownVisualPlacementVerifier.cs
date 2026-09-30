@@ -113,7 +113,10 @@ namespace Dolzore.Editor
                 Vector3 center = roads.GetCellCenterWorld(cell);
                 if (buildingBounds.Contains(new Vector3(center.x, center.y, buildingBounds.center.z)))
                     throw new InvalidOperationException(
-                        "DOLZORE_V7_BUILDING_ON_ROAD:" + name + ":cell=" + cell);
+                        "DOLZORE_V7_BUILDING_ON_ROAD:" + name +
+                        ":cell=" + cell +
+                        ":cellCenter=" + center.x.ToString("F2") + "," + center.y.ToString("F2") +
+                        ":bounds=" + Format(buildingBounds));
             }
         }
 
