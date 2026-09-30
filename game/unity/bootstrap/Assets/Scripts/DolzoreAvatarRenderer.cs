@@ -15,6 +15,7 @@ namespace Dolzore
         private SpriteRenderer face;
         private SpriteRenderer bottom;
         private SpriteRenderer top;
+        private SpriteRenderer topAccent;
         private SpriteRenderer shoes;
         private SpriteRenderer hair;
         private SpriteRenderer accessory;
@@ -80,10 +81,11 @@ namespace Dolzore
             SetOrder(body, worldOrder);
             SetOrder(bottom, worldOrder + 1);
             SetOrder(top, worldOrder + 2);
-            SetOrder(shoes, worldOrder + 3);
-            SetOrder(face, worldOrder + 4);
-            SetOrder(hair, worldOrder + 5);
-            SetOrder(accessory, worldOrder + 6);
+            SetOrder(topAccent, worldOrder + 3);
+            SetOrder(shoes, worldOrder + 4);
+            SetOrder(face, worldOrder + 5);
+            SetOrder(hair, worldOrder + 6);
+            SetOrder(accessory, worldOrder + 7);
         }
 
         public void Configure(AvatarAppearanceData profile)
@@ -107,6 +109,7 @@ namespace Dolzore
             body = Layer("Avatar Body");
             bottom = Layer("Avatar Bottom");
             top = Layer("Avatar Top");
+            topAccent = Layer("Avatar Top Accent");
             shoes = Layer("Avatar Shoes");
             face = Layer("Avatar Face");
             hair = Layer("Avatar Hair");
@@ -146,6 +149,7 @@ namespace Dolzore
             face.sprite = Load("face_" + suffix);
             hair.sprite = Load("hair_" + appearance.hairStyle.ToString().ToLowerInvariant() + "_" + suffix);
             top.sprite = Load("top_" + appearance.topStyle.ToString().ToLowerInvariant() + "_" + suffix);
+            topAccent.sprite = Load("topaccent_" + appearance.topStyle.ToString().ToLowerInvariant() + "_" + suffix);
             bottom.sprite = Load("bottom_" + appearance.bottomStyle.ToString().ToLowerInvariant() + "_" + suffix);
             shoes.sprite = Load("shoes_" + appearance.shoeStyle.ToString().ToLowerInvariant() + "_" + suffix);
 
@@ -158,13 +162,10 @@ namespace Dolzore
             face.color = new Color(0.12f, 0.10f, 0.18f, 1f);
             hair.color = appearance.hairColor;
             top.color = appearance.topColor;
+            topAccent.color = appearance.topAccentColor;
             bottom.color = appearance.bottomColor;
             shoes.color = appearance.shoeColor;
             accessory.color = appearance.accessoryColor;
-
-            // Top accent is encoded as a separate tint on the accessory layer only when the profile has no external accessory.
-            if (appearance.accessoryStyle == AvatarAccessoryStyle.None && top != null)
-                top.color = appearance.topColor;
 
             ApplyFlip();
         }
@@ -177,6 +178,7 @@ namespace Dolzore
             if (face != null) face.flipX = flip;
             if (hair != null) hair.flipX = flip;
             if (top != null) top.flipX = flip;
+            if (topAccent != null) topAccent.flipX = flip;
             if (bottom != null) bottom.flipX = flip;
             if (shoes != null) shoes.flipX = flip;
             if (accessory != null) accessory.flipX = flip;
