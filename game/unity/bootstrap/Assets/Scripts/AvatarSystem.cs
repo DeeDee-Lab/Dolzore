@@ -352,6 +352,7 @@ namespace Dolzore
             int height = a.topStyle == 5 ? 14 : 12;
 
             Rect(p, left, topY, width, height, a.top);
+            Rect(p, 14, topY + height - 2, 5, 2, new Color32(245, 232, 197, 255));
 
             if (a.topStyle == 0)
             {
@@ -386,16 +387,26 @@ namespace Dolzore
 
         private static void DrawArms(Color32[] p, AvatarAppearanceData a, bool side, int step)
         {
+            Color32 sleeve = a.top;
+            Color32 sleeveShade = Darken(a.top, 0.78f);
+
             if (side)
             {
-                Rect(p, 7, 15 + step, 4, 8, a.skin);
-                Rect(p, 20, 14 - step, 4, 8, a.skin);
+                Rect(p, 7, 17 + step, 4, 6, sleeve);
+                Rect(p, 20, 16 - step, 4, 6, sleeveShade);
+                Rect(p, 7, 13 + step, 3, 5, a.skin);
+                Rect(p, 21, 12 - step, 3, 5, a.skin);
             }
             else
             {
-                Rect(p, 6, 15 + step, 4, 8, a.skin);
-                Rect(p, 22, 14 - step, 4, 8, a.skin);
+                Rect(p, 6, 17 + step, 4, 6, sleeve);
+                Rect(p, 22, 16 - step, 4, 6, sleeveShade);
+                Rect(p, 6, 13 + step, 3, 5, a.skin);
+                Rect(p, 23, 12 - step, 3, 5, a.skin);
             }
+
+            // One bright sleeve pixel gives the arm volume without adding noisy detail.
+            Set(p, side ? 8 : 7, 21 + step, Lighten(sleeve, 1.12f));
         }
 
         private static void DrawHead(Color32[] p, AvatarAppearanceData a, bool side, bool back)
@@ -403,6 +414,12 @@ namespace Dolzore
             int cx = side ? 15 : 16;
             Circle(p, cx, 29, 7, a.skin);
             Rect(p, 11, 25, 10, 8, a.skin);
+            Rect(p, 14, 22, 5, 4, a.skin);
+            if (!side)
+            {
+                Rect(p, 8, 28, 2, 3, a.skin);
+                Rect(p, 22, 28, 2, 3, a.skin);
+            }
 
             if (!back)
             {
@@ -414,12 +431,16 @@ namespace Dolzore
                 else
                 {
                     Set(p, 13, 29, Eye);
+                    Set(p, 13, 30, Eye);
                     Set(p, 19, 29, Eye);
+                    Set(p, 19, 30, Eye);
                     if (a.faceStyle == 1)
                     {
                         Set(p, 15, 25, Mouth);
                         Set(p, 16, 24, Mouth);
                         Set(p, 17, 25, Mouth);
+                        Set(p, 11, 27, Lighten(a.skin, 1.05f));
+                        Set(p, 21, 27, Lighten(a.skin, 1.05f));
                     }
                     else if (a.faceStyle == 2)
                     {
@@ -503,6 +524,14 @@ namespace Dolzore
                 Rect(p, 12, 37, 3, 3, a.hair);
                 Rect(p, 15, 38, 3, 2, a.hair);
             }
+
+            Color32 hairLight = Lighten(a.hair, 1.18f);
+            if (s == 1) { Rect(p, 10, 36, 5, 1, hairLight); Rect(p, 21, 31, 2, 3, hairLight); }
+            else if (s == 2) { Rect(p, 12, 38, 7, 1, hairLight); Set(p, 8, 29, hairLight); }
+            else if (s == 3) { Rect(p, 13, 37, 4, 1, hairLight); Set(p, 21, 34, hairLight); }
+            else if (s == 5) { Rect(p, 13, 37, 5, 1, hairLight); Set(p, 22, 38, hairLight); }
+            else if (s == 7) { Set(p, 10, 35, hairLight); Set(p, 20, 37, hairLight); Set(p, 23, 31, hairLight); }
+            else { Rect(p, 13, 37, 5, 1, hairLight); }
 
             if (!back)
             {
