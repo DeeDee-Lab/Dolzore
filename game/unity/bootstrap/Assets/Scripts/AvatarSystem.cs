@@ -237,6 +237,7 @@ namespace Dolzore
             bool back = direction == AvatarDirection.Up;
             int step = walkFrame & 1;
 
+            DrawGroundShadow(p, side, step);
             DrawLegs(p, appearance, side, step);
             DrawTorso(p, appearance, side, step);
             DrawArms(p, appearance, side, step);
@@ -278,37 +279,61 @@ namespace Dolzore
             return sprite;
         }
 
+        private static void DrawGroundShadow(Color32[] p, bool side, int step)
+        {
+            Color32 shadow = new Color32(43, 40, 78, 72);
+            int cx = side ? 15 : 16;
+            for (int y = -2; y <= 2; y++)
+            {
+                for (int x = -8; x <= 8; x++)
+                {
+                    float nx = x / 8f;
+                    float ny = y / 2f;
+                    if (nx * nx + ny * ny <= 1f)
+                        Set(p, cx + x, 2 + y, shadow);
+                }
+            }
+        }
+
         private static void DrawLegs(Color32[] p, AvatarAppearanceData a, bool side, int step)
         {
-            int shiftA = step == 0 ? 0 : 1;
-            int shiftB = step == 0 ? 1 : 0;
+            int lead = step == 0 ? 0 : 1;
+            int trail = step == 0 ? 1 : 0;
 
-            if (a.bottomStyle == 2)
+            if (a.bottomStyle == 2) // long skirt
             {
-                Rect(p, 10, 5, 12, 11, a.bottom);
-                Rect(p, 12, 3, 8, 3, a.bottom);
+                Rect(p, 11, 6, 10, 8, a.bottom);
+                Rect(p, 10, 7, 12, 4, Lighten(a.bottom, 1.05f));
+                Rect(p, 12, 4, 8, 3, Darken(a.bottom, 0.82f));
             }
-            else if (a.bottomStyle == 4)
+            else if (a.bottomStyle == 4) // shorts
             {
-                Rect(p, 10, 8, 5, 4, a.bottom);
-                Rect(p, 17, 8, 5, 4, a.bottom);
+                Rect(p, 10, 10, 5, 4, a.bottom);
+                Rect(p, 17, 10, 5, 4, a.bottom);
+                Rect(p, 11 - lead, 5, 3, 6, a.skin);
+                Rect(p, 18 + trail, 5, 3, 6, a.skin);
             }
-            else if (a.bottomStyle == 3)
+            else if (a.bottomStyle == 3) // cargo
             {
-                Rect(p, 8, 4, 7, 9, a.bottom);
-                Rect(p, 17, 4, 7, 9, a.bottom);
+                Rect(p, 9 - lead, 5, 5, 9, a.bottom);
+                Rect(p, 18 + trail, 5, 5, 9, a.bottom);
+                Rect(p, 8, 10, 4, 3, Darken(a.bottom, 0.74f));
+                Rect(p, 21, 10, 4, 3, Darken(a.bottom, 0.74f));
+                Set(p, 10, 11, Lighten(a.bottom, 1.16f));
+                Set(p, 22, 11, Lighten(a.bottom, 1.16f));
             }
-            else if (a.bottomStyle == 1)
+            else if (a.bottomStyle == 1) // skirt + leggings
             {
-                Rect(p, 9, 10, 6, 5, a.bottom);
-                Rect(p, 17, 10, 6, 5, a.bottom);
-                Rect(p, 10, 4, 5, 7, Darken(a.bottom, 0.72f));
-                Rect(p, 17, 4, 5, 7, Darken(a.bottom, 0.72f));
+                Rect(p, 10, 10, 12, 5, a.bottom);
+                Rect(p, 9, 9, 14, 2, Lighten(a.bottom, 1.08f));
+                Rect(p, 11 - lead, 4, 4, 7, Darken(a.bottom, 0.66f));
+                Rect(p, 18 + trail, 4, 4, 7, Darken(a.bottom, 0.66f));
             }
-            else
+            else // tapered pants
             {
-                Rect(p, 10 - shiftA, 4, 5, 10, a.bottom);
-                Rect(p, 17 + shiftB, 4, 5, 10, a.bottom);
+                Rect(p, 10 - lead, 5, 4, 9, a.bottom);
+                Rect(p, 18 + trail, 5, 4, 9, a.bottom);
+                Rect(p, 11, 12, 10, 2, Lighten(a.bottom, 1.06f));
             }
 
             DrawShoes(p, a, side, step);
@@ -316,148 +341,188 @@ namespace Dolzore
 
         private static void DrawShoes(Color32[] p, AvatarAppearanceData a, bool side, int step)
         {
-            if (a.shoeStyle == 1)
+            int lead = step == 0 ? 0 : 1;
+            int trail = step == 0 ? 1 : 0;
+
+            if (a.shoeStyle == 1) // boots
             {
-                Rect(p, 9, 2, 6, 5, a.shoes);
-                Rect(p, 17, 2, 6, 5, a.shoes);
-                Rect(p, 9, 2, 6, 1, Darken(a.shoes, 0.58f));
-                Rect(p, 17, 2, 6, 1, Darken(a.shoes, 0.58f));
+                Rect(p, 9 - lead, 2, 6, 4, a.shoes);
+                Rect(p, 18 + trail, 2, 6, 4, a.shoes);
+                Rect(p, 10 - lead, 2, 6, 1, Darken(a.shoes, 0.52f));
+                Rect(p, 19 + trail, 2, 6, 1, Darken(a.shoes, 0.52f));
             }
-            else if (a.shoeStyle == 2)
+            else if (a.shoeStyle == 2) // flats
             {
-                Rect(p, 9, 2, 7, 3, a.shoes);
-                Rect(p, 17, 2, 7, 3, a.shoes);
+                Rect(p, 10 - lead, 2, 5, 3, a.shoes);
+                Rect(p, 18 + trail, 2, 5, 3, a.shoes);
+                Set(p, 10 - lead, 4, Lighten(a.shoes, 1.12f));
+                Set(p, 18 + trail, 4, Lighten(a.shoes, 1.12f));
             }
-            else if (a.shoeStyle == 3)
+            else if (a.shoeStyle == 3) // high-top
             {
-                Rect(p, 9, 2, 6, 4, a.shoes);
-                Rect(p, 17, 2, 6, 4, a.shoes);
-                Rect(p, 10, 4, 4, 1, Ink);
-                Rect(p, 18, 4, 4, 1, Ink);
+                Rect(p, 9 - lead, 2, 6, 4, a.shoes);
+                Rect(p, 18 + trail, 2, 6, 4, a.shoes);
+                Rect(p, 11 - lead, 4, 3, 1, Ink);
+                Rect(p, 20 + trail, 4, 3, 1, Ink);
             }
-            else
+            else // sneaker
             {
-                Rect(p, 8, 2, 7, 3, a.shoes);
-                Rect(p, 17, 2, 7, 3, a.shoes);
-                Rect(p, 8, 2, 7, 1, Ink);
-                Rect(p, 17, 2, 7, 1, Ink);
+                Rect(p, 9 - lead, 2, 6, 3, a.shoes);
+                Rect(p, 18 + trail, 2, 6, 3, a.shoes);
+                Rect(p, 10 - lead, 2, 6, 1, Ink);
+                Rect(p, 19 + trail, 2, 6, 1, Ink);
+                Set(p, 13 - lead, 4, Lighten(a.shoes, 1.18f));
+                Set(p, 22 + trail, 4, Lighten(a.shoes, 1.18f));
             }
         }
 
         private static void DrawTorso(Color32[] p, AvatarAppearanceData a, bool side, int step)
         {
-            int left = a.bodyShape == 1 ? 10 : (a.bodyShape == 2 ? 8 : 9);
-            int width = a.bodyShape == 1 ? 12 : (a.bodyShape == 2 ? 16 : 14);
-            int topY = a.topStyle == 5 ? 11 : 13;
-            int height = a.topStyle == 5 ? 14 : 12;
+            int shoulderWidth = a.bodyShape == 1 ? 12 : (a.bodyShape == 2 ? 16 : 14);
+            int shoulderLeft = 16 - shoulderWidth / 2;
+            int waistWidth = Mathf.Max(9, shoulderWidth - 3);
+            int waistLeft = 16 - waistWidth / 2;
+            int hemY = a.topStyle == 5 ? 11 : 13;
+            int shoulderY = 22;
 
-            Rect(p, left, topY, width, height, a.top);
-            Rect(p, 14, topY + height - 2, 5, 2, new Color32(245, 232, 197, 255));
+            // Shoulder -> waist taper is more character-like than one rectangle.
+            Rect(p, shoulderLeft, shoulderY - 3, shoulderWidth, 4, a.top);
+            Rect(p, shoulderLeft + 1, shoulderY - 7, shoulderWidth - 2, 4, a.top);
+            Rect(p, waistLeft, hemY, waistWidth, Mathf.Max(3, shoulderY - 7 - hemY + 1), a.top);
 
-            if (a.topStyle == 0)
+            // Neck/collar keeps head connected to the body.
+            Rect(p, 14, 23, 5, 2, a.skin);
+
+            if (a.topStyle == 0) // short jacket
             {
-                Rect(p, left + 2, topY + height - 3, width - 4, 3, Lighten(a.top, 1.16f));
-                Rect(p, 15, topY + 2, 2, height - 4, Darken(a.top, 0.72f));
+                Rect(p, shoulderLeft + 2, 20, shoulderWidth - 4, 2, Lighten(a.top, 1.15f));
+                Rect(p, 15, 14, 2, 7, Darken(a.top, 0.70f));
+                Rect(p, 17, 14, 1, 7, a.accent);
+                Rect(p, waistLeft + 1, hemY, waistWidth - 2, 2, Darken(a.top, 0.80f));
             }
-            else if (a.topStyle == 1)
+            else if (a.topStyle == 1) // overshirt
             {
-                Rect(p, left + 1, topY + height - 4, width - 2, 4, Lighten(a.top, 1.12f));
-                Rect(p, left + 4, topY + height - 5, width - 8, 2, new Color32(239, 226, 191, 255));
+                Rect(p, shoulderLeft + 1, 19, shoulderWidth - 2, 3, Lighten(a.top, 1.10f));
+                Rect(p, 13, 17, 6, 5, new Color32(244, 231, 198, 255));
+                Rect(p, 15, hemY + 1, 2, 8, Darken(a.top, 0.72f));
             }
-            else if (a.topStyle == 2)
+            else if (a.topStyle == 2) // cardigan
             {
-                Rect(p, 15, topY + 1, 2, height - 2, Darken(a.top, 0.70f));
-                Rect(p, left + 3, topY + height - 3, width - 6, 3, new Color32(241, 229, 195, 255));
+                Rect(p, 13, 18, 6, 4, new Color32(246, 234, 202, 255));
+                Rect(p, 14, hemY + 1, 2, 9, Darken(a.top, 0.72f));
+                Rect(p, 17, hemY + 1, 2, 9, Darken(a.top, 0.72f));
+                Set(p, 16, 17, a.accent);
             }
-            else if (a.topStyle == 3)
+            else if (a.topStyle == 3) // hoodie
             {
-                Rect(p, left + 2, topY + height - 2, width - 4, 2, Lighten(a.top, 1.20f));
-                Rect(p, 12, topY + height - 1, 8, 2, Darken(a.top, 0.76f));
+                Rect(p, shoulderLeft + 2, 21, shoulderWidth - 4, 3, Darken(a.top, 0.76f));
+                Rect(p, 12, 21, 8, 2, Lighten(a.top, 1.14f));
+                Rect(p, 13, hemY + 2, 7, 3, Lighten(a.top, 1.08f));
+                Set(p, 15, 19, a.accent);
+                Set(p, 18, 19, a.accent);
             }
-            else if (a.topStyle == 4)
+            else if (a.topStyle == 4) // casual tee
             {
-                Rect(p, left + 2, topY + 2, width - 4, 2, Lighten(a.top, 1.18f));
+                Rect(p, shoulderLeft + 2, 19, shoulderWidth - 4, 2, Lighten(a.top, 1.18f));
+                Rect(p, 13, 17, 6, 2, a.accent);
             }
-            else if (a.topStyle == 5)
+            else // work vest
             {
-                Rect(p, left + 2, 11, width - 4, 3, Darken(a.top, 0.75f));
-                Rect(p, 15, 12, 2, 12, Lighten(a.top, 1.12f));
+                Rect(p, shoulderLeft + 1, 20, shoulderWidth - 2, 2, Lighten(a.top, 1.10f));
+                Rect(p, 15, hemY + 1, 2, 10, Lighten(a.top, 1.12f));
+                Rect(p, 11, hemY + 3, 4, 3, Darken(a.top, 0.72f));
+                Rect(p, 18, hemY + 3, 4, 3, Darken(a.top, 0.72f));
             }
         }
 
         private static void DrawArms(Color32[] p, AvatarAppearanceData a, bool side, int step)
         {
-            Color32 sleeve = a.top;
-            Color32 sleeveShade = Darken(a.top, 0.78f);
+            Color32 sleeveLight = Lighten(a.top, 1.08f);
+            Color32 sleeveShade = Darken(a.top, 0.76f);
+
+            int leftY = 15 + (step == 0 ? 1 : 0);
+            int rightY = 15 + (step == 0 ? 0 : 1);
 
             if (side)
             {
-                Rect(p, 7, 17 + step, 4, 6, sleeve);
-                Rect(p, 20, 16 - step, 4, 6, sleeveShade);
-                Rect(p, 7, 13 + step, 3, 5, a.skin);
-                Rect(p, 21, 12 - step, 3, 5, a.skin);
+                Rect(p, 8, leftY, 3, 7, sleeveLight);
+                Rect(p, 21, rightY, 3, 7, sleeveShade);
+                Rect(p, 8, leftY - 3, 3, 4, a.skin);
+                Rect(p, 21, rightY - 3, 3, 4, a.skin);
+                Set(p, 9, leftY - 3, Lighten(a.skin, 1.06f));
             }
             else
             {
-                Rect(p, 6, 17 + step, 4, 6, sleeve);
-                Rect(p, 22, 16 - step, 4, 6, sleeveShade);
-                Rect(p, 6, 13 + step, 3, 5, a.skin);
-                Rect(p, 23, 12 - step, 3, 5, a.skin);
+                Rect(p, 7, leftY, 3, 7, sleeveLight);
+                Rect(p, 22, rightY, 3, 7, sleeveShade);
+                Rect(p, 7, leftY - 3, 3, 4, a.skin);
+                Rect(p, 22, rightY - 3, 3, 4, a.skin);
+                Set(p, 8, leftY - 3, Lighten(a.skin, 1.06f));
+                Set(p, 23, rightY - 3, Lighten(a.skin, 1.04f));
             }
-
-            // One bright sleeve pixel gives the arm volume without adding noisy detail.
-            Set(p, side ? 8 : 7, 21 + step, Lighten(sleeve, 1.12f));
         }
 
         private static void DrawHead(Color32[] p, AvatarAppearanceData a, bool side, bool back)
         {
             int cx = side ? 15 : 16;
+
+            // Rounded head with a slightly narrower jaw.
             Circle(p, cx, 29, 7, a.skin);
-            Rect(p, 11, 25, 10, 8, a.skin);
-            Rect(p, 14, 22, 5, 4, a.skin);
+            Rect(p, 11, 26, 10, 6, a.skin);
+            Rect(p, 13, 23, 6, 4, a.skin);
+
             if (!side)
             {
-                Rect(p, 8, 28, 2, 3, a.skin);
-                Rect(p, 22, 28, 2, 3, a.skin);
+                Rect(p, 9, 28, 2, 3, a.skin);
+                Rect(p, 21, 28, 2, 3, a.skin);
             }
 
-            if (!back)
+            if (back) return;
+
+            Color32 brow = Darken(a.hair, 0.62f);
+            Color32 cheek = Lighten(a.skin, 1.06f);
+
+            if (side)
             {
-                if (side)
-                {
-                    Set(p, 11, 29, Eye);
-                    if (a.faceStyle == 1) Set(p, 10, 26, Mouth);
-                }
-                else
-                {
-                    Set(p, 13, 29, Eye);
-                    Set(p, 13, 30, Eye);
-                    Set(p, 19, 29, Eye);
-                    Set(p, 19, 30, Eye);
-                    if (a.faceStyle == 1)
-                    {
-                        Set(p, 15, 25, Mouth);
-                        Set(p, 16, 24, Mouth);
-                        Set(p, 17, 25, Mouth);
-                        Set(p, 11, 27, Lighten(a.skin, 1.05f));
-                        Set(p, 21, 27, Lighten(a.skin, 1.05f));
-                    }
-                    else if (a.faceStyle == 2)
-                    {
-                        Set(p, 15, 25, Mouth);
-                        Set(p, 16, 25, Mouth);
-                    }
-                    else if (a.faceStyle == 3)
-                    {
-                        Set(p, 14, 31, Darken(a.hair, 0.66f));
-                        Set(p, 20, 31, Darken(a.hair, 0.66f));
-                        Set(p, 16, 25, Mouth);
-                    }
-                    else
-                    {
-                        Set(p, 16, 25, Mouth);
-                    }
-                }
+                Set(p, 11, 30, brow);
+                Set(p, 11, 28, Eye);
+                Set(p, 12, 28, Lighten(a.skin, 1.12f));
+                Set(p, 10, 26, Mouth);
+                Set(p, 12, 25, cheek);
+                return;
+            }
+
+            // Brows create expression; one-pixel eyes avoid the previous square-black look.
+            Set(p, 12, 31, brow);
+            Set(p, 19, 31, brow);
+            Set(p, 13, 29, Eye);
+            Set(p, 19, 29, Eye);
+            Set(p, 14, 29, Lighten(a.skin, 1.12f));
+            Set(p, 20, 29, Lighten(a.skin, 1.12f));
+            Set(p, 16, 27, Darken(a.skin, 0.92f));
+            Set(p, 11, 27, cheek);
+            Set(p, 21, 27, cheek);
+
+            if (a.faceStyle == 1) // warm smile
+            {
+                Set(p, 15, 25, Mouth);
+                Set(p, 16, 24, Mouth);
+                Set(p, 17, 25, Mouth);
+            }
+            else if (a.faceStyle == 2) // calm
+            {
+                Set(p, 15, 25, Mouth);
+                Set(p, 16, 25, Mouth);
+            }
+            else if (a.faceStyle == 3) // focused / adventurous
+            {
+                Set(p, 12, 31, Darken(brow, 0.84f));
+                Set(p, 20, 31, Darken(brow, 0.84f));
+                Set(p, 16, 25, Mouth);
+            }
+            else
+            {
+                Set(p, 16, 25, Mouth);
             }
         }
 
