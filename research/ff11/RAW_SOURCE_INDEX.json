@@ -1,0 +1,60 @@
+{
+  "schema": "dolzore.ff11.raw_source_index.v1",
+  "authority": "direct-user-2026-09-30",
+  "status": "INITIALIZED_PENDING_SOURCE_SCANS",
+  "source_hosts": {
+    "DPC": {
+      "network_independent": true,
+      "access_lane": "GitHub self-hosted runner utpc-personal",
+      "state": "pending_runner",
+      "installed": [
+        "FF11",
+        "FF14"
+      ],
+      "raw_asset_policy": "in_place_pointer_hash_only_for_third_party_protected_assets"
+    },
+    "SPC": {
+      "host_aliases": [
+        "SPC",
+        "SowciePC"
+      ],
+      "network_independent": true,
+      "access_lane": "GitHub self-hosted runner afk-sowciepc",
+      "state": "candidate_for_read_only_scan",
+      "installed": [
+        "FF11",
+        "FF14"
+      ],
+      "raw_asset_policy": "in_place_pointer_hash_only_for_third_party_protected_assets"
+    }
+  },
+  "required_manifest_fields": [
+    "scan_id",
+    "host",
+    "product",
+    "client_build_or_version",
+    "absolute_source_root",
+    "relative_path",
+    "byte_size",
+    "last_write_utc",
+    "sha256",
+    "extension_or_type",
+    "source_kind"
+  ],
+  "source_kind_values": [
+    "executable",
+    "dll",
+    "dat",
+    "config_metadata",
+    "image",
+    "audio",
+    "model",
+    "text_resource",
+    "other"
+  ],
+  "body_storage_policy": {
+    "user_owned_or_supplied": "original_bytes_when_technically_available",
+    "ff11_third_party_protected": "do_not_copy_shared_repo; pointer+hash+size+timestamp; authorized same-host read-in-place"
+  },
+  "scans": []
+}
