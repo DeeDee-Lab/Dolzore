@@ -518,3 +518,43 @@ FF11-derived internal simulation remains frozen/green underneath this visual wor
 
 Resume remains:
 **Gameひきついで**
+
+
+---
+
+# 14. 2026-09-30 Avatar / Color / Crosswalk quality checkpoint
+
+User rejected:
+- misaligned crosswalk;
+- low-quality/unattractive characters;
+- weak basis for dress-up/avatar play;
+- dull color direction.
+
+Permanent fixes:
+- crosswalks moved from free-positioned SpriteRenderers to `Road Markings` Tilemap;
+- every marking cell is automatically checked to have an underlying Road tile;
+- 27 current marking cells PASS;
+- player appearance is persistent data independent of stats/jobs;
+- modular avatar engine added;
+- SORA/MELO/YUZU/PON rebuilt as distinct avatar presets;
+- enlarged wardrobe showcase added to CI;
+- silhouette hashes for core four must differ;
+- sleeves/hands/hair highlights/faces polished;
+- palette shifted from neutral gray/beige/olive dominance to blue-violet/cream/spring-green/cyan/high-chroma architecture.
+
+Latest green:
+- run `36656034405 = SUCCESS`
+- generated source `82510581568d9b868b06a5a89e4fb9db30e8c907`
+- BAR/JOURNAL/RIVERSIDE/STATION route PASS
+- HUD binding PASS
+- ROAD MARKINGS ALIGNED PASS
+- AVATAR QUALITY PASS
+- WebGL PASS
+- source preservation PASS
+
+Read:
+- `design/AVATAR_CUSTOMIZATION_SYSTEM.md`
+- `design/FIRST_TOWN_COLOR_CONTRACT.md`
+
+Resume phrase:
+**Gameひきついで**
