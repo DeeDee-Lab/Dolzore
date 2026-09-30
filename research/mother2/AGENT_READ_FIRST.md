@@ -153,25 +153,26 @@ Do not assign one generic town track and one battle track. Music must be part of
 ## 4. Canonical reading order
 
 1. AGENT_READ_FIRST.md
-2. MOTHER2_REFERENCE_SPEC_V1.json
-3. FIRST_TOWN_AUTHORING_CONTRACT_V1.json
-4. DIFFERENTIATION_GUARDRAILS.md
-5. WORLD_MAP_FIELD_GRAMMAR.md
-6. OFFICIAL_SCREENSHOT_VISUAL_OBSERVATIONS_V1.md
-7. LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md
-8. VISUAL_CHARACTER_EFFECT_GRAMMAR.md
-9. AUDIO_ATMOSPHERE_GRAMMAR.md
-10. MUSIC_ROLE_MATRIX.md
-11. DIALOGUE_WORLDVIEW_GRAMMAR.md
-12. NPC_LIFE_SOCIAL_TEXTURE_GRAMMAR.md
-13. GAMEPLAY_UI_BATTLE_PRESENTATION_GRAMMAR.md
-14. ENEMY_ITEM_SERVICE_SYSTEM_GRAMMAR.md
-15. NARRATIVE_PACING_MEMORY_GRAMMAR.md
-16. TECHNICAL_ARCHITECTURE_FINDINGS.md
-17. DOLZORE_UNITY_IMPLEMENTATION_CHECKLIST.md
-18. SOURCE_INDEX.md
-19. RESEARCH_STATUS.json
-20. Dolzore issue #26 latest checkpoint
+2. DIRECT_VISUAL_EVIDENCE_PACKET_V1.md
+3. MOTHER2_REFERENCE_SPEC_V1.json
+4. FIRST_TOWN_AUTHORING_CONTRACT_V1.json
+5. DIFFERENTIATION_GUARDRAILS.md
+6. WORLD_MAP_FIELD_GRAMMAR.md
+7. OFFICIAL_SCREENSHOT_VISUAL_OBSERVATIONS_V1.md
+8. LOCATION_EXPERIENCE_ARCHETYPE_MATRIX.md
+9. VISUAL_CHARACTER_EFFECT_GRAMMAR.md
+10. AUDIO_ATMOSPHERE_GRAMMAR.md
+11. MUSIC_ROLE_MATRIX.md
+12. DIALOGUE_WORLDVIEW_GRAMMAR.md
+13. NPC_LIFE_SOCIAL_TEXTURE_GRAMMAR.md
+14. GAMEPLAY_UI_BATTLE_PRESENTATION_GRAMMAR.md
+15. ENEMY_ITEM_SERVICE_SYSTEM_GRAMMAR.md
+16. NARRATIVE_PACING_MEMORY_GRAMMAR.md
+17. TECHNICAL_ARCHITECTURE_FINDINGS.md
+18. DOLZORE_UNITY_IMPLEMENTATION_CHECKLIST.md
+19. SOURCE_INDEX.md
+20. RESEARCH_STATUS.json
+21. Dolzore issue #26 latest checkpoint
 
 ## 5. Translation into DOLZORE
 
@@ -209,3 +210,17 @@ On interruption:
 3. do not repeat already-consumed source research;
 4. add only evidence deltas;
 5. upgrade INFERENCE only when new primary/technical evidence supports it.
+
+
+## 7. Permanent evidence-preservation correction — 2026-09-30
+
+The prior research handoff was too abstract for visual production.
+
+Binding correction:
+- read `DIRECT_VISUAL_EVIDENCE_PACKET_V1.md` before any FirstTown art/layout implementation;
+- do not claim "MOTHER2 research applied" from grammar summaries alone;
+- preserve representative reference identifiers, concrete measurements, current-output comparison and remaining mismatch;
+- if a material visual domain is still unmeasured, label it incomplete;
+- abstract summaries are navigation only, never the full handoff.
+
+This follows the global detailed-handoff policy registered in AgentHub canonical governance.
