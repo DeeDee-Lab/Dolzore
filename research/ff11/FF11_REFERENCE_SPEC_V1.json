@@ -294,5 +294,19 @@
     "read Dolzore issue #25 latest checkpoint",
     "prefer fresh DPC observations over inference",
     "append deltas only; never restart from zero"
-  ]
+  ],
+  "source_fidelity": {
+    "authority": "direct-user-2026-09-30",
+    "handoff_order": [
+      "RAW_SOURCE_HANDOFF_CONTRACT.md",
+      "RAW_SOURCE_INDEX.json",
+      "VERIFIED_FACT_RECORD_SCHEMA_V1.json",
+      "FF11_VERIFIED_FACT_CATALOG_V1.jsonl",
+      "AGENT_READ_FIRST.md",
+      "FF11_REFERENCE_SPEC_V1.json"
+    ],
+    "this_file_layer": "INTERPRETATION",
+    "conflict_rule": "RAW_SOURCE and VERIFIED_FACT override interpretations/recommendations.",
+    "no_summary_as_source_truth": true
+  }
 }
