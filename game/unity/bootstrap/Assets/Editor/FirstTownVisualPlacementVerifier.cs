@@ -25,6 +25,8 @@ namespace Dolzore.Editor
 
         public static void AssertCurrentScene()
         {
+            Physics2D.SyncTransforms();
+
             GameObject roadsGo = GameObject.Find("Roads");
             if (roadsGo == null)
                 throw new InvalidOperationException("DOLZORE_V7_ROADS_MISSING");
