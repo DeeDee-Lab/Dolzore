@@ -1,0 +1,972 @@
+{
+  "schema": "dolzore.mother2.image_source_manifest.v1",
+  "authority": "direct user instruction 2026-09-30 JST",
+  "source_site": "https://gamepedia.jp/mother2/",
+  "canonical_rule": "ORIGINAL_IMAGE_REFERENCE_MUST_BE_PRESERVED_UNCHANGED",
+  "storage_policy": "EXTERNAL_REFERENCE_ONLY_FOR_THIRD_PARTY_COPYRIGHTED_IMAGES",
+  "rights_note": "Gamepedia states that game names/images/text copyrights and other IP in quoted game material belong to Nintendo. Preserve exact original media URLs and source pages; do not copy image bodies into the repository.",
+  "extraction_note": "Original media.gamepedia.jp URLs were extracted from each page. Transformed tfi.gamepedia.jp WebP/thumbnail URLs and -480x/-768x derivatives are non-canonical derivatives.",
+  "pages": [
+    {
+      "page_id": "gamepedia-town-01",
+      "page_url": "https://gamepedia.jp/mother2/archives/76",
+      "title": "オネット（ONETT）",
+      "original_image_count": 7,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-001",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/03/06234722/MAP_ONETT02_2.jpg",
+          "original_filename": "MAP_ONETT02_2.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-002",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/03/06234146/f7c86944be440d9d3881a1efa4a651dd.jpg",
+          "original_filename": "f7c86944be440d9d3881a1efa4a651dd.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-003",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/03/16171808/a8de147c5ad77cab13980ed410dcf5ca.jpg",
+          "original_filename": "a8de147c5ad77cab13980ed410dcf5ca.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-004",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/03/16164201/1a9afae3f07f2a69d586070fc33c60c1.jpg",
+          "original_filename": "1a9afae3f07f2a69d586070fc33c60c1.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-005",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/03/16155703/3e6abac1d7ab276771fae368c80db3db.jpg",
+          "original_filename": "3e6abac1d7ab276771fae368c80db3db.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-006",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/03/16175647/6a0be52563eb43eddee88dd36c375e6f.jpg",
+          "original_filename": "6a0be52563eb43eddee88dd36c375e6f.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-007",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/03/06232825/409e2916718a17614431161bb7ca9f62.jpg",
+          "original_filename": "409e2916718a17614431161bb7ca9f62.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-02",
+      "page_url": "https://gamepedia.jp/mother2/archives/361",
+      "title": "ツーソン（TWOSON）",
+      "original_image_count": 3,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-008",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/03/16153420/7e49765ecb26b69f6bb4f4a40b8a0732.jpeg",
+          "original_filename": "7e49765ecb26b69f6bb4f4a40b8a0732.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-009",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/03/10161744/01b35f10bdd9b4f5d1d043cec148469c.jpg",
+          "original_filename": "01b35f10bdd9b4f5d1d043cec148469c.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-010",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/08164427/f4353755a066c6f730149491ec820a3c.jpg",
+          "original_filename": "f4353755a066c6f730149491ec820a3c.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-03",
+      "page_url": "https://gamepedia.jp/mother2/archives/401",
+      "title": "ハッピーハッピー村",
+      "original_image_count": 0,
+      "images": []
+    },
+    {
+      "page_id": "gamepedia-town-04",
+      "page_url": "https://gamepedia.jp/mother2/archives/582",
+      "title": "スリーク（THREEK）",
+      "original_image_count": 4,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-011",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/19170121/2586f7df0d3b3fc0289b25de51e120d9.jpg",
+          "original_filename": "2586f7df0d3b3fc0289b25de51e120d9.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-012",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/19171159/MAP_THREEK02.jpeg",
+          "original_filename": "MAP_THREEK02.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-013",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/19172118/3cb2f8ede5affe49dcccbe3d297f415b.jpeg",
+          "original_filename": "3cb2f8ede5affe49dcccbe3d297f415b.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-014",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/19172342/950d9bbde15007aef48be6f4f20f3270.jpeg",
+          "original_filename": "950d9bbde15007aef48be6f4f20f3270.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-05",
+      "page_url": "https://gamepedia.jp/mother2/archives/652",
+      "title": "ウィンターズ北部＆南部",
+      "original_image_count": 5,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-015",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/26155347/33f8ab30eafe4a179838c641195dee55.jpeg",
+          "original_filename": "33f8ab30eafe4a179838c641195dee55.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-016",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/26153235/c11d1bc8ddb8f2d5ff34927b6077f7a3.jpeg",
+          "original_filename": "c11d1bc8ddb8f2d5ff34927b6077f7a3.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-017",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/26152517/76f20acdf775bc5ab6b5dd25082208e0.jpeg",
+          "original_filename": "76f20acdf775bc5ab6b5dd25082208e0.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-018",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/26153526/1c5ebf88366551df9784999c5ef9170a.jpeg",
+          "original_filename": "1c5ebf88366551df9784999c5ef9170a.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-019",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/04/26153804/a6be6a34af755d6ff9b733f5624fbf8e.jpeg",
+          "original_filename": "a6be6a34af755d6ff9b733f5624fbf8e.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-06",
+      "page_url": "https://gamepedia.jp/mother2/archives/780",
+      "title": "サターンバレー",
+      "original_image_count": 4,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-020",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/04154615/4f3d5c031a3721d81d27859772c646f8.jpeg",
+          "original_filename": "4f3d5c031a3721d81d27859772c646f8.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-021",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/04154752/7f4cfa0b3d1570d514bbed62f35f1684.jpeg",
+          "original_filename": "7f4cfa0b3d1570d514bbed62f35f1684.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-022",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/04155107/533397d0261c3f9443e5f4b4a93ee75c.jpeg",
+          "original_filename": "533397d0261c3f9443e5f4b4a93ee75c.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-023",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/04153433/999e5f16928ed8409cc9c69ee9ec9fef.jpeg",
+          "original_filename": "999e5f16928ed8409cc9c69ee9ec9fef.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-07",
+      "page_url": "https://gamepedia.jp/mother2/archives/1047",
+      "title": "ドコドコ砂漠",
+      "original_image_count": 10,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-024",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/20110422/4dd0999ef1c241bcbc3851deac69aad6-1.jpeg",
+          "original_filename": "4dd0999ef1c241bcbc3851deac69aad6-1.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-025",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/21151116/de73b0be36a0791c1b5ad11d04700475.jpeg",
+          "original_filename": "de73b0be36a0791c1b5ad11d04700475.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-026",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/21165033/994ead7825393f1d28968baf6eb84e8a.jpeg",
+          "original_filename": "994ead7825393f1d28968baf6eb84e8a.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-027",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/21165802/052e4a60002167a8ee9c37126af1d9c7.jpeg",
+          "original_filename": "052e4a60002167a8ee9c37126af1d9c7.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-028",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/21164251/a16023475b6d6d02633268da2a51a2cd.jpeg",
+          "original_filename": "a16023475b6d6d02633268da2a51a2cd.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-029",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/21161740/46196390fbeb1c03f1d7d88ba2e588a6.jpeg",
+          "original_filename": "46196390fbeb1c03f1d7d88ba2e588a6.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-030",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/21163223/84f75fe0e81d44f8ab5a11140e4e73ae.jpeg",
+          "original_filename": "84f75fe0e81d44f8ab5a11140e4e73ae.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-031",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/20102744/5e34508c397c2bb34ac39e3424621db0.jpeg",
+          "original_filename": "5e34508c397c2bb34ac39e3424621db0.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-032",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/20113117/eaa127042fdfc41babe96c94a462b51b.jpeg",
+          "original_filename": "eaa127042fdfc41babe96c94a462b51b.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-033",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/21153900/d4fc460b4180f78166abeb15763cb0cf.jpeg",
+          "original_filename": "d4fc460b4180f78166abeb15763cb0cf.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-08",
+      "page_url": "https://gamepedia.jp/mother2/archives/1106",
+      "title": "フォーサイド（FOURSIDE）",
+      "original_image_count": 6,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-034",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/22154002/6f8230607eb3496a9d10af4e1b2d86f8.jpeg",
+          "original_filename": "6f8230607eb3496a9d10af4e1b2d86f8.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-035",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/22183523/8259236bad88480e1292551ec714cc3e-1.jpeg",
+          "original_filename": "8259236bad88480e1292551ec714cc3e-1.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-036",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/24164708/ac8568dbb90b5b7719b021b7741457be.jpeg",
+          "original_filename": "ac8568dbb90b5b7719b021b7741457be.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-037",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/24165008/a63b1f0cfc9ab4ac335b0ebf8ef0c78c.jpeg",
+          "original_filename": "a63b1f0cfc9ab4ac335b0ebf8ef0c78c.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-038",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/24061828/ad00ef96385fff0b567122c54e08b2e5.jpeg",
+          "original_filename": "ad00ef96385fff0b567122c54e08b2e5.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-039",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/24062151/map_fourside.jpeg",
+          "original_filename": "map_fourside.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-09",
+      "page_url": "https://gamepedia.jp/mother2/archives/1254",
+      "title": "サマーズ＆トト",
+      "original_image_count": 1,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-040",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/08/20143457/f3ab560a297b926c62e670366961d5a1.jpeg",
+          "original_filename": "f3ab560a297b926c62e670366961d5a1.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-10",
+      "page_url": "https://gamepedia.jp/mother2/archives/1707",
+      "title": "ランマ",
+      "original_image_count": 3,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-041",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/26171224/68f74468d31d6e087893be6c5111fc80.jpg",
+          "original_filename": "68f74468d31d6e087893be6c5111fc80.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-042",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/26171352/f32927730622cae15f7ac11eee24de85.jpg",
+          "original_filename": "f32927730622cae15f7ac11eee24de85.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-043",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/26171839/84167e17948cff8f779779d519a034fa.jpg",
+          "original_filename": "84167e17948cff8f779779d519a034fa.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-11",
+      "page_url": "https://gamepedia.jp/mother2/archives/1354",
+      "title": "スカラビ",
+      "original_image_count": 1,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-044",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/09/10163122/map_Scarabi.jpeg",
+          "original_filename": "map_Scarabi.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-12",
+      "page_url": "https://gamepedia.jp/mother2/archives/1458",
+      "title": "魔境",
+      "original_image_count": 9,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-045",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/09150255/c06a72fd203ff2433cbdb48c1db520aa.jpg",
+          "original_filename": "c06a72fd203ff2433cbdb48c1db520aa.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-046",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/09150715/0a979c11017d4d3dc46970e6e24e8747.jpg",
+          "original_filename": "0a979c11017d4d3dc46970e6e24e8747.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-047",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/09151148/bc8d280694516233f35b6c2ecc18e6fd.jpg",
+          "original_filename": "bc8d280694516233f35b6c2ecc18e6fd.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-048",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/09151404/3ad4842eb6a6ee065dc95d7ce989a8fb.jpg",
+          "original_filename": "3ad4842eb6a6ee065dc95d7ce989a8fb.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-049",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/09151946/9445217614581fe8ba3949b67c133b4f.jpg",
+          "original_filename": "9445217614581fe8ba3949b67c133b4f.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-050",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/09143944/5d07daaceafbca1847840a62c4f2ff09.jpg",
+          "original_filename": "5d07daaceafbca1847840a62c4f2ff09.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-051",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/09144241/be274c9da9bd0fb31144cfd74cc15fee.jpg",
+          "original_filename": "be274c9da9bd0fb31144cfd74cc15fee.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-052",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/09144733/248af4946f28b0ae2a311e98a45d8ff0.jpg",
+          "original_filename": "248af4946f28b0ae2a311e98a45d8ff0.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-053",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/02015855/FRr_4GxUYAI45i3-2.jpg",
+          "original_filename": "FRr_4GxUYAI45i3-2.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-13",
+      "page_url": "https://gamepedia.jp/mother2/archives/1506",
+      "title": "グミ族の村",
+      "original_image_count": 6,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-054",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/15213943/2a2bead9e327c6671bb2540e7009a224.jpg",
+          "original_filename": "2a2bead9e327c6671bb2540e7009a224.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-055",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/17151829/93112ef826d7028f3b0f336700feac07.jpg",
+          "original_filename": "93112ef826d7028f3b0f336700feac07.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-056",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/15212859/f15510b27b4e0380f7e8a837e31f4dd0.jpg",
+          "original_filename": "f15510b27b4e0380f7e8a837e31f4dd0.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-057",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/15214310/767c58ddd53e32c797e2c7ad88df6446.jpg",
+          "original_filename": "767c58ddd53e32c797e2c7ad88df6446.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-058",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/17151505/aaaa2f85cbdc48077a9897b8ef06ded3.jpeg",
+          "original_filename": "aaaa2f85cbdc48077a9897b8ef06ded3.jpeg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-059",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/17152250/c41d4481a62662e4b71ed1abcfabc483.jpg",
+          "original_filename": "c41d4481a62662e4b71ed1abcfabc483.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-14",
+      "page_url": "https://gamepedia.jp/mother2/archives/1584",
+      "title": "地底大陸",
+      "original_image_count": 4,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-060",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/19133616/cfa9de65f557af1cbe1bd22b54756e86.jpg",
+          "original_filename": "cfa9de65f557af1cbe1bd22b54756e86.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-061",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/19134007/c0c8f73491f9be5b47981eb95746149f.jpg",
+          "original_filename": "c0c8f73491f9be5b47981eb95746149f.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-062",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/19134332/369bdb0821f722e92bd042d98bf315f5.jpg",
+          "original_filename": "369bdb0821f722e92bd042d98bf315f5.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-063",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/19141941/f860040c2d6729de051d1aa57f6a92f3.jpg",
+          "original_filename": "f860040c2d6729de051d1aa57f6a92f3.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    },
+    {
+      "page_id": "gamepedia-town-15",
+      "page_url": "https://gamepedia.jp/mother2/archives/1603",
+      "title": "マジカント",
+      "original_image_count": 7,
+      "images": [
+        {
+          "image_id": "gamepedia-m2-064",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/18203042/FTCW9yiUcAA0XzM-2.jpg",
+          "original_filename": "FTCW9yiUcAA0XzM-2.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-065",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/19152035/d2a9a17c683ab3bc575557b550f073f9.jpg",
+          "original_filename": "d2a9a17c683ab3bc575557b550f073f9.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-066",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/19152813/aaf112661fdee0e2be0f3b0b35770f92.jpg",
+          "original_filename": "aaf112661fdee0e2be0f3b0b35770f92.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-067",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/19153027/a8441464705d54bda79973c6f971b427.jpg",
+          "original_filename": "a8441464705d54bda79973c6f971b427.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-068",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/05/18203122/FTCW9ykVsAUPyT5-2.jpg",
+          "original_filename": "FTCW9ykVsAUPyT5-2.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-069",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/22165456/66fb97b5a26354689cc00e8b44e86a51.jpg",
+          "original_filename": "66fb97b5a26354689cc00e8b44e86a51.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        },
+        {
+          "image_id": "gamepedia-m2-070",
+          "original_image_url": "https://media.gamepedia.jp/wp-content/uploads/sites/128/2022/11/19151843/d0c7d52b6ed1ef83982cce4312657801.jpg",
+          "original_filename": "d0c7d52b6ed1ef83982cce4312657801.jpg",
+          "canonical_original_reference": true,
+          "copied_into_repo": false,
+          "transformed_thumbnail_is_canonical": false,
+          "dimensions": null,
+          "sha256": null,
+          "retrieval_status": "URL_EXTRACTED_NOT_BYTE_PERSISTED",
+          "note": "Successor must use this exact original media URL when inspecting the image; do not substitute tfi thumbnail/WebP derivatives."
+        }
+      ]
+    }
+  ],
+  "total_pages": 15,
+  "total_original_image_urls": 70
+}
