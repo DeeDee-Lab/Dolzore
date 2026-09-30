@@ -605,3 +605,53 @@ Next avatar work:
 
 Resume:
 **Gameひきついで**
+
+
+---
+
+# 15. 2026-09-30 permanent detailed-handoff rule + Mother2 research correction
+
+Global permanent user rule:
+**Agent-to-Agent transfer may not be abstract-only.**
+
+Before continuing any substantial DOLZORE work, successors must preserve/read:
+- exact user authority;
+- exact repo/branch/SHA/Issue/comment/run/artifact references;
+- source/evidence inventory;
+- concrete measurements/observations;
+- evidence -> decision -> implementation mapping;
+- rejected outputs/failures;
+- unknown/unmeasured domains;
+- acceptance criteria/results;
+- exact resume point.
+
+Global canonical policy:
+- `DeeDee-Lab/TECBUILD-Agent-Hub/canonical/agenthub/DETAILED_HANDOFF_EVIDENCE_POLICY.md`
+- constraint `global.detailed-handoff-evidence.v1`
+- AgentHub Issue #20 top authority contains the binding rule.
+
+For Mother2-derived visual work specifically:
+1. read `research/mother2/AGENT_READ_FIRST.md`;
+2. immediately read `research/mother2/DIRECT_VISUAL_EVIDENCE_PACKET_V1.md`;
+3. then read the structured/grammar documents;
+4. never claim visual alignment from abstract principles alone;
+5. preserve representative source identifiers and quantitative comparisons.
+
+Mother2 research state was corrected:
+`STRUCTURAL_REFERENCE_V1_READY_QUANTITATIVE_VISUAL_RESEARCH_ACTIVE`
+
+Important truth:
+- structural research is strong;
+- quantitative visual research is NOT complete;
+- the prior `COMPREHENSIVE_REFERENCE_V1_READY` wording overstated visual completeness.
+
+Current correction evidence:
+- direct visual packet commit `82d370a5679470489f822dfa1ad7d166550f84a8`
+- read-first correction `1cbb54dc00f66f34d31ac3927698a5c2fd3f7162`
+- research-status correction `bcb7d4a042afa73af57451b7a8f5e80b5238ab0e`
+- issue #26 correction checkpoint `5904118796`
+
+The user must never have to explain this again.
+
+Resume phrase remains:
+**Gameひきついで**
