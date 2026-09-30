@@ -1,7 +1,7 @@
 {
   "schema": "dolzore.mother2.research_status.v1",
   "updated_jst": "2026-09-30T13:23:00+09:00",
-  "state": "STRUCTURAL_REFERENCE_V1_READY_QUANTITATIVE_VISUAL_RESEARCH_ACTIVE",
+  "state": "STRUCTURAL_REFERENCE_V1_READY_QUANTITATIVE_VISUAL_CORPUS_EXPANDING",
   "canonical_repo": "DeeDee-Lab/Dolzore",
   "canonical_issue": "DeeDee-Lab/Dolzore#26",
   "canonical_path": "research/mother2/",
@@ -30,7 +30,8 @@
     "music_role_matrix",
     "first_town_authoring_contract_v1",
     "differentiation_guardrails",
-    "official_screenshot_structural_observation_v1"
+    "official_screenshot_structural_observation_v1",
+    "gamepedia_town_image_source_manifest_v1"
   ],
   "in_progress_domains": [
     "direct_visual_evidence_packet_expansion",
@@ -41,12 +42,12 @@
     "cross_reference_with_ff11_and_ff14_without_merging_distinct_design_goals"
   ],
   "exact_next_actions": [
-    "all production agents read DIRECT_VISUAL_EVIDENCE_PACKET_V1.md before visual implementation",
-    "expand representative screenshot set to 6-12 source-identified town scenes",
-    "measure approximate road/vegetation/architecture/character/density/value/saturation/edge-orientation metrics per representative scene",
-    "derive original DOLZORE target ranges without copying protected expression",
-    "compare every generated FirstTown screenshot against the concrete packet before claiming visual alignment",
-    "record every delta in issue #26 and RESEARCH_STATUS.json"
+    "production agents must inspect original image references, not summaries alone",
+    "expand Gamepedia/official representative town image corpus only by preserving exact original media URLs/source pages",
+    "measure per-image visual ratios without replacing original evidence",
+    "derive original DOLZORE target ranges from multi-image evidence",
+    "compare every FirstTown output against original-reference set plus quantitative packet",
+    "record future evidence and implementation deltas in issue #26"
   ],
   "evidence_warning": "No original maps, sprites, music, full script text, ROM content or copyrighted asset bodies are stored.",
   "files": [
@@ -84,5 +85,14 @@
     "direct_visual_evidence_packet_present": true,
     "abstract_only_handoff_forbidden": true,
     "copyrighted_asset_extraction": false
+  },
+  "image_source_state": {
+    "original_image_transfer_policy": "global.original-image-transfer.v1",
+    "gamepedia_manifest": "GAMEPEDIA_TOWN_IMAGE_SOURCE_MANIFEST_V1.json",
+    "gamepedia_town_field_pages": 15,
+    "exact_original_media_urls": 70,
+    "transformed_thumbnail_urls_canonical": false,
+    "copied_third_party_image_bodies_into_repo": false,
+    "source_reference_preserved": true
   }
 }
