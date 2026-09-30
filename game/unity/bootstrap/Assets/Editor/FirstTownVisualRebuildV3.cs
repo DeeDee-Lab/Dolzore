@@ -107,6 +107,8 @@ namespace Dolzore.Editor
             SaveCat("cat_v3.png");
             SaveWaterTower("water_tower_v3.png");
             SaveCrosswalk("crosswalk_v3.png");
+            SaveMarkingTile("marking_crosswalk_h.png", true);
+            SaveMarkingTile("marking_crosswalk_v.png", false);
             SaveManhole("manhole_v3.png");
             SaveRoadSign("road_sign_v3.png");
             SaveBusStop("bus_stop_v3.png");
@@ -121,6 +123,8 @@ namespace Dolzore.Editor
             ReplaceTileSprite("Sidewalk", "sidewalk_v3.png");
             ReplaceTileSprite("Water", "water_v3.png");
             ReplaceTileSprite("Plaza", "plaza_v3.png");
+            CreateOrReplaceTileAsset("CrosswalkH", "marking_crosswalk_h.png");
+            CreateOrReplaceTileAsset("CrosswalkV", "marking_crosswalk_v.png");
         }
 
         private static void ReplaceTileSprite(string tileName, string spriteFile)
@@ -135,14 +139,18 @@ namespace Dolzore.Editor
         {
             Tilemap roads = FindTilemap("Roads");
             Tilemap plazas = FindTilemap("Plazas");
-            if (roads == null || plazas == null) return;
+            Tilemap markings = EnsureRoadMarkingsTilemap();
+            if (roads == null || plazas == null || markings == null) return;
 
             roads.ClearAllTiles();
             plazas.ClearAllTiles();
+            markings.ClearAllTiles();
 
             Tile road = AssetDatabase.LoadAssetAtPath<Tile>(TileRoot + "/Road.asset");
             Tile walk = AssetDatabase.LoadAssetAtPath<Tile>(TileRoot + "/Sidewalk.asset");
             Tile plaza = AssetDatabase.LoadAssetAtPath<Tile>(TileRoot + "/Plaza.asset");
+            Tile crossH = AssetDatabase.LoadAssetAtPath<Tile>(TileRoot + "/CrosswalkH.asset");
+            Tile crossV = AssetDatabase.LoadAssetAtPath<Tile>(TileRoot + "/CrosswalkV.asset");
 
             // Main civic street: readable, but deliberately narrower than the previous prototype.
             Fill(roads, road, -21, 4, 42, 3);
@@ -179,12 +187,48 @@ namespace Dolzore.Editor
 
             // Bridge deck path remains centered over the river.
             Fill(roads, road, 0, -6, 3, 5);
+
+            // Crosswalks are authored in road-grid space so they can never drift off the roadway.
+            Fill(markings, crossH, 0, 4, 3, 3);
+            Fill(markings, crossH, 14, 4, 3, 3);
+            Fill(markings, crossV, 14, -11, 3, 3);
         }
 
         private static Tilemap FindTilemap(string name)
         {
             GameObject go = GameObject.Find(name);
             return go != null ? go.GetComponent<Tilemap>() : null;
+        }
+
+        private static Tilemap EnsureRoadMarkingsTilemap()
+        {
+            GameObject existing = GameObject.Find("Road Markings");
+            if (existing != null) return existing.GetComponent<Tilemap>();
+
+            GameObject grid = GameObject.Find("Town Grid");
+            if (grid == null) return null;
+
+            GameObject go = new GameObject("Road Markings", typeof(Tilemap), typeof(TilemapRenderer));
+            go.transform.SetParent(grid.transform, false);
+            TilemapRenderer renderer = go.GetComponent<TilemapRenderer>();
+            renderer.sortingOrder = 5;
+            return go.GetComponent<Tilemap>();
+        }
+
+        private static void CreateOrReplaceTileAsset(string tileName, string spriteFile)
+        {
+            string path = TileRoot + "/" + tileName + ".asset";
+            Tile tile = AssetDatabase.LoadAssetAtPath<Tile>(path);
+            if (tile == null)
+            {
+                tile = ScriptableObject.CreateInstance<Tile>();
+                tile.name = tileName;
+                AssetDatabase.CreateAsset(tile, path);
+            }
+
+            tile.sprite = Sprite(spriteFile);
+            tile.colliderType = Tile.ColliderType.None;
+            EditorUtility.SetDirty(tile);
         }
 
         private static void RecomposeCoreBuildings()
@@ -281,36 +325,48 @@ namespace Dolzore.Editor
             if (player == null) return;
             player.transform.position = new Vector3(-4.5f, 8.8f, 0f);
             SpriteRenderer sr = player.GetComponent<SpriteRenderer>();
-            if (sr != null)
-            {
-                sr.sprite = Sprite("sora_v3.png");
-                sr.sortingOrder = 90;
-            }
+            if (sr != null) sr.sortingOrder = 90;
+            AvatarAssetGenerator.ApplyAvatar(player, "sora", AvatarPresets.Sora(), true);
+
+            PlayerStateComponent playerState = player.GetComponent<PlayerStateComponent>();
+            if (playerState != null && playerState.State != null)
+                playerState.State.appearance = AvatarPresets.Sora();
         }
 
         private static void AddResidents()
         {
-            AddResident("MELO", "melo_v3.png", new Vector2(-9.8f, 5.1f), "entity.npc.melo");
-            AddResident("YUZU", "yuzu_v3.png", new Vector2(7.2f, 5.0f), "entity.npc.yuzu");
-            AddResident("PON", "pon_v3.png", new Vector2(4.4f, 1.0f), "entity.npc.pon");
-            AddResident("NAMI", "child_v3.png", new Vector2(-9.2f, 10.8f), "entity.npc.nami");
-            AddResident("GARU", "worker_v3.png", new Vector2(-13.1f, 1.0f), "entity.npc.garu");
-            AddResident("MORI", "elder_v3.png", new Vector2(-3.2f, 5.0f), "entity.npc.mori");
-            AddResident("REI", "visitor_v3.png", new Vector2(10.2f, -9.5f), "entity.npc.rei");
-            AddResident("HANA", "visitor_v3.png", new Vector2(12.1f, 5.4f), "entity.npc.hana");
+            AddResident("MELO", "melo", AvatarPresets.Melo(), new Vector2(-9.8f, 5.1f), "entity.npc.melo");
+            AddResident("YUZU", "yuzu", AvatarPresets.Yuzu(), new Vector2(7.2f, 5.0f), "entity.npc.yuzu");
+            AddResident("PON", "pon", AvatarPresets.Pon(), new Vector2(4.4f, 1.0f), "entity.npc.pon");
+            AddResident("NAMI", "child", AvatarPresets.Child(), new Vector2(-9.2f, 10.8f), "entity.npc.nami");
+            AddResident("GARU", "worker", AvatarPresets.Worker(), new Vector2(-13.1f, 1.0f), "entity.npc.garu");
+            AddResident("MORI", "elder", AvatarPresets.Elder(), new Vector2(-3.2f, 5.0f), "entity.npc.mori");
+            AddResident("REI", "visitor", AvatarPresets.Visitor(), new Vector2(10.2f, -9.5f), "entity.npc.rei");
+
+            AvatarAppearanceData hana = AvatarPresets.Visitor();
+            hana.hairStyle = 5;
+            hana.topStyle = 2;
+            hana.bottomStyle = 2;
+            hana.accessoryStyle = 8;
+            hana.hair = C("#6A4C62");
+            hana.top = C("#F0A4B7");
+            hana.bottom = C("#557E72");
+            hana.accessory = C("#F7D463");
+            AddResident("HANA", "hana", hana, new Vector2(12.1f, 5.4f), "entity.npc.hana");
         }
 
-        private static void AddResident(string name, string file, Vector2 position, string entityId)
+        private static void AddResident(string name, string assetKey, AvatarAppearanceData appearance, Vector2 position, string entityId)
         {
             GameObject go = new GameObject(name);
             go.transform.position = position;
             SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
-            sr.sprite = Sprite(file);
             sr.sortingOrder = 95 - Mathf.RoundToInt(position.y);
 
+            AvatarAssetGenerator.ApplyAvatar(go, assetKey, appearance, false);
+
             CapsuleCollider2D capsule = go.AddComponent<CapsuleCollider2D>();
-            capsule.size = new Vector2(0.55f, 0.70f);
-            capsule.offset = new Vector2(0f, -0.18f);
+            capsule.size = new Vector2(0.48f, 0.62f);
+            capsule.offset = new Vector2(0f, -0.14f);
 
             EntityIdentity identity = go.AddComponent<EntityIdentity>();
             identity.Configure(entityId, DolzoreIds.FirstTownRegion, "npc.resident");
@@ -344,7 +400,6 @@ namespace Dolzore.Editor
             AddProp("Main Hydrant", "hydrant_v3.png", new Vector2(5.0f, 3.0f), false);
             AddProp("Main Road Sign", "road_sign_v3.png", new Vector2(4.7f, 7.4f), false);
             AddProp("Main Bus Stop", "bus_stop_v3.png", new Vector2(17.8f, 3.2f), false);
-            AddProp("Main Crosswalk", "crosswalk_v3.png", new Vector2(1.0f, 5.2f), false, 8);
             AddProp("Main Manhole", "manhole_v3.png", new Vector2(-1.4f, 5.4f), false, 9);
 
             AddPole("Main Pole A", new Vector2(-18.8f, 3.2f));
@@ -359,7 +414,7 @@ namespace Dolzore.Editor
             AddProp("Civic Bin", "trash_v3.png", new Vector2(9.4f, 2.1f), false);
             AddTree("Civic Tree", new Vector2(5.4f, 1.5f), 0.9f);
             AddFlowers("Civic Flowers", new Vector2(12.4f, 2.0f));
-            AddProp("Civic Crosswalk", "crosswalk_v3.png", new Vector2(15.5f, 5.1f), false, 8);
+
         }
 
         private static void AddRiversideLife()
@@ -854,6 +909,26 @@ namespace Dolzore.Editor
             SaveSprite(file, w, h, p, 16f);
         }
 
+        private static void SaveMarkingTile(string file, bool horizontal)
+        {
+            const int s = 16;
+            Color32[] p = Transparent(s * s);
+            Color32 stripe = new Color32(245, 240, 218, 220);
+
+            if (horizontal)
+            {
+                for (int y = 2; y < 15; y += 5)
+                    Rect(p, s, s, 1, y, 14, 2, stripe);
+            }
+            else
+            {
+                for (int x = 2; x < 15; x += 5)
+                    Rect(p, s, s, x, 1, 2, 14, stripe);
+            }
+
+            SaveSprite(file, s, s, p, 16f);
+        }
+
         private static void SaveCrosswalk(string file)
         {
             const int w = 48, h = 24;
@@ -962,7 +1037,8 @@ namespace Dolzore.Editor
                 !file.StartsWith("road_", StringComparison.Ordinal) &&
                 !file.StartsWith("sidewalk_", StringComparison.Ordinal) &&
                 !file.StartsWith("plaza_", StringComparison.Ordinal) &&
-                !file.StartsWith("water_", StringComparison.Ordinal))
+                !file.StartsWith("water_", StringComparison.Ordinal) &&
+                !file.StartsWith("marking_", StringComparison.Ordinal))
             {
                 pixels = AddReadableOutline(pixels, w, h);
             }
