@@ -693,3 +693,22 @@ Before visual implementation:
 
 Resume phrase remains:
 **Gameひきついで**
+
+
+---
+
+# 17. 2026-09-30 22:35 JST — master checkpoint pointer
+
+Resume phrase:
+**Gameひきついで**
+
+Before acting, read:
+`design/GAME_MASTER_CHECKPOINT_20260930_2235.md`
+
+Checkpoint commit:
+`c7b1f913b47cab5074063f6a7c6022d3ee8a2fd6`
+
+It contains the current website recovery/migration state, FirstTown V7 exact run/error/fix state, Mother2 original-image evidence requirements, avatar state, and exact next actions.
+
+`GAME_HANDOFF_READY=true`
+`USER_RESTATEMENT_REQUIRED=false`
