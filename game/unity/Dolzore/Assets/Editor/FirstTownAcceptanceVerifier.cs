@@ -69,6 +69,7 @@ namespace Dolzore.Editor
             }
 
             AssertUiSurface();
+            AssertRoadMarkings();
 
             string receipt = BuildReceipt(topologySha, colliders.Length, obstacles.Count, start, anchorPositions, targets, routeSteps);
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
@@ -80,6 +81,36 @@ namespace Dolzore.Editor
             Debug.Log("DOLZORE_COLLIDER_TOPOLOGY_SHA256=" + topologySha);
             Debug.Log("DOLZORE_ACCEPTANCE_RECEIPT=" + receiptPath);
             Debug.Log("DOLZORE_ROUTE_ACCEPTANCE_SUCCESS");
+        }
+
+        private static void AssertRoadMarkings()
+        {
+            GameObject markingsGo = GameObject.Find("Road Markings");
+            GameObject roadsGo = GameObject.Find("Roads");
+
+            if (markingsGo == null || roadsGo == null)
+                throw new InvalidOperationException("DOLZORE_ROAD_MARKING_TILEMAP_MISSING");
+
+            UnityEngine.Tilemaps.Tilemap markings = markingsGo.GetComponent<UnityEngine.Tilemaps.Tilemap>();
+            UnityEngine.Tilemaps.Tilemap roads = roadsGo.GetComponent<UnityEngine.Tilemaps.Tilemap>();
+            if (markings == null || roads == null)
+                throw new InvalidOperationException("DOLZORE_ROAD_MARKING_COMPONENT_MISSING");
+
+            int markingCells = 0;
+            BoundsInt bounds = markings.cellBounds;
+            foreach (Vector3Int cell in bounds.allPositionsWithin)
+            {
+                if (!markings.HasTile(cell)) continue;
+                markingCells++;
+
+                if (!roads.HasTile(cell))
+                    throw new InvalidOperationException("DOLZORE_CROSSWALK_OFF_ROAD:" + cell);
+            }
+
+            if (markingCells < 18)
+                throw new InvalidOperationException("DOLZORE_CROSSWALK_MARKING_COUNT_TOO_LOW:" + markingCells);
+
+            Debug.Log("DOLZORE_ROAD_MARKINGS_ALIGNED=PASS cells=" + markingCells);
         }
 
         private static void AssertUiSurface()
