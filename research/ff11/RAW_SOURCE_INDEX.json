@@ -1,7 +1,7 @@
 {
   "schema": "dolzore.ff11.raw_source_index.v1",
   "authority": "direct-user-2026-09-30",
-  "status": "INITIALIZED_PENDING_SOURCE_SCANS",
+  "status": "SPC_RAW_MANIFEST_IN_PROGRESS_DPC_PENDING",
   "source_hosts": {
     "DPC": {
       "network_independent": true,
@@ -20,12 +20,17 @@
       ],
       "network_independent": true,
       "access_lane": "GitHub self-hosted runner afk-sowciepc",
-      "state": "candidate_for_read_only_scan",
+      "state": "raw_manifest_run_in_progress",
       "installed": [
         "FF11",
         "FF14"
       ],
-      "raw_asset_policy": "in_place_pointer_hash_only_for_third_party_protected_assets"
+      "raw_asset_policy": "in_place_pointer_hash_only_for_third_party_protected_assets",
+      "transport_issue": "DeeDee-Lab/Automation#604",
+      "scan_workflow": ".github/workflows/spc-ff11-raw-manifest.yml",
+      "scan_run_id": 36681232959,
+      "scanner_commit": "259a861726a3e02d03b9ba0cdbfd901cad43fb16",
+      "workflow_commit": "bce8b36a198be0c74369e9444501fc57837cb155"
     }
   },
   "required_manifest_fields": [
