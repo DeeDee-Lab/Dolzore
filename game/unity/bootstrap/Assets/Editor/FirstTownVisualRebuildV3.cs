@@ -80,14 +80,15 @@ namespace Dolzore.Editor
 
         private static void GenerateCharacters()
         {
-            SaveCharacter("sora_v3.png", C("#253C56"), C("#E4B489"), C("#55A1A0"), C("#F18E55"), 0);
-            SaveCharacter("melo_v3.png", C("#854D42"), C("#E3B088"), C("#9A4A5D"), C("#E7B455"), 1);
-            SaveCharacter("yuzu_v3.png", C("#33313C"), C("#E1AE86"), C("#B99045"), C("#647244"), 2);
-            SaveCharacter("pon_v3.png", C("#536B82"), C("#DDAA82"), C("#3D6289"), C("#F08442"), 3);
-            SaveCharacter("child_v3.png", C("#5C4236"), C("#E7B78C"), C("#6281AD"), C("#F1CD70"), 4);
-            SaveCharacter("worker_v3.png", C("#3F4145"), C("#D6A57C"), C("#73665D"), C("#D4A64C"), 5);
-            SaveCharacter("elder_v3.png", C("#DDD5C7"), C("#D8A882"), C("#6B746C"), C("#8FB3A1"), 6);
-            SaveCharacter("visitor_v3.png", C("#4D4258"), C("#DFAD86"), C("#5A718A"), C("#9B78A6"), 7);
+            AvatarAssetGenerator.GenerateWardrobeSample();
+            AvatarAssetGenerator.GeneratePreview("sora", AvatarPresets.Sora());
+            AvatarAssetGenerator.GeneratePreview("melo", AvatarPresets.Melo());
+            AvatarAssetGenerator.GeneratePreview("yuzu", AvatarPresets.Yuzu());
+            AvatarAssetGenerator.GeneratePreview("pon", AvatarPresets.Pon());
+            AvatarAssetGenerator.GeneratePreview("child", AvatarPresets.Child());
+            AvatarAssetGenerator.GeneratePreview("worker", AvatarPresets.Worker());
+            AvatarAssetGenerator.GeneratePreview("elder", AvatarPresets.Elder());
+            AvatarAssetGenerator.GeneratePreview("visitor", AvatarPresets.Visitor());
         }
 
         private static void GenerateProps()
