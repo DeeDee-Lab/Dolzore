@@ -21,7 +21,7 @@ Before any external URL replacement:
 8. canonical URL recorded here.
 
 Current canonical replacement URL:
-`PENDING_VERIFIED_NEW_URL`
+`https://dolzore-web-runtime-production.up.railway.app/`
 
 Current known broken/new-host state:
 - `https://dolzore-official.lovable.app/` = 404
@@ -193,6 +193,38 @@ Migration is complete only when:
 - a final migration receipt is saved.
 
 `PUBLIC_URL_MIGRATION_PENDING=true`
-`NEW_CANONICAL_URL_VERIFIED=false`
+`NEW_CANONICAL_URL_VERIFIED=true`
 `EXTERNAL_LINKS_NOT_YET_CUT_OVER=true`
 `NO_FALSE_COMPLETION=true`
+
+
+## 2026-09-30 emergency new-site recovery — externally verified
+
+Verified canonical replacement candidate:
+`https://dolzore-web-runtime-production.up.railway.app/`
+
+External acceptance performed against the actual public internet endpoint:
+- `/` = PASS
+- `/business` = PASS
+- `/creator` = PASS
+- `/apps` = PASS
+- `/buying-guide` = PASS
+- `/about` = PASS
+- `/privacy` = PASS
+- `/terms` = PASS
+- `/health` = PASS / OK
+- no 404/502 on the tested canonical routes
+- homepage contains DOLZORE new-site content, not source code or recovery placeholder
+
+Railway deployment proof:
+- service: `dolzore-web-runtime`
+- deployment: `5041f5ad-b97d-4ce7-bce0-6d9aae9c30b3`
+- runtime: 1/1 replica online
+- start marker: `DOLZORE_SITE_READY 8080`
+
+Important:
+This is the verified replacement public URL used for URL-migration execution.
+The old Lovable URL remains retired and must not become canonical again.
+
+Next:
+execute all migration inventory items and only then set `PUBLIC_URL_MIGRATION_PENDING=false`.
