@@ -97,6 +97,7 @@ namespace Dolzore
     public sealed class PlayerPersistentStateData
     {
         public CharacterIdentityData identity = new CharacterIdentityData();
+        public AvatarAppearanceData appearance = AvatarPresets.Sora();
         public VocationStateData vocation = new VocationStateData();
         public VitalStateData vitals = new VitalStateData();
         public List<SkillProgressData> skills = new List<SkillProgressData>();
