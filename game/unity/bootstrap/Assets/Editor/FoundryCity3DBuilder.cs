@@ -85,12 +85,12 @@ namespace Dolzore.Editor
             BuildPlayerOptions options = new BuildPlayerOptions
             {
                 scenes = new[] { ScenePath },
-                locationPathName = output,
+                locationPathName = BuildRoot,
                 target = BuildTarget.WebGL,
                 options = BuildOptions.None
             };
 
-            Build.Reporting.BuildReport report = BuildPipeline.BuildPlayer(options);
+            UnityEditor.Build.Reporting.BuildReport report = BuildPipeline.BuildPlayer(options);
             if (report.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
                 throw new InvalidOperationException("FOUNDRY_CITY_WEBGL_BUILD_FAILED:" + report.summary.result);
 
