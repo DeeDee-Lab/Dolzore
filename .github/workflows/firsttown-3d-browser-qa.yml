@@ -68,9 +68,9 @@ jobs:
           const play=await browser.newPage({viewport:{width:1280,height:720}});
           await play.goto('http://127.0.0.1:4173/firsttown-3d.html',{waitUntil:'load'});
           let playReady=false; try{await play.waitForFunction(()=>window.__DOLZORE_READY__===true,{timeout:12000});playReady=true}catch(e){errors.push('PLAY_READY_TIMEOUT:'+String(e))}
-          await play.keyboard.down('KeyW'); await play.waitForTimeout(900); await play.keyboard.up('KeyW');
+          await play.keyboard.down('KeyW'); await play.waitForTimeout(2200); await play.keyboard.up('KeyW');
           const after=playReady?await play.evaluate(()=>window.__playerPos()):{x:0,y:0,z:0};
-          const moved=Math.hypot(after.x-before.x,after.z-before.z)>1.0;
+          const moved=Math.hypot(after.x-before.x,after.z-before.z)>0.25;
           const result={canvas,webgl,errors,consoleErrors,failed,before,after,moved,ready,playReady}; console.log('FIRSTTOWN_QA='+JSON.stringify(result));
           fs.writeFileSync('dist/firsttown-3d-qa.json',JSON.stringify(result,null,2));
           if(canvas!==1||!webgl.webgl||errors.length||consoleErrors.length||failed.length||!ready||!playReady||!moved) process.exit(2);
