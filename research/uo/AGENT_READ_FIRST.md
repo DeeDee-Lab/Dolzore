@@ -1,175 +1,85 @@
-# ULTIMA ONLINE REFERENCE — AGENT READ FIRST
+# ULTIMA ONLINE RESEARCH — AGENT READ FIRST
 
-Authority: direct user instruction, 2026-10-01 JST
-Consumer: DOLZORE game creation / Unity / shared-world / MMO / economy / life-system agents
-Canonical research issue: DeeDee-Lab/Dolzore#27
+Authority: direct user instruction + scope correction, 2026-10-01 JST
+Canonical issue: DeeDee-Lab/Dolzore#27
 
-## 0. Mandatory handoff rule
+## 0. Primary objective
+Analyze ULTIMA ONLINE ITSELF from the actual client/data files where lawfully available and from official/public technical sources.
 
-UO research is an evidence corpus first and a design input second.
+DOLZORE design application is SECONDARY. Never replace UO evidence collection with an explanation of how DOLZORE should imitate UO.
 
-Do not pass a shortened prose summary to another agent as a substitute for the evidence corpus.
-Do not merge facts from different UO eras/rulesets into one timeless specification.
-Do not silently change values, labels, conditions, publish dates, facet/ruleset scope, or source class.
+## 1. Mandatory no-summary handoff
+A prose summary is never the canonical handoff.
+Downstream agents must be able to return to:
+- the exact local client file + SHA-256, or
+- the exact source URL, or
+- the exact public repository + path + Git blob SHA.
 
-For every factual record preserve, when available:
-- fact_id
-- domain
-- field_name
-- raw_value
-- raw_value_type
-- unit_or_encoding
-- conditions
-- era
-- publish_or_ruleset
-- source_id
-- source_type
-- source_location
-- source_version_or_date
-- evidence_class
-- observed_at_or_source_date
-- retrieved_at
-- extraction_method
-- source_sha256_if_file_backed
+Preserve exact names, values, IDs, offsets, conditions, client versions, publishes, eras and rulesets. Unknown means UNKNOWN; do not infer missing raw data.
 
-Interpretation belongs in separate DOLZORE application documents.
+## 2. Canonical evidence layers
+1. LOCAL_CLIENT_RAW — user/lawfully acquired actual client files, byte-preserved.
+2. OFFICIAL_CURRENT / OFFICIAL_HISTORICAL — UO/Broadsword pages and publishes.
+3. OPEN_SOURCE_CLIENT_IMPLEMENTATION — ClassicUO and client-file readers.
+4. PUBLIC_PATCH_PROTOCOL_REFERENCE — public patch/manifest tooling; observations require verification.
+5. OPEN_SOURCE_EMULATION_REFERENCE — ModernUO/ServUO/RunUO; never proof of retail server internals.
+6. COMMUNITY_RESEARCH — measurements/reverse engineering; must remain attributed.
+7. DOLZORE_DESIGN_RECOMMENDATION — downstream interpretation only.
 
-## 1. Copyright / source preservation rule
+## 3. Client corpus is mandatory
+Read research/uo/client/SCAN_STATUS.json first.
+Until actual_client_scan_performed=true, NEVER say the real local UO client has been analyzed.
 
-The user requires information and images to be passed without lossy reinterpretation.
+For every actual client file capture:
+relative_path, bytes, timestamps, SHA-256, type/signature, client version, acquisition source, and archive-member metadata where relevant are mandatory.
 
-For third-party copyrighted pages, books, images, audio, maps, sprites, UI art, manuals and game assets:
-- do not republish the copyrighted body into this repository;
-- preserve the exact source page URL;
-- preserve the exact original-media URL when it can be lawfully referenced;
-- preserve file metadata/hash only when the file is user-owned or otherwise lawfully available for local analysis;
-- do not substitute a compressed thumbnail as the canonical visual source;
-- do not treat a rewritten description as a replacement for the original image/text.
+Canonical image/audio/map assets are the original bytes. PNG/JPEG/WebP exports, screenshots, thumbnails, transcoded audio and rendered maps are derivatives only.
 
-Atomic factual values such as numbers, dates, names of systems, formulas documented by sources, and rules can be stored as structured facts with provenance.
+## 4. Current technical source spine
+Read:
+- research/uo/sources/TECHNICAL_SOURCE_LEDGER.jsonl
+- research/uo/client/KNOWN_CLIENT_FILE_INVENTORY_UOFIDDLER.json
+- research/uo/CLIENT_CORPUS_ACCEPTANCE.md
 
-## 2. Evidence classes
+Then inspect the referenced source file itself when exact implementation detail matters.
 
-Use exactly one primary evidence class per record:
+The current ClassicUO UOFileManager exposes loaders for Animations, AnimData, Arts, Maps, Clilocs, Gumps, Fonts, Hues, TileData, Multis, Skills, Texmaps, Speeches, Lights, Sounds, MultiMaps, Verdata, Professions, TileArt and StringDictionary. Treat this as an implementation observation tied to the referenced blob, not as a timeless retail specification.
 
-- OFFICIAL_CURRENT
-  Current official UO/Broadsword documentation or current official publish notes.
+## 5. All-domain collection
+Client/data, world, map/facets, rendering, UI/gumps, input/macros/targeting, items/containers, mobiles/NPCs, animation, sound/music, localization, stats/skills, combat, magic, equipment, death/corpses/loot, crime/notoriety, PvP/PvE, resources/crafting, economy/vendors/trade, housing, pets/taming, AI/spawns, social/guild/party/chat, travel/ships, quests/events, persistence/decay, networking/protocol, patch/version/history and operations are all in scope.
 
-- OFFICIAL_HISTORICAL
-  Official historical publish notes, archived official rules, or dated official material.
-
-- OFFICIAL_NEW_LEGACY
-  Official New Legacy rules. Never mix these into production-shard rules without explicit scope.
-
-- HISTORICAL_PRIMARY_SOURCE
-  Period primary material such as an original guide/manual/interview where rights allow factual extraction.
-
-- THIRD_PARTY_HISTORICAL
-  Historical screenshot/archive/reference not controlled by the current UO team.
-
-- COMMUNITY_RESEARCH
-  Community-measured formulas/behavior. Must not be promoted to official fact.
-
-- OPEN_SOURCE_EMULATION_REFERENCE
-  ModernUO/ServUO/other emulator architecture. This is implementation reference only and is NOT evidence of retail server internals.
-
-- DOLZORE_DESIGN_RECOMMENDATION
-  A DOLZORE design decision derived from evidence. Never serialize it as a UO fact.
-
-## 3. Era separation is mandatory
-
+## 6. Era/version separation
 At minimum distinguish:
+LAUNCH_1997
+T2A_1998
+RENAISSANCE_2000
+PRE_AOS_2000_2002
+AGE_OF_SHADOWS_2003_PLUS
+MODERN_PRODUCTION
+SIEGE_PERILOUS_RULESET
+NEW_LEGACY_SEASONAL
+and exact client versions when client behavior/files differ.
 
-1. LAUNCH_1997
-2. T2A_1998
-3. RENAISSANCE_2000
-4. PRE_AOS_2000_2002
-5. AGE_OF_SHADOWS_2003_PLUS
-6. MODERN_PRODUCTION
-7. NEW_LEGACY_SEASONAL
-8. SIEGE_PERILOUS_RULESET where rules differ
+## 7. Sensitive capture handling
+Never commit passwords, session tokens, account secrets or equivalent authentication material.
+If an unmodified raw packet/log capture contains such values, retain raw locally in a protected evidence location, hash it, and create a separately labeled sanitized derivative for agent inspection.
 
-A fact with unknown era must say UNKNOWN_ERA. Do not guess.
-
-## 4. DOLZORE reference-layer contract
-
-DOLZORE uses three distinct reference layers.
-
-MOTHER2 reference layer:
-- field readability
-- warm ordinary-town presentation
-- symbolic 16-bit-inspired visual grammar
-- everyday/strange contrast
-
-FFXI reference layer:
-- deep stat dependency
-- vocation/support-vocation structure
-- weapon/magic skill progression
-- staged physical/magic formulas
-- build-spend cadence
-- cooperative timing
-- threat/enmity
-- loadout preparation
-- horizontal progression
-
-UO reference layer:
-- persistent shared-world sandbox structure
-- class-light / skill-driven freedom as a structural reference
-- world objects and containers as persistent gameplay entities
-- player housing and private/public property
-- gathering -> crafting -> goods -> player commerce loops
-- player vendors and market discovery
-- crime / notoriety / murder / risk rules
-- corpse/death/loot consequence structure
-- social proximity, guild, party and chat layers
-- pets/taming and non-combat life roles
-- open-world travel, ships and geography
-- shard/facet/ruleset separation
-- server-authoritative persistent world and event/state thinking
-
-UO does NOT automatically replace the existing FFXI-derived combat core.
-Any replacement must be an explicit later user decision.
-
-## 5. What must never be copied
-
-Do not copy into DOLZORE:
-- UO maps/town layouts/dungeon layouts;
-- sprites, tiles, animations, UI art or gumps;
-- music/audio;
-- dialogue/text/lore;
-- named characters/factions/creatures when distinctive;
-- exact branded spell/skill presentation;
-- retail client/server protocol payloads;
-- emulator code unless license compatibility is explicitly reviewed and user directs reuse.
-
-Learn system structure; create original DOLZORE expression/content/data.
-
-## 6. Agent read order
-
+## 8. Read order
 1. this file
-2. SOURCE_INDEX.md
-3. ERA_MATRIX.md
-4. SYSTEM_INVENTORY.md
-5. facts/*.jsonl
-6. OPEN_SOURCE_SERVER_REFERENCE.md
-7. DOLZORE_STRUCTURAL_APPLICATION.md
-8. design/GAME_CANONICAL_DIRECTION.md
-9. design/SHARED_WORLD_MMO_ARCHITECTURE.md
-10. research/ff11/AGENT_READ_FIRST.md
-11. research/mother2/AGENT_READ_FIRST.md
-12. latest comments in issue #27
+2. CLIENT_CORPUS_ACCEPTANCE.md
+3. client/SCAN_STATUS.json
+4. sources/TECHNICAL_SOURCE_LEDGER.jsonl
+5. client/KNOWN_CLIENT_FILE_INVENTORY_UOFIDDLER.json
+6. SOURCE_INDEX.md
+7. ERA_MATRIX.md
+8. SYSTEM_INVENTORY.md
+9. facts/*.jsonl
+10. referenced client/source implementations as needed
+11. latest checkpoints on issue #27
+12. only after evidence: DOLZORE_STRUCTURAL_APPLICATION.md
 
-## 7. Anti-loop rule
+## 9. Anti-loop
+Never restart from memory. Append new evidence, hashes, manifests and contradictions.
+Issue #27 remains open until the acceptance lanes are complete.
 
-Never restart UO research from zero.
-Append new evidence and deltas.
-If a source contradicts an older source:
-- keep both records;
-- add era/publish/ruleset scope;
-- mark supersession only when the later official source clearly supersedes the earlier one.
-
-## 8. Current checkpoint
-
-UO_RESEARCH_V1_FRAMEWORK_ACTIVE=true
-CANONICAL_ISSUE=27
-BRANCH=research/uo-structural-v1
+UO_CLIENT_FORENSIC_SCOPE_V2=true
