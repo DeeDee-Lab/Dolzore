@@ -1,0 +1,121 @@
+name: DOLZORE 3D Foundry City
+
+on:
+  push:
+    branches: ["rebuild/3d-foundry-city-20261001"]
+    paths:
+      - "game/unity/bootstrap/**"
+      - ".github/workflows/unity-foundry-city-3d.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dolzore-3d-foundry-city
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: [dolzore-site-osk222]
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          clean: false
+
+      - name: Resolve Unity 6.5 editor
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          if(([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'OSK222'){ throw "DOLZORE_3D_WRONG_HOST:$env:COMPUTERNAME" }
+          $unity="C:\Program Files\Unity\Hub\Editor\6000.5.1f1\Editor\Unity.exe"
+          if(-not (Test-Path $unity)){ throw "DOLZORE_3D_UNITY_NOT_FOUND" }
+          $webgl=Join-Path (Split-Path $unity -Parent) "Data\PlaybackEngines\WebGLSupport"
+          if(-not (Test-Path $webgl)){ throw "DOLZORE_3D_WEBGL_MODULE_NOT_FOUND" }
+          "UNITY_EXE=$unity" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Sync authored source into Unity project
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $source=Join-Path $env:GITHUB_WORKSPACE "game\unity\bootstrap"
+          New-Item -ItemType Directory -Path (Join-Path $project "Assets") -Force | Out-Null
+          Copy-Item -Path (Join-Path $source "Assets\*") -Destination (Join-Path $project "Assets") -Recurse -Force
+          Copy-Item -Path (Join-Path $source "Packages\manifest.json") -Destination (Join-Path $project "Packages\manifest.json") -Force
+
+      - name: Clear workspace-local Unity lock
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $normalized=[IO.Path]::GetFullPath($project)
+          Get-CimInstance Win32_Process -Filter "Name='Unity.exe'" -ErrorAction SilentlyContinue | ForEach-Object {
+            $cmd=[string]$_.CommandLine
+            if($cmd -and $cmd.IndexOf($normalized,[StringComparison]::OrdinalIgnoreCase) -ge 0){
+              Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue
+            }
+          }
+          $lock=Join-Path $project "Temp\UnityLockfile"
+          if(Test-Path $lock){ Remove-Item $lock -Force }
+
+      - name: Generate walkable 3D city and WebGL
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Continue'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $log=Join-Path $env:RUNNER_TEMP "dolzore-foundry-city-3d.log"
+          $args=@("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.FoundryCity3DBuilder.GenerateAndBuild","-logFile",$log)
+          $proc=Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+          $code=$proc.ExitCode
+          if(Test-Path $log){ Get-Content $log -Tail 800 }
+          if($code -ne 0){ throw "DOLZORE_FOUNDRY_CITY_GENERATE_FAILED:$code" }
+
+      - name: Verify generated walkable city
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          foreach($rel in @(
+            "Assets\Scenes\FoundryCity3D.unity",
+            "BuildArtifacts\foundry-city-3d.png",
+            "BuildArtifacts\foundry-city-3d.json",
+            "Builds\FoundryCity3D\index.html"
+          )){
+            $p=Join-Path $project $rel
+            if(-not (Test-Path $p)){ throw "DOLZORE_FOUNDRY_CITY_MISSING:$rel" }
+            Write-Host "DOLZORE_FOUNDRY_CITY_OK=$rel"
+          }
+          $receipt=Get-Content (Join-Path $project "BuildArtifacts\foundry-city-3d.json") -Raw | ConvertFrom-Json
+          if(-not $receipt.walkable){ throw "DOLZORE_FOUNDRY_CITY_NOT_WALKABLE" }
+          if(-not $receipt.multi_level){ throw "DOLZORE_FOUNDRY_CITY_NOT_MULTILEVEL" }
+          if($receipt.collider_count -lt 60){ throw "DOLZORE_FOUNDRY_CITY_COLLIDERS_LOW:$($receipt.collider_count)" }
+          Write-Host "DOLZORE_FOUNDRY_CITY_ACCEPTANCE=PASS colliders=$($receipt.collider_count)"
+
+      - name: Upload 3D city WebGL artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-foundry-city-3d
+          retention-days: 14
+          if-no-files-found: error
+          path: |
+            game/unity/Dolzore/BuildArtifacts/foundry-city-3d.png
+            game/unity/Dolzore/BuildArtifacts/foundry-city-3d.json
+            game/unity/Dolzore/Builds/FoundryCity3D/**
+
+      - name: Preserve generated 3D scene source
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          git config user.name "DOLZORE 3D Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A game/unity/Dolzore/Assets/Scenes/FoundryCity3D.unity game/unity/Dolzore/Assets/Scenes/FoundryCity3D.unity.meta game/unity/Dolzore/Assets/Art/Generated/FoundryCity3D game/unity/Dolzore/Assets/Scripts/FoundryCityPlayerController.cs game/unity/Dolzore/Assets/Scripts/FoundryCityPlayerController.cs.meta game/unity/Dolzore/Assets/Editor/FoundryCity3DBuilder.cs game/unity/Dolzore/Assets/Editor/FoundryCity3DBuilder.cs.meta
+          git diff --cached --quiet
+          if($LASTEXITCODE -eq 0){
+            Write-Host "DOLZORE_FOUNDRY_CITY_SOURCE_CURRENT=true"
+            exit 0
+          }
+          git commit -m "unity: generate walkable 3D foundry city [skip ci]"
+          git push origin HEAD:rebuild/3d-foundry-city-20261001
