@@ -184,6 +184,24 @@ URL: https://uo.com/wiki/ultima-online-wiki/technical/previous-publishes/2004-2/
 Date: 2004-09-14
 Use: guild interface/alliance/rank-permission redesign; Chaos/Order removal.
 
+### UO-AOS-P17-1
+Type: OFFICIAL_HISTORICAL
+URL: https://uo.com/wiki/ultima-online-wiki/technical/previous-publishes/2003-2/publish-17-1-age-of-shadows/
+Date: 2003-02-10
+Use: Age of Shadows structural discontinuity; broad combat-formula changes, item-insurance option, magic-item conversion/removal, creature stat/skill/resistance/damage/loot changes, NPC price changes.
+
+### UO-AOS-P18-MAIN
+Type: OFFICIAL_HISTORICAL
+URL: https://uo.com/wiki/ultima-online-wiki/technical/previous-publishes/2003-2/publish-18-main-29th-may/
+Date: 2003-05-29
+Use: item-property client/server traffic behavior, item-property changes, custom-house fixes, post-AoS maintenance.
+
+### UO-AOS-SIEGE
+Type: OFFICIAL_HISTORICAL
+URL: https://uo.com/wiki/ultima-online-wiki/technical/previous-publishes/2003-2/publish-17-5-age-of-shadows/
+Date: 2003-05-16
+Use: Siege Perilous/Mugen Age of Shadows differences; Malas used Felucca-style PvP+ ruleset on Siege-style shards.
+
 ## New Legacy — keep separate
 
 ### UO-NEW-LEGACY-FAQ
