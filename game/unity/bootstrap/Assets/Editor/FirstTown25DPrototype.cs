@@ -429,7 +429,7 @@ namespace Dolzore.Editor
             body.transform.localPosition = new Vector3(0f, 1.05f, 0f);
             body.transform.localScale = new Vector3(0.58f, 0.62f, 0.52f);
             body.GetComponent<Renderer>().sharedMaterial = outfit;
-            DestroyImmediate(body.GetComponent<Collider>());
+            UnityEngine.Object.DestroyImmediate(body.GetComponent<Collider>());
 
             CreateSphere("Head", new Vector3(0f, 2.05f, 0f), new Vector3(0.82f, 0.88f, 0.82f), skin, visual.transform);
             CreateSphere("Hair", new Vector3(0f, 2.35f, 0.02f), new Vector3(0.9f, 0.46f, 0.87f), hair, visual.transform);
