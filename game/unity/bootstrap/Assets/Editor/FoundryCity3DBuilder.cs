@@ -239,7 +239,7 @@ namespace Dolzore.Editor
         {
             // Elevated industrial quarter at east.
             Box("Foundry Terrace", new Vector3(35f, 3f, 20f), new Vector3(38f, 6f, 40f), stoneDark);
-            Ramp("Foundry Ramp", new Vector3(19f, 1.7f, 8f), new Vector3(24f, 3.2f, 8f), 8f, true, stone);
+            Ramp("Foundry Ramp", new Vector3(17f, 3.0f, 8f), new Vector3(26f, 0.9f, 8f), 13.4f, true, stone);
 
             Building("Grand Foundry", new Vector3(35f, 6f, 25f), new Vector3(22f, 11f, 14f), 3, true);
             Label("GRAND FOUNDRY", new Vector3(35f, 12.4f, 17.7f), 0.55f, new Color(1f,0.55f,0.22f));
@@ -263,7 +263,7 @@ namespace Dolzore.Editor
         private static void BuildResidentialTerrace()
         {
             Box("Residential Terrace", new Vector3(-35f, 2f, 22f), new Vector3(34f, 4f, 40f), sandstone);
-            Ramp("Residential Ramp", new Vector3(-18f, 1.15f, 9f), new Vector3(23f, 2.1f, 8f), -6f, true, stone);
+            Ramp("Residential Ramp", new Vector3(-18f, 2.0f, 9f), new Vector3(24f, 0.9f, 8f), -9.5f, true, stone);
 
             for (int row = 0; row < 2; row++)
             {
@@ -282,7 +282,7 @@ namespace Dolzore.Editor
         {
             // Upper quarry shelf and mine gate.
             Box("Quarry Shelf", new Vector3(25f, 7.5f, 41f), new Vector3(50f, 15f, 13f), stoneDark);
-            Ramp("Quarry Ramp", new Vector3(12f, 5.2f, 35f), new Vector3(30f, 5.2f, 8f), -10f, false, stone);
+            Ramp("Quarry Ramp", new Vector3(34f, 10.5f, 35f), new Vector3(22f, 0.9f, 7f), -24.2f, true, stone);
 
             Box("Mine Portal Left", new Vector3(13f, 12f, 42f), new Vector3(8f, 10f, 5f), stone);
             Box("Mine Portal Right", new Vector3(31f, 12f, 42f), new Vector3(8f, 10f, 5f), stone);
