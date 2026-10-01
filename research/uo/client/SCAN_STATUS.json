@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-01T08:53:00+09:00",
+  "purpose": "Status of actual local UO client acquisition/scan lane.",
+  "actual_client_scan_performed": false,
+  "actual_client_dataset_acquired": false,
+  "claim_guard": "Do not claim local UO client analysis until exact files are available and hashed.",
+  "remote_devices_observed": [
+    {
+      "name": "DPC",
+      "status": "offline",
+      "uo_client_scan": "not_performed"
+    },
+    {
+      "name": "OSK222",
+      "status": "offline",
+      "uo_client_scan": "not_performed"
+    }
+  ],
+  "not_present_in_current_remote_device_list": [
+    "SPC"
+  ],
+  "next_required_output": [
+    "exact client root path",
+    "client executable version",
+    "recursive file manifest",
+    "size and timestamps",
+    "SHA-256 for every file",
+    "file signature/type",
+    "archive member manifest for every UOP",
+    "decoder/source mapping per file family"
+  ]
+}
