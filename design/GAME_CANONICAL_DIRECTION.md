@@ -14,7 +14,7 @@ Read this before re-analyzing engine, art direction, combat math, or progression
 
 **World structure: UO-derived persistent sandbox/shared-world macrostructure with original DOLZORE rules, content, economy, property, social systems and risk profiles.**
 
-Unity 2D is the active game engine.
+Unity 3D is the active game/world direction. The prior Unity 2D and 2.5D branches are retained as evidence/prototypes, not as the production visual foundation.
 
 ## 1. Copyright/originality boundary
 
@@ -503,3 +503,81 @@ Latest green avatar validation:
 - WebGL PASS.
 
 Do not break the FF11-derived stat/vocation core when adding cosmetic choices. Cosmetic appearance and internal combat identity remain separate.
+
+
+## 18. 2026-10-01 — Full 3D world direction supersedes 2D/2.5D production
+
+Newest direct-user authority:
+- DOLZORE production game/world moves to **true 3D**;
+- the 2.5D prototype remains a comparison/learning artifact only;
+- FF11 client research is expanded from combat/system reference into 3D measurement/reference input.
+
+### 3D definition
+This is not a 2D scene with 3D props and not a 2.5D locked-plane game.
+
+Production world/player/NPC architecture uses:
+- true 3D transforms and geometry;
+- 3D character rigs/skeletons;
+- 3D animation state machines;
+- 3D collision/navigation;
+- 3D interiors/exteriors;
+- 3D equipment attachment points;
+- 3D lighting/shadows;
+- 3D camera system.
+
+The initial camera may remain deliberately constrained/angled for readability and quality control. Camera constraint does not change the underlying world from 3D to 2.5D.
+
+### Why 3D now
+- the 2D and first 2.5D town iterations repeatedly hit an art-quality ceiling;
+- the improved 2.5D benchmark proved that true spatial depth materially improves presentation;
+- FF11 client/static analysis can contribute measured 3D references: model scale, skeleton/bone topology, animation timing, weapon/equipment attachment, zone/building/road proportions and resource topology;
+- DOLZORE's long-term avatar/dress-up, equipment, housing, social spaces, cutscenes and MMO/shared-world direction scale better with one reusable 3D character/world representation than with combinatorial 2D sprite production.
+
+### Reuse boundary
+Direct factual/structural data may be imported into DOLZORE data pipelines when legally/technically appropriate.
+
+Square Enix protected FF11 asset bodies (models, textures, animations, maps, audio, UI, dialogue, icons, etc.) are research/reference inputs only and are not shipped as DOLZORE assets. DOLZORE production art remains original.
+
+### Migration rule
+Do not restart internal RPG simulation work. The FF11-derived stat/vocation/combat/loadout core remains engine-agnostic and is preserved.
+
+Replace only the presentation/runtime layers that are 2D-specific:
+- Tilemap/Rigidbody2D/Collider2D world representation;
+- sprite/paper-doll renderers;
+- 2D-only camera/minimap assumptions;
+- 2D collision/path QA.
+
+Retain/reuse:
+- Region / Entity / Interaction IDs;
+- persistence/save models;
+- inventory/equipment/loadouts;
+- lineage/vocation/skill data;
+- physical/magic/accuracy/threat math;
+- town district/landmark concepts;
+- BAR/JOURNAL/riverside/station functional requirements;
+- source-fidelity research corpus;
+- UO persistent-world architecture work.
+
+### First 3D finish lane
+Before expanding the whole town, create one production-direction 3D benchmark containing:
+- one controllable original DOLZORE avatar with a real rig;
+- walk/run/idle/interact animations;
+- modular equipment attachment proof;
+- 2–3 production-quality original buildings;
+- road/sidewalk/vegetation/street-prop set;
+- at least 2 animated NPCs using 3D navigation;
+- one enterable interior;
+- controlled 3D camera;
+- 3D collision/NavMesh;
+- lighting/shadow/post-processing baseline;
+- WebGL performance receipt;
+- screenshot/manual visual gate.
+
+Only after that benchmark passes should the rest of FirstTown be expanded.
+
+`DOLZORE_WORLD_DIMENSION=3D`
+`UNITY_3D_ACTIVE=true`
+`FIRST_TOWN_25D_PRODUCTION_ACTIVE=false`
+`FF11_3D_MEASUREMENT_REFERENCE_ACTIVE=true`
+`FIRST_TOWN_COMPLETE=false`
+`NO_FALSE_COMPLETION=true`
