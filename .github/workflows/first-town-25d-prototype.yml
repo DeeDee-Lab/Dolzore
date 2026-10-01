@@ -69,8 +69,9 @@ jobs:
           $ErrorActionPreference = 'Continue'
           $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
           $log = Join-Path $env:RUNNER_TEMP "dolzore-25d-generate.log"
-          & "$env:UNITY_EXE" -quit -batchmode -projectPath $project -executeMethod Dolzore.Editor.FirstTown25DPrototype.Generate -logFile $log
-          $code = $LASTEXITCODE
+          $args = @("-quit","-batchmode","-projectPath",$project,"-executeMethod","Dolzore.Editor.FirstTown25DPrototype.Generate","-logFile",$log)
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+          $code = $proc.ExitCode
           if (Test-Path $log) { Get-Content $log -Tail 500 }
           if ($code -ne 0) { throw "DOLZORE_25D_GENERATE_FAILED:$code" }
 
@@ -98,8 +99,9 @@ jobs:
           $ErrorActionPreference = 'Continue'
           $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
           $log = Join-Path $env:RUNNER_TEMP "dolzore-25d-webgl.log"
-          & "$env:UNITY_EXE" -quit -batchmode -projectPath $project -buildTarget WebGL -executeMethod Dolzore.Editor.FirstTown25DPrototype.BuildWebGL -logFile $log
-          $code = $LASTEXITCODE
+          $args = @("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.FirstTown25DPrototype.BuildWebGL","-logFile",$log)
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+          $code = $proc.ExitCode
           if (Test-Path $log) { Get-Content $log -Tail 500 }
           if ($code -ne 0) { throw "DOLZORE_25D_WEBGL_FAILED:$code" }
           $index = Join-Path $project "Builds\WebGL25D\index.html"
