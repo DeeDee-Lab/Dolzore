@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "retrieval_utc": "2026-10-01T01:50:44+00:00",
+  "evidence_class": "OFFICIAL_DISTRIBUTION_BINARY_OBSERVATION",
+  "source_mode": "LIVE_OFFICIAL_PATCH_INFRASTRUCTURE",
+  "evidence_root": "research/uo/online/current_patch/",
+  "product_manifest_sha256": "8fb54c914460f4c665db920a326a7ce3441e2c26052f6261edb3e2e90a680863",
+  "product_serial": "1787679382",
+  "launchfile": "client.exe",
+  "distribution_generation": "250",
+  "manifest_count": 30,
+  "unpacked_records_unique": 480,
+  "pack_records_unique": 44200,
+  "loose_uop_archive_count": 13,
+  "combined_transfer_bytes_unique": 1759196943,
+  "total_uncompressed_bytes_represented": 2730399803,
+  "observed_client_executable": {
+    "name": "client.exe",
+    "final_bytes": 3616768,
+    "final_sha256": "e24eab9c273fae2ca2b1b5bfcd94b53c3e1dd69e175192637ea7ba223cf42a47",
+    "dos_magic_hex": "4d5a",
+    "pe_signature_hex": "50450000",
+    "pe_version_observation": "7.0.117.0",
+    "version_observation_method": "UTF-16 VERSIONINFO string evidence from bytes downloaded from live official CDN",
+    "commercial_binary_committed": false
+  },
+  "notes": [
+    "This is a timestamped current-distribution snapshot, not a timeless UO specification.",
+    "The 480 loose records and 44,200 pack records are preserved in JSONL without semantic collapsing.",
+    "Commercial binaries/assets were not committed; selected files were downloaded for hashing/metadata and discarded."
+  ]
+}

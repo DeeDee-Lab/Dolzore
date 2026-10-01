@@ -1,33 +1,22 @@
 {
-  "schema_version": 1,
-  "observed_at": "2026-10-01T08:53:00+09:00",
-  "purpose": "Status of actual local UO client acquisition/scan lane.",
-  "actual_client_scan_performed": false,
-  "actual_client_dataset_acquired": false,
-  "claim_guard": "Do not claim local UO client analysis until exact files are available and hashed.",
-  "remote_devices_observed": [
-    {
-      "name": "DPC",
-      "status": "offline",
-      "uo_client_scan": "not_performed"
-    },
-    {
-      "name": "OSK222",
-      "status": "offline",
-      "uo_client_scan": "not_performed"
-    }
-  ],
-  "not_present_in_current_remote_device_list": [
-    "SPC"
-  ],
+  "schema_version": 2,
+  "observed_at": "2026-10-01T10:44:00+09:00",
+  "purpose": "Acquisition status: user confirmed no local UO installation exists; official internet distribution is primary.",
+  "local_client_installation_expected": false,
+  "local_client_scan_performed": false,
+  "local_client_dataset_acquired": false,
+  "local_client_scan_is_blocker": false,
+  "user_direction": "Do not search the user's PCs for UO. Acquire/analyze UO client data from internet sources.",
+  "primary_collection_mode": "OFFICIAL_ONLINE_DISTRIBUTION",
+  "online_distribution_scan_performed": true,
+  "online_distribution_evidence_root": "research/uo/online/current_patch/",
+  "claim_guard": "Do not claim local installation analysis. It is valid to claim official online distribution analysis only when backed by the online/current_patch evidence.",
   "next_required_output": [
-    "exact client root path",
-    "client executable version",
-    "recursive file manifest",
-    "size and timestamps",
-    "SHA-256 for every file",
-    "file signature/type",
-    "archive member manifest for every UOP",
-    "decoder/source mapping per file family"
+    "complete binary/file-format source map",
+    "UOP archive/internal entry structure cross-check",
+    "map/statics/facet model reconstruction",
+    "art/gump/tile/animation/audio/localization format reconstruction",
+    "client architecture and packet/state-flow map",
+    "full game-system corpus by era/ruleset"
   ]
 }
