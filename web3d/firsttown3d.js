@@ -227,10 +227,10 @@ function makeScene() {
   box('pipe support',[-8.2,3.8,13],[1,7.6,1],metalMat,true);
   box('pipe support',[8.2,3.8,13],[1,7.6,1],metalMat,true);
 
-  sign('IRON BASIN',0,7,-48,0);
+  sign('IRON BASIN',0,7,-48,Math.PI);
   sign('DEEP WORKS',0,17,52.7,Math.PI);
   sign('FOUNDRY',-23,7,13,Math.PI);
-  sign('REPUBLIC HALL',20,7,-34,0);
+  sign('REPUBLIC HALL',20,7,-34,Math.PI);
 }
 
 const start=document.getElementById('start');
