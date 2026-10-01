@@ -1,0 +1,157 @@
+name: DOLZORE FirstTown 3D Area
+
+on:
+  push:
+    branches: ["prototype/first-town-3d-area-20261001"]
+    paths:
+      - "game/unity/bootstrap/**"
+      - "design/DOLZORE_3D_TOWN_DESIGN_STANDARD_V1.*"
+      - "research/ff11/FF11_CITY_SPATIAL_OBSERVATIONS_20261001.json"
+      - ".github/workflows/first-town-3d-area.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dolzore-first-town-3d-area
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: [dolzore-site-osk222]
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: false
+
+      - name: Resolve Unity editor
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'OSK222') {
+            throw "DOLZORE_3D_WRONG_HOST:$env:COMPUTERNAME"
+          }
+          $unity = "C:\Program Files\Unity\Hub\Editor\6000.5.1f1\Editor\Unity.exe"
+          if (-not (Test-Path $unity)) { throw "DOLZORE_UNITY_6000_5_1_NOT_FOUND" }
+          $webgl = Join-Path (Split-Path $unity -Parent) "Data\PlaybackEngines\WebGLSupport"
+          if (-not (Test-Path $webgl)) { throw "DOLZORE_WEBGL_MODULE_NOT_FOUND" }
+          "UNITY_EXE=$unity" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Sync 3D source
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $source = Join-Path $env:GITHUB_WORKSPACE "game\unity\bootstrap"
+          New-Item -ItemType Directory -Path (Join-Path $project "Assets") -Force | Out-Null
+          New-Item -ItemType Directory -Path (Join-Path $project "Packages") -Force | Out-Null
+          Copy-Item -Path (Join-Path $source "Assets\*") -Destination (Join-Path $project "Assets") -Recurse -Force
+          Copy-Item -Path (Join-Path $source "Packages\manifest.json") -Destination (Join-Path $project "Packages\manifest.json") -Force
+
+      - name: Clear workspace Unity lock
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $normalized = [System.IO.Path]::GetFullPath($project)
+          Get-CimInstance Win32_Process -Filter "Name='Unity.exe'" -ErrorAction SilentlyContinue | ForEach-Object {
+            $cmd = [string]$_.CommandLine
+            if ($cmd -and $cmd.IndexOf($normalized, [System.StringComparison]::OrdinalIgnoreCase) -ge 0) {
+              Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue
+            }
+          }
+          $lock = Join-Path $project "Temp\UnityLockfile"
+          if (Test-Path $lock) { Remove-Item $lock -Force }
+
+      - name: Generate 3D area
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $log = Join-Path $env:RUNNER_TEMP "dolzore-3d-area-generate.log"
+          $args = @("-quit","-batchmode","-projectPath",$project,"-executeMethod","Dolzore.Editor.FirstTown3DAreaGenerator.Generate","-logFile",$log)
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline = (Get-Date).AddMinutes(8)
+          while (-not $proc.HasExited -and (Get-Date) -lt $deadline) {
+            Start-Sleep -Seconds 2
+            $proc.Refresh()
+          }
+          if (-not $proc.HasExited) {
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            if (Test-Path $log) { Get-Content $log -Tail 1200 }
+            throw "DOLZORE_3D_AREA_GENERATE_TIMEOUT"
+          }
+          if (Test-Path $log) { Get-Content $log -Tail 1200 }
+          if ($proc.ExitCode -ne 0) { throw "DOLZORE_3D_AREA_GENERATE_FAILED:$($proc.ExitCode)" }
+
+      - name: Verify 3D area receipt
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $required = @(
+            "Assets\Scenes\FirstTown3DCrossroadsQuarter.unity",
+            "BuildArtifacts\first-town-3d-crossroads-quarter.png",
+            "BuildArtifacts\first-town-3d-crossroads-quarter-receipt.json"
+          )
+          foreach ($rel in $required) {
+            $p = Join-Path $project $rel
+            if (-not (Test-Path $p)) { throw "DOLZORE_3D_AREA_MISSING:$rel" }
+          }
+          $receiptPath = Join-Path $project "BuildArtifacts\first-town-3d-crossroads-quarter-receipt.json"
+          $receipt = Get-Content $receiptPath -Raw
+          Write-Host $receipt
+          if ($receipt -notmatch '"world_dimension"\s*:\s*"TRUE_3D"') { throw "DOLZORE_3D_AREA_NOT_TRUE_3D" }
+          if ($receipt -notmatch '"perspective"\s*:\s*true') { throw "DOLZORE_3D_AREA_PERSPECTIVE_MISSING" }
+          if ($receipt -notmatch '"three_dimensional_elevation"\s*:\s*true') { throw "DOLZORE_3D_AREA_ELEVATION_MISSING" }
+          if ($receipt -notmatch '"character_controller_3d"\s*:\s*true') { throw "DOLZORE_3D_AREA_CONTROLLER_MISSING" }
+          $hash = (Get-FileHash (Join-Path $project "BuildArtifacts\first-town-3d-crossroads-quarter.png") -Algorithm SHA256).Hash.ToLowerInvariant()
+          Write-Host "DOLZORE_3D_AREA_SCREENSHOT_SHA256=$hash"
+
+      - name: Upload 3D visual proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-first-town-3d-area-preview
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            game/unity/Dolzore/BuildArtifacts/first-town-3d-crossroads-quarter.png
+            game/unity/Dolzore/BuildArtifacts/first-town-3d-crossroads-quarter-receipt.json
+            game/unity/Dolzore/Assets/Scenes/FirstTown3DCrossroadsQuarter.unity
+
+      - name: Build 3D WebGL
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $log = Join-Path $env:RUNNER_TEMP "dolzore-3d-area-webgl.log"
+          $args = @("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.FirstTown3DAreaGenerator.BuildWebGL","-logFile",$log)
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline = (Get-Date).AddMinutes(14)
+          while (-not $proc.HasExited -and (Get-Date) -lt $deadline) {
+            Start-Sleep -Seconds 2
+            $proc.Refresh()
+          }
+          if (-not $proc.HasExited) {
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            if (Test-Path $log) { Get-Content $log -Tail 1200 }
+            throw "DOLZORE_3D_AREA_WEBGL_TIMEOUT"
+          }
+          if (Test-Path $log) { Get-Content $log -Tail 1200 }
+          if ($proc.ExitCode -ne 0) { throw "DOLZORE_3D_AREA_WEBGL_FAILED:$($proc.ExitCode)" }
+          $index = Join-Path $project "Builds\WebGL3DArea\index.html"
+          if (-not (Test-Path $index)) { throw "DOLZORE_3D_AREA_WEBGL_INDEX_MISSING" }
+
+      - name: Upload complete 3D area
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-first-town-3d-area
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            game/unity/Dolzore/BuildArtifacts/first-town-3d-crossroads-quarter.png
+            game/unity/Dolzore/BuildArtifacts/first-town-3d-crossroads-quarter-receipt.json
+            game/unity/Dolzore/Assets/Scenes/FirstTown3DCrossroadsQuarter.unity
+            game/unity/Dolzore/Builds/WebGL3DArea/**
