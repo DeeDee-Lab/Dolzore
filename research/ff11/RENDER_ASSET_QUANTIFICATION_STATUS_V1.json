@@ -1,0 +1,46 @@
+{
+  "schema": "dolzore.ff11.render_asset_quantification_status.v1",
+  "authority": "direct-user-2026-10-01",
+  "canonical_issue": "DeeDee-Lab/Dolzore#25",
+  "source_fidelity_order": ["RAW_SOURCE", "VERIFIED_FACT", "INTERPRETATION"],
+  "spc_source": {
+    "host": "SOWCIEPC",
+    "root": "C:\\Program Files (x86)\\PlayOnline\\SquareEnix\\FINAL FANTASY XI",
+    "file_count": 65329,
+    "total_bytes": 14860167302,
+    "manifest_scan_id": "SPC-FF11-20260930T233741Z",
+    "manifest_sha256": "F0453C0E49982B83168727C4B5D09D490C44CA6DC8AA13C76B26BEA01C75BFB3",
+    "later_internal_pass_run": 36819170464,
+    "later_internal_pass_scan_id": "spc-ff11-20261001T051909Z"
+  },
+  "parser": {
+    "repository": "jondwillis/kuluu-ffxi",
+    "commit": "937b9978de923c517435d26e20ea68067fe6a388",
+    "files": {
+      "ffxi-dat/src/skel.rs": "466a54dba8a001b317ddf8cfacbe9f4fabdc188a",
+      "ffxi-dat/src/resource_dir.rs": "b838afe1fe4eafd17a697520cd8197ae70b9a097",
+      "ffxi-dat/src/skel_mesh.rs": "5b2ee1de068b322cdac59c15c46184246057ed4d",
+      "ffxi-dat/src/texture.rs": "5b8b8450113211345614f070684d77ebeca40704",
+      "ffxi-dat/src/mmb.rs": "0ecd19cb663ea9e823d37522a0a62f3e94db5b35",
+      "ffxi-dat/src/mzb.rs": "261a10617ce3a110498125bcf432b6737fb59940",
+      "ffxi-dat/src/anim.rs": "10fca21b33fb90479c6044a6297eaf07ca63e674",
+      "ffxi-dat/src/main_dll.rs": "fb9e57eff0de1b2de5f520e68df2331589080670"
+    }
+  },
+  "race_config_file_ids_retail_2026_09": [7072,10248,13424,16600,19776,19776,23176,26352],
+  "metrics": {
+    "character_triangles": "NOT_YET_MEASURED_ON_SPC",
+    "race_bones": "NOT_YET_MEASURED_ON_SPC",
+    "texture_resolution_distribution": "NOT_YET_MEASURED_ON_SPC",
+    "texture_format_distribution": "NOT_YET_MEASURED_ON_SPC",
+    "equipment_part_mesh": "NOT_YET_MEASURED_ON_SPC",
+    "animation_clip_count": "NOT_YET_MEASURED_ON_SPC",
+    "animation_frame_timing": "PARTIAL_EXTERNAL_EVIDENCE_ONLY",
+    "zone_triangles": "NOT_YET_MEASURED_ON_SPC",
+    "building_geometry": "NOT_YET_MEASURED_ON_SPC",
+    "screen_material_count": "NOT_YET_MEASURED_CAMERA_DEFINED",
+    "lod_culling_distance": "NOT_YET_MEASURED_ON_SPC",
+    "zone_object_count": "NOT_YET_MEASURED_ON_SPC"
+  },
+  "no_false_completion": true
+}
