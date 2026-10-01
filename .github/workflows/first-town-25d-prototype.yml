@@ -70,9 +70,21 @@ jobs:
           $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
           $log = Join-Path $env:RUNNER_TEMP "dolzore-25d-generate.log"
           $args = @("-quit","-batchmode","-projectPath",$project,"-executeMethod","Dolzore.Editor.FirstTown25DPrototype.Generate","-logFile",$log)
-          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline = (Get-Date).AddMinutes(6)
+          while (-not $proc.HasExited -and (Get-Date) -lt $deadline) {
+            Start-Sleep -Seconds 2
+            $proc.Refresh()
+          }
+          if (-not $proc.HasExited) {
+            Write-Host "DOLZORE_25D_GENERATE_TIMEOUT_PID=$($proc.Id)"
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 2
+            if (Test-Path $log) { Get-Content $log -Tail 800 }
+            throw "DOLZORE_25D_GENERATE_TIMEOUT_6M"
+          }
           $code = $proc.ExitCode
-          if (Test-Path $log) { Get-Content $log -Tail 500 }
+          if (Test-Path $log) { Get-Content $log -Tail 800 }
           if ($code -ne 0) { throw "DOLZORE_25D_GENERATE_FAILED:$code" }
 
       - name: Verify 2.5D receipts
@@ -100,9 +112,21 @@ jobs:
           $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
           $log = Join-Path $env:RUNNER_TEMP "dolzore-25d-webgl.log"
           $args = @("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.FirstTown25DPrototype.BuildWebGL","-logFile",$log)
-          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline = (Get-Date).AddMinutes(12)
+          while (-not $proc.HasExited -and (Get-Date) -lt $deadline) {
+            Start-Sleep -Seconds 2
+            $proc.Refresh()
+          }
+          if (-not $proc.HasExited) {
+            Write-Host "DOLZORE_25D_WEBGL_TIMEOUT_PID=$($proc.Id)"
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 2
+            if (Test-Path $log) { Get-Content $log -Tail 800 }
+            throw "DOLZORE_25D_WEBGL_TIMEOUT_12M"
+          }
           $code = $proc.ExitCode
-          if (Test-Path $log) { Get-Content $log -Tail 500 }
+          if (Test-Path $log) { Get-Content $log -Tail 800 }
           if ($code -ne 0) { throw "DOLZORE_25D_WEBGL_FAILED:$code" }
           $index = Join-Path $project "Builds\WebGL25D\index.html"
           if (-not (Test-Path $index)) { throw "DOLZORE_25D_WEBGL_INDEX_MISSING" }
