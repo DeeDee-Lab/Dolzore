@@ -1,0 +1,21 @@
+{
+  "combined_transfer_bytes_unique": 1759196943,
+  "file_repo": "http://patch.ak-cdn.eamythic.com/uopatch-sa/250/legacyrelease/uo/files/",
+  "launchfile": "client.exe",
+  "loose_uop_archive_count": 13,
+  "manifest_count": 30,
+  "manifest_repo": "http://patch.uo.broadsword.com/uopatch-sa/legacyrelease/uo/manifest/",
+  "pack_records_all": 44200,
+  "pack_records_unique": 44200,
+  "pack_total_transfer_bytes_unique": 143092546,
+  "pack_total_uncompressed_bytes_unique": 495778578,
+  "probe_count": 16,
+  "product_raw_sha256": "8fb54c914460f4c665db920a326a7ce3441e2c26052f6261edb3e2e90a680863",
+  "product_serial": "1787679382",
+  "product_url": "http://patch.uo.eamythic.com/uopatch-sa/legacyrelease/uo/manifest/uo-legacyrelease.prod",
+  "retrieved_at_utc": "2026-10-01T01:50:44+00:00",
+  "unpacked_records_all": 480,
+  "unpacked_records_unique": 480,
+  "unpacked_total_transfer_bytes_unique": 1616104397,
+  "unpacked_total_uncompressed_bytes_unique": 2234621225
+}

@@ -1,0 +1,70 @@
+{
+  "file_repos": [
+    "http://patch.ak-cdn.eamythic.com/uopatch-sa/250/legacyrelease/uo/files/"
+  ],
+  "manifest_repos": [
+    "http://patch.uo.broadsword.com/uopatch-sa/legacyrelease/uo/manifest/"
+  ],
+  "product_attributes": {
+    "launchfile": "client.exe",
+    "serial": "1787679382"
+  },
+  "raw_bytes": 1654,
+  "raw_sha256": "8fb54c914460f4c665db920a326a7ce3441e2c26052f6261edb3e2e90a680863",
+  "retrieved_at_utc": "2026-10-01T01:50:44+00:00",
+  "source_url": "http://patch.uo.eamythic.com/uopatch-sa/legacyrelease/uo/manifest/uo-legacyrelease.prod",
+  "stages": [
+    {
+      "attributes": {
+        "name": "notes",
+        "priority": "5",
+        "verifyunpacked": "0"
+      },
+      "name": "notes",
+      "packages": [
+        {
+          "attributes": {
+            "name": "notes",
+            "priority": "0",
+            "rpath": "notes"
+          },
+          "manifest_attributes": {
+            "cl": "123",
+            "ct": "1",
+            "n": "pkg.mft",
+            "t": "6a8dd296",
+            "ul": "1a4"
+          },
+          "name": "notes",
+          "rpath": "notes"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "name": "main",
+        "priority": "10",
+        "verifyunpacked": "0"
+      },
+      "name": "main",
+      "packages": [
+        {
+          "attributes": {
+            "name": "base",
+            "priority": "0",
+            "rpath": "base"
+          },
+          "manifest_attributes": {
+            "cl": "700",
+            "ct": "1",
+            "n": "pkg.mft",
+            "t": "6a8dd30f",
+            "ul": "e9b"
+          },
+          "name": "base",
+          "rpath": "base"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<MythicMFT>
+    <manifest>
+        <packs>
+            <p name="map2xLegacyMUL.uop" rpath="map2xLegacyMUL.uop">
+                <files>
+                    <f ph="87dc356" sh="381646f" ul="c4000" ct="1" cl="3de5b" ft="0" ml="89" mc="a8344929" t="6a8d347f" rh="4d858a18" />
+                    <f ph="e75cad6" sh="c236273a" ul="c4000" ct="1" cl="1b6d1" ft="0" ml="88" mc="c678f9ea" t="6a8d347f" rh="884cb4cb" />
+                    <f ph="2c2a388c" sh="6d93e6bb" ul="c4000" ct="1" cl="44a5e" ft="0" ml="89" mc="c3c7028e" t="6a8d347f" rh="8d88482c" />
+                    <f ph="3947c73d" sh="3997750d" ul="c4000" ct="1" cl="41f82" ft="0" ml="89" mc="d94437ee" t="6a8d347f" rh="c16ee785" />
+                    <f ph="4cbee6b3" sh="12dee350" ul="c4000" ct="1" cl="1734a" ft="0" ml="89" mc="aefdd187" t="6a8d347f" rh="addaf083" />
+                    <f ph="4d6d9462" sh="41b76774" ul="c4000" ct="1" cl="417a5" ft="0" ml="88" mc="10ed12e2" t="6a8d347f" rh="11c01459" />
+                    <f ph="54480843" sh="2e745553" ul="c4000" ct="1" cl="481e0" ft="0" ml="89" mc="9cd0184" t="6a8d347f" rh="cc8f29df" />
+                    <f ph="59dce250" sh="78450f9a" ul="c4000" ct="1" cl="38d0c" ft="0" ml="89" mc="b62fe318" t="6a8d347f" rh="7f41642a" />
+                    <f ph="6010f4b3" sh="c8d5e456" ul="c4000" ct="1" cl="49ac8" ft="0" ml="88" mc="42e5f243" t="6a8d347f" rh="824a5a9d" />
+                    <f ph="6579928d" sh="7611bb9f" ul="c4000" ct="1" cl="4c0ff" ft="0" ml="88" mc="bd9c8cea" t="6a8d347f" rh="6c095968" />
+                    <f ph="69cfb9a7" sh="cd9469dc" ul="c4000" ct="1" cl="5f61" ft="0" ml="88" mc="39c20833" t="6a8d347f" rh="b8ba04e8" />
+                    <f ph="72ce98db" sh="1de652ee" ul="c4000" ct="1" cl="3e9c5" ft="0" ml="88" mc="8cb112fe" t="6a8d347f" rh="d389ee32" />
+                    <f ph="7d360ef3" sh="6790b669" ul="c4c4" ct="1" cl="657" ft="0" ml="89" mc="65903d5e" t="6a8d347f" rh="3b62f1ab" />
+                    <f ph="c5606db9" sh="d83d8e8f" ul="c4000" ct="1" cl="37ea8" ft="0" ml="88" mc="fbfd471c" t="6a8d347f" rh="981fff57" />
+                    <f ph="c6a83e96" sh="7c274d29" ul="c4000" ct="1" cl="beca" ft="0" ml="89" mc="db1ee6f7" t="6a8d347f" rh="545778cb" />
+                </files>
+            </p>
+        </packs>
+    </manifest>
+</MythicMFT>

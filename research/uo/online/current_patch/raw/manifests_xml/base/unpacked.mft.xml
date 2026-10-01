@@ -1,0 +1,1257 @@
+<MythicMFT>
+    <manifest>
+        <files>
+            <f n="Music/Digital/Britainpos.mp3" ul="69413" t="6a8d318d" rh="ae8a2dc9">
+                <sig id="21" v="AIECWqUFhqdaQjzVWorDOlD9GSFlL0aF49jI5qht0a7DwB68EYA1/GG183MOtwTE7g0OrXPRMCz889rv0ihDpylis1hMIha2fi+5Ewz86Mv/jiIfp5iohu1glQkm7eYv/NaRI+gOHPV/Xa2B1FtpuTzGZyFgrRFrDv1T0K7cuRILvYc=" />
+            </f>
+            <f n="Body.def" ul="fcb" ct="1" cl="634" t="6a8d3186" rh="46d9a4fd">
+                <sig id="21" v="AIEB3Frzjd2LRlEMvfQXxObAruxvYDjLBHRw3g/I+zoDXROB6YwYXnwo9bi95XWVpJC05Zalyvxv/SgAEIFHD97p1Yu0pbzkHHqPQsR8zVR0HiLu4mS8afSgk30y96QW6MXLuWJ+2uzkQp7YHSAKY4fcVTolHI9BtkTRngRXUOUIqD8=" />
+            </f>
+            <f n="Music/Digital/Yewpos.mp3" ul="7558c" t="6a8d3192" rh="14da96d8">
+                <sig id="21" v="AIAVEDCTTaHLmYBHenv6tXAe6Svwa6mi+VrAkxNhNYNSZrqh5xVgLij/9eCgws728hre2grt5W2T6CsZjO1bN/01g3eZ8NQmhMm3gZCvzwEqYQDStzMnj64hARqSkkZXEVDBKiDMMVesZzwKsSfQpD/s0Nyvz+qpGUufKmmTKGemeA==" />
+            </f>
+            <f n="Tooltips.fra" ul="702" ct="1" cl="2cf" t="6a8d319a" rh="9dfb65f4">
+                <sig id="21" v="AIEBNVxfXvqEmZF2p9zTaxucJRVeuVycWY8qlHDLvzxmleNc1ioPBAB6Ec4/TtBAFsm0dJ1mbufESlr11UX5vyXHtp87BTprVzrswtKIgE1L7s2IwbiKfATxnP2TbXVGQu305Le20sPJ7yKjYC7XJGKuCAZznxyim2fiIi8khWzOusI=" />
+            </f>
+            <f n="Tooltips.jpn" ul="4d8" ct="1" cl="29f" t="6a8d319a" rh="e2aa7a3a">
+                <sig id="21" v="AIECVmU2pC5+jCjj4LqoybIiJd+QuqY+4NnWsHXkSkN/lLpGSzGPwkAvM/inb5Vev9MgwPl+7jqZSSG5q1yEeU7+dPh/WmbsV2kbZp9GlfhNNGgkRLPsRkSn6YA+B8KynY2RUJbweymJ7msyxKVAJUmZjTXQIqchOouNCO1O7RpmCqg=" />
+            </f>
+            <f n="Music/Digital/Citynightedit.mp3" ul="1d5633" t="6a8d318d" rh="c805bce">
+                <sig id="21" v="AIECOPOZqpOLZAJKKpmA+FZEvAF+IwoDZJMLdPrRR3sZ8MZhvnECw4d/AbFl9vRWa23PjBtGDbBaIPe1KD6ltNzw801OqWnATOT9g1681X8d3dReJs/3HYg2O/6DoWlfdw6PLBzpnHOKys58j/Bv5uFy1jKMAy5aKZRVws0q6SBuhYw=" />
+            </f>
+            <f n="Chat.deu" ul="12da" ct="1" cl="60d" t="6a8d3186" rh="6392608f">
+                <sig id="21" v="AIBAZUXeMdxaHnEhcikzUdPZKGb3tJ+EgAlo+ENOnHUODFwevVL2L4TTqdqMcFmVuSalA0JNXLa4Wsz8/jUp+fZfkBAjgyemjk8D7aavV9+RqNVghVpUVnc/3jq8ygfM5Uz9HJlQJJ9GrHT/Cy2HScDHIsOIiuySNIrl3a6xAwE+vQ==" />
+            </f>
+            <f n="Gt_2000.cht" ul="47e" ct="1" cl="1dc" t="6a8d3188" rh="8ba87ccd">
+                <sig id="21" v="AIEBZCFdLqJVvNzMYRKtMDgRAqtw0hV7kXt6MOyl6Np270rcEn9fo01deqx0q1qH944YRMRmcYRCy0v5nnvERLPLQiF3aim0hDHsx0ipCOngCJ9SiBnEXy3o9fa54Q1pzhRI6gSDj1aWt9RmL9B1qO1B2hAAzftFrZaCQ8MaJfUoIWs=" />
+            </f>
+            <f n="Music/Digital/Yew1.mp3" ul="44fab" t="6a8d3192" rh="a14cd5a0">
+                <sig id="21" v="AIEB99Wggl1PZBXt6L8aoIDi634Jk/4zblecDCMgrL5s44wxB6jTx6TXp91ixp9Xfhj+WmnyYu+FQP2jgkhRgoHufoMzoHYwj7hu4VAwfBXXodDDO2VfQopiEulcx3qRAFjGgGyV6m8dwT0QxY4M2IiVXn8HSf6Pb5Df4vHFaAubxNM=" />
+            </f>
+            <f n="Tilehelp.fra" ul="716e" ct="1" cl="219c" t="6a8d319a" rh="927cddbf">
+                <sig id="21" v="AIEB2PvZHqVBlDgQwY/h32xJiMEMDWXi3SCm692frcDHeMUu65/V4vJP+rqA/7jxeNeFSR6vYyaePMqM2ysfmK1rRmvrFBx9GMYh4qdbGiRSVbfXMquaXvLfJDFH16LOF6tww3cCEU6MxJvozJS4ne92dA93nG1sty7BxJ33QdPPWr4=" />
+            </f>
+            <f n="Uoreg.cfg" ul="221" ct="1" cl="116" t="6a8d319c" rh="9f9a7981">
+                <sig id="21" v="AIDXAlr/rWyvTvzd+xGn+1r4in5W8P51+ft2oWtRPJuIwdmxDmcDaMRiDz/SkLe28B5OhTUXswSjID9Kh3WmYZVDGeaPoHPBi7K5PY9Bl/jlHbbOWj8t6rM5/dfMlVd3g6q6YnjXeZusAV7fZnU+qIQlnWhIGq23cOIdla0mlxI0OA==" />
+            </f>
+            <f n="animinfo.mul" ul="fa0" ct="1" cl="1d" t="6a8d3186" rh="e229200e">
+                <sig id="21" v="AIEB1BviK7NnkN7HmFXmcOJaCXcZd2BKM3KZEoO/hxI2e/f6PtvKSR28g02twP+eWvVsuREHfAmdip/LRYer10lRdobWqgtLYxUIyeIGL8qKaR+02Wf5MtVDhhWZHRxBZLUxyKuZgsxLZjk50jt+MyGqYtGrul2E/pbSvYkFkturk1w=" />
+            </f>
+            <f n="Music/Digital/Boattravel.mp3" ul="24052" t="6a8d318d" rh="5dddf5f">
+                <sig id="21" v="AIEBDCcIPGU4M4YAYUfv2/E1Sid+2Iec1Ul5IP0PHh3aI/Nou3QGJqq8Qo36JOLzO7yi+vaXGrEMIZw8IJ8tTdLS/v/oTwX2aBI1eOb6jYfDPg+l0ECQ/okSbBvG9MM5QeF7YEt7u9a7zEGL22MJipms6iVylUfoXlKfiOVR6FT/4JU=" />
+            </f>
+            <f n="Gt_4000.fra" ul="2b2" ct="1" cl="be" t="6a8d3189" rh="6224e34b">
+                <sig id="21" v="AIDh546rKrixXOLXNYve9XHjqzNOe9QA6FAxBsn//jhfcu7QzcvcPg6MOetl2LH9F+SVJvrx7tO+EzrAONdNs6270I398uo4GX7PmIDqfTQIpJEjlJeCup9xjqVppPmW0bpanBVJQxEh7xTDA4/ailYqR2ObSyNtqdzo1QPPPf4xDg==" />
+            </f>
+            <f n="Music/Digital/QueenPalace.mp3" ul="93f59" t="6a8d3191" rh="e165aafb">
+                <sig id="21" v="AICneck6VjdVtHiPXJoSUiGwulCmB+eD7F415Dz5hKZ+G9O4acaUS1BMqk6TMwMrqJTVUS3woCAWaq/cVnOKPOSRPcvim7JJHvhGXlQp+IbpnvMUh85aJLivszxFtPb1BnWceqgbziak2dnbBe6UomAuw0O5fdhXmFUaX8uVcl9Xzw==" />
+            </f>
+            <f n="Credits.dat" ul="342e" ct="1" cl="10ab" t="6a8d3187" rh="1184ee9f">
+                <sig id="21" v="AIBC7RlBSHmAN4a0M2bUCl0G+D/cGBsVXUj9n5CLDB0y3Dga+vW2bv5rMdt64uKJw1oANU78XY+ZXiRIWuItbLoi1G5QW+0VQfG2mXTXy+IvBPlUvI3NsICiUyXYWb29QDOV+VUEFwHWAy5cDXLZbXF4AFl1QpxkTSTpyoIjOa4TwA==" />
+            </f>
+            <f n="statics0x.mul" ul="135bab2" ct="1" cl="6267ee" t="6a8d3198" rh="3e887da5">
+                <sig id="21" v="AIB8Y6w1UEkLrDBbVGMNwZm4HarsZTmFyNjMlhGONXEpLiM+eyVPoB8BOCozAhLftG5fbc6Kr9ZFVTJL1nbkL8OFp8SreiWow9vG9LQLBFQ0lejlDZ/zPuRjMhxDhyNebTOepGLaxgXiFkFltSWQzWmIOgW9IwmkQggv7sgLdmgAyg==" />
+            </f>
+            <f n="animdata.mul" ul="44765c" ct="1" cl="2c1a" t="6a8d3186" rh="90392a25">
+                <sig id="21" v="AIBpzX+R6Raw9Bk54WXhSOORslugJdVXdZQy60UNgQH3Api5aA9XqQ3MO1r6X4uoFsE3PHFbH8UDNMQki96h7r6FXse44mos9ikn3YIWuHFUWfovuqLLmua4YWl0gohsr91Pu72RsEYt4Dlc3s1X0g5vwxhB9RDW+hGDrUkDAGk9pQ==" />
+            </f>
+            <f n="Music/Digital/ASkaranLullaby.mp3" ul="2a9814" t="6a8d318d" rh="8d526739">
+                <sig id="21" v="AIEB2qwqkmey0C7rs6BPCPNwjdlQ46YM4T7C8WAkxxUSjQ2vP8ORGEPHrqH2nQiNM8qDNLWvPbS/xjzNRyTwAALf7QNs3I3xcRXr2kuTbUSceAs7QIIbuWm7FztH5ERA7/O38gBChW1TfMb2/4xGbOS+5JQ7Lwjmp+FnGBvwxMACFrY=" />
+            </f>
+            <f n="Blueprints.tbp" ul="17311" ct="1" cl="d15b" t="6a8d3186" rh="84249b38">
+                <sig id="21" v="AIEBWrEfsohU9Eo6V4eYv7SIfUB5yblHRv7abjspuHW0+65pMIeKwU69EX95M7tqNs/FdNwXYXPOdfC6YTDRkOv/kIfRkefnIj8kUkEEeFUcWw0UhelYOIrhwhUcUtBCIfXkS2N1D4k4wKMDKe/mSHIb38bRkG5yhH8xa95L08/osts=" />
+            </f>
+            <f n="Music/Digital/Turfin.mp3" ul="5e21e" t="6a8d3192" rh="f3837f1a">
+                <sig id="21" v="AIALuk/fWSu+i39aUKsc1rMxg2FyWSmh6HuBqZopcKWosm3c4NTl2e6VOQhKvkfYHijMwpS0RFNNJ6JURY4Be2Q7sFPLYPo32FDoDk17eiJ8aKCxkXaME4va6EzJZNeaH4jlhu81ss9sP2rZtmut4B6aN5eTCNPqqlwS/DKcqb4oJA==" />
+            </f>
+            <f n="Gt_5400.cht" ul="8e" ct="1" cl="68" t="6a8d3189" rh="7a0d8ae6">
+                <sig id="21" v="AID73YYAxdSATEKREyekOMrFf0H8YbFj/Y7Pz4ekXN21nbocPvavuirdTPVh7m4EtNuTqnPNGVOxzNWGnCPXXDe1XL7e5W8+o67a7nRh45L9QS6P/BfIRpkvyf+0xfAUr0mPfoota2cwrfs5CSAw1DrrerKWEgBC+X1yYEtEvbzzug==" />
+            </f>
+            <f n="statics5.mul" ul="34acdf" ct="1" cl="fdf01" t="6a8d3198" rh="7cf25f51">
+                <sig id="21" v="AIEBcfzyb7GzNrSRbGUPcYVJ0w6VtF34+uHdMt2hh2+q5d0M95d/VIwEeXBrcO+2AKkJ7ijEVpyRW0zi0NpYGCZA6Hx+rHhwq2VNLp79CShdkMSQw3pEesFK39WUTmVt05/UTyxDM9xdUtwXv6fHnbalzvVaC19f15qMdSMk02SCrQw=" />
+            </f>
+            <f n="Music/Digital/PrimevalLich.mp3" ul="a0b6e" t="6a8d3191" rh="245db978">
+                <sig id="21" v="AIDgeUUX3PbSVwZ38c5w51wGfoPg7qaHdFgwp3Oax1zzn8930MmSUl5SVcK7xqG242ZHDIVYNkN5mkIh9mvZFewF8+cX381nymaF6+dV3joHA3qKkU9WoL5wYM3LAyU8yV1FDhmFk7oy5U97UAYYHMsR8yQoIuQnIE0IALuVfSji2g==" />
+            </f>
+            <f n="Music/Digital/Dragonshi.mp3" ul="61b42" t="6a8d318e" rh="e856d216">
+                <sig id="21" v="AIEBozf2C54zlMCDuKbtUFzYQ29p5FR+w70LIKF4wmfA2E4khHMxWJvlvgrMEl2/MJCsHD6TIkrMgoa16xecno5NA73rH9XqJfkLRePP3Z8eFz0Su78KgmJcSkEffp7IwZAZa6TCoVuqMCDkkZ/bd90LMH0A/mc8bW9GGuNM1LWnsLU=" />
+            </f>
+            <f n="Uoupg.cfg" ul="14b" ct="1" cl="9e" t="6a8d319c" rh="98e31024">
+                <sig id="21" v="AIDAvP5S0nkWL9+thd7YFeFdQJfWkQQhr5sK51wpfPgYLxQCpeqbJcsYwGqKaz5RQU64lTtQS2WZuEeAc224vOKTuj07EfdX8TTcCBIYAbIjikuDSMyVtjqmIaf7jb6bLAULJNM/6ym7ycAlva0l75GSpBLT3n1BqFn3ZQm7aGxoLQ==" />
+            </f>
+            <f n="Gt_5000.cht" ul="238" ct="1" cl="8d" t="6a8d3189" rh="9c24eb53">
+                <sig id="21" v="AIECDsZRYzHI0iSANpbHWy7AbHw62y9b1Ckw114eBbJTtn3au6Dn4TQ6/+esPV8OKeoR2gln2q83IjLZdmWVuc7ckLLe9JiesFlrX79yODlRDKU4bM884g/bSCTwmWzYv6asapwLQ5Hm2ccrtnH/GiEq20NThQnlxvbujvM8BapEdqQ=" />
+            </f>
+            <f n="Intro.fra" ul="79e" ct="1" cl="439" t="6a8d318b" rh="13d3adf9">
+                <sig id="21" v="AIECM4pCUNdB329qikzMT38qXC0O6PorK0s+6PvsQo6fCaH6jVasXOWoKi+xlGDPdzH/CDrXrqkaVCQhuohqmg2WRj7WQP1lZ0ayznSw3v+PWa39J4iCofw3WKXMqwb8RI9x7ePdyI8D5VXwHB88K1nKKP9hUVS+T68idO3ncWHKRWo=" />
+            </f>
+            <f n="Gt_2000.deu" ul="586" ct="1" cl="22d" t="6a8d3188" rh="ca611206">
+                <sig id="21" v="AIBSEYUHUxECsmCfQhbDGQXkNKJYSQYjLbyPUt+o2PAN0xBZNqXSzetU5NrxZr7M2jlJDt8bzMb+9qvuluzKqHzO4N9uU0iMxp1IxZ41XDyPdpuBxZRzHvclmY22AzxINAhW/yAlhkfxlxqV5PxLpQmpnfbArTCLh0Z2VPsloflyZQ==" />
+            </f>
+            <f n="Binkw32.dll" ul="47200" ct="1" cl="1f503" t="6a8d3186" rh="cf9403ea">
+                <sig id="21" v="AIBhpxQzGnxMK8rMqGuMq6LM4MKUSS3GzmiCGKVq3iOQWtS+HiJaGDsZbqfzXr0UnpRW0EFFk7wETB8FDhTPJohF0PXwJhpGfSvNMtdOjj5TvuxJYycORkM0ispucbw10n8VRwwg0VUZ5cszYpOMPIcirSqThKPaw4Nwg2EJiTkrvw==" />
+            </f>
+            <f n="Igrping.dll" ul="5000" ct="1" cl="b1f" t="6a8d318a" rh="2557a16f">
+                <sig id="21" v="AIEBdRInMC3JUaluk3WaacKar9EcvlwnDBiaREhKYhHA48DoDaKEekmtSMLmnUO3ItVOXzsq77CB/gRMipcYIKGaDF87bpSsSsoPRkfLWArRUXLu5BqkfMxD5HeZ7Mc3LSBGRdnaZeMC6EOOKC1T5MXiDf4S4giUCCs51mJjLdxYoDQ=" />
+            </f>
+            <f n="Music/Digital/grizzle_dungeon.mp3" ul="495c16" t="6a8d318f" rh="46e33e1a">
+                <sig id="21" v="AIEBJEXADuxJK0MXDGJvL07hsp9S01N6mg1R/qdgbCe4aLxBAbVykZR3Mpl7/tJbQBKeocIfD07SEPwNx6GWA66KypvE2uy7npRwObwPZheFSKVy3Ve0W5uJhj+DVXLrz0T52pYauh531Gszy/xHAoTewUJMlNj4RtMZQ5As+v59Y98=" />
+            </f>
+            <f n="Gt_4000.cht" ul="ddc" ct="1" cl="131" t="6a8d3189" rh="78da09f8">
+                <sig id="21" v="AIECKLY122KftgogwsdYDCi23qfdeVOVTkvWItBVvr8WTWGe6AWUyxL6dbcFPP6hSPxHUajV/4gz4Vi2hlGWuDXx6F4qOeBISP+bB7qvevkcqkcl1FR0KGPf4uySJYoBtNyK7lvSUqqdAkXFJL46ALozkE42CTRZw/uCp3nnmEIsPWE=" />
+            </f>
+            <f n="statics4.mul" ul="123845" ct="1" cl="7015c" t="6a8d3198" rh="4afed158">
+                <sig id="21" v="AIEBkTeypVwrL3o6tZpYSsYxGnOVL/E12sSTlUuuUNskDyGBAEcWK7SjyFZZrGAZOiOEVCx6PrqHQEwQj0eUL2npE2ezn3mRI1IYp5xUeeQe7cv83q5rk0WNZpd++edhtDPgO4f5tp2E2quOI90srSYRS5FEjTjEt4BGhxTO+yDfW/I=" />
+            </f>
+            <f n="staidx4.mul" ul="5ffac" ct="1" cl="bed5" t="6a8d3197" rh="6e74c00c">
+                <sig id="21" v="AIECKLDovtMMkHDbVT4bh4SEsmKyDMvEcYALs4YSKPgwm49VtkJyO6ibPgduOQvXI81lBo6L0fZ2zBaPMigj51NlLgCPzCU/hxEfwUi85WpKYK5+YTqfoF7vtI2Ale4xsVL8gir3ja2G++mBcprE7w5Q3vskkumXHEMJvImS85aYJ/Q=" />
+            </f>
+            <f n="Music/Digital/FlightOfTheNexus.mp3" ul="1282c6" t="6a8d318f" rh="dff4db86">
+                <sig id="21" v="AIEBLcF5G0yIZGsWu9XgvzGQQzfA0zSuGC1pLtoYp4D2cC7y/GSSWmTwcJWwTUA+HntkOhA5CjB1IdLGJlwhScZP07RKxLQxILp/SueLElr1OuEZiKOeoxxZRb3UiO1B8vU1d2zyKBhvG+0L7LrV4jeij4Wx+FOTTRCDc4mOJLXAE5Q=" />
+            </f>
+            <f n="intloc00.enu" ul="25b0" ct="1" cl="f8d" t="6a8d318a" rh="cfbeadb1">
+                <sig id="21" v="AIEB5bcA3RK0f+/uA5+o1sDVM66IfOVSxT9/XSPoE0mDy0cjd+e2mSaiH46r8zuBARDuNqFcMwTC4W5lzSmT/1605wVX4Wa5BjBx0/I1EBs1JGgDAbM0/ucN7OObu0zIW/hEI+sE8UtI3Ql7l5nLR47PMrrbt5tYw0/SQUVPXJn621s=" />
+            </f>
+            <f n="Intloc01.kor" ul="1f4" ct="1" cl="140" t="6a8d318a" rh="8bc47d7b">
+                <sig id="21" v="AIECHBcO7bh4rDLGBufSVYaa77pyvkl8i9oflfy/mXwDkWKh0PiEXk+h5FWVwoa/AIOM72hrhdCb4MZs5UDnQOhskiWlMb7zPqvUVTAqZ9BnuISrgE9R/J1Yf3OYdb7NSHe7ijvCjglxJg+rnQCOBvYKdFlhNijVMdklqemx7Pv5RlI=" />
+            </f>
+            <f n="facet02.mul" ul="247cb2" ct="1" cl="bdc30" t="6a8d3188" rh="5d609cca">
+                <sig id="21" v="AIEBetKQfmkw9xMY6EiPtq+nWblBC3UCzVXVKG92lQTxaj3/zIMVwErkpPBReK6ExXnAqQCJmblfCnavePne2a4DCn9w50WPR+VwjTu24JXEAPcsUo1VG/VGlQFLNCktoPmHP2+CQEHT63z/r/1F4wQ3GpH7LH0lCc2SsD0FPplE3Yo=" />
+            </f>
+            <f n="tiledata.mul" ul="30a800" ct="1" cl="1ac17" t="6a8d319a" rh="a75cdf4">
+                <sig id="21" v="AIAHBnPE/Sjgba3eNsh7lll2VNKEDvXHSQo4DvcOtL+GW3jwVkbfaBWlUaNOWsHUj+AQ6MWKzLWqW45cdbNV9eiVRxLd2ZPbeKSzUsSczzpZlGZ2MnYzoXBOSqGvwO623pASF1ZMK/n6GqgiRDATOAWrZMOcGINC/LYE7apfGZP6RQ==" />
+            </f>
+            <f n="Music/Digital/Medieval.mp3" ul="24d9e5" t="6a8d3190" rh="9696a5bb">
+                <sig id="21" v="AIBDWMwkjGwa4g9BQosDqqXEuwmEtodK1hmjnwcr2+dTqKJzSvMfuzZwPaySRLNEG5y4mX8LbcM3ZajuZhCrduI9hdLoLZw1dzs0io+L0355slJpIl/RIMRgXANJZJjmENwaJ23vY5hpDLhfx13ek1iTCuCjie6+Zv9vDeyEFkYlpw==" />
+            </f>
+            <f n="options.deu" ul="199c" ct="1" cl="ac6" t="6a8d3193" rh="c431b7aa">
+                <sig id="21" v="AIBrV2RKY3JHvlwXd+Wl97yYfr/en1xzYLvREsEVTfE86EaQIbLTgaAkJIX+xR7slVuV5raGvK40RKLpKpb7BZOOsnOC3dt/vtcrM3eMM4PY6PKENOh5Bc8s28Bog4tlisr+t0EhGRMM9wi0L2FjdwkH7U2dBb/mjvDgON8rfNUdFw==" />
+            </f>
+            <f n="statics0.mul" ul="137126f" ct="1" cl="62ff7e" t="6a8d3197" rh="1c1cd7c3">
+                <sig id="21" v="AIEBKewygBtzuZG33JpS1Xj0UOoma5LwzJyJ1VnLi9idrhZ+ODXnAmyXgLK81cp+WZuAHngbzwmy1e7id9ESlerapWARa70/AGe9Eh30Xwds+aq+6U4PRZixQZxAN7SwAAf+UAOJe91SzcKIKzL930Cu0T5S5sT99HoVRLZRBbJRVS4=" />
+            </f>
+            <f n="Professn.cht" ul="18f4" ct="1" cl="fe8" t="6a8d3193" rh="7ce1c26a">
+                <sig id="21" v="AIEBfikWx+oqVfHx35gaVOnhS4uw97YPVBJeB//VEiD5nZININz1nJcol0P9KBc9gZ6mljjQ54uZI8xyogRkxzWMxpUfTTSGMmKgPNC6sDntamYLx4rn0JQpskgZ+UPV+HoxvdHDI8yW6l0VI4Yc2rLcsKQlzgSUSOgGxBXTpFxPjwE=" />
+            </f>
+            <f n="unifont6.mul" ul="34e60f" ct="1" cl="b2eb9" t="6a8d319b" rh="80727c98">
+                <sig id="21" v="AIANusdZvxpPweSbx3WpfMaKoA/f1fPYGli95O5fOKRppWh0U2naP3kh1R/NDR5ARsMsQP9qgEr2OqyBKYhl3q7E1fdHEA1X2NdZfAgqgEpILYfXsQoHHOfD0rMhh1bcHvyX7sJima8Bw0gUoKTpjAeDiTQs9+0gA9w70txhytvaCg==" />
+            </f>
+            <f n="anim6.mul" ul="2e80dea" ct="1" cl="1eddbca" t="6a8d3186" rh="4a28a545">
+                <sig id="21" v="AIEBB8YnOPRS+/Kt7NbDI1P893xosoX3n3n83RumxLbOKxdH3GszLN9CbjP2Q0dqFfd0DEsJB3dUA/dMEkaObzIAEtr/T2rmS85odUV4AeNAUzZatpdvEfntz6MJ8EyHXgBtwajOvG1ZCKBWkg9utFoAchZiM+qIeozY80dXM3R0hVo=" />
+            </f>
+            <f n="Intloc01.fra" ul="1fa" ct="1" cl="140" t="6a8d318a" rh="48eed9c7">
+                <sig id="21" v="AIAzDZGzxc2Mwefn9FdxomFbPGyTozks3oFOkScxrl8IDYWjGVg0xCBzc8AXu+/HC9PWIFsjqFb4DHKHOI94Q0ilLmQUkePXNAKGF1+iqnMgK+V+8K6bp901LzMtlPXvel8ejzEmYWEbbWRGVW4xMv2fAvIO1U8EbMGxBunlRzigMw==" />
+            </f>
+            <f n="Music/Digital/Gargoyles.mp3" ul="67781" t="6a8d318f" rh="c186302a">
+                <sig id="21" v="AIDZBGEtxuruagYV2USF3iZrL44YySGQ6Yog8QWxy1NrJiH5DDnWiUUoi+SK0yuSS94O8mS4GfnJLkLtLVpoon/gJrOFGJdGh8y+h1/DYTBlKzfGkAUIjc9QwlNDQSBbqejXkrA/hu9tJ4nwajPEcoLqiZEFFrqr06IyGH8N7iheGQ==" />
+            </f>
+            <f n="Music/Digital/NujelmWaltz.mp3" ul="14bc29" t="6a8d3190" rh="596b9e60">
+                <sig id="21" v="AIAS/CN0AHXsQA7XeMTR/iu2GLbE62S/LDKK0vE3sWFhZdn3rv3KuXWlnVfMmMfBK+x27xPhqCacLamWrTy7UyyfKwZuA/+jAiMnFumpIBw7Xmzg72KuJW77tVdAb3zQDfJ6kP4QSkA9zp/HH3Oi7A5b++EVb3MdPrHhtphvmwf5Uw==" />
+            </f>
+            <f n="Anim1024.bin" ul="3e4b6c" ct="1" cl="dc6e1" t="6a8d317a" rh="ffce57a2">
+                <sig id="21" v="AIAxfWqmJ+t7+k4MjbPZ9o3CP1iWX8UmM0R9wYZmH9IK3CND13dGbfG9G7u1UFavhEoaeg65uNy631gmmgKITh11Mv+qIDXArsRGArrjGZUXdQNc7f9JFifRVpawy5MWGBWtEWWKRLLY3WWDf2t/QMJdSqhLoR7I+r0I97nI8JG2Xg==" />
+            </f>
+            <f n="Music/Digital/SelimsBar.mp3" ul="1abee4" t="6a8d3191" rh="8c73d06a">
+                <sig id="21" v="AIEBLRw6v1Qyf+baLWIdOPNQY98VjNGJdUoWOgO5TjRDzlzBtjYBEo69MsdGl2WL4Tx2xkLs8m0QMMl1wT6fJaNIYMmnc8tHJKxcyANsxOrw8958/W1iueX72XZjeNlapXO1uTifD0UMnoUaUu+QItsgP3n/OAeXla2CpfQFT+1Rxdo=" />
+            </f>
+            <f n="anim3.idx" ul="17c6b8" ct="1" cl="1aa9c" t="6a8d317e" rh="d0c8f8e3">
+                <sig id="21" v="AIEBlqEtJAmYOB9NjN6LdKznLwS7zS4EK6hJVpd6Lx73Itw5YOgam4tXikI7NxrZfBjOxIBnkZ9ycYtwtYsRxJf0frlK67Cx7ogmiU6rM5tIHpehlOVZNdBgEy51h/xD+x10jlulcTx10u3WzbLa/L2OIB7WbaaCaHuzU68Ip+aHwro=" />
+            </f>
+            <f n="statics2x.mul" ul="254975" ct="1" cl="de102" t="5abc831a" rh="cc46babf">
+                <sig id="21" v="AIEB4ZJRZ3IBip6lB+x5MpYgBMgfdJO6nBnUfdYcFawotQ73AaYHqeLRtHb91b0L3BeU71xzbuTM9aG+J+g05xQzWUYticcCte9rZOwt9PL/xFRYqDCWjHC/InT+T4+k91AZn4Zi7cVfyTxAig6w9rXPVEsIt3cyicCe0aiB4205L04=" />
+            </f>
+            <f n="Transerv.exe" ul="ea00" ct="1" cl="6cb0" t="6a8d319a" rh="d91ffb27">
+                <sig id="21" v="AIDiCS50pohO4lmuv+9Vz7W5aF1EO2mO7V8/Fcpfc9ECjBmkttbx+6A7nRKTEQc7Rh1O+U1dLf48JMOBesFcYj72NJScpWuAE+Z2/romCMip/UlFomi+cWSyt85nw0x7LC5YrKE70JuFNAnV2F8XAYfxlFSKdb6QGmFlWpRoercXlA==" />
+            </f>
+            <f n="dbghelp.dll" ul="e5800" ct="1" cl="670dd" t="6a8d3187" rh="e29fd3e0">
+                <sig id="21" v="AIDhfJ79MBvvy6BSIhwKQpX2VhcqetE2PHUi+rB5nK+UgcWfnZWzLfEsLj3wQlGXG+88BIoU2ECPOLSaBtNkAem+jzB6CgE9Lq+dbm1LskYUljy5BnQDcD4HBon4/7VBPNgaZM+i3mC+bgwnaL4Kbthglh73xTVqo8bFU22s06/K7g==" />
+            </f>
+            <f n="Music/Digital/dread_horn_area.mp3" ul="494bc3" t="6a8d318e" rh="43f59955">
+                <sig id="21" v="AIEBJvn4OrMJHIegjij1tfvC0P46z8OERdWHp2NHHCvyX0yIZ1Klo3uPaFEHHhn7w2kBH8eJCFvDfZzNzsRr8XWmvCJqOCMyB5zmN+h07b9Cq5l7xOL81ZvS76feJ1NJiyKRLICfw8K4fZ5f8Ih/fNhnZtwpxSgju6OltADMMoufLx0=" />
+            </f>
+            <f n="Skills.idx" ul="c00" ct="1" cl="116" t="6a8d3193" rh="4456aa15">
+                <sig id="21" v="AIEB+twJ6KKgVppTZpwQ+cTXsNetDEDgKeVyA/XDqnpyTkqKcv3tol9X7vg6ErqGGakSvibhHgfdH2k3HxWtjteBEnF5gOCyXlrruNAk43zHYLBRZ4fyVreqggBpnmkqjBhO5pkKlHR/sGIbFr9bMxObyzYAd20OQVlY4Wfd9ZeUUek=" />
+            </f>
+            <f n="unifont8.mul" ul="29f57d" ct="1" cl="1968f" t="6a8d319b" rh="84ca7cc8">
+                <sig id="21" v="AIAThsfNQkr9o1R/QgzOlufCz1qjGmWXIbTNld3u6ETPWtJPjPzn/o0W6KsLOTJztekcqhbjnU6+AHbVilzLXz2d9QEcIL9HOQqrJfIBFB7DJrvjmMIq/ML1bedYe6ehMan0UA680FB3t4ZTNAESQelz+Eg9qYOk1S2U3x9ZvzZ97A==" />
+            </f>
+            <f n="Music/Digital/paroxysmus_lair.mp3" ul="495801" t="6a8d3191" rh="16912890">
+                <sig id="21" v="AICBgCDEx4EfVR6xt8ZmTmI7VOpAOyWPV+JQhJsbnkenowyiveznt//HQQ+BULR1inCukwHYmkq/t/oAftUqBs2VSryivl3Czng8PaXcI+xN5/KWwJ7QA6qZ0rmvUNPb83UmntRRM0z/qeBrZj5J/rtLanyWG+6Inh4mI56ToPg0BQ==" />
+            </f>
+            <f n="staidx5x.mul" ul="f0000" ct="1" cl="17035" t="5abc8312" rh="3059c05b">
+                <sig id="21" v="AICmWgD5r0Q5CrtIoevPB/1v7BROnBJoN274GeTKv0PTA39gBUd6R6MIoadoEap91HehXHunz7ClXR4rvv1mpKv2TUo3QAjcRniPuisKxoSJxBUgQU3DD8o33Vtl/0uvaFGRtzRVocjJgqYKNx+QXrX7ItWTZNdJWZTXpAQ5eU08Cg==" />
+            </f>
+            <f n="Gt_5000.jpn" ul="2a8" ct="1" cl="df" t="6a8d3189" rh="c0032d8e">
+                <sig id="21" v="AIEBgeK9qzi3U8+0q+WlwEh3vBHHahj0PHst8Uq+uv1KwTJCD3riCZ3xaZP3y80dmkXcxEOR5akyy14BtiqsKlywwI0kcXB//1ff8cf6ilT2RbK0aT6AEPl+V8lPpweFjO5mGZH0R/TsRTd/FaYE9pG023b+oDvGABjqRznAz9FczY0=" />
+            </f>
+            <f n="INTLOC02.KOR" ul="64e" ct="1" cl="3d4" t="6a8d318b" rh="7c0dbdf1">
+                <sig id="21" v="AIAXpifgWxNkzg0Ohm7rCwIX8abL8veU7ExRtaarYLA7WlEWZwKXDRISbo+c/Xj8/RgMh00EBrWFY/4f1/DLPRg4DEwRE2GKX3bC+2nwa0Jez8/0IUB7xEwh1/8CLkOTP/u368RDkKJeJY+UYkXy3GO3mT00ocx16UgHHzswATgasQ==" />
+            </f>
+            <f n="Gt_5000.esp" ul="218" ct="1" cl="e9" t="6a8d3189" rh="bce97746">
+                <sig id="21" v="AIEBTtABRGiV9notN8NRnNNcLC2EXNcMPU+7iYA0xQupVqtszyf3YsYKdLbbvzNcIPfborToKxytIg9VzaJEXFOSlGWXTUYEWr93KvdFC+ziqyADU46A0hGGVugSQSFA1kz3g8oOvElEseM15eDD3KUmMowc9bGivFF0FB6+tyuJAmY=" />
+            </f>
+            <f n="AnimationFrame6.uop" ul="1680c55" t="6a8d3186" rh="acb801bc">
+                <sig id="21" v="AIECKjZaNDrzCk7ArgiB75LjlaI6Glj3/ju3bGjM4n5k76Z9a08lkkj2FMJR6vy+cyA5GfPUs+5FGnVlZp64A/WFZm3jVOEcyJrJyfuYkE+tAOwgkFOfX4ECgMq8orO5GFm3UTBrxwkZinOKlRYNS8Mw/F/bGEnbxt2G8IGuCrqQo4Q=" />
+            </f>
+            <f n="staidx5.mul" ul="f0000" ct="1" cl="17035" t="6a8d3197" rh="3059c05b">
+                <sig id="21" v="AICmWgD5r0Q5CrtIoevPB/1v7BROnBJoN274GeTKv0PTA39gBUd6R6MIoadoEap91HehXHunz7ClXR4rvv1mpKv2TUo3QAjcRniPuisKxoSJxBUgQU3DD8o33Vtl/0uvaFGRtzRVocjJgqYKNx+QXrX7ItWTZNdJWZTXpAQ5eU08Cg==" />
+            </f>
+            <f n="anim2.mul" ul="ca4b4dc" ct="1" cl="80f9cc5" t="6a8d317e" rh="fc3a3973">
+                <sig id="21" v="AIECFdWFAObr6U133e+RqW0pNcGLB8suZJLk/aM0bdtWSEAAabOxZ87Av42/tdZPRl3piLOCQYtAPJl2OOy+b2EIZfn0oFSBMGwtroXCwpGH2tskQ9zb2J7pknqw8osEq+oWfGr0iZzeFfwkJPvH+HHd5++zcbGtpaVNY9PzPo52I8c=" />
+            </f>
+            <f n="SKILL16.JPN" ul="264" ct="1" cl="17a" t="6a8d3193" rh="ef0b930c">
+                <sig id="21" v="AIECW8b9aI+XxxTRxdl1dU3goQ81T7JCw7dMr1D01EPc1WgnRRCjbIo63T0uOvuEXlNaJJhlkQXj9Z9V0iXUPzKu4XTHBbXdPrh4LZK3YELDqflidrh8pMTZ53Gdl5n6W0jKIx4PyLYZ/zFfloIvKeBIVg0qg9RITDL5lx0BgZhgYq8=" />
+            </f>
+            <f n="Music/Digital/Config.txt" ul="7ef" ct="1" cl="3c5" t="6a8d318d" rh="dfdb0743">
+                <sig id="21" v="AIAPu+yHa8RZ6BvGJbrR1crkvIqZQMYU9s10SQvwPZSDuSvojfKVYtpkaDJeXTzkrpwrLJg/hLP/w/EDIiL0oWRer8J28hlLoDUgtQ52r4aK+Dbzs7KPANvBTa/Pj8zlUH7zcxSWeOa9QgxtVoxcdokHu6xO8EW5FqxNPsvoa9Esdg==" />
+            </f>
+            <f n="tileart.uop" ul="5d9808" ct="1" cl="1ff551" t="6a8d319a" rh="975a6d42">
+                <sig id="21" v="AIEBoGRFD0kUma04zIgFgcXmDZNts7KLrrVwBTsCqVENhBlnLlffPTzb5Wqc1S9CkygmUgWRpllnvjrNYKKn3dRXgf+tQaDCGy+gFT+jL8+ObxA91dYjKgTY1EbK9ExJY5XCzvOoDfE+Q3In6fGRnRNhuJajg10U4rKjajKxMHOSBzs=" />
+            </f>
+            <f n="SKILL16.KOR" ul="2c2" ct="1" cl="1b4" t="6a8d3193" rh="b97dc7a4">
+                <sig id="21" v="AIEBrdETKnHLKuGcUC+Ewgc7z9ymDC/rfu3tfJf56UDdgGJiZF2wlzQ1bdu6IxoMKB1+NtaFhNaKsezavRVEtHKfN3bM10ZNqMuP2wJ7vJ6p5NsFGsBkI5d9fT9+ZX6yKgFz5KR+Ym8C4+DIQX2lkou89XzAJTWV4ujfGF194TL42y0=" />
+            </f>
+            <f n="Patchw32.dll" ul="31600" ct="1" cl="1993e" t="6a8d3193" rh="6c13658e">
+                <sig id="21" v="AIClIqj2SpocZFt6y7KhacItAe3avmHbd8/SnTHw8zb6z7B7WRrSZ/7m7WMl/0tPCh0G6vMze/i9BTk4ROXpdfezjPHLV/aeFSECf/0gXMb+9zL/3HMrsgty/p19d/5ebCLLoAnHJCUAilz1eFz9BPZ9hr7tPs0eYdCLPOcPhHfJhQ==" />
+            </f>
+            <f n="Login.cfg" ul="e3" ct="1" cl="94" t="6a8d318b" rh="4e86945b">
+                <sig id="21" v="AIEBJl0a8/YCDWfCgNSP1dbKU4Q/G1O0pR7kbW9SXblNqea6cFbIBPHuZxCg9tAlpas9spiy+8REl5UWZtaO95QAt592glS6e8bUfQgGXCQ6RdkNEEadqtlqP5r8lKDrLfcQ8fxAlMlT2/lzmEbYa5sV5PDX+5/xNnIhjpU64zIaWrc=" />
+            </f>
+            <f n="Gt_4000.jpn" ul="28e" ct="1" cl="b2" t="6a8d3189" rh="d21ed2bb">
+                <sig id="21" v="AIECGco2a2axrSDr0+Fi7iY1gfxSc1x9H0wth1vZYYqgB/gOaMELfjntKTY+l8tqh5fJWqP+eCdadnISroZ7Cz/pc7cD6ksH8I5+w15X7EklwR0lAc3iAUSbiJOmE9LtG6EX8u5bsAnf8dVRNkhffiRa6WP3/iIajEXtnsNDKHNHunw=" />
+            </f>
+            <f n="Gt_5000.fra" ul="23c" ct="1" cl="f5" t="6a8d3189" rh="9b8faad2">
+                <sig id="21" v="AIBMhDGrdPRY5Yc5jKuHd4Mx0r50cQyPnlosPSLFV/rtTNWuTCkYZhhy0DWN33my2lujJ6ENu8nqhc9W97wOqHY5DK2zFQGICcp/CZcF52jLNauPQIi9L83Ia+umtyhBOzYdpk3wNct5w0siF98CLWDkvt9emFveWNUpLQ8j/LOT7w==" />
+            </f>
+            <f n="Intrface.def" ul="653d4" ct="1" cl="9a6f" t="6a8d318b" rh="5b51ac97">
+                <sig id="21" v="AIBJGESjbqqpia5imuyDlkRtiD1DS60dYTUrUVqVefN6i7cc2MfNuK+oh72byzz7YFt5agJio7AsK8IK4mBJVC5utQTMzbfVrl8kCMr57FSxCVxsnNZv055a77d3Y79q+GeZonVR+uO6C7OhDjGI3sTAYrPRj+LsV8K3hOlGKzuelg==" />
+            </f>
+            <f n="doors.txt" ul="985" ct="1" cl="3d3" t="6a8d3187" rh="344c4ff4">
+                <sig id="21" v="AIDQx4rvSvixw1zhdHjFZrDfiiAkgzwnMqB79VGqlGbiUXJ4feFGlXou+RXk3Uhgau6KWFdCdXxfoTvM/UHiwVBCaCdmVwSe2GlwqQr+MofdNm5ALzRJJTVkPfd4SFvyF/qZt/J4qWNkT36Zi1ZtcNwW038sbnqYU8C/+tR9rv4ktw==" />
+            </f>
+            <f n="Music/Digital/FayaxionAndTheSix.mp3" ul="14a5b6" t="6a8d318f" rh="39850b31">
+                <sig id="21" v="AIEBdNWlZwTn/RSsfqkidG/hD+DTG9wErKC/lN3vCG+yEfdgG5pr37C5sIgQI31MG1GhDj3h034HdOggv+sIdZn6jX7WJhA6JJUOIVu/yBhDiitXvUfAQ6swJrHHUfmv9U8LHgudfsFbN3gnzlGo2LaewfaXCgSMPrYCF2ZZ4VpKLac=" />
+            </f>
+            <f n="Gt_0000.enu" ul="7c" ct="1" cl="3b" t="6a8d3188" rh="aa1bf548">
+                <sig id="21" v="AIECHSZngJgflOcYhPKB1uX1PkMezESdHbyjaKpyUeJwNERDR/Y+iLfiLC4OTlEO6WMs6beikC1ah1cA10TNMM3ri4OzuLi+1+3iBiIMnvXGoMgOcRZLtuRsUSj6H50Mm2tK2CGr0Lsl8GrIp5A0ec0vbz3c9PPHmo1nhXwxN8CteUk=" />
+            </f>
+            <f n="Tile1024.txt" ul="2e7e" ct="1" cl="bfd" t="6a8d3199" rh="f584f8e1">
+                <sig id="21" v="AIEBN55hm2n4x6kykNWqBXZBCy7SeLs8XO344nJQMSVpHSVwByZktaznBKGY8s80olWKvyDC6dFEC67XPKij66UftTZPYrzBH1zkuDuRqdK6JIFAySWXEVfvHlaOxWI6rKq/U4rutewI807fyepBvIsHSJxvPNHU4M4zboKqsRZ7bSM=" />
+            </f>
+            <f n="Professn.fra" ul="3426" ct="1" cl="1418" t="6a8d3193" rh="3485cde">
+                <sig id="21" v="AIBG4UDHl/BcrE9Wyfjl1ktMJzcVcCj5ui3zwec6TaDo4683aGzCV1OToRIjkpJlULBuka+DNCh8ln6qn4vXGl+iAfGWUPLEwjzGk0jPC/MzA8iEW2oXbhCqFp0TZPUpdDPSiVpSZM6GMKenvJqDo7xPthhn+KW8OdnRKHNtaCb5wA==" />
+            </f>
+            <f n="Gt_2000.esp" ul="64a" ct="1" cl="2b5" t="6a8d3188" rh="cdc71093">
+                <sig id="21" v="AIECLefq+Zmxrtbjjpo5m8qBB2cMLLmuBU4IIt9fP1beu9P49nXYsRv/cYTrYntzMTmSAfyyhVtzyx4xqC+WrV9zzdBianNTjMObMmCYNb76JGklR1fhRZ9QORSFknnDUWOHR5Tjh4j7mkedfj+5BhbVnwPZhr0ER/weQVC6SUXkF2s=" />
+            </f>
+            <f n="Uobscene.lst" ul="418" ct="1" cl="17d" t="6a8d319c" rh="bfc0a91e">
+                <sig id="21" v="AIB+OfdE8CkTW0nd0sih+3vJ3SqmlMncilLPzrmLuCka8y1PRnEnC6prQz81JIznvdx2m02IBxskROuqupTdZSlCVrGDKQpnJO8Oue4qA68keyk9pUWD7Ev19yJk5frbT+Uy99Mbf7OForjMOoUAO2q9AdVasPlelqOsWh9GNqeUYw==" />
+            </f>
+            <f n="Equipconv.def" ul="1f51" ct="1" cl="78e" t="6a8d3187" rh="777904d6">
+                <sig id="21" v="AID9OE8O9167DikNSJ1zwcz+8TCDVRUbMwf0s2NjyJeNxvytThumlYVoyx+rHirAz6or8lg75eadydYNXD7XkH58MwuQmefdwJsgZMAxc5MWv9R75ArIi8bQIFffxLQMljKVrD23b3il/tIJf+n2zGxwkiWnZNLM+Fz4kmZ6agsI6A==" />
+            </f>
+            <f n="stadif2.mul" ul="2f39e" ct="1" cl="6938" t="6a8d3197" rh="d28f776">
+                <sig id="21" v="AID6N9i82IFyM1XCPKs39/gZsGdKEQi7IZSXACl+Uvkh5W4Jh17PZ2Dal+OSaIIqKAlF1ESl8K50rk+KRhrS7Fxhin79pXJfyww02IfXcpDDgpWkerPjKROXeu9isRXgkPkWfmfpPrjV8udfhfGwDEUgd7S1Khhj6/j6ZFT/LMV9zw==" />
+            </f>
+            <f n="Music/Digital/Overlordv2.mp3" ul="bfa1e" t="6a8d3190" rh="32e977b">
+                <sig id="21" v="AIDqhB2TULbqsMZ2ZrhE7I57KHplqVDp1isMc/WONRM/MVtyT/WM78GwKjTFVfyc/VH4vrxIL1uhymP4YL4apW3LrMEnmAsMjvkcx0IUB8J4xmt1aJzoOJSPQCzNe9rkRZN7tKdkkTJqgzMmZt7O+E1YfRMn1h9OdxlhD079A94xgA==" />
+            </f>
+            <f n="Intloc00.deu" ul="2d9a" ct="1" cl="1176" t="6a8d318a" rh="8eb31334">
+                <sig id="21" v="AIEBmLJLNPrcQkM7PZcdhj2pP9efQNLHLDpH2jarC1bcuarErlO8QHcoLoNYoTUUTwFlEru14xMEGHaoW5/Rbz8//TSOZgz4NX+HsfvKruH9K3wCyinyuLijk2HQTIvotH2HXxqLw757FSetWIYqxHDECB9de2QhI2IuinzAGX0ePNo=" />
+            </f>
+            <f n="Version.dat" ul="4" t="6a8d319c" rh="e91c9a24">
+                <sig id="21" v="AIAmAVks/azask53MxwMpGjwWQbJLZpqajBxPliWtfu2kDetezs/jVvrAa989pGyvBLCoE1OzVRzilGD5OjG1WIk5nishPH8einZalteGEg4EbodmAntB4Tr173gBzaIWT0T4MBHg4/OdINIDA8gJaXQbqfQpRAh/0eW0dvYMA3Z0Q==" />
+            </f>
+            <f n="Chat.enu" ul="1090" ct="1" cl="553" t="6a8d3186" rh="c42b63e6">
+                <sig id="21" v="AIDaxhxk8JtcdLvltqd3osUG8oxdcC+5XRbgETxR7kn3M92O4NciulXnE/ay5J1sIHtoINiNqFCHrmKzHazyvfnuBFvQx7cylhiSfcks+OrwqxLxhC2lGXncB6uLShpIlXwuRJYNXTu3AhZRekApZA2WIDLwcXCtfkle2C+8xebIuw==" />
+            </f>
+            <f n="anim.idx" ul="1b3f78" ct="1" cl="3682f" t="6a8d3176" rh="b35d6960">
+                <sig id="21" v="AIECF03/bWlvl4zn1BZYqwjMAgC+vQspAcNU8CZKt4eCmqaLDQRfOxfWcqPSsWkC6MZOc3t26jd/5agpbVq6SDYVbRsBhSP7U9T6VPz8XgI9sIkDcnOHeoA0cW6kD5wNN1UkJr6+xLqoV/zUNwiOjDPqvY6eQyoNMyUXiL+7WYvvc0o=" />
+            </f>
+            <f n="Skilname.cht" ul="20e" ct="1" cl="16b" t="6a8d3193" rh="ddee063c">
+                <sig id="21" v="AIAuw3urSEoEz/GLjJik/KxOimsAWoNAJf6J0nuoRTopnfyNknEWPik2jAmLpwX7CrCU1JmC8tuvI2WDnfaxodxo9jpWBmbjp9WcCvFgLoOyiP7dhvTmZiqWXgy6XpVK4ebWlHgmbQU1Xk4ef4+YN6ZUE8jQOv1UTKgpTLk6XiSPBg==" />
+            </f>
+            <f n="art.def" ul="2c02" ct="1" cl="b09" t="6a8d3186" rh="e00b8542">
+                <sig id="21" v="AIEBtnXaK5xpY5dR0ussS+ck3lG6AL0WDdjyE50kti5pOEuILKQq4HJKno8Zw+6Zekcy/ciM91+Rs0xo0tW6ZOxQB5htpxhdjse5gUKoo9pXrI9D24NLl/dOG2uuKMocqShRBFsxlInQCoSQl3QOR2BF8om9qnFdgGQlaPby+6Ukb4M=" />
+            </f>
+            <f n="stadifl1.mul" ul="aacc" ct="1" cl="2af1" t="6a8d3197" rh="97293ce9">
+                <sig id="21" v="AIEBCLPPj3zXPfswRxLmmRu+iXMJs7w7/9OAMRYPvDpUsMD7h3bs2I4tWtA2rMLGLVMbWNsF/0rjbmMol0HWrwAt0bKZ2klbAR3xcqHdfrVzpIsorr/AfHYxs9VPpA+yfaEfewKM2X0Pxtv/BQ5JlyLCcI7+uNe99tEfpp8Oq0SbtUo=" />
+            </f>
+            <f n="Anim2.def" ul="adb" ct="1" cl="21d" t="6a8d317a" rh="986707da">
+                <sig id="21" v="AIECFNeGu7phxfOuw/kcVwuksStXCzcx1sHJHj7IKcj3f3dy4ZfVXj2IiFLYnoBCdCh9a/ScSo5AWjcdzerQm2ZoZde6VkXEaTHcH44mSIBVYuNRx7ylquO4VJMe3epunr+o9nIOvr3smOa+AQrsC+Pap6ptJReNzpSfnupZv/fDOTo=" />
+            </f>
+            <f n="UOPatch.exe" ul="12000" ct="1" cl="813c" t="53c7d37e" rh="c8e2c0ca">
+                <sig id="21" v="AIECEvO1xOmbY5YnZyICaa1h4yTSf9mG9VYuyVOpKGVn47RsMyyhNzci5BLiyIOZ6+wJ/rwEkQG3GbAREk7WiHPg1Flnbco5VHBj3dUe0SElYGN5Mhsz5fa07NcpADWjephj0lFMDRg3XWeeZo9tPBE0RiQ99baHTLmbemDpRxLp3w8=" />
+            </f>
+            <f n="Gt_5400.jpn" ul="9c" ct="1" cl="77" t="6a8d3189" rh="afeb18de">
+                <sig id="21" v="AIEBLIDbr67vJS83uHzKscAUnodOmVh3hwriGTuKvHdZ80i2Z+XN3rieIu5YRC6s2GTL7pHaKgo1Irxc44FN3XhQkX9LiAVVwKqgkOJlcnYtfdrVFlKPxnzMsGzzcj3ME85cNovKsT/8CuGr5U0VewDHVUI3jxcodqXv3ypNMgSP3/Q=" />
+            </f>
+            <f n="SKILL16.CHT" ul="272" ct="1" cl="188" t="6a8d3193" rh="fb4bddcb">
+                <sig id="21" v="AIBOhU1I66OLdS+h9dwHcQt3FBPOppjcby9hhrVTnRBs7svKT8fbdmvU5Z2K6a3rKyFAZWcHt3nwpQdppgsH1+u99FC/CaDYT28bbeNW55yiuSbEQt6Dn7qcg/duKyM0NP1MrbNeb6dp8ESPwQMopQ69yKiYDAPeZBymX5wladcVUw==" />
+            </f>
+            <f n="Gt_1010.fra" ul="8ba" ct="1" cl="24f" t="6a8d3188" rh="7a6fe46d">
+                <sig id="21" v="AIDAGhl3+ZsAST8UnPFCavhaI0dloHeSii76uHlHSqBG7jG3MqFcIWVwAuCRN02i2b8nMOBoMkvobAD+/sGjY9CFwL5T+LetDJvWwODzIWrblpEKvXSgxFoKA8SnYUl4+5zipZ4LjcLwNxVsp/2LGMIegcQ8hgkJwagd/JDu3HExfg==" />
+            </f>
+            <f n="Music/Digital/JhelomToArms.mp3" ul="fe358" t="6a8d3190" rh="3008468e">
+                <sig id="21" v="AIAEg4zFrn8AcyOM42FPJjqysYth3rZO9HmSJ2aXZw0GhqdatYlwEI6G9xDmZ11k4WlpBE3KzIHToow8Rk8sZ6PrDp/BOo4oA8xdP26fyBlV2us0H6rnqI/KfTyx7dJlX/GRugqBzblBvE9cOUahEoPaRtrECeWpstfSadXb0ID0hQ==" />
+            </f>
+            <f n="unifont12.mul" ul="7bbd0e" ct="1" cl="21974" t="6a8d319b" rh="3972e40f">
+                <sig id="21" v="AIECC3ZEar/Iy2+VAN9qyzgU9GWJqf1jSwwuvWU2GFra5oOiwW53ycPjI9INfOKnDG6T+EvelemuZKmQkvmgUL6KnVYaVXQEPgTZKoitqASLZUPNLZaKRoj8tbp8vwQIzm2q0B2ygn+neXVTsCDQgrhDkN+BaYtmxZxVDpOhkzQSH20=" />
+            </f>
+            <f n="Gesture.fra" ul="29e" ct="1" cl="12d" t="6a8d3188" rh="a3bc2712">
+                <sig id="21" v="AIEBOFuqv0iMfKLa+v1nVqqM+M7U0NRqnWXAiEQe9L+kY+i85Du7vEwdcj7KMSUKeDbNjGS7pyO3lXUZjn8pXgCzEpYvpo/TQ3mAKp14N3uQ+CtiVRDs6TvSBQ7gUzD+MOUAkvEpVG1Hvtac30VM872Xbp2nPtCPaEAhUZF7y8mdQmg=" />
+            </f>
+            <f n="facet00.mul" ul="ba6986" ct="1" cl="3f31ab" t="6a8d3188" rh="a891f7ee">
+                <sig id="21" v="AIEBkmtQEKIcz4GDmFCwP3m/6wi9xN5cqMNnsNk41U125oxI0L1RU0m8eS0TU10pAXodokzA5jEEuRXjs3C/ZInBe2Lv4S7pRYOjGWYItpBsVoDCBCrh8JkbWAEvJDhAxSOoqOw6exbLvALwc8j4bQNoyLVBECTZNlO3JxVjMxKr9Gs=" />
+            </f>
+            <f n="client_tc.exe" ul="32c000" ct="1" cl="17cb7d" t="53c7d2f0" rh="8c75dcea">
+                <sig id="21" v="AIAVD88SY6sG580+hskCSpg/jBQWzCqwNCI4q+4twcP7nUk/smOF7wdITqz2Xw38vKVQvFo9eEvyzBeOYwuh+mz9KKIeLkbpMgh1RkdG9Fp0QPcIzfAyvBeVBzc4gevJAn9LdQNyLu4BZmYCDpHdho237inG2oN3gZ478Ab3vlKOEQ==" />
+            </f>
+            <f n="unifont4.mul" ul="3e584e" ct="1" cl="b2117" t="6a8d319b" rh="21631295">
+                <sig id="21" v="AIECXOf4DxvjV7X8FfwM3KyU6QcTW3uRXiOMRg7ItzZUGtAwbyrQiRM6hC+6NTjJD8ieXR9BeVc9i26beGt+5ef4rASB15JURP28//eAGr4IOtmpyuxt/P4GvPeQS5BfMuLX/AqjjjedhuN/UDaVaWgW0LPHrfAnF5lSQxBO1WZfW2M=" />
+            </f>
+            <f n="Intloc02.esp" ul="7b4" ct="1" cl="410" t="6a8d318a" rh="a59fb970">
+                <sig id="21" v="AIAtEhUkoGjNz6UyNHHFv01a7/QSO/73StBoVOlBWxjmrYKpHh0D9P9ErwcHfsr9IVjU2qigu7+rO7KiSIvWM3K3xvrj8ebJhMCkv+SBNhN39uxHnqucCpSHQZ9B6QxwbByGVhuIGGDuwAvg3blCXfvWFiJtmHvzh0ldwFgDIs25DQ==" />
+            </f>
+            <f n="anim.mul" ul="b9eb3a5" ct="1" cl="75cf524" t="6a8d317a" rh="b42ccee6">
+                <sig id="21" v="AIBXjIe3NKDcgzMIlS9Pn4nVg5BAuF3gEMR4SfHfMBCYOoG1fO06RCzl7Hm2xSbSkMOUnmi1vJ1DoUYU8nCI4wCKwxnn6YMY5Tt1q8W60NKWykkfw7oUtp+h9h6LJ+IDvn/cLV/nmnu4c2Fh6jyLKicete86xmuDBVjYRj918rAB2Q==" />
+            </f>
+            <f n="Music/Digital/StygianAbyss.mp3" ul="97e9d" t="6a8d3191" rh="ec10918c">
+                <sig id="21" v="AIECRAdjCp5u/e/yGd/2na6fY3L4EeOhZgTwixZLNuyjqfKX3X8NZst08Mobn1xdNOAmfmT1YnURNL7Xb0cccGtez+vm8mRpCU1USiwH3ITyp9dpwFPyOYOgONUAF7QGEeScnHLcprKvND3nEdfc2lN0IfuOpCUeZkT/gVwmlS1uzv4=" />
+            </f>
+            <f n="Music/Digital/melisandes_lair.mp3" ul="494bc3" t="6a8d3190" rh="76641526">
+                <sig id="21" v="AIEBBeXVvCZjjEFSPRqN7OVtCqM50XLQGZT8HsQ+PagMfQiOFcrpCHZJ37yvAmXVfKIA6H/s2ppvcstftqp6+6HTM5TQ2qSl/ag1uW2dMtpBFP0DL/winWK1b0pZv0Srh74Fe1fo8KoqDqnB3g8pyY49U+Z2HdWLoaUvk0S/PLxUkLU=" />
+            </f>
+            <f n="anim5.mul" ul="5f577b1" ct="1" cl="49c6c17" t="6a8d3185" rh="16a5b5f9">
+                <sig id="21" v="AIDjmLh/fG6R62h34GZc1r6vDMGrFLEZpHddBO13bHxlDTaba2UIxyFkYXoxTnUAY+Xc0b4tFZs0RJDhex3QImqlGdaMaqV8IJDI9Cs4P8a/ftHFVbPz3wgZUm+e7/jTHkuyPnHb8WH3WxTpzDfjMvT8cwx4baC3cjLq3RvoIYV0tg==" />
+            </f>
+            <f n="Gesture.jpn" ul="342" ct="1" cl="11f" t="6a8d3188" rh="7a1339db">
+                <sig id="21" v="AIECUfRJS1oVPN/ykL5MWXFR6a6xUaJTvW6QbHgjEv0h9goXkuuUp0GWAwvCmK3BP2haQE/4ZXPt0CvYYDuhMOFaoGns7qBdD1sPLHnurUnTWSl/hLiXZpstPOycSNGmjJ9Rr5hB+699IJDdbN9Fw8t55CclRji+NxaDcLWcmaWtOec=" />
+            </f>
+            <f n="Music/Digital/Tavern2.mp3" ul="23eb0" t="6a8d3191" rh="31584de1">
+                <sig id="21" v="AIBFazjUu5Dk5JMrwpbf9mFE6nZMC8PDgwueY3UHkhttlbWAI4b/2rZpqVrvB852n/uz135mCiX8iBzVXlwvU6VXxogYmAppLrfQTbdN4pE3ap238o8qvZ3hoRjVu1WRKhkCStL4LE5X1U6aRklNVpH2TnQtuCAMGBIv92fyTrWw2Q==" />
+            </f>
+            <f n="UO.exe.manifest" ul="227" ct="1" cl="128" t="6a8d319c" rh="d60b903c">
+                <sig id="21" v="AIEBCEI8EBFkyJZyp2c+/bsSiotUFw8QEHsA8P+hdwfx+G/sJ67nnTCCUvkMWuhUd/h1Qzfi0HDXw5GutAQB9/Qak3kGdAZ2+MTp78HOm7HwXShEyP22DFXjrrgmSwP+R9/NOCpAQ2txn6F4YWL5pWYMa8hutMCWxk7Zr1TavXII6WM=" />
+            </f>
+            <f n="Gt_5000.deu" ul="1c2" ct="1" cl="b1" t="6a8d3189" rh="efbfe433">
+                <sig id="21" v="AIEBP1C26eWr2e1IKt8xnwlk6HS4FPn5b9DmgjsHLEgZAsavU409E3S68f2Zl1kBcSSwCCRFW4kptmJ+pdXJDNtkrfuTrH4wYEzLiaLCx1lUYN6mzn1J7F+VthsjYHoHw+IG4YSdCeMBcn0FuU2c7uGTmZXKuUwHc/03OWb0yDrSzNQ=" />
+            </f>
+            <f n="Tooltips.kor" ul="868" ct="1" cl="303" t="6a8d319a" rh="12746176">
+                <sig id="21" v="AIBffTWkxktJ3THiKln9xaBe3ZHTk8HE75hp8uQAMCH/Y92fSV548o8I8o78P25BKJuTvGVwAuY0zx4bmjs6JwWGmI7r/+zCqyJwz9NCRq4yKMrawNAPa2zKxM+JqgtS0YV80rM8szdA/o/7b+BrNSIx+s5WKhFvv69uR5BJs5h9XQ==" />
+            </f>
+            <f n="gumpartLegacyMUL.uop" ul="4db77c3" t="6a8d318a" rh="2ecd4813">
+                <sig id="21" v="AIEBHMC5LpegmgFZMaqBT6RywPJbFgKBb42YMG8zwmnI5cCpePXVseX9zu2LdBYwNzpxpqnQXAYbQL0nALXC9qR8oLh3NZOreUFM12eHtGnrazACxtVFi5Sh72Pmjy6bUhGrSDrUnqkX7bmaLBZKa/riaaLC5rQgtm9SYazM8aBPVWw=" />
+            </f>
+            <f n="Gt_1010.jpn" ul="8f2" ct="1" cl="256" t="6a8d3188" rh="da8423ac">
+                <sig id="21" v="AIEBC+JT2H/913ftbMLc6+xW6iy1ZQ8d15OoeNazcK8fZhA6el+vK8ueZqwyfYx4UA1EOpPGP5m8U6k4ICTT9YDHiG/1Lzvj13iJu+T9TCCQjrhM5VeUQcTR4mnvzOoi1LWg3+azWa4quKPSqkEZ/jy5gA2M4RrAwUawJR7CSMt6oho=" />
+            </f>
+            <f n="facet04.mul" ul="c8f61" ct="1" cl="44238" t="6a8d3188" rh="e1ce4291">
+                <sig id="21" v="AIALP7UcNWj0LFPPKXcR5i+SnKzRk//wigp5G3YfmpEF3+NplNZ42/ZetYqJnYcoZNw3TSrwPxfrRtJGpMNgvw2jSD1qWQX7lGHio+HSs1k2PV2FOYzH+js1j2AMQ3GHFfsCu2vdHY7jGpomdKn6i2y/dchgwqXKjJY2xsGAvo1vuQ==" />
+            </f>
+            <f n="Gt_2000.enu" ul="12e" ct="1" cl="3e" t="6a8d3188" rh="7cbf9383">
+                <sig id="21" v="AIALcAybLeug9Z3GqMxpoeFJUQwsMLMA3LZ344y8RNI9dQQ4GkjiBXYugHm/xkKvfVmx0DG9O5PZ4mPOcHzpAiZ1XiDCvuwtGJIvQMkuDr7d8t8xrjQlAaFoiCPOvWgfRVUmcAckQ5jqwcq1TaPSrbdITJeFAyaUGpgvA49D1j16RQ==" />
+            </f>
+            <f n="Music/Digital/Linelle.mp3" ul="46828" t="6a8d3190" rh="3437d6b4">
+                <sig id="21" v="AIEBP7CtEfkLvXm5dfd4oZIXxVCwkc3jHjVr3JmS5gcsTOCuZIoNAU97/723hhvdUqVoE9eZ+749fB/3u1e7jFEz3RszfA9MOd7d2Kmu5q+WbrH22Mf6xbfWzISG2FJHHdN7HowVpK757cICaKWGnvHB87+RyrgU6pfhcq792Lx8nIk=" />
+            </f>
+            <f n="Music/Digital/Valoriapos.mp3" ul="6d977" t="6a8d3192" rh="92f5336e">
+                <sig id="21" v="AIEB/11FQ57Oo7Opkc8P7y0yW9eKIEHcgl2dBI+hpZ7eQLHI4Xw19UMrJb6qrp5Hgp9Pp2ov2stM8pgTDzlgA/vfItCwUpp7ldw3FTiqqUIMKH6JkfZ+QUPYdnx8vi4W+vVh0Sz2T/HNbd/5HXE2b0ps+WbUUJCQ2u4PRW2oyEVx4iY=" />
+            </f>
+            <f n="Music/Digital/Stones1.mp3" ul="109828" t="6a8d3191" rh="f307c628">
+                <sig id="21" v="AIEBdPpOzl1QR4iMOekZegtVmzlI5VMwcqOXTmAcN9bPKab6Hyc+PtXKZTLpWAlTHwezdf6OCQvybF1dOd0C/NQSjlHnaZ+kPj5RGzAMKX6AdvMmfcQhZnTQqq+8SP8Jj4APbm4Gl5eoedbZsqYuDyCy5ZWc+WvD4oWY59g+XTFL3vQ=" />
+            </f>
+            <f n="Music/Digital/Ambrosia.mp3" ul="6e828" t="6a8d318d" rh="9e69bc0a">
+                <sig id="21" v="AIB0PK32LzYhLWmopn+3Dyga5YuLOyY3GCfxhoP5QnFwi8RLwa55L7vYeMVzJGzgwv/n5aGQNO+TNUlub1VHcIrCzuWLbmRHUS2mcSMt6rVBOwubxM4fUNL6edWw+VLxOXIF1UVkjuusA2cOUc1wzQkQtr6Z+/MiW9T4N6mezw8W9g==" />
+            </f>
+            <f n="Music/Digital/DupresNightInTrinsic.mp3" ul="159ca7" t="6a8d318e" rh="1811d328">
+                <sig id="21" v="AIEBYC53WVarJYJ3OQo3UDHZyI6sej8OW5EgWprJpHuz3WI2Bu11mslFnRaTsUY7eNzA9YywlCW2eZEtIhAHk7Os3JIxMTgPeJpy379OzV9c1LNF4O7KCDJxG/KvdYQOP+npkWWI28k7MCN+a+FqyqS6Z0Nq9us6HyPDNe4d3ohHzzk=" />
+            </f>
+            <f n="floors.txt" ul="1644" ct="1" cl="88f" t="6a8d3188" rh="69f6c924">
+                <sig id="21" v="AIECBZa8t7fuwIRbaH228ww+z9gD/pHreM++DMaVPqB8WS4X9UsqJoIZAncGqJNifS3rSly2CMils3JsE/+vYdjEJqqWbFP/e/d3BjTHKrEXI+ky6PnyftxYzp1XzaAgp2E+BeJ0pKEI3h0/SAANQv+Ha64SMGC0rSFK+k2R9wI7d5Y=" />
+            </f>
+            <f n="Gt_2000.jpn" ul="728" ct="1" cl="2d8" t="6a8d3188" rh="32b54aba">
+                <sig id="21" v="AICjbRLDflZETVGKn+MMh/1/OUe4NAqnXdqvNuHrY8jk5UdXgokVBFwOQvxwK4+lDNfbuR5QuV91dlpWClR6NIyWLwIDe7hXdWNfbO1uA9O3YwMHLY+SjDbuQP61wyrurFd8NoiM41cctW39g580vN++cno9MLf1p0r04/y6XYcULg==" />
+            </f>
+            <f n="statics5x.mul" ul="34acdf" ct="1" cl="fdf01" t="5abc831b" rh="7cf25f51">
+                <sig id="21" v="AIEBcfzyb7GzNrSRbGUPcYVJ0w6VtF34+uHdMt2hh2+q5d0M95d/VIwEeXBrcO+2AKkJ7ijEVpyRW0zi0NpYGCZA6Hx+rHhwq2VNLp79CShdkMSQw3pEesFK39WUTmVt05/UTyxDM9xdUtwXv6fHnbalzvVaC19f15qMdSMk02SCrQw=" />
+            </f>
+            <f n="roof.txt" ul="1044" ct="1" cl="5d0" t="6a8d3193" rh="6c09f66f">
+                <sig id="21" v="AIEBLta7Hprdd5zDBw/fnEQnEWSFcPsk+QyCeKlU+N/86uptQ20NIuFyMtZ2uD/ps/L4uoM1mfld5osOV6M+agRRMPkxEbALwS7BFVzEmE5x4PObwMFrWussZuac8I48Q/bWtWqQgJ8bMmPwry0r8cwaTUyVJgTNcr0/mBFmww6j3a4=" />
+            </f>
+            <f n="Tooltips.enu" ul="5a8" ct="1" cl="24a" t="6a8d319a" rh="cd04e1e3">
+                <sig id="21" v="AIB9MJyIzmIz+ZsBe+QpxeQPzzZeSST2Y47Vxlti8R1KQWr+1G4KXZkX5bqYfzslg1CmQIuQgrcIcqUq+s2aVvyODjtON6oRjArChHlF1blmH3nOJjXrL/R0Bko+7FJbLFds5PatjMIKSyGiqDD7raLdo1yTq8ech5P8eEJsaFSEVA==" />
+            </f>
+            <f n="Chat.cht" ul="c34" ct="1" cl="56d" t="6a8d3186" rh="5366fd74">
+                <sig id="21" v="AIEBTctbOJ6/3C/hSIBpggG+HE9fG0A/NnHARqCcPmIZtieB3GSkYHR1tn4jdvYJ9aK0z66AHwPowDkkj8h/vojALUEgof6V3CeMt3J2ZIxTrFTD+hTaDG+GtLDC0bULMR86bfPeN74eE6d5VxoCqNgoAJLpbnrg0dxmTLzhDBj2Fo0=" />
+            </f>
+            <f n="anim5.idx" ul="e8404" ct="1" cl="12709" t="6a8d3183" rh="8b967a0">
+                <sig id="21" v="AIEBBD8cVueEMJxZcln8KKhkx9xD9y6JBtx4btBXuGgt+V2VAghW5j3g8HHKm6XAoTppS0kzfJz2WYXRn43anvDMQ+KOzFIXQVxprtbfaWqkU9UhoIBoNen9YWt94Oxv/J4ntYq42bgtGOFwmuW2nOwzUOz8ld2fczDxZWTKpNJ4hoI=" />
+            </f>
+            <f n="Music/Digital/Goodevil.mp3" ul="632ef" t="6a8d318f" rh="d6098839">
+                <sig id="21" v="AIEBIpYMWEMD2g/i2giRPh65/GSM0krE17PWFmZU9uMdaEIPE5tgR9gZV6Iwpvk+I62G+cg33g/bmTa/SlCG3Cofr/cWyLMNw+T3R13MNJ7wqMoCdbEyXQKQH+ZPFZZTN0PJGzpiP1RNJcI6rQ75SvO5b5Zj1QFdumrHcytlklZby9Y=" />
+            </f>
+            <f n="Professn.jpn" ul="256a" ct="1" cl="11c7" t="6a8d3193" rh="258a8d3a">
+                <sig id="21" v="AICXVDMsGXD5pUoA49ZOnRhjgBS9/TITkpwfIrhinb4Z8FW+7SuyBkYYq/MbVeGDD7KjShzBu44qXvs/OHxAwp1nKe3A0DnGqiJb+xFswAHd4ucN2kdxn8+dcg1PV+KzTNgIFq+H+bUSvJeQ56EaJTJ6n+qPdkrsGyQ4TG67JTLO0A==" />
+            </f>
+            <f n="Intloc01.esp" ul="1f4" ct="1" cl="138" t="6a8d318a" rh="f59121d5">
+                <sig id="21" v="AIEBjtTgTQuF9mVTYkjlQJh4DQxkANHvll93mhSlPlyXjHY+WaXSvPgsiXCRuZbp/fiTrdQI7gqatZ9ks2dU2RbSxrMhF6ftMcOOWWprqgp78ovDCmZVIlig3PObbW2ihqwHgXu+6ZSmje3RJrUmv6bxtZ80sxl1+Nw2RiXf94PtNr0=" />
+            </f>
+            <f n="Cliloc.chs" ul="b6a8" ct="1" cl="53f3" t="6a8d3186" rh="a1927f0e">
+                <sig id="21" v="AIEBWXeteR8izAAIo+yQW9ctvBENCYWmRBkwQdw8Q5/JGtUSlatwzPhD/NVV4hojIrqylo4edRKyx+M/miEMtWb0iX4uO/a1Qdpb2UXgF8pKvQvCXZOeOS0fCWqnZUlhaOiw45PfFIFhVW2P0CObGxgvwDN1vq3FCbmyPa2jaWcarCA=" />
+            </f>
+            <f n="skillgrp.mul" ul="152" ct="1" cl="81" t="6a8d3193" rh="71a84068">
+                <sig id="21" v="AIAmsg7v9TEP0eNPCwcQ+CJlUv8PVEtTX6fYE56rFGumKxn2Vr5eJuLEPQqvh4e7MZ/WKLmom52DAhUdzLcr3kuSwHzGMdMLbi4lCwO2VO/b3FIobXoEUNyn2/Nv9JCLSl1lgr4iTfLtNSsCcftg4SLkbigP1GVj7RsJxf6oR4lhxg==" />
+            </f>
+            <f n="Music/Digital/Cove.mp3" ul="72bea" t="6a8d318e" rh="1191d755">
+                <sig id="21" v="AIECOSo15gtau92+wjkj8Mkha7wlsSKs5Ivj4SuFGLweZ85khS+8xPe6+ggkobvnclBk3rCTW6zNgi9dvVSZjoVhp/QNhgLZiNGOTvCE0WA79xRBuNGKmsE/T1LWC/LcuodpwE+eFOqsGp+M9/xwzRT2YMH0vzUkXVSDZ/yinpD7S44=" />
+            </f>
+            <f n="Music/Digital/Castle.mp3" ul="1a5de3" t="6a8d318d" rh="395ef4d2">
+                <sig id="21" v="AICOGCN7dAl6vqyxM6GAXyjqAMQW991U/AabawnRlnMiJbSjuDW/TZEph4xyOHwUeYQbtKb0nNRp6pUiiGWK9XOkQvdxxGn3zIqUR5SMb08AjnPhKyoYH5LJVDqdd90uAwXlqGKqR5tfnNZJRHasV839Npa7azsrnRb3x2Y0g0LAfw==" />
+            </f>
+            <f n="Gt_5400.esp" ul="92" ct="1" cl="74" t="6a8d3189" rh="16c3a2fa">
+                <sig id="21" v="AIEB4T82t04ra50Qlk8LY9sLQNQfSpvjaqeh14a5pZSotNPZhKXmZ9qV/KavKj+e06I147XZ8IS+HwEcb1i5yb5WQEr0ws7qYIiNmNX6CjVsuKZ3Q8E8vYTyvgQzKPKt+kmCdtb3TYiO/2e3g5uLUyMoIWTBqkxxx05tSl7qlCM6Jlg=" />
+            </f>
+            <f n="optuotd.JPN" ul="1828" ct="1" cl="917" t="6a8d3193" rh="5625dd9f">
+                <sig id="21" v="AIEB/u+HNmteoZybTDJ3HqFz/XGoBCAnbK2Xm5Cq8iKVZY/EPeET0gRC1EyMmeKYML+gv3yyftL4VwLYw/rTj+3bjNACzkCqkrfXm7mlGxp49mQPevyh09tIUPoguqRXcX/lWnk8im8BI37UBdkaha+Mt3MyHqy0yX5NgsY0w+N058U=" />
+            </f>
+            <f n="Professn.deu" ul="3136" ct="1" cl="1409" t="6a8d3193" rh="6be10822">
+                <sig id="21" v="AIEBjealVGmgFuyubsu9b9EkvPD3J+YQUFimmBGZUMQVmwLTmwHrd5mLdy21EaWAaEQ2wuA7TuSEspssrJnJC8NOU9wUv1M2QEiEyfWf6JpgM0iWTVD0VJ0tdmluwuhzDC9vlYyP7/sc+C8M0wgi5wHgcp0ghJrI+Oe25A1TXn5t1nE=" />
+            </f>
+            <f n="Owo.exe" ul="12000" ct="1" cl="90e5" t="6a8d3193" rh="6a59a644">
+                <sig id="21" v="AIAJcI0APA8T97mw956nZ2MysXZs7l9KNOKRLLzIROPvVbyj8wtWO2p7Ym1cg99WVNE8g1rcENl7WrKejqttnAsjpMNJpNIVYM9zCj2fqP40Bkdz8CIt7GpEO5Q2zselEh8RJR3/e3OrlzUFRj9+GfeIidT9e1TLXlwxZaFHF5UYCw==" />
+            </f>
+            <f n="INTLOC10.JPN" ul="9904" ct="1" cl="352f" t="6a8d318b" rh="eea02758">
+                <sig id="21" v="AICzkv8cIjTHpmC6HUr6VDp9IYN1Lkf4L2LtYBAQovbDm1vN0SIsrXifLkE38/7+MVUpAZjYHz9X/Sx4Aew8GTa7xZyvwQc0K7Slr922jseImhGck4vjHw3O9dXT6bEjYH/2y4H1woYx2shebxm3QmnTLMQr6xObH7Mv+rBzgbIvlA==" />
+            </f>
+            <f n="Music/Digital/NewMaginciaMarch.mp3" ul="fa829" t="6a8d3190" rh="c1b534aa">
+                <sig id="21" v="AIEBWSlHWkr0XEvTOmi9W6o1CpY0FlkrPdZhdT98HWHB8i5oj6psxTYm4CjzFnRorw7RhXIUb598sKwq4T/aJ42k5a47EVX8TVaBOoJIqBS6i/0RdCHd80QZVwWJi37zCYmvI1E0WSNOMul0KXvynSey7fNIgE+L4na/w0/bMVvFONo=" />
+            </f>
+            <f n="Gt_5400.fra" ul="94" ct="1" cl="74" t="6a8d3189" rh="c82dabd2">
+                <sig id="21" v="AIEBQcZfqsim7do+tgKTHc4i239VmBUBxB9XD3mS7tNbWq2Z91nKh9WIt7748SFByrhe4/6CZHIjWdkGLO1MmDFrL03+eLs0/d7VmQm1a0XdOiQI270WRnOzPntO0g5djkQZkeIMaowEJ9w4WCudtTHwi2jG1kc/N4G1ldltjarRJwI=" />
+            </f>
+            <f n="unifont7.mul" ul="23f5da" ct="1" cl="10633" t="6a8d319b" rh="91cc264c">
+                <sig id="21" v="AIEBqr+JRkC4RPGWzEQNvc8aNXFdkbT7VKr9H2mO9d61sMwEkZox5j668/f45nkoR0B/N37eEPx+E9tLYRcoRybUp5rqkhGXUADSd9Mzvmjd3sauLOBJn4iIR1tRWDix6RerHvg5pF21ifu0d5JEgS0Dupoy2IfI/587qZC1ODKkGfk=" />
+            </f>
+            <f n="Gt_5400.enu" ul="5a" ct="1" cl="3c" t="6a8d3189" rh="7a0bdcfa">
+                <sig id="21" v="AIECFWTIqLtfO4NaadgbxHSxPgNAzbNDlJFUPQB3om3Ka01TJWopLUixQPC2GGbxR6pSBYKBkpyIgcZWpwcM829Qk1phC/k6l5JNdhkko3oE3aUBC9JDWPbh/Xs2fg4DAKYsna5wkKq34jDs96/yEadDRSDZwm96lHes8mvIagtel9o=" />
+            </f>
+            <f n="Music/Digital/GreatEarthSerpentsTheme.mp3" ul="f7fc4" t="6a8d318f" rh="813b87e">
+                <sig id="21" v="AIEBAM13uiYkePNOw2+EKr4Yt5GG6W8gKEoEZrUVPrB1sEmy/mBdgN/iXi+DM6iTSemQ3+aKlmAhz+r+JGQd9pBlhl5shpNKeqOI1+ndSe1lZ7dyxB0uVQkqcWEXIaEkAxkbt2PIvK7tp2JaLECj/970QaJxWPsUjfBjnpWm32pJ3CA=" />
+            </f>
+            <f n="Gt_0000.jpn" ul="116" ct="1" cl="8c" t="6a8d3188" rh="21a03340">
+                <sig id="21" v="AIEB4cQvNMuZsN+6ZwM10ISteQWZUhvRMoQKvcxja7sMVD3rGuewyCpX4BFTt0Lb8FfC2MkEzVAxKXI1sWMcT4tZMYT1XFPJsJ1a8u7iE9KiqklVFfiVN/MuYQBLBp2a0BkLpkGV6O/kCamWf8EksqCpHceQrFX4ERHsVdaGXRefSzE=" />
+            </f>
+            <f n="Gt_4000.deu" ul="306" ct="1" cl="c5" t="6a8d3189" rh="d4407974">
+                <sig id="21" v="AIEBzLVVI/+z22yMMK0ofbCfhnTK6iWVOs2U4VWy9KmOsnk5zCwKf2865mJGvbLANzhxNaNid57BisAiq0FIvDmLT1aM3cDXfvv68hQQC+tiucMsK91pxr5oCNcbw5ig+wotz3xFklaUop0UPbDuqYHFCCI9YZac9BuzQHsbbVnYmmo=" />
+            </f>
+            <f n="anim4.idx" ul="f8250" ct="1" cl="20b0a" t="6a8d3181" rh="5ae79f33">
+                <sig id="21" v="AIECNPqOzE5t5avR5MiLeU2A/e9NMgeaXwUn0MMr0SiI3W0b08TLAlClh8FYB2c33QOvJ9uEnc7sC27iaE2/jRpsIx7F8dBAboKWymvZO1qDwtLL5TezZFX3MosX30OBuLrQ568tNichL2jgEuAqQGu73/udntl6KCvSF8kV/C3XXJg=" />
+            </f>
+            <f n="Gt_0000.esp" ul="15c" ct="1" cl="d2" t="6a8d3188" rh="fae9dd36">
+                <sig id="21" v="AIEB0HWYxmZJnKcyw3raSugLYFOIUfK8K4MYA6M+l/GlOsRtSPo9gSCv1QsqctUgHW9+VMs7jxy3bpFg9RDK7RlJJ4OTbfB8ARIduBk0Si6aLedqMRbU1bUWHd67DT7jhKfXKMBmW8W1936yiWo1xOywuBwpjpFyszQDwrL8Ditsx7Q=" />
+            </f>
+            <f n="intloc11.enu" ul="166" ct="1" cl="f1" t="6a8d318b" rh="52bfd2ff">
+                <sig id="21" v="AIBmRRuPpb0oxkgtbp3SMYGfNH4HN5ftailxP8lpQYJ4WMR061Zm0xq0ijSG6vTgoqyRAgKSnytANGLhU3T7m3EksENMITUAfSxUF+gGL4Xi+KTvkm9yFR2XlDIVMofEE1dXTS5kEUS8KERQIy0p4jT76/87mnxXt6Wr8TJZwqdCDQ==" />
+            </f>
+            <f n="Music/Digital/Nujelm.mp3" ul="6a1f4" t="6a8d3190" rh="7ff79be9">
+                <sig id="21" v="AID+mtWaCyeZ3fa/msYLLrUAHqjhTBeec2eq5h/hjZsNnT6+HeFloCKpGgEO+OeWGnF8V1BSS2xTn+EOvZ973SzoGFNprau/kgWqUDFTk8xDIC/JVcsEqMvGABxUYna264Sypu7Ay78uCG+wzNbKK6Cr8Qq9URRMBTUkiGJadSWDAg==" />
+            </f>
+            <f n="Music.def" ul="7" t="6a8d3193" rh="b93524c4">
+                <sig id="21" v="AIEBt7iB3oDxlFMpJzja7a4wti/FU6g+KU5nw0RW6yFQC4I0sKTt8rbhTSksuMPxkKEH802mxqNW3FLgtIvHOyqijBvWD2q/KvFyMKRLJnia7nT1TsJUudQH1RUFE9fNA67bIbIvysphE/RsCUSI7yikm+EaSE1iJ4H6Wz/xBtUkqoA=" />
+            </f>
+            <f n="sjis2uni.mul" ul="20000" ct="1" cl="37d3" t="6a8d3193" rh="c3ace109">
+                <sig id="21" v="AIEBrcUhcN83PxT6dtM7C3+NPHaUqd2ynBZyiQFJGjNdxCxveRtMwy4ujFNuW3nqkntgsDZ7dTnEaHRpYCzJamQaq9IHon7j8OVZIpRvhpFXg6pa/xjdIGByxDjXWwHLGnG6reMDt4WghYDw5Y6ftW9ETsmzW3ce9SZ7L3TpbCs7dgY=" />
+            </f>
+            <f n="Intro.cht" ul="54a" ct="1" cl="3db" t="6a8d318b" rh="bb36c40b">
+                <sig id="21" v="AIEBYfsmv9vsEca0QjAJmX53TOrDZS2JAkqzIx9/nwdTYLuvpwPY9y5TZrhfHEBe594klZMINutjbdOxE06I3DDv47ut+jdWhuW98Fhp6J+EjlJi93Yp/r1kX7+uj5fW3mu3IItHjCe67o4dunONGwIykCr382k7rxr1aZnzHSVCboI=" />
+            </f>
+            <f n="Gt_2310.esp" ul="80" ct="1" cl="54" t="6a8d3189" rh="c87ab025">
+                <sig id="21" v="AIAUYHKzs+ueCJBK7plTXaqcsy/UCE8BKRFfWQRkUE5mZ9jfGmtDEXArbSSqwPI7EPkcNfBHMEQiTv/7UenOWKcyfbDEr2GBQTc6kcuKqdXJGAGjYP+LYM4xYXVnd0EjYSu3uXaLXn1ndfamkGh/aABEF4xxs6UMMNLdIkBW1I7wfA==" />
+            </f>
+            <f n="Chat.fra" ul="1168" ct="1" cl="5cd" t="6a8d3186" rh="b8d9aa99">
+                <sig id="21" v="AIB9sn7q5J2KdspZ8e3Q/LniJFzVcGG0/r0Syzf2x1Kisy0+88EquD6urvOCcgYjRXBuGalOdvtNqk2TFQekMwHfXXGdwVXPkxumTF8aeGaFUoWxIKDiIeTHzXa1B6HrZ7vz1unzJwpS7/bWuz5LfJJVBTHf4Cm6IuRQr//uWS1woA==" />
+            </f>
+            <f n="statics1x.mul" ul="138a742" ct="1" cl="63bfa4" t="5abc8319" rh="d9ff8e8c">
+                <sig id="21" v="AIB48qiL6V7lp4rYZooMbK52X5BBV+sIuGOFhz6bnjNUJr1pYT+rZlTCMwxdUW/yPuDtI4skY6CmtuHXy1immKczmTVhp8xqoopCiP1FWOKT3jMyIKNqKDShV4rgBltNV/nPIkQHGYnqd3Lv6I6/bzGpsVIrPNGeE9hQyuZ0UBejaA==" />
+            </f>
+            <f n="Intloc01.cht" ul="1d4" ct="1" cl="123" t="6a8d318a" rh="22c9bde3">
+                <sig id="21" v="AIECGSFGhXPdp+1NfcFzSH+Agxxs4NZl7tOnYQNNIVkGJT4jVZXSHfImsHBQPnbPymewZJaznkvDKDrXjRbfMeKuBsQxcEbTpV5Gqxg5K7VvtLFqth5hNjmjxWcjUgUxTPneH2CMj4kGvDk8UKKCaiW1RyLB+NPmAzHZL0F+LfG5MXY=" />
+            </f>
+            <f n="staidx2.mul" ul="a8c00" ct="1" cl="14786" t="6a8d3197" rh="d9d8776">
+                <sig id="21" v="AIECU8veGo3/32/Y/h/VpZxwUwJwbVVpzNhN+tdgu44FCsSaEvudUG7Zi1vFeN9/vp8Ui4zTZi8ZtNanx9hVPs66flmcQyMcl9FvcrDSVEfabQkq9/MrNQgDOXINoESrADSe4/1d7BcWoDO43IU8ctNBQbPrOdGwco9XTmFuYdWG5ZI=" />
+            </f>
+            <f n="Music/Digital/BlackthornsMarch.mp3" ul="10165e" t="6a8d318d" rh="b8c06f94">
+                <sig id="21" v="AIECVb5DrflJBMTCSJMQoDSin8T/wtoKULQNxp5//jQvmMfaVP1jMuE84AmmDtbbP0aCUJVGg2u8E4/9zwT9JuIxexKmDjzq68FFR+01VpJPorzkS07yJhWINyjbnrwwvIJiSU7ui9jfhyQ/SfFqTpx5Dun/09qEO1YMCyKh2MC/xKw=" />
+            </f>
+            <f n="multi.mul" ul="f2e10" ct="1" cl="20457" t="6a8d318d" rh="163ca965">
+                <sig id="21" v="AIEBrFSmu1I/8nyVu/4+/QRqS7O+bwuNjR+7XCdKVhTyJcOF4o1CtHRfx5ihvVo9clRXxcFOPA6Gk5nOdBNOm32eqsox0Sx05Tk/rQe2JszWFGaKAhUfox1y0KvijQZ/MzhXFwCqLHU+ion2op1YfhBtQ7yjq+t+IvkKqF0S+W+tkXM=" />
+            </f>
+            <f n="Music/Digital/Deathtune.mp3" ul="281a0" ct="1" cl="21664" t="6a8d318e" rh="b183739e">
+                <sig id="21" v="AIECHo5MAWyAwnv9bsU6DerOl0dH4ujFAUXIR8kJ9l0KHLFrrbFVG0rxLDgorcjTxrkJhLdW9TNxEZNkX3/cLEv6gRy+C6z+N1XfmE+CCWcsEP9xOxtcPlOG81c+efESZSkBdDtUFZsR1upDHHQEytZokmqiyQ5iytQcvhZayHK/ikM=" />
+            </f>
+            <f n="Cliloc.kor" ul="4fdba0" ct="1" cl="36c98d" t="6a8d3187" rh="476212fe">
+                <sig id="21" v="AIECRhW9shCfQV92ZMSSdoBnztGIuCYJ3GTLKv0BOHRqCEtLXdOV1KV/ie7716J38HS83cOSvC4Tt9jtFJc0x5NMVgOuLSPv3sNfdbrQiVhspTVX9P3LX/3lL5kzqFpKGl4wa0QaPmbsgl6gKJnMdHctQoYnhGGQ1kSVKKDssjijTqE=" />
+            </f>
+            <f n="texidx.mul" ul="30000" ct="1" cl="1b93" t="6a8d3198" rh="1cf590d1">
+                <sig id="21" v="AICyrsVElTSdjMmEuTdmzAYR9H8iGH0UxPLptQYG7jhv+ZxL/6MjnNrT40os70LyQ1tyUtoCPg1TqVe8yGA2d2SsbV4xINCzpDppYxQc5FKAVR5Q97BgH67OWnv66tjDDIy1rMPPU9obApMKwLnLjENycKKo1Mh38c6R9+lZ9nlGDw==" />
+            </f>
+            <f n="Music/Digital/Dungeon.mp3" ul="715df" t="6a8d318e" rh="25d0f471">
+                <sig id="21" v="AIEBrdxdyGFgX5W5fqyj36IxVxfiHxicHueCfJHKY+wFXt+sq0A8M1FrFtkgtVG3RFTHHWmw9PZNUKn8ZRli8s84aSNmITAzOpuNaayb6TALqY3dB/jrvsnUK7q3ZhdBi/8rlE08v7WPcz75rEx3w8VA9KinKNgZo0z+w+C/K7Pxlvg=" />
+            </f>
+            <f n="Music/Digital/Vesper1.mp3" ul="48319" t="6a8d3192" rh="743e7dad">
+                <sig id="21" v="AIBw1l7PMxGlcYlxmMXZvhOPRy2mglilmB/2Oa9I7yySEsM7IS/W3YwZF+1vKEmL1CIlI48AipEZ80D1JQunUMnVG9xOR+X669cSCR43W37CkF8v7Jam2JWACpPW6ycKRwzTaIx3tUEN1quBLsH0yJivYICBskttutk4Wo4ksd/aUQ==" />
+            </f>
+            <f n="Music/Digital/GoodEndGame.mp3" ul="fb19a" t="6a8d318f" rh="b9e6884a">
+                <sig id="21" v="AIEB78gf/wwfJhxGc9cyWV5P+zL3ZMoIVl1MmkP4Bk9G7atbZbowr3jHIv+vh7YEUc5hJ6cUQ6yHW7DLROfhEY1h/bwRGeB6u9kgQGDULQHRas3hAfKcPWPBdL9C60/D7t5GHmyliYs6emVwGAAW0pdnU0dc0gg6TlnztwkVV2sUclA=" />
+            </f>
+            <f n="Gesture.kor" ul="328" ct="1" cl="114" t="6a8d3188" rh="1fb31f87">
+                <sig id="21" v="AIB/ncvoK4RVx7OzvUGXQeJkYSqaXrQ6cBSBL1NcdGBrU2EEomoiD4i3i0otDNpnuJUJN6WRhGr8MK9UOZPo/fVRcCxVrzLSCOZtuxpTw2ipbPkHXhVco2ErQCUANknPlCdbAscdqplLBZOQt63Y2QuSoNG/7S3aB1Byg8Iiq3gFWg==" />
+            </f>
+            <f n="INTLOC10.ENU" ul="93ca" ct="1" cl="3159" t="6a8d318b" rh="8a3769e8">
+                <sig id="21" v="AICe+1T6bCFJkdIIZkzh2UeUJL6cuNUM4/e0kmwGd4RyzJT/tjupmT1jA36T50rJe24KP+3L0T+vhlKzzqTjEicf+uWJ0k4y/PnbBej/gDGl48g4JgOejC27UWpY6JAPSEmqsH6s9vFFc20JIuVN18qMcpWMDtgJoTqUtvJTWqm5bQ==" />
+            </f>
+            <f n="Music/Digital/Paws.mp3" ul="df3d9" t="6a8d3191" rh="ffd6458d">
+                <sig id="21" v="AIEBTlitBvRTt8m913/7ubjL/WlAh+XtfdEeQRMnwsFbBwp4WqB0n4c0wgEzcZ9FMUsDNyYeLn+Yk7sphDPF4xS6ObgA5Hencbzxj6qNC+7UbN2YUo4T33u9lutD9iImgf7OZsuch6CB1DZMlqPpq0mNC0antK/va3olcj0LZe+TyFI=" />
+            </f>
+            <f n="Intro.jpn" ul="664" ct="1" cl="36f" t="6a8d318b" rh="4656d40">
+                <sig id="21" v="AIEBKZFsqLId7T6/f0qxQURSO1hCL/6s0O349uB+nwVvMUBxba1fp119A0pJ1mbRmO4hDXPS8ytdUa3W2ZpShOYC1SnyuU4U/RVc7W+cAFRgti0W/4wnjMPVPJSdw3OVKDgKszQRYnEZ739j1Ot7dQ2shOPvtAAxvRrVgmoaiCS4hto=" />
+            </f>
+            <f n="Music/Digital/GoodVsEvil.mp3" ul="debb9" t="6a8d318f" rh="8fe17e20">
+                <sig id="21" v="AIBFywVYLsbVyTpHlhl9vS/DPYz1W0wbPy0mTFyr7mzpZHIwi4ptauakFutvgkEZZU58NTueUWy+/HjrIRTveU7uFv0e+YQDud5B3xLtFB5co8shxSwq5iTe+M4BMbwZn5+xGkMdJPXuPRj7WgC0s35HA8PcFlYks1cAh5ziu+sKwg==" />
+            </f>
+            <f n="Music/Digital/Walking.mp3" ul="29faef" ct="1" cl="26aa07" t="6a8d3192" rh="9a88f077">
+                <sig id="21" v="AIALvSUH+Ax7MPIvX+oDzow+a5p2DfiQYabOoAEtO3Rs/fD3/pxoYum+Z97k4d+Fy3TyvjGXREldrmYJplzH0fvVd+GnDwVbMLwXMAD8H4RWenXpptloomIHNlyzajC7RKbBT8Z+paVNDTDMXcFfPCmNY2cGnqE1fSHMOAdFtmuSew==" />
+            </f>
+            <f n="Intloc02.cht" ul="626" ct="1" cl="411" t="6a8d318a" rh="423414f2">
+                <sig id="21" v="AIEBljD9ZQgzTBmqpN6hX0MLzsG4wJKTpizJh9ZLDk5NIutml4Bi6Wgo/eelz5ai42RYoMj82Fp6jXoC73AtOkxAc5qJRQ7OkOwD5OcI/qFLZPJFPp6W1r/NFkY/eQ3b1vvDGL/Yljdb13FPc2a81ML5+QrXCXyOmyH2kVpAUW8s5aU=" />
+            </f>
+            <f n="Music/Digital/MidnightInYew.mp3" ul="14d092" t="6a8d3190" rh="6448b7df">
+                <sig id="21" v="AIEBmLx9RUeyH4cCmijw6n7iwuPK7hdEmHFgJriZ7iO7IEzLon9KTGkMSRuAARf8Arce96vGdmpswk9gv4IqCuVSVGlBkrvtAmsvQLKDrvUxueU9B4JwAKLbkJ6rOq7I86cuVRYypS20UGiKuPSwLoCYJ3MUo21c5i84B5B/QBb85AQ=" />
+            </f>
+            <f n="Corpse.def" ul="eb9" ct="1" cl="590" t="6a8d3187" rh="716f245c">
+                <sig id="21" v="AIEBI7urR8sKHqoQexNpIPJeSqmNUwpfT/TOJmOGMSs5nUHncEAGsR5rK+GE78yVNA7QxzURvlv8P2oYJOLhSoeI6FloU0Kg5gtu+aVjAjfluc4szNIljSMQWcRXLztbybEBGN/9YPDRBSTcXLW9h7emPDa7oWQEqhVE6N5iwMiPTts=" />
+            </f>
+            <f n="Music/Digital/ConversationWithGwenno.mp3" ul="cf454" t="6a8d318d" rh="d3e64267">
+                <sig id="21" v="AIECA47gWHNscq67tjzFw8vQmajtSJoYpWZP9vAehZdjkj5BZyU/qLOx0sWp3QB3xj4UAnlpIlCBuS56f3YT2lsxLv0zaYTcovsPrFbmJYgZ19nFw8N7vyjtBf87a2boE56UG3Iw80fmAdZD7+gyetgWcShO4NYZ1q5NDwCDbf6FUAM=" />
+            </f>
+            <f n="Music/Digital/CodexShrine.mp3" ul="94783" t="6a8d318d" rh="7d996f8e">
+                <sig id="21" v="AIECR7MYJzcFYD/7EnPRQNnP3kJ0sOqQ+R9oy2Ro6JRrq8KUB8XLOLepwmhN/LSf2uzbJyKjIs2+E0U5NclqTUTwYcWY4/HKpYEwAYM1BgI66iT47kPTcN/uKyc5TrPy5WklQd0MwN30ZzESQo27P1l51765ZY9llCg6F5ybEPztJlQ=" />
+            </f>
+            <f n="OPTNUOTD.ENU" ul="1376" ct="1" cl="843" t="6a8d3193" rh="3e4111db">
+                <sig id="21" v="AIA2NCLYGTaUDK0uU2byXsaSIDsUgHysIae9reFnIBn4UKhNerCSI2cJW3wNat9/95FhKe7uyVnpcWdIg37Ay9KGrdWtaO8uAJACu9J/rActiiiIj2edcV+/6RbkKZnVkkgk3romcHpjAlilOTKk3XKaHrzMz8U/dKS/HmEqcfOUsg==" />
+            </f>
+            <f n="Gt_2310.jpn" ul="7e" ct="1" cl="51" t="6a8d3189" rh="f1fdebfa">
+                <sig id="21" v="AIEBV2uS8X6rp1v6zZ91nADmC0oSRvn85kBmH409Y91wYU6263t0XEl8oPHUdddYdzaZ6z4zxfbq5/iqJKncDBMbd+FEqj0Ud96/CSft1xiZ/6wX724K3ohdDHgL3e8aUwcJBh4aWPPYGhv+fwx93iaFWMiibLShb4P4IkcOy/B4CGc=" />
+            </f>
+            <f n="AnimationFrame2.uop" ul="709ca2a" t="6a8d2ae7" rh="4af0d3d0">
+                <sig id="21" v="AIECU/UyeBwPP/VLfuwdpRGpkrYdDYcW7LKJmP5PmLIjzoa82L9dSZeyGnNeREUs6o75c07amCT8vCCkhCWHn3+ga4i8UXhAmigSHLpy7yce1OgSyO82y59RIQnjX6BhTqhy0k5vWE41TJxiFleqIjxlHiTr0LkHXgedGiQvo4FJw58=" />
+            </f>
+            <f n="stadifi2.mul" ul="c90" ct="1" cl="884" t="6a8d3197" rh="7cd9c8">
+                <sig id="21" v="AIEBMfXDctnSP9KeqwknicxN8tVo6bTR8KXHf7dguuEzk0784k51tMIRNEymSlPNL8IPC4o0vKmT6HDCqkKAeOy+Jaj+JTc2Ops5p8ZLN9/dFzL1ByXUlgPnQ1fyUWEys9rWQ4eT3L2RSsCkrMngJ1TaFy85EA21sIJpubDsd8okKzg=" />
+            </f>
+            <f n="suppinfo.txt" ul="12c7d" ct="1" cl="28aa" t="6a8d3198" rh="49a31f6c">
+                <sig id="21" v="AICuY+wn5PnJGby05VtDIQKCUhHZT3kaRqC8K8qoltZYpKuj46yDWb4psJXjz0iILkO8IRWWXbfuT/L0wlm2SINYF2G5ShacJgGUPDHjb1XGoB6xdg6+wNWiXHyPJOKqcamj7WSwBQ5SIyJctAj5pG22OzzQG+7iyJqjy+FgJBSaBw==" />
+            </f>
+            <f n="map0xLegacyMUL.uop" ul="55c20e0" ct="1" cl="108dab2" t="6a8d318d" rh="1d2474eb">
+                <sig id="21" v="AIEBgYegGCa5bJHsDp9sngO8FEulBnJJBEEJETmHgNthveEBnm2JgIWQVSa1PdIjYjxuYLvLyF+SuEETI8GPGNQdyCcZjuUZilYEwGYHSrzrvhGz6LpeeNkGVoHyv6e522QNuXnbF8kZP3a9msI/7RxwhAxiqYSq89MeIFS0qoNbwFM=" />
+            </f>
+            <f n="vercfg.cfg" ul="65" ct="1" cl="5c" t="6a8d319c" rh="b8556481">
+                <sig id="21" v="AIEBoFmUB/XtwH16tt27H1uraAepNwDhqCRh9JRl6YuvGTVqk3QXaHtcded3dluVFS4OP8C3T57BPSao0aKK9aufwP2+TNIxUDzHZbLZS036m3Bqx8MNx3ppaGHng3Lr65szam0FHCzUOH4tMLQ6qg+KjPBfyTUb4aqCXITKes5Lj5M=" />
+            </f>
+            <f n="anim4.mul" ul="61e93aa" ct="1" cl="391ab40" t="6a8d3183" rh="6c7bf636">
+                <sig id="21" v="AIEBs6Q7mCONmyOuELepH/FB/mbmxQCDg9zNCExkwdGqcdC5D8Hv3wvFmuO5t4l+5NyMQ4WvMo7OcsMKBJ+Ku5ST2uwXxuWl/ypVgx/LPri0/mkSBJGSsQzK02eA24dRAm7irkLyvhNjFDQsZiKc/rJ1oF8FeVaOttgqSqetxRm3o7s=" />
+            </f>
+            <f n="OPTNUOTD.ESP" ul="15c4" ct="1" cl="96c" t="6a8d3193" rh="76ca49f3">
+                <sig id="21" v="AIEB0UqYuT6tmlmV/d7LtfGqW5pHL+HPqPq0puDVsvxQkSGY7vJp4YSyu02N8rfGGhH8aoKxWHwzOeXJGzwVjgzQQOpV/JqQWSmgoopgKgRS/tbKtHNFQZ+iBU/hu0EdVM/dAbHtbi1QnUioSXPSmbCOm6UXbAxEUGUzsQfNwne7pJs=" />
+            </f>
+            <f n="Tilehelp.enu" ul="69ce" ct="1" cl="1f8b" t="6a8d319a" rh="8f59205a">
+                <sig id="21" v="AIEBh1vJKBCNgYepwlUFpzYnJ+utqbjtfjwTZ87xJa2PAHNH1IVded7obHiOiP/Ga7cks7Z7pPiWrZcj1Vg6fj8zKYcqbXWxTxstISzdE8yQXnJ7e3JzdsyRznitRgUvzTvdxOO/3TEWNW8JlPeSwmvUgivmkC22csFiqyB57et8Dog=" />
+            </f>
+            <f n="Gesture.deu" ul="298" ct="1" cl="12e" t="6a8d3188" rh="8c98b5d7">
+                <sig id="21" v="AIEB/HK34sNoSqueFWwwocgClxSNtEWHSwJkSs+ZbPN4esTvd7HIGGOOCfupBYifCVocYdho6vQUtLtZyFJ2BDTecJgJIz1KnxvMRreKoORWU9iufd23onxpj9kjUAA2awTTYZ7Fy3zrxd0JLUh+0DmW3ZmEHDmyozWKHUvX76/Hp0Q=" />
+            </f>
+            <f n="Music/Digital/Scarabreapos.mp3" ul="5e14d" t="6a8d3191" rh="930e6ea5">
+                <sig id="21" v="AIATC1coDtHy1I79TdKBwAA/xDWaq2BnqbpT5t3RfjF0AbEAs/l8QtIxKoNoD+Www/njcX1gYec89iUsQsvDCQlWt9ICTxVK1YTVpmR0FfEmx7+Bb8ki3idVE+SOmyHvWsB2fFszKdS2qwooNPEBmMFPmnEJ4r2VHNGz9fMa8NyI0w==" />
+            </f>
+            <f n="facet03.mul" ul="17806b" ct="1" cl="7c2f1" t="6a8d3188" rh="67cd3d38">
+                <sig id="21" v="AICjbj5DMhLRek6pI3xqARrdTE5TCTxoKx3zSQOGh7Y7rY92nG/EaPV+ZYfY4t/opqKM9ZGFTVrqMM440mE36izpoAouw/z8E88hbHgRaZedmeGTxltytgw5s5Dww5L8KctQNItQ1R2c26fWEacwhDcxAiNtt8jWt70bsx1HIpnfdw==" />
+            </f>
+            <f n="Tilehelp.jpn" ul="54ee" ct="1" cl="1b4b" t="6a8d319a" rh="7ed230bc">
+                <sig id="21" v="AIEBO9Do4lDHFn3JsVf89WOT8z/Jksgyq8HqjGwWs4FQX5EydSLGnUvRRCVJllKAd6fDY/5VaCMF5KTX//XnsYMwwsm6WUZAuDqFXvITsEezEBN1hE2kIviyZojiZqj897PjSPLm+OjSriGzKT5YRA37ZwTStwlBp0yEVsIneWMM2S0=" />
+            </f>
+            <f n="Anim256.bin" ul="3e4b6c" ct="1" cl="d7514" t="6a8d317e" rh="bbd090e4">
+                <sig id="21" v="AIECKLwbdMBAwrTens1AiUw5WPpdWs5sEROLeKgC4sbVsRMIDDVMzR3mibgbsLJXjuzg04m2EZX46oG6JHJLQ66Knm37tkUHfkWJmDOf1pv2SzthqMnfI8DXO5jQkEBBGVBNhOiLLoj6L0vnR22MRIR871pg3xaR147ZMwRrW/rigCo=" />
+            </f>
+            <f n="Tilehelp.cht" ul="4e14" ct="1" cl="1f0e" t="6a8d319a" rh="e32dd371">
+                <sig id="21" v="AIECW/3MiGCMiFTQun8s5063lSiYWAJ6nGyvZIAXKlN3j+/wNu9QKrukHgIwbFMZ/XbbgFxetDZlrxgJRZ18QEB3t3VD2Guh8UKdSntbEvyldlFNSIv4pCeQLxMIoxDYvKsSI8LxXKkEujx94FBrIIcDgTh63tpBgYQNXMtB3QDG8Hc=" />
+            </f>
+            <f n="uotd.exe" ul="6000" ct="1" cl="10df" t="6a8d319c" rh="2a7cfd0f">
+                <sig id="21" v="AIAjX/CHEBYviZJ9jwpKP11CHaDLvvI6RmtAt91SbEiJSm5xc5Uph7lZCEf6MQ5dzSVKmmr4vO33lyBN1PN37zXpgyH/3S8T9W6vNpR4FL5bgRHmXxFh9gV4w8MmJFFr6xeClCPQhqljn2RFzJgo5HZT9936fDupZus3uhmwXsITCA==" />
+            </f>
+            <f n="Chat.esp" ul="114c" ct="1" cl="591" t="6a8d3186" rh="ec589abf">
+                <sig id="21" v="AICeqEUO2piRg37eRhXC0iNUORGYOgzUxH03/p9VqgmbOCTJ7B4j7uMeSjvthuGdWLFEy39yDmtFcwWHVMpQB/EBbuQ2Lisnt98+VzHosCqKQG5S/oNCJXKL0trMe9lItpY2KLjLB1iW0ox1TU047C37ebNDms2n3ptljnLl16tAQA==" />
+            </f>
+            <f n="anim2.idx" ul="be35c" ct="1" cl="fff5" t="6a8d317a" rh="7fc71ba3">
+                <sig id="21" v="AIEBDeWvgr0FO1BUGNL1hCHCKtCXGEZMA/4RVuJ96uETQLHdEi0rEnrAdVJSHTV2tRKzYewSovBU9uKn+3aFNfVUPZhbty1zVR0tGDx6G0Lu21YvSCSRWCa0CtpnuCE3qKZ4LUWNuDxA4z6COAi6dIyaTk7lzThHhY2FHzoftFL9DvU=" />
+            </f>
+            <f n="Music/Digital/BattleOnStones.mp3" ul="16ba61" t="6a8d318d" rh="f160218e">
+                <sig id="21" v="AIDZvkCjGXJBfPKVF1zimQJGFQgF79kIIfcezpiDE7YdniIQ8A0K5szztIES611kGaKxlMkbO8ZZhgNp4EMZRuthSb5iwjNRFfIddrWfiTW0giXHeWoCaCz0aTi1g/5/nUx0ZxjmsW0yaQ/HHBfRT9E6WDVRe3WWgJvwbylNjsnyag==" />
+            </f>
+            <f n="INTLOC06.KOR" ul="be6" ct="1" cl="4ff" t="6a8d318b" rh="e460a91d">
+                <sig id="21" v="AIAfnTXmNBV9JjSDbEqpC5fopTuqElYAsyqcMffICURl6yrrX2MIjLHYM/oq3+meWtCa75ZpgrwRdvyi7LQZspJYOWMYRERGBUxEvEGT2roIO9b9sMa5oj1OsP9qqV1+Cv5On4872WsWz152CP04/Osf0em7qABRgNKkTQ0XVsou8A==" />
+            </f>
+            <f n="multi.idx" ul="18d80" ct="1" cl="b9a" t="6a8d318d" rh="849c1c20">
+                <sig id="21" v="AIAo6oJRO22iNT8ithN2k+JnyQ+T2dvpoR4P9nVhRAAijB9rqkKT8GaOK5TzArAPH+fkgwXfaXsuKSKjEmoAJxmwweVamtW+P51/4PyXD3YqDP0ouuHXGoq2bvCt39i85BZRzjP9yllfB9p7ibLUxFzf9un0utbUD9y2sx9boU2qNg==" />
+            </f>
+            <f n="misc.txt" ul="1aa2" ct="1" cl="9a4" t="6a8d318d" rh="804a5d00">
+                <sig id="21" v="AIAE9es6fBH53ediMlyVW04Rnz1IzyboufJxSE3IAtBDV7+TKoU4oJdHLEl7c1ggOLsbkP2NbBDTO/hbgHyetRk7bxi9ud0dDXsNgbiIargGJYuim87GA/+2X3sx8o4cZRgiYx6v/VZrIgYQQRpRDuqnrkKG+wLTsdYcOWUAw6yJ8w==" />
+            </f>
+            <f n="Music/Digital/Festival.mp3" ul="1f7b46" t="6a8d318f" rh="b9499998">
+                <sig id="21" v="AIECJD6WCfTyfb0E/owdd31RfVzPs+MBJyeK81obER88DozYMVxcnYm8VirsopiS/Ml7VrBwYmn03eBOVETPF0x7HqFeb8kdGfcKnO+QplcKaqUJtSyFsCxmKMbA/3GpBpZrXSRgzyaMubSCMFAB23nknUACiZi9cDEnw92MQMOS9CQ=" />
+            </f>
+            <f n="Gt_1010.enu" ul="174" ct="1" cl="42" t="6a8d3188" rh="677b9292">
+                <sig id="21" v="AIA3yx0bLO2lDkN9XmaOeHyN8KxeK0ZQybx4ukJY/n398koo5C7R8hgOaMezkRtF2W9A/a1NSWFAeF73YqYwiqAEv667Jt2z7PH7rs0gHD0LFblAmDkO/iBNorisiOHEBu8rZ5zMoZIj1+qm+3GcbMaL52ynKcJZ4vd4fwPDrNeDVA==" />
+            </f>
+            <f n="Intloc00.esp" ul="282a" ct="1" cl="1010" t="6a8d318a" rh="2775a18e">
+                <sig id="21" v="AIEBy1NR/lifQcoAAhX2dgGR9GEWp8owG52lkTmsSO/woaiyZtqch9Uo+x51NsB1N01zmqJdTkcYGdeC9RN/srGDfRQ3xtSR3IMcNntKw/YGylvNAlzfC1z5vDgtWEteTuK9pP2A9S5unKtUAYZC/+tO5Zda0N8HYM7XNoNDpFz7Ti8=" />
+            </f>
+            <f n="Gt_2400.jpn" ul="412" ct="1" cl="1ba" t="6a8d3189" rh="b274857e">
+                <sig id="21" v="AIEBuMeddwOwemqddgVKklii5rzVtZr7TYecj/3sALlxZoad4/rzrRR+qGs5fo9gDHqJtLrXwOmlNiGiXTVjjbj6kzauhCfMMs4+bPAOd+0ezhBTtlziHb8uQ2CW+yjdPjGzVj90VcKFsIcJlpcrpjcL5+R62LgpjjBvfNkkVxHscxI=" />
+            </f>
+            <f n="Music/Digital/MinocNegative.mp3" ul="86368" t="6a8d3190" rh="f0607930">
+                <sig id="21" v="AIECJAOXTDnbI099rqA43w96WxUe62jKbJ52Oj0ZOC2h37pP0E47wGnvcAZgyZjMoy+182ap0oBNa2rc4DVU8B8SfppMOU+1MCo0t4CCIy5OW6wDaiaon+25VTo6boXUScQwBv0C7vSp0XGNA3XAX/bYdSW5tK//NHJ8hvi27InqDno=" />
+            </f>
+            <f n="Tilehelp.kor" ul="65a8" ct="1" cl="20da" t="6a8d319a" rh="20566a7b">
+                <sig id="21" v="AIDneyGTDsejVeBp37NM+x1l+0cwNBZzrKF5I1lYIX6ca1WFR9ohER7SShB0tOpOg5kkcwcdMFFezjCTK97JWDQvO74N1UIsnJdt4ejN8Cnndtf7vatej8Ma6g975slIA0KvZp2dCReTmFpB/vQCfeSFAYudSvFPeLH7aqtwAisw9A==" />
+            </f>
+            <f n="Gt_2400.cht" ul="208" ct="1" cl="96" t="6a8d3189" rh="e6ef175c">
+                <sig id="21" v="AIAHb1vlxq9f1ZXtyRmYJtSxMDReezCZUsZtzholfwC3a8Iat6aTK/JPekhlpWALM7f0dN3gDdKXRIRitF8XN+MlfkOAET/GW2AL68fnue2KqZJrqxLq5gUTKfe/zxtxlcrWTT/a3VWXIC2KBlAfPRT732U90X38jvWewBSrelGE+A==" />
+            </f>
+            <f n="Gt_2400.enu" ul="c6" ct="1" cl="3d" t="6a8d3189" rh="9e97a23d">
+                <sig id="21" v="AIBQG0EtD2jBhfq0U7bptSrdn1fScb+dZa7F8NVxwVnmfxxVovmWapJQYWIHxnqLpZdO7EF6hdAuEh8OZlUnsjjTV2vuERyUgwoMe7DIqsgrVpXOMu5Iz2Cn5/pxztqBP5WqXK9SQE8wlWhl9j4nRDr1ImR5H9BVV7TgQMPE0ZM2HA==" />
+            </f>
+            <f n="Gt_1010.kor" ul="2a2" ct="1" cl="46" t="6a8d3188" rh="4abc1932">
+                <sig id="21" v="AIEB2dhGRorjoyUf1DzD+GfZF13wCf9gXIxhZ83SxF7cTAGDv0xpwhpMrxcpPJsLnc6U4uKgw2jl8osB6tMlCP6CsiRN7ePM41eqvlAl6lkHrlIBOberEmZC14pjtyeYhDsgNSTndTmlKZwofVwwXdTpKMiUkefooOBQs1bqc2WrpOg=" />
+            </f>
+            <f n="AnimationFrame1.uop" ul="661e877" t="6a8d2ae5" rh="53404c02">
+                <sig id="21" v="AIECWY8KqwVSVHbh2ImN8aiKsmctvV5WYJn2ej1vY6KLpdXD2OVcuCBmsv7GrUkJ6dfhJpDcg17/rTFwtWIRvf0lZcyk4AmV4AVU61OPihzai8rWG50npGDUSEoxfXmCX15MmM4Ti/gUAHCsZjwko84NcylXiiM0Tc4qj7VOY5A5FGE=" />
+            </f>
+            <f n="Tilehelp.deu" ul="8810" ct="1" cl="25c5" t="6a8d319a" rh="91a507fd">
+                <sig id="21" v="AIEBCA+mLoRj6Ujqd5SUdnMP25x8wHsAw5So7OMFoHlk4OLW5zD/aKknwc5fxkXi+3TDTvOH8swSoVzCEztd6O9SSfIUBsqcMm8r4tLrpQCvmuJfalsxMc1kQO1aBSgQfYxxXUZt0RGa8SBpgXlahGDTM2uTLEqth6OSwjnIB8xCgX8=" />
+            </f>
+            <f n="Professn.kor" ul="29e6" ct="1" cl="11fc" t="6a8d3193" rh="7e1cbea3">
+                <sig id="21" v="AIEBrVyvNoMv2k658EUA0jIKL5Uc7+vUhdnzXvxnm68PrfGNn3owvyAwzI88WgBs3Nhxd229yUHTSU8/rdKj+CvhJv4DxlX9JPI7T/JoBcqapuaHVfOoeX2CW+cnGnf3UoISfcPnXYcDv6J2FwYCDUvd9vliXV6FGJ7qI4YZ3IsCjfo=" />
+            </f>
+            <f n="Intloc02.fra" ul="80a" ct="1" cl="43d" t="6a8d318b" rh="57ac6810">
+                <sig id="21" v="AIEBHBmswAB8NAcwjBcpCo8u8RgtemdLMxcN4qFeqjoI1Xl0p9+qNpdBd/e8B5gn0r8KLb2nmRUpBmQSQwot0D1xDNjd53mtyVcE/bk2Ac6P7FSsx2GsKHvaZQI46JeeB7xhcmV1u0HGiG2uaQIoyS34nzTvBCNFq5iWd3GjRkrgHas=" />
+            </f>
+            <f n="SKILL30.CHT" ul="172" ct="1" cl="117" t="6a8d3193" rh="c3011ece">
+                <sig id="21" v="AIC4dOwwhggUh8C1bQ7/Lyn8Fye2zrgU6tZ8hd7c4q7j+jtraIO+9zTTjwc2sTmglraBpoSrZatCbWGEr6xF7Wl2o/FyxeVq2rvPEiObPgbR2uXGGsXeXUOVYUXsOZg5p21qbyfn2njyhjsD+VnHm/mKKP3go9m3sgytZsp5V5TUTw==" />
+            </f>
+            <f n="Music/Digital/GalehavenJaunt.mp3" ul="16a1e0" t="6a8d318f" rh="77f7787c">
+                <sig id="21" v="AIEBIdFddndFzx1A1nVlsfbzBzjmX2TEkCbBc1uarg2DESNp6ZguBtDQLaezz26o+pnMqlsr+tEOSzWuKQIAE0Ln9oEfRm2WOA1c17RQJnTyx0yan7CJQbMr2lzYAvIsB8/zwEGX+7eGx8DIlObAHrOtWmvO3MMYuhJdcW1Q2KcDQw4=" />
+            </f>
+            <f n="Tilehelp.esp" ul="6d9a" ct="1" cl="20d7" t="6a8d319a" rh="1600a829">
+                <sig id="21" v="AIECIFrHJaok67H29967JUNC+/Kl9+VLcKbo6dBHYvNYJ0d0uJCeyy03p3/nsTG329dR3Y01IyMbQEgg/k2SKtVyH0MlYXbEpJ4gma4bcxk7CC4Vv31uBLfLxMi0YdkKGYlXxEKzXoTJtEBu9vVkyGGEoHl5YvSB7a7fb7FJHOrgrXQ=" />
+            </f>
+            <f n="SKILL16.ENU" ul="288" ct="1" cl="163" t="6a8d3193" rh="9e0d9eaa">
+                <sig id="21" v="AIEB8VseqB6ssdq2U0Evu6VzkfWvYaB5dRol/w/RQhsmB3feE+VlzMK98IyvnKLFkgyi0nzvE9EHibwBrYssF3JNXxT6DvYx/3/pQnRSMc0imOVeJQ1n7OtozbjRDS0CB7iRmWHlMlN090BlcW6Qkk/qn8QyOCRUkZZm/g44i2GBc8Y=" />
+            </f>
+            <f n="Music/Digital/Tavern1.mp3" ul="2c2ef" t="6a8d3191" rh="7310232">
+                <sig id="21" v="AIEBDkVOkVpTfX8MZfbiUjUj7JypvCM7QS0H3x55VZhtNbk4+dBZaU6VrGh9/jKEydPhZTUxCoj7RCwXANNbtDwquT/ybve/oSxefrGx+5V/F9lpfpEq3gzqy2SXc4RNzY9WINHsqaV7tfPgB7P0k1kr3OFuztx4MRGolCBbJ34yZRk=" />
+            </f>
+            <f n="Gt_0000.fra" ul="11a" ct="1" cl="a9" t="6a8d3188" rh="980d01f4">
+                <sig id="21" v="AICY2RAIGAj8sgzetirs4ZLufs36+NYPWs4+TIRbqJlF5HvW2eUCmpDhJX30VpU4OxLVakQnv8nt59giL2ddGTmK2iyG9g9FUNYcgx1YmK7DG+jCKK8/ra02m1YQNU8paVqA68F0wfTloDvmZJCj6eJn++4G3mDGRtVZCRyX9QWn3Q==" />
+            </f>
+            <f n="Gesture.enu" ul="24a" ct="1" cl="f5" t="6a8d3188" rh="49b2b9f">
+                <sig id="21" v="AIBUtahg5wplE4voWVCJQ5kfWpOnrVPAGm8p+26iP0xivJrPKxIzAvVr7kFolkXpp7uFLfgP6B00/DabFR5SmWuTs3v7HbGADgUJUkcolgzGLYoh6otAOtQfdhAPZuLGYm0kpLT5QniPmydLy3HvUzrBkZfgCOo7Ih6k5E3p1U8q1w==" />
+            </f>
+            <f n="staidx2x.mul" ul="a8c00" ct="1" cl="14786" t="5abc8311" rh="d9d8776">
+                <sig id="21" v="AIECU8veGo3/32/Y/h/VpZxwUwJwbVVpzNhN+tdgu44FCsSaEvudUG7Zi1vFeN9/vp8Ui4zTZi8ZtNanx9hVPs66flmcQyMcl9FvcrDSVEfabQkq9/MrNQgDOXINoESrADSe4/1d7BcWoDO43IU8ctNBQbPrOdGwco9XTmFuYdWG5ZI=" />
+            </f>
+            <f n="unifont2.mul" ul="15dd0d" ct="1" cl="92cae" t="6a8d319b" rh="7812f230">
+                <sig id="21" v="AIEBa2WbYx2fSJwt9wcMtZnHfPHf9FIzhiDjkx3NB8Kc4EC9pG1EUK4KBEzsYXSMW7OW8+sL1UJ9bEbFHIzIvmRhN6RhVKbGE930BWFLbROx7f9vUE8ZV4qhMLIfqLzSjyjFnQFdbiWyaRTjOh4hCsfdj2MS7SeBOVVa7bvD3jN+ks8=" />
+            </f>
+            <f n="Gt_2310.fra" ul="7e" ct="1" cl="57" t="6a8d3189" rh="47d043e1">
+                <sig id="21" v="AIEB2DTB+lYO+duhP9wQ+RPKQumyG1I2xxSiA4xWJdhd7M41lwjFJy8b2byNIRK3C0TEqTvie4eOFFkPeridxdCP0WC9tuREHfFibW7s9vLhEJcTjdF+TcUDqsNlJkJFpm401zthJB/4uIKvHUPGy2WwMw6E4CjMOQrb3djRuxkzhEQ=" />
+            </f>
+            <f n="Data/assetmap.xml" ul="132c" ct="1" cl="2f2" t="67f4bb81" rh="e4dd3d13">
+                <sig id="21" v="AIEBxg5JTBzyHzUZXDoNxM35/ekuOfRsXtKRfRL70+6SDBhfunuJj2FnuPdfH1Mr2lH8cTjL7xABKHoSZ5nivpUx+fPudgH6UjyIZ+YZnEtFWAnCnucEGk0mmn96VWSwLFWAo/fIhJOseOFB4ajyeazieE0P7Zd4nRQmSGr0kqPmmOI=" />
+            </f>
+            <f n="Music/Intro.bik" ul="1d5a904" t="6a8d3193" rh="275a33f">
+                <sig id="21" v="AIDfVEITTu8ZL9SL4Q0QR33x4L96mcKeawIaw1C2mCTxuFpEx0bhQjcv83RPNxV6WL8PP533I9nJSQyLU1Hk9ZIUS26QsdOyiSvBrnnjAicBZUwAiI3P/8Bh3fuGMXfsF4+74dwRwbT5s/XGoj2gugI0MJ+iOecAEDph6fbeu4W9mg==" />
+            </f>
+            <f n="Music/Digital/Void.mp3" ul="9d868" t="6a8d3192" rh="a557f76">
+                <sig id="21" v="AIBbLcH/S416LIDmvXtrhrrSnOpy/GJHBjUbLZbZz6NrygpWmheSwxfQoLPxwiIoJBCj61Va6FX3+/sAKNeahgiwihxo7Sc86ToXR7mRXM1mLL1fNsiukGvHFQlGowSBvxCeE1SM7LowTJamgiO5ZIX/CLIkkI+vDJ+xzV8nSOs/cw==" />
+            </f>
+            <f n="options.enu" ul="1718" ct="1" cl="99e" t="6a8d3193" rh="b16e658c">
+                <sig id="21" v="AIECJ/pUpgMVMOqmMP6TA5tE/iaDIdaAdLQLxEcklBgRrCXUIMv0oYs5ecF3QGOq4jwGrZP58EQGGKEFY1FxPXP7ppBj9wKJYlp2bWVkrh8fghoUxyQAVPEFSwn31er8yivf5vX1WRttP0ioNknYPsDelf/qJyquSoC8ISWf3U9g5uE=" />
+            </f>
+            <f n="Gt_2400.kor" ul="148" ct="1" cl="43" t="6a8d3189" rh="a98bae44">
+                <sig id="21" v="AIEBzPbsknPlm2HhtP4jLW3DNMhBE8/rMlSw0GKd7RKxiDDENe8g6Bo88O1MzB3nKqOaeSoA9UHNQRaUSSDrA4uzjxoG+3/z8Zt2aq7VzfNv+Q86o+gNrnWZktqINLOT/S/sfvNfwYOIiR/XUcJ1coL+1K7HhuOT+v9ccEBigA2eDO8=" />
+            </f>
+            <f n="Gt_2000.kor" ul="216" ct="1" cl="45" t="6a8d3188" rh="a709513d">
+                <sig id="21" v="AIAPMIlSszVidai9r0o69xzifeB9GU/HvicxRcNLosOoXkQpv8iVh3o8TsGG2bhvR9QLsVz6gyqhv0cRE24Y0L7yi6puITwurvbtgJsvhMIPrjReIaEgsRLRnO+Bmz+lFMvzrf2Z9ZX75Awlm2M6g0c07sm2zounv1z7XB9KjSVBAA==" />
+            </f>
+            <f n="Music/Digital/Zento.mp3" ul="121e5d" t="6a8d3192" rh="8b582806">
+                <sig id="21" v="AIECH43eUJHYMC9G/BpnoWHzNAkhWfOjYUoyemYBTiu5Rb2qpR1i8cPHbpM5hnaGcS554ue8PB3sPXvCH7g8QMrsvEc3cjZ35bJy6ywvIQkXY6nqFtMuKm2gv1tClM3VqK5T3pMssD95sL+U1GwbyUkxoppJPURZd4FwXKYrYKiMr64=" />
+            </f>
+            <f n="Skilname.esp" ul="274" ct="1" cl="192" t="6a8d3193" rh="4147823a">
+                <sig id="21" v="AICDiFr3Z8DSmGW2zkv0w3ZJWWvGnzUg56Z/HpL9RdSe+QF/nAaGIhusp9HJOM6XHBlVYpbhsqCVS/QiPnUDWcsuIBb7f76qPZdX6bidWAqoEtbDEU4yRuZ61Tnj6wgz4j/3tKFjyni60vgGh0ZPq7BulIn/wyW5vzSRrVf/t/1dNg==" />
+            </f>
+            <f n="Gt_0000.deu" ul="132" ct="1" cl="ad" t="6a8d3188" rh="e654571e">
+                <sig id="21" v="AIECKy6JfBcl+UcDSnS0MWabInBSY2VqFCox5L1QqCNqmwdZzqWtHVvNjWakwcolf4V/i7dVH/ThICHpE7BO3zsBpgFilTCgHQxY0BjQXdBzMyKzO/DXW04cBAZA1bXijbXXBzZ+OrNWT/FK+HqXl6kxpS/9CEhsqIx906a+WTUCftw=" />
+            </f>
+            <f n="Tooltips.deu" ul="6e2" ct="1" cl="2d7" t="6a8d319a" rh="84ca58a4">
+                <sig id="21" v="AIEB68aafx+eq0JIy8ixE/Ng0rTg5uXvvWeuD5yhlhUpijumv8WtN3pFz/PQYwx4Vqm59XjW1de/U5lPbevU3+9xDrd6Ui+eFCqyouwCNVwO0tablSI9jsWGZ/klpytDNduAvA4G7TGM9SjBlGJ4tqDZM66t4j0GNom5rljIqeGULNg=" />
+            </f>
+            <f n="MainMisc.uop" ul="1ca80" ct="1" cl="e9ea" t="6a8d318b" rh="318b5a02">
+                <sig id="21" v="AICKBMu5C6OaXp4IoDASwfiGbjrqd8zO4q/OSJ/6YE1C/Stcq92Xbr4vwU9sxBMUHLcLkRP1h+Ok77x1irFfiwhN2W9TXn31AbRjKtSWlpRyTVLXivX7OQZDD1CG/XL0yaZ2Kg6H5zxceqSO52Kq+c4O5tjdtV/YbLdT3fPEBe9JjQ==" />
+            </f>
+            <f n="unifont5.mul" ul="234aac" ct="1" cl="8f461" t="6a8d319b" rh="f754d628">
+                <sig id="21" v="AIECHR8pf+74BrbeY9N4GWjanDaiW+fGQjA7+tHHjqv0KVj2KAKMycZ20L7AZhPzTaxCcXp/xtHLYLg6ne1c1o1ywDMsY8gV41BdxWzgYCxc2NnbIy2roPlKFZ7kjh02/mAVWiY/xWimnJH+c2ibo5SrNvx0sAtOTAT/YMCDiDNFiew=" />
+            </f>
+            <f n="OPTNUOTD.FRA" ul="1568" ct="1" cl="948" t="6a8d3193" rh="52e309f5">
+                <sig id="21" v="AIEBaP5mxnfA9LCyWivEzxCAHFb+ytcw8sI2r6cwpN0Q+3kco30mO2tRda/jhFjh7RyGSE6v0Qu7YSArVXkkIGV7UIuTIFV6wUtLdAQfxvJO9M4rqPNfrsrzNWmCD4Sn7tJ0zdstRKxtk1fvADAlG7cZyZkmZ+HEQzwjQGbnHdKf1tY=" />
+            </f>
+            <f n="Professn.esp" ul="2e6a" ct="1" cl="125a" t="6a8d3193" rh="8e6fb7b">
+                <sig id="21" v="AIEBv7I5AY/ey2XS7TFYaGd9NOzofoy83qztLraQ92Heyx4QvlXHCsl8cKJDwulf9ZCZZ+m7e4TcbSUwHmodOZlgIfcVLazwwLU0lYKzr24oyCCcU9JeG2izewtNZhCOlAijVBTmvUUUJL4uLPl6aC5Wm2/6D5y3KCjGuQ42qQtHt28=" />
+            </f>
+            <f n="staidx1.mul" ul="540000" ct="1" cl="840cd" t="6a8d3197" rh="1b997884">
+                <sig id="21" v="AIEBEVFBMrRCRht4zI8QsRLq8PHbS0Vre8GAUyEhPGCgqfaIdwKiexL3jbCeHSB0z6hoCvmQbrICy0lyQw7drIFxH4V2497eo4ngnlJr1qAVONQwrwTSnYwKUEJvNWHHVrUgVyDCN+ZybZRUVbuuWejoYyd5JjQDNx8MyAzYbdEl9VM=" />
+            </f>
+            <f n="options.fra" ul="1768" ct="1" cl="998" t="6a8d3193" rh="292c4b6b">
+                <sig id="21" v="AIECOcBOwLnexaEomXRSMffFbY6FvtsupJMFB4eQrsEMfcnTlnYZOOVFupZ9EzbZEqyE0oGdar5GbfcKeUElbq+3mknI+FJwrhf/VuZP5QRuZ3+HSDwaO9V9t4mtCQtS4bglBimgeUhjm+kprPAkJnHb4W75s5XWK7g/eGfrmdncvaY=" />
+            </f>
+            <f n="Professn.enu" ul="2bf8" ct="1" cl="121a" t="6a8d3193" rh="146ebae2">
+                <sig id="21" v="AIA0POOdkZE2gdjgLvBbAAHDFMNzjNBhnXpHSgjEhYQ5GmloqsrEA9WTXZu7woVyT1uAnZz858iX5ewlTyTJDfiLCykHoi6CGpxJJX9mq7u2xkPRZwLxHA/+0jQL1bILJANNiLPDk87zB3aFsnwAVDjO6aOf8c8tvz8JZHMCDs6Miw==" />
+            </f>
+            <f n="Music/Digital/Britain1.mp3" ul="4d72e" t="6a8d318d" rh="3014a6bc">
+                <sig id="21" v="AIEBD3FoXEGcciFIRhe9wvqcPDo49iAn6wfSgVrObZZyOhx7o7hE7vfungYijQfCRJqjgoc7POczq/0L8paqDAg1NfLj9XP4wT/Pz4+TrFjBWRJtZ1mFcyfv0tLQyntCRqEPoaZdcY4YqeXHcVIHYYO3yWbUqvkK/ST8wgxChAgl8Aw=" />
+            </f>
+            <f n="INTLOC02.ENU" ul="6c8" ct="1" cl="3af" t="6a8d318a" rh="504daf00">
+                <sig id="21" v="AIEBvKo4JHCIMMulOnwnnCkfPTTud3Mp61mc57Q/kRdExuqTCR3GIB1MjHBTw4tgdxo6pi5h/JetSokPoH0Yq68XbuqGCxZzA6k5QvTGbWX78N0l2QEWbVuPLql22RtunTWvxZqfxy0jAmLa13jjvnicbijx87wK7joT4UNa+sw2PBs=" />
+            </f>
+            <f n="lightidx.mul" ul="4b0" ct="1" cl="14a" t="6a8d318b" rh="91cd414">
+                <sig id="21" v="AIEB/jhSOTKk67slpMQYDfnRcAzLYMy5LB6NN0I4z+BPREFrpB5fAjDSc3I7rfmSwvFMzKYK/FNHbnITxYXQmiyBzPpi4RL1tFjBeAlGH5Qqiu/6XTMvEf2U77gMBDj5f5L75xIrvvVWI3Mw/1GRDAQoXG6KVeok4DNFysP+5ZcyYRM=" />
+            </f>
+            <f n="Music/Digital/Stones.mp3" ul="1c68a6" ct="1" cl="15aab5" t="6a8d3191" rh="39f239ee">
+                <sig id="21" v="AID8RkhS1fV6gegsCv32i4szv65+h/nukhHf0inL2uOqDcC24hGfe5t3cH78MG83sHnvlkA7SXn+4wfrjR2cd2lIEaSO2BEX7ICyVFoSD5Ft7PEenD1hbleI6EWG3FCLUXaX8PR7HYCj43YPkPBsMRi2MczdbCWWcvaLiIPtIHv2aA==" />
+            </f>
+            <f n="Music/Digital/Minocpos.mp3" ul="81e5d" t="6a8d3190" rh="effdcb26">
+                <sig id="21" v="AID5jvvgypz374/4QI8Ao//7onSu8jiiMnieFOWRz++50fWZebmAMVWaJr4O8B0rYRFBKgdArmVdWea9Vz1e1V/3ZDzYtV6zthMPKtAlxHmgGqbL6V165TIWiCEerJJZLuVqJSc4lPVrRM2ztS6VidtQL30NpCe3NgQxF4k7CZt7+g==" />
+            </f>
+            <f n="Intloc01.enu" ul="1d0" ct="1" cl="120" t="6a8d318a" rh="b900e86e">
+                <sig id="21" v="AIEBQ1VRnclxR8HEuZke9Hes5H14Qex9CspvZxGks/OlrB4QtPNU9gRBGLsK1WD33eDGNvD5g1uKTzEvZ9ESBQ76ins8q9Q3Wwfl+4W9AGYDveVnuR9KA9czvevX6orOqpQS/SuNhCkpoFhq89noVPVBgR098Q6wjcVyVtHWPcgN7+M=" />
+            </f>
+            <f n="Music/Digital/Honor.mp3" ul="1afa89" t="6a8d318f" rh="91ae0907">
+                <sig id="21" v="AIEBQ3mEixi1S3JiVtqhNt0pqxyWoXPecZCAnqwSqdUcUyLv5j1Jv+ct9SGo1szVGcBuJgi295iMxOL03Sk+FHxxyI2QwwjivpezHG0/gdQRqdzc2EfxjUdnjDmsBGe8PjwwCYDlxztucBFHJIUpxC28zzZ/trn4o+B+dzcUFyNiz9I=" />
+            </f>
+            <f n="Granny.dll" ul="78200" ct="1" cl="31f46" t="6a8d3188" rh="91b1e6c">
+                <sig id="21" v="AIEBe0FrBmsGTAk1jbeBj+rpl6/7r209uMUaMI64qwqB2KjOPSnzM9WpqtBSHT00aHw2itrZ434y7kvgGonKqIrQIpIeR7xb62Hw3txS2gMW3vCpdygPczi3bBfhcb9oX0zRqd6qJ+2LjpVpG006zmMz08RCs8tdWcCzW311Sgoxf/Y=" />
+            </f>
+            <f n="radarcol.mul" ul="27fb8" ct="1" cl="978f" t="6a8d3193" rh="1ffbbf88">
+                <sig id="21" v="AIDD/05KGdNyfPIl+Q3g3HNZ+h2UVQiDk2/IxhRzH6Jp1cPOLdOU+sZE83AZvU5sU+mPVPsdrhSh1Sx9el+y/XmrkgCItqX+p/XqThMBedt3Twi+6Jgm2Vv04/Mi1KUQjuD+o3XP8vrxgZJBV7SIkhbvqT5bubheBsuayKFi++8LXg==" />
+            </f>
+            <f n="hues.mul" ul="40d1c" ct="1" cl="17e5f" t="6a8d318a" rh="cdf37219">
+                <sig id="21" v="AIC4zjgS2/VR472Sp9R78f35RKXU6BRCCgfRW3X5Rhq31AuDMh+3rdqSNjyCf9E8VmCkKkCEQFR3oCDJLHM+TGhOrTghWZkuNmQlfyt6K/ONHeXCLxbaKyQZqZdRBNVRc9NRGB3zzEqzWSwP5Ss5EoXJGBIhV+U6WOJpR+ovpyiAjA==" />
+            </f>
+            <f n="Tile256.txt" ul="378b" ct="1" cl="d08" t="6a8d3199" rh="d1ea791c">
+                <sig id="21" v="AICTilMrrKavsuHEk2jS5lrsH+L8/2jfexXIPpS95UJArn/2VtW03Ytk0j/gWayNoPMmIlY4GwDEJgbyaq/c1QhA7Uz9j4oKFLbP4b6YK5o9VpIq1VpDRV5cpLBtlzr9kwOz+lfwHuPdtvO6BiMR34CUIHXpl8HuA0ywz6nJwY0pvA==" />
+            </f>
+            <f n="unifont9.mul" ul="4ce647" ct="1" cl="21afe" t="6a8d319c" rh="af1eb5c5">
+                <sig id="21" v="AICIqbPdMdvIuPZLzRKK2iQ7hf7XH7WfJ2Cwt/W4xPQd4UHohxbRVw6kGLoAOn3SxHa2eSbfW4aecU5QJu3CHsJ1ZQsgtivcPZQhBMPHdtsj9wEU5ITqWBsLbt6e0PTMB26nD7o+fEzXFsmssfIL3i3s5o3l+JYHvUVfKujF+OpxzA==" />
+            </f>
+            <f n="fonts.mul" ul="d80ad" ct="1" cl="aa6b" t="6a8d3188" rh="944dc303">
+                <sig id="21" v="AIBP0MhPvzc7mHeIqj2dBmVw238sCmjl9MokyR+X7SYcsOkDypd0itAXOvlzyCGx0c1PX49Mf3QCJagN3tA4GJd60uOdjwolkxMjPI50NABpRXbBKkVk0YwpuLMlYcjnxBKpYjwlIX2+2q+dezOtTIdOMqc3cmA8Lk2M6sO93Wv1Ow==" />
+            </f>
+            <f n="gump.def" ul="559" ct="1" cl="272" t="6a8d3189" rh="9bd6ba85">
+                <sig id="21" v="AIECKagDH8rIAZITE2IYiva9BFOSmV1/2vyyRwHx6UXWNAm27Y+B7y7QPyegbmTiGlNSxmkZf4owAobBJ2opkByg7CwAPLJed1ltElruqx+l6Dq1zGDNSz1h+eSSm3cCHgwEo87YKcbeWfElShrSULDU0Zei/pMyCL2cZKkuy/Ck+T0=" />
+            </f>
+            <f n="statics3.mul" ul="236b53" ct="1" cl="b4462" t="6a8d3198" rh="5a4e365b">
+                <sig id="21" v="AICRUMyTLfYJP3XcTAfDQO1w6mlyXl2ZMlVZldKK4y6oF0wTmCTM9NwGoQbQuZF7bwlAqt2/GHEPKmrR1pA4YNAURxVyac6odpGMv1ED5BpGISshol6oUsL+J7gT1dn+Np7WvzUvg0h9HgLHGb8WJ1QRPHxSufJjjgMhR91DvnSrtw==" />
+            </f>
+            <f n="Arttable.cfg" ul="b3a" ct="1" cl="2f1" t="6a8d3186" rh="96ba5109">
+                <sig id="21" v="AIEB/nLD0Jc18nIOXRK8/OQYahUw55zHIxx/DDHyTbAYnB3VUZqR9craYVkp5TEHm6Xo0LCU8sixJHVNgU/zcxV+ilicFtOL5ozAEvPcu2jMHRIRw+IUrIeR1zMfdfrCISnmmW484wjYU6ufZqNjk7FGmL0QiSMBhGG4tydGsbjVAts=" />
+            </f>
+            <f n="Skilname.fra" ul="24a" ct="1" cl="17e" t="6a8d3193" rh="c3872de7">
+                <sig id="21" v="AICQn92ZyjI+Mz7vbFygxfSRCNcMo6ZhNbkjgSAOFhtmpo216wJ0tepWpN7XMpM4wCN6D5IBOTBBhDsCA9bfE8LmV2xwZvYRUaCPz5kezKrtIaymCS7e13WrUhPJGf3E/G6MCR7Fm0CSVJLqrAMAbKojNT/1Y47PaPUKPzMWr5zrfA==" />
+            </f>
+            <f n="Music/Digital/LoginLoop.mp3" ul="9971a" t="6a8d3190" rh="9e99404c">
+                <sig id="21" v="AIECFCfX7GngDBC8lBf5KGJKflWe0qWD0GUraH4MsuXC22Se6AR4aOftoxmVxcO/wfcA9eQND1eFMCKovQahSOrVp4hre+OEKFUkB5VTlyfOxfsaSQiwLLjapfZI+F6UBZ5Yc95ltj6JjcIi9K/ic4hv2+NgkQoxrKWy2R0GnPxVXNM=" />
+            </f>
+            <f n="Music/Digital/HumanoidsU9.mp3" ul="924da" t="6a8d318f" rh="c8873328">
+                <sig id="21" v="AIEBMNCMW/skWXdxIbZkudp1fjSyF/yXkytJcnwq3R0Ap5W0z30OeSwn0NiBRIDtINB2MhJg7YacTMh2lW9TWf9WsciDPPF9b1xGBlMM2RZBnT+tLSabfPHfysz1imYurC/T3qoYwbbgt5IRfgqocHvzVZtxcjekDpoArwcORKl2zr4=" />
+            </f>
+            <f n="SKILL30.KOR" ul="1c0" ct="1" cl="14a" t="6a8d3193" rh="147d7328">
+                <sig id="21" v="AIEBYdWRg/H9nGm5P9V/qzqPN+DSM1R95m2jKyBgoKCXqXnaNJhyBHpIzwXAEFTj/BmqyjiLMuWDMD/4Qrk/8GBoGRyNZS4HNWVIEFLwGOnQMTDE/p+sgZtGmuKlyBYOGihVqjgLNxkhEdqGgCt2aCuMb/K3tz0OvqRfaKZ4rjaGURs=" />
+            </f>
+            <f n="Gt_0000.cht" ul="138" ct="1" cl="9d" t="6a8d3188" rh="377b548f">
+                <sig id="21" v="AIECPGb02G5t/Iwbr1Um2MDVX2xSc21uKokzJ/Mmg8YAnaPYvF+uA2ZT2ayfpC4DUhLR4cU1JbqLS8nHkL2PqdOs7aMCseHnpjOwKXoHvGoqlItD+oTg+GESDZ1YRNzzS2ZnM0UEc5iDMktRMHaHGmrgduV+Bi3zIIWRdBtqpjuI04g=" />
+            </f>
+            <f n="client.exe" ul="373000" ct="1" cl="198041" t="6a8d1eac" rh="dd56e4bc">
+                <sig id="21" v="AIEBdHEFsEI6nwM6IaGPyDCRB4cuIjZPuPCXrPNi9lIBwq2OFKf6yaIOXfOg72Q2Jb5gPnyvWq7E1PKC4dLIrAu3RBIXWMhPmu2HKKL0vNn84QbdAgThGggNNRUl1GhO/Scgq/P9rXKE3eFQ4ljSoYXZ7AtJL0e8QwQ9l/QaKVR3ot4=" />
+            </f>
+            <f n="Uomax.cfg" ul="210" ct="1" cl="10e" t="6a8d319c" rh="c103a6f2">
+                <sig id="21" v="AIEBN+fwjB1tL0NytqB5wUBAmJ8gV0wjmqrtI+goZxJg7Oq4WTExSNA3tdm8Yam+iyp/WzVaMMmRMkMrFSBK9Atz3BS0IdcaAchBM180aQ/ORKJs/terNQC6oUNs+bxnnoRxFp83RHVgwl4pbkHWJwggXYmokUDq9xh5RLrYZrbUdHA=" />
+            </f>
+            <f n="unifont3.mul" ul="289308" ct="1" cl="7c4c8" t="6a8d319b" rh="13446784">
+                <sig id="21" v="AIECQ2p0pQNI7+ehnp6coytFI3G9rWn2Zns8LyPF73eW+4JYOMUXZW5rlni39UZdOACmnc3l4ZBB0Yt/7EeWGy+7lreIzl36HSX+zxfSZytur1MtGeWnjMiyj7wQjkv+8yD8u6CDuVLkQ0HlBwPwmBA50M0PUqkd6Fqf1+5Lq146PRw=" />
+            </f>
+            <f n="Gt_4000.kor" ul="324" ct="1" cl="b6" t="6a8d3189" rh="5b40c038">
+                <sig id="21" v="AIECJPjWFIVt+vQx1jnRndn1qHRl8bPypTUpZY6570dwygSdIPMn+E87D9yfVP15gKxfUrNpQ0zP5h+WIxj0/+/jW7InHJomd7Fin3fHQTLkscLKnHiGCkEFQvvVrhPJ1cqzniQbyOOQJ66T0sEZb0MQibU1lnssQTJSzVfarGiAKlU=" />
+            </f>
+            <f n="stadif0.mul" ul="23d66" ct="1" cl="b964" t="6a8d3197" rh="7a57eab3">
+                <sig id="21" v="AIEBLhhZETCLXUI9XIIrMdAQt/GuJA2UgGKOe/U6nK6ybhxPN9AYz+Abfp2xl2IhFyC/PVWO6JpZt0Rzw+cdC4mQ4Rql0nvDr3dtt7eRGn/kK5imOD6OpG2whN1U5XyIXNAhXXKO5dvY2ZxKIbexnd/0za6KDYeorT5zX2g6CzOLyUw=" />
+            </f>
+            <f n="stadifi0.mul" ul="54b4" ct="1" cl="1f57" t="6a8d3197" rh="555f249">
+                <sig id="21" v="AIDJvgqj8H47a1Z0tsK92SY0KXLsNIT9V+vgURyjt7BbSQ47/GHSAvIHVqFxvlm+J6f3JbNJ8rKAtlALgPIIs4i9w7TVbGyeocxQNome7FyzdNZ37AJGRkkRipyoTfYGm+SLP2bJr47/m7Xf7zXPLh9/bcEuT90zGMjwI55J1fTheQ==" />
+            </f>
+            <f n="Music/Digital/ValoriaShips.mp3" ul="e6ff7" t="6a8d3192" rh="2f602f79">
+                <sig id="21" v="AIEByT3c8JKe0TGNG8lWAFyN+uwpWgKwzGfkr55vf/sSVhGKiaRaQ2cQLjmBRuEIVisPYCTu2eaCl+abUam/HckBnrHJbWd5PPbJYvW4R4tsv5DxuzSvrnBTZH0pkKAAosC/Ii4pz1uhOarPnpuqVXRMnxDufY6KToGcPyzWJAjkBo0=" />
+            </f>
+            <f n="TexTerr.def" ul="13f8" ct="1" cl="487" t="6a8d3199" rh="d883e15">
+                <sig id="21" v="AIEBDNlFCoXkLjoRC0kgr1qpZt1kKGGU3rcBvK0nxbP3nZn8IGly6/o3K/hWxkTOY5aIpZ+lZEt3PASTADF0Fby23ZnJtulEhVjvIzPKkLY5RrT3WoZBGdnfc6kvPj6R39/sd1ddzWG4l7A06HHT4uimza8FdkAsmHk8r07BNfNtAHs=" />
+            </f>
+            <f n="Music/Digital/UltimaVIISerpentIsleCombat.mp3" ul="22d45a" t="6a8d3192" rh="3800f742">
+                <sig id="21" v="AIEBxjWu3uhmA8QGQcxtFek1PCuyF+AfZgpM/yJCeEgs9oIhUhNKHNhsJ4HNusQ5eUtFOogx7JkKRAU2kDwS17Jl3eJ9BmQ3jJIW70FBBf2GDu+EDufXyjJhprfLxNnatt6EcHpAygC/aBnEng/q5V9HrM1a38Rm6TA/65hPGwCwZBQ=" />
+            </f>
+            <f n="Music/Digital/Townlife.mp3" ul="2a771a" t="6a8d3192" rh="b7c171a1">
+                <sig id="21" v="AIEBDo9mBuIQU91bv2iPaPKiws3g0Llsrff7hOV8c46+1VG88RS+qlvLYPnpCcnnXj26jWNNMJKY3U6GXX4++9Z8sls6IWXap1l8VssB+od5VZ/A5D4fQxlcI/CT7w4Mx2A8fIQRIIKH1eTqkHk4DEwjosmPjEcX7dRRXtP/m5o2+eg=" />
+            </f>
+            <f n="walls.txt" ul="4259" ct="1" cl="116d" t="6a8d319c" rh="80a91bb9">
+                <sig id="21" v="AIBiGyZIFg86nUAP7/FBfPCl0ZCfmqkTab4OSnNCRKGys+FZcLtyPRYld0aPO7bbB3Cnzs1E0YRlJaGwF2XinbjYPoNl/BTWQ4DTDjbCyiyIfQpuHXU/TX99gIJpNWia6FbRSFTiXftV1djr6eWUQrvZFIjUXSH5tXbaji0nxRAueQ==" />
+            </f>
+            <f n="Music/Digital/GenericCombat.mp3" ul="a0b6e" t="6a8d318f" rh="f45eb285">
+                <sig id="21" v="AICtSa0afjI0Fc5OtNJ0GrtZx+5mS8Ku7uG9SgSjMWiXVi8mtqXgM79+EbIAD37NmjhknsVTGdfh4DudZxD2rQd81ylbWpNofFjyXJ4mChYCKOwyg5TeltEQQuqACMD3tkjnaD8/+iTMhCIWgmp8c2Z8AdlPgSNhioPgJewo2i9+aA==" />
+            </f>
+            <f n="SKILNAME.KOR" ul="1ec" ct="1" cl="193" t="6a8d3193" rh="81f4214b">
+                <sig id="21" v="AIECRxu+QRaHh9hcamxugLwXyNkddfsaGVzUqZaA4gWmXk/xnntMIgAElw+1Nagwv5jsVgrW0akmHscMvz3FXtiuE2vcKac0CELCRPR4n5Dk1QFtQT2EYVfUM5xCXRdwRYjpgcgVcBViuOd0cnJy6TwzWbVuUH19iZ4Y4Ybmi/0N1Fg=" />
+            </f>
+            <f n="INTLOC06.CHT" ul="88e" ct="1" cl="499" t="6a8d318b" rh="822ab5d5">
+                <sig id="21" v="AIEBPvAiIXA8ImAEoZqiiIMG1HFk1x66HzW1B59Pj+YBF0ZzgEv2ByfY2Z7/sO+wnw3R4e+x7E702JFkArg/9Te4gER6xeKe4+UUGfw+qvsTUwThvZ7CWbblQvq+6ym+qK9auCxHjIhLgH72KioImdaSRb7TaQjuhOyaJBzePAugTfc=" />
+            </f>
+            <f n="ClientPicker.exe" ul="1f000" ct="1" cl="d708" t="6a8d3186" rh="d199130e">
+                <sig id="21" v="AID1UmpbgvwQQ8rN5Mz9EAjfUmReK3QgQ9p//SyV3HZ7Cf/giRJCkfQyX+Qofdh59juj0mGTF4WsJUCqcLrzDYuivuA3u7yDJS0RMI7CWY1N0PEAedfbNON71GYJA0advajMVeR7T7SvFhhoYm7TjcW1O8Qwbw1yOowtyaP6HLef8A==" />
+            </f>
+            <f n="AnimationFrame3.uop" ul="fbbe178" t="6a8d2aec" rh="fe16cd0e">
+                <sig id="21" v="AIEB1xvHx6eZkul4uyJwZAlawSPhTatI8pwx968ELldOqTkw1qS0SkDY8E6+JRhtLsjtFeJ2U4pc636RG8PehvzSUFDMBkm7jHJ1RyKZ53heEEp/9HBgatOHEHPvft7cyPCjmFImYs3e+6MIQICAPIb/Y+Ubt1NNpeyHfWfqAIsbOOs=" />
+            </f>
+            <f n="INTLOC10.KOR" ul="a3b2" ct="1" cl="33b1" t="6a8d318b" rh="158f2960">
+                <sig id="21" v="AIDvTQ9sCdbbBAlufDY5tFJZOuLMAQl9Dl6ash3hs6XW7kqe0cMr5R0nSF0pJE4cGEA6pTarCCpYRknpcHY8W88wtj3RjTPi2/XuuLiSznQTjXKwmaLRkoV7Zbf7JlOYEtXnQtyfqAQ0Up2QIUyW7KoELt9VIERJGT0gDAiQdw5fkg==" />
+            </f>
+            <f n="SKILL30.JPN" ul="178" ct="1" cl="116" t="6a8d3193" rh="70262249">
+                <sig id="21" v="AIEBpctswBKr7Q7Bp+CYVhPVQWsYSLk0rnV5MWwXZBcTe7d4WzGSvGjSQNHHDQUYWjZ9Qnh25iDE0FwANgaAcC7uO6/awhdtlV7iGH1UZvpLVlV9kOGxMS0A/ya+Q+w6iAwRk2D5KNutpWTWCTYuRJAxr74+7O9DB0Sh7l8WhHuPW3A=" />
+            </f>
+            <f n="AnimationSequence.uop" ul="1d31d" ct="1" cl="185ef" t="6a8d3186" rh="bbe9e5f4">
+                <sig id="21" v="AIECL559mmjWYkuC6UypDJJV3zYRhNcxCDhUH7CIl3mwI68VgdBxUwp1LfJTsh8pcdct3nIRycph8EFKJxIHvTZ0caCYbQz6c4/hXowtUx9MhwHMXOm/4A6WA0H9tg1Sb1nXSfx5ZyD9uJb3GW7NbPlJzlBqbD4czsjudhzcLOPodgQ=" />
+            </f>
+            <f n="Keynames.txt" ul="19a" ct="1" cl="102" t="6a8d318b" rh="6bb14c11">
+                <sig id="21" v="AIEBcfU0jGFO1an8jwK5ydR4w24JdwKZNtNWrHjJ6TiXD4kVYdGiXgWlstrOzUvQtIAgU3sWXwEdAg3KSQNXEZMQyygWdLwYqngzi19Y7izJyQQ0IlFHykgZFEVq8Ix9ZdsWM7iUZ5fGT8CbgSgUFVnUMnCqdOtT+/Iwb/p/HPvnSv4=" />
+            </f>
+            <f n="facet01.mul" ul="ba5fd2" ct="1" cl="3f14dd" t="6a8d3188" rh="f890e21f">
+                <sig id="21" v="AIECMiYKYWVkTivM2rY3uC8DgSUnDQ01w1vOLvZ+XpW/GJpRtJPK7bqTCtoNsshPNYuPl4k6cXE8KgsEpDFvyjbZxGpRtEubpKuOVXLki3VNUur+GFwYGIEKp3xzu8OSMQEWHZ61L/tkzDe2bnC2MVwZPGOtI7uy/75bfWFjMnpDz7A=" />
+            </f>
+            <f n="OPTNUOTD.DEU" ul="154a" ct="1" cl="948" t="6a8d3193" rh="8c8c7b82">
+                <sig id="21" v="AIAuiUqMIBpw5p9XXIiKDWGHe4VHHYQcl2/Sm0CUaG9e1TgHVIuDepofEF1R1UvyAuAY3xpTvJ87Y9RAwzhWJn80J/QJypdG+Wo7CwQ9uZDHDbac3eEfbTt9Ez+tFn+Akn+Stqp6m0EzJwHZd+5j8uQhPSQhMobDkboYnrYoE+6OFQ==" />
+            </f>
+            <f n="Gt_4000.esp" ul="2e0" ct="1" cl="c5" t="6a8d3189" rh="64b0ab2e">
+                <sig id="21" v="AIEBDsLSzLtyDFa5doSsCO0sSBS+RZyn1DoUcSUEZ3abT3cjAYNbG3eKpQ8zOQqCAngrjuoo7Sy0/TuVEWUMcwyL2U+UG6Jo4j7xQjTEWzAC7VzTAWQ0UlGHMDdBxPVpAlmUXOI7ztwyMbKdM+k2kIxDKsSH4N2/ooCmmuhqtsdtKaM=" />
+            </f>
+            <f n="Cliloc.cht" ul="1e822c" ct="1" cl="164bbe" t="6a8d3186" rh="8b9e10d3">
+                <sig id="21" v="AIBXNUunZTxHFxgm1ZwVgfpC0K3QWyVcqaWVwSB4armFPclq5Rpttq3rMTqniJGnngMJc98oq+rW3ZDsjUIGQkIvpUgJvo7qxDkzinv8nekFjyl5ZGf8uXX4pFccqGB+vQD68l3+pjqUO/sBIDpwzJwUAJllry1xxOJEnxy0UKFdug==" />
+            </f>
+            <f n="unifont1.mul" ul="15de2e" ct="1" cl="92c5c" t="6a8d319a" rh="d855a553">
+                <sig id="21" v="AIApAfM+cibZ5a1/qupdYrgBlViad6Osgs6IHwrKZnirvx50ONRGPh5DhMSC1ZQDFHXfKbmCI/669L9gt9/L7MZQdZq/16DBocrL87p3mCUpqo4RHkblXKuQJMGHz9mthIrLpzc/RqROXfOhC3nxnO3KLB4Tn0SYtdpuaaV9aDh8qA==" />
+            </f>
+            <f n="Cliloc.fra" ul="b4744" ct="1" cl="688bd" t="6a8d3187" rh="3457fdd8">
+                <sig id="21" v="AIEBp6S2Ru3STa0/O+4RlJDk3UHEE/zKl+dAq68tFzaZtEdhlO4L3X13E8J0gx2sLwgA2p2XTWVrAl03NoHwYJqIxgU2U47sYfi3fFl/YEfBoCeFa6FkHnpMA0XNCfwfz88oRacLPNWy3rcvTgQhNhDD9r98rdB1toWGI0F03AGYHE8=" />
+            </f>
+            <f n="Music/Digital/SlasherVeil.mp3" ul="a0344" t="6a8d3191" rh="ce4c187c">
+                <sig id="21" v="AIEBYl1pfIXSg3PcA0AWcrdB8k4xaNp6tztSHiKHORH3b5YS2FEyb2EY9pZoUxnd865+vucY2KhCdiEDRhhyrMPNIgZstXTQBKvJBPCBr0CYBBIBCAttyU9gJlU18CURIlGRuKFG36E+d2kv/b3KlHLzM7ViHVJtSFCHMMdZFgfmmIM=" />
+            </f>
+            <f n="Default.mac" ul="2ed" ct="1" cl="fd" t="6a8d3187" rh="839ba99">
+                <sig id="21" v="AIC8vsa0mTAWkimw9cKH5bknCZ27QOWL/qNz+p5lAe1MW4S8K10WnZlpWWFQjD2FToPsyzh/qAJsMJNYQEK/yvMqupxtGF9EWDwbzPEnX2B+E2CUuIRPDqMYou0JPy9TKre8IrYnI8H+MXXBJuUift3/L1OI3zZCmci43MjCxoXTiQ==" />
+            </f>
+            <f n="Multimap.rle" ul="4e238" ct="1" cl="29f33" t="6a8d318d" rh="5fbf2651">
+                <sig id="21" v="AIBCKKGFhEd5r5NcFBCTnwmnAE9qsVnEdV0SmeCXCfiGTECKHjCAMwgw+NZUIN3tBrxHXrxbJdsVNcakJVy2GuFaT58IIqezcRgc6+I9g16bhZOFKtXxFj4sEm8k1cq/TGH9pvWEYxBcdZThf/HookZqENad2qjGBoMqCXcDLDZtnQ==" />
+            </f>
+            <f n="Cliloc.esp" ul="a994e" ct="1" cl="6135f" t="6a8d3187" rh="5dea7f83">
+                <sig id="21" v="AIECSx3MzpkSnoBuoutmuzgKZeBZpVBR5LXB6De9hhWcyhhhHFJod64q1kjDmcOsf+cMx9M7sHcGVSM8J0cmHAydvwRJJXbAJ3XshMsqA0niP6xqEZuEyZo9KNfzS3WBSWVOht0ehk3RpIT+umHJov6eNtX3maHv3QYxgvCF8Vu2/Tg=" />
+            </f>
+            <f n="Gt_2400.deu" ul="1da" ct="1" cl="a8" t="6a8d3189" rh="34ce8f23">
+                <sig id="21" v="AICfQrA8n4RE9vHhSB5Lt60EMJSbaCWGl6Vp9SBbxhy5HJ2ykupncG2W24R1T93Z8JBgloqpYxx4zj2CDL04h/CQeXqPhqkCdm822HSikv0fcxxRmqxgiqs1QCvXYJFB1jMcP1EEly/W+WENiUggV7BQBYqyZ9jO4G4acULEK10DDQ==" />
+            </f>
+            <f n="Anim1.def" ul="5c" ct="1" cl="3c" t="6a8d317a" rh="d6b7489f">
+                <sig id="21" v="AIECOt9yPNuP3r9q2bSqsKDfsHXz8UjG+m/gDoDL7z7NsXEqEOyq4bzS5VAuiKsntB2rfLHmY+BhcvWFh8oOwD+wJaz2GqEYVPn4aL/NqJSHh/l8zP7iTjp8uRaQhkKJnGjVZdp9gfguV3Vv86Sj1McSw/+mlWgveYKpL5cNsJzWZkY=" />
+            </f>
+            <f n="Intro.esp" ul="766" ct="1" cl="41d" t="6a8d318b" rh="93dee1dd">
+                <sig id="21" v="AIEBBpNWjEfJKTJlXh5lmAuGmgmbJDNaY4jIzfntx2lbAtemv5bu0C6SPqDaaZlEsnO7KxysvieM/TmjAAxFzVyTB6i24mx2sUqwTP2ll0/3c5pVrw2TrDJ8cVVZdtFs7kkDShf8hFfsEr59D5ef4jYGV6UqOB7WwY5ANQ6T8JT0Nbk=" />
+            </f>
+            <f n="staidx0x.mul" ul="540000" ct="1" cl="846ee" t="6a8d3197" rh="ecc934a6">
+                <sig id="21" v="AIEBI2+qJDLEVr5Z6/ee0aBjEmp4jdqwAwqmgxvP39+9rKc5itxFcJ9ujbDIZGQK2fBniYbo2DKGh4BmRC4gVKLrvF/jGzpkfcAbq0z3N7FLofQe1HcqiDbIw8tS7B4ltQ/CyxUMAicfu5G/aRLWdd4l7HpI3M6MH3vUMAxtnNAge/I=" />
+            </f>
+            <f n="Music/Digital/TheVesperMist.mp3" ul="12f71a" t="6a8d3191" rh="692544a3">
+                <sig id="21" v="AIBzX3DIbvdBaWfKHkc+ZZwmhF8m1/THZAGWcHeGulUI7ZOW6yGLwChkLy498aiGA96dA8EVDSqVNJIxCbUHH4s3Xfh76zTijMizvuqY3QzjsXgS7/Gcnh89x+01mvgv5z2o0Ju6ABq0CGO8X+BpXVMw9WjDD+T2My1BDHl762QbtA==" />
+            </f>
+            <f n="Music/Digital/Bucsden.mp3" ul="742c5" t="6a8d318d" rh="cbceaedc">
+                <sig id="21" v="AIBnZyZs9MoMGHKWu1mFZK3NkBrspoarn0oQvMIx0ax1o9k66dvRxoRLRQSJc8cjDdbFOH1lFgO0nYc8m8cw9z5pyu0DMKBdwlKVHTtbWXfTKXKRmgx8PKtnMPzqufJ232C/r9lWMrF3nvLdRKq8fCsN9hae1bGlRfOxrOWIlJsiQw==" />
+            </f>
+            <f n="Intloc00.kor" ul="3048" ct="1" cl="1225" t="6a8d318a" rh="a5ede89a">
+                <sig id="21" v="AIECNZ48uzQRRtDO2lU79jvQe4w1CGldybfxAQK1hO0falw70g60yqAbmP/EDzI8kbNjv4na6TDXe0IhxuQweRY20bRP+WRUOeWxB+GsmsrEFx0zuqwDY9LSLreEpOIwJNKzBHpVLnS/l22H3T1gY/KiwriJgkUH260KTDYdqdBfJAI=" />
+            </f>
+            <f n="Music/Digital/SherrysSong.mp3" ul="175782" t="6a8d3191" rh="89955be1">
+                <sig id="21" v="AICxyKIqm4KfuBNsbEWjh66U8fMNB7b0KZCyYdY0akAYIC7Q5Ap1sv7/6tRZzgFLGenkrU3GJz5KuTvHzerb5lwNnpGr7NOwM/ihsL9/kffa+aRGlLBneJ0I/RxkIXqKHrAWQWmEUJdbG2VwYeZZ6jA2kvw003TSi85mxQk/wqWeuA==" />
+            </f>
+            <f n="soundLegacyMUL.uop" ul="a095d4e" ct="1" cl="7ee8dd8" t="6a8d3197" rh="776d992f">
+                <sig id="21" v="AIAO4NhyKQamC3cUYABAUNYK0GsI9SHPKPFaYDjpQq9Ikuh+tpycD3hvLdOoWQChqb7NK+AEYz0HAidpI/r1YZQHz7JQp0L9h6CtcUan4iehSvkRtywFAxhKaK7d+e3Yn4UrYa/bQOt8RgXUT0A97T9+lByJKJrzcPiO/T1OBxuBxA==" />
+            </f>
+            <f n="OPTNUOTD.CHT" ul="1a44" ct="1" cl="9ff" t="6a8d3193" rh="a84bbfe1">
+                <sig id="21" v="AIEBup0R3+SKFMbcmvnyeSlDiUFIfkfqCzKAaGbTPDlIn0T2Kgu658nX6XLQpV4nE/iMpyAy54jSZHIio0SXZ+X6TFaTBBFwdd4tnuqLayLz4w0bNIC3rAc2EGrrO0HqSZ0ZOsxMnJORYPOAJoHw0oHlaNLPpAh/1TuNXOhujGoTpkA=" />
+            </f>
+            <f n="Intro.deu" ul="7be" ct="1" cl="45c" t="6a8d318b" rh="776b8ea6">
+                <sig id="21" v="AIECTKILIw/fKtahzDeBkDosxKVuRn2h43hp5Armti8Mq3C4lxcrUVl0MS0apNQtlM6ALlbz9ZQ6V22kbhWyGWFW5fI6gec7H/cm8oRNI0Moo6uD/Lj6hRoMU0OOAcpaXO3x7W5yxln8KkY9I2iOtJ0zb9Yg54hZ7n59IHCbA9rHBGQ=" />
+            </f>
+            <f n="stadifi1.mul" ul="20064" ct="1" cl="bbd2" t="6a8d3197" rh="b8bbfa28">
+                <sig id="21" v="AIECTQ2DRZStX+fRNsbsmxa/MAgVCgnnJ5Gjxaw2eMsYqnNCRfRVLnEuWsD9C94+Y8nKzx/PTZxIOWk7cnx2uHjJeU6qK/xTXjGoO+Svord4cJb1gCMRbB57xDYd/bZ7y64EO9gbfqEQuMyWZgLhExCnwy+5PQl0jFv+iOtHCw78wM4=" />
+            </f>
+            <f n="Music/Digital/Pubtune.mp3" ul="5ef2e" t="6a8d3191" rh="25915578">
+                <sig id="21" v="AID5l8Xf+7hAO3rG4Nc7k65Ij8pzD7G15PpiZy+jsOz5Pfhd+ht1ywEWRVM36jOj+aR2EH1LNNE2Xuxl/6vKq4SmdQdhmE8PyG6B+nGjBl2DW+3I0MO7zlzb3egZqddSzTdKi3PVS2QxtnB+K05pYJans+HnBJgGCX9NMvRZ36JMJQ==" />
+            </f>
+            <f n="INTLOC06.ENU" ul="a3e" ct="1" cl="47c" t="6a8d318b" rh="194493a8">
+                <sig id="21" v="AIEB+RA/4DCgFDcWL5RN/5yTlf4l57oSQLrCkJZ3+EtArt2uqQtf6hD3STv/9PWRpK2/5T/Wy/3Oq6HS3PCh7xBdLZrDytHYpdhpgvFY0To5kC5XmRE1P++O6QhYaEjZb16Dp4DNVou6flBeVdHxA9kuDOzeI2q7TR8xc99Yhz1keWI=" />
+            </f>
+            <f n="gamegen.txt" ul="b" t="6a8d3188" rh="ebca8dac">
+                <sig id="21" v="AIECU1RyYcg7sSJdv3KPx8v7pJKXiFwcPYxYkWW39wSeJfqFw0nl6+fk0VQWpcF1FHyjOkf9Snvvajwbn0bBh6klVEKBnz7YreD9Svw+0gDnYeku6ZI53s2qgDTlg4pQkimfzlR16MyTtuFSjAVhw40GOWMQU3qSIZi/uacFCyokPxY=" />
+            </f>
+            <f n="Music/Digital/Humanoids.mp3" ul="7b29b" t="6a8d318f" rh="2763a591">
+                <sig id="21" v="AIBgM75geH9sYcK7XDpMHOKdiw4M4bbLg6SlUZpvjPDqha1iPlFwUOssXXhMOPj0KBV64qpBsmCc8+XD0La3GH9znr1Y+SdVhFwys8sREB/Kb4rQyRVdbGpxjhsdOCjS/hgD/fU/xkLMVb7jEPSEOmEyunn2Lf+n59heA1aOjB/a5w==" />
+            </f>
+            <f n="staidx3.mul" ul="f0000" ct="1" cl="1ae84" t="6a8d3197" rh="d2d6a113">
+                <sig id="21" v="AIEB0wYqG0Z1mVcj5Qw4GdaKzqs7q0dlUV/yft29qBWn3nBGhCdf/SBmPkMOXa95/lYEoKkpnnxGcM0huY+/AnPSkiLwOykCoIWTTmRMg4zKgm7oL65NmwrU25SFGAlWVlVEwIXSyuF+5gSUxS8xHP4AzuPk9qu3OjYdCxCX33eBJug=" />
+            </f>
+            <f n="Antx256.bin" ul="5c120" ct="1" cl="9f57" t="6a8d3186" rh="35d57108">
+                <sig id="21" v="AIB8knsWOSGiAlwsohbpXFCAZ/Zg0Tkaz4rts5i0GV3YVndHPjzQVq+eHHyIZScdncqlRJTl95SeGBUYWfdtGeVNUGgIQ6jGJwCm+7zj070MlXapkPkK47T+hq9nngpcrkH5SdXdWbgVxi+9qoB1KCYoa51drDMy33nGG70dihqOAw==" />
+            </f>
+            <f n="anim3.mul" ul="8ddba9e" ct="1" cl="53d99e0" t="6a8d3181" rh="f0d55d33">
+                <sig id="21" v="AIDAOIoqKJBo0JMtfYnSb9iqAksfe5benK9ygsb54+j0ex67fZ3MMZVrSZLlXcPCAR52rPUMLYfBWoIi+hg6OFz0KtKNNo83/jUVxfjTmC7T6koBnxIlfAvR5offX5vyukDaT3IpRjTlrOy1iEFvF9CQvEYYXdgpzJtA6qp/o/gNWA==" />
+            </f>
+            <f n="Gt_2400.fra" ul="3e4" ct="1" cl="1a7" t="6a8d3189" rh="f9a20b44">
+                <sig id="21" v="AIEBMGO9E7xEWILqEpOxHqiu/1xpEwTaZ7lgnvrQ/LVt7s+lt18AuQ2F1yBFiv/lWIQ38JiXAuygDMKpXdkF218nAcaTqUnO1Re45YYVlYtOkyGeAYyS9t+8/kdntZ+E+wSrh3DYvEMO81Vq6s5nu8nlj8toufHlZkivsg8D4UYfCQU=" />
+            </f>
+            <f n="Cliloc.enu" ul="4d7c2e" ct="1" cl="2d8579" t="6a8d3187" rh="8acd8c8a">
+                <sig id="21" v="AIBErrOCt23DB1qyACKkOAyXiEygbeq67O1+dsTMgyHWQKbiS4ZeOTvsy8h/OwcxONLUQkPE+tKcHaGjrfuz198m00eAkG6h5rQQAiCwzbXDapyLulEjMvRab3uvFd5v96LJUjLofXXuooArha+tf3xOM2J5ElZgb2R0LOHkHgfqww==" />
+            </f>
+            <f n="options.kor" ul="22ba" ct="1" cl="c04" t="6a8d3193" rh="f0f03adc">
+                <sig id="21" v="AID4aDeTtOkAwF0q4H8nYCwQNlnJCuPL+MdT+IOFzRtxqdZ60aRK/Grkobq/XfsNR990N8TY0m9n8F2RYOxj+/sxJYI6WpYDhgbEQTy2xAFZ/oFxUcag2nG+NWfB3G8due/Gbq/8+OH7CKYIVOS7uaYGGR1AvrPQA522rKVVScGfsw==" />
+            </f>
+            <f n="stadifl0.mul" ul="1c3c" ct="1" cl="8ef" t="6a8d3197" rh="5a0358b">
+                <sig id="21" v="AIBOTB2cncMp9snZzxwrXU7JFYSPTcyamwLFHZv7OnUa/VB/TuRC9hgIH3jaek1zqRLNIeIq4bSBlY6hkN1IsF3r4D96L/Wh9HEMZWVfxthOhgp38luo/WiGNuwJl835lUxhSuZQ9V4xL9pHUxPM0gPA0d0iYyra/+6ipd5jD/vFig==" />
+            </f>
+            <f n="Macros.txt" ul="410" ct="1" cl="13a" t="6a8d318b" rh="7fa4ace5">
+                <sig id="21" v="AIEBLI06BCe5C0ZkLHra5gd5iFH0jlQpNsFAxIcyBvaET4oW21o0cgPJxwabhjzW9BpX/cTQAgu1yBqkQiTP2TrRGbMFj1rojnYS+F3aVSqjTEiF86NfL5mScSL5ulDr//XoxjFUGZawoxUA0tvuk6+uDFQZ4wDKuyC1tBVcQiDqrXs=" />
+            </f>
+            <f n="Obscene.lst" ul="3d" t="6a8d3193" rh="441b01bb">
+                <sig id="21" v="AIEBWFUuJlZTRiAyUDHIgCajT8t8GWk2HxekQq7EX4pKzS0b5i993PqjTrvS26olwcskMDi9cvpV3wJVHJqhY0NNl5hsIx0gtvIVmFgOpvRRqoCJhwNhlF2ZR8FttgMY2wh2xVMTb+rWIAhchVuO9oYC+c3/WMgJ63Y0gH+jMcO4pS0=" />
+            </f>
+            <f n="options.JPN" ul="23b6" ct="1" cl="bd1" t="6a8d3193" rh="a731232">
+                <sig id="21" v="AIEBocufl3zMvPi/QipRBhD6RDZlTYvkM/j7gcupljn1yIzsgHlJioQQwqnLv7qUa1CKisJzhw19n7hUYIH4bt0SY5e7KUzKlIYCgWQ/TqhR2aUY9ccurO9ANsLO2SNZFWS1xwArMDpCoVK1/UMj1MTNKu/Aa5sXiMYKiHGOx9TjmN0=" />
+            </f>
+            <f n="Music/Digital/Jhelom.mp3" ul="47a1e" t="6a8d318f" rh="aebf528">
+                <sig id="21" v="AIECD1T2kHt+XRlVy8NewlXFTqpEJtaDqk04V91ITNSNExDJvaayheXPLEXGyciWi/J3XsQ6P3szHXSWlq9aqz7QkqsVWsMl5yIgjkEDauZ5erUvFshE9MN+Qunw1VOte+Y5rITFK/mmT/SG/AczYMOvYXGLeEzsa6wzg8OgmkVtlHA=" />
+            </f>
+            <f n="SKILNAME.ENU" ul="28e" ct="1" cl="18f" t="6a8d3193" rh="9adde7d">
+                <sig id="21" v="AIEBkXWiVeQl3ur0n97P8Gsh0YYhB6CgQNqO8WhR1+RyYYi0cM26UR31jHNzbkPFOUMyCZgPtWRAJoFDmyiPe3tBOshmatVSvavCOoi9V50NR0atw7mGEEVSBFQ9cSacjnFiW5ShWi4UlHOnLIALyRTlzBFAfCdpQ/amhaJfPJvBNC8=" />
+            </f>
+            <f n="Tooltips.cht" ul="5ee" ct="1" cl="286" t="6a8d319a" rh="fdd3371f">
+                <sig id="21" v="AIEBAYGDuYILnfSawRnso4wIx/ZX+rqxgiBR6QQZETNB6yOPMr5QoZo5Mf17q6Ao3/a1Ni/RZWRhisV5OS506FZWkBVCkkgzZnYuut1OeeEgVDR4TUsvzdxcLVld4alMj7251+mngEkgJWr/SAwJXLajyaMqS1ma01PxzXl46srds4Y=" />
+            </f>
+            <f n="Cliloc.deu" ul="b07b0" ct="1" cl="6844d" t="6a8d3187" rh="272e0b0b">
+                <sig id="21" v="AIDjZ7Q7d+f+x3kUeqdklM2Z+xYHw/W4/mcxm0IMBx0BCL3/4ZFv9cfLX3dCcdk56rYjPSRN6LR2VIvcIS0TW0pQL92hbmYBOzyzZbsQL16KKZV4+YsEY3jwbQRp5QqRAuuCKpaJ5OPTHHcdYlzbUZyj++7QfQov6A+eDH8TrxLOIg==" />
+            </f>
+            <f n="Music/Digital/Tavern3.mp3" ul="24123" t="6a8d3191" rh="82a52398">
+                <sig id="21" v="AIEBZntYaaPTRJl6dbeYRpzM457PI5nofVkg+SSCLO2t4BVFsxYoh+LWtGRbSJzqGuMrXxaQNOfJnXaHaxIfbhACmayAR9ZXt7Yp6Cqbr6bZ6iKVebzWjmimgIKp8FyfWqzHHjb/jfcbWHFVBhPET4D324k3YR4g7N15KAuyA4+u45o=" />
+            </f>
+            <f n="Music/Digital/Docktown.mp3" ul="99b2f" t="6a8d318e" rh="b0242acf">
+                <sig id="21" v="AIC9jjjNNwETLUXYVaSoQhayhaREqiExv4MTPRuT8EN8QsmlyrJzwQVmfnosrPHUzXWiiOVC/FUqwch4GciXxwYX1w4XN4dDw9WoE1oio0RggOM8HLv9Ojzpgow9mauaawsVwdV3QR61lf31uukVIilWRzyhEd5ru59JevigPZ/LGg==" />
+            </f>
+            <f n="Music/Digital/NorthernForestBattleonStones.mp3" ul="179adb" t="6a8d3190" rh="b9ce6cfa">
+                <sig id="21" v="AICaOcBW515p87X97r1/NDTe2WlnUu21WYlzNAG9+UgdRfRFbKpvugLs9cKPsnbuMqDO+Mxl8AaRClYewtRdxgD4d8SUzJmyjnFzCtaEQcZPWj6PWGcQrMWXda8DTEbwCEZPrOCeICpGcmwxnnxHp+CAUxbC2LsHXPLdZVNz0bBv9A==" />
+            </f>
+            <f n="Antx1024.bin" ul="6ff4" ct="1" cl="1236" t="6a8d3186" rh="3687712f">
+                <sig id="21" v="AIA0vahjWkVtOO0l6R7hiHPkRZywfphFot23Ozegavb39GxO9+iuxVvhcGOGs3vAoDTmNSDQOnMH+emPahHxipEOh2hreDhYtMCoPcMSGMPHFr7of6NyLRwyOEi2CKAgdo/tCmL+fMeHxkrP5HzfrSTRstT+Zf0zSEa0/zY2CNRE9Q==" />
+            </f>
+            <f n="Music/Digital/DungeonOutpost.mp3" ul="10e21f" t="6a8d318e" rh="58edef2a">
+                <sig id="21" v="AICq+YUAGxb3s4LxWfskRpemuuYCdLgKQ4IA6S7I/V8T6ZfUTsYVug3uo+1CyousVTX2SSonGJRTlHwXZZWHfD6/o1LdFYNuNErkALF7wXunOixKjJ9QWTDK4HRanB4v7q/ivss4Ksclux1KnruNWaJB2xtlgRFFpxJG9rpsnimMzw==" />
+            </f>
+            <f n="Intloc01.deu" ul="24c" ct="1" cl="15a" t="6a8d318a" rh="956c5678">
+                <sig id="21" v="AIEBSUsZFBCAHBqY3ZHesFJ4Jvagz5kearbM1zqoDfa+kemOoI8wt+29Kl6PSMIhWMbW4CubUUcWvhmoU9RS4nPrzC/qa9/EmWfUjCVrO/LJPBGh9LmaVHrl8gZZxNpTv0pgCeOMGjOunhZXR1n4eIqlaqo1svNsllz2j7oXtiPoHDg=" />
+            </f>
+            <f n="palette.mul" ul="300" ct="1" cl="251" t="6a8d3193" rh="c9350f63">
+                <sig id="21" v="AIECP5C1QW8++pyqgnNjMDevUlomI31Ijq/hb3dpIseIh6OmIrz81KNEIWnkPZlSse+b6tNLFRTTp6ven16KEuOKe5j3TUk+iDsLtlU3oWqJ/jw96fnC5YDQ/LA8WRIBAt1sIZAwd1g1MoKx6ncriwY4EKrXY9Fc2u4XEAwl8IzbcsY=" />
+            </f>
+            <f n="stadifl2.mul" ul="430" ct="1" cl="1b9" t="6a8d3197" rh="e934af50">
+                <sig id="21" v="AIDxBU53intBXkgGX+w5qmigcVn352UgyEsGwNzjG88vBgMQMHm7sQPWren0AKmDW25PtCPj3I5vheD+k2m3nJJQ3jQxqhWneH3hpnS387Lpr90QsiHRfESC6Z6KROdHF6kbrC/dvBqkVC4lE0tBPOjPP4nx6jcoXsr7xR2WYmxdkw==" />
+            </f>
+            <f n="skills.mul" ul="2c0" ct="1" cl="193" t="6a8d3193" rh="5efda5c7">
+                <sig id="21" v="AIEBFacuhva/yFXTEKTCnbFUrIyLp3OMUv4JmwvxYslNXuPmyd6LjCUBKGYTwmGWT9EV+KFMf7bMqBpmaPfygg8W9U2KLUIl2e7pMjrNPidXKFNGwUWCgHfI+aZIFpjQiLx8X706ZRDzJJDC6J+W/vRWmhtx5uxjrpXp/YpeHEV2vFk=" />
+            </f>
+            <f n="Bodyconv.def" ul="881d" ct="1" cl="24ea" t="6a8d3186" rh="a54c646a">
+                <sig id="21" v="AIEBy8q8NIlA4B8QVt/N1JpVenLynJTIM7T8LfedHEKAFBWDOtRg4vu6Il2CcmF4V+Ps3B1dB+L/5PMp7TqztH2TBpt//W9yCpotm1LFhDqgluvDLezJknfcuh9Vwa5a5CXLCpgm/+IWkLSC20wjPGvgQjqlJLj9ukHda0U+XhnYn24=" />
+            </f>
+            <f n="Gt_1010.esp" ul="174" ct="1" cl="42" t="6a8d3188" rh="a956581a">
+                <sig id="21" v="AIEB7dX+DeMz7NgHqsB3XoVKjTRy3H3JdC2pdSnWF2Amxjiy+lU2MTsQBHmvFGeSMi5uyz+0GbYMZ9Cn9dGJ8olUDPwk+Tne6N0IZUYSb/dP6MVNEj0xHFznjfUyuLByEiQe1VLKIuxxeXOZYDk4ZLJ3AXwzKLlCMONqXm2I+XrZ0DQ=" />
+            </f>
+            <f n="unifont.mul" ul="15e698" ct="1" cl="93040" t="6a8d319a" rh="f0d1b9ba">
+                <sig id="21" v="AICqNop0phUD7SVQLnsyx9yDsaSMqrbyq2kqscxPUEB8BCKR2oEpIJj1myzxcfHe45IbyJENhZw7mBE9kV00whb+z2Vbm7FLaD5va4VhcgSAYhWxa5FP24I6dicgL3G3Re7YBmDWh3pqUrwjFolB8y3GQFj90Dz1AedUnFbWFTnPMA==" />
+            </f>
+            <f n="Music/Digital/TheWanderer.mp3" ul="1e9370" t="6a8d3192" rh="34f82c7">
+                <sig id="21" v="AIECRcyKzrhdhp9SMyxyJckbJqatn+OSgwt6E3X9HW8k13M2+gdhTUDuJ9OQCf2hstaKcFZZx9zvU/vv+vGlhdmTyDMwYnGQsa7+mERF3HHXcEH6FaihRhALmCs6noJ5PdlUbpC/sinEVBt+eiu0PgtBbiHgwcZ0KD2xfD87pRIkvmw=" />
+            </f>
+            <f n="options.esp" ul="180c" ct="1" cl="9dc" t="6a8d3193" rh="bcc93e1e">
+                <sig id="21" v="AIECLE06t2gbdeRF1TGACFvir//JGL7kKXO5ZjhAIZiMT+BNx1YSFmTCsODdb2AmS9+F3O8EvTUHglt6OKPtPliQz8HRQLxnT2HQ/JwjVy3KWPY0WtLe7r/APR2C3D0nLxQ7ZXhtoDxZnMRpIvkZ3ulk4qFrowNI7+plrJGfjryZavk=" />
+            </f>
+            <f n="Gesture.cht" ul="324" ct="1" cl="122" t="6a8d3188" rh="a6e1c47e">
+                <sig id="21" v="AICj+X4BgVLtENSZi3gDUqGMyGs3kr/r3XHrRtlF+13O/pjExT8DyLATOE41hXw6jNcEVhG3YFqHlZt0CZtCy91Rt53zpCw57B9ONTi7DVlYvPGKKfEkx0He04fazRy/EFXmGuUU5QmIT3KoW18EAST1IaKwT/yOgsLn1rtVnniGLQ==" />
+            </f>
+            <f n="Intloc01.jpn" ul="214" ct="1" cl="14d" t="6a8d318a" rh="f99b5135">
+                <sig id="21" v="AIDBMxLUjl43VvCwXYq9Bftd5Jq2gYwMnF1sgDVS9QiB0ldEQk8DBaMnDh0Hxh2OBbf54D2pGwUlbyIGNX+H5/KgHR2CrMJXws7wZlbeWb6gZ20zBlI3UsRAyLESRTtQ32mdQesQAI5t1FM/KmN7UH2zhgtpA8faJRFHeqL0+YFwqQ==" />
+            </f>
+            <f n="statics2.mul" ul="254975" ct="1" cl="de102" t="6a8d3198" rh="cc46babf">
+                <sig id="21" v="AIEB4ZJRZ3IBip6lB+x5MpYgBMgfdJO6nBnUfdYcFawotQ73AaYHqeLRtHb91b0L3BeU71xzbuTM9aG+J+g05xQzWUYticcCte9rZOwt9PL/xFRYqDCWjHC/InT+T4+k91AZn4Zi7cVfyTxAig6w9rXPVEsIt3cyicCe0aiB4205L04=" />
+            </f>
+            <f n="Gt_2310.cht" ul="84" ct="1" cl="53" t="6a8d3188" rh="1ce9729d">
+                <sig id="21" v="AIEBdu053QgWOO97yg/xXc2qjVGKcO9A/tdvKTA0HXX/Na5Q6I6b0atv4RMHf7PCAnDu/KaZQMEx97ad33dHn3FoseJzZIZqHOqDCqY4qGMZAXPbu1PSfaTJyLG0/o7S0EM/0H2+KzI8lVn7whUyTwP5pJDjIf8D04wz9pV2tK9m4U8=" />
+            </f>
+            <f n="OPTNUOTD.JPN" ul="1828" ct="1" cl="917" t="6a8d3193" rh="5625dd9f">
+                <sig id="21" v="AIEB/u+HNmteoZybTDJ3HqFz/XGoBCAnbK2Xm5Cq8iKVZY/EPeET0gRC1EyMmeKYML+gv3yyftL4VwLYw/rTj+3bjNACzkCqkrfXm7mlGxp49mQPevyh09tIUPoguqRXcX/lWnk8im8BI37UBdkaha+Mt3MyHqy0yX5NgsY0w+N058U=" />
+            </f>
+            <f n="Intloc00.jpn" ul="2b4c" ct="1" cl="1032" t="6a8d318a" rh="2b4a08fc">
+                <sig id="21" v="AID/oCgBv+xLJk5NM55SJkW8S0Z1IbnSS4IS8hfKyMn7k0GR3ib6IoAPxGEfpiF2GtAZaoSuQic/M1KWuyifLH4z/wmw0oJj1zFzDkQUG54TQcS0MOY8GWUyuDkdHEXmNNzhgTwAnK6wWhxwqZ7KCyIrPBZ1j+6AA+3mxI98xXWRHw==" />
+            </f>
+            <f n="Gt_5000.kor" ul="1e4" ct="1" cl="45" t="6a8d3189" rh="abc587dd">
+                <sig id="21" v="AIDSMlce+IbtAbwFzKdbwZTE/jFxHiLmuYarkf1dyj4dZHvztGZvB2btmjp3YzBKhq1lMW9poUIckzbuk6vmDFPjgUlq9gAPv5V6bpmrZ7t/Azjn1dgQ2vNZKgwrZJ+FC4TN939L6ryt7dmfuJmVpdeCpA+qRYz2PLdVGk4grUc1AA==" />
+            </f>
+            <f n="Gt_0000.kor" ul="b2" ct="1" cl="3f" t="6a8d3188" rh="f1a60f4a">
+                <sig id="21" v="AIECEOq98tbRgiOMNrhrYePLCFHWSrMLJs1k/y1fjbWVIjvEqJyPSOWveuE9/Ygvubtz9MR8OBDTzPd3+LJQBowygovY5GSwN6oLOD45K61hpOFQrF4iU0Fo//dmCA3HEH0T3d2jw1Hl4XMi/0UGPfFQdnZykA1i6DM508JKl0iETXw=" />
+            </f>
+            <f n="Music/Digital/Newmagincia.mp3" ul="7a0a6" t="6a8d3190" rh="27f6e1f2">
+                <sig id="21" v="AIECMRpJ9mdy7JqGcLhZxDLPBe1qDccfm1+t+zGfw7eTRMLxDiuK02D+K5FBeEl7Mno7Ttbdf0fWfSjmgnC1TMYHQvJe3PZ1MQ6Va01IVVbW1vVOVYgS6ER8Xo+5aCQa2D4fGJZ6ysjxsR0FhxYwSYc5e909B7bNNrJLhMa33GumJbk=" />
+            </f>
+            <f n="Music/Digital/Victory.mp3" ul="22a48" t="6a8d3192" rh="74fb1ac2">
+                <sig id="21" v="AICZRN7OTYX+f22ghK5jwhffyw4kyk8rARsSVy99uxj0hjS3qF4UUMxQiuf+CJnFB54T32ojNQkVYhqGss9MRfySR6QqWhVw+r+sqoCRKDv2vTOZe+5Ak93WfBBRy9x2sp8OHjHHwEeKfZZExmQQ4HizFQytN1VGFNLBPbdcjLuRsA==" />
+            </f>
+            <f n="Gt_4000.enu" ul="28e" ct="1" cl="b2" t="6a8d3189" rh="2a506269">
+                <sig id="21" v="AIA7AhoWk5OQHOupr04firj43s8gGbNtXZQLF4GnsKSf8VqWJRwgyVl5rf+//4ygBftExMNv7F+QUmO3lua1FGDQWMb0hH20XHiWfbfzbJR+b9vKhPKKOjUDiBtKyADwX4togFysNmdiKsp5SZsLEXd3qOrcvOkSBk+68ZDVsnsG3w==" />
+            </f>
+            <f n="INTLOC10.CHT" ul="7804" ct="1" cl="35da" t="6a8d318b" rh="4d1042d">
+                <sig id="21" v="AIClypUESqIlxkj4l++sVhfnOdFjzwmPD1uDve3k+qblfaZnp0bw+EzkGdvjWjPmydfcU7wowJN8xFZOO3DoyR2p6dHj1EoMnzcNqI6+CFxg9s43RlqdY7/kF4SlrWgcA+Pmn2FoICSAOOjoLlJn7imqiZtbPrvQqXqZfSNPeYfFbA==" />
+            </f>
+            <f n="statics1.mul" ul="1372f3a" ct="1" cl="632fd8" t="6a8d3198" rh="17e10b04">
+                <sig id="21" v="AIEBu2RTeWiFsuRUHub/gwSTwQnUJMw5IlCO7z4XH87xx2eKUwbAbMjLZ1o42BOU2bE4EQU3uDMIO88kPtMzCAo/TC7zwX0L38JnPxcBloodbKP6cQefgon4Dc3SF4wDY46kXTqbNHYy2w995jvecZc7geX62ODm0KcNiMc+A5CUyD0=" />
+            </f>
+            <f n="Gt_2310.enu" ul="54" ct="1" cl="3c" t="6a8d3188" rh="c00e8fcd">
+                <sig id="21" v="AID5FFd71u4YgdbFN6xG5EfaVRuaYZNjfhUzyfqYxheUGFGYLo3orLcodyKCzKVaVr6q1t4ntbyfxaWNQPb/uWDsUut+hXJOMnU2zeuJ+G9XPHv4+Dx7GwWnqr5JxIHWt5kJoSEUjTRS0OvKNfG3TA6svZ1lRD8vXeWzuu11mhKwLg==" />
+            </f>
+            <f n="Sound.def" ul="2809" ct="1" cl="a45" t="6a8d3193" rh="988199be">
+                <sig id="21" v="AID1+oOVsX6uDp2V7OJEe+hBVLREnyvG36zZ/5peCvbmMFSU0Zxxtm73KIbCsPuxB/YMbCpdA8KMKABj3OJFk03gUHaZltvvN5rZi/NvHH15qX++X9Ia3dXhevxgLdejx/gEdRO4hpQgJ4cIzDb1oQYZ6QXaqFm5zWA/tAmxB38b2A==" />
+            </f>
+            <f n="Music/Digital/Trinsicpos.mp3" ul="77bea" t="6a8d3192" rh="9223ecea">
+                <sig id="21" v="AIEBPwAznprybLkgbkX5eiStB4Ru4gWL+WQhZMdlV5qT/m7ypFclYXDiBgm6pFipCc84RZVvFZWxuc9Jn/grl6xxW5V2JGyiV6zCc6nEjTT+lzJSU7GMX6G76bZUj3t43gWVgJ/kVHy6d7MG6QxgmCqysrlP64SuXB6Ke6TZLqVNHdM=" />
+            </f>
+            <f n="Intloc00.fra" ul="2d78" ct="1" cl="110b" t="6a8d318a" rh="9b7cec11">
+                <sig id="21" v="AIEBupsPTziv3gg94G3WBooc51uTl8VzHq7fekZ6/Izy+RW7HWEqv2Tu41bpCPxy3zmDxQSmbzpy/G2hX0jY8PkuT/+Pp5p5duXLscVfUCDicC+Z4ilBTp5c2xwWEcU7o9Sv8PAPFMADIw6ra88/Ys8zB7AXHYALM3+pW3zEwWIxg7s=" />
+            </f>
+            <f n="INTLOC06.JPN" ul="ff0" ct="1" cl="6ca" t="6a8d318b" rh="4baf932f">
+                <sig id="21" v="AIDYlVBqcRUxrwi4oPgVxlsSnUZubzGUHfvP29XqWDjSQL6LWOQchTfUOXRBsBBa0t+D5RZWCa0uIaF6xMY+mAlM5sNMq8cGiVdpqmNXT87foxLH9z9QaeOJK/x0DVosNQef4kUzElvDoO2S5UMVrc9ie5Eg97SwCT2wYBXlroMceA==" />
+            </f>
+            <f n="SKILL30.ENU" ul="1a6" ct="1" cl="121" t="6a8d3193" rh="f9ac1024">
+                <sig id="21" v="AIECFIfKuSXtfUu7X4Qzuwm3JcKGHG80LIGg6kibfB2SmqknjDNvvKJ+e2g2lI9ynbZUti2Du/Dj1/y1B+rjTaC/G94yDJLcJ737FJFb4aL+NpFXaJoq5cYL2ynwBeFQdqV4kp6qEEV+YaAyrwpgnAYGgOMeF4XRnqBD/bftpktqqWQ=" />
+            </f>
+            <f n="Gesture.esp" ul="29e" ct="1" cl="11a" t="6a8d3188" rh="b8214f43">
+                <sig id="21" v="AIEBOboxLGQxyJo/6BYWD7fFGJLcX5X/Ct3vQT5PyLaqY5yaxGdMAB50uWqInyfwuq5uFpAKDHROcb21Eq3nyimYum7XquO0Ym0vsE6kAJtOHGTjL6wG5iUSBRW5iL2N8sYAi7FRlwWxTLKApf+lanBNT6UoSRFH3Epllp9TC+RlCpY=" />
+            </f>
+            <f n="Music/Digital/Moonglowpos.mp3" ul="75ce4" t="6a8d3190" rh="75de3106">
+                <sig id="21" v="AIEBq0JcZNtQ5esHqbegpm4v3nhm+w9tJsP43uylAWhesZzBJCxa0xdC8NVcmPUp1AYq26nVadgrrUgQyMl2pOhIzKZPn40S6ifEQdEVUbAdjUK+IW55Qynr4dW3WGTm2hOhteduxonMtyjS0HBUH5WrV+iedvBe31QOqGDnknQ2TfE=" />
+            </f>
+            <f n="Music/Digital/Lbc.mp3" ul="22d8c" t="6a8d3190" rh="6e6c2be3">
+                <sig id="21" v="AIEBW+avh2CJYP3Z2c2MLRgvgQU0PR+37lQFs0Vi1sLN1u5yp6KU0KYRGOCPWHLDlv2a0iW8jcT03MK1/FORfI4qoGrU15s1Je1VGizX5tbCIwo7m8tXAyy4RsRVa92o2AOGSyh8gx5gC1gLGw/VnU5l5PqJTPO2XhZTYpGGe4ct1+8=" />
+            </f>
+            <f n="Chat.kor" ul="1158" ct="1" cl="630" t="6a8d3186" rh="e8b4c7d">
+                <sig id="21" v="AIA4RMhftnTldVj4m+qs8MQ9q96rEJEOLcc/fEyCR57JyagGYZaJ/mtm4myv0XCSLf6aBtAkqlzRQwHpvB8M0+flqIo3UF9u5Kmku7OrymVoQXSK5Nz3BclO0fRq7IcX4KvFqPZDpVX8mg2v3zPPGL2AMZ28x24WM2xJ/v3CppFYtw==" />
+            </f>
+            <f n="options.cht" ul="1a94" ct="1" cl="a1d" t="6a8d3193" rh="75cb0057">
+                <sig id="21" v="AIECQqW/hJJqggLAOZH0EX/nhfkyGkhISn4xjJX8Z0HK3AP/yt7PkDCzdOFvSEhTSITX8GVzy6CxISZNlu39IhBKnbsGPJ5pVUbrzHa+m6me1JKSYXScImY8TaE8h3pH16SOb5qsgW6s+NapXG/rFtaKEnzVzyCb2PtpyrP+/Ts6v6M=" />
+            </f>
+            <f n="staidx1x.mul" ul="540000" ct="1" cl="8436e" t="5abc8311" rh="44ffc4df">
+                <sig id="21" v="AIAtKSN31WdWiCPDpld7YDXt/As+rh/PPgJtAaPPaPrpYZu7t67u2s7CzAHxAh/v7d1ov+nmavca16dxIKi2Rg8x8ipmSem8XmYr0WrNtpoSCmSRmDswwc35SNe1LRvprZ2fx1fl+bmheF433u4iApbWCuMHdlgn2ovAQBPrlRYRlA==" />
+            </f>
+            <f n="Music/Digital/HumanLevel.mp3" ul="9f4fb" t="6a8d318f" rh="71549aad">
+                <sig id="21" v="AIEBbMMX0vHBMGHU+LOTDQSt5qGgZPzjGtw8OGnN4iRUUhbwu/+lNKt/5UOmRi4gFcWX9MIPGdeIjSE2Vy17pKYskza/cjFUOCrSK+JnigyODzrrXaWshfPQ253twZ5DJPL+pUSL7oytyPI/QG0aoZYxPfzGDjc8ZpJOHMGt2cdf1jk=" />
+            </f>
+            <f n="Chat.jpn" ul="e28" ct="1" cl="48f" t="6a8d3186" rh="9956b688">
+                <sig id="21" v="AIEBK1MxTMqZq780ThL0LDjOE0OSKY8vCsV3g+M9g7myClXQUi8+1PuQy+o+nnyykCLmg2eePmR2BzrWTlBE/Mhr+BOcqjMV2xYG1BKRKNg5vRMqFk2QhE/D/cnmKggNLrF2WvW2SegBu6bfxBswbF+p+tCyC0+woVtVsGdR/rpxi6M=" />
+            </f>
+            <f n="Gt_1010.cht" ul="534" ct="1" cl="14b" t="6a8d3188" rh="4b1268d3">
+                <sig id="21" v="AICYnxBRP2MsvKKwWpaZDHmNMchavSVkNU5QGRRrM5wPQUeA3u22N9YY8tPDcU6jBII/9yCh5RIHSTHK5fDAwaMEYo513SZsK8Z9zvFPHbXeLPhd1o5i58NUV3EFKtNxISjXbYrl/n+3cEtjNnzU9vJ3lVAMlV+1Puu+0AeyL/GA2A==" />
+            </f>
+            <f n="light.mul" ul="2c69ec" ct="1" cl="58183" t="6a8d318b" rh="762870c8">
+                <sig id="21" v="AIDx5UCykhvxHRZmuW6WOIWoQSUihV8iwA/kV9JzOwwPeS2HiS/BUZM8D1OgPS7VMY3olcKCd+WYddPGX1ciYYD+ea5Ud42/v5zUFUb6c1AH5HF+962CIwQvuo65/786bd/tNvH9xLCbnlhbcj38lf2n5XzzIUXCmPa/josrFkTvxg==" />
+            </f>
+            <f n="Music/Digital/GargoyleQueen.mp3" ul="a118d" t="6a8d318f" rh="574b3676">
+                <sig id="21" v="AIEBcMlBuSwdQYe+EgpPX2+g1STgMb+yfACwuUxFe+40LBW8u69EkeY6tAzBzMVj6i+GsN0DQPwGn98B3InT2pUoN5Cd7e/NtL5tP9LQh1joeR0fl/ROS2dE3rFtZB3DYY+rESvjVUEkogdpJutuH+uKIwoDCj1S9VU08d8DZnO6D7o=" />
+            </f>
+            <f n="Skilname.deu" ul="2ba" ct="1" cl="1b7" t="6a8d3193" rh="3dc2e4d0">
+                <sig id="21" v="AIEB/iw33ZlQ3sN8ujVDBLP2VmBeLt9cIWEpJcRvev5hccXmQ9Oa8BwCFiCCx22YtCNxi3tsM403EqQ/tYFs9VQ5V6kihi9OrksR3fqPDkW/4jX9K4KSuRv2tkNU5VearDllwnAkx++xg55VIlZ6ptgl1UNdIlIaK1nKQ39ym+AQb9Y=" />
+            </f>
+            <f n="Music/Digital/elf_city_1.mp3" ul="c430fc" t="6a8d318f" rh="92d549cf">
+                <sig id="21" v="AIBN37A1KCJxEe9mED26AeTx8CI9qY0O2zKmZmtvr2FPsGx3cucJ0Ozug2qiQGOvgSVGyVrEImrDXUDbYVwQQxkpn/uPZVmPqq/KcgHL8XLD42RqFxgKRlJmgIrQxzyfhSe0jsP2cCAbCzxkA4N3/9ZjCInEq+0qHVl5CDSy6kDmcA==" />
+            </f>
+            <f n="Tooltips.esp" ul="69a" ct="1" cl="2a6" t="6a8d319a" rh="6b1ec8f8">
+                <sig id="21" v="AIABKTNKn+vPc9wnKoSdEbjmTTMxUBblk6GDm82b9Wbo3NF74PMfJMhSd6S27izbaMQ7tn9MceOWlG+6KjfLUzM6uo4I+7nvfO4SAvNaNksl5yBpVLmQjJdJbvnq6Q79raQ/DUtZcYqa4SLSOP2d8rR4U50TBS8D/Wx5d6VB+2U8Eg==" />
+            </f>
+            <f n="Cliloc.jpn" ul="51b484" ct="1" cl="334035" t="6a8d3187" rh="7810bf75">
+                <sig id="21" v="AIDCx/k+6tCrJyVLuq6z2wSOvvzhMsfKrqFLG4JV75hajqg6mnFyklXNQxB2adzLAIQN/Az4Q8BRmjJbKNxZzzfJ2fRX1xFDXdh479VzmmA8TEq6sEguMAyo+XQPt3iLo6r4yC0thlJXuvmYy/KqKOkdD8MfiZXkT90mj5mdjSVLyw==" />
+            </f>
+            <f n="Intloc00.cht" ul="2218" ct="1" cl="1076" t="6a8d318a" rh="1d46e2f9">
+                <sig id="21" v="AIEB3EqyDaW/jB1NcnrgakGNqOd4SQNNa+qmJ8E2wlpw8fGF7LpR1x3gYirptVankoxcZrDH+TPcLmm6MS6L/ZKWq7TM0ZR/1aENzfEm2YoDcl+h9ug+ZjIjFDUt4k8f7mjBJmYTHbTJECP8F5nzLeE9K0ERm21+RIGlrQXatOqlBuQ=" />
+            </f>
+            <f n="Music/Digital/AnvilStrikeInMinoc.mp3" ul="13f634" t="6a8d318d" rh="4983f0c0">
+                <sig id="21" v="AIAkr57xNI7Jvc7l3XsT1YBHBIDxKKvGm9xosfLBWACnACB0sezCgk2CIZKofi+0OrzWhRd/+PnjVquc5xelvyDzG2iem67caja+G5TqltD7SQu9gdgF6UtfEI7Qh/T/DaPcn/jTMjcrPTtdqt+DRnn5OA9V1sARHviZ3vLblvxS6Q==" />
+            </f>
+            <f n="mobtypes.txt" ul="af52" ct="1" cl="26d9" t="6a8d318d" rh="2ef33a34">
+                <sig id="21" v="AIAQoDF364PAH5MTT649p7W7Yh7Xf9myN3gLJICTJXjtM5fExn8ZtU7u0up59qZ4JjVd3DNeKi1CLf097QVjVXjraO9OGw652tltrWVeHh3OO6Gv7PXozLiuy55YKsgvKIieormCFg3VcZbc9ak8LsBVJph1kffX9If/YdhTChYQ7g==" />
+            </f>
+            <f n="anim6.idx" ul="e7bd0" ct="1" cl="1625e" t="6a8d3185" rh="8da06882">
+                <sig id="21" v="AIDUq1Tq8XS9rqfVB2AkDxIANUfyChtgp42uAn9tifNMf3wh+H6/9NmKlXdVFwMOy7GldY2Y4C/puQrI42gNjwZ8m/QkBKDDBRK0efMm39hFFXGooL8p9HUBGDTNZrOGmba0GbemxkhhVokJ8AVwI3G8PdcLjfy8jAAXkB0b9bs21A==" />
+            </f>
+            <f n="SKILNAME.JPN" ul="1c0" ct="1" cl="181" t="6a8d3193" rh="c1f64e74">
+                <sig id="21" v="AIChKzZub2f3VGe1vn/iLiPAEzZ0s8b3qpLaZZ4sbSXC3KHx4gF8h+1hS0kEFedQ29AgHi52/MvD7X4rLvt/pRWTGjy0oV1v7x+WTd6vvDnSW1WJ2mR2Js/QV83CCTef+GvCle8HRNSdcZj54Wkspk1o0yO55qs5R7S5LSPRXqQGyw==" />
+            </f>
+            <f n="facet05.mul" ul="1c3c5b" ct="1" cl="91123" t="6a8d3188" rh="93bfb082">
+                <sig id="21" v="AIECQF4HVpKw4b1Wd5iiMNDfMYup0dnz3HmFmpKQuyH3NSLP/N8sg9SZl3KvLEYJOPC79szqIovCXmbuiTK+vMUGYBaZXyyaoXR0WgEDHj8xw4Bg9/otnEBvtd6tcSwJ+iBLvv8moW+8+EjAyLtU/bXDy0hU8qZixlDRyQXKMcDe/lQ=" />
+            </f>
+            <f n="Intro.kor" ul="7c6" ct="1" cl="479" t="6a8d318b" rh="1df0f544">
+                <sig id="21" v="AIEBlD8yebqumKFBmuq/fpKfH2Ta6w/DALGyy/P+9pZvDNdGFd2TUDkKzdweKyhgMKtzJM+UEL9zoRz4iPjG0rVJF78N4My3p1dQzV0XnT3f6z6pumyN2wcyIvlTM3FBqUabm21BsPPlWZujsRtyj6TBHWoznAWsPVgcgWUikUkrlOI=" />
+            </f>
+            <f n="AnimationFrame4.uop" ul="6dbd2a5" t="6a8d2aee" rh="c3beb4d1">
+                <sig id="21" v="AIECSzS9Nm9h4/Sso2JYENfXaMX6qPSGUqA+bRul6mqPa3WW57M+ygPviivuhzieZIpvTmTBI4kXztyGD4bD/XmeJ/OcrLuZ326WW8XeXGpoqgsnucNdg+vlZQTAX6Dg0knOQrDnLgHhpr6KggasGORmH/thoa2mlZQZw+FcGqpB6Ek=" />
+            </f>
+            <f n="desktop.nwb" ul="a4" ct="1" cl="60" t="6a8d3187" rh="2b8e58bd">
+                <sig id="21" v="AIEBheEn9sxVVj6dl4LLpCG+Z8VAGlNmLQmt0rm+p2scJQ3cQHf11MM9tI21JxB5HNL/3HgPpFfk108EFvcGh6XtOkIGUz33+HF+5By8kjQm9NcUKUS2NowetMJQhi/qbMA1XIo9y0nhAvib1uwzB5zhkFecII3WRwUt24+U/GHNf0k=" />
+            </f>
+            <f n="Intloc02.deu" ul="82e" ct="1" cl="44c" t="6a8d318a" rh="a9f8bac1">
+                <sig id="21" v="AIB5AfKIsZNmodR/IA8J6/ln4LBf7G7jeIhVR0D5yn1NAiOkSW3Zs+ZqVFw6Gk/vToZZUFvrtKWYX8nL8AxKXLeY5QYp/LEUyw3bk8A+n73dDaLobwX9cdN/lOYnP5HkQRd399D2LUiHgR1g57PXOlCfYg0mitaOxJoAc6owEMvW6w==" />
+            </f>
+            <f n="Gt_5000.enu" ul="114" ct="1" cl="3d" t="6a8d3189" rh="2028690b">
+                <sig id="21" v="AIEBJEDBwASk8pI86xldNn/2jZMRQFuOs0tSUHGF9CtlZr0lv9kFuYrkTakSL0QRfzbzwekkFa3wDdD6Mmhl+xCTXJTLe/hCpse0j4txgY4KyXw0/SfRMWHkOjwjoA3ssxxCPeJfzXQ4j40yWfIax4MButgKE91Yx44ZgXjgWPifyts=" />
+            </f>
+            <f n="MultiCollection.uop" ul="8ad7a" ct="1" cl="6094d" t="6a8d318d" rh="35d9d958">
+                <sig id="21" v="AIBJQFJfByaMzimDR68ZGAY8eU2Ok6B1Mnt1PqgKJ9RyGqc6rKRZlWjx3mYDHdjviNjctw3Jsu9hjBT27ZVjhXtpSyQI7C8JoJ7yHQQumOMl2a9LZ/1xyNgkNTkUWCYT8rGunrVHkm9QHJPPOLlsVsRO5Bm1iK2DUxlaxKQokAgj7g==" />
+            </f>
+            <f n="OPTNUOTD.KOR" ul="1a66" ct="1" cl="9e9" t="6a8d3193" rh="2bf4b1b8">
+                <sig id="21" v="AID8lMt+0y0VRpsnPoX2by+dZebMaPx1S9Y/Sqz30csGcpFx/wxIjmIOrdrg1/6zkTiiQpQoThdHq/dH2zq+tUdyQAf3uK0wSZ+fEiBZQ8zXXk2bR2w38ZlQI6ytedpMyZauzQh8gVCS/5ywKiVmgcre6uLY7JDlgT0ZEytftnc+fg==" />
+            </f>
+            <f n="stadif1.mul" ul="109de5" ct="1" cl="558ef" t="6a8d3197" rh="909920bf">
+                <sig id="21" v="AIAbTCSj+3QxNgZ7o1HHThYAbdb0aDcboN2UzcQPvXC4DgcFx9u81uMaGfQdtARAlkYXpzixifKXG0dwmBPKeCGkvBszSew2DfmtSsEaz8KgnIkSdzX5HltETSG7m6T70WR5cDU29AZCj4aWCtKzZNdmjXCWJDixGHz+kF6AD4ZpEA==" />
+            </f>
+            <f n="Music/Digital/StarlightInBritain.mp3" ul="148924" t="6a8d3191" rh="85d30545">
+                <sig id="21" v="AIBY3uq1txsxarKYD94oKI1tSz17jspuYM6Mxr4tWkL4DKbNPK+j8WM2J6USiRbe6EjvUSum+0Y4s7rhAWcA7kce8JCg/sZDUqbtZd9fVFIzQVnDckLGj/Tu6fOu8uqZ80C9l0nvfSGLxMiAE/m/TMkzKEpEpM5Z5DkYqL62zI0MzQ==" />
+            </f>
+            <f n="Gt_5400.deu" ul="9c" ct="1" cl="7a" t="6a8d3189" rh="4a043932">
+                <sig id="21" v="AIEBUatRbW/WE5Rto/zAItYW75gDffimtEcnfCCk63+EISXSXw+9FHhVWwq0aCWugWl7fs6Y9oCBYWy3214U9Z3oeanuXJNlNfO3gpm0rPnRq0pTj3/n13eThs4Tn4w7ue7ih+Va9M1hK6WvjSiQeGBU3IlsFRjbei/zDgzzMxVosa4=" />
+            </f>
+            <f n="Music/Digital/TokunoDungeon.mp3" ul="adac5" t="6a8d3192" rh="cb80c670">
+                <sig id="21" v="AIEBNGNvnnLsQC5A0c6uO0bUP5V3OsUgcPpUu/Ib4qA9OJijjDGd5mFwC4W1/xaMGT0h2tPsdp3zuP5UJaCkCg8btvxNLRoxoA5RkSLLbGr1F3nfEhlH01rieJxyXv6P1Y7U8XfuJAH+MGWAIzfKAp6NRhfanXB+MBGGTLEf1FhEpaY=" />
+            </f>
+            <f n="Music/Digital/Holycity.mp3" ul="9f2f0" t="6a8d318f" rh="9406d4b4">
+                <sig id="21" v="AIBTalne+ZwUAatB1O/wFrKQozkvNx7TSTOoeKZmcNopAFAMsIN9LFL6jeW9VmTdAH9abf9I1hW3MlgQHoSmAVi7Maqrh3V7I/XUZ3gwKbFLrofs0mzKPk/VQGGIehqwAiPmVLQamkvUtCTWMehCnX21n8PRuc/oxZVpdcM1CrBQNQ==" />
+            </f>
+            <f n="speech.mul" ul="1d3c5" ct="1" cl="b203" t="6a8d3197" rh="b654425e">
+                <sig id="21" v="AIEBQrur8+79EWXx4MI1JUrDtTCuhfYl1kUdJAE6/YIy2/71OdgoQJ1+J8me1Fd3mXrhf7FTw6zCZgC0yR8ITR5WyHsq0PtWE2//bYg+EsBHF3IazQkk0trkogTbeuA4cfA5ZRVdC+UYaySybKzrKtmZZtPHLT6ElA3li4mzMzPjaaU=" />
+            </f>
+            <f n="INTLOC02.JPN" ul="cf8" ct="1" cl="4d2" t="6a8d318b" rh="85c5793a">
+                <sig id="21" v="AIAof9K8ntu1yF3R4XcieVlLHahN9bG6eZPeBp1miaeUvwReD9toFEjIGYPlLh0/wnIrPVgkn2issR2vMvoxtAU16hjYQITSAlvDMfhOTXRj58PJk3RtWXbDDKFkalCCTCzSo+3Mu2GmaR66wDItPy78H4xQI9h03CszfBjzrAndSw==" />
+            </f>
+            <f n="teleprts.txt" ul="102" ct="1" cl="92" t="6a8d3198" rh="78eafb0a">
+                <sig id="21" v="AICB/9unzXW2VzTDMrlqakqatUT1PGUiNq0HBORGUVy3MuayNSmTYd92XR936As9T5DayE3jTJUkA1palSkKXjCXlxMQuIF1Wa0T19Ev8OOhsxVt0VTq84W6Em2xii8sK9sZ4mYUsZykjKtyueLPUEAYt3hnQFOka7RH5iju1Mq0hA==" />
+            </f>
+            <f n="texmaps.mul" ul="2d2a000" ct="1" cl="14a7feb" t="6a8d3199" rh="f9efffc4">
+                <sig id="21" v="AIB2UyliEdjVWcgyQbOx1SvLWSBJ3jR2tYJImhpht5G31h7QvOEgUDH6ahyBPl/vllY7rQ+AhP4VdCmLa7VirVu4fFXJz5RexZnioIOEl1KmEWu6OZyjjG6vwewMfuv8Ks725PYY3EKsLDngCvOAwDDauxwbnXzbsNl3T6r0Tj0yKA==" />
+            </f>
+            <f n="Music/Digital/MoonglowSonata.mp3" ul="1fc6b1" t="6a8d3190" rh="92749517">
+                <sig id="21" v="AIEBBNku93hp3CjU5ADmMpdRDfKNDBqSMnRIyOzq8ZOC1OFAV009FqYAtaB+Ictwj4srqjxBi+bXO4ZEJiI+aHItudpRewvXrnTF6UsivO+tDRSjdSYe1ECtd4r1p8MRQaosGEXUY5cvd4660NRg/hCMPDavsX+6Vl7h5AkEc+I8KbU=" />
+            </f>
+            <f n="Version.txt" ul="9" t="6a8d319c" rh="f42e30e7">
+                <sig id="21" v="AIEBFOQR6aDtHCz+Km4OGPLw1Lw0/xt/QAx1Xk2xnS7JEz/OvGQLnr2EkbSoyILW+9s6unmnFOCAAkk39ks+IkbelPsn3vlsxViimGwdwile/Z4FwFnWSLmHu3ImOa7OSaNH1FxSXdeqj3QxYNu+twe2jiqXu0NasTQB5GLC+MU+RXM=" />
+            </f>
+            <f n="Helpindx.dat" ul="22d3" ct="1" cl="c68" t="6a8d318a" rh="50a7cdcd">
+                <sig id="21" v="AIDmgjsMggmf6a7EdAUXGldEX0ZdM2fEJHk0AUNhocWs+G4HJPV07oWGiQZfl0g3s/1eimbhD52sHzVCm35jZGoAp3Ivr4EILlK/vhMKWxRLFkq27a4IjgPF6VklGyTPsaASCbhOsf6R9H2bc1gp/ygfVoLy0ijuP3BS+3IMrK6t/A==" />
+            </f>
+            <f n="Gt_2400.esp" ul="400" ct="1" cl="1b2" t="6a8d3189" rh="b4c59de1">
+                <sig id="21" v="AICTT93ppvAZW7M7nAnZ3WZkOGJmho92EQHIjBXrxAtCVMcjffs8ndXoq5i8FBkZtNLbqKsEXLP4La/5zZxLAV2Jr7f/kdJ+TdiynkMY9+rzyY7EhpAIiznLU85O4NRZFC2WvqMX/2AMjzufphNTcoEi/acWETqdohQVULN3cK038w==" />
+            </f>
+            <f n="Gt_2000.fra" ul="632" ct="1" cl="298" t="6a8d3188" rh="f21c60a8">
+                <sig id="21" v="AIAhy9ZC/ADCLf+zWm/ACpT5Q8csWr6Ud934OsCEfyRKAulPsZTVR/vWFZwOfmq+Vg4GSXv3zlbXz3CxcSFLOKbyDsuyo0TFtLvAvX1RWLMNS08EpO2rh93f/hQyS5nK2PsncqJa6BjSrTMOvpc8wrktUrZum6Sb7eFORtieZfTsww==" />
+            </f>
+            <f n="Music/Digital/RoyalCity.mp3" ul="a2c15" t="6a8d3191" rh="3c1004b1">
+                <sig id="21" v="AICSPcjV1H69qOUDIJp8ZPjLWiewwZv6PmQE5pFLwq877C5fQFF9PoVmsytuOq7HOICZsGOFBMFLfoeej08pKmAc0JdiKT+k3R2eGOwlnnTDNhf3tgNJ+rxNGmCv5KV4rDWDdzNRFDMtejdjhIaa0ulzGz95RWgZaiyHLUClId1Ysw==" />
+            </f>
+            <f n="unifont11.mul" ul="4cda99" ct="1" cl="22168" t="6a8d319a" rh="cc9bb8d5">
+                <sig id="21" v="AIEBqz6tyqFFM3VTm7tZKrnYyLUnT7PwsXokOccHGqHiAXbsv8Wxl3+yHViaDYWwA5qmvTrGy3S+hPYLcxclgaRfwGeXnb5Dh+JTxQwvNSxSQc5j6JWC4bHCAhDjnhIluYXXquIcM/hFeOVWcIRdYW1Xy63N7Cc3hjRY1MO/A6ogHyE=" />
+            </f>
+            <f n="Gt_5400.kor" ul="6e" ct="1" cl="40" t="6a8d3189" rh="442ff614">
+                <sig id="21" v="AIEBwm79AXqF3D9Nu3t4LAFNLNGZ3nSgDggbfzXZiUaCSYUgxYrPOiCyxuJl4S/BzWi5naCJWSQVQBZLnP6emDubxCkmn8/6hacd3/LZaf/ILs3dt7a/8F9Pamnx5i2Xr7TXzrgvd5EUFL95bGRoUAM22BiZJFwGRdzxKnuHw69polc=" />
+            </f>
+            <f n="Intro.enu" ul="718" ct="1" cl="3f6" t="6a8d318b" rh="f1d063f6">
+                <sig id="21" v="AIBtoTTquMjWWw+TupzdhwkwqkkFJ6+9cLg3ONWq7DmPwC8bloDGc8BLtJpUTxRkKM7xe0icuWP1DRSGxW5ldSq6+GGb7SMtr+olJEgkw1yKktxfeetPUUKjrWFEnqCTDLpyb6YclyVxiBtu6k3e1xaqr75F9JYrKPqJI3vP+0LULw==" />
+            </f>
+            <f n="Music/Digital/Dragonslo.mp3" ul="71fab" t="6a8d318e" rh="b813032a">
+                <sig id="21" v="AIEBdZitQddv7c6/DW9m6uIYqQ7wMRNu0RA+3yZYhVedKUiIdf33iZsyuvLTGUu7qaLaPsPBubDjzYuWug4c0YAh5vJ8pdJflRrGaKXD0+Y96RY1ElkCOPM0yTdZjycTfZOtU3aD3p8aciFMueAh+tak3FhbDH06lhc41aCDvF8a6K0=" />
+            </f>
+            <f n="Langcode.iff" ul="1204" ct="1" cl="6c4" t="6a8d318b" rh="4b076a0a">
+                <sig id="21" v="AIEBcmLM15LvxuD2AYhuhjx4aoLocQSxjJu77txMeb5UM1OKtvU9GC8zoWz2Fp8G+pDYDndxSek2pKnNrJrA8cJBb9+MAszO0kdD16uoxR/ZINDK+5peLRHTGXBykOtdhlUOg2IpqKkTOd8sXseH1zAuL2M2bTY+f4a1PKuJT/jFXZ8=" />
+            </f>
+            <f n="string_dictionary.uop" ul="67dd3" ct="1" cl="4e90d" t="6a8d3198" rh="3f7ba7af">
+                <sig id="21" v="AIECKPpruOqaOtqT/zt/NAzTlkhm/sxfWMLMZwDni46F2Im2+KdmdqAxpGjZZLjKgBWAo9JQ2qDvlHZpN7L5v6W/aKG2XkVD0k8oNHCMzwHvjxX2HJ9HZOYNanzKvsJumH13fvFRCAT7ZBwQ8r3gKEIo7OiyTz4JhEJiGCMcUIPdslc=" />
+            </f>
+            <f n="Music/Digital/Taiko.mp3" ul="1bc3c0" t="6a8d3191" rh="fe0cd2ec">
+                <sig id="21" v="AIEB09Q1W/Oux19rJRYn7M2WGC+gmi0rBdBEHKV1yYdEd71grGN/S9mKrne3c/NjkAVKdP6BMNWq6TONgtGKl6SX1zmPWEAySyddHPOWqHc8MJPQ/MzTS6blz04/jYNnWGIxtN0csvQcap76Elucoi0y3NEEH+IZsVOhBvZFtybxhyI=" />
+            </f>
+            <f n="staidx0.mul" ul="540000" ct="1" cl="85222" t="6a8d3197" rh="b495813b">
+                <sig id="21" v="AID35IKUYhVFmJ1SJpHrtr0yG3WVJ6dQRK4Iv17uQ05W4VQ3X/qsqfQuUlz5ztUWeFiYyiC7UXj7jJ8hkPSkqZ6BDjMgrDw3h+OARH1xfqggpt2JuLNDerEhnMr+g3vQtJOEJ+SGlX6nDWYeIBJspUT0DgSpz9Jtm1QM/6LpAP3JKg==" />
+            </f>
+            <f n="stairs.txt" ul="6e2" ct="1" cl="311" t="6a8d3197" rh="8b51bc4a">
+                <sig id="21" v="AIEBXz15AmsRyKavPdcuyG2xprAIUTYTMfAUVK4RkjTJ59zyXJytCOs7manlwIvG2LHNh9xKFxlmTHwnrC29QXJXkTw/NA7IC6doo0GYcuw7+02VzEY2zfjVh4mrtMszz9o0yms1ZvELCrHqItL0UizTlHHn4EHN2dwvIGPLTN9Ah38=" />
+            </f>
+            <f n="Music/Digital/StygianDragon.mp3" ul="9d65e" t="6a8d3191" rh="1a8e107d">
+                <sig id="21" v="AIAYi7ADGX4cGWLayPdGTsBe4eixWhrhvXfLd8oqCdszUTfaUKbZbYT2Jtlx8jcLYvuuI155Fia1A/ftPS/zzKorGTh11f+Ya6nfCIQv0agrmsa8LwIcv/64AfsJubO4dEV8/2sRXn3HRCTJAwRAyqcV+UnoNrr5EIP1MQoBbyumFw==" />
+            </f>
+            <f n="unifont10.mul" ul="29efd8" ct="1" cl="19cae" t="6a8d319a" rh="e6ce8ba8">
+                <sig id="21" v="AIEBafFw0TUn+OmU0zpR8xC3EUXAC0RV7218v9VjCymKeOS4/GnKIegzDjwL5ImOlMWlhKSuHNZNpxZ3QHKStZlGjrD5ZAo8Lr0xw8gZxarAlVHxu5JZg/7Pemkt3p+UDrPS0haiqoKyDbXHLrRj4a5CiVOAtSbhOSUkKitCLdgRCtM=" />
+            </f>
+            <f n="Gt_1010.deu" ul="5a4" ct="1" cl="16e" t="6a8d3188" rh="9686adec">
+                <sig id="21" v="AIDL5sMl5P8SRd8O3+vrwOrQ1eULQhSqRL8kkNaU4SldYulspJAoi4Qdy03Ml4OB5qOPDczZew+CPi9qv8YVJiZ3hOwDvwOrjiOr4F7iJnxGbVi7tzDJpXLpj+2WXQWl0Tw0otkAuBT7iXeooTnxj4apvsriUHYVYHI+6WbdZwbPsA==" />
+            </f>
+            <f n="Gt_2310.deu" ul="70" ct="1" cl="51" t="6a8d3188" rh="8d9e55bc">
+                <sig id="21" v="AIBINKYhnx5WXtuI2hVruODx6agXdxV3tnt9yO9OLj/cExjeZCHRMebqB64354FLNWk7c1aXE3d6P/SOI86s+7Yr2RAjUKJDD8IqWODCS0Ti+zdvVFY2G3rzw/2EPWA73A/nsvoQqU29pyUrHZX4rugEoK8wz5V6RPSrOCXpupQKmQ==" />
+            </f>
+            <f n="stitchin.def" ul="396e1" ct="1" cl="3e1f" t="6a8d3198" rh="1c2d04e9">
+                <sig id="21" v="AIEBUgCwy6WJALY2szweSCeKZQ4X9YFzaaYA+mFekvqazGlmxGAD/42URIbbnRlxm+NcMlBKTtmEmW+pbCDQizxiawDf2pRKZPWmCM090yLc+CnsOqqhb4bRHdQu89xZMkRYoBNlOYd0gTJv10GCBxyU/pNwwYnEnQu3OcbK3CYstt0=" />
+            </f>
+            <f n="Prof.txt" ul="865" ct="1" cl="21a" t="6a8d3193" rh="9d000d43">
+                <sig id="21" v="AIEBRssZ36ccDT+XMvMqjopXQC7lbURJ//3EOVvxGDLN2KN5GWECkxdI7I+PTyJ3xUI2dMa7uPcZfDvHt/sbOzUjiH+4io81xn+wT3mRdn0WCbQLyce56LYIEIob7BjurkfkDDxuRZsW55ALc2x5FQ0bMYM+17Z7OvQZW0XKUmrOOIs=" />
+            </f>
+            <f n="Gt_2310.kor" ul="62" ct="1" cl="40" t="6a8d3189" rh="fa6b7e89">
+                <sig id="21" v="AIC8zRQP4UsrRFxDOv1vXpR6u8251UudazajcFLGJnjg6LFjO6qDZDnincHCoAfIdLU4hX9XoEl62q4leITq/2GMd3Rin9AGniWjrSyWHsZwLCpeBWkXYEJC4e4cOIFMpM6kZqjBwd39XyUDILS2RCoXQm/ViW2dy3Mrv5Z66p+b/g==" />
+            </f>
+        </files>
+        <delete>
+            <f n="Anim3.def" />
+            <f n="Uoreport0.log" />
+            <f n="Umacros.txt" />
+            <f n="Anim4.def" />
+        </delete>
+    </manifest>
+</MythicMFT>

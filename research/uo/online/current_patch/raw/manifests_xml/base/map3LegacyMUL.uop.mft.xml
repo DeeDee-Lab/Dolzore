@@ -1,0 +1,31 @@
+<MythicMFT>
+    <manifest>
+        <packs>
+            <p name="map3LegacyMUL.uop" rpath="map3LegacyMUL.uop">
+                <files>
+                    <f ph="10a3b25c" sh="70d364cc" ul="c4000" ct="1" cl="34a83" ft="0" ml="89" mc="448e6303" t="6a8d3480" rh="f7b81f4c" />
+                    <f ph="23456663" sh="30b0f65e" ul="c4000" ct="1" cl="1065c" ft="0" ml="89" mc="ed41af47" t="6a8d347f" rh="49446372" />
+                    <f ph="2aab595f" sh="e2e6ef1" ul="c4000" ct="1" cl="330bd" ft="0" ml="89" mc="6a84f2fd" t="6a8d3480" rh="6559b2c8" />
+                    <f ph="3c11d82a" sh="be023c68" ul="c4000" ct="1" cl="372ff" ft="0" ml="88" mc="4f737c90" t="6a8d3480" rh="3ce7e94d" />
+                    <f ph="408205fb" sh="2a03ecf3" ul="c4000" ct="1" cl="31e39" ft="0" ml="88" mc="65d56bea" t="6a8d3480" rh="b7060056" />
+                    <f ph="58d04c93" sh="cb5f720c" ul="c4000" ct="1" cl="4c62" ft="0" ml="88" mc="e68aa327" t="6a8d347f" rh="9ddb971e" />
+                    <f ph="67536f4e" sh="e4f084df" ul="c4" ct="1" cl="48" ft="0" ml="89" mc="ff5e1a9f" t="6a8d3480" rh="cd5fdbda" />
+                    <f ph="69057e41" sh="bf0462a6" ul="c4000" ct="1" cl="145f5" ft="0" ml="89" mc="35e8d88d" t="6a8d347f" rh="425a4f2a" />
+                    <f ph="6b0d56b1" sh="744f40fe" ul="c4000" ct="1" cl="2ac27" ft="0" ml="88" mc="d07fe56a" t="6a8d347f" rh="8d350805" />
+                    <f ph="7cfb3aa2" sh="df12a946" ul="c4000" ct="1" cl="2e220" ft="0" ml="88" mc="cb6e5497" t="6a8d347f" rh="2cf433f4" />
+                    <f ph="80539cba" sh="7b571bef" ul="c4000" ct="1" cl="24fee" ft="0" ml="89" mc="da487cc6" t="6a8d3480" rh="ec2ba77c" />
+                    <f ph="82c4bf0c" sh="e262c3c9" ul="c4000" ct="1" cl="3421e" ft="0" ml="88" mc="1ec03374" t="6a8d3480" rh="9b6b8374" />
+                    <f ph="a4c8685b" sh="1e7c0365" ul="c4000" ct="1" cl="34094" ft="0" ml="89" mc="6fa188c5" t="6a8d3480" rh="4738d064" />
+                    <f ph="ac5994cf" sh="fb9cd1aa" ul="c4000" ct="1" cl="372a2" ft="0" ml="88" mc="50c8039f" t="6a8d3480" rh="45c6cf9e" />
+                    <f ph="af891282" sh="4003c940" ul="c4000" ct="1" cl="a40f" ft="0" ml="89" mc="4907e2c" t="6a8d347f" rh="6bfbc964" />
+                    <f ph="b39503af" sh="522cd796" ul="c4000" ct="1" cl="384ed" ft="0" ml="89" mc="adc50a46" t="6a8d3480" rh="a5798cc" />
+                    <f ph="bc47506a" sh="956d59d1" ul="c4000" ct="1" cl="3838d" ft="0" ml="88" mc="83769184" t="6a8d3480" rh="2c5601ed" />
+                    <f ph="ebf87f18" sh="8b1770b1" ul="c4000" ct="1" cl="36c7c" ft="0" ml="89" mc="b96f3dba" t="6a8d3480" rh="32334e5f" />
+                    <f ph="f6cb1023" sh="45a25167" ul="c4000" ct="1" cl="23f49" ft="0" ml="88" mc="d93de12d" t="6a8d347f" rh="d394c49a" />
+                    <f ph="fc7e2af0" sh="b2fdcaab" ul="c4000" ct="1" cl="28cb3" ft="0" ml="88" mc="dad2286b" t="6a8d347f" rh="a08d4fbe" />
+                    <f ph="fff620b1" sh="588d4ef7" ul="c4000" ct="1" cl="359c4" ft="0" ml="88" mc="8c55433d" t="6a8d3480" rh="97899ab7" />
+                </files>
+            </p>
+        </packs>
+    </manifest>
+</MythicMFT>

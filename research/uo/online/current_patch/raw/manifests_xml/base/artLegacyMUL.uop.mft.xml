@@ -1,0 +1,54 @@
+<MythicMFT>
+    <manifest>
+        <manifests>
+            <manifest n="artLegacyMUL.uop_0.mft" ul="58bb0" ct="1" cl="167c8" t="6a8dd30b" rh="0">
+                <sig id="21" v="AIDuQQ6kQDayZd5CU3ZYURSbGjA/Gg/ZwE+YCrcEN3VvdDyL/tdHuNggPNPwfq8D9jnT2h2gLKiBGyMjdzOSvTWpfywE6ccKKZhF6v0CK4ZhPIDMRSiBBYY11g6lQtEJJgIZ24eqFGU3jNALfWh203OB5F1Menhplnk5yY6UI3UmkA==" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_1.mft" ul="579e4" ct="1" cl="16221" t="6a8dd30b" rh="0">
+                <sig id="21" v="AIDA2lzm8/tTPmTIUGSV4OAl1K267QgYDO7evtisLMTKIpmYVs8BUTIP69g2XW/EELXBNQkhBz3vt4ymjaSCKgWJg+KUQX/N69+jrI44qbCjDB2mrdIUWLXZl1M5vzgI18LwqQqlD/L5zmXMlytv0VZaSapzo2yUro/WLNyXSU6f3Q==" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_2.mft" ul="5a599" ct="1" cl="16e17" t="6a8dd30b" rh="0">
+                <sig id="21" v="AIBxwP0q2BPDOaDRpcl22bZ85tuwDtQuIOwA5NBu0e90oPQg+4hkXxZoMuT7K4++gGe1K4SMRgT/sQ6/cciF1FPLE5qJyX3eLrFuXmx3Pwih2sDno3ZOdo0Owy4+bWPsPw+CYtKQnWzJ/O16S/iktjJrg92/WTUcKYB3x2P8+R7/Xw==" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_3.mft" ul="590c9" ct="1" cl="168f6" t="6a8dd30b" rh="0">
+                <sig id="21" v="AIEB95sNA1O5n4jF2o57Jo/EenWUsL4dWBmEPdVBEg+RPvTb3CiMrXdNfB5dQhyPCPRVBoYWq8a1uJ+IpNvEtJ+F57Vdz8iWakkVPvhy+gbWNym2aS8pOA8qezoCzg/YAV77L9ybEokq7nyy/uzHcD28CmcpeOV/DUZyboqN/3PqIb4=" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_4.mft" ul="5ad12" ct="1" cl="16f6a" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIEBW+A1Iva8v7pY73SrRS0Y++raWQXpqVTkVnlOQynempKwnNZUKLKhpfYu4NNdVGLuMLp90eJqjbdKf4bu1pGbCsI358NQa0m0xP04i0rV+2Gi37vZ4h9Le/ukOYMb7j7VN7AbU44is0OcMiTSPlpHz11q2Po/o0oTVWa5FFZD8T8=" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_5.mft" ul="59e40" ct="1" cl="16c03" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIEBXv7Gf30Z2yMrsjpqTWFrrTagnFKliDC3oDN7/wY1pjXndsDaRwxXW6H+dwNK2glYIFDX5bCK1TA/65vlZYRaEizHMqm+tu9CJclhTd+7Tm8YReBTT87Hj4TI8EL+jVtrtQXyO9XXf6H7iOpwyr4t/gkTmcVj/2X5s9q6/sHkbrg=" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_6.mft" ul="5ad7e" ct="1" cl="16eec" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIEBeq1/chVOlHQnkT1iQHORzUOC8UpJvw0yAcx5e9cpB14RNOJs3/EMgFdwvwIYmx7ktACMKoB849VP7UNReDr1CnvChilE47JMncRjE7bqxGP9TgJpHU6Vi8j0x6vCHcR68TrpyRcAFPLcK939c+XqplpI3jMpr9dORCShk6/lHIE=" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_7.mft" ul="5cc48" ct="1" cl="17716" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIDi+71hnXbs65Ch8ewEmD4bCYGHMvlqH7Ua4LdKnkRd9TS8UZ5WOdJkn27jFkiJzsdutT+fUM8CeN3ZHQbKm/R1Po4LfNrohIemRGUh0LMGx8WlTUjPkqAs2qugeu+MjT3Vuqk5KgosyRipePpBWJ7jOU9FNNdbbioHeLMIKc5CCw==" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_8.mft" ul="5ae40" ct="1" cl="16fa2" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIAFmjbk8Hn+o5FM+WwHSai3KNJ8HRL2MEYzvoT+DraZyHnQREhlcsaxXiBDTD5eiAy7U3uREnAer4CMO5pk9Yiq/tMaCEfGwtkvXVShvufCBDu+nQgLI9kgw/890IHPva9i6E3n+uNpFVh+AlJtHyQbLbiR9CFq3HqVMEc10W9mqg==" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_9.mft" ul="5a592" ct="1" cl="16cf5" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIEBFQhWZXtohhSTtWVFseOq7StV4Y6fVocfh9H7dtU05fZKw6muI/hFl7lip9PeANt29bu8Rl5/tMDE5YkquqhosZCthYyvvjOr5q+m75h4hQce8A4q9+IZo7jKReDmUHFFUi4lHkFg077ffYr/p1YWkM3XKa/KItt4gebQTwYxv/I=" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_a.mft" ul="59556" ct="1" cl="16930" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIEBELey2COw8aY/HkgDJ9AY6cRNTEb2QDbgt3kLwJjy3pi1ElI14XAa2fZzFYQzIDpY47TvZu318UY8KZw65hci4aanev60Jla/qg4CMZy3j5qDeqFdYt3VhptPGGWWRzHMV5wJZwRcX+2E3vP+QEec3qcOfLDcV5HYFmj9sUVoh74=" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_b.mft" ul="57dae" ct="1" cl="16381" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIB1dNn3QcrX+f3O6YF8mswDhTW8sBH07zWfnnr1NZMNtmmQ+BEuZjI8sl+fmzOCfL6yyPMEv9MTyRX4AKDh8m0ZFYbUIIiO8Bp1zV+3Ox8i/vO+owaOSn4/mrgdg1acxLVaZlTT42TF/cvqw+nZOFXnTGauwbWlArznjo28LIOFGg==" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_c.mft" ul="5db5f" ct="1" cl="17aa3" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIA1upjXvQjO5JbBGBDuV4vMDIlfUvEyfsnQHnWdmbUix+bzYFeORshwzn35TVfLBMY4v97X4Y0U2oUzSSmEMbRTfatYll7IdUhZixmNMFWK8Sp6GPyQxiDG3VEiunYbofvMdIOR/7ivlEGOtYZktxmtMnhMeKkhy534GqSXHDsEQA==" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_d.mft" ul="5de3e" ct="1" cl="17aff" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIECE0w4ipkR8vvOA7y4o/3IGLlDLD/xAdZ0vtdUJeboLsezQ43ba/PPQIZgOPluBERd4oZPWpl64E2oqC8KN/KAvjdp2nFDs1svE+Mpo0Ds7RMl4t+VPAgfymwIZTuPxlaBvD4rxWW99z85tumXiXUmbVJJpy559IduGLxFy4PMAzw=" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_e.mft" ul="58884" ct="1" cl="1654f" t="6a8dd30c" rh="0">
+                <sig id="21" v="AIECJppPr/lJfNqJgjK6IddF6NNHkZtfTEAJkTQiI28gD8CF5O16oQ4ME60p0mBZXPq4cT0LAAFpPBeTojz5ScAQpOGcV7Dc2VYY0zbyjo/lqymOYTbObXarGCbswBkuYD4CY8CohLqRGfa5Y/j+3hnnNXuhwHUpxPZ32O6qJWIycro=" />
+            </manifest>
+            <manifest n="artLegacyMUL.uop_f.mft" ul="57fc4" ct="1" cl="163e3" t="6a8dd30c" rh="0">
+                <sig id="21" v="AICeCQFy0v8rgHIgxi2AvAWagpOdZHzSF+YYJjyztOv4sJFeBDnWP0SjsYinrGxZueXBUwguAOZ+fQSToBmBUbgaOkZ2l0er+ljEovDdHcikhw7FtGconptEQhYrBq9GRBi1Nwpe6EtZlSLdz/aCXpSrmexoSdRDO9h0qSORqf2jGA==" />
+            </manifest>
+        </manifests>
+    </manifest>
+</MythicMFT>

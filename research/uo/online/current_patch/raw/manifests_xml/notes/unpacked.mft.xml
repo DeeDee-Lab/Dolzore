@@ -1,0 +1,201 @@
+<MythicMFT>
+    <manifest>
+        <files>
+            <f n="notes/t_chinese/noteBanner.jpg" ul="3f7a" t="541221e0" rh="c31bb75e">
+                <sig id="21" v="AICSORYS0yL7gbOzivL19+wNtQx18TKl9z9jN1VmgQ/rhQtJTG/mlu69jnWXtT8LsPDGkpQXodTe3eyINnpLradOeNTyLuD622SedjGkT20Fm/btLplxZGdGh8jwlbewdltepxoQre9gLu6OGGE0Sa/xQDYBua91r7YK78jqtU/dRQ==" />
+            </f>
+            <f n="notes/t_chinese/patchnotes.xsl" ul="de9" ct="1" cl="317" t="541221e0" rh="5af21fee">
+                <sig id="21" v="AIEBdy39IQ732fyVGG5zSfwsfSc9lKSGcFTxSsqjRlRBcSQ7hFBlGCsYXtmvXy++Q7LGzgzr2GBWZuqv+z0YHtyoubqU/6QccVHg7MP8vr8zfTtwLigwcc3fnvnd/feh1XXqVe0MO8jjj7+sPqyHI35eHpPa/jXHdbnIYAII6gOX2eg=" />
+            </f>
+            <f n="notes/english/readme_files/colorschememapping.xml" ul="139" ct="1" cl="c6" t="541221e0" rh="5dda8ecb">
+                <sig id="21" v="AIEBLRw7RFaiD7NDElGIEE1rVq1FAZG0Q+FO+0eNWdUHE25AME6bYUErXSKf7guGdx5AUxAwSfCYX668pChnmS3zHs2c5rnzgHk9tGgs2TVlxAu/tV2AJiUOz8NmXZi6+rCwHCHzJbVVFGYDlMKM+GVEx957bKFNmMVdtyFbQYj0IyU=" />
+            </f>
+            <f n="notes/english/patcher.css" ul="1ac8" ct="1" cl="5ef" t="541221e0" rh="e6376b04">
+                <sig id="21" v="AIAGroLVrm9lBPAdcdpz+egzOvNyHXvjFX8swEIMR1Asz9PORtmO0y9S4MYSbE9DsVNtSC0May/tLwYrF2oStVgGrN8gQKWf+x85Jt62IqeXsEzNUSKzBV7VuPe0BZZ8daqZ+exYJjqwELSbyfnwjKkw8vnp2zzI9AHIOWUyYTl9zg==" />
+            </f>
+            <f n="notes/english/readme_files/filelist.xml" ul="cc" ct="1" cl="89" t="541221e0" rh="43dfa0d3">
+                <sig id="21" v="AIEBaKxn6aRg8Wn3dcLfcpg7JwQLlF6MvbwvdvupqfMrmZ2GWYlJwTwGSlSQ/ADu953YHHJm7nOxh46A6bhnH+iLoTI/7MaVqCE/PqMR7nJ9Tp/NKYcCXk4C9e7VQXye/scEBiGLYnTwOUpMFrgmm4+DRv6DbGYtchvv+noHm1inAPk=" />
+            </f>
+            <f n="notes/japanese/patcher_bg-tile.jpg" ul="9a7e" t="541221e0" rh="7bf5054e">
+                <sig id="21" v="AIAHN1NYa6vV7RFIjwiqVe33RRhCRjgpfgeJvw8iuuyMT5/Wldl5v6nY3/L8YSxPEdksUGI/H/2k7Jr1L+fVcMKOg01+udl8dU4aSxb25mQPbuwgj8+PhWkABO7iHaZuzYoywbg3BuMAd/X9yPgHzsL7hmSGiYep713oj9n1eTtA7A==" />
+            </f>
+            <f n="notes/english/readme_files/themedata.thmx" ul="c09" ct="1" cl="aaa" t="541221e0" rh="3c510510">
+                <sig id="21" v="AIEBYpzZ+1wtTyrDX9CDIpZCNDfe7aMzxYWCRPtkq+N3A3V0FgFLurIRZl2SRa9S+EfYfM1fHfiW9+7y7V8+MA4yXzaW05QTs7QQl8m3EdGbZYzUfWsX03jc7FPnFUv2rQ6jHxxyvIiO+c/h5p+u8+fLsVtf16BM+KZrLWmKJY6dDX0=" />
+            </f>
+            <f n="notes/t_chinese/notes.css" ul="85f" ct="1" cl="1f3" t="541221e0" rh="9603d485">
+                <sig id="21" v="AIECA3ROWzOwwIZeGZmUHhxAzrdcTYNRrPhqTG16exq/hNFghjsweauFGuwwwJluPSvNVC2ptkQXQDP5h6EZfGOPX8h8SUItowl79PevAwyYsFDybb8tGJ6Sb59sI/jNJ85xXD5Q1p4TRkdm3uQ6n/zOiobwjyRRcfwaEznxIwG6KPs=" />
+            </f>
+            <f n="notes/t_chinese/patcher_bg-main.jpg" ul="4558" ct="1" cl="3ce5" t="541221e0" rh="27e87c06">
+                <sig id="21" v="AIEBeGK4vtIoEQ7gk3o2pR6KCNb0eTehf011EodHTzoZgnVRY5uizGU1XwM8y8TizWycDTk8n+UGwfj97hf+ZlNoLgRhbGNKVer6Rl/bTWfC0y06Zw769Pn3R5gg1dWR/FFAIzKXC7X9ftZ0Iz2xL71f+/dpcW0HfgHrVBw/FSduXvc=" />
+            </f>
+            <f n="notes/korean/util.js" ul="200" ct="1" cl="d3" t="541221e0" rh="d6582514">
+                <sig id="21" v="AIEB5xwco2upaFJx6yyLs4xL1+WBSoK9OxZi+GClIHx1I27mjVZQFaE4KdK74ETp8WubuU/6kMaBnbXipnqOrXsmvQjc/4IAc23f6dXogPRHiman3lwg8ei6OYdES2s4nKhRPYwBKyOC2p+8bzEy3vUs3QTIV6WntQk26IQ8uv/tsbs=" />
+            </f>
+            <f n="notes/japanese/patchnotes.xsl" ul="de9" ct="1" cl="317" t="541221e0" rh="5af21fee">
+                <sig id="21" v="AIEBdy39IQ732fyVGG5zSfwsfSc9lKSGcFTxSsqjRlRBcSQ7hFBlGCsYXtmvXy++Q7LGzgzr2GBWZuqv+z0YHtyoubqU/6QccVHg7MP8vr8zfTtwLigwcc3fnvnd/feh1XXqVe0MO8jjj7+sPqyHI35eHpPa/jXHdbnIYAII6gOX2eg=" />
+            </f>
+            <f n="notes/korean/notes.css" ul="85f" ct="1" cl="1f3" t="541221e0" rh="9603d485">
+                <sig id="21" v="AIECA3ROWzOwwIZeGZmUHhxAzrdcTYNRrPhqTG16exq/hNFghjsweauFGuwwwJluPSvNVC2ptkQXQDP5h6EZfGOPX8h8SUItowl79PevAwyYsFDybb8tGJ6Sb59sI/jNJ85xXD5Q1p4TRkdm3uQ6n/zOiobwjyRRcfwaEznxIwG6KPs=" />
+            </f>
+            <f n="notes/english/button_read-more.gif" ul="4f6" ct="1" cl="46e" t="541221e0" rh="ccb3696a">
+                <sig id="21" v="AIAeMOvWMcynJFPikkU5K6/5RMF57gfsUIzIReP/fE4EIsy6tZu/yYPKQ+wThpvcc9m/NOQABbMX5LqJfhR4ZAkRIgSeiphFHizOpeF/haOzEzLqg6Z9HpdbQn09RuLrONMo5WcrY4eaDI0YAi8euXiD9SpgeTaFZAM50Nee//4gcw==" />
+            </f>
+            <f n="notes/english/button.jpg" ul="627" ct="1" cl="5c1" t="541221e0" rh="54fba1bc">
+                <sig id="21" v="AIB81taIjO31Q627KmjrJqRLrW/kSqVFE5f/cmoFjdF0rVZvRHiFEv2AZt9p9XtDbUrrgYBM2u097kK5MUwdukxk4xQKo02JefjKV6ZPfWdJ6GNHH550558MPpCOBzVvN8Oq7hAvUWjB/erfIugAuOnt8sGjfyAvqf3kN0eYqaj+GQ==" />
+            </f>
+            <f n="notes/t_chinese/readme.xml" ul="aeaa" ct="1" cl="1b5a" t="541221e0" rh="6b1c860d">
+                <sig id="21" v="AIAH0Cwyx00zV4TsLaHyHdIruPyFDtPWU7hDiiJGmL5MWaGqY1hIaaOyB2uN8Bi9aMXfNINKKqJVCVOLx8ZmNTA81OiymkgTdjmHFFKFrzLdcGtD7av/Yn98NnzY6LufHHc4U2b51aEZA3DzOBNV2hnL1c3GsWSP/t+v/TAOape12Q==" />
+            </f>
+            <f n="notes/korean/readme_files/filelist.xml" ul="cc" ct="1" cl="89" t="541221e0" rh="43dfa0d3">
+                <sig id="21" v="AIEBaKxn6aRg8Wn3dcLfcpg7JwQLlF6MvbwvdvupqfMrmZ2GWYlJwTwGSlSQ/ADu953YHHJm7nOxh46A6bhnH+iLoTI/7MaVqCE/PqMR7nJ9Tp/NKYcCXk4C9e7VQXye/scEBiGLYnTwOUpMFrgmm4+DRv6DbGYtchvv+noHm1inAPk=" />
+            </f>
+            <f n="notes/japanese/button.jpg" ul="627" ct="1" cl="5c1" t="541221e0" rh="54fba1bc">
+                <sig id="21" v="AIB81taIjO31Q627KmjrJqRLrW/kSqVFE5f/cmoFjdF0rVZvRHiFEv2AZt9p9XtDbUrrgYBM2u097kK5MUwdukxk4xQKo02JefjKV6ZPfWdJ6GNHH550558MPpCOBzVvN8Oq7hAvUWjB/erfIugAuOnt8sGjfyAvqf3kN0eYqaj+GQ==" />
+            </f>
+            <f n="notes/english/patcher_bg-main_with-ad-border.jpg" ul="4249" ct="1" cl="39b4" t="541221e0" rh="7884be80">
+                <sig id="21" v="AICcn61kcegAAOui35eDmR4o2Q2OOPkVAasXJxuc7vIWFdid33PhkRebRs6s2e1DadErjPXY3/Lw0T+bfo549KnPHNa6EPzUWb0+wPKr+HWoqqzrhY3z9OEQAje4tZ1mmZC3NpNucffL9J/P8xfbr+t5J7+anUon9IfreJSfpSdOPg==" />
+            </f>
+            <f n="notes/japanese/readme.xml" ul="22a4" ct="1" cl="b7c" t="541221e0" rh="c5643a2c">
+                <sig id="21" v="AIDy9WUAz42JnNVz6ssjRcd+mDR+P/910hP18IoigXJ5Ane/EK7QMEZU/hpVcbOWBe5m4sFifdvVwHWL9TSV15HOK6WL8/LrY7dwhWLY1QVIuaMuGKHBbMhF6cUtj1Ib9gRG4IICFRrvn54uvDtuMVE9gB89ZZCUSJU0x6tIBePYig==" />
+            </f>
+            <f n="notes/japanese/patchnote.gif" ul="2ec" t="541221e0" rh="f0ab14a1">
+                <sig id="21" v="AIC8RrP3Yj0NT02HzGuoN8WE84c5Clio0h1/zBIQmF1VTs+U/1uBPWxll7fVpRFFd1mEG0FliAzqUt+6yN/wKGePmezJPC7FMEpkqCMuw3yek5kBka8djwBM2oZOq9ZLHpnnpaZT3Paalt1+5jdjSZlGBni6HEm7sDq5US0fIt/5yA==" />
+            </f>
+            <f n="notes/japanese/notes.css" ul="85f" ct="1" cl="1f3" t="541221e0" rh="9603d485">
+                <sig id="21" v="AIECA3ROWzOwwIZeGZmUHhxAzrdcTYNRrPhqTG16exq/hNFghjsweauFGuwwwJluPSvNVC2ptkQXQDP5h6EZfGOPX8h8SUItowl79PevAwyYsFDybb8tGJ6Sb59sI/jNJ85xXD5Q1p4TRkdm3uQ6n/zOiobwjyRRcfwaEznxIwG6KPs=" />
+            </f>
+            <f n="notes/english/patcher_bg-main.jpg" ul="4558" ct="1" cl="3ce5" t="541221e0" rh="27e87c06">
+                <sig id="21" v="AIEBeGK4vtIoEQ7gk3o2pR6KCNb0eTehf011EodHTzoZgnVRY5uizGU1XwM8y8TizWycDTk8n+UGwfj97hf+ZlNoLgRhbGNKVer6Rl/bTWfC0y06Zw769Pn3R5gg1dWR/FFAIzKXC7X9ftZ0Iz2xL71f+/dpcW0HfgHrVBw/FSduXvc=" />
+            </f>
+            <f n="notes/english/notes.css" ul="85f" ct="1" cl="1f3" t="541221e0" rh="9603d485">
+                <sig id="21" v="AIECA3ROWzOwwIZeGZmUHhxAzrdcTYNRrPhqTG16exq/hNFghjsweauFGuwwwJluPSvNVC2ptkQXQDP5h6EZfGOPX8h8SUItowl79PevAwyYsFDybb8tGJ6Sb59sI/jNJ85xXD5Q1p4TRkdm3uQ6n/zOiobwjyRRcfwaEznxIwG6KPs=" />
+            </f>
+            <f n="notes/japanese/patcher.css" ul="1ac8" ct="1" cl="5ef" t="541221e0" rh="e6376b04">
+                <sig id="21" v="AIAGroLVrm9lBPAdcdpz+egzOvNyHXvjFX8swEIMR1Asz9PORtmO0y9S4MYSbE9DsVNtSC0May/tLwYrF2oStVgGrN8gQKWf+x85Jt62IqeXsEzNUSKzBV7VuPe0BZZ8daqZ+exYJjqwELSbyfnwjKkw8vnp2zzI9AHIOWUyYTl9zg==" />
+            </f>
+            <f n="notes/japanese/patcher_bg-main.jpg" ul="4558" ct="1" cl="3ce5" t="541221e0" rh="27e87c06">
+                <sig id="21" v="AIEBeGK4vtIoEQ7gk3o2pR6KCNb0eTehf011EodHTzoZgnVRY5uizGU1XwM8y8TizWycDTk8n+UGwfj97hf+ZlNoLgRhbGNKVer6Rl/bTWfC0y06Zw769Pn3R5gg1dWR/FFAIzKXC7X9ftZ0Iz2xL71f+/dpcW0HfgHrVBw/FSduXvc=" />
+            </f>
+            <f n="notes/korean/patcher_bg-main_with-ad-border.jpg" ul="4249" ct="1" cl="39b4" t="541221e0" rh="7884be80">
+                <sig id="21" v="AICcn61kcegAAOui35eDmR4o2Q2OOPkVAasXJxuc7vIWFdid33PhkRebRs6s2e1DadErjPXY3/Lw0T+bfo549KnPHNa6EPzUWb0+wPKr+HWoqqzrhY3z9OEQAje4tZ1mmZC3NpNucffL9J/P8xfbr+t5J7+anUon9IfreJSfpSdOPg==" />
+            </f>
+            <f n="notes/japanese/util.js" ul="200" ct="1" cl="d3" t="541221e0" rh="d6582514">
+                <sig id="21" v="AIEB5xwco2upaFJx6yyLs4xL1+WBSoK9OxZi+GClIHx1I27mjVZQFaE4KdK74ETp8WubuU/6kMaBnbXipnqOrXsmvQjc/4IAc23f6dXogPRHiman3lwg8ei6OYdES2s4nKhRPYwBKyOC2p+8bzEy3vUs3QTIV6WntQk26IQ8uv/tsbs=" />
+            </f>
+            <f n="notes/english/patchnotes.xsl" ul="de9" ct="1" cl="317" t="541221e0" rh="5af21fee">
+                <sig id="21" v="AIEBdy39IQ732fyVGG5zSfwsfSc9lKSGcFTxSsqjRlRBcSQ7hFBlGCsYXtmvXy++Q7LGzgzr2GBWZuqv+z0YHtyoubqU/6QccVHg7MP8vr8zfTtwLigwcc3fnvnd/feh1XXqVe0MO8jjj7+sPqyHI35eHpPa/jXHdbnIYAII6gOX2eg=" />
+            </f>
+            <f n="notes/english/noteBanner.jpg" ul="3f7a" t="541221e0" rh="c31bb75e">
+                <sig id="21" v="AICSORYS0yL7gbOzivL19+wNtQx18TKl9z9jN1VmgQ/rhQtJTG/mlu69jnWXtT8LsPDGkpQXodTe3eyINnpLradOeNTyLuD622SedjGkT20Fm/btLplxZGdGh8jwlbewdltepxoQre9gLu6OGGE0Sa/xQDYBua91r7YK78jqtU/dRQ==" />
+            </f>
+            <f n="notes/t_chinese/button_read-more.gif" ul="4f6" ct="1" cl="46e" t="541221e0" rh="ccb3696a">
+                <sig id="21" v="AIAeMOvWMcynJFPikkU5K6/5RMF57gfsUIzIReP/fE4EIsy6tZu/yYPKQ+wThpvcc9m/NOQABbMX5LqJfhR4ZAkRIgSeiphFHizOpeF/haOzEzLqg6Z9HpdbQn09RuLrONMo5WcrY4eaDI0YAi8euXiD9SpgeTaFZAM50Nee//4gcw==" />
+            </f>
+            <f n="notes/korean/noteBanner.jpg" ul="3f7a" t="541221e0" rh="c31bb75e">
+                <sig id="21" v="AICSORYS0yL7gbOzivL19+wNtQx18TKl9z9jN1VmgQ/rhQtJTG/mlu69jnWXtT8LsPDGkpQXodTe3eyINnpLradOeNTyLuD622SedjGkT20Fm/btLplxZGdGh8jwlbewdltepxoQre9gLu6OGGE0Sa/xQDYBua91r7YK78jqtU/dRQ==" />
+            </f>
+            <f n="notes/korean/patcher_bg-main.jpg" ul="4558" ct="1" cl="3ce5" t="541221e0" rh="27e87c06">
+                <sig id="21" v="AIEBeGK4vtIoEQ7gk3o2pR6KCNb0eTehf011EodHTzoZgnVRY5uizGU1XwM8y8TizWycDTk8n+UGwfj97hf+ZlNoLgRhbGNKVer6Rl/bTWfC0y06Zw769Pn3R5gg1dWR/FFAIzKXC7X9ftZ0Iz2xL71f+/dpcW0HfgHrVBw/FSduXvc=" />
+            </f>
+            <f n="notes/t_chinese/patcher_bg-tile.jpg" ul="9a7e" t="541221e0" rh="7bf5054e">
+                <sig id="21" v="AIAHN1NYa6vV7RFIjwiqVe33RRhCRjgpfgeJvw8iuuyMT5/Wldl5v6nY3/L8YSxPEdksUGI/H/2k7Jr1L+fVcMKOg01+udl8dU4aSxb25mQPbuwgj8+PhWkABO7iHaZuzYoywbg3BuMAd/X9yPgHzsL7hmSGiYep713oj9n1eTtA7A==" />
+            </f>
+            <f n="notes/korean/patcher_bg-tile.jpg" ul="9a7e" t="541221e0" rh="7bf5054e">
+                <sig id="21" v="AIAHN1NYa6vV7RFIjwiqVe33RRhCRjgpfgeJvw8iuuyMT5/Wldl5v6nY3/L8YSxPEdksUGI/H/2k7Jr1L+fVcMKOg01+udl8dU4aSxb25mQPbuwgj8+PhWkABO7iHaZuzYoywbg3BuMAd/X9yPgHzsL7hmSGiYep713oj9n1eTtA7A==" />
+            </f>
+            <f n="notes/t_chinese/readme_files/colorschememapping.xml" ul="139" ct="1" cl="c6" t="541221e0" rh="5dda8ecb">
+                <sig id="21" v="AIEBLRw7RFaiD7NDElGIEE1rVq1FAZG0Q+FO+0eNWdUHE25AME6bYUErXSKf7guGdx5AUxAwSfCYX668pChnmS3zHs2c5rnzgHk9tGgs2TVlxAu/tV2AJiUOz8NmXZi6+rCwHCHzJbVVFGYDlMKM+GVEx957bKFNmMVdtyFbQYj0IyU=" />
+            </f>
+            <f n="notes/japanese/patcher_ad.jpg" ul="819e" t="541221e0" rh="f3487d75">
+                <sig id="21" v="AIEBa3E6WPIeTcFFlZA5PifdGUFBsU2L6LE934GEwn+fe1n7T2EpGfMMOjtdIBdRh9YX1nJyuzYnLQyLwAFNZy/oEZXq6Kjx2WWp0KNW4RWf6p1BPftt5pXBFc155Kh4hpfA2ED6PJtWIxcW+l9HP9fR0cyUrhh6v3vdzM4yuF6A+mA=" />
+            </f>
+            <f n="notes/korean/button.jpg" ul="627" ct="1" cl="5c1" t="541221e0" rh="54fba1bc">
+                <sig id="21" v="AIB81taIjO31Q627KmjrJqRLrW/kSqVFE5f/cmoFjdF0rVZvRHiFEv2AZt9p9XtDbUrrgYBM2u097kK5MUwdukxk4xQKo02JefjKV6ZPfWdJ6GNHH550558MPpCOBzVvN8Oq7hAvUWjB/erfIugAuOnt8sGjfyAvqf3kN0eYqaj+GQ==" />
+            </f>
+            <f n="notes/japanese/noteBanner.jpg" ul="3f7a" t="541221e0" rh="c31bb75e">
+                <sig id="21" v="AICSORYS0yL7gbOzivL19+wNtQx18TKl9z9jN1VmgQ/rhQtJTG/mlu69jnWXtT8LsPDGkpQXodTe3eyINnpLradOeNTyLuD622SedjGkT20Fm/btLplxZGdGh8jwlbewdltepxoQre9gLu6OGGE0Sa/xQDYBua91r7YK78jqtU/dRQ==" />
+            </f>
+            <f n="notes/english/readme.xml" ul="aeaa" ct="1" cl="1b5a" t="541221e0" rh="6b1c860d">
+                <sig id="21" v="AIAH0Cwyx00zV4TsLaHyHdIruPyFDtPWU7hDiiJGmL5MWaGqY1hIaaOyB2uN8Bi9aMXfNINKKqJVCVOLx8ZmNTA81OiymkgTdjmHFFKFrzLdcGtD7av/Yn98NnzY6LufHHc4U2b51aEZA3DzOBNV2hnL1c3GsWSP/t+v/TAOape12Q==" />
+            </f>
+            <f n="notes/english/readme.html" ul="830" ct="1" cl="360" t="541221e0" rh="20eebe5a">
+                <sig id="21" v="AIAdD16YbR0n7aOPUeucpiy9Vpzmzau4guRDfCba9xH95Z6buWrcm7iQatJIHP+Ozl6C3/LJuuujPAOevhJRlYhjZ9kJJTuPCqkgD5RUnEerstK2jEFAJZNLR2Bov/PkrgOvBmyBJiiqSxYzerpuvrN4lb3x6UGq3AAuE6dYL6QWmw==" />
+            </f>
+            <f n="notes/t_chinese/patcher_bg-main_with-ad-border.jpg" ul="4249" ct="1" cl="39b4" t="541221e0" rh="7884be80">
+                <sig id="21" v="AICcn61kcegAAOui35eDmR4o2Q2OOPkVAasXJxuc7vIWFdid33PhkRebRs6s2e1DadErjPXY3/Lw0T+bfo549KnPHNa6EPzUWb0+wPKr+HWoqqzrhY3z9OEQAje4tZ1mmZC3NpNucffL9J/P8xfbr+t5J7+anUon9IfreJSfpSdOPg==" />
+            </f>
+            <f n="notes/korean/patchnotes.xsl" ul="de9" ct="1" cl="317" t="541221e0" rh="5af21fee">
+                <sig id="21" v="AIEBdy39IQ732fyVGG5zSfwsfSc9lKSGcFTxSsqjRlRBcSQ7hFBlGCsYXtmvXy++Q7LGzgzr2GBWZuqv+z0YHtyoubqU/6QccVHg7MP8vr8zfTtwLigwcc3fnvnd/feh1XXqVe0MO8jjj7+sPqyHI35eHpPa/jXHdbnIYAII6gOX2eg=" />
+            </f>
+            <f n="notes/t_chinese/readme.html" ul="830" ct="1" cl="360" t="541221e0" rh="20eebe5a">
+                <sig id="21" v="AIAdD16YbR0n7aOPUeucpiy9Vpzmzau4guRDfCba9xH95Z6buWrcm7iQatJIHP+Ozl6C3/LJuuujPAOevhJRlYhjZ9kJJTuPCqkgD5RUnEerstK2jEFAJZNLR2Bov/PkrgOvBmyBJiiqSxYzerpuvrN4lb3x6UGq3AAuE6dYL6QWmw==" />
+            </f>
+            <f n="notes/korean/readme_files/themedata.thmx" ul="c09" ct="1" cl="aaa" t="541221e0" rh="3c510510">
+                <sig id="21" v="AIEBYpzZ+1wtTyrDX9CDIpZCNDfe7aMzxYWCRPtkq+N3A3V0FgFLurIRZl2SRa9S+EfYfM1fHfiW9+7y7V8+MA4yXzaW05QTs7QQl8m3EdGbZYzUfWsX03jc7FPnFUv2rQ6jHxxyvIiO+c/h5p+u8+fLsVtf16BM+KZrLWmKJY6dDX0=" />
+            </f>
+            <f n="notes/english/util.js" ul="200" ct="1" cl="d3" t="541221e0" rh="d6582514">
+                <sig id="21" v="AIEB5xwco2upaFJx6yyLs4xL1+WBSoK9OxZi+GClIHx1I27mjVZQFaE4KdK74ETp8WubuU/6kMaBnbXipnqOrXsmvQjc/4IAc23f6dXogPRHiman3lwg8ei6OYdES2s4nKhRPYwBKyOC2p+8bzEy3vUs3QTIV6WntQk26IQ8uv/tsbs=" />
+            </f>
+            <f n="notes/english/patcher_bg-tile.jpg" ul="9a7e" t="541221e0" rh="7bf5054e">
+                <sig id="21" v="AIAHN1NYa6vV7RFIjwiqVe33RRhCRjgpfgeJvw8iuuyMT5/Wldl5v6nY3/L8YSxPEdksUGI/H/2k7Jr1L+fVcMKOg01+udl8dU4aSxb25mQPbuwgj8+PhWkABO7iHaZuzYoywbg3BuMAd/X9yPgHzsL7hmSGiYep713oj9n1eTtA7A==" />
+            </f>
+            <f n="notes/japanese/readme_files/colorschememapping.xml" ul="139" ct="1" cl="c6" t="541221e0" rh="5dda8ecb">
+                <sig id="21" v="AIEBLRw7RFaiD7NDElGIEE1rVq1FAZG0Q+FO+0eNWdUHE25AME6bYUErXSKf7guGdx5AUxAwSfCYX668pChnmS3zHs2c5rnzgHk9tGgs2TVlxAu/tV2AJiUOz8NmXZi6+rCwHCHzJbVVFGYDlMKM+GVEx957bKFNmMVdtyFbQYj0IyU=" />
+            </f>
+            <f n="notes/korean/patcher_ad.jpg" ul="819e" t="541221e0" rh="f3487d75">
+                <sig id="21" v="AIEBa3E6WPIeTcFFlZA5PifdGUFBsU2L6LE934GEwn+fe1n7T2EpGfMMOjtdIBdRh9YX1nJyuzYnLQyLwAFNZy/oEZXq6Kjx2WWp0KNW4RWf6p1BPftt5pXBFc155Kh4hpfA2ED6PJtWIxcW+l9HP9fR0cyUrhh6v3vdzM4yuF6A+mA=" />
+            </f>
+            <f n="notes/t_chinese/patcher.css" ul="1ac8" ct="1" cl="5ef" t="541221e0" rh="e6376b04">
+                <sig id="21" v="AIAGroLVrm9lBPAdcdpz+egzOvNyHXvjFX8swEIMR1Asz9PORtmO0y9S4MYSbE9DsVNtSC0May/tLwYrF2oStVgGrN8gQKWf+x85Jt62IqeXsEzNUSKzBV7VuPe0BZZ8daqZ+exYJjqwELSbyfnwjKkw8vnp2zzI9AHIOWUyYTl9zg==" />
+            </f>
+            <f n="notes/japanese/readme_files/themedata.thmx" ul="c09" ct="1" cl="aaa" t="541221e0" rh="3c510510">
+                <sig id="21" v="AIEBYpzZ+1wtTyrDX9CDIpZCNDfe7aMzxYWCRPtkq+N3A3V0FgFLurIRZl2SRa9S+EfYfM1fHfiW9+7y7V8+MA4yXzaW05QTs7QQl8m3EdGbZYzUfWsX03jc7FPnFUv2rQ6jHxxyvIiO+c/h5p+u8+fLsVtf16BM+KZrLWmKJY6dDX0=" />
+            </f>
+            <f n="notes/japanese/readme_files/filelist.xml" ul="cc" ct="1" cl="89" t="541221e0" rh="43dfa0d3">
+                <sig id="21" v="AIEBaKxn6aRg8Wn3dcLfcpg7JwQLlF6MvbwvdvupqfMrmZ2GWYlJwTwGSlSQ/ADu953YHHJm7nOxh46A6bhnH+iLoTI/7MaVqCE/PqMR7nJ9Tp/NKYcCXk4C9e7VQXye/scEBiGLYnTwOUpMFrgmm4+DRv6DbGYtchvv+noHm1inAPk=" />
+            </f>
+            <f n="notes/korean/readme_files/colorschememapping.xml" ul="139" ct="1" cl="c6" t="541221e0" rh="5dda8ecb">
+                <sig id="21" v="AIEBLRw7RFaiD7NDElGIEE1rVq1FAZG0Q+FO+0eNWdUHE25AME6bYUErXSKf7guGdx5AUxAwSfCYX668pChnmS3zHs2c5rnzgHk9tGgs2TVlxAu/tV2AJiUOz8NmXZi6+rCwHCHzJbVVFGYDlMKM+GVEx957bKFNmMVdtyFbQYj0IyU=" />
+            </f>
+            <f n="notes/t_chinese/button.jpg" ul="627" ct="1" cl="5c1" t="541221e0" rh="54fba1bc">
+                <sig id="21" v="AIB81taIjO31Q627KmjrJqRLrW/kSqVFE5f/cmoFjdF0rVZvRHiFEv2AZt9p9XtDbUrrgYBM2u097kK5MUwdukxk4xQKo02JefjKV6ZPfWdJ6GNHH550558MPpCOBzVvN8Oq7hAvUWjB/erfIugAuOnt8sGjfyAvqf3kN0eYqaj+GQ==" />
+            </f>
+            <f n="notes/t_chinese/util.js" ul="200" ct="1" cl="d3" t="541221e0" rh="d6582514">
+                <sig id="21" v="AIEB5xwco2upaFJx6yyLs4xL1+WBSoK9OxZi+GClIHx1I27mjVZQFaE4KdK74ETp8WubuU/6kMaBnbXipnqOrXsmvQjc/4IAc23f6dXogPRHiman3lwg8ei6OYdES2s4nKhRPYwBKyOC2p+8bzEy3vUs3QTIV6WntQk26IQ8uv/tsbs=" />
+            </f>
+            <f n="notes/t_chinese/readme_files/themedata.thmx" ul="c09" ct="1" cl="aaa" t="541221e0" rh="3c510510">
+                <sig id="21" v="AIEBYpzZ+1wtTyrDX9CDIpZCNDfe7aMzxYWCRPtkq+N3A3V0FgFLurIRZl2SRa9S+EfYfM1fHfiW9+7y7V8+MA4yXzaW05QTs7QQl8m3EdGbZYzUfWsX03jc7FPnFUv2rQ6jHxxyvIiO+c/h5p+u8+fLsVtf16BM+KZrLWmKJY6dDX0=" />
+            </f>
+            <f n="notes/t_chinese/patcher_ad.jpg" ul="819e" t="541221e0" rh="f3487d75">
+                <sig id="21" v="AIEBa3E6WPIeTcFFlZA5PifdGUFBsU2L6LE934GEwn+fe1n7T2EpGfMMOjtdIBdRh9YX1nJyuzYnLQyLwAFNZy/oEZXq6Kjx2WWp0KNW4RWf6p1BPftt5pXBFc155Kh4hpfA2ED6PJtWIxcW+l9HP9fR0cyUrhh6v3vdzM4yuF6A+mA=" />
+            </f>
+            <f n="notes/japanese/patcher_bg-main_with-ad-border.jpg" ul="4249" ct="1" cl="39b4" t="541221e0" rh="7884be80">
+                <sig id="21" v="AICcn61kcegAAOui35eDmR4o2Q2OOPkVAasXJxuc7vIWFdid33PhkRebRs6s2e1DadErjPXY3/Lw0T+bfo549KnPHNa6EPzUWb0+wPKr+HWoqqzrhY3z9OEQAje4tZ1mmZC3NpNucffL9J/P8xfbr+t5J7+anUon9IfreJSfpSdOPg==" />
+            </f>
+            <f n="notes/t_chinese/readme_files/filelist.xml" ul="cc" ct="1" cl="89" t="541221e0" rh="43dfa0d3">
+                <sig id="21" v="AIEBaKxn6aRg8Wn3dcLfcpg7JwQLlF6MvbwvdvupqfMrmZ2GWYlJwTwGSlSQ/ADu953YHHJm7nOxh46A6bhnH+iLoTI/7MaVqCE/PqMR7nJ9Tp/NKYcCXk4C9e7VQXye/scEBiGLYnTwOUpMFrgmm4+DRv6DbGYtchvv+noHm1inAPk=" />
+            </f>
+            <f n="notes/korean/patcher.css" ul="1ac8" ct="1" cl="5ef" t="541221e0" rh="e6376b04">
+                <sig id="21" v="AIAGroLVrm9lBPAdcdpz+egzOvNyHXvjFX8swEIMR1Asz9PORtmO0y9S4MYSbE9DsVNtSC0May/tLwYrF2oStVgGrN8gQKWf+x85Jt62IqeXsEzNUSKzBV7VuPe0BZZ8daqZ+exYJjqwELSbyfnwjKkw8vnp2zzI9AHIOWUyYTl9zg==" />
+            </f>
+            <f n="notes/english/patcher_ad.jpg" ul="819e" t="541221e0" rh="f3487d75">
+                <sig id="21" v="AIEBa3E6WPIeTcFFlZA5PifdGUFBsU2L6LE934GEwn+fe1n7T2EpGfMMOjtdIBdRh9YX1nJyuzYnLQyLwAFNZy/oEZXq6Kjx2WWp0KNW4RWf6p1BPftt5pXBFc155Kh4hpfA2ED6PJtWIxcW+l9HP9fR0cyUrhh6v3vdzM4yuF6A+mA=" />
+            </f>
+            <f n="notes/korean/button_read-more.gif" ul="4f6" ct="1" cl="46e" t="541221e0" rh="ccb3696a">
+                <sig id="21" v="AIAeMOvWMcynJFPikkU5K6/5RMF57gfsUIzIReP/fE4EIsy6tZu/yYPKQ+wThpvcc9m/NOQABbMX5LqJfhR4ZAkRIgSeiphFHizOpeF/haOzEzLqg6Z9HpdbQn09RuLrONMo5WcrY4eaDI0YAi8euXiD9SpgeTaFZAM50Nee//4gcw==" />
+            </f>
+            <f n="notes/korean/readme.html" ul="830" ct="1" cl="360" t="541221e0" rh="20eebe5a">
+                <sig id="21" v="AIAdD16YbR0n7aOPUeucpiy9Vpzmzau4guRDfCba9xH95Z6buWrcm7iQatJIHP+Ozl6C3/LJuuujPAOevhJRlYhjZ9kJJTuPCqkgD5RUnEerstK2jEFAJZNLR2Bov/PkrgOvBmyBJiiqSxYzerpuvrN4lb3x6UGq3AAuE6dYL6QWmw==" />
+            </f>
+            <f n="notes/korean/readme.xml" ul="aeaa" ct="1" cl="1b5a" t="541221e0" rh="6b1c860d">
+                <sig id="21" v="AIAH0Cwyx00zV4TsLaHyHdIruPyFDtPWU7hDiiJGmL5MWaGqY1hIaaOyB2uN8Bi9aMXfNINKKqJVCVOLx8ZmNTA81OiymkgTdjmHFFKFrzLdcGtD7av/Yn98NnzY6LufHHc4U2b51aEZA3DzOBNV2hnL1c3GsWSP/t+v/TAOape12Q==" />
+            </f>
+            <f n="notes/japanese/readme.html" ul="872" ct="1" cl="3a0" t="541221e0" rh="4e901821">
+                <sig id="21" v="AIBuFuKjdEYx/a2CBUYjHDF9iIqroBxFvoHIuAashBpX96M7+o7yLzUcbli3FbFigD6JY7hhMRyhhexPpvG/lt69hmc3BjUSy3+jW3qPLl+yBb/LD4Y4LdYp23eQ7ZuspFNaUWaRhI6//zsKMgrJBSCTSqYcOmT4qI/2t6GJhIpULg==" />
+            </f>
+            <f n="notes/japanese/button_read-more.gif" ul="4f6" ct="1" cl="46e" t="541221e0" rh="ccb3696a">
+                <sig id="21" v="AIAeMOvWMcynJFPikkU5K6/5RMF57gfsUIzIReP/fE4EIsy6tZu/yYPKQ+wThpvcc9m/NOQABbMX5LqJfhR4ZAkRIgSeiphFHizOpeF/haOzEzLqg6Z9HpdbQn09RuLrONMo5WcrY4eaDI0YAi8euXiD9SpgeTaFZAM50Nee//4gcw==" />
+            </f>
+        </files>
+    </manifest>
+</MythicMFT>
