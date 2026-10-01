@@ -414,6 +414,7 @@ namespace Dolzore.Editor
                 mat = new Material(shader) { name = name };
                 AssetDatabase.CreateAsset(mat, path);
             }
+            mat.shader = shader;
             Texture2D tex = AssetDatabase.LoadAssetAtPath<Texture2D>(TextureDir + "/" + textureFile);
             mat.color = Color.white;
             mat.mainTexture = tex;
@@ -436,6 +437,7 @@ namespace Dolzore.Editor
                 mat = new Material(shader) { name = name };
                 AssetDatabase.CreateAsset(mat, path);
             }
+            mat.shader = shader;
             mat.color = Hex(html);
             if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", Hex(html));
             if (mat.HasProperty("_Metallic")) mat.SetFloat("_Metallic", metallic);
