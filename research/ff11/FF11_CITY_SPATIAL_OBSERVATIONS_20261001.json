@@ -1,0 +1,74 @@
+{
+  "schema": "dolzore.ff11.city_spatial_observations.v1",
+  "observed_at_jst": "2026-10-01",
+  "source_class": "EMULATOR_REFERENCE",
+  "source_repository": "LandSandBoat/server",
+  "source_commit_observed": "c4ca574ed76506981f402907fc54a87bd8dfb6ac",
+  "method": "GitHub code-search extraction of NPC !pos coordinates plus zone NPC-script directory counts. Coordinate samples are not exhaustive retail populations and are not treated as official Square Enix map geometry.",
+  "cities": [
+    {
+      "zone": "Bastok_Markets",
+      "zone_id": 235,
+      "npc_script_files": 53,
+      "observed_coordinate_points": 38,
+      "x_span": 301.10,
+      "z_span": 243.60,
+      "vertical_span": 18.00,
+      "median_nearest_npc_distance": 7.15,
+      "q25_nearest_npc_distance": 4.16,
+      "q75_nearest_npc_distance": 17.47,
+      "observed_coordinate_density_per_10000_bbox_units": 5.18
+    },
+    {
+      "zone": "Southern_San_dOria",
+      "zone_id": 230,
+      "npc_script_files": 98,
+      "observed_coordinate_points": 49,
+      "x_span": 344.49,
+      "z_span": 256.92,
+      "vertical_span": 13.00,
+      "median_nearest_npc_distance": 10.00,
+      "q25_nearest_npc_distance": 4.88,
+      "q75_nearest_npc_distance": 19.21,
+      "observed_coordinate_density_per_10000_bbox_units": 5.54
+    },
+    {
+      "zone": "Windurst_Waters",
+      "zone_id": 238,
+      "npc_script_files": 78,
+      "observed_coordinate_points": 43,
+      "x_span": 415.86,
+      "z_span": 547.12,
+      "vertical_span": 11.75,
+      "median_nearest_npc_distance": 7.28,
+      "q25_nearest_npc_distance": 3.95,
+      "q75_nearest_npc_distance": 23.16,
+      "observed_coordinate_density_per_10000_bbox_units": 1.89
+    },
+    {
+      "zone": "Lower_Jeuno",
+      "zone_id": 245,
+      "npc_script_files": 57,
+      "observed_coordinate_points": 24,
+      "x_span": 165.85,
+      "z_span": 251.40,
+      "vertical_span": 39.92,
+      "median_nearest_npc_distance": 6.40,
+      "q25_nearest_npc_distance": 3.88,
+      "q75_nearest_npc_distance": 17.26,
+      "observed_coordinate_density_per_10000_bbox_units": 5.76
+    }
+  ],
+  "cross_city_readback": {
+    "nearest_npc_median_band": [6.40, 10.00],
+    "nearest_npc_q25_band": [3.88, 4.88],
+    "nearest_npc_q75_band": [17.26, 23.16],
+    "interpretation": "Core inhabited streets commonly support roughly 6-10 coordinate-units between nearby NPC anchors, while wider/quiet areas can exceed 17-23. Windurst Waters demonstrates that low-density spacious districts can coexist with clustered social nodes."
+  },
+  "caveats": [
+    "LandSandBoat is an emulator/reference implementation, not leaked retail server code.",
+    "NPC coordinates may originate from retail captures/community verification but must retain emulator-reference provenance here.",
+    "Observed coordinate samples are incomplete because only files surfaced by code search with !pos comments are counted.",
+    "No FF11 protected map/model/texture/audio asset body is copied into DOLZORE."
+  ]
+}
