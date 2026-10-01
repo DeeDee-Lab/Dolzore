@@ -1,4 +1,35 @@
 # DOLZORE HANDOFF — CURRENT STATE
+# 2026-10-01 HARD USER-VISIBLE VISUAL GATE
+
+Direct-user correction:
+**Do not show the user a visual candidate before opening the actual generated artifact and checking it visually.**
+
+Mandatory authority:
+- `design/USER_VISIBLE_VISUAL_REVIEW_GATE.md`
+- `design/FIRSTTOWN_V7_POSTMORTEM_20261001.md`
+
+For FirstTown and every DOLZORE user-visible visual:
+1. technical/build PASS is not visual PASS;
+2. open the exact generated image/artifact bytes;
+3. compare directly with required original/reference evidence;
+4. record concrete mismatches;
+5. persist visual-review receipt;
+6. if visual decision is FAIL, do not present it to the user as a candidate;
+7. only a visual PASS may be shown for user acceptance;
+8. explicit user acceptance remains separate.
+
+Current FirstTown V7 ruling:
+- run `36723025197`: TECHNICAL_PASS
+- VISUAL_PASS=false
+- USER_VISIBLE_READY=false
+- USER_ACCEPTED=false
+- V7 is rejected evidence, not a candidate.
+
+The user instruction was already clear before V7. Failure to execute the manual visual review was a process violation.
+A third same-method small corrective patch after repeated visual failure is forbidden; change the visual production method/base composition.
+
+---
+
 Authority: 2026-09-29 20:53 JST
 Purpose: allow the next agent to resume from one short instruction without re-deriving project intent.
 
