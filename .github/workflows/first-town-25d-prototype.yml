@@ -105,6 +105,17 @@ jobs:
           $hash = (Get-FileHash (Join-Path $project "BuildArtifacts\first-town-25d.png") -Algorithm SHA256).Hash.ToLowerInvariant()
           Write-Host "DOLZORE_25D_SCREENSHOT_SHA256=$hash"
 
+      - name: Upload 2.5D visual receipt early
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-first-town-25d-preview
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            game/unity/Dolzore/BuildArtifacts/first-town-25d.png
+            game/unity/Dolzore/BuildArtifacts/first-town-25d-receipt.json
+            game/unity/Dolzore/Assets/Scenes/FirstTown25DPrototype.unity
+
       - name: Build 2.5D WebGL
         shell: powershell
         run: |
