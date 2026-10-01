@@ -615,3 +615,50 @@ IMPLEMENTATION IMPACT:
 
 NEXT ACTION:
 Continue evidence ingestion by domain, append atomic JSONL facts, and implement only DOLZORE-original structures after evidence/design separation.
+
+
+---
+
+## 2026-10-01 — Full 3D production direction
+
+DECISION:
+DOLZORE's production game/world moves from Unity 2D / experimental 2.5D to a **true 3D world and character pipeline**.
+
+WHY:
+- repeated 2D visual iterations failed the user's quality bar;
+- 2.5D improved depth but remained visibly constrained/cheap at prototype level;
+- direct FF11 client research now makes 3D measurements/skeleton/animation/world-scale analysis materially useful;
+- 3D better supports long-term avatar customization, equipment, housing, social/MMO spaces, interiors, cutscenes and reusable animation;
+- the existing FF11-derived internal RPG core is presentation-independent and does not need to be discarded.
+
+SUPERSEDES:
+- Unity 2D as the production game/world layer;
+- the 2.5D prototype as a candidate production direction.
+
+DO NOT DISCARD:
+- 2D and 2.5D branches/artifacts remain regression/reference evidence;
+- internal RPG math/data/persistence/IDs remain canonical;
+- FirstTown district/function requirements remain canonical.
+
+IMPLEMENTATION IMPACT:
+- move player/NPC/world runtime to 3D transforms, 3D rigs, Animator, 3D colliders and NavMesh;
+- build original modular 3D avatar/equipment system;
+- use FF11 client data for factual/measurement/reference extraction, not for shipping copied protected assets;
+- prefer Unity 6 URP for the new 3D presentation lane, with WebGL-safe settings and measured performance gates;
+- keep the initial camera controlled for readability; free-camera capability can be evaluated after the first benchmark.
+
+NEXT ACTION:
+Create a production-direction 3D benchmark before rebuilding the full FirstTown:
+1. original rigged player avatar;
+2. idle/walk/run/interact animations;
+3. 2–3 authored buildings + one interior;
+4. roads/sidewalks/vegetation/props;
+5. two NavMesh NPCs;
+6. equipment attachment proof;
+7. lighting/shadows;
+8. WebGL build/performance receipt;
+9. manual visual review.
+
+`UNITY_3D_ACTIVE=true`
+`FIRST_TOWN_COMPLETE=false`
+`NO_FALSE_COMPLETION=true`
