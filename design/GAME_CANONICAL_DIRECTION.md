@@ -12,6 +12,8 @@ Read this before re-analyzing engine, art direction, combat math, or progression
 
 **Simulation: deep FFXI-derived RPG foundation with original DOLZORE names, content, data, tuning and formulas where retail-exact values are not proven.**
 
+**World structure: UO-derived persistent sandbox/shared-world macrostructure with original DOLZORE rules, content, economy, property, social systems and risk profiles.**
+
 Unity 2D is the active game engine.
 
 ## 1. Copyright/originality boundary
@@ -56,6 +58,31 @@ Do NOT copy:
 - DAT content;
 - server code/protocol payloads;
 - unverified retail constants represented as facts.
+
+Learn from Ultima Online:
+- persistent shard/world/ruleset separation;
+- persistent world objects and containers;
+- skill-driven freedom for life/sandbox activities;
+- player housing/property/security/customization;
+- gathering -> crafting -> item use/repair -> player commerce loops;
+- player vendors and house-based shops;
+- crime/notoriety/death/corpse/risk as configurable world rules;
+- pets/taming/animal-training structures;
+- proximity communication plus party/guild/alliance channels;
+- open-world travel and player-owned ships;
+- public world events;
+- server-authoritative persistence thinking.
+
+Do NOT copy:
+- UO maps/town/dungeon layouts;
+- sprites, tiles, animations, gumps or UI art;
+- music/audio/dialogue/lore;
+- distinctive characters/factions/creatures or branded presentation;
+- exact historical/current UO rules as DOLZORE defaults without an explicit design decision;
+- retail protocol/server implementation claims not proven by official evidence;
+- emulator code without separate license review and explicit reuse decision.
+
+UO evidence MUST remain era/ruleset scoped. Launch-era, Renaissance, pre-AoS, Age of Shadows+, modern production, New Legacy and Siege/Mugen rules must not be merged into one timeless UO specification.
 
 ## 2. Internal base stats
 
@@ -392,10 +419,11 @@ the next agent must:
 4. read `design/FF11_DERIVED_UNITY_ARCHITECTURE.md`;
 5. read `research/ff11/AGENT_READ_FIRST.md`;
 6. read `research/ff11/FF11_REFERENCE_SPEC_V1.json`;
-7. read latest Dolzore Issue #3 and #25 checkpoints;
-8. fresh-read active Unity branch;
-9. continue from the newest green run/commit;
-10. never restart analysis from zero unless the newest user authority explicitly changes direction.
+7. read `research/uo/AGENT_READ_FIRST.md` and its source/era/fact corpus;
+8. read latest Dolzore Issue #3, #25 and #27 checkpoints;
+9. fresh-read active Unity branch;
+10. continue from the newest green run/commit;
+11. never restart analysis from zero unless the newest user authority explicitly changes direction.
 
 Priority conflict order:
 1. newest explicit user instruction;
