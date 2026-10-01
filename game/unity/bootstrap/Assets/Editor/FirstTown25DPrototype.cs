@@ -112,8 +112,8 @@ namespace Dolzore.Editor
             CreateTree(new Vector3(8.1f, 0f, 10.3f), trunk, leaf, leafLight, 1.15f);
             CreateTree(new Vector3(-8.1f, 0f, -10.7f), trunk, leaf, leafLight, 0.95f);
             CreateTree(new Vector3(8.0f, 0f, -10.6f), trunk, leaf, leafLight, 1.0f);
-            CreateTree(new Vector3(-19.8f, 0f, -1.0f), trunk, leaf, leafLight, 1.2f);
-            CreateTree(new Vector3(19.6f, 0f, 1.0f), trunk, leaf, leafLight, 1.2f);
+            CreateTree(new Vector3(-18.3f, 0f, -8.1f), trunk, leaf, leafLight, 1.05f);
+            CreateTree(new Vector3(18.1f, 0f, 8.3f), trunk, leaf, leafLight, 1.05f);
 
             CreateStreetLamp(new Vector3(-6.3f, 0f, 6.1f), metal, lampGlow);
             CreateStreetLamp(new Vector3(6.3f, 0f, 6.1f), metal, lampGlow);
@@ -293,6 +293,7 @@ namespace Dolzore.Editor
 
         private static GameObject CreateBuilding(string name, Vector3 ground, Vector3 size, Material wall, Material roof, Material trim, Material win, bool shop, Vector3 front)
         {
+            AssertStaticPlacementOffRoad("BUILDING:" + name, ground, size.x * 0.5f + 0.15f, size.z * 0.5f + 0.15f);
             var root = new GameObject(name);
             root.transform.position = ground;
 
@@ -343,6 +344,7 @@ namespace Dolzore.Editor
 
         private static void CreateTree(Vector3 position, Material trunk, Material leaf, Material leafLight, float scale)
         {
+            AssertStaticPlacementOffRoad("TREE", position, 1.2f * scale, 1.2f * scale);
             var root = new GameObject("Tree");
             root.transform.position = position;
             var stem = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
@@ -369,6 +371,7 @@ namespace Dolzore.Editor
 
         private static void CreateStreetLamp(Vector3 position, Material metal, Material glow)
         {
+            AssertStaticPlacementOffRoad("STREET_LAMP", position, 0.35f, 0.35f);
             var root = new GameObject("StreetLamp");
             root.transform.position = position;
             var pole = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
@@ -381,6 +384,10 @@ namespace Dolzore.Editor
 
         private static void CreateBench(Vector3 position, Vector3 euler, Material wood, Material metal)
         {
+            float yaw = Mathf.Repeat(euler.y, 180f);
+            float halfX = Mathf.Abs(yaw - 90f) < 1f ? 0.45f : 1.2f;
+            float halfZ = Mathf.Abs(yaw - 90f) < 1f ? 1.2f : 0.45f;
+            AssertStaticPlacementOffRoad("BENCH", position, halfX, halfZ);
             var root = new GameObject("Bench");
             root.transform.position = position;
             root.transform.eulerAngles = euler;
@@ -412,6 +419,11 @@ namespace Dolzore.Editor
 
         private static void CreateFenceLine(Vector3 start, int count, Vector3 step, Material mat)
         {
+            Vector3 end = start + step * (count - 1) * 1.1f;
+            Vector3 center = (start + end) * 0.5f;
+            float halfX = Mathf.Abs(end.x - start.x) * 0.5f + 0.2f;
+            float halfZ = Mathf.Abs(end.z - start.z) * 0.5f + 0.2f;
+            AssertStaticPlacementOffRoad("FENCE", center, halfX, halfZ);
             var root = new GameObject("Fence");
             for (int i = 0; i < count; i++)
                 CreateBox("Post_" + i, start + step * i * 1.1f, new Vector3(0.16f, 0.9f, 0.16f), mat, root.transform);
@@ -464,11 +476,32 @@ namespace Dolzore.Editor
 
         private static void CreateSign(string label, Vector3 position, Vector3 euler, Material post, Material face)
         {
+            float yaw = Mathf.Repeat(euler.y, 180f);
+            float halfX = Mathf.Abs(yaw - 90f) < 1f ? 0.2f : 1.2f;
+            float halfZ = Mathf.Abs(yaw - 90f) < 1f ? 1.2f : 0.2f;
+            AssertStaticPlacementOffRoad("SIGN:" + label, position, halfX, halfZ);
             var root = new GameObject("Sign_" + label.Replace(" ", "_"));
             root.transform.position = position;
             root.transform.eulerAngles = euler;
             CreateBox("Post", new Vector3(0f, 0f, 0f), new Vector3(0.12f, 2.4f, 0.12f), post, root.transform);
             CreateBox("Panel", new Vector3(0f, 1.15f, 0f), new Vector3(2.2f, 0.85f, 0.18f), face, root.transform);
+        }
+
+
+        private static void AssertStaticPlacementOffRoad(string label, Vector3 center, float halfX, float halfZ)
+        {
+            const float roadHalfWidth = 3.9f;
+            bool intersectsNorthSouthRoad = Mathf.Abs(center.x) - halfX < roadHalfWidth;
+            bool intersectsEastWestRoad = Mathf.Abs(center.z) - halfZ < roadHalfWidth;
+
+            if (intersectsNorthSouthRoad || intersectsEastWestRoad)
+            {
+                throw new InvalidOperationException(
+                    "DOLZORE_25D_STATIC_OBJECT_ON_ROAD:" + label +
+                    ":center=(" + center.x.ToString("0.00") + "," + center.z.ToString("0.00") + ")" +
+                    ":half=(" + halfX.ToString("0.00") + "," + halfZ.ToString("0.00") + ")" +
+                    ":roadHalfWidth=" + roadHalfWidth.ToString("0.00"));
+            }
         }
 
         private static void Render(Camera camera, string path, int width, int height)
