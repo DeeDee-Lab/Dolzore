@@ -582,3 +582,36 @@ A future agent must resume from **Gameひきついで** without requiring the us
 
 NEXT:
 Finish Unity internal-rule compile/tests, then continue First Town visual-quality pass without enabling combat gameplay prematurely.
+
+
+---
+
+## 2026-10-01 — Ultima Online major structural reference layer
+
+DECISION:
+Ultima Online becomes a major structural reference layer for DOLZORE's persistent sandbox/shared-world architecture.
+
+REFERENCE LAYER SPLIT:
+- MOTHER2: exterior presentation/readability/ordinary-town atmosphere reference;
+- FFXI: combat/stat/vocation/progression reference;
+- UO: persistent world, object/container, property/housing, economy/crafting, player commerce, crime/notoriety/death risk, pets/taming, social communication, travel/ships, world events and shard/ruleset structure reference.
+
+WHY:
+The user explicitly requires UO to be analyzed across all elements and made usable as a primary structural foundation, while preserving source facts without lossy handoff.
+
+EVIDENCE RULE:
+- UO is not one timeless ruleset;
+- every factual record carries era/ruleset/publish/source metadata;
+- official current, official historical, New Legacy, community research and emulator implementation evidence remain separate;
+- unknown retail internals remain unknown rather than inferred from ModernUO/ServUO;
+- copyrighted source text/images/audio/assets are not republished as a substitute for originals; preserve original source/media references and provenance.
+
+IMPLEMENTATION IMPACT:
+- add `research/uo/` canonical corpus;
+- reserve data-driven world/ruleset/property/economy/social/persistence boundaries now;
+- do not replace the accepted FFXI-derived combat core unless later explicitly directed;
+- do not redraw First Town into UO visual style;
+- Unity remains active client/game engine.
+
+NEXT ACTION:
+Continue evidence ingestion by domain, append atomic JSONL facts, and implement only DOLZORE-original structures after evidence/design separation.
