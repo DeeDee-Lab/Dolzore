@@ -273,9 +273,17 @@ namespace Dolzore.Editor
         {
             var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
             go.name = name;
-            go.transform.position = position;
+            if (parent != null)
+            {
+                go.transform.SetParent(parent, false);
+                go.transform.localPosition = position;
+                go.transform.localRotation = Quaternion.identity;
+            }
+            else
+            {
+                go.transform.position = position;
+            }
             go.transform.localScale = scale;
-            if (parent != null) go.transform.SetParent(parent, true);
             var r = go.GetComponent<Renderer>();
             r.sharedMaterial = mat;
             r.shadowCastingMode = ShadowCastingMode.On;
