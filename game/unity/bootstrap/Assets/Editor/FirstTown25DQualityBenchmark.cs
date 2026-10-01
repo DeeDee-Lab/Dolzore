@@ -54,15 +54,11 @@ namespace Dolzore.Editor
             QualitySettings.shadowDistance = 80f;
             QualitySettings.antiAliasing = 4;
             RenderSettings.ambientMode = AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor = Hex("#CFE4E5");
-            RenderSettings.ambientEquatorColor = Hex("#D8D1BD");
-            RenderSettings.ambientGroundColor = Hex("#6E7669");
-            RenderSettings.ambientIntensity = 0.78f;
-            RenderSettings.fog = true;
-            RenderSettings.fogColor = Hex("#C7D9D8");
-            RenderSettings.fogMode = FogMode.Linear;
-            RenderSettings.fogStartDistance = 38f;
-            RenderSettings.fogEndDistance = 74f;
+            RenderSettings.ambientSkyColor = Hex("#B8CED2");
+            RenderSettings.ambientEquatorColor = Hex("#C8C1AE");
+            RenderSettings.ambientGroundColor = Hex("#566157");
+            RenderSettings.ambientIntensity = 0.56f;
+            RenderSettings.fog = false;
 
             Material grass = TexturedMat("Q_Grass", "grass.png", 0f, 0.14f, new Vector2(8f, 8f));
             Material grassDeep = TexturedMat("Q_GrassDeep", "grass_deep.png", 0f, 0.12f, new Vector2(6f, 6f));
@@ -148,6 +144,9 @@ namespace Dolzore.Editor
             CreateHydrant(new Vector3(-16.7f, 0f, -0.2f), burgundy, metal);
             CreateTrashCan(new Vector3(1.1f, 0f, 0.1f), metal);
             CreateBikeRack(new Vector3(3.1f, 0f, 1.1f), metal);
+            CreateMailbox(new Vector3(-2.9f, 0f, 1.15f), trimDark, trimWarm);
+            CreateStreetSign(new Vector3(4.75f, 0f, 1.05f), metal, trimWarm);
+            CreateUtilityBox(new Vector3(-12.1f, 0f, 1.2f), metal, trimDark);
             CreateStormDrain(new Vector3(-14f, 0.15f, -2.05f), metal);
             CreateStormDrain(new Vector3(1.5f, 0.15f, -2.05f), metal);
             CreateManhole(new Vector3(-3.0f, 0.16f, -5.1f), metal);
@@ -158,20 +157,20 @@ namespace Dolzore.Editor
             CreateChibi("MELO", new Vector3(-0.3f, 0f, -0.25f), burgundy, shoe, skin, hair, shoe, false, 1);
             CreateChibi("YUZU", new Vector3(4.2f, 0f, 1.25f), mustard, denim, skin, hair, shoe, false, 2);
 
-            CreateDirectionalLight("Sun", Hex("#FFF0D8"), 1.18f, new Vector3(48f, -38f, 0f), true);
-            CreateDirectionalLight("Sky Fill", Hex("#BFD9ED"), 0.24f, new Vector3(58f, 145f, 0f), false);
+            CreateDirectionalLight("Sun", Hex("#FFE6C4"), 1.28f, new Vector3(50f, -42f, 0f), true);
+            CreateDirectionalLight("Sky Fill", Hex("#BAD1E4"), 0.16f, new Vector3(58f, 145f, 0f), false);
 
             GameObject camGo = new GameObject("Main Camera");
             camGo.tag = "MainCamera";
             Camera cam = camGo.AddComponent<Camera>();
             cam.orthographic = false;
-            cam.fieldOfView = 27.5f;
+            cam.fieldOfView = 30.5f;
             cam.nearClipPlane = 0.1f;
             cam.farClipPlane = 140f;
             cam.backgroundColor = Hex("#C7D9D8");
             cam.clearFlags = CameraClearFlags.SolidColor;
-            cam.transform.position = new Vector3(29f, 24f, -31f);
-            cam.transform.rotation = Quaternion.LookRotation(new Vector3(-1.5f, 2.4f, 3.2f) - cam.transform.position, Vector3.up);
+            cam.transform.position = new Vector3(30f, 22f, -34f);
+            cam.transform.rotation = Quaternion.LookRotation(new Vector3(1.5f, 2.3f, 3.4f) - cam.transform.position, Vector3.up);
             camGo.AddComponent<AudioListener>();
 
             Selection.activeGameObject = player;
@@ -465,6 +464,8 @@ namespace Dolzore.Editor
             CreateWindow(root.transform, new Vector3(w * 0.28f, 1.55f, frontZ - 0.06f), glass, trim, 1.5f, 1.45f);
             CreateWindow(root.transform, new Vector3(-w * 0.25f, 3.55f, frontZ - 0.04f), glass, trim, 1.15f, 1.05f);
             CreateWindow(root.transform, new Vector3(w * 0.25f, 3.55f, frontZ - 0.04f), glass, trim, 1.15f, 1.05f);
+            CreateSideWindow(root.transform, new Vector3(w * 0.505f, 1.65f, -d * 0.10f), glass, trim, 1.25f, 1.25f);
+            CreateSideWindow(root.transform, new Vector3(w * 0.505f, 3.55f, d * 0.18f), glass, trim, 1.05f, 0.95f);
 
             if (awning)
             {
@@ -495,6 +496,8 @@ namespace Dolzore.Editor
             CreateBox("BrickSkirt", new Vector3(0f, 0.65f, frontZ - 0.025f), new Vector3(w * 0.95f, 1.05f, 0.12f), brick, root.transform);
             CreateWindow(root.transform, new Vector3(-w * 0.24f, 3.1f, frontZ - 0.07f), glass, trim, 1.25f, 0.95f);
             CreateWindow(root.transform, new Vector3(w * 0.24f, 3.1f, frontZ - 0.07f), glass, trim, 1.25f, 0.95f);
+            CreateSideWindow(root.transform, new Vector3(w * 0.505f, 1.50f, -d * 0.12f), glass, trim, 1.45f, 1.25f);
+            CreateSideWindow(root.transform, new Vector3(w * 0.505f, 3.05f, d * 0.18f), glass, trim, 1.15f, 0.90f);
             AddCornerPosts(root.transform, w, d, h, trim);
             CreateGableRoof(root.transform, w, d, h + 0.35f, roof, trim);
             CreateSignPanel(root.transform, label, new Vector3(-w * 0.18f, 2.55f, frontZ - 0.15f), new Vector3(w * 0.48f, 0.58f, 0.14f), trim, wall);
@@ -518,6 +521,8 @@ namespace Dolzore.Editor
             CreateWindow(root.transform, new Vector3(-w * 0.24f, 1.7f, frontZ - 0.06f), glass, trim, 1.45f, 1.35f);
             CreateWindow(root.transform, new Vector3(-w * 0.24f, 3.75f, frontZ - 0.06f), glass, trim, 1.25f, 1.1f);
             CreateWindow(root.transform, new Vector3(w * 0.24f, 3.75f, frontZ - 0.06f), glass, trim, 1.25f, 1.1f);
+            CreateSideWindow(root.transform, new Vector3(w * 0.505f, 1.70f, -d * 0.10f), glass, trim, 1.35f, 1.25f);
+            CreateSideWindow(root.transform, new Vector3(w * 0.505f, 3.85f, d * 0.16f), glass, trim, 1.10f, 1.00f);
             CreateBox("PorchRoof", new Vector3(w * 0.22f, 2.75f, frontZ - 0.75f), new Vector3(2.6f, 0.22f, 1.45f), roof, root.transform);
             CreateBox("PorchPostL", new Vector3(w * 0.22f - 1.0f, 1.35f, frontZ - 1.1f), new Vector3(0.16f, 2.7f, 0.16f), trim, root.transform);
             CreateBox("PorchPostR", new Vector3(w * 0.22f + 1.0f, 1.35f, frontZ - 1.1f), new Vector3(0.16f, 2.7f, 0.16f), trim, root.transform);
@@ -551,6 +556,16 @@ namespace Dolzore.Editor
             CreateBox("MullionV", p + new Vector3(0f, 0f, -0.17f), new Vector3(0.08f, h, 0.08f), frame, parent);
             CreateBox("MullionH", p + new Vector3(0f, 0f, -0.17f), new Vector3(w, 0.08f, 0.08f), frame, parent);
             CreateBox("Sill", p + new Vector3(0f, -h * 0.55f, -0.12f), new Vector3(w + 0.35f, 0.12f, 0.28f), frame, parent);
+        }
+
+
+        private static void CreateSideWindow(Transform parent, Vector3 p, Material glass, Material frame, float w, float h)
+        {
+            CreateBox("SideWindowFrame", p, new Vector3(0.16f, h + 0.24f, w + 0.24f), frame, parent);
+            CreateBox("SideGlass", p + new Vector3(0.09f, 0f, 0f), new Vector3(0.12f, h, w), glass, parent);
+            CreateBox("SideMullionV", p + new Vector3(0.17f, 0f, 0f), new Vector3(0.08f, h, 0.08f), frame, parent);
+            CreateBox("SideMullionH", p + new Vector3(0.17f, 0f, 0f), new Vector3(0.08f, 0.08f, w), frame, parent);
+            CreateBox("SideSill", p + new Vector3(0.12f, -h * 0.55f, 0f), new Vector3(0.28f, 0.12f, w + 0.35f), frame, parent);
         }
 
         private static void CreateGableRoof(Transform parent, float w, float d, float baseY, Material roof, Material ridge)
@@ -713,6 +728,42 @@ namespace Dolzore.Editor
             propCount++;
         }
 
+
+        private static void CreateMailbox(Vector3 p, Material body, Material accent)
+        {
+            AssertOffRoad("MAILBOX", p, 0.38f, 0.38f);
+            qaChecks++;
+            GameObject root = new GameObject("Mailbox");
+            root.transform.position = p;
+            CreateBox("Post", new Vector3(0f, 0.65f, 0f), new Vector3(0.12f, 1.30f, 0.12f), accent, root.transform);
+            CreateBox("Box", new Vector3(0f, 1.25f, 0f), new Vector3(0.72f, 0.48f, 0.52f), body, root.transform);
+            CreateBox("Slot", new Vector3(0f, 1.28f, -0.28f), new Vector3(0.42f, 0.08f, 0.04f), accent, root.transform);
+            propCount++;
+        }
+
+        private static void CreateStreetSign(Vector3 p, Material pole, Material panel)
+        {
+            AssertOffRoad("STREET_SIGN", p, 0.36f, 0.36f);
+            qaChecks++;
+            GameObject root = new GameObject("StreetSign");
+            root.transform.position = p;
+            CreateCylinder("Pole", new Vector3(0f, 1.35f, 0f), new Vector3(0.08f, 1.35f, 0.08f), pole, root.transform);
+            CreateBox("TopPanel", new Vector3(0f, 2.45f, 0f), new Vector3(1.45f, 0.36f, 0.12f), panel, root.transform);
+            CreateBox("CrossPanel", new Vector3(0f, 2.05f, 0f), new Vector3(0.12f, 0.30f, 1.25f), panel, root.transform);
+            propCount++;
+        }
+
+        private static void CreateUtilityBox(Vector3 p, Material body, Material trim)
+        {
+            AssertOffRoad("UTILITY_BOX", p, 0.58f, 0.42f);
+            qaChecks++;
+            GameObject root = new GameObject("UtilityBox");
+            root.transform.position = p;
+            CreateBox("Cabinet", new Vector3(0f, 0.66f, 0f), new Vector3(1.0f, 1.30f, 0.72f), body, root.transform);
+            CreateBox("Panel", new Vector3(0f, 0.72f, -0.38f), new Vector3(0.72f, 0.72f, 0.06f), trim, root.transform);
+            propCount++;
+        }
+
         private static void CreateStormDrain(Vector3 p, Material metal)
         {
             GameObject root = new GameObject("StormDrain");
@@ -768,15 +819,19 @@ namespace Dolzore.Editor
             CreateSphere("HairCap", new Vector3(0f, 2.36f, 0.04f), new Vector3(0.88f, 0.48f, 0.82f), hair, visual.transform);
             if (hairStyle == 1)
             {
+                CreateBox("SideBag", new Vector3(0.58f, 0.78f, 0.08f), new Vector3(0.34f, 0.50f, 0.24f), bottom, visual.transform);
                 CreateSphere("HairSideL", new Vector3(-0.42f, 2.22f, 0.03f), new Vector3(0.34f, 0.58f, 0.42f), hair, visual.transform);
                 CreateSphere("HairSideR", new Vector3(0.42f, 2.18f, 0.03f), new Vector3(0.22f, 0.42f, 0.34f), hair, visual.transform);
             }
             else if (hairStyle == 2)
             {
+                CreateBox("ScarfFront", new Vector3(0f, 1.58f, -0.31f), new Vector3(0.72f, 0.16f, 0.14f), top, visual.transform);
+                CreateBox("ScarfTail", new Vector3(0.35f, 1.32f, 0.22f), new Vector3(0.16f, 0.72f, 0.14f), top, visual.transform);
                 CreateSphere("HairBack", new Vector3(0f, 2.17f, 0.30f), new Vector3(0.74f, 0.70f, 0.35f), hair, visual.transform);
             }
             else
             {
+                CreateBox("Backpack", new Vector3(0f, 1.15f, 0.36f), new Vector3(0.54f, 0.72f, 0.24f), bottom, visual.transform);
                 CreateBox("HairTuft", new Vector3(0.22f, 2.68f, -0.02f), new Vector3(0.30f, 0.28f, 0.30f), hair, visual.transform).transform.localRotation = Quaternion.Euler(0f, 0f, -18f);
             }
 
