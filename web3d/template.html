@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DOLZORE FirstTown 3D — Iron Basin</title>
+<style>
+html,body,#app{margin:0;width:100%;height:100%;overflow:hidden;background:#111}
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+canvas{display:block}
+#hud{position:fixed;inset:0;pointer-events:none;color:#f5ead0;text-shadow:0 2px 5px #000}
+.p{position:absolute;background:#111820dd;border:1px solid #a87b4a;border-radius:9px;padding:10px 14px}
+#title{left:18px;top:16px}#status{right:18px;top:16px;text-align:right}#help{left:18px;bottom:18px;border-color:#69777d;font-size:13px;line-height:1.5}
+#start{position:fixed;inset:0;z-index:9;display:grid;place-items:center;background:linear-gradient(#2c3740ee,#11171dee);color:#f5ead0}
+#card{width:min(680px,90vw);background:#151b20;border:1px solid #af8250;border-radius:14px;padding:28px;box-shadow:0 25px 90px #000a}
+button{background:#8e5a2b;color:#fff;border:0;border-radius:8px;padding:12px 18px;font-weight:800;cursor:pointer}
+small{color:#c9bea9}
+</style></head><body><div id="app"></div>
+<div id="start"><div id="card"><h1>DOLZORE — IRON BASIN</h1><p>石造・鉄・銅・工房・運河・鉱山を持つ、第三者視点の歩ける3D FirstTownです。</p><p><b>WASD</b> 移動 / <b>Shift</b> 走る / <b>Space</b> ジャンプ / <b>マウス</b> カメラ</p><button id="enter">街へ入る</button><p><small>FFXIの鉱工業都市の体験構造を研究し、地形・建物・名称はDOLZORE独自に再設計しています。</small></p></div></div>
+<div id="hud"><div id="title" class="p"><b>IRON BASIN</b><br><small>DOLZORE FIRST TOWN — WALKABLE 3D</small></div><div id="status" class="p"><b id="district">CENTRAL AVENUE</b><br><span id="coords"></span></div><div id="help" class="p">WASD: 移動　Shift: 走る　Space: ジャンプ<br>画面クリック: カメラ　Esc: 解除</div></div>
+<script>__BUNDLE__</script></body></html>
