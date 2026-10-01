@@ -116,13 +116,70 @@ jobs:
             game/unity/Dolzore/BuildArtifacts/first-town-25d-receipt.json
             game/unity/Dolzore/Assets/Scenes/FirstTown25DPrototype.unity
 
-      - name: Build 2.5D WebGL
+      - name: Generate authored 2.5D quality benchmark
         shell: powershell
         run: |
           $ErrorActionPreference = 'Continue'
           $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
-          $log = Join-Path $env:RUNNER_TEMP "dolzore-25d-webgl.log"
-          $args = @("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.FirstTown25DPrototype.BuildWebGL","-logFile",$log)
+          $log = Join-Path $env:RUNNER_TEMP "dolzore-25d-quality-generate.log"
+          $args = @("-quit","-batchmode","-projectPath",$project,"-executeMethod","Dolzore.Editor.FirstTown25DQualityBenchmark.Generate","-logFile",$log)
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline = (Get-Date).AddMinutes(8)
+          while (-not $proc.HasExited -and (Get-Date) -lt $deadline) {
+            Start-Sleep -Seconds 2
+            $proc.Refresh()
+          }
+          if (-not $proc.HasExited) {
+            Write-Host "DOLZORE_25D_QUALITY_GENERATE_TIMEOUT_PID=$($proc.Id)"
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 2
+            if (Test-Path $log) { Get-Content $log -Tail 1000 }
+            throw "DOLZORE_25D_QUALITY_GENERATE_TIMEOUT_8M"
+          }
+          $code = $proc.ExitCode
+          if (Test-Path $log) { Get-Content $log -Tail 1000 }
+          if ($code -ne 0) { throw "DOLZORE_25D_QUALITY_GENERATE_FAILED:$code" }
+
+      - name: Verify authored 2.5D quality receipts
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          foreach ($rel in @(
+            "Assets\Scenes\FirstTown25DQualityBenchmark.unity",
+            "BuildArtifacts\first-town-25d-quality.png",
+            "BuildArtifacts\first-town-25d-quality-receipt.json"
+          )) {
+            $p = Join-Path $project $rel
+            if (-not (Test-Path $p)) { throw "DOLZORE_25D_QUALITY_MISSING:$rel" }
+            Write-Host "DOLZORE_25D_QUALITY_OK=$rel"
+          }
+          $receipt = Get-Content (Join-Path $project "BuildArtifacts\first-town-25d-quality-receipt.json") -Raw
+          Write-Host $receipt
+          if ($receipt -notmatch '"roadIntrusionQa"\s*:\s*true') { throw "DOLZORE_25D_QUALITY_ROAD_QA_MISSING" }
+          if ($receipt -notmatch '"proceduralSurfaceTextures"\s*:\s*true') { throw "DOLZORE_25D_QUALITY_TEXTURE_PIPELINE_MISSING" }
+          if ($receipt -notmatch '"layeredFacades"\s*:\s*true') { throw "DOLZORE_25D_QUALITY_FACADE_PIPELINE_MISSING" }
+          $hash = (Get-FileHash (Join-Path $project "BuildArtifacts\first-town-25d-quality.png") -Algorithm SHA256).Hash.ToLowerInvariant()
+          Write-Host "DOLZORE_25D_QUALITY_SCREENSHOT_SHA256=$hash"
+
+      - name: Upload authored 2.5D quality visual receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-first-town-25d-quality-preview
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            game/unity/Dolzore/BuildArtifacts/first-town-25d-quality.png
+            game/unity/Dolzore/BuildArtifacts/first-town-25d-quality-receipt.json
+            game/unity/Dolzore/Assets/Scenes/FirstTown25DQualityBenchmark.unity
+
+      - name: Build authored 2.5D quality WebGL
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $log = Join-Path $env:RUNNER_TEMP "dolzore-25d-quality-webgl.log"
+          $args = @("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.FirstTown25DQualityBenchmark.BuildWebGL","-logFile",$log)
           $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
           $deadline = (Get-Date).AddMinutes(12)
           while (-not $proc.HasExited -and (Get-Date) -lt $deadline) {
@@ -130,17 +187,17 @@ jobs:
             $proc.Refresh()
           }
           if (-not $proc.HasExited) {
-            Write-Host "DOLZORE_25D_WEBGL_TIMEOUT_PID=$($proc.Id)"
+            Write-Host "DOLZORE_25D_QUALITY_WEBGL_TIMEOUT_PID=$($proc.Id)"
             Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
             Start-Sleep -Seconds 2
-            if (Test-Path $log) { Get-Content $log -Tail 800 }
-            throw "DOLZORE_25D_WEBGL_TIMEOUT_12M"
+            if (Test-Path $log) { Get-Content $log -Tail 1000 }
+            throw "DOLZORE_25D_QUALITY_WEBGL_TIMEOUT_12M"
           }
           $code = $proc.ExitCode
-          if (Test-Path $log) { Get-Content $log -Tail 800 }
-          if ($code -ne 0) { throw "DOLZORE_25D_WEBGL_FAILED:$code" }
-          $index = Join-Path $project "Builds\WebGL25D\index.html"
-          if (-not (Test-Path $index)) { throw "DOLZORE_25D_WEBGL_INDEX_MISSING" }
+          if (Test-Path $log) { Get-Content $log -Tail 1000 }
+          if ($code -ne 0) { throw "DOLZORE_25D_QUALITY_WEBGL_FAILED:$code" }
+          $index = Join-Path $project "Builds\WebGL25DQuality\index.html"
+          if (-not (Test-Path $index)) { throw "DOLZORE_25D_QUALITY_WEBGL_INDEX_MISSING" }
 
       - name: Upload prototype receipts
         uses: actions/upload-artifact@v4
@@ -151,5 +208,8 @@ jobs:
           path: |
             game/unity/Dolzore/BuildArtifacts/first-town-25d.png
             game/unity/Dolzore/BuildArtifacts/first-town-25d-receipt.json
+            game/unity/Dolzore/BuildArtifacts/first-town-25d-quality.png
+            game/unity/Dolzore/BuildArtifacts/first-town-25d-quality-receipt.json
             game/unity/Dolzore/Assets/Scenes/FirstTown25DPrototype.unity
-            game/unity/Dolzore/Builds/WebGL25D/**
+            game/unity/Dolzore/Assets/Scenes/FirstTown25DQualityBenchmark.unity
+            game/unity/Dolzore/Builds/WebGL25DQuality/**
