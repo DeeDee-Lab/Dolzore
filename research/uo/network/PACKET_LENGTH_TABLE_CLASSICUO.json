@@ -1,0 +1,1759 @@
+{
+  "source_repo": "ClassicUO/ClassicUO",
+  "source_path": "src/ClassicUO.Client/Network/PacketsTable.cs",
+  "source_blob_sha": "7bf8bf03c515b6d04d33cc4f46d7c96503158c3d",
+  "evidence_class": "OPEN_SOURCE_CLIENT_IMPLEMENTATION",
+  "baseline_entries_count": 255,
+  "baseline_entries": [
+    {
+      "packet_id_hex": "0x00",
+      "packet_id_decimal": 0,
+      "baseline_length_literal": "0x0068",
+      "baseline_length_decimal": 104
+    },
+    {
+      "packet_id_hex": "0x01",
+      "packet_id_decimal": 1,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x02",
+      "packet_id_decimal": 2,
+      "baseline_length_literal": "0x0007",
+      "baseline_length_decimal": 7
+    },
+    {
+      "packet_id_hex": "0x03",
+      "packet_id_decimal": 3,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x04",
+      "packet_id_decimal": 4,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x05",
+      "packet_id_decimal": 5,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x06",
+      "packet_id_decimal": 6,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x07",
+      "packet_id_decimal": 7,
+      "baseline_length_literal": "0x0007",
+      "baseline_length_decimal": 7
+    },
+    {
+      "packet_id_hex": "0x08",
+      "packet_id_decimal": 8,
+      "baseline_length_literal": "0x000E",
+      "baseline_length_decimal": 14
+    },
+    {
+      "packet_id_hex": "0x09",
+      "packet_id_decimal": 9,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x0A",
+      "packet_id_decimal": 10,
+      "baseline_length_literal": "0x000B",
+      "baseline_length_decimal": 11
+    },
+    {
+      "packet_id_hex": "0x0B",
+      "packet_id_decimal": 11,
+      "baseline_length_literal": "0x010A",
+      "baseline_length_decimal": 266
+    },
+    {
+      "packet_id_hex": "0x0C",
+      "packet_id_decimal": 12,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x0D",
+      "packet_id_decimal": 13,
+      "baseline_length_literal": "0x0003",
+      "baseline_length_decimal": 3
+    },
+    {
+      "packet_id_hex": "0x0E",
+      "packet_id_decimal": 14,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x0F",
+      "packet_id_decimal": 15,
+      "baseline_length_literal": "0x003D",
+      "baseline_length_decimal": 61
+    },
+    {
+      "packet_id_hex": "0x10",
+      "packet_id_decimal": 16,
+      "baseline_length_literal": "0x00D7",
+      "baseline_length_decimal": 215
+    },
+    {
+      "packet_id_hex": "0x11",
+      "packet_id_decimal": 17,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x12",
+      "packet_id_decimal": 18,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x13",
+      "packet_id_decimal": 19,
+      "baseline_length_literal": "0x000A",
+      "baseline_length_decimal": 10
+    },
+    {
+      "packet_id_hex": "0x14",
+      "packet_id_decimal": 20,
+      "baseline_length_literal": "0x0006",
+      "baseline_length_decimal": 6
+    },
+    {
+      "packet_id_hex": "0x15",
+      "packet_id_decimal": 21,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0x16",
+      "packet_id_decimal": 22,
+      "baseline_length_literal": "0x0001",
+      "baseline_length_decimal": 1
+    },
+    {
+      "packet_id_hex": "0x17",
+      "packet_id_decimal": 23,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x18",
+      "packet_id_decimal": 24,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x19",
+      "packet_id_decimal": 25,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x1A",
+      "packet_id_decimal": 26,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x1B",
+      "packet_id_decimal": 27,
+      "baseline_length_literal": "0x0025",
+      "baseline_length_decimal": 37
+    },
+    {
+      "packet_id_hex": "0x1C",
+      "packet_id_decimal": 28,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x1D",
+      "packet_id_decimal": 29,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x1E",
+      "packet_id_decimal": 30,
+      "baseline_length_literal": "0x0004",
+      "baseline_length_decimal": 4
+    },
+    {
+      "packet_id_hex": "0x1F",
+      "packet_id_decimal": 31,
+      "baseline_length_literal": "0x0008",
+      "baseline_length_decimal": 8
+    },
+    {
+      "packet_id_hex": "0x20",
+      "packet_id_decimal": 32,
+      "baseline_length_literal": "0x0013",
+      "baseline_length_decimal": 19
+    },
+    {
+      "packet_id_hex": "0x21",
+      "packet_id_decimal": 33,
+      "baseline_length_literal": "0x0008",
+      "baseline_length_decimal": 8
+    },
+    {
+      "packet_id_hex": "0x22",
+      "packet_id_decimal": 34,
+      "baseline_length_literal": "0x0003",
+      "baseline_length_decimal": 3
+    },
+    {
+      "packet_id_hex": "0x23",
+      "packet_id_decimal": 35,
+      "baseline_length_literal": "0x001A",
+      "baseline_length_decimal": 26
+    },
+    {
+      "packet_id_hex": "0x24",
+      "packet_id_decimal": 36,
+      "baseline_length_literal": "0x0007",
+      "baseline_length_decimal": 7
+    },
+    {
+      "packet_id_hex": "0x25",
+      "packet_id_decimal": 37,
+      "baseline_length_literal": "0x0014",
+      "baseline_length_decimal": 20
+    },
+    {
+      "packet_id_hex": "0x26",
+      "packet_id_decimal": 38,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x27",
+      "packet_id_decimal": 39,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x28",
+      "packet_id_decimal": 40,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x29",
+      "packet_id_decimal": 41,
+      "baseline_length_literal": "0x0001",
+      "baseline_length_decimal": 1
+    },
+    {
+      "packet_id_hex": "0x2A",
+      "packet_id_decimal": 42,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x2B",
+      "packet_id_decimal": 43,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x2C",
+      "packet_id_decimal": 44,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x2D",
+      "packet_id_decimal": 45,
+      "baseline_length_literal": "0x0011",
+      "baseline_length_decimal": 17
+    },
+    {
+      "packet_id_hex": "0x2E",
+      "packet_id_decimal": 46,
+      "baseline_length_literal": "0x000F",
+      "baseline_length_decimal": 15
+    },
+    {
+      "packet_id_hex": "0x2F",
+      "packet_id_decimal": 47,
+      "baseline_length_literal": "0x000A",
+      "baseline_length_decimal": 10
+    },
+    {
+      "packet_id_hex": "0x30",
+      "packet_id_decimal": 48,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x31",
+      "packet_id_decimal": 49,
+      "baseline_length_literal": "0x0001",
+      "baseline_length_decimal": 1
+    },
+    {
+      "packet_id_hex": "0x32",
+      "packet_id_decimal": 50,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x33",
+      "packet_id_decimal": 51,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x34",
+      "packet_id_decimal": 52,
+      "baseline_length_literal": "0x000A",
+      "baseline_length_decimal": 10
+    },
+    {
+      "packet_id_hex": "0x35",
+      "packet_id_decimal": 53,
+      "baseline_length_literal": "0x028D",
+      "baseline_length_decimal": 653
+    },
+    {
+      "packet_id_hex": "0x36",
+      "packet_id_decimal": 54,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x37",
+      "packet_id_decimal": 55,
+      "baseline_length_literal": "0x0008",
+      "baseline_length_decimal": 8
+    },
+    {
+      "packet_id_hex": "0x38",
+      "packet_id_decimal": 56,
+      "baseline_length_literal": "0x0007",
+      "baseline_length_decimal": 7
+    },
+    {
+      "packet_id_hex": "0x39",
+      "packet_id_decimal": 57,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0x3A",
+      "packet_id_decimal": 58,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x3B",
+      "packet_id_decimal": 59,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x3C",
+      "packet_id_decimal": 60,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x3D",
+      "packet_id_decimal": 61,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x3E",
+      "packet_id_decimal": 62,
+      "baseline_length_literal": "0x0025",
+      "baseline_length_decimal": 37
+    },
+    {
+      "packet_id_hex": "0x3F",
+      "packet_id_decimal": 63,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x40",
+      "packet_id_decimal": 64,
+      "baseline_length_literal": "0x00C9",
+      "baseline_length_decimal": 201
+    },
+    {
+      "packet_id_hex": "0x41",
+      "packet_id_decimal": 65,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x42",
+      "packet_id_decimal": 66,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x43",
+      "packet_id_decimal": 67,
+      "baseline_length_literal": "0x0229",
+      "baseline_length_decimal": 553
+    },
+    {
+      "packet_id_hex": "0x44",
+      "packet_id_decimal": 68,
+      "baseline_length_literal": "0x02C9",
+      "baseline_length_decimal": 713
+    },
+    {
+      "packet_id_hex": "0x45",
+      "packet_id_decimal": 69,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x46",
+      "packet_id_decimal": 70,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x47",
+      "packet_id_decimal": 71,
+      "baseline_length_literal": "0x000B",
+      "baseline_length_decimal": 11
+    },
+    {
+      "packet_id_hex": "0x48",
+      "packet_id_decimal": 72,
+      "baseline_length_literal": "0x0049",
+      "baseline_length_decimal": 73
+    },
+    {
+      "packet_id_hex": "0x49",
+      "packet_id_decimal": 73,
+      "baseline_length_literal": "0x005D",
+      "baseline_length_decimal": 93
+    },
+    {
+      "packet_id_hex": "0x4A",
+      "packet_id_decimal": 74,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x4B",
+      "packet_id_decimal": 75,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0x4C",
+      "packet_id_decimal": 76,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x4D",
+      "packet_id_decimal": 77,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x4E",
+      "packet_id_decimal": 78,
+      "baseline_length_literal": "0x0006",
+      "baseline_length_decimal": 6
+    },
+    {
+      "packet_id_hex": "0x4F",
+      "packet_id_decimal": 79,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x50",
+      "packet_id_decimal": 80,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x51",
+      "packet_id_decimal": 81,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x52",
+      "packet_id_decimal": 82,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x53",
+      "packet_id_decimal": 83,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x54",
+      "packet_id_decimal": 84,
+      "baseline_length_literal": "0x000C",
+      "baseline_length_decimal": 12
+    },
+    {
+      "packet_id_hex": "0x55",
+      "packet_id_decimal": 85,
+      "baseline_length_literal": "0x0001",
+      "baseline_length_decimal": 1
+    },
+    {
+      "packet_id_hex": "0x56",
+      "packet_id_decimal": 86,
+      "baseline_length_literal": "0x000B",
+      "baseline_length_decimal": 11
+    },
+    {
+      "packet_id_hex": "0x57",
+      "packet_id_decimal": 87,
+      "baseline_length_literal": "0x006E",
+      "baseline_length_decimal": 110
+    },
+    {
+      "packet_id_hex": "0x58",
+      "packet_id_decimal": 88,
+      "baseline_length_literal": "0x006A",
+      "baseline_length_decimal": 106
+    },
+    {
+      "packet_id_hex": "0x59",
+      "packet_id_decimal": 89,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x5A",
+      "packet_id_decimal": 90,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x5B",
+      "packet_id_decimal": 91,
+      "baseline_length_literal": "0x0004",
+      "baseline_length_decimal": 4
+    },
+    {
+      "packet_id_hex": "0x5C",
+      "packet_id_decimal": 92,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x5D",
+      "packet_id_decimal": 93,
+      "baseline_length_literal": "0x0049",
+      "baseline_length_decimal": 73
+    },
+    {
+      "packet_id_hex": "0x5E",
+      "packet_id_decimal": 94,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x5F",
+      "packet_id_decimal": 95,
+      "baseline_length_literal": "0x0031",
+      "baseline_length_decimal": 49
+    },
+    {
+      "packet_id_hex": "0x60",
+      "packet_id_decimal": 96,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x61",
+      "packet_id_decimal": 97,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0x62",
+      "packet_id_decimal": 98,
+      "baseline_length_literal": "0x000F",
+      "baseline_length_decimal": 15
+    },
+    {
+      "packet_id_hex": "0x63",
+      "packet_id_decimal": 99,
+      "baseline_length_literal": "0x000D",
+      "baseline_length_decimal": 13
+    },
+    {
+      "packet_id_hex": "0x64",
+      "packet_id_decimal": 100,
+      "baseline_length_literal": "0x0001",
+      "baseline_length_decimal": 1
+    },
+    {
+      "packet_id_hex": "0x65",
+      "packet_id_decimal": 101,
+      "baseline_length_literal": "0x0004",
+      "baseline_length_decimal": 4
+    },
+    {
+      "packet_id_hex": "0x66",
+      "packet_id_decimal": 102,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x67",
+      "packet_id_decimal": 103,
+      "baseline_length_literal": "0x0015",
+      "baseline_length_decimal": 21
+    },
+    {
+      "packet_id_hex": "0x68",
+      "packet_id_decimal": 104,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x69",
+      "packet_id_decimal": 105,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x6A",
+      "packet_id_decimal": 106,
+      "baseline_length_literal": "0x0003",
+      "baseline_length_decimal": 3
+    },
+    {
+      "packet_id_hex": "0x6B",
+      "packet_id_decimal": 107,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0x6C",
+      "packet_id_decimal": 108,
+      "baseline_length_literal": "0x0013",
+      "baseline_length_decimal": 19
+    },
+    {
+      "packet_id_hex": "0x6D",
+      "packet_id_decimal": 109,
+      "baseline_length_literal": "0x0003",
+      "baseline_length_decimal": 3
+    },
+    {
+      "packet_id_hex": "0x6E",
+      "packet_id_decimal": 110,
+      "baseline_length_literal": "0x000E",
+      "baseline_length_decimal": 14
+    },
+    {
+      "packet_id_hex": "0x6F",
+      "packet_id_decimal": 111,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x70",
+      "packet_id_decimal": 112,
+      "baseline_length_literal": "0x001C",
+      "baseline_length_decimal": 28
+    },
+    {
+      "packet_id_hex": "0x71",
+      "packet_id_decimal": 113,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x72",
+      "packet_id_decimal": 114,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0x73",
+      "packet_id_decimal": 115,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x74",
+      "packet_id_decimal": 116,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x75",
+      "packet_id_decimal": 117,
+      "baseline_length_literal": "0x0023",
+      "baseline_length_decimal": 35
+    },
+    {
+      "packet_id_hex": "0x76",
+      "packet_id_decimal": 118,
+      "baseline_length_literal": "0x0010",
+      "baseline_length_decimal": 16
+    },
+    {
+      "packet_id_hex": "0x77",
+      "packet_id_decimal": 119,
+      "baseline_length_literal": "0x0011",
+      "baseline_length_decimal": 17
+    },
+    {
+      "packet_id_hex": "0x78",
+      "packet_id_decimal": 120,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x79",
+      "packet_id_decimal": 121,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0x7A",
+      "packet_id_decimal": 122,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x7B",
+      "packet_id_decimal": 123,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x7C",
+      "packet_id_decimal": 124,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x7D",
+      "packet_id_decimal": 125,
+      "baseline_length_literal": "0x000D",
+      "baseline_length_decimal": 13
+    },
+    {
+      "packet_id_hex": "0x7E",
+      "packet_id_decimal": 126,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x7F",
+      "packet_id_decimal": 127,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x80",
+      "packet_id_decimal": 128,
+      "baseline_length_literal": "0x003E",
+      "baseline_length_decimal": 62
+    },
+    {
+      "packet_id_hex": "0x81",
+      "packet_id_decimal": 129,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x82",
+      "packet_id_decimal": 130,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x83",
+      "packet_id_decimal": 131,
+      "baseline_length_literal": "0x0027",
+      "baseline_length_decimal": 39
+    },
+    {
+      "packet_id_hex": "0x84",
+      "packet_id_decimal": 132,
+      "baseline_length_literal": "0x0045",
+      "baseline_length_decimal": 69
+    },
+    {
+      "packet_id_hex": "0x85",
+      "packet_id_decimal": 133,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x86",
+      "packet_id_decimal": 134,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x87",
+      "packet_id_decimal": 135,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x88",
+      "packet_id_decimal": 136,
+      "baseline_length_literal": "0x0042",
+      "baseline_length_decimal": 66
+    },
+    {
+      "packet_id_hex": "0x89",
+      "packet_id_decimal": 137,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x8A",
+      "packet_id_decimal": 138,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x8B",
+      "packet_id_decimal": 139,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x8C",
+      "packet_id_decimal": 140,
+      "baseline_length_literal": "0x000B",
+      "baseline_length_decimal": 11
+    },
+    {
+      "packet_id_hex": "0x8D",
+      "packet_id_decimal": 141,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x8E",
+      "packet_id_decimal": 142,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x8F",
+      "packet_id_decimal": 143,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x90",
+      "packet_id_decimal": 144,
+      "baseline_length_literal": "0x0013",
+      "baseline_length_decimal": 19
+    },
+    {
+      "packet_id_hex": "0x91",
+      "packet_id_decimal": 145,
+      "baseline_length_literal": "0x0041",
+      "baseline_length_decimal": 65
+    },
+    {
+      "packet_id_hex": "0x92",
+      "packet_id_decimal": 146,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x93",
+      "packet_id_decimal": 147,
+      "baseline_length_literal": "0x0063",
+      "baseline_length_decimal": 99
+    },
+    {
+      "packet_id_hex": "0x94",
+      "packet_id_decimal": 148,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x95",
+      "packet_id_decimal": 149,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0x96",
+      "packet_id_decimal": 150,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x97",
+      "packet_id_decimal": 151,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0x98",
+      "packet_id_decimal": 152,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x99",
+      "packet_id_decimal": 153,
+      "baseline_length_literal": "0x001A",
+      "baseline_length_decimal": 26
+    },
+    {
+      "packet_id_hex": "0x9A",
+      "packet_id_decimal": 154,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x9B",
+      "packet_id_decimal": 155,
+      "baseline_length_literal": "0x0102",
+      "baseline_length_decimal": 258
+    },
+    {
+      "packet_id_hex": "0x9C",
+      "packet_id_decimal": 156,
+      "baseline_length_literal": "0x0135",
+      "baseline_length_decimal": 309
+    },
+    {
+      "packet_id_hex": "0x9D",
+      "packet_id_decimal": 157,
+      "baseline_length_literal": "0x0033",
+      "baseline_length_decimal": 51
+    },
+    {
+      "packet_id_hex": "0x9E",
+      "packet_id_decimal": 158,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0x9F",
+      "packet_id_decimal": 159,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xA0",
+      "packet_id_decimal": 160,
+      "baseline_length_literal": "0x0003",
+      "baseline_length_decimal": 3
+    },
+    {
+      "packet_id_hex": "0xA1",
+      "packet_id_decimal": 161,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0xA2",
+      "packet_id_decimal": 162,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0xA3",
+      "packet_id_decimal": 163,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0xA4",
+      "packet_id_decimal": 164,
+      "baseline_length_literal": "0x0095",
+      "baseline_length_decimal": 149
+    },
+    {
+      "packet_id_hex": "0xA5",
+      "packet_id_decimal": 165,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xA6",
+      "packet_id_decimal": 166,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xA7",
+      "packet_id_decimal": 167,
+      "baseline_length_literal": "0x0004",
+      "baseline_length_decimal": 4
+    },
+    {
+      "packet_id_hex": "0xA8",
+      "packet_id_decimal": 168,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xA9",
+      "packet_id_decimal": 169,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xAA",
+      "packet_id_decimal": 170,
+      "baseline_length_literal": "0x0005",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0xAB",
+      "packet_id_decimal": 171,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xAC",
+      "packet_id_decimal": 172,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xAD",
+      "packet_id_decimal": 173,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xAE",
+      "packet_id_decimal": 174,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xAF",
+      "packet_id_decimal": 175,
+      "baseline_length_literal": "0x000D",
+      "baseline_length_decimal": 13
+    },
+    {
+      "packet_id_hex": "0xB0",
+      "packet_id_decimal": 176,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xB1",
+      "packet_id_decimal": 177,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xB2",
+      "packet_id_decimal": 178,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xB3",
+      "packet_id_decimal": 179,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xB4",
+      "packet_id_decimal": 180,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xB5",
+      "packet_id_decimal": 181,
+      "baseline_length_literal": "0x0040",
+      "baseline_length_decimal": 64
+    },
+    {
+      "packet_id_hex": "0xB6",
+      "packet_id_decimal": 182,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0xB7",
+      "packet_id_decimal": 183,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xB8",
+      "packet_id_decimal": 184,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xB9",
+      "packet_id_decimal": 185,
+      "baseline_length_literal": "0x0003",
+      "baseline_length_decimal": 3
+    },
+    {
+      "packet_id_hex": "0xBA",
+      "packet_id_decimal": 186,
+      "baseline_length_literal": "0x0006",
+      "baseline_length_decimal": 6
+    },
+    {
+      "packet_id_hex": "0xBB",
+      "packet_id_decimal": 187,
+      "baseline_length_literal": "0x0009",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0xBC",
+      "packet_id_decimal": 188,
+      "baseline_length_literal": "0x0003",
+      "baseline_length_decimal": 3
+    },
+    {
+      "packet_id_hex": "0xBD",
+      "packet_id_decimal": 189,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xBE",
+      "packet_id_decimal": 190,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xBF",
+      "packet_id_decimal": 191,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xC0",
+      "packet_id_decimal": 192,
+      "baseline_length_literal": "0x0024",
+      "baseline_length_decimal": 36
+    },
+    {
+      "packet_id_hex": "0xC1",
+      "packet_id_decimal": 193,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xC2",
+      "packet_id_decimal": 194,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xC3",
+      "packet_id_decimal": 195,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xC4",
+      "packet_id_decimal": 196,
+      "baseline_length_literal": "0x0006",
+      "baseline_length_decimal": 6
+    },
+    {
+      "packet_id_hex": "0xC5",
+      "packet_id_decimal": 197,
+      "baseline_length_literal": "0x00CB",
+      "baseline_length_decimal": 203
+    },
+    {
+      "packet_id_hex": "0xC6",
+      "packet_id_decimal": 198,
+      "baseline_length_literal": "0x0001",
+      "baseline_length_decimal": 1
+    },
+    {
+      "packet_id_hex": "0xC7",
+      "packet_id_decimal": 199,
+      "baseline_length_literal": "0x0031",
+      "baseline_length_decimal": 49
+    },
+    {
+      "packet_id_hex": "0xC8",
+      "packet_id_decimal": 200,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0xC9",
+      "packet_id_decimal": 201,
+      "baseline_length_literal": "0x0006",
+      "baseline_length_decimal": 6
+    },
+    {
+      "packet_id_hex": "0xCA",
+      "packet_id_decimal": 202,
+      "baseline_length_literal": "0x0006",
+      "baseline_length_decimal": 6
+    },
+    {
+      "packet_id_hex": "0xCB",
+      "packet_id_decimal": 203,
+      "baseline_length_literal": "0x0007",
+      "baseline_length_decimal": 7
+    },
+    {
+      "packet_id_hex": "0xCC",
+      "packet_id_decimal": 204,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xCD",
+      "packet_id_decimal": 205,
+      "baseline_length_literal": "0x0001",
+      "baseline_length_decimal": 1
+    },
+    {
+      "packet_id_hex": "0xCE",
+      "packet_id_decimal": 206,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xCF",
+      "packet_id_decimal": 207,
+      "baseline_length_literal": "0x004E",
+      "baseline_length_decimal": 78
+    },
+    {
+      "packet_id_hex": "0xD0",
+      "packet_id_decimal": 208,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xD1",
+      "packet_id_decimal": 209,
+      "baseline_length_literal": "0x0002",
+      "baseline_length_decimal": 2
+    },
+    {
+      "packet_id_hex": "0xD2",
+      "packet_id_decimal": 210,
+      "baseline_length_literal": "0x0019",
+      "baseline_length_decimal": 25
+    },
+    {
+      "packet_id_hex": "0xD3",
+      "packet_id_decimal": 211,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xD4",
+      "packet_id_decimal": 212,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xD5",
+      "packet_id_decimal": 213,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xD6",
+      "packet_id_decimal": 214,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xD7",
+      "packet_id_decimal": 215,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xD8",
+      "packet_id_decimal": 216,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xD9",
+      "packet_id_decimal": 217,
+      "baseline_length_literal": "0x010C",
+      "baseline_length_decimal": 268
+    },
+    {
+      "packet_id_hex": "0xDA",
+      "packet_id_decimal": 218,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xDB",
+      "packet_id_decimal": 219,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xDC",
+      "packet_id_decimal": 220,
+      "baseline_length_literal": "0x09",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0xDD",
+      "packet_id_decimal": 221,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xDE",
+      "packet_id_decimal": 222,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xDF",
+      "packet_id_decimal": 223,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xE0",
+      "packet_id_decimal": 224,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xE1",
+      "packet_id_decimal": 225,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xE2",
+      "packet_id_decimal": 226,
+      "baseline_length_literal": "0x0A",
+      "baseline_length_decimal": 10
+    },
+    {
+      "packet_id_hex": "0xE3",
+      "packet_id_decimal": 227,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xE4",
+      "packet_id_decimal": 228,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xE5",
+      "packet_id_decimal": 229,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xE6",
+      "packet_id_decimal": 230,
+      "baseline_length_literal": "0x05",
+      "baseline_length_decimal": 5
+    },
+    {
+      "packet_id_hex": "0xE7",
+      "packet_id_decimal": 231,
+      "baseline_length_literal": "0x0C",
+      "baseline_length_decimal": 12
+    },
+    {
+      "packet_id_hex": "0xE8",
+      "packet_id_decimal": 232,
+      "baseline_length_literal": "0x0D",
+      "baseline_length_decimal": 13
+    },
+    {
+      "packet_id_hex": "0xE9",
+      "packet_id_decimal": 233,
+      "baseline_length_literal": "0x4B",
+      "baseline_length_decimal": 75
+    },
+    {
+      "packet_id_hex": "0xEA",
+      "packet_id_decimal": 234,
+      "baseline_length_literal": "0x03",
+      "baseline_length_decimal": 3
+    },
+    {
+      "packet_id_hex": "0xEB",
+      "packet_id_decimal": 235,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xEC",
+      "packet_id_decimal": 236,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xED",
+      "packet_id_decimal": 237,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xEE",
+      "packet_id_decimal": 238,
+      "baseline_length_literal": "0x0A",
+      "baseline_length_decimal": 10
+    },
+    {
+      "packet_id_hex": "0xEF",
+      "packet_id_decimal": 239,
+      "baseline_length_literal": "0x0015",
+      "baseline_length_decimal": 21
+    },
+    {
+      "packet_id_hex": "0xF0",
+      "packet_id_decimal": 240,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xF1",
+      "packet_id_decimal": 241,
+      "baseline_length_literal": "0x09",
+      "baseline_length_decimal": 9
+    },
+    {
+      "packet_id_hex": "0xF2",
+      "packet_id_decimal": 242,
+      "baseline_length_literal": "0x19",
+      "baseline_length_decimal": 25
+    },
+    {
+      "packet_id_hex": "0xF3",
+      "packet_id_decimal": 243,
+      "baseline_length_literal": "0x1A",
+      "baseline_length_decimal": 26
+    },
+    {
+      "packet_id_hex": "0xF4",
+      "packet_id_decimal": 244,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xF5",
+      "packet_id_decimal": 245,
+      "baseline_length_literal": "0x15",
+      "baseline_length_decimal": 21
+    },
+    {
+      "packet_id_hex": "0xF6",
+      "packet_id_decimal": 246,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xF7",
+      "packet_id_decimal": 247,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xF8",
+      "packet_id_decimal": 248,
+      "baseline_length_literal": "0x6A",
+      "baseline_length_decimal": 106
+    },
+    {
+      "packet_id_hex": "0xF9",
+      "packet_id_decimal": 249,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xFA",
+      "packet_id_decimal": 250,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xFB",
+      "packet_id_decimal": 251,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xFC",
+      "packet_id_decimal": 252,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xFD",
+      "packet_id_decimal": 253,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    },
+    {
+      "packet_id_hex": "0xFF",
+      "packet_id_decimal": 255,
+      "baseline_length_literal": "-1",
+      "baseline_length_decimal": -1
+    }
+  ],
+  "version_override_assignments_in_source_order": [
+    {
+      "packet_id_literal": "0x0B",
+      "value_literal": "0x07"
+    },
+    {
+      "packet_id_literal": "0x16",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0x31",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0x0B",
+      "value_literal": "0x10A"
+    },
+    {
+      "packet_id_literal": "0x16",
+      "value_literal": "0x01"
+    },
+    {
+      "packet_id_literal": "0x31",
+      "value_literal": "0x01"
+    },
+    {
+      "packet_id_literal": "0xE1",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xE1",
+      "value_literal": "0x09"
+    },
+    {
+      "packet_id_literal": "0xE3",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xE6",
+      "value_literal": "0x05"
+    },
+    {
+      "packet_id_literal": "0xE7",
+      "value_literal": "0x0C"
+    },
+    {
+      "packet_id_literal": "0xE8",
+      "value_literal": "0x0D"
+    },
+    {
+      "packet_id_literal": "0xE9",
+      "value_literal": "0x4B"
+    },
+    {
+      "packet_id_literal": "0xEA",
+      "value_literal": "0x03"
+    },
+    {
+      "packet_id_literal": "0xE3",
+      "value_literal": "0x4D"
+    },
+    {
+      "packet_id_literal": "0xE6",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xE7",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xE8",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xE9",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xEA",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0x08",
+      "value_literal": "0x0F"
+    },
+    {
+      "packet_id_literal": "0x25",
+      "value_literal": "0x15"
+    },
+    {
+      "packet_id_literal": "0x08",
+      "value_literal": "0x0E"
+    },
+    {
+      "packet_id_literal": "0x25",
+      "value_literal": "0x14"
+    },
+    {
+      "packet_id_literal": "0xEE",
+      "value_literal": "0x2000"
+    },
+    {
+      "packet_id_literal": "0xEF",
+      "value_literal": "0x2000"
+    },
+    {
+      "packet_id_literal": "0xF1",
+      "value_literal": "0x09"
+    },
+    {
+      "packet_id_literal": "0xEE",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xEF",
+      "value_literal": "0x15"
+    },
+    {
+      "packet_id_literal": "0xF1",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xB9",
+      "value_literal": "0x05"
+    },
+    {
+      "packet_id_literal": "0xB9",
+      "value_literal": "0x03"
+    },
+    {
+      "packet_id_literal": "0xEE",
+      "value_literal": "0x0A"
+    },
+    {
+      "packet_id_literal": "0xEF",
+      "value_literal": "0x15"
+    },
+    {
+      "packet_id_literal": "0xEE",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xEF",
+      "value_literal": "0x15"
+    },
+    {
+      "packet_id_literal": "0x24",
+      "value_literal": "0x09"
+    },
+    {
+      "packet_id_literal": "0x99",
+      "value_literal": "0x1E"
+    },
+    {
+      "packet_id_literal": "0xBA",
+      "value_literal": "0x0A"
+    },
+    {
+      "packet_id_literal": "0xF3",
+      "value_literal": "0x1A"
+    },
+    {
+      "packet_id_literal": "0xF1",
+      "value_literal": "0x09"
+    },
+    {
+      "packet_id_literal": "0xF2",
+      "value_literal": "0x19"
+    },
+    {
+      "packet_id_literal": "0x24",
+      "value_literal": "0x07"
+    },
+    {
+      "packet_id_literal": "0x99",
+      "value_literal": "0x1A"
+    },
+    {
+      "packet_id_literal": "0xBA",
+      "value_literal": "0x06"
+    },
+    {
+      "packet_id_literal": "0xF3",
+      "value_literal": "0x18"
+    },
+    {
+      "packet_id_literal": "0xF1",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0xF2",
+      "value_literal": "-1"
+    },
+    {
+      "packet_id_literal": "0x00",
+      "value_literal": "0x6A"
+    },
+    {
+      "packet_id_literal": "0x00",
+      "value_literal": "0x68"
+    },
+    {
+      "packet_id_literal": "0xFA",
+      "value_literal": "0x01"
+    },
+    {
+      "packet_id_literal": "0xFB",
+      "value_literal": "0x02"
+    },
+    {
+      "packet_id_literal": "0xD5",
+      "value_literal": "0x09"
+    },
+    {
+      "packet_id_literal": "0xFD",
+      "value_literal": "2"
+    }
+  ],
+  "variable_length_semantics_source": "PacketHandlers.GetPacketInfo treats table value -1 as variable length and reads bytes 1 and 2 as network-order length.",
+  "note": "Version override assignments are preserved in source order but their surrounding conditional predicates must be read from the cited source; do not detach them from source context."
+}
