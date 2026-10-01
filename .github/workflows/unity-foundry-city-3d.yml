@@ -61,17 +61,56 @@ jobs:
           $lock=Join-Path $project "Temp\UnityLockfile"
           if(Test-Path $lock){ Remove-Item $lock -Force }
 
-      - name: Generate walkable 3D city and WebGL
+      - name: Generate walkable 3D city scene and preview
         shell: powershell
         run: |
           $ErrorActionPreference='Continue'
           $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
-          $log=Join-Path $env:RUNNER_TEMP "dolzore-foundry-city-3d.log"
-          $args=@("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.FoundryCity3DBuilder.GenerateAndBuild","-logFile",$log)
-          $proc=Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+          $log=Join-Path $env:RUNNER_TEMP "dolzore-foundry-city-generate.log"
+          $args=@("-quit","-batchmode","-projectPath",$project,"-executeMethod","Dolzore.Editor.FoundryCity3DBuilder.GenerateSceneOnly","-logFile",$log)
+          $proc=Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline=(Get-Date).AddMinutes(6)
+          while(-not $proc.HasExited -and (Get-Date) -lt $deadline){ Start-Sleep -Seconds 2; $proc.Refresh() }
+          if(-not $proc.HasExited){
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            if(Test-Path $log){ Get-Content $log -Tail 800 }
+            throw "DOLZORE_FOUNDRY_CITY_GENERATE_TIMEOUT"
+          }
           $code=$proc.ExitCode
           if(Test-Path $log){ Get-Content $log -Tail 800 }
           if($code -ne 0){ throw "DOLZORE_FOUNDRY_CITY_GENERATE_FAILED:$code" }
+
+      - name: Verify scene and preview before WebGL
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          foreach($rel in @(
+            "Assets\Scenes\FoundryCity3D.unity",
+            "BuildArtifacts\foundry-city-3d.png",
+            "BuildArtifacts\foundry-city-3d.json"
+          )){
+            if(-not (Test-Path (Join-Path $project $rel))){ throw "DOLZORE_FOUNDRY_CITY_PREVIEW_MISSING:$rel" }
+          }
+
+      - name: Build walkable 3D city WebGL in fresh Unity process
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Continue'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $log=Join-Path $env:RUNNER_TEMP "dolzore-foundry-city-webgl.log"
+          $args=@("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.FoundryCity3DBuilder.BuildWebGLOnly","-logFile",$log)
+          $proc=Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline=(Get-Date).AddMinutes(12)
+          while(-not $proc.HasExited -and (Get-Date) -lt $deadline){ Start-Sleep -Seconds 2; $proc.Refresh() }
+          if(-not $proc.HasExited){
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            if(Test-Path $log){ Get-Content $log -Tail 800 }
+            throw "DOLZORE_FOUNDRY_CITY_WEBGL_TIMEOUT"
+          }
+          $code=$proc.ExitCode
+          if(Test-Path $log){ Get-Content $log -Tail 800 }
+          if($code -ne 0){ throw "DOLZORE_FOUNDRY_CITY_WEBGL_FAILED:$code" }
 
       - name: Verify generated walkable city
         shell: powershell
