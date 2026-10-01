@@ -1,0 +1,36 @@
+name: Cancel obsolete foundry build once
+on:
+  push:
+    branches: ["rebuild/3d-foundry-city-20261001"]
+    paths:
+      - ".github/workflows/cancel-obsolete-foundry-run.yml"
+permissions:
+  actions: write
+jobs:
+  cancel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+        with:
+          script: |
+            const run_id = 36861810527;
+            try {
+              const {data} = await github.rest.actions.getWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id
+              });
+              core.info(`obsolete_run_status=${data.status} conclusion=${data.conclusion}`);
+              if (data.status === 'queued' || data.status === 'in_progress' || data.status === 'pending') {
+                await github.rest.actions.cancelWorkflowRun({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  run_id
+                });
+                core.info('obsolete_run_cancel_requested=true');
+              } else {
+                core.info('obsolete_run_already_terminal=true');
+              }
+            } catch (error) {
+              core.setFailed(String(error));
+            }
