@@ -408,7 +408,7 @@ namespace Dolzore.Editor
         {
             string path = MaterialDir + "/" + name + ".mat";
             Material mat = AssetDatabase.LoadAssetAtPath<Material>(path);
-            Shader shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
+            Shader shader = Shader.Find("Standard") ?? Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Unlit/Texture");
             if (mat == null)
             {
                 mat = new Material(shader) { name = name };
@@ -430,7 +430,7 @@ namespace Dolzore.Editor
         {
             string path = MaterialDir + "/" + name + ".mat";
             Material mat = AssetDatabase.LoadAssetAtPath<Material>(path);
-            Shader shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
+            Shader shader = Shader.Find("Standard") ?? Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Unlit/Color");
             if (mat == null)
             {
                 mat = new Material(shader) { name = name };
@@ -579,7 +579,7 @@ namespace Dolzore.Editor
             GameObject textGo = new GameObject("SignText_" + label.Replace(" ", "_"));
             textGo.transform.SetParent(parent, false);
             textGo.transform.localPosition = p + new Vector3(0f, 0f, -0.18f);
-            textGo.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+            textGo.transform.localRotation = Quaternion.identity;
             TextMesh tm = textGo.AddComponent<TextMesh>();
             tm.text = label;
             tm.anchor = TextAnchor.MiddleCenter;
