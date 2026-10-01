@@ -87,19 +87,24 @@ Network/protocol research must separate public packet formats from authenticatio
 6. online/current_patch/unpacked_filenames.txt
 7. online/current_patch/manifest_sources.jsonl
 8. online/current_patch/probe_file_hashes.json
-9. formats/FORMAT_SOURCE_MAP_V1.jsonl
-10. sources/TECHNICAL_SOURCE_LEDGER.jsonl
-11. SOURCE_INDEX.md
-12. ERA_MATRIX.md
-13. SYSTEM_INVENTORY.md
-14. facts/*.jsonl
-15. referenced implementations as needed
-16. latest checkpoints on issue #27
-17. only after evidence: DOLZORE_STRUCTURAL_APPLICATION.md
+9. CURRENT_ANALYSIS_STATUS.md
+10. formats/FORMAT_SOURCE_MAP_V1.jsonl
+11. client/CLIENT_ASSET_LOADER_REGISTRY_V1.jsonl
+12. network/INCOMING_PACKET_HANDLER_MAP_CLASSICUO.jsonl
+13. network/PACKET_LENGTH_TABLE_CLASSICUO.json
+14. sources/TECHNICAL_SOURCE_LEDGER.jsonl
+15. SOURCE_INDEX.md
+16. ERA_MATRIX.md
+17. SYSTEM_INVENTORY.md
+18. facts/*.jsonl
+19. referenced implementations as needed
+20. latest checkpoints on issue #27
+21. only after evidence: DOLZORE_STRUCTURAL_APPLICATION.md
 
 ## 9. Anti-loop
 Never restart from memory. Append new official-distribution evidence, hashes, manifests, format mappings and contradictions.
 Issue #27 remains open until the acceptance lanes are complete.
+Read CURRENT_ANALYSIS_STATUS.md before claiming any UO domain is complete.
 Never wait for a local client installation unless the user later explicitly requests that lane.
 
 UO_CLIENT_FORENSIC_SCOPE_V3_ONLINE_PRIMARY=true
