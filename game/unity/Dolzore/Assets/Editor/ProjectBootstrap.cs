@@ -15,6 +15,7 @@ namespace Dolzore.Editor
     {
         private const string TitleScene = "Assets/Scenes/Title.unity";
         private const string TownScene = "Assets/Scenes/FirstTownShell.unity";
+        private const string Town3DScene = "Assets/Scenes/FirstTown3D.unity";
         private const string BackgroundPath = "Assets/Art/Generated/title_background.png";
         private const string LogoPath = "Assets/Art/Generated/dolzore_logo.png";
         private const string MinimapPath = "Assets/Art/Generated/first_town_minimap.png";
@@ -43,18 +44,21 @@ namespace Dolzore.Editor
             GenerateMinimap();
             BuildTitleScene();
             FirstTownBuilder.Build(TownScene);
+            FirstTown3DBuilder.Build();
             AvatarQualityVerifier.AssertAndWriteReceipt();
 
             EditorBuildSettings.scenes = new[]
             {
                 new EditorBuildSettingsScene(TitleScene, true),
-                new EditorBuildSettingsScene(TownScene, true)
+                new EditorBuildSettingsScene(Town3DScene, true),
+                new EditorBuildSettingsScene(TownScene, false)
             };
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             RenderPreview(TitleScene, "BuildArtifacts/initial-screen.png");
             RenderPreview(TownScene, "BuildArtifacts/first-town.png");
+            RenderPreview(Town3DScene, "BuildArtifacts/first-town-3d.png");
             Debug.Log("DOLZORE_GENERATE_SUCCESS");
         }
 
