@@ -1,0 +1,89 @@
+name: FirstTown 3D Browser QA
+on:
+  push:
+    branches: ["rebuild/unity-first-town-20260929"]
+    paths:
+      - "web3d/**"
+      - ".github/workflows/firsttown-3d-browser-qa.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned CC0 Kenney models
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p web3d/models
+          base=https://raw.githubusercontent.com/shorepine/kenney/main
+          for f in building-a building-b building-c building-d building-e building-f chimney-large chimney-medium detail-tank; do
+            curl -fsSL "$base/3d/city-industrial/$f.glb" -o "web3d/models/$f.glb"
+          done
+          for f in pipe-large-long pipe-large-bend catwalk-stairs machine; do
+            curl -fsSL "$base/3d/factory/$f.glb" -o "web3d/models/$f.glb"
+          done
+      - name: Bundle self-contained 3D HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd web3d
+          npm init -y >/dev/null
+          npm install --silent three@0.169.0 esbuild@0.24.0 playwright@1.48.2
+          npx esbuild firsttown3d.js --bundle --minify --format=iife --loader:.glb=dataurl --outfile=bundle.js
+          python3 - <<'PY'
+          from pathlib import Path
+          tpl=Path('template.html').read_text()
+          js=Path('bundle.js').read_text()
+          Path('dist').mkdir(exist_ok=True)
+          Path('dist/firsttown-3d.html').write_text(tpl.replace('__BUNDLE__',js))
+          PY
+      - name: Install Chromium for browser QA
+        shell: bash
+        run: |
+          cd web3d
+          npx playwright install chromium
+      - name: Browser visual + movement QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd web3d
+          python3 -m http.server 4173 --directory dist >/tmp/firsttown-http.log 2>&1 &
+          echo $! >/tmp/http_pid
+          cat > qa.mjs <<'JS'
+          import { chromium } from 'playwright';
+          import fs from 'fs';
+          const browser=await chromium.launch({headless:true});
+          const page=await browser.newPage({viewport:{width:1440,height:900}});
+          const errors=[]; page.on('pageerror',e=>errors.push(String(e)));
+          await page.goto('http://127.0.0.1:4173/firsttown-3d.html?qa=1',{waitUntil:'load'});
+          await page.waitForFunction(()=>window.__DOLZORE_READY__===true,{timeout:30000});
+          await page.waitForTimeout(1200);
+          await page.screenshot({path:'dist/firsttown-3d-qa.png',fullPage:true});
+          const canvas=await page.locator('canvas').count();
+          const before=await page.evaluate(()=>window.__playerPos());
+          const play=await browser.newPage({viewport:{width:1280,height:720}});
+          await play.goto('http://127.0.0.1:4173/firsttown-3d.html',{waitUntil:'load'});
+          await play.waitForFunction(()=>window.__DOLZORE_READY__===true,{timeout:30000});
+          await play.keyboard.down('KeyW'); await play.waitForTimeout(900); await play.keyboard.up('KeyW');
+          const after=await play.evaluate(()=>window.__playerPos());
+          const moved=Math.hypot(after.x-before.x,after.z-before.z)>1.0;
+          const result={canvas,errors,before,after,moved,ready:true};
+          fs.writeFileSync('dist/firsttown-3d-qa.json',JSON.stringify(result,null,2));
+          if(canvas!==1||errors.length||!moved) process.exit(2);
+          await browser.close();
+          JS
+          node qa.mjs
+          kill $(cat /tmp/http_pid) || true
+      - name: Upload checked walkable 3D FirstTown
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-firsttown-3d-checked
+          path: |
+            web3d/dist/firsttown-3d.html
+            web3d/dist/firsttown-3d-qa.png
+            web3d/dist/firsttown-3d-qa.json
+          retention-days: 14
