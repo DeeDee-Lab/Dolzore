@@ -133,7 +133,7 @@ namespace Dolzore.Editor
 
             // Planted/inhabited exterior instead of empty grass.
             CreateTree(new Vector3(-15.6f, 0f, 9.4f), 1.15f, trunk, leafA, leafB);
-            CreateTree(new Vector3(5.0f, 0f, 10.1f), 1.0f, trunk, leafA, leafB);
+            CreateTree(new Vector3(3.4f, 0f, 10.8f), 1.0f, trunk, leafA, leafB);
             CreateTree(new Vector3(18.5f, 0f, 11.0f), 0.95f, trunk, leafA, leafB);
             CreateHedgeRow(new Vector3(-15.2f, 0.65f, 1.25f), 5, Vector3.right, leafB);
             CreateHedgeRow(new Vector3(-0.2f, 0.65f, 1.15f), 4, Vector3.right, leafA);
@@ -147,7 +147,7 @@ namespace Dolzore.Editor
             CreateBench(new Vector3(3.4f, 0f, 0.1f), wood, metal);
             CreateHydrant(new Vector3(-16.7f, 0f, -0.2f), burgundy, metal);
             CreateTrashCan(new Vector3(1.1f, 0f, 0.1f), metal);
-            CreateBikeRack(new Vector3(5.2f, 0f, 0.1f), metal);
+            CreateBikeRack(new Vector3(3.1f, 0f, 1.1f), metal);
             CreateStormDrain(new Vector3(-14f, 0.15f, -2.05f), metal);
             CreateStormDrain(new Vector3(1.5f, 0.15f, -2.05f), metal);
             CreateManhole(new Vector3(-3.0f, 0.16f, -5.1f), metal);
