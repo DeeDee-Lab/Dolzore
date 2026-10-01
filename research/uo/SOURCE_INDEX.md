@@ -146,6 +146,41 @@ Type: OFFICIAL_CURRENT
 URL: https://uo.com/wiki/ultima-online-wiki/technical/creating-macros/macro-actions-available-in-the-enhanced-client/
 Use: current enhanced-client action/target/equipment automation vocabulary.
 
+### UO-PET-OWNERSHIP
+Type: OFFICIAL_CURRENT
+URL: https://uo.com/wiki/ultima-online-wiki/skills/animal-taming/pets-ownership/
+Use: follower/control-slot capacity, bonding/resurrection and pet-ownership structure.
+
+### UO-MOVEMENT-TRAVEL
+Type: OFFICIAL_CURRENT
+URL: https://uo.com/wiki/ultima-online-wiki/beginning-the-adventure/movement-and-travel/
+Use: public moongates, marked runes, Recall, Gate Travel and Sacred Journey travel structure.
+
+### UO-MINING
+Type: OFFICIAL_CURRENT
+URL: https://uo.com/wiki/ultima-online-wiki/skills/mining/
+Use: mining tools, uses, ore types, skill thresholds and resource behavior.
+
+### UO-FISHING
+Type: OFFICIAL_CURRENT
+URL: https://uo.com/wiki/ultima-online-wiki/skills/fishing/
+Use: fishing spot depletion, shallow/deep-water progression, catches and sea-content loop.
+
+### UO-MONEY
+Type: OFFICIAL_CURRENT
+URL: https://uo.com/wiki/ultima-online-wiki/player/money/
+Use: gold, currency account scope, transfer/secure accounts, currency wall safe, platinum conversion.
+
+### UO-SNOOPING
+Type: OFFICIAL_CURRENT
+URL: https://uo.com/wiki/ultima-online-wiki/skills/snooping/
+Use: snooping activation, range/containers and discovery behavior.
+
+### UO-STEALING
+Type: OFFICIAL_CURRENT
+URL: https://uo.com/wiki/ultima-online-wiki/skills/stealing/
+Use: stealing methods and player/world theft structure.
+
 ### UO-GAMEPLAY-INDEX
 Type: OFFICIAL_CURRENT
 URL: https://uo.com/wiki/ultima-online-wiki/gameplay/
