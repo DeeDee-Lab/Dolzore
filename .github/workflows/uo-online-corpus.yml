@@ -1,0 +1,54 @@
+name: Harvest live UO patch manifests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/uo-online-corpus.yml"
+      - "tools/uo_online_corpus/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uo-online-corpus
+  cancel-in-progress: false
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Harvest official UO patch-manifest hierarchy
+        run: python3 tools/uo_online_corpus/harvest_patch_manifests.py
+
+      - name: Validate generated corpus
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("research/uo/online/current_patch")
+          s = json.loads((root / "summary.json").read_text())
+          assert s["manifest_count"] > 0
+          assert s["unpacked_records_unique"] > 0
+          assert s["product_serial"]
+          assert (root / "raw/uo-legacyrelease.prod").exists()
+          print(json.dumps(s, indent=2))
+          PY
+
+      - name: Commit evidence delta
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/uo/online/current_patch
+          if git diff --cached --quiet; then
+            echo "No UO evidence changes."
+            exit 0
+          fi
+          git commit -m "Update live UO patch manifest evidence"
+          git push
