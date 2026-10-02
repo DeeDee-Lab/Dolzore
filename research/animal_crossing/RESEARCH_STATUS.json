@@ -1,7 +1,7 @@
 {
   "schema": "dolzore.animal_crossing.research_status.v1",
-  "updated_jst": "2026-10-02T14:10:00+09:00",
-  "state": "COMPREHENSIVE_V1_DOMAIN_CORPUS_READY_EXACT_EXTRACTION_CONTINUES",
+  "updated_jst": "2026-10-03T07:35:00+09:00",
+  "state": "EXACT_PUBLIC_SOURCE_EXTRACTION_EXPANDED_1098_VALIDATED_CONTINUES",
   "canonical_repo": "DeeDee-Lab/Dolzore",
   "canonical_issue": "DeeDee-Lab/Dolzore#40",
   "canonical_path": "research/animal_crossing/",
@@ -29,32 +29,36 @@
     "social_multiplayer_architecture",
     "audio_environment_grammar",
     "save_data_generation_matrix",
-    "new_horizons_structure_delta"
+    "new_horizons_structure_delta",
+    "gamecube_full_event_schedule_134",
+    "gamecube_full_insect_spawn_tables_61_576_entries",
+    "gamecube_full_fish_spawn_tables_62_665_entries",
+    "gamecube_spawn_scheduler_linkage",
+    "gamecube_audio_state_machine",
+    "gamecube_villager_social_memory",
+    "new_leaf_welcome_amiibo_full_editor_offset_tables",
+    "new_horizons_3x_full_main_personal_postbox_offset_tables",
+    "pocket_camp_complete_full_221_table_public_schema"
   ],
   "in_progress_domains": [
-    "exact_n64_struct_and_enum_catalog",
-    "gamecube_actor_world_save_system_decomposition",
-    "wild_world_exact_save_structure",
-    "city_folk_exact_save_structure",
-    "new_leaf_exact_save_structure",
-    "new_horizons_3x_save_structure",
-    "villager_personality_dialogue_relationship_model",
-    "world_generation_acre_chunk_algorithms",
-    "hourly_audio_environment_system",
-    "economy_shop_stock_turnip_model",
-    "collection_spawn_tables",
-    "weather_calendar_event_scheduler",
-    "online_visit_authority_model",
-    "asset_content_pipeline_quantification"
+    "n64_remaining_public_decomp_structs_events_audio",
+    "gamecube_remaining_public_decomp_actor_shop_item_mail_house_tables",
+    "wild_world_full_leafedit_source_expression_catalog",
+    "city_folk_remaining_toolkit_modules_acse_crosscheck",
+    "new_leaf_welcome_amiibo_remaining_building_pwp_house_algorithms",
+    "new_horizons_full_structures_manifest",
+    "hhd_remaining_public_structures",
+    "pocket_camp_complete_cross_validation",
+    "pocket_camp_original_publicly_available_local_model_only",
+    "switch2_official_runtime_feature_delta_no_private_engine_claim"
   ],
   "next_exact_actions": [
-    "continue GameCube actor/world/save exact catalog from ACreTeam/ac-decomp at pinned commit",
-    "continue Wild World and City Folk save structure extraction from public editors",
-    "continue New Leaf/Welcome amiibo exact save and public-works/resident/house catalogs",
-    "expand New Horizons villager/item/map/house/weather/event exact structures beyond current delta",
-    "analyze Pocket Camp / Pocket Camp Complete local/offline data model from public lawful sources",
-    "analyze audio hour/weather state tables and collection spawn algorithms where public evidence exists",
-    "append facts only; never infer absence from unextracted records"
+    "mechanically extract Wild World full LeafEdit source expressions",
+    "mechanically catalog New Horizons public Structures/**/*.cs sizes/fields",
+    "finish remaining GameCube/N64 life-sim tables without duplicating already extracted files",
+    "cross-check City Folk with ACSE",
+    "update SOURCE_COVERAGE_MATRIX rows from PARTIAL_PUBLIC_SOURCE to PUBLIC_SOURCE_EXHAUSTED only after traversal proof",
+    "checkpoint after each generation state change"
   ],
   "copyright_truth": {
     "roms_or_disc_images_stored": false,
@@ -66,5 +70,19 @@
     "canonical_issue": "DeeDee-Lab/Dolzore#40",
     "duplicate_issue_42_closed": true,
     "duplicate_reason": "Created before fresh-reading existing corpus; corrected immediately and no second owner retained."
+  },
+  "exact_fact_validation": {
+    "jsonl_files": 28,
+    "records": 1098,
+    "parse": "PASS",
+    "validated_on_main": true
+  },
+  "completion_truth": {
+    "game_development_domain_corpus_ready": true,
+    "exact_fact_catalog_useful": true,
+    "exact_fact_records_validated": 1098,
+    "public_source_exhaustion_complete": false,
+    "proprietary_internal_complete": false,
+    "reason": "Several pinned public repositories still contain untraversed structures/modules. Some requested proprietary/server/runtime internals are not publicly available and will be marked SOURCE_UNAVAILABLE rather than inferred."
   }
 }
