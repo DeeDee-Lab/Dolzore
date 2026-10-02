@@ -354,19 +354,22 @@ namespace Dolzore.Editor
                 TownRoot+"/roof-high.fbx",
                 TownRoot+"/fountain-round.fbx",
                 CastleRoot+"/tower-square.fbx",
-                CharacterRoot+"/Model/characterMedium.fbx",
                 KayRoot+"/building_tavern_blue.fbx",
-                KayRoot+"/building_townhall_blue.fbx"
+                KayRoot+"/building_townhall_blue.fbx",
+                AdventurerRoot+"/Characters/Knight.fbx",
+                AdventurerRoot+"/Characters/Mage.fbx",
+                AdventurerRoot+"/Animations/Rig_Medium_General.fbx",
+                AdventurerRoot+"/Animations/Rig_Medium_MovementBasic.fbx"
             };
             foreach(var p in mustExist) if(AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(p)==null) throw new Exception("DOLZORE_EXTERNAL_ASSET_IMPORT_FAILED:"+p);
 
             var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
             RenderSettings.ambientMode=AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor=Hex("#AAB9C7");
-            RenderSettings.ambientEquatorColor=Hex("#8A7D69");
-            RenderSettings.ambientGroundColor=Hex("#3D433A");
-            RenderSettings.ambientIntensity=0.62f;
-            RenderSettings.fog=true;RenderSettings.fogMode=FogMode.ExponentialSquared;RenderSettings.fogDensity=0.0045f;RenderSettings.fogColor=Hex("#A7B6BE");
+            RenderSettings.ambientSkyColor=Hex("#C4D3DE");
+            RenderSettings.ambientEquatorColor=Hex("#A28C70");
+            RenderSettings.ambientGroundColor=Hex("#465040");
+            RenderSettings.ambientIntensity=0.54f;
+            RenderSettings.fog=true;RenderSettings.fogMode=FogMode.ExponentialSquared;RenderSettings.fogDensity=0.0027f;RenderSettings.fogColor=Hex("#B9C6CC");
 
             QualitySettings.shadowDistance=120f; QualitySettings.antiAliasing=4;
 
@@ -375,21 +378,25 @@ namespace Dolzore.Editor
             var cobble=Textured("Cobble","cobble.png","#9B907E",new Vector2(9,9),0.10f);
             var plaster=Textured("Plaster","plaster.png","#C8B697",new Vector2(3,3),0.09f);
             var stone=Flat("Stone","#8D8373",0.12f);
+            var walkway=Flat("Walkway","#B3A48C",0.10f);
             var dark=Flat("DarkWood","#4A3A31",0.10f);
 
             Cube("Ground",new Vector3(0,-0.55f,7),new Vector3(110,1,105),grass,root);
 
-            // Dense street ribbons: narrow enough to feel enclosed, never the old empty-lawn blockout.
-            Cube("SouthStreet",new Vector3(-2,0,-22),new Vector3(8.2f,0.20f,34),cobble,root);
-            var bend=Cube("CentralStreet",new Vector3(2,0,-2),new Vector3(8.2f,0.20f,25),cobble,root); bend.transform.eulerAngles=new Vector3(0,-10,0);
-            var north=Cube("NorthStreet",new Vector3(7,0,22),new Vector3(8.2f,0.20f,29),cobble,root); north.transform.eulerAngles=new Vector3(0,-14,0);
-            Cube("MarketLane",new Vector3(-15,0,-1),new Vector3(27,0.18f,5.8f),cobble,root).transform.eulerAngles=new Vector3(0,7,0);
-            Cube("CivicLane",new Vector3(20,0,8),new Vector3(28,0.18f,5.5f),cobble,root).transform.eulerAngles=new Vector3(0,-12,0);
-            Cube("Plaza",new Vector3(4,0.06f,6),new Vector3(18,0.20f,17),cobble,root);
+            // FF11-like density: narrow carriageway, readable pedestrian edges and almost no dead lawn.
+            Cube("SouthWalk",new Vector3(-2,-0.01f,-22),new Vector3(10.0f,0.16f,34),walkway,root);
+            Cube("SouthStreet",new Vector3(-2,0.04f,-22),new Vector3(6.2f,0.20f,34),cobble,root);
+            var bendWalk=Cube("CentralWalk",new Vector3(2,-0.01f,-2),new Vector3(10.0f,0.16f,25),walkway,root); bendWalk.transform.eulerAngles=new Vector3(0,-10,0);
+            var bend=Cube("CentralStreet",new Vector3(2,0.04f,-2),new Vector3(6.2f,0.20f,25),cobble,root); bend.transform.eulerAngles=new Vector3(0,-10,0);
+            var northWalk=Cube("NorthWalk",new Vector3(7,-0.01f,22),new Vector3(10.0f,0.16f,29),walkway,root); northWalk.transform.eulerAngles=new Vector3(0,-14,0);
+            var north=Cube("NorthStreet",new Vector3(7,0.04f,22),new Vector3(6.2f,0.20f,29),cobble,root); north.transform.eulerAngles=new Vector3(0,-14,0);
+            Cube("MarketLane",new Vector3(-15,0.02f,-1),new Vector3(27,0.18f,5.0f),cobble,root).transform.eulerAngles=new Vector3(0,7,0);
+            Cube("CivicLane",new Vector3(20,0.02f,8),new Vector3(28,0.18f,4.8f),cobble,root).transform.eulerAngles=new Vector3(0,-12,0);
+            Cube("Plaza",new Vector3(4,0.06f,6),new Vector3(15.5f,0.20f,14.5f),cobble,root);
 
-            // Raised northern ward and visible ascent.
-            Cube("UpperWard",new Vector3(11,2.1f,38),new Vector3(52,4.2f,22),stone,root);
-            for(int i=0;i<10;i++) Cube("UpperStep "+i,new Vector3(4.5f,0.18f+i*0.21f,28+i*0.8f),new Vector3(8.0f,0.35f,1.0f),stone,root);
+            // Raised northern ward: lower retaining wall, stronger visible skyline.
+            Cube("UpperWard",new Vector3(11,1.20f,38),new Vector3(52,2.4f,22),stone,root);
+            for(int i=0;i<8;i++) Cube("UpperStep "+i,new Vector3(4.5f,0.17f+i*0.28f,28+i*0.82f),new Vector3(7.2f,0.34f,1.05f),stone,root);
 
             // Street enclosure now uses complete low-poly authored buildings.
             // This keeps the FF11-like light geometry budget while avoiding fragile wall-piece assembly.
@@ -401,9 +408,9 @@ namespace Dolzore.Editor
             Spawn(KayRoot,"building_workshop_blue",new Vector3(20,0,17),-78f,7.8f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(-11,0,18),30f,7.6f,root);
             Spawn(KayRoot,"building_church_blue",new Vector3(-6,0,32),10f,12.5f,root);
-            Spawn(KayRoot,"building_castle_blue",new Vector3(22,4.25f,39),-18f,15.0f,root);
-            Spawn(KayRoot,"building_barracks_blue",new Vector3(-14,4.25f,39),12f,9.5f,root);
-            Spawn(KayRoot,"building_watchtower_blue",new Vector3(31,4.25f,45),-15f,12.0f,root);
+            Spawn(KayRoot,"building_castle_blue",new Vector3(22,2.45f,39),-18f,15.0f,root);
+            Spawn(KayRoot,"building_barracks_blue",new Vector3(-14,2.45f,39),12f,9.5f,root);
+            Spawn(KayRoot,"building_watchtower_blue",new Vector3(31,2.45f,45),-15f,12.0f,root);
 
             // Landmark square and market life.
             BuildFountain(new Vector3(4,0.18f,7),root);
@@ -414,10 +421,10 @@ namespace Dolzore.Editor
             // Arched thresholds and skyline.
             Spawn(TownRoot,"wall-arch",new Vector3(4,0.1f,24.5f),-12f,6.5f,root);
             Spawn(TownRoot,"wall-arch-top-detail",new Vector3(4,5.9f,24.5f),-12f,2.2f,root,false);
-            BuildGate(new Vector3(9,4.25f,50),root);
+            BuildGate(new Vector3(9,2.45f,50),root);
 
             // Vertical detail / trees / lamps / carts / hedges.
-            Vector3[] trees={new Vector3(-25,0,15),new Vector3(28,0,23),new Vector3(-25,0,-18),new Vector3(31,4.25f,34),new Vector3(-22,4.25f,45)};
+            Vector3[] trees={new Vector3(-25,0,15),new Vector3(28,0,23),new Vector3(-25,0,-18),new Vector3(31,2.45f,34),new Vector3(-22,2.45f,45)};
             for(int i=0;i<trees.Length;i++) Spawn(TownRoot,i%2==0?"tree-high":"tree-crooked",trees[i],i*33f,5.5f+(i%3)*0.7f,root,false);
             Vector3[] lamps={new Vector3(-5,0,-29),new Vector3(4,0,-18),new Vector3(-2,0,-6),new Vector3(10,0,1),new Vector3(-5,0,12),new Vector3(13,0,18),new Vector3(2,0,24)};
             foreach(var p in lamps) Spawn(TownRoot,"lantern",p,0f,2.8f,root,false);
@@ -426,25 +433,30 @@ namespace Dolzore.Editor
             for(int i=0;i<5;i++) Spawn(TownRoot,"hedge",new Vector3(-27+i*4,0,20),0f,1.1f,root,false);
             Spawn(TownRoot,"fence-gate",new Vector3(-11,0,26),10f,1.4f,root,false);
 
-            // Hero character and visible town population.
-            var player=Character("SORA",new Vector3(-1,0,-31),4f,"skaterMaleA.png",true,root);
-            string[] skins={"skaterFemaleA.png","skaterMaleA.png","criminalMaleA.png","cyborgFemaleA.png"};
+            // Hero + residents use fantasy rigged characters; no modern skins / no T-pose acceptance.
+            var controller=EnsureAdventurerController(out var idleClip);
+            var player=FantasyCharacter("SORA",new Vector3(-1,0,-31),4f,"Knight","knight_texture.png",true,root,controller,idleClip);
+            string[] archetypes={"Mage","Ranger","Rogue","Druid","Engineer","Knight"};
+            string[] textures={"mage_texture.png","ranger_texture.png","rogue_texture.png","druid_texture.png","engineer_texture.png","knight_texture.png"};
             Vector3[] npcPos={
-                new Vector3(-14,0,-3),new Vector3(-18,0,3),new Vector3(12,0,5),new Vector3(16,0,9),
-                new Vector3(1,0,9),new Vector3(8,0,15),new Vector3(-7,0,18),new Vector3(5,0,22),
-                new Vector3(-1,4.25f,39),new Vector3(18,4.25f,42)
+                new Vector3(-14,0,-5),new Vector3(-18,0,1),new Vector3(-16,0,6),new Vector3(12,0,3),
+                new Vector3(16,0,7),new Vector3(13,0,11),new Vector3(0,0,8),new Vector3(7,0,14),
+                new Vector3(-7,0,17),new Vector3(4,0,21),new Vector3(-2,0,-15),new Vector3(7,0,-18),
+                new Vector3(-8,0,-22),new Vector3(18,0,-6),new Vector3(-3,2.45f,38),new Vector3(14,2.45f,40),
+                new Vector3(24,2.45f,35),new Vector3(-16,2.45f,42)
             };
-            for(int i=0;i<npcPos.Length;i++) Character("Resident "+(i+1),npcPos[i],(i*47)%360,skins[i%skins.Length],false,root);
+            for(int i=0;i<npcPos.Length;i++)
+                FantasyCharacter("Resident "+(i+1),npcPos[i],(i*43)%360,archetypes[i%archetypes.Length],textures[i%textures.Length],false,root,controller,idleClip);
 
-            AddLight("Sun",Hex("#FFE0B8"),1.28f,new Vector3(47,-32,0),true);
-            AddLight("SkyFill",Hex("#B9D0E2"),0.24f,new Vector3(62,148,0),false);
+            AddLight("Sun",Hex("#FFE1BC"),1.16f,new Vector3(48,-34,-8),true);
+            AddLight("SkyFill",Hex("#BDD4E5"),0.18f,new Vector3(62,148,0),false);
 
             var camGo=new GameObject("Main Camera");camGo.tag="MainCamera";
-            var cam=camGo.AddComponent<Camera>();cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=Hex("#9DB8C8");
+            var cam=camGo.AddComponent<Camera>();cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=Hex("#AFC6D2");
             cam.nearClipPlane=0.08f;cam.farClipPlane=220f;cam.fieldOfView=54f;
             camGo.AddComponent<AudioListener>();
-            var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=8.5f;rig.height=3.7f;
-            camGo.transform.position=new Vector3(0f,4.4f,-40f);
+            var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=7.2f;rig.height=3.2f;
+            camGo.transform.position=new Vector3(0f,3.6f,-38.5f);
             camGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,3.0f,16f)-camGo.transform.position,Vector3.up);
 
             // Dedicated deterministic preview camera. The runtime follow camera can move during
@@ -453,12 +465,12 @@ namespace Dolzore.Editor
             var preview=previewGo.AddComponent<Camera>();
             preview.enabled=false;
             preview.clearFlags=CameraClearFlags.SolidColor;
-            preview.backgroundColor=Hex("#9DB8C8");
+            preview.backgroundColor=Hex("#AFC6D2");
             preview.nearClipPlane=0.08f;
             preview.farClipPlane=240f;
-            preview.fieldOfView=58f;
-            previewGo.transform.position=new Vector3(-1.5f,4.8f,-40.5f);
-            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,3.1f,18f)-previewGo.transform.position,Vector3.up);
+            preview.fieldOfView=52f;
+            previewGo.transform.position=new Vector3(-0.8f,3.9f,-38.8f);
+            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,2.8f,14f)-previewGo.transform.position,Vector3.up);
 
             EditorSceneManager.SaveScene(scene,ScenePath);
             Debug.Log("DOLZORE_FIRST_TOWN_3D_FF11_STYLE_BUILD=PASS");
