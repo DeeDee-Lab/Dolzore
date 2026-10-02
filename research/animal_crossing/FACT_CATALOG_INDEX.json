@@ -1,0 +1,73 @@
+{
+  "schema": "dolzore.animal_crossing.fact_catalog_index.v1",
+  "authority": "direct-user-2026-10-02",
+  "validated_record_count": 137,
+  "validation": "all listed JSONL records parse PASS on main readback",
+  "handoff_order": [
+    "AGENT_READ_FIRST.md",
+    "VERIFIED_FACT_RECORD_SCHEMA_V1.json",
+    "FACT_CATALOG_INDEX.json",
+    "facts/*.jsonl",
+    "SERIES_MATRIX_V1.json",
+    "domain interpretation files",
+    "INTERNAL_ARCHITECTURE_V1.md"
+  ],
+  "files": [
+    {
+      "file": "facts/ANIMAL_FOREST_N64_V1.jsonl",
+      "records": 22,
+      "blob_sha": "efdd97dbb241bc638cd9d5c0d5288efc1a96467d"
+    },
+    {
+      "file": "facts/ANIMAL_CROSSING_GC_V1.jsonl",
+      "records": 21,
+      "blob_sha": "c73f7678a1d15c683c5a5ca562a5305913e4ae78"
+    },
+    {
+      "file": "facts/WILD_WORLD_NEW_LEAF_V1.jsonl",
+      "records": 59,
+      "blob_sha": "3d5efd40a3901580eed8dd2a1805bfba949372ec"
+    },
+    {
+      "file": "facts/CITY_FOLK_V1.jsonl",
+      "records": 9,
+      "blob_sha": "e0c771959f71af8b4a3bf91100d639db713b9094"
+    },
+    {
+      "file": "facts/NEW_HORIZONS_3X_V1.jsonl",
+      "records": 26,
+      "blob_sha": "963e27f63fa4096b27c5c72accae193a15e86ab7"
+    }
+  ],
+  "coverage_truth": {
+    "exhaustive": false,
+    "current_exact_internal_generations": [
+      "Animal Forest N64",
+      "Animal Crossing GameCube",
+      "Wild World",
+      "City Folk",
+      "New Leaf / Welcome amiibo",
+      "New Horizons 3.0.x"
+    ],
+    "spinoffs_with_system_level_but_not_exact_binary_catalog": [
+      "Happy Home Designer",
+      "amiibo Festival",
+      "Pocket Camp",
+      "Pocket Camp Complete",
+      "Animal Crossing Plaza",
+      "Happy Home Paradise"
+    ],
+    "pending": [
+      "complete GameCube structure catalog beyond selected fields",
+      "complete Wild World/NL/WA offsets and item/player/house/shop schemas",
+      "Happy Home Designer save structures",
+      "New Horizons item/villager/player/house struct field catalogs",
+      "weather/event/collection exact algorithms",
+      "audio resource/state tables",
+      "dialogue/personality exact public research where legally available",
+      "Pocket Camp local data/model research",
+      "Switch 2 runtime/render/input deltas"
+    ]
+  },
+  "no_absence_inference": "Missing from the catalog means not yet extracted, never 'does not exist'."
+}
