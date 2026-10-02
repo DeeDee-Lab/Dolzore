@@ -190,16 +190,13 @@ namespace Dolzore.Editor
 
         private static void BuildGate(Vector3 center,Transform parent)
         {
-            var stone=Flat("GateStone","#8E8170",0.16f);
-            var banner=Flat("GateBanner","#304F70",0.08f);
-            Cube("GateFoundation",center+new Vector3(0,0.7f,0),new Vector3(22,1.4f,7),stone,parent);
-            var left=Spawn(CastleRoot,"tower-square",center+new Vector3(-9.2f,1.4f,0),0f,14.5f,parent);
-            var right=Spawn(CastleRoot,"tower-square",center+new Vector3(9.2f,1.4f,0),0f,14.5f,parent);
-            var gate=Spawn(CastleRoot,"gate",center+new Vector3(0,1.4f,-0.2f),0f,7.6f,parent);
-            SetLayerMaterial(left,stone); SetLayerMaterial(right,stone); SetLayerMaterial(gate,stone);
-            var bl=Spawn(CastleRoot,"flag-banner-long",center+new Vector3(-9.2f,15.2f,-1.0f),0f,4.2f,parent,false);
-            var br=Spawn(CastleRoot,"flag-banner-long",center+new Vector3(9.2f,15.2f,-1.0f),0f,4.2f,parent,false);
-            SetLayerMaterial(bl,banner); SetLayerMaterial(br,banner);
+            // Use the detailed town kit for the gate silhouette; avoid giant blank castle slabs.
+            var arch=Spawn(TownRoot,"wall-arch",center,0f,7.4f,parent);
+            var top=Spawn(TownRoot,"wall-arch-top-detail",center+Vector3.up*6.55f,0f,2.0f,parent,false);
+            var left=Spawn(TownRoot,"pillar-stone",center+new Vector3(-5.0f,0f,0),0f,8.1f,parent);
+            var right=Spawn(TownRoot,"pillar-stone",center+new Vector3(5.0f,0f,0),0f,8.1f,parent);
+            Spawn(TownRoot,"banner-red",center+new Vector3(-5.0f,4.8f,-0.25f),0f,3.0f,parent,false);
+            Spawn(TownRoot,"banner-green",center+new Vector3(5.0f,4.8f,-0.25f),0f,3.0f,parent,false);
         }
 
         private static void BuildFountain(Vector3 p,Transform parent)
@@ -371,6 +368,16 @@ namespace Dolzore.Editor
             RenderSettings.ambientGroundColor=Hex("#465040");
             RenderSettings.ambientIntensity=0.54f;
             RenderSettings.fog=true;RenderSettings.fogMode=FogMode.ExponentialSquared;RenderSettings.fogDensity=0.0027f;RenderSettings.fogColor=Hex("#B9C6CC");
+            var skyShader=Shader.Find("Skybox/Procedural");
+            if(skyShader!=null)
+            {
+                var sky=new Material(skyShader);
+                sky.SetColor("_SkyTint",Hex("#A9C5D9"));
+                sky.SetColor("_GroundColor",Hex("#6E766E"));
+                sky.SetFloat("_AtmosphereThickness",0.78f);
+                sky.SetFloat("_Exposure",1.05f);
+                RenderSettings.skybox=sky;
+            }
 
             QualitySettings.shadowDistance=120f; QualitySettings.antiAliasing=4;
 
@@ -379,17 +386,17 @@ namespace Dolzore.Editor
             var cobble=Textured("Cobble","cobble.png","#9B907E",new Vector2(9,9),0.10f);
             var plaster=Textured("Plaster","plaster.png","#C8B697",new Vector2(3,3),0.09f);
             var stone=Flat("Stone","#8D8373",0.12f);
-            var walkway=Flat("Walkway","#B3A48C",0.10f);
+            var walkway=Flat("Walkway","#958671",0.10f);
             var dark=Flat("DarkWood","#4A3A31",0.10f);
 
             Cube("Ground",new Vector3(0,-0.55f,7),new Vector3(110,1,105),grass,root);
 
             // FF11-like density: narrow carriageway, readable pedestrian edges and almost no dead lawn.
-            Cube("SouthWalk",new Vector3(-2,-0.01f,-22),new Vector3(10.0f,0.16f,34),walkway,root);
+            Cube("SouthWalk",new Vector3(-2,-0.01f,-22),new Vector3(8.5f,0.16f,34),walkway,root);
             Cube("SouthStreet",new Vector3(-2,0.04f,-22),new Vector3(6.2f,0.20f,34),cobble,root);
-            var bendWalk=Cube("CentralWalk",new Vector3(2,-0.01f,-2),new Vector3(10.0f,0.16f,25),walkway,root); bendWalk.transform.eulerAngles=new Vector3(0,-10,0);
+            var bendWalk=Cube("CentralWalk",new Vector3(2,-0.01f,-2),new Vector3(8.5f,0.16f,25),walkway,root); bendWalk.transform.eulerAngles=new Vector3(0,-10,0);
             var bend=Cube("CentralStreet",new Vector3(2,0.04f,-2),new Vector3(6.2f,0.20f,25),cobble,root); bend.transform.eulerAngles=new Vector3(0,-10,0);
-            var northWalk=Cube("NorthWalk",new Vector3(7,-0.01f,22),new Vector3(10.0f,0.16f,29),walkway,root); northWalk.transform.eulerAngles=new Vector3(0,-14,0);
+            var northWalk=Cube("NorthWalk",new Vector3(7,-0.01f,22),new Vector3(8.5f,0.16f,29),walkway,root); northWalk.transform.eulerAngles=new Vector3(0,-14,0);
             var north=Cube("NorthStreet",new Vector3(7,0.04f,22),new Vector3(6.2f,0.20f,29),cobble,root); north.transform.eulerAngles=new Vector3(0,-14,0);
             Cube("MarketLane",new Vector3(-15,0.02f,-1),new Vector3(27,0.18f,5.0f),cobble,root).transform.eulerAngles=new Vector3(0,7,0);
             Cube("CivicLane",new Vector3(20,0.02f,8),new Vector3(28,0.18f,4.8f),cobble,root).transform.eulerAngles=new Vector3(0,-12,0);
@@ -403,10 +410,14 @@ namespace Dolzore.Editor
             // This keeps the FF11-like light geometry budget while avoiding fragile wall-piece assembly.
             Spawn(KayRoot,"building_tavern_blue",new Vector3(-11,0,-23),18f,8.5f,root);
             Spawn(KayRoot,"building_home_A_blue",new Vector3(10,0,-23),-12f,7.4f,root);
+            Spawn(KayRoot,"building_home_B_blue",new Vector3(-10.0f,0,-13.0f),12f,6.6f,root);
+            Spawn(KayRoot,"building_home_A_blue",new Vector3(10.5f,0,-12.0f),-10f,6.4f,root);
             Spawn(KayRoot,"building_market_blue",new Vector3(-17,0,-8),83f,7.5f,root);
             Spawn(KayRoot,"building_townhall_blue",new Vector3(-18,0,8),96f,11.5f,root);
             Spawn(KayRoot,"building_blacksmith_blue",new Vector3(17,0,-8),-78f,7.8f,root);
             Spawn(KayRoot,"building_workshop_blue",new Vector3(20,0,17),-78f,7.8f,root);
+            Spawn(KayRoot,"building_home_A_blue",new Vector3(-10.5f,0,8.0f),15f,6.2f,root);
+            Spawn(KayRoot,"building_home_B_blue",new Vector3(12.5f,0,9.0f),-20f,6.5f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(-11,0,18),30f,7.6f,root);
             Spawn(KayRoot,"building_church_blue",new Vector3(-6,0,32),10f,12.5f,root);
             Spawn(KayRoot,"building_castle_blue",new Vector3(22,2.45f,39),-18f,15.0f,root);
@@ -477,7 +488,7 @@ namespace Dolzore.Editor
             AddLight("SkyFill",Hex("#BDD4E5"),0.18f,new Vector3(62,148,0),false);
 
             var camGo=new GameObject("Main Camera");camGo.tag="MainCamera";
-            var cam=camGo.AddComponent<Camera>();cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=Hex("#AFC6D2");
+            var cam=camGo.AddComponent<Camera>();cam.clearFlags=RenderSettings.skybox!=null?CameraClearFlags.Skybox:CameraClearFlags.SolidColor;cam.backgroundColor=Hex("#AFC6D2");
             cam.nearClipPlane=0.08f;cam.farClipPlane=220f;cam.fieldOfView=54f;
             camGo.AddComponent<AudioListener>();
             var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=7.2f;rig.height=3.2f;
@@ -489,7 +500,7 @@ namespace Dolzore.Editor
             var previewGo=new GameObject("Preview Camera");
             var preview=previewGo.AddComponent<Camera>();
             preview.enabled=false;
-            preview.clearFlags=CameraClearFlags.SolidColor;
+            preview.clearFlags=RenderSettings.skybox!=null?CameraClearFlags.Skybox:CameraClearFlags.SolidColor;
             preview.backgroundColor=Hex("#AFC6D2");
             preview.nearClipPlane=0.08f;
             preview.farClipPlane=240f;
