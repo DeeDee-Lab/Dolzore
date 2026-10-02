@@ -1,0 +1,29 @@
+{
+  "schema": "dolzore.animal_crossing.verified_fact_record.v1",
+  "authority": "direct-user-2026-10-02",
+  "required_fields": [
+    "fact_id",
+    "generation",
+    "domain",
+    "field_name",
+    "raw_value",
+    "raw_value_type",
+    "conditions",
+    "source_repo",
+    "source_commit",
+    "source_path",
+    "source_blob_sha",
+    "evidence_class",
+    "extraction_method"
+  ],
+  "no_overwrite_rule": "Derived/normalized/interpreted values must be additional fields and never replace raw_value.",
+  "evidence_classes": [
+    "OFFICIAL_CURRENT",
+    "OFFICIAL_HISTORICAL",
+    "CREATOR_INTERVIEW",
+    "COMMUNITY_DECOMPILATION",
+    "COMMUNITY_SAVE_RESEARCH",
+    "COMMUNITY_REVERSE_ENGINEERING"
+  ],
+  "copyright_rule": "Do not copy ROM/disc/save assets or full proprietary data; preserve public research structure/provenance."
+}
