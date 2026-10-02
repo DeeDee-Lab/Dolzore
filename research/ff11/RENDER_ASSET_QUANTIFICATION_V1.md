@@ -93,9 +93,15 @@ Current exact complete-character triangles and per-slot triangle distributions: 
 
 The parser also accepts indexed/palettized image records and returns decoded BGRA32.
 
+Cross-parser coverage warning (do not normalize away):
+- Rich Whitehouse Noesis `model_ff11.cpp` explicitly recognizes DXT1, DXT3 **and DXT5** in the FFXI DXT branch.
+- Pinned Kuluu commit `937b9978de923c517435d26e20ea68067fe6a388` exposes `TexFormat::{Dxt1,Dxt3,Bgra32,Argb32}` and does not expose a Dxt5 variant in `ffxi-dat/src/texture.rs`.
+- Therefore a Kuluu-only successful census is NOT sufficient evidence that DXT5 is absent from the installed client. DXT5/raw flag occurrences must be counted independently from original Img bytes or with a parser that preserves DXT5.
+
 Compression math to store as DERIVED fields only:
 - DXT1 block = 8 bytes per 4x4 texels => 0.5 bytes/texel, nominal 8:1 vs 32-bit RGBA for multiples of 4.
 - DXT3 block = 16 bytes per 4x4 texels => 1 byte/texel, nominal 4:1 vs 32-bit RGBA.
+- DXT5 block = 16 bytes per 4x4 texels => 1 byte/texel, nominal 4:1 vs 32-bit RGBA; source support is confirmed in Noesis but must be independently detected because the pinned Kuluu enum omits Dxt5.
 Do not write these calculated ratios into raw_value.
 
 Current full-client resolution and format histograms: NOT_YET_MEASURED_ON_SPC.
@@ -229,7 +235,7 @@ The next read-only SPC scanner must emit metadata only:
    - draw groups
    - culling definition
 
-## 4. Truth status for the 11 requested metrics
+## 4. Truth status for the 12 requested metrics
 
 - Character triangles: extractor path proven; exact SPC number pending.
 - Race bone counts: direct byte field/parser proven; exact SPC number pending.
