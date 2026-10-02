@@ -278,7 +278,8 @@ namespace Dolzore.Editor
             var visual=Spawn(AdventurerRoot+"/Characters",archetype,p,yaw,1.76f,parent,false);
             visual.name=name+" Visual";
             SetLayerMaterial(visual,AdventurerMaterial(textureFile,name+" Mat"));
-            var animator=visual.GetComponent<Animator>()??visual.AddComponent<Animator>();
+            var animator=visual.GetComponent<Animator>();
+            if(animator==null) animator=visual.AddComponent<Animator>();
             animator.runtimeAnimatorController=controller;
             if(idleClip!=null)
             {
