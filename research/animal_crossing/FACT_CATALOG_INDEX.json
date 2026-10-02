@@ -1,8 +1,8 @@
 {
   "schema": "dolzore.animal_crossing.fact_catalog_index.v1",
   "authority": "direct-user-2026-10-02",
-  "validated_record_count": 137,
-  "validation": "all listed JSONL records parse PASS on main readback",
+  "validated_record_count": 145,
+  "validation": "all listed JSONL records parse PASS on main readback; 145 records after NH structure delta",
   "handoff_order": [
     "AGENT_READ_FIRST.md",
     "VERIFIED_FACT_RECORD_SCHEMA_V1.json",
@@ -37,6 +37,11 @@
       "file": "facts/NEW_HORIZONS_3X_V1.jsonl",
       "records": 26,
       "blob_sha": "963e27f63fa4096b27c5c72accae193a15e86ab7"
+    },
+    {
+      "file": "facts/NEW_HORIZONS_STRUCTS_DELTA_V1.jsonl",
+      "records": 8,
+      "blob_sha": "6b03bdddd07ae83c61a0b92a6426d8202c8a0127"
     }
   ],
   "coverage_truth": {
