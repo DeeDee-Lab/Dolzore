@@ -110,7 +110,10 @@ namespace Dolzore.Editor
             if(parent!=null) go.transform.SetParent(parent,true);
             go.transform.position=Vector3.zero; go.transform.rotation=Quaternion.identity;
             var b=BoundsOf(go);
-            float w=Mathf.Max(0.001f,b.size.x);
+            // Kenney wall modules are not guaranteed to use local X as their long axis.
+            // Scale against the dominant horizontal extent so a thin depth axis can never
+            // explode the whole prefab into a camera-blocking slab.
+            float w=Mathf.Max(0.001f,Mathf.Max(b.size.x,b.size.z));
             go.transform.localScale=Vector3.one*(targetWidth/w);
             go.transform.rotation=Quaternion.Euler(0f,yaw,0f);
             b=BoundsOf(go);
