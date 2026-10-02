@@ -423,15 +423,39 @@ namespace Dolzore.Editor
             Spawn(TownRoot,"wall-arch-top-detail",new Vector3(4,5.9f,24.5f),-12f,2.2f,root,false);
             BuildGate(new Vector3(9,2.45f,50),root);
 
-            // Vertical detail / trees / lamps / carts / hedges.
-            Vector3[] trees={new Vector3(-25,0,15),new Vector3(28,0,23),new Vector3(-25,0,-18),new Vector3(31,2.45f,34),new Vector3(-22,2.45f,45)};
-            for(int i=0;i<trees.Length;i++) Spawn(TownRoot,i%2==0?"tree-high":"tree-crooked",trees[i],i*33f,5.5f+(i%3)*0.7f,root,false);
-            Vector3[] lamps={new Vector3(-5,0,-29),new Vector3(4,0,-18),new Vector3(-2,0,-6),new Vector3(10,0,1),new Vector3(-5,0,12),new Vector3(13,0,18),new Vector3(2,0,24)};
-            foreach(var p in lamps) Spawn(TownRoot,"lantern",p,0f,2.8f,root,false);
-            Spawn(TownRoot,"cart",new Vector3(-21,0,-2),98f,2.0f,root,false);
-            Spawn(TownRoot,"cart-high",new Vector3(22,0,13),-77f,2.1f,root,false);
-            for(int i=0;i<5;i++) Spawn(TownRoot,"hedge",new Vector3(-27+i*4,0,20),0f,1.1f,root,false);
-            Spawn(TownRoot,"fence-gate",new Vector3(-11,0,26),10f,1.4f,root,false);
+            // FF11-like set dressing: many inexpensive objects instead of a few giant meshes.
+            Vector3[] trees={
+                new Vector3(-25,0,15),new Vector3(28,0,23),new Vector3(-25,0,-18),new Vector3(25,0,-18),
+                new Vector3(-28,0,2),new Vector3(29,0,7),new Vector3(-24,0,27),new Vector3(31,2.45f,34),
+                new Vector3(-22,2.45f,45),new Vector3(3,2.45f,47)
+            };
+            for(int i=0;i<trees.Length;i++)
+                Spawn(TownRoot,i%3==0?"tree-high-round":(i%2==0?"tree-high":"tree-crooked"),trees[i],i*29f,5.0f+(i%4)*0.55f,root,false);
+
+            Vector3[] lamps={
+                new Vector3(-5,0,-29),new Vector3(4,0,-24),new Vector3(4,0,-18),new Vector3(-3,0,-12),
+                new Vector3(-2,0,-6),new Vector3(10,0,1),new Vector3(-5,0,12),new Vector3(13,0,18),
+                new Vector3(2,0,24),new Vector3(-10,0,6),new Vector3(18,0,-2),new Vector3(7,2.45f,35)
+            };
+            foreach(var p in lamps) Spawn(TownRoot,"lantern",p,0f,2.55f,root,false);
+
+            Spawn(TownRoot,"cart",new Vector3(-21,0,-2),98f,1.8f,root,false);
+            Spawn(TownRoot,"cart-high",new Vector3(22,0,13),-77f,2.0f,root,false);
+            Spawn(TownRoot,"fence-gate",new Vector3(-11,0,26),10f,1.35f,root,false);
+            for(int i=0;i<7;i++) Spawn(TownRoot,"hedge",new Vector3(-28+i*3.4f,0,21),0f,1.0f,root,false);
+            for(int i=0;i<4;i++) Spawn(TownRoot,"hedge-large",new Vector3(22+i*2.8f,0,25),90f,1.25f,root,false);
+            for(int i=0;i<4;i++) Spawn(TownRoot,"fence",new Vector3(-27+i*2.6f,0,-13),90f,1.0f,root,false);
+
+            Spawn(TownRoot,"pillar-stone",new Vector3(-7,0,4),0f,2.4f,root,false);
+            Spawn(TownRoot,"pillar-stone",new Vector3(15,0,4),0f,2.4f,root,false);
+            Spawn(TownRoot,"banner-red",new Vector3(-7,2.2f,4),0f,2.2f,root,false);
+            Spawn(TownRoot,"banner-green",new Vector3(15,2.2f,4),0f,2.2f,root,false);
+            Spawn(TownRoot,"rock-wide",new Vector3(-30,0,31),22f,1.2f,root,false);
+            Spawn(TownRoot,"rock-small",new Vector3(33,0,27),-15f,0.8f,root,false);
+
+            // Two extra thresholds break long sightlines and create the layered FF11-town feeling.
+            Spawn(TownRoot,"wall-arch",new Vector3(-1,0.05f,-8),0f,4.6f,root,false);
+            Spawn(TownRoot,"wall-arch-top-detail",new Vector3(-1,4.0f,-8),0f,1.5f,root,false);
 
             // Hero + residents use fantasy rigged characters; no modern skins / no T-pose acceptance.
             var controller=EnsureAdventurerController(out var idleClip);
