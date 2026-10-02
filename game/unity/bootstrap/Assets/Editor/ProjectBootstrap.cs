@@ -641,7 +641,19 @@ namespace Dolzore.Editor
         private static void RenderPreview(string scenePath, string outputRelative)
         {
             EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
-            Camera cam = Camera.main;
+            Camera cam = null;
+            if (scenePath == Town3DScene)
+            {
+                foreach (Camera candidate in Resources.FindObjectsOfTypeAll<Camera>())
+                {
+                    if (candidate != null && candidate.gameObject.scene.IsValid() && candidate.name == "Preview Camera")
+                    {
+                        cam = candidate;
+                        break;
+                    }
+                }
+            }
+            if (cam == null) cam = Camera.main;
             if (cam == null) throw new InvalidOperationException("Preview camera missing.");
 
             const int width = 1920;
@@ -672,7 +684,7 @@ namespace Dolzore.Editor
             Directory.CreateDirectory(output);
             BuildPlayerOptions options = new BuildPlayerOptions
             {
-                scenes = new[] { TitleScene, TownScene },
+                scenes = new[] { TitleScene, Town3DScene, TownScene },
                 locationPathName = output,
                 target = BuildTarget.WebGL,
                 options = BuildOptions.None
