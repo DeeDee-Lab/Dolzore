@@ -14,6 +14,7 @@ namespace Dolzore.Editor
         private const string TownRoot = "Assets/External/FantasyTown";
         private const string CastleRoot = "Assets/External/Castle";
         private const string CharacterRoot = "Assets/External/Characters";
+        private const string KayRoot = "Assets/External/KayTown";
         private const string GeneratedRoot = "Assets/Art/Generated3D/FirstTownFF11";
 
         private static readonly Dictionary<string, Material> Materials = new Dictionary<string, Material>();
@@ -300,7 +301,9 @@ namespace Dolzore.Editor
                 TownRoot+"/roof-high.fbx",
                 TownRoot+"/fountain-round.fbx",
                 CastleRoot+"/tower-square.fbx",
-                CharacterRoot+"/Model/characterMedium.fbx"
+                CharacterRoot+"/Model/characterMedium.fbx",
+                KayRoot+"/building_tavern_blue.fbx",
+                KayRoot+"/building_townhall_blue.fbx"
             };
             foreach(var p in mustExist) if(AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(p)==null) throw new Exception("DOLZORE_EXTERNAL_ASSET_IMPORT_FAILED:"+p);
 
@@ -335,20 +338,23 @@ namespace Dolzore.Editor
             Cube("UpperWard",new Vector3(11,2.1f,38),new Vector3(52,4.2f,22),stone,root);
             for(int i=0;i<10;i++) Cube("UpperStep "+i,new Vector3(4.5f,0.18f+i*0.21f,28+i*0.8f),new Vector3(8.0f,0.35f,1.0f),stone,root);
 
-            // Street enclosure: asymmetrical multi-storey blocks.
-            BuildHouse("Lantern Inn",new Vector3(-10,0,-23),18f,3,2,true,true,true,root,plaster);
-            BuildHouse("South Residence",new Vector3(9,0,-23),-12f,3,2,false,false,false,root,plaster);
-            BuildHouse("Market House A",new Vector3(-16,0,-8),83f,3,2,true,true,false,root,plaster);
-            BuildHouse("Market House B",new Vector3(-18,0,8),96f,2,3,false,true,true,root,plaster);
-            BuildHouse("Guild Annex",new Vector3(16,0,-8),-78f,3,3,false,true,true,root,plaster);
-            BuildHouse("Workshop Row",new Vector3(19,0,17),-78f,3,2,true,false,false,root,plaster);
-            BuildHouse("Canal House",new Vector3(-11,0,18),30f,2,2,true,true,false,root,plaster);
-            BuildHouse("North Hostel",new Vector3(-5,0,32),10f,3,3,false,true,true,root,plaster);
-            BuildHouse("Upper Archive",new Vector3(23,4.25f,38),-18f,4,3,false,true,true,root,plaster);
-            BuildHouse("Upper Residence",new Vector3(-13,4.25f,39),12f,3,2,true,false,false,root,plaster);
+            // Street enclosure now uses complete low-poly authored buildings.
+            // This keeps the FF11-like light geometry budget while avoiding fragile wall-piece assembly.
+            Spawn(KayRoot,"building_tavern_blue",new Vector3(-11,0,-23),18f,8.5f,root);
+            Spawn(KayRoot,"building_home_A_blue",new Vector3(10,0,-23),-12f,7.4f,root);
+            Spawn(KayRoot,"building_market_blue",new Vector3(-17,0,-8),83f,7.5f,root);
+            Spawn(KayRoot,"building_townhall_blue",new Vector3(-18,0,8),96f,11.5f,root);
+            Spawn(KayRoot,"building_blacksmith_blue",new Vector3(17,0,-8),-78f,7.8f,root);
+            Spawn(KayRoot,"building_workshop_blue",new Vector3(20,0,17),-78f,7.8f,root);
+            Spawn(KayRoot,"building_home_B_blue",new Vector3(-11,0,18),30f,7.6f,root);
+            Spawn(KayRoot,"building_church_blue",new Vector3(-6,0,32),10f,12.5f,root);
+            Spawn(KayRoot,"building_castle_blue",new Vector3(22,4.25f,39),-18f,15.0f,root);
+            Spawn(KayRoot,"building_barracks_blue",new Vector3(-14,4.25f,39),12f,9.5f,root);
+            Spawn(KayRoot,"building_watchtower_blue",new Vector3(31,4.25f,45),-15f,12.0f,root);
 
             // Landmark square and market life.
             BuildFountain(new Vector3(4,0.18f,7),root);
+            Spawn(KayRoot,"building_well_blue",new Vector3(7.5f,0.18f,11.5f),18f,3.2f,root,false);
             BuildMarket(new Vector3(-17,0.05f,2),92f,root);
             BuildMarket(new Vector3(15,0.05f,6),-83f,root);
 
