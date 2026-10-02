@@ -1,0 +1,55 @@
+{
+  "schema": "dolzore.animal_crossing.research_status.v1",
+  "updated_jst": "2026-10-02T11:30:00+09:00",
+  "state": "COMPREHENSIVE_V1_FOUNDATION_PERSISTING",
+  "canonical_repo": "DeeDee-Lab/Dolzore",
+  "canonical_issue": "DeeDee-Lab/Dolzore#40",
+  "canonical_path": "research/animal_crossing/",
+  "completed_domains": [
+    "series_scope_and_chronology",
+    "primary_design_source_map",
+    "real_time_and_season_core",
+    "self_directed_goal_doctrine",
+    "solo_plus_optional_connectivity_doctrine",
+    "customization_evolution",
+    "content_volume_doctrine",
+    "n64_internal_architecture_baseline",
+    "gamecube_decomp_source_identified",
+    "wild_world_save_research_identified",
+    "city_folk_save_research_identified",
+    "new_leaf_hhd_save_research_identified",
+    "new_horizons_save_research_baseline",
+    "pocket_camp_to_complete_product_transition",
+    "dolzore_living_town_checklist"
+  ],
+  "in_progress_domains": [
+    "exact_n64_struct_and_enum_catalog",
+    "gamecube_actor_world_save_system_decomposition",
+    "wild_world_exact_save_structure",
+    "city_folk_exact_save_structure",
+    "new_leaf_exact_save_structure",
+    "new_horizons_3x_save_structure",
+    "villager_personality_dialogue_relationship_model",
+    "world_generation_acre_chunk_algorithms",
+    "hourly_audio_environment_system",
+    "economy_shop_stock_turnip_model",
+    "collection_spawn_tables",
+    "weather_calendar_event_scheduler",
+    "online_visit_authority_model",
+    "asset_content_pipeline_quantification"
+  ],
+  "next_exact_actions": [
+    "read public decomp headers/source for exact N64 persistent/runtime structures",
+    "map equivalent GameCube modules and generational deltas",
+    "extract save editor field maps per DS/Wii/3DS/Switch generation",
+    "build generation-by-generation VERIFIED_FACT catalogs with source commit IDs",
+    "build villager simulation grammar and economy/ecology grammars",
+    "validate New Horizons research against 3.0.x current version"
+  ],
+  "copyright_truth": {
+    "roms_or_disc_images_stored": false,
+    "extracted_game_assets_stored": false,
+    "full_dialogue_stored": false,
+    "nintendo_audio_models_textures_stored": false
+  }
+}
