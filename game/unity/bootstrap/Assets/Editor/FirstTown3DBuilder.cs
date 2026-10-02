@@ -190,13 +190,16 @@ namespace Dolzore.Editor
 
         private static void BuildGate(Vector3 center,Transform parent)
         {
-            var stone=Flat("GateStone","#9A8D78",0.18f);
-            Cube("GateFoundation",center+new Vector3(0,1.0f,0),new Vector3(22,2,8),stone,parent);
-            Spawn(CastleRoot,"tower-square",center+new Vector3(-10,2.0f,0),0f,18f,parent);
-            Spawn(CastleRoot,"tower-square",center+new Vector3(10,2.0f,0),0f,18f,parent);
-            Spawn(CastleRoot,"gate",center+new Vector3(0,2.0f,-0.2f),0f,9.0f,parent);
-            Spawn(CastleRoot,"flag-banner-long",center+new Vector3(-10,18.5f,-1.0f),0f,5.0f,parent,false);
-            Spawn(CastleRoot,"flag-banner-long",center+new Vector3(10,18.5f,-1.0f),0f,5.0f,parent,false);
+            var stone=Flat("GateStone","#8E8170",0.16f);
+            var banner=Flat("GateBanner","#304F70",0.08f);
+            Cube("GateFoundation",center+new Vector3(0,0.7f,0),new Vector3(22,1.4f,7),stone,parent);
+            var left=Spawn(CastleRoot,"tower-square",center+new Vector3(-9.2f,1.4f,0),0f,14.5f,parent);
+            var right=Spawn(CastleRoot,"tower-square",center+new Vector3(9.2f,1.4f,0),0f,14.5f,parent);
+            var gate=Spawn(CastleRoot,"gate",center+new Vector3(0,1.4f,-0.2f),0f,7.6f,parent);
+            SetLayerMaterial(left,stone); SetLayerMaterial(right,stone); SetLayerMaterial(gate,stone);
+            var bl=Spawn(CastleRoot,"flag-banner-long",center+new Vector3(-9.2f,15.2f,-1.0f),0f,4.2f,parent,false);
+            var br=Spawn(CastleRoot,"flag-banner-long",center+new Vector3(9.2f,15.2f,-1.0f),0f,4.2f,parent,false);
+            SetLayerMaterial(bl,banner); SetLayerMaterial(br,banner);
         }
 
         private static void BuildFountain(Vector3 p,Transform parent)
@@ -211,12 +214,13 @@ namespace Dolzore.Editor
             var rot=Quaternion.Euler(0f,yaw,0f);
             for(int i=0;i<4;i++)
             {
-                Vector3 p=origin+rot*(new Vector3((i-1.5f)*4.1f,0f,0f));
-                Spawn(TownRoot,"stall-bench",p,yaw,1.6f,parent,false);
-                Spawn(TownRoot,i%2==0?"banner-red":"banner-green",p+Vector3.up*1.6f+rot*Vector3.back*0.2f,yaw,1.8f,parent,false);
+                Vector3 p=origin+rot*(new Vector3((i-1.5f)*3.65f,0f,0f));
+                Spawn(TownRoot,i%2==0?"stall-red":"stall-green",p,yaw,2.6f,parent,false);
+                Spawn(TownRoot,"stall-bench",p+rot*new Vector3(0f,0f,0.8f),yaw,1.2f,parent,false);
+                if(i==1||i==2) Spawn(TownRoot,"stall-stool",p+rot*new Vector3(1.1f,0f,1.15f),yaw,0.9f,parent,false);
             }
-            Spawn(TownRoot,"cart",origin+rot*new Vector3(-10f,0f,2.6f),yaw+12f,2.0f,parent,false);
-            Spawn(TownRoot,"cart-high",origin+rot*new Vector3(10f,0f,2.0f),yaw-9f,2.2f,parent,false);
+            Spawn(TownRoot,"cart",origin+rot*new Vector3(-8.8f,0f,2.6f),yaw+12f,1.8f,parent,false);
+            Spawn(TownRoot,"cart-high",origin+rot*new Vector3(8.8f,0f,2.2f),yaw-9f,2.0f,parent,false);
         }
 
         private static Material AdventurerMaterial(string textureFile,string key)
