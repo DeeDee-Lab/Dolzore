@@ -157,8 +157,8 @@ namespace Dolzore.Editor
                 for(int j=0;j<sideCells;j++)
                 {
                     float z=(j-(sideCells-1)*0.5f)*(depth/sideCells);
-                    SpawnWidth(TownRoot,prefix+(j==0?"window-small":"wall"),center-right*(width*0.5f)+forward*z+Vector3.up*(f*floorH),yaw-90f,depth/sideCells,parent);
-                    SpawnWidth(TownRoot,prefix+(j==1?"window-small":"wall"),center+right*(width*0.5f)+forward*z+Vector3.up*(f*floorH),yaw+90f,depth/sideCells,parent);
+                    SpawnWidth(TownRoot,(j==0?prefix+"window-small":(timber?"wall-wood":"wall")),center-right*(width*0.5f)+forward*z+Vector3.up*(f*floorH),yaw-90f,depth/sideCells,parent);
+                    SpawnWidth(TownRoot,(j==1?prefix+"window-small":(timber?"wall-wood":"wall")),center+right*(width*0.5f)+forward*z+Vector3.up*(f*floorH),yaw+90f,depth/sideCells,parent);
                 }
             }
 
