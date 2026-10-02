@@ -1,7 +1,7 @@
 {
   "schema": "dolzore.animal_crossing.research_status.v1",
-  "updated_jst": "2026-10-02T11:30:00+09:00",
-  "state": "COMPREHENSIVE_V1_FOUNDATION_PERSISTING",
+  "updated_jst": "2026-10-02T14:10:00+09:00",
+  "state": "COMPREHENSIVE_V1_DOMAIN_CORPUS_READY_EXACT_EXTRACTION_CONTINUES",
   "canonical_repo": "DeeDee-Lab/Dolzore",
   "canonical_issue": "DeeDee-Lab/Dolzore#40",
   "canonical_path": "research/animal_crossing/",
@@ -20,7 +20,16 @@
     "new_leaf_hhd_save_research_identified",
     "new_horizons_save_research_baseline",
     "pocket_camp_to_complete_product_transition",
-    "dolzore_living_town_checklist"
+    "dolzore_living_town_checklist",
+    "time_season_offline_simulation",
+    "villager_social_simulation",
+    "world_generation_ecology",
+    "economy_collection_progression",
+    "housing_customization_content_pipeline",
+    "social_multiplayer_architecture",
+    "audio_environment_grammar",
+    "save_data_generation_matrix",
+    "new_horizons_structure_delta"
   ],
   "in_progress_domains": [
     "exact_n64_struct_and_enum_catalog",
@@ -39,17 +48,23 @@
     "asset_content_pipeline_quantification"
   ],
   "next_exact_actions": [
-    "read public decomp headers/source for exact N64 persistent/runtime structures",
-    "map equivalent GameCube modules and generational deltas",
-    "extract save editor field maps per DS/Wii/3DS/Switch generation",
-    "build generation-by-generation VERIFIED_FACT catalogs with source commit IDs",
-    "build villager simulation grammar and economy/ecology grammars",
-    "validate New Horizons research against 3.0.x current version"
+    "continue GameCube actor/world/save exact catalog from ACreTeam/ac-decomp at pinned commit",
+    "continue Wild World and City Folk save structure extraction from public editors",
+    "continue New Leaf/Welcome amiibo exact save and public-works/resident/house catalogs",
+    "expand New Horizons villager/item/map/house/weather/event exact structures beyond current delta",
+    "analyze Pocket Camp / Pocket Camp Complete local/offline data model from public lawful sources",
+    "analyze audio hour/weather state tables and collection spawn algorithms where public evidence exists",
+    "append facts only; never infer absence from unextracted records"
   ],
   "copyright_truth": {
     "roms_or_disc_images_stored": false,
     "extracted_game_assets_stored": false,
     "full_dialogue_stored": false,
     "nintendo_audio_models_textures_stored": false
+  },
+  "governance_note": {
+    "canonical_issue": "DeeDee-Lab/Dolzore#40",
+    "duplicate_issue_42_closed": true,
+    "duplicate_reason": "Created before fresh-reading existing corpus; corrected immediately and no second owner retained."
   }
 }
