@@ -74,7 +74,7 @@ namespace Dolzore.Editor
         private static void ApplyExternalAtlas(GameObject go,string rootPath)
         {
             if(rootPath==TownRoot) SetLayerMaterial(go,Atlas("FantasyTownAtlas",TownRoot+"/Textures/variation-a.png",0.08f));
-            else if(rootPath==KayRoot) SetLayerMaterial(go,Atlas("KayMedievalAtlas",KayRoot+"/hexagons_medieval.png",0.10f));
+            else if(rootPath.StartsWith(KayRoot,StringComparison.Ordinal)) SetLayerMaterial(go,Atlas("KayMedievalAtlas",KayRoot+"/hexagons_medieval.png",0.10f));
             else if(rootPath==CastleRoot) SetLayerMaterial(go,Atlas("CastleAtlas",CastleRoot+"/Textures/variation-a.png",0.08f));
         }
 
@@ -378,6 +378,8 @@ namespace Dolzore.Editor
                 CastleRoot+"/tower-square.fbx",
                 KayRoot+"/building_tavern_blue.fbx",
                 KayRoot+"/building_townhall_blue.fbx",
+                KayRoot+"/Props/barrel.fbx",
+                KayRoot+"/Nature/mountain_A_grass_trees.fbx",
                 TownRoot+"/Textures/variation-a.png",
                 KayRoot+"/hexagons_medieval.png",
                 AdventurerRoot+"/Characters/Knight.fbx",
@@ -456,6 +458,29 @@ namespace Dolzore.Editor
             BuildMarket(new Vector3(-17,0.05f,2),92f,root);
             BuildMarket(new Vector3(15,0.05f,6),-83f,root);
 
+            // Everyday prop density: cheap repeated meshes, the same principle that keeps FF11 towns alive.
+            string propRoot=KayRoot+"/Props";
+            Vector3[] barrels={new Vector3(-8,0,-17),new Vector3(-7.2f,0,-16.4f),new Vector3(11.5f,0,-15),new Vector3(17,0,-1),new Vector3(-18,0,11)};
+            foreach(var p in barrels) Spawn(propRoot,"barrel",p,0f,0.9f,root,false);
+            Spawn(propRoot,"crate_A_big",new Vector3(-9,0,-15.5f),12f,1.0f,root,false);
+            Spawn(propRoot,"crate_A_small",new Vector3(-8.1f,0,-14.8f),-7f,0.65f,root,false);
+            Spawn(propRoot,"crate_B_small",new Vector3(15.8f,0,10.2f),19f,0.65f,root,false);
+            Spawn(propRoot,"sack",new Vector3(-16.5f,0,5.2f),35f,0.65f,root,false);
+            Spawn(propRoot,"wheelbarrow",new Vector3(14.8f,0,-4.5f),-30f,1.2f,root,false);
+            Spawn(propRoot,"weaponrack",new Vector3(15.5f,0,-7.5f),-80f,1.8f,root,false);
+            Spawn(propRoot,"haybale",new Vector3(-12.5f,0,23.5f),25f,0.9f,root,false);
+            Spawn(propRoot,"flag_blue",new Vector3(-7.0f,0,10.5f),0f,3.2f,root,false);
+            Spawn(propRoot,"flag_red",new Vector3(14.0f,0,13.0f),0f,3.2f,root,false);
+
+            // Distant terrain gives the town a place in a wider world without expensive geometry.
+            string natureRoot=KayRoot+"/Nature";
+            Spawn(natureRoot,"mountain_A_grass_trees",new Vector3(-34,0,78),10f,24f,root,false);
+            Spawn(natureRoot,"mountain_B_grass_trees",new Vector3(33,0,82),-12f,28f,root,false);
+            Spawn(natureRoot,"hill_single_A",new Vector3(-48,0,60),15f,9f,root,false);
+            Spawn(natureRoot,"hill_single_B",new Vector3(48,0,61),-18f,10f,root,false);
+            Spawn(natureRoot,"trees_A_medium",new Vector3(-31,0,53),0f,6f,root,false);
+            Spawn(natureRoot,"trees_B_medium",new Vector3(30,0,55),0f,6f,root,false);
+
             // Arched thresholds and skyline.
             Spawn(TownRoot,"wall-arch",new Vector3(4,0.1f,24.5f),-12f,6.5f,root);
             Spawn(TownRoot,"wall-arch-top-detail",new Vector3(4,5.9f,24.5f),-12f,2.2f,root,false);
@@ -497,7 +522,7 @@ namespace Dolzore.Editor
 
             // Hero + residents use fantasy rigged characters; no modern skins / no T-pose acceptance.
             var controller=EnsureAdventurerController(out var idleClip);
-            var player=FantasyCharacter("SORA",new Vector3(-1,0,-31),4f,"Knight","knight_texture.png",true,root,controller,idleClip);
+            var player=FantasyCharacter("SORA",new Vector3(-1,0,-20),4f,"Knight","knight_texture.png",true,root,controller,idleClip);
             string[] archetypes={"Mage","Ranger","Rogue","Druid","Engineer","Knight"};
             string[] textures={"mage_texture.png","ranger_texture.png","rogue_texture.png","druid_texture.png","engineer_texture.png","knight_texture.png"};
             Vector3[] npcPos={
@@ -518,8 +543,8 @@ namespace Dolzore.Editor
             cam.nearClipPlane=0.08f;cam.farClipPlane=220f;cam.fieldOfView=54f;
             camGo.AddComponent<AudioListener>();
             var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=7.2f;rig.height=3.2f;
-            camGo.transform.position=new Vector3(0f,3.6f,-38.5f);
-            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,3.0f,16f)-camGo.transform.position,Vector3.up);
+            camGo.transform.position=new Vector3(0f,3.3f,-27.5f);
+            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,2.7f,10f)-camGo.transform.position,Vector3.up);
 
             // Dedicated deterministic preview camera. The runtime follow camera can move during
             // component initialization, so CI screenshots must not depend on its transient pose.
@@ -531,8 +556,8 @@ namespace Dolzore.Editor
             preview.nearClipPlane=0.08f;
             preview.farClipPlane=240f;
             preview.fieldOfView=52f;
-            previewGo.transform.position=new Vector3(-0.8f,3.9f,-38.8f);
-            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,2.8f,14f)-previewGo.transform.position,Vector3.up);
+            previewGo.transform.position=new Vector3(-0.6f,3.5f,-28.0f);
+            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,2.6f,9f)-previewGo.transform.position,Vector3.up);
 
             EditorSceneManager.SaveScene(scene,ScenePath);
             Debug.Log("DOLZORE_FIRST_TOWN_3D_FF11_STYLE_BUILD=PASS");
