@@ -56,6 +56,28 @@ namespace Dolzore.Editor
             return mat;
         }
 
+        private static Material Atlas(string key,string texturePath,float smooth=0.10f)
+        {
+            if(Materials.TryGetValue(key,out var cached)) return cached;
+            var tex=AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath);
+            if(tex==null) throw new Exception("DOLZORE_MISSING_ATLAS:"+texturePath);
+            var shader=Shader.Find("Standard") ?? Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Unlit/Texture");
+            var mat=new Material(shader){name=key,color=Color.white,mainTexture=tex};
+            if(mat.HasProperty("_BaseMap")) mat.SetTexture("_BaseMap",tex);
+            if(mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor",Color.white);
+            if(mat.HasProperty("_Smoothness")) mat.SetFloat("_Smoothness",smooth);
+            if(mat.HasProperty("_Glossiness")) mat.SetFloat("_Glossiness",smooth);
+            Materials[key]=mat;
+            return mat;
+        }
+
+        private static void ApplyExternalAtlas(GameObject go,string rootPath)
+        {
+            if(rootPath==TownRoot) SetLayerMaterial(go,Atlas("FantasyTownAtlas",TownRoot+"/Textures/variation-a.png",0.08f));
+            else if(rootPath==KayRoot) SetLayerMaterial(go,Atlas("KayMedievalAtlas",KayRoot+"/hexagons_medieval.png",0.10f));
+            else if(rootPath==CastleRoot) SetLayerMaterial(go,Atlas("CastleAtlas",CastleRoot+"/Textures/variation-a.png",0.08f));
+        }
+
         private static GameObject Cube(string name, Vector3 pos, Vector3 scale, Material mat, Transform parent=null)
         {
             var go=GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -89,6 +111,7 @@ namespace Dolzore.Editor
             float s=targetHeight>0f?targetHeight/h:1f;
             go.transform.localScale=Vector3.one*s;
             go.transform.rotation=Quaternion.Euler(0f,yaw,0f);
+            ApplyExternalAtlas(go,rootPath);
             b=BoundsOf(go);
             go.transform.position=bottomPos+Vector3.up*(-b.min.y);
             if(collider)
@@ -119,6 +142,7 @@ namespace Dolzore.Editor
             float w=Mathf.Max(0.001f,Mathf.Max(b.size.x,b.size.z));
             go.transform.localScale=Vector3.one*(targetWidth/w);
             go.transform.rotation=Quaternion.Euler(0f,yaw,0f);
+            ApplyExternalAtlas(go,rootPath);
             b=BoundsOf(go);
             go.transform.position=bottomPos+Vector3.up*(-b.min.y);
             if(collider)
@@ -354,6 +378,8 @@ namespace Dolzore.Editor
                 CastleRoot+"/tower-square.fbx",
                 KayRoot+"/building_tavern_blue.fbx",
                 KayRoot+"/building_townhall_blue.fbx",
+                TownRoot+"/Textures/variation-a.png",
+                KayRoot+"/hexagons_medieval.png",
                 AdventurerRoot+"/Characters/Knight.fbx",
                 AdventurerRoot+"/Characters/Mage.fbx",
                 AdventurerRoot+"/Animations/Rig_Medium_General.fbx",
