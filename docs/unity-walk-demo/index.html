@@ -117,27 +117,35 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
+                
+      const pad = document.createElement('div');
+      pad.id = 'dolzore-dpad';
+      pad.innerHTML = '<button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div>';
+      pad.style.cssText = 'position:fixed;right:22px;bottom:22px;z-index:9999;display:grid;gap:6px;justify-items:center;user-select:none;-webkit-user-select:none;';
+      pad.querySelector('div').style.cssText = 'display:flex;gap:6px';
+      document.body.appendChild(pad);
+      pad.querySelectorAll('button').forEach((button) => {
+        button.style.cssText = 'width:58px;height:58px;border-radius:14px;border:2px solid rgba(255,255,255,.7);background:rgba(18,32,64,.88);color:white;font-size:25px;font-weight:700;touch-action:none;box-shadow:0 4px 18px rgba(0,0,0,.3)';
+        const dir = button.dataset.dir;
+        const press = (event) => {
+          event.preventDefault();
+          unityInstance.SendMessage('Lunaria Walkable Character', 'SetExternalInput', dir);
+        };
+        const release = (event) => {
+          event.preventDefault();
+          unityInstance.SendMessage('Lunaria Walkable Character', 'ClearExternalInput');
+        };
+        button.addEventListener('pointerdown', press);
+        button.addEventListener('pointerup', release);
+        button.addEventListener('pointercancel', release);
+        button.addEventListener('pointerleave', release);
+        button.addEventListener('click', (event) => {
+          event.preventDefault();
+          unityInstance.SendMessage('Lunaria Walkable Character', 'Nudge', dir);
+        });
+      });
 
-                // DOLZORE walk-demo focus contract:
-                // WebGL keyboard input must stay attached to the game canvas.
-                canvas.setAttribute("tabindex", "0");
-                canvas.style.outline = "none";
-                const focusGame = () => {
-                  try { canvas.focus({ preventScroll: true }); }
-                  catch (_) { canvas.focus(); }
-                };
-                canvas.addEventListener("pointerdown", focusGame);
-                canvas.addEventListener("mousedown", focusGame);
-                canvas.addEventListener("touchstart", focusGame, { passive: true });
-                window.addEventListener("keydown", (event) => {
-                  if (["KeyW","KeyA","KeyS","KeyD","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(event.code)) {
-                    focusGame();
-                    event.preventDefault();
-                  }
-                }, { passive: false });
-                focusGame();
-
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
+    document.querySelector("#unity-fullscreen-button").onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
 
