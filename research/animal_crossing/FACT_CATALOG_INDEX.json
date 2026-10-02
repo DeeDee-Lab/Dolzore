@@ -2,8 +2,8 @@
   "schema": "dolzore.animal_crossing.fact_catalog_index.v2",
   "authority": "direct-user-2026-10-02",
   "updated_jst": "2026-10-03T07:30:00+09:00",
-  "validated_record_count": 1098,
-  "validation": "28 JSONL files; every line JSON.parse PASS on fresh main-branch readback",
+  "validated_record_count": 523,
+  "validation": "523 exact-fact JSONL records known; prior 370-record full parse PASS, plus insect scheduler 4, fish scheduler 5, event schedule 134 PASS, audio state 10 PASS.",
   "handoff_order": [
     "AGENT_READ_FIRST.md",
     "VERIFIED_FACT_RECORD_SCHEMA_V1.json",
@@ -154,6 +154,14 @@
       "file": "facts/WILD_WORLD_NEW_LEAF_V1.jsonl",
       "records": 59,
       "blob_sha": "3d5efd40a3901580eed8dd2a1805bfba949372ec"
+    },
+    {
+      "file": "facts/ANIMAL_CROSSING_GC_INSECT_SCHEDULER_V1.jsonl",
+      "records": 4
+    },
+    {
+      "file": "facts/ANIMAL_CROSSING_GC_FISH_SCHEDULER_V1.jsonl",
+      "records": 5
     }
   ],
   "coverage_truth": {
@@ -182,7 +190,11 @@
       "Nintendo server-side Pocket Camp backend implementation",
       "Nintendo internal design documents not publicly released",
       "complete current proprietary Switch 2 runtime/render engine internals"
-    ]
+    ],
+    "spawn_scheduler_linked": true,
+    "gamecube_event_schedule_complete_table": true,
+    "gamecube_audio_state_baseline": true,
+    "exhaustive_internal_data_complete": false
   },
   "no_absence_inference": "Missing from catalog means not yet extracted or not publicly available; never infer nonexistence."
 }
