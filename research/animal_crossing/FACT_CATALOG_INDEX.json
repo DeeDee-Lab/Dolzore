@@ -1,12 +1,14 @@
 {
-  "schema": "dolzore.animal_crossing.fact_catalog_index.v1",
+  "schema": "dolzore.animal_crossing.fact_catalog_index.v2",
   "authority": "direct-user-2026-10-02",
-  "validated_record_count": 145,
-  "validation": "all listed JSONL records parse PASS on main readback; 145 records after NH structure delta",
+  "updated_jst": "2026-10-03T07:30:00+09:00",
+  "validated_record_count": 1098,
+  "validation": "28 JSONL files; every line JSON.parse PASS on fresh main-branch readback",
   "handoff_order": [
     "AGENT_READ_FIRST.md",
     "VERIFIED_FACT_RECORD_SCHEMA_V1.json",
     "FACT_CATALOG_INDEX.json",
+    "SOURCE_COVERAGE_MATRIX.json",
     "facts/*.jsonl",
     "SERIES_MATRIX_V1.json",
     "domain interpretation files",
@@ -14,9 +16,39 @@
   ],
   "files": [
     {
-      "file": "facts/ANIMAL_FOREST_N64_V1.jsonl",
-      "records": 22,
-      "blob_sha": "efdd97dbb241bc638cd9d5c0d5288efc1a96467d"
+      "file": "facts/ANIMAL_CROSSING_GC_AUDIO_STATE_V1.jsonl",
+      "records": 10,
+      "blob_sha": "0e7d2b3132d95217ddea1717777f972620a580d3"
+    },
+    {
+      "file": "facts/ANIMAL_CROSSING_GC_DELTA_V2.jsonl",
+      "records": 14,
+      "blob_sha": "62f32f423fb7083e93340f06716a603e9fe50a7d"
+    },
+    {
+      "file": "facts/ANIMAL_CROSSING_GC_EVENT_SCHEDULE_V1.jsonl",
+      "records": 134,
+      "blob_sha": "0665ade0317236a7d82925716072dbe23205820a"
+    },
+    {
+      "file": "facts/ANIMAL_CROSSING_GC_FISH_SPAWN_TABLES_V1.jsonl",
+      "records": 62,
+      "blob_sha": "49d7e4519f53069177610a194b85067347ac24d5"
+    },
+    {
+      "file": "facts/ANIMAL_CROSSING_GC_INSECT_SPAWN_TABLES_V1.jsonl",
+      "records": 61,
+      "blob_sha": "b89afe13633e8ff91686925135dd67f5bbec9708"
+    },
+    {
+      "file": "facts/ANIMAL_CROSSING_GC_SOCIAL_MEMORY_V1.jsonl",
+      "records": 8,
+      "blob_sha": "43df7fbdb25fc5543688c6f747e7aa93b40cec9b"
+    },
+    {
+      "file": "facts/ANIMAL_CROSSING_GC_SPAWN_SCHEDULER_V1.jsonl",
+      "records": 13,
+      "blob_sha": "68fcd8b2b469e34e54082c73c66765244e3c0664"
     },
     {
       "file": "facts/ANIMAL_CROSSING_GC_V1.jsonl",
@@ -24,9 +56,39 @@
       "blob_sha": "c73f7678a1d15c683c5a5ca562a5305913e4ae78"
     },
     {
-      "file": "facts/WILD_WORLD_NEW_LEAF_V1.jsonl",
-      "records": 59,
-      "blob_sha": "3d5efd40a3901580eed8dd2a1805bfba949372ec"
+      "file": "facts/ANIMAL_FOREST_ECOLOGY_V2.jsonl",
+      "records": 1,
+      "blob_sha": "eedbb89c4770c7a6907904ed90532be43bf889ac"
+    },
+    {
+      "file": "facts/ANIMAL_FOREST_N64_CONSTANTS_DELTA_V2.jsonl",
+      "records": 5,
+      "blob_sha": "0ddfb16129887bf6404c28f918b05af1185f8c12"
+    },
+    {
+      "file": "facts/ANIMAL_FOREST_N64_SCHEDULES_V2.jsonl",
+      "records": 8,
+      "blob_sha": "558c1a9c33f9c66792b63aa00a6f90e4861c30eb"
+    },
+    {
+      "file": "facts/ANIMAL_FOREST_N64_V1.jsonl",
+      "records": 22,
+      "blob_sha": "efdd97dbb241bc638cd9d5c0d5288efc1a96467d"
+    },
+    {
+      "file": "facts/ANIMAL_FOREST_WEATHER_V2.jsonl",
+      "records": 3,
+      "blob_sha": "5bd15c509b26e37644db82ad9dd91046a130f816"
+    },
+    {
+      "file": "facts/CITY_FOLK_DELTA_V2A.jsonl",
+      "records": 9,
+      "blob_sha": "b0694e8a007ea01d76e9c02e4445c207f058033b"
+    },
+    {
+      "file": "facts/CITY_FOLK_DELTA_V2B.jsonl",
+      "records": 9,
+      "blob_sha": "791321bb0805aa07c379e1ecacd4376403b97545"
     },
     {
       "file": "facts/CITY_FOLK_V1.jsonl",
@@ -34,45 +96,93 @@
       "blob_sha": "e0c771959f71af8b4a3bf91100d639db713b9094"
     },
     {
+      "file": "facts/LEAFEDIT_PLAYER_HHD_DELTA_V2.jsonl",
+      "records": 18,
+      "blob_sha": "91ac1a54eb21ba45cc418bae92e891adaec795ed"
+    },
+    {
+      "file": "facts/NEW_HORIZONS_3X_FULL_OFFSET_TABLES_V1.jsonl",
+      "records": 80,
+      "blob_sha": "12b9d94e5dccc6db9410f99083e4d5eb80811331"
+    },
+    {
       "file": "facts/NEW_HORIZONS_3X_V1.jsonl",
       "records": 26,
       "blob_sha": "963e27f63fa4096b27c5c72accae193a15e86ab7"
     },
     {
+      "file": "facts/NEW_HORIZONS_INTERNAL_DELTA_V3.jsonl",
+      "records": 18,
+      "blob_sha": "0ddc623ba7fd34394955636260ee562b784efde8"
+    },
+    {
       "file": "facts/NEW_HORIZONS_STRUCTS_DELTA_V1.jsonl",
       "records": 8,
       "blob_sha": "6b03bdddd07ae83c61a0b92a6426d8202c8a0127"
+    },
+    {
+      "file": "facts/NEW_LEAF_WA_FULL_OFFSET_TABLES_V1.jsonl",
+      "records": 247,
+      "blob_sha": "7114000059f504ebecff092d049fe71c70ba6980"
+    },
+    {
+      "file": "facts/NEW_LEAF_WA_SYSTEM_STATE_V1.jsonl",
+      "records": 7,
+      "blob_sha": "72e35f9ea6d3811e3a63b93352cc01e1a48e8277"
+    },
+    {
+      "file": "facts/NEW_LEAF_WA_TOWN_ISLAND_V3.jsonl",
+      "records": 6,
+      "blob_sha": "4e6b90961e0c8ea8a23cac9f8f229d2869287234"
+    },
+    {
+      "file": "facts/NEW_LEAF_WA_VILLAGER_OFFSETS_V3.jsonl",
+      "records": 2,
+      "blob_sha": "36e6f6734766109bddee1263d10cc10cbfaef188"
+    },
+    {
+      "file": "facts/POCKET_CAMP_COMPLETE_FULL_SCHEMA_V1.jsonl",
+      "records": 221,
+      "blob_sha": "e0af728e09df8c800682c121da52313e534062f6"
+    },
+    {
+      "file": "facts/POCKET_CAMP_COMPLETE_V1.jsonl",
+      "records": 17,
+      "blob_sha": "30f7d57844c675e6c7a5ffe07e93f5a49e213af1"
+    },
+    {
+      "file": "facts/WILD_WORLD_NEW_LEAF_V1.jsonl",
+      "records": 59,
+      "blob_sha": "3d5efd40a3901580eed8dd2a1805bfba949372ec"
     }
   ],
   "coverage_truth": {
     "exhaustive": false,
-    "current_exact_internal_generations": [
-      "Animal Forest N64",
-      "Animal Crossing GameCube",
-      "Wild World",
-      "City Folk",
-      "New Leaf / Welcome amiibo",
-      "New Horizons 3.0.x"
+    "exact_fact_domains_now_include": [
+      "N64 save/runtime/time/weather/ecology/villager schedules",
+      "GameCube save/runtime/field/island/villager memory/social relations/hourly audio/full event schedule/full fish+insect spawn tables+scheduler",
+      "Wild World save/town/villager/player selected internals",
+      "City Folk save CRC/inventory/shop/house/map/player selected internals",
+      "New Leaf/Welcome amiibo full editor offset tables + town/island/villager/shop/museum/ordinance/PWP data",
+      "Happy Home Designer player/pattern/checksum data",
+      "New Horizons 3.x main/personal/postbox full offset tables + core item/building/terrain/house/room/villager memory/turnip structures",
+      "Pocket Camp Complete 221-table public save schema + container/product facts"
     ],
-    "spinoffs_with_system_level_but_not_exact_binary_catalog": [
-      "Happy Home Designer",
-      "amiibo Festival",
-      "Pocket Camp",
-      "Pocket Camp Complete",
-      "Animal Crossing Plaza",
-      "Happy Home Paradise"
+    "remaining_public_source_extraction": [
+      "Wild World full LeafEdit source expression catalog",
+      "City Folk remaining editor modules and any uncovered exact offsets/structures",
+      "GameCube remaining decomp actor/system tables beyond currently prioritized life-sim domains",
+      "N64 remaining decomp structs/enums beyond prioritized life-sim domains",
+      "New Horizons public Structures/**/*.cs full structure-size/field manifest",
+      "HHD remaining publicly modeled save structures if available",
+      "Pocket Camp original live-service local model only where lawful public evidence exists"
     ],
-    "pending": [
-      "complete GameCube structure catalog beyond selected fields",
-      "complete Wild World/NL/WA offsets and item/player/house/shop schemas",
-      "Happy Home Designer save structures",
-      "New Horizons item/villager/player/house struct field catalogs",
-      "weather/event/collection exact algorithms",
-      "audio resource/state tables",
-      "dialogue/personality exact public research where legally available",
-      "Pocket Camp local data/model research",
-      "Switch 2 runtime/render/input deltas"
+    "source_unavailable_or_not_publicly_proven": [
+      "Nintendo proprietary original source trees for DS/Wii/3DS/Switch",
+      "Nintendo server-side Pocket Camp backend implementation",
+      "Nintendo internal design documents not publicly released",
+      "complete current proprietary Switch 2 runtime/render engine internals"
     ]
   },
-  "no_absence_inference": "Missing from the catalog means not yet extracted, never 'does not exist'."
+  "no_absence_inference": "Missing from catalog means not yet extracted or not publicly available; never infer nonexistence."
 }
