@@ -448,8 +448,20 @@ namespace Dolzore.Editor
         {
             var go=new GameObject(name);
             var l=go.AddComponent<Light>(); l.type=LightType.Directional;l.color=color;l.intensity=intensity;
-            l.shadows=shadows?LightShadows.Soft:LightShadows.None;l.shadowStrength=shadows?0.68f:0f;
+            l.shadows=shadows?LightShadows.Soft:LightShadows.None;l.shadowStrength=shadows?0.78f:0f;
             go.transform.eulerAngles=euler;
+        }
+
+        private static void AddPointLight(string name,Vector3 position,Color color,float intensity,float range)
+        {
+            var go=new GameObject(name);
+            go.transform.position=position;
+            var l=go.AddComponent<Light>();
+            l.type=LightType.Point;
+            l.color=color;
+            l.intensity=intensity;
+            l.range=range;
+            l.shadows=LightShadows.None;
         }
 
         private static void EnsureGeneratedTextures()
@@ -551,7 +563,7 @@ namespace Dolzore.Editor
             RenderSettings.ambientSkyColor=Hex("#C4D3DE");
             RenderSettings.ambientEquatorColor=Hex("#A28C70");
             RenderSettings.ambientGroundColor=Hex("#465040");
-            RenderSettings.ambientIntensity=0.54f;
+            RenderSettings.ambientIntensity=0.40f;
             RenderSettings.fog=true;RenderSettings.fogMode=FogMode.ExponentialSquared;RenderSettings.fogDensity=0.0027f;RenderSettings.fogColor=Hex("#B9C6CC");
             var skyShader=Shader.Find("Skybox/Procedural");
             if(skyShader!=null)
@@ -560,7 +572,7 @@ namespace Dolzore.Editor
                 sky.SetColor("_SkyTint",Hex("#A9C5D9"));
                 sky.SetColor("_GroundColor",Hex("#6E766E"));
                 sky.SetFloat("_AtmosphereThickness",0.78f);
-                sky.SetFloat("_Exposure",1.05f);
+                sky.SetFloat("_Exposure",0.92f);
                 RenderSettings.skybox=sky;
             }
 
@@ -645,6 +657,14 @@ namespace Dolzore.Editor
             Spawn(propRoot,"sack",new Vector3(11.2f,0,5.0f),32f,0.55f,root,false);
             Spawn(propRoot,"wheelbarrow",new Vector3(11.8f,0,6.2f),-22f,1.0f,root,false);
 
+            // Turn the former empty right lawn into a lived-in utility garden.
+            Spawn(TownRoot,"tree-high-round",new Vector3(22.5f,0,-18.5f),15f,5.4f,root,false);
+            for(int i=0;i<4;i++) Spawn(TownRoot,"hedge",new Vector3(18.5f+i*2.3f,0,-13.5f),0f,0.9f,root,false);
+            Spawn(propRoot,"haybale",new Vector3(19.0f,0,-17.0f),18f,0.85f,root,false);
+            Spawn(propRoot,"crate_A_big",new Vector3(24.5f,0,-15.5f),-12f,0.85f,root,false);
+            Spawn(propRoot,"barrel",new Vector3(25.5f,0,-16.1f),0f,0.72f,root,false);
+            Spawn(TownRoot,"stall-bench",new Vector3(20.5f,0,-14.7f),90f,1.0f,root,false);
+
             // Distant terrain gives the town a place in a wider world without expensive geometry.
             string natureRoot=KayRoot+"/Nature";
             Spawn(natureRoot,"mountain_A_grass_trees",new Vector3(-34,0,78),10f,24f,root,false);
@@ -698,17 +718,19 @@ namespace Dolzore.Editor
             var player=RpgCharacter("SORA",new Vector3(-1,0,-20),4f,"Warrior",true,root,controller,warriorIdle);
             string[] archetypes={"Ranger","Rogue","Wizard","Cleric","Monk","Warrior"};
             Vector3[] npcPos={
+                new Vector3(-3,0,3),new Vector3(4,0,2.5f),new Vector3(8,0,5),new Vector3(1,0,10),
                 new Vector3(-14,0,-5),new Vector3(-18,0,1),new Vector3(-16,0,6),new Vector3(12,0,3),
-                new Vector3(16,0,7),new Vector3(13,0,11),new Vector3(0,0,8),new Vector3(7,0,14),
-                new Vector3(-7,0,17),new Vector3(4,0,21),new Vector3(-13,0,-12),new Vector3(13,0,-10),
-                new Vector3(-17,0,-17),new Vector3(18,0,-6),new Vector3(-3,2.45f,38),new Vector3(14,2.45f,40),
-                new Vector3(24,2.45f,35),new Vector3(-16,2.45f,42)
+                new Vector3(16,0,7),new Vector3(13,0,11),new Vector3(-7,0,17),new Vector3(4,0,21),
+                new Vector3(-13,0,-12),new Vector3(13,0,-10),new Vector3(-17,0,-17),new Vector3(18,0,-6),
+                new Vector3(-3,2.45f,38),new Vector3(14,2.45f,40),new Vector3(24,2.45f,35),new Vector3(-16,2.45f,42)
             };
             for(int i=0;i<npcPos.Length;i++)
                 RpgCharacter("Resident "+(i+1),npcPos[i],(i*43)%360,archetypes[i%archetypes.Length],false,root);
 
-            AddLight("Sun",Hex("#FFE1BC"),1.16f,new Vector3(48,-34,-8),true);
-            AddLight("SkyFill",Hex("#BDD4E5"),0.18f,new Vector3(62,148,0),false);
+            AddLight("Sun",Hex("#FFD6A5"),1.32f,new Vector3(38,-52,-12),true);
+            AddLight("SkyFill",Hex("#AFC8D8"),0.11f,new Vector3(62,148,0),false);
+            AddPointLight("Market Warmth L",new Vector3(-13f,2.8f,-1f),Hex("#FFB66E"),1.10f,7.5f);
+            AddPointLight("Market Warmth R",new Vector3(12f,2.8f,5f),Hex("#FFB66E"),1.05f,7.0f);
 
             var camGo=new GameObject("Main Camera");camGo.tag="MainCamera";
             var cam=camGo.AddComponent<Camera>();cam.clearFlags=RenderSettings.skybox!=null?CameraClearFlags.Skybox:CameraClearFlags.SolidColor;cam.backgroundColor=Hex("#AFC6D2");
