@@ -604,7 +604,7 @@ namespace Dolzore.Editor
             var north=Cube("NorthStreet",new Vector3(7,0.04f,22),new Vector3(6.2f,0.20f,29),cobble,root); north.transform.eulerAngles=new Vector3(0,-14,0);
             Cube("MarketLane",new Vector3(-15,0.02f,-1),new Vector3(27,0.18f,5.0f),cobble,root).transform.eulerAngles=new Vector3(0,7,0);
             Cube("CivicLane",new Vector3(20,0.02f,8),new Vector3(28,0.18f,4.8f),cobble,root).transform.eulerAngles=new Vector3(0,-12,0);
-            Cube("Plaza",new Vector3(4,0.06f,6),new Vector3(15.5f,0.20f,14.5f),cobble,root);
+            Cube("Plaza",new Vector3(4,0.06f,6),new Vector3(12.8f,0.20f,11.8f),cobble,root);
 
             // Raised northern ward: lower retaining wall, stronger visible skyline.
             Cube("UpperWard",new Vector3(11,1.20f,38),new Vector3(52,2.4f,22),stone,root);
@@ -629,6 +629,28 @@ namespace Dolzore.Editor
             Spawn(QuaterniusRoot,"Sawmill",new Vector3(22,2.45f,39),-18f,10.5f,root);
             Spawn(QuaterniusRoot,"House_1",new Vector3(-14,2.45f,39),12f,8.2f,root);
             Spawn(QuaterniusRoot,"Bell_Tower",new Vector3(31,2.45f,45),-15f,11.5f,root);
+
+            // Authored facade dressing: shallow details make the street feel hand-built without heavy geometry.
+            SpawnWidth(TownRoot,"overhang",new Vector3(-8.8f,2.55f,-15.2f),12f,4.2f,root,false);
+            SpawnWidth(TownRoot,"balcony-wall-fence",new Vector3(-11.4f,3.25f,-16.1f),14f,4.6f,root,false);
+            Spawn(TownRoot,"banner-red",new Vector3(-8.2f,3.15f,-14.8f),12f,2.4f,root,false);
+            Spawn(TownRoot,"lantern",new Vector3(-7.8f,2.35f,-14.0f),0f,2.2f,root,false);
+
+            SpawnWidth(TownRoot,"overhang",new Vector3(8.6f,2.45f,-14.0f),-12f,4.0f,root,false);
+            SpawnWidth(TownRoot,"balcony-wall-fence",new Vector3(11.2f,3.15f,-15.2f),-12f,4.4f,root,false);
+            Spawn(TownRoot,"banner-green",new Vector3(8.3f,3.0f,-13.6f),-12f,2.4f,root,false);
+            Spawn(TownRoot,"lantern",new Vector3(8.0f,2.30f,-13.0f),0f,2.2f,root,false);
+
+            SpawnWidth(TownRoot,"overhang",new Vector3(-11.8f,2.7f,-3.0f),82f,3.8f,root,false);
+            Spawn(TownRoot,"banner-green",new Vector3(-10.8f,3.2f,-2.3f),82f,2.2f,root,false);
+            SpawnWidth(TownRoot,"overhang",new Vector3(12.6f,2.6f,0.5f),-78f,3.8f,root,false);
+            Spawn(TownRoot,"banner-red",new Vector3(11.7f,3.1f,0.8f),-78f,2.2f,root,false);
+
+            // Short lane furniture narrows the eye-line without blocking gameplay.
+            Spawn(TownRoot,"stall-green",new Vector3(-6.4f,0,-10.5f),78f,2.35f,root,false);
+            Spawn(TownRoot,"stall-red",new Vector3(7.4f,0,-8.5f),-82f,2.35f,root,false);
+            Spawn(TownRoot,"stall-stool",new Vector3(-4.8f,0,-10.1f),78f,0.85f,root,false);
+            Spawn(TownRoot,"stall-stool",new Vector3(5.8f,0,-8.2f),-82f,0.85f,root,false);
 
             // Landmark square and market life.
             BuildFountain(new Vector3(4,0.18f,7),root);
@@ -736,9 +758,9 @@ namespace Dolzore.Editor
             var cam=camGo.AddComponent<Camera>();cam.clearFlags=RenderSettings.skybox!=null?CameraClearFlags.Skybox:CameraClearFlags.SolidColor;cam.backgroundColor=Hex("#AFC6D2");
             cam.nearClipPlane=0.08f;cam.farClipPlane=220f;cam.fieldOfView=54f;
             camGo.AddComponent<AudioListener>();
-            var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=6.8f;rig.height=3.05f;
-            camGo.transform.position=new Vector3(0f,2.9f,-25.0f);
-            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(3f,1.55f,8f)-camGo.transform.position,Vector3.up);
+            var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=5.9f;rig.height=2.65f;
+            camGo.transform.position=new Vector3(0f,2.55f,-24.0f);
+            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(2.8f,1.45f,7.0f)-camGo.transform.position,Vector3.up);
 
             // Dedicated deterministic preview camera. The runtime follow camera can move during
             // component initialization, so CI screenshots must not depend on its transient pose.
@@ -749,9 +771,9 @@ namespace Dolzore.Editor
             preview.backgroundColor=Hex("#AFC6D2");
             preview.nearClipPlane=0.08f;
             preview.farClipPlane=240f;
-            preview.fieldOfView=50f;
-            previewGo.transform.position=new Vector3(1.8f,3.8f,-28.8f);
-            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(2.5f,1.75f,8.5f)-previewGo.transform.position,Vector3.up);
+            preview.fieldOfView=48f;
+            previewGo.transform.position=new Vector3(0.9f,2.95f,-25.8f);
+            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(2.6f,1.55f,7.5f)-previewGo.transform.position,Vector3.up);
 
             EditorSceneManager.SaveScene(scene,ScenePath);
             Debug.Log("DOLZORE_FIRST_TOWN_3D_FF11_STYLE_BUILD=PASS");
