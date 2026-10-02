@@ -460,13 +460,13 @@ namespace Dolzore.Editor
 
             // Street enclosure now uses complete low-poly authored buildings.
             // This keeps the FF11-like light geometry budget while avoiding fragile wall-piece assembly.
-            Spawn(QuaterniusRoot,"House_1",new Vector3(-11,0,-23),18f,8.3f,root);
-            Spawn(QuaterniusRoot,"House_2",new Vector3(10,0,-23),-12f,7.8f,root);
+            Spawn(QuaterniusRoot,"House_1",new Vector3(-13,0,-19),16f,6.9f,root);
+            Spawn(QuaterniusRoot,"House_2",new Vector3(12,0,-19),-14f,6.6f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(-10.0f,0,-13.0f),12f,6.6f,root);
-            Spawn(QuaterniusRoot,"House_3",new Vector3(10.5f,0,-12.0f),-10f,6.8f,root);
+            Spawn(QuaterniusRoot,"House_3",new Vector3(11.5f,0,-10.0f),-14f,6.1f,root);
             Spawn(KayRoot,"building_market_blue",new Vector3(-17,0,-8),83f,7.5f,root);
-            Spawn(QuaterniusRoot,"Bell_Tower",new Vector3(-18,0,8),96f,13.5f,root);
-            Spawn(QuaterniusRoot,"Blacksmith",new Vector3(17,0,-8),-78f,8.0f,root);
+            Spawn(QuaterniusRoot,"Bell_Tower",new Vector3(-15,0,16),88f,11.5f,root);
+            Spawn(QuaterniusRoot,"Blacksmith",new Vector3(18,0,-3),-76f,6.6f,root);
             Spawn(KayRoot,"building_workshop_blue",new Vector3(20,0,17),-78f,7.8f,root);
             Spawn(QuaterniusRoot,"House_4",new Vector3(-10.5f,0,8.0f),15f,6.6f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(12.5f,0,9.0f),-20f,6.5f,root);
@@ -500,6 +500,10 @@ namespace Dolzore.Editor
             Spawn(propRoot,"haybale",new Vector3(-12.5f,0,23.5f),25f,0.9f,root,false);
             Spawn(propRoot,"flag_blue",new Vector3(-7.0f,0,10.5f),0f,3.2f,root,false);
             Spawn(propRoot,"flag_red",new Vector3(14.0f,0,13.0f),0f,3.2f,root,false);
+            Spawn(propRoot,"barrel",new Vector3(-5.5f,0,5.5f),10f,0.8f,root,false);
+            Spawn(propRoot,"crate_A_small",new Vector3(-4.8f,0,5.1f),-8f,0.55f,root,false);
+            Spawn(propRoot,"sack",new Vector3(11.2f,0,5.0f),32f,0.55f,root,false);
+            Spawn(propRoot,"wheelbarrow",new Vector3(11.8f,0,6.2f),-22f,1.0f,root,false);
 
             // Distant terrain gives the town a place in a wider world without expensive geometry.
             string natureRoot=KayRoot+"/Nature";
@@ -571,7 +575,7 @@ namespace Dolzore.Editor
             var cam=camGo.AddComponent<Camera>();cam.clearFlags=RenderSettings.skybox!=null?CameraClearFlags.Skybox:CameraClearFlags.SolidColor;cam.backgroundColor=Hex("#AFC6D2");
             cam.nearClipPlane=0.08f;cam.farClipPlane=220f;cam.fieldOfView=54f;
             camGo.AddComponent<AudioListener>();
-            var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=5.9f;rig.height=2.65f;
+            var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=6.8f;rig.height=3.05f;
             camGo.transform.position=new Vector3(0f,2.9f,-25.0f);
             camGo.transform.rotation=Quaternion.LookRotation(new Vector3(3f,1.55f,8f)-camGo.transform.position,Vector3.up);
 
@@ -584,9 +588,9 @@ namespace Dolzore.Editor
             preview.backgroundColor=Hex("#AFC6D2");
             preview.nearClipPlane=0.08f;
             preview.farClipPlane=240f;
-            preview.fieldOfView=47f;
-            previewGo.transform.position=new Vector3(-0.2f,2.8f,-24.2f);
-            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(3.5f,1.55f,8.5f)-previewGo.transform.position,Vector3.up);
+            preview.fieldOfView=50f;
+            previewGo.transform.position=new Vector3(1.8f,3.8f,-28.8f);
+            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(2.5f,1.75f,8.5f)-previewGo.transform.position,Vector3.up);
 
             EditorSceneManager.SaveScene(scene,ScenePath);
             Debug.Log("DOLZORE_FIRST_TOWN_3D_FF11_STYLE_BUILD=PASS");
