@@ -56,15 +56,16 @@ namespace Dolzore.Editor
             return mat;
         }
 
-        private static Material Atlas(string key,string texturePath,float smooth=0.10f)
+        private static Material Atlas(string key,string texturePath,float smooth=0.10f,string tintHtml="#FFFFFF")
         {
             if(Materials.TryGetValue(key,out var cached)) return cached;
             var tex=AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath);
             if(tex==null) throw new Exception("DOLZORE_MISSING_ATLAS:"+texturePath);
             var shader=Shader.Find("Standard") ?? Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Unlit/Texture");
-            var mat=new Material(shader){name=key,color=Color.white,mainTexture=tex};
+            var tint=Hex(tintHtml);
+            var mat=new Material(shader){name=key,color=tint,mainTexture=tex};
             if(mat.HasProperty("_BaseMap")) mat.SetTexture("_BaseMap",tex);
-            if(mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor",Color.white);
+            if(mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor",tint);
             if(mat.HasProperty("_Smoothness")) mat.SetFloat("_Smoothness",smooth);
             if(mat.HasProperty("_Glossiness")) mat.SetFloat("_Glossiness",smooth);
             Materials[key]=mat;
@@ -73,9 +74,9 @@ namespace Dolzore.Editor
 
         private static void ApplyExternalAtlas(GameObject go,string rootPath)
         {
-            if(rootPath==TownRoot) SetLayerMaterial(go,Atlas("FantasyTownAtlas",TownRoot+"/Textures/variation-a.png",0.08f));
-            else if(rootPath.StartsWith(KayRoot,StringComparison.Ordinal)) SetLayerMaterial(go,Atlas("KayMedievalAtlas",KayRoot+"/hexagons_medieval.png",0.10f));
-            else if(rootPath==CastleRoot) SetLayerMaterial(go,Atlas("CastleAtlas",CastleRoot+"/Textures/variation-a.png",0.08f));
+            if(rootPath==TownRoot) SetLayerMaterial(go,Atlas("FantasyTownAtlas",TownRoot+"/Textures/variation-a.png",0.08f,"#D8C8AC"));
+            else if(rootPath.StartsWith(KayRoot,StringComparison.Ordinal)) SetLayerMaterial(go,Atlas("KayMedievalAtlas",KayRoot+"/hexagons_medieval.png",0.10f,"#C7B89F"));
+            else if(rootPath==CastleRoot) SetLayerMaterial(go,Atlas("CastleAtlas",CastleRoot+"/Textures/variation-a.png",0.08f,"#B7AE9D"));
         }
 
         private static GameObject Cube(string name, Vector3 pos, Vector3 scale, Material mat, Transform parent=null)
@@ -334,6 +335,7 @@ namespace Dolzore.Editor
             MakeCobble("cobble.png",Hex("#81786A"),Hex("#B2A58F"),Hex("#58534D"));
             MakeNoise("plaster.png",Hex("#BBA98A"),Hex("#D5C5A5"),71);
             MakeNoise("grass.png",Hex("#526A3D"),Hex("#738A52"),91);
+            MakeNoise("dirt.png",Hex("#6D5843"),Hex("#9A8062"),111);
             AssetDatabase.Refresh();
         }
 
@@ -410,14 +412,21 @@ namespace Dolzore.Editor
             QualitySettings.shadowDistance=120f; QualitySettings.antiAliasing=4;
 
             var root=new GameObject("FIRST TOWN 3D - ASTER GATE").transform;
-            var grass=Textured("Grass","grass.png","#617B4A",new Vector2(12,12));
-            var cobble=Textured("Cobble","cobble.png","#9B907E",new Vector2(9,9),0.10f);
-            var plaster=Textured("Plaster","plaster.png","#C8B697",new Vector2(3,3),0.09f);
-            var stone=Flat("Stone","#8D8373",0.12f);
-            var walkway=Flat("Walkway","#958671",0.10f);
+            var grass=Textured("Grass","grass.png","#536843",new Vector2(12,12));
+            var cobble=Textured("Cobble","cobble.png","#827868",new Vector2(9,9),0.10f);
+            var dirt=Textured("Dirt","dirt.png","#7C644D",new Vector2(7,7),0.05f);
+            var plaster=Textured("Plaster","plaster.png","#B8A78A",new Vector2(3,3),0.09f);
+            var stone=Flat("Stone","#7E7568",0.12f);
+            var walkway=Flat("Walkway","#877A68",0.10f);
             var dark=Flat("DarkWood","#4A3A31",0.10f);
 
             Cube("Ground",new Vector3(0,-0.55f,7),new Vector3(110,1,105),grass,root);
+
+            // Irregular lived-in ground zones around buildings and markets.
+            var dirtA=Cube("South Dirt Apron",new Vector3(-11,-0.035f,-20),new Vector3(15,0.12f,12),dirt,root); dirtA.transform.eulerAngles=new Vector3(0,7,0);
+            var dirtB=Cube("East Dirt Apron",new Vector3(18,-0.035f,-5),new Vector3(14,0.12f,17),dirt,root); dirtB.transform.eulerAngles=new Vector3(0,-9,0);
+            var dirtC=Cube("Market Dirt Apron",new Vector3(-18,-0.035f,3),new Vector3(14,0.12f,16),dirt,root); dirtC.transform.eulerAngles=new Vector3(0,6,0);
+            var dirtD=Cube("North Dirt Apron",new Vector3(-9,-0.035f,20),new Vector3(13,0.12f,11),dirt,root); dirtD.transform.eulerAngles=new Vector3(0,18,0);
 
             // FF11-like density: narrow carriageway, readable pedestrian edges and almost no dead lawn.
             Cube("SouthWalk",new Vector3(-2,-0.01f,-22),new Vector3(8.5f,0.16f,34),walkway,root);
@@ -457,6 +466,9 @@ namespace Dolzore.Editor
             Spawn(KayRoot,"building_well_blue",new Vector3(7.5f,0.18f,11.5f),18f,3.2f,root,false);
             BuildMarket(new Vector3(-17,0.05f,2),92f,root);
             BuildMarket(new Vector3(15,0.05f,6),-83f,root);
+            Spawn(TownRoot,"stall-green",new Vector3(-7.5f,0,-16.0f),88f,2.5f,root,false);
+            Spawn(TownRoot,"stall-red",new Vector3(8.0f,0,-14.5f),-88f,2.5f,root,false);
+            Spawn(TownRoot,"cart",new Vector3(-10.0f,0,-12.5f),40f,1.6f,root,false);
 
             // Everyday prop density: cheap repeated meshes, the same principle that keeps FF11 towns alive.
             string propRoot=KayRoot+"/Props";
@@ -542,9 +554,9 @@ namespace Dolzore.Editor
             var cam=camGo.AddComponent<Camera>();cam.clearFlags=RenderSettings.skybox!=null?CameraClearFlags.Skybox:CameraClearFlags.SolidColor;cam.backgroundColor=Hex("#AFC6D2");
             cam.nearClipPlane=0.08f;cam.farClipPlane=220f;cam.fieldOfView=54f;
             camGo.AddComponent<AudioListener>();
-            var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=7.2f;rig.height=3.2f;
-            camGo.transform.position=new Vector3(0f,3.3f,-27.5f);
-            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,2.7f,10f)-camGo.transform.position,Vector3.up);
+            var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=5.9f;rig.height=2.65f;
+            camGo.transform.position=new Vector3(0f,2.9f,-25.0f);
+            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(3f,2.4f,8f)-camGo.transform.position,Vector3.up);
 
             // Dedicated deterministic preview camera. The runtime follow camera can move during
             // component initialization, so CI screenshots must not depend on its transient pose.
@@ -555,9 +567,9 @@ namespace Dolzore.Editor
             preview.backgroundColor=Hex("#AFC6D2");
             preview.nearClipPlane=0.08f;
             preview.farClipPlane=240f;
-            preview.fieldOfView=52f;
-            previewGo.transform.position=new Vector3(-0.6f,3.5f,-28.0f);
-            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,2.6f,9f)-previewGo.transform.position,Vector3.up);
+            preview.fieldOfView=47f;
+            previewGo.transform.position=new Vector3(-0.3f,3.0f,-25.5f);
+            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(3.5f,2.35f,8.5f)-previewGo.transform.position,Vector3.up);
 
             EditorSceneManager.SaveScene(scene,ScenePath);
             Debug.Log("DOLZORE_FIRST_TOWN_3D_FF11_STYLE_BUILD=PASS");
