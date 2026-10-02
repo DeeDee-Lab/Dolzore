@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
+using UnityEditor.Animations;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -15,6 +16,7 @@ namespace Dolzore.Editor
         private const string CastleRoot = "Assets/External/Castle";
         private const string CharacterRoot = "Assets/External/Characters";
         private const string KayRoot = "Assets/External/KayTown";
+        private const string AdventurerRoot = "Assets/External/Adventurers";
         private const string GeneratedRoot = "Assets/Art/Generated3D/FirstTownFF11";
 
         private static readonly Dictionary<string, Material> Materials = new Dictionary<string, Material>();
@@ -217,29 +219,76 @@ namespace Dolzore.Editor
             Spawn(TownRoot,"cart-high",origin+rot*new Vector3(10f,0f,2.0f),yaw-9f,2.2f,parent,false);
         }
 
-        private static Material CharacterMaterial(string skinFile,string key)
+        private static Material AdventurerMaterial(string textureFile,string key)
         {
             if(Materials.TryGetValue(key,out var cached)) return cached;
-            var tex=AssetDatabase.LoadAssetAtPath<Texture2D>(CharacterRoot+"/Skins/"+skinFile);
+            var tex=AssetDatabase.LoadAssetAtPath<Texture2D>(AdventurerRoot+"/Characters/"+textureFile);
             var shader=Shader.Find("Standard") ?? Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Unlit/Texture");
             var mat=new Material(shader){name=key,color=Color.white,mainTexture=tex};
             if(mat.HasProperty("_BaseMap")) mat.SetTexture("_BaseMap",tex);
-            if(mat.HasProperty("_Smoothness")) mat.SetFloat("_Smoothness",0.08f);
+            if(mat.HasProperty("_Smoothness")) mat.SetFloat("_Smoothness",0.12f);
+            if(mat.HasProperty("_Glossiness")) mat.SetFloat("_Glossiness",0.12f);
             Materials[key]=mat; return mat;
         }
 
-        private static GameObject Character(string name,Vector3 p,float yaw,string skin,bool player,Transform parent)
+        private static AnimationClip FindClip(string path, params string[] words)
         {
-            var visual=Spawn(CharacterRoot+"/Model","characterMedium",p,yaw,1.72f,parent,false);
+            AnimationClip fallback=null;
+            foreach(var asset in AssetDatabase.LoadAllAssetsAtPath(path))
+            {
+                var clip=asset as AnimationClip;
+                if(clip==null || clip.name.StartsWith("__preview__",StringComparison.OrdinalIgnoreCase)) continue;
+                if(fallback==null) fallback=clip;
+                foreach(var word in words)
+                    if(clip.name.IndexOf(word,StringComparison.OrdinalIgnoreCase)>=0) return clip;
+            }
+            return fallback;
+        }
+
+        private static RuntimeAnimatorController EnsureAdventurerController(out AnimationClip idleClip)
+        {
+            string general=AdventurerRoot+"/Animations/Rig_Medium_General.fbx";
+            string movement=AdventurerRoot+"/Animations/Rig_Medium_MovementBasic.fbx";
+            idleClip=FindClip(general,"idle");
+            var runClip=FindClip(movement,"run","sprint");
+            var walkClip=FindClip(movement,"walk");
+
+            string path=GeneratedRoot+"/FirstTownAdventurer.controller";
+            if(AssetDatabase.LoadAssetAtPath<AnimatorController>(path)!=null) AssetDatabase.DeleteAsset(path);
+            var controller=AnimatorController.CreateAnimatorControllerAtPath(path);
+            controller.AddParameter("Speed",AnimatorControllerParameterType.Float);
+            var sm=controller.layers[0].stateMachine;
+            foreach(var child in sm.states) sm.RemoveState(child.state);
+
+            var idle=sm.AddState("Idle"); idle.motion=idleClip; sm.defaultState=idle;
+            var move=sm.AddState("Move"); move.motion=runClip??walkClip??idleClip;
+            var toMove=idle.AddTransition(move); toMove.hasExitTime=false; toMove.duration=0.12f; toMove.AddCondition(AnimatorConditionMode.Greater,0.10f,"Speed");
+            var toIdle=move.AddTransition(idle); toIdle.hasExitTime=false; toIdle.duration=0.16f; toIdle.AddCondition(AnimatorConditionMode.Less,0.10f,"Speed");
+            EditorUtility.SetDirty(controller);
+            AssetDatabase.SaveAssets();
+            return controller;
+        }
+
+        private static GameObject FantasyCharacter(string name,Vector3 p,float yaw,string archetype,string textureFile,bool player,Transform parent,RuntimeAnimatorController controller,AnimationClip idleClip)
+        {
+            var visual=Spawn(AdventurerRoot+"/Characters",archetype,p,yaw,1.76f,parent,false);
             visual.name=name+" Visual";
-            SetLayerMaterial(visual,CharacterMaterial(skin,name+" Mat"));
+            SetLayerMaterial(visual,AdventurerMaterial(textureFile,name+" Mat"));
+            var animator=visual.GetComponent<Animator>()??visual.AddComponent<Animator>();
+            animator.runtimeAnimatorController=controller;
+            if(idleClip!=null)
+            {
+                float sample=Mathf.Min(idleClip.length*0.23f,0.33f);
+                idleClip.SampleAnimation(visual,sample);
+            }
             if(!player) return visual;
 
             var root=new GameObject(name);
             root.transform.position=p; root.transform.rotation=Quaternion.Euler(0f,yaw,0f); root.transform.SetParent(parent,true);
             visual.transform.SetParent(root.transform,true);
             var cc=root.AddComponent<CharacterController>(); cc.height=1.78f; cc.radius=0.33f; cc.center=new Vector3(0,0.89f,0);
-            root.AddComponent<Dolzore.ThirdPersonWalker3D>();
+            var walker=root.AddComponent<Dolzore.ThirdPersonWalker3D>();
+            walker.animator=animator;
             return root;
         }
 
