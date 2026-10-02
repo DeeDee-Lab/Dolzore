@@ -29,6 +29,12 @@ namespace Dolzore
         private float verticalVelocity;
         private float gait;
 
+        // Browser-independent movement lane. HTML controls call these methods
+        // through Unity WebGL SendMessage, so movement remains inside Unity.
+        private Vector2 externalInput;
+        private Vector2 nudgeInput;
+        private float nudgeUntil;
+
         private Vector3 visualBasePosition;
         private Vector3 bodyBasePosition;
         private Vector3 bodyBaseScale;
@@ -90,6 +96,46 @@ namespace Dolzore
             controller.Move(velocity * Time.deltaTime);
 
             AnimateVisuals(moving);
+        }
+
+        // Called from browser D-pad via WebGL SendMessage.
+        public void SetExternalInput(string command)
+        {
+            externalInput = Direction(command);
+            nudgeUntil = 0f;
+        }
+
+        public void ClearExternalInput()
+        {
+            externalInput = Vector2.zero;
+        }
+
+        // A click (rather than hold) still produces a visible walk burst.
+        public void Nudge(string command)
+        {
+            nudgeInput = Direction(command);
+            nudgeUntil = Time.time + 0.85f;
+        }
+
+        private static Vector2 Direction(string command)
+        {
+            if (string.IsNullOrEmpty(command)) return Vector2.zero;
+
+            switch (command.Trim().ToLowerInvariant())
+            {
+                case "up":
+                case "forward":
+                    return Vector2.up;
+                case "down":
+                case "back":
+                    return Vector2.down;
+                case "left":
+                    return Vector2.left;
+                case "right":
+                    return Vector2.right;
+                default:
+                    return Vector2.zero;
+            }
         }
 
         private void AnimateVisuals(bool moving)
@@ -160,6 +206,12 @@ namespace Dolzore
 
         private Vector2 ReadMovement()
         {
+            if (externalInput.sqrMagnitude > 0.001f)
+                return externalInput.normalized;
+
+            if (Time.time < nudgeUntil && nudgeInput.sqrMagnitude > 0.001f)
+                return nudgeInput.normalized;
+
             float x = 0f;
             float y = 0f;
 
