@@ -48,6 +48,7 @@ namespace Dolzore.Editor
             VerifyScene();
             RenderPreview();
             BuildWebGL();
+            InjectBrowserControls();
             WriteReceipt();
             Debug.Log("DOLZORE_WALK_DEMO_SUCCESS");
         }
@@ -456,6 +457,55 @@ namespace Dolzore.Editor
             Debug.Log("DOLZORE_WALK_DEMO_WEBGL_BYTES=" + report.summary.totalSize);
         }
 
+        private static void InjectBrowserControls()
+        {
+            string path = Abs(BuildDir + "/index.html");
+            if (!File.Exists(path))
+                throw new InvalidOperationException("WALK_DEMO_INDEX_MISSING_FOR_CONTROLS");
+
+            string html = File.ReadAllText(path);
+            const string anchor = "document.querySelector(\"#unity-fullscreen-button\").onclick = () => {";
+            if (!html.Contains(anchor))
+                throw new InvalidOperationException("WALK_DEMO_HTML_ANCHOR_NOT_FOUND");
+
+            string injection = @"// DOLZORE browser D-pad -> actual Unity CharacterController.
+                const pad = document.createElement('div');
+                pad.id = 'dolzore-dpad';
+                pad.innerHTML = '<button data-dir=\"up\">▲</button><div><button data-dir=\"left\">◀</button><button data-dir=\"down\">▼</button><button data-dir=\"right\">▶</button></div>';
+                pad.style.cssText = 'position:fixed;right:22px;bottom:22px;z-index:9999;display:grid;gap:6px;justify-items:center;user-select:none;-webkit-user-select:none;';
+                const row = pad.querySelector('div');
+                row.style.cssText = 'display:flex;gap:6px';
+                document.body.appendChild(pad);
+                pad.querySelectorAll('button').forEach((button) => {
+                  button.style.cssText = 'width:58px;height:58px;border-radius:14px;border:2px solid rgba(255,255,255,.7);background:rgba(18,32,64,.88);color:white;font-size:25px;font-weight:700;touch-action:none;box-shadow:0 4px 18px rgba(0,0,0,.3)';
+                  const dir = button.dataset.dir;
+                  const press = (event) => {
+                    event.preventDefault();
+                    focusGame();
+                    unityInstance.SendMessage('Lunaria Walkable Character', 'SetExternalInput', dir);
+                  };
+                  const release = (event) => {
+                    event.preventDefault();
+                    unityInstance.SendMessage('Lunaria Walkable Character', 'ClearExternalInput');
+                  };
+                  button.addEventListener('pointerdown', press);
+                  button.addEventListener('pointerup', release);
+                  button.addEventListener('pointercancel', release);
+                  button.addEventListener('pointerleave', release);
+                  button.addEventListener('contextmenu', (event) => event.preventDefault());
+                  button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    unityInstance.SendMessage('Lunaria Walkable Character', 'Nudge', dir);
+                  });
+                });
+
+                ";
+
+            html = html.Replace(anchor, injection + anchor);
+            File.WriteAllText(path, html);
+            Debug.Log("DOLZORE_WALK_BROWSER_DPAD=INJECTED");
+        }
+
         private static void WriteReceipt()
         {
             string json =
@@ -465,7 +515,7 @@ namespace Dolzore.Editor
                 "  \"character\": \"Lunaria Walkable Character\",\n" +
                 "  \"character_source\": \"procedural Unity meshes/materials\",\n" +
                 "  \"character_image_texture_used\": false,\n" +
-                "  \"movement\": [\"W\",\"A\",\"S\",\"D\",\"ArrowKeys\"],\n" +
+                "  \"movement\": [\"W\",\"A\",\"S\",\"D\",\"ArrowKeys\",\"BrowserDPad\"],\n" +
                 "  \"walk_animation\": \"runtime transform gait animation\",\n" +
                 "  \"webgl\": true,\n" +
                 "  \"acceptance\": \"PASS\"\n" +
