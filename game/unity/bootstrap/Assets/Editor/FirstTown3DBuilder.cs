@@ -18,6 +18,7 @@ namespace Dolzore.Editor
         private const string KayRoot = "Assets/External/KayTown";
         private const string AdventurerRoot = "Assets/External/Adventurers";
         private const string QuaterniusRoot = "Assets/External/QuaterniusVillage";
+        private const string QuaterniusCharacterRoot = "Assets/External/QuaterniusRPG";
         private const string GeneratedRoot = "Assets/Art/Generated3D/FirstTownFF11";
 
         private static readonly Dictionary<string, Material> Materials = new Dictionary<string, Material>();
@@ -330,6 +331,119 @@ namespace Dolzore.Editor
             return root;
         }
 
+        private static Material RpgCharacterMaterial(string textureFile,string key)
+        {
+            if(Materials.TryGetValue(key,out var cached)) return cached;
+            var tex=AssetDatabase.LoadAssetAtPath<Texture2D>(QuaterniusCharacterRoot+"/Textures/"+textureFile);
+            if(tex==null) throw new Exception("DOLZORE_RPG_TEXTURE_MISSING:"+textureFile);
+            var shader=Shader.Find("Standard") ?? Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Unlit/Texture");
+            var mat=new Material(shader){name=key,color=Color.white,mainTexture=tex};
+            if(mat.HasProperty("_BaseMap")) mat.SetTexture("_BaseMap",tex);
+            if(mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor",Color.white);
+            if(mat.HasProperty("_Smoothness")) mat.SetFloat("_Smoothness",0.10f);
+            if(mat.HasProperty("_Glossiness")) mat.SetFloat("_Glossiness",0.10f);
+            Materials[key]=mat;
+            return mat;
+        }
+
+        private static string WeaponTextureFor(string archetype)
+        {
+            switch(archetype)
+            {
+                case "Warrior": return "Warrior_Sword_Texture.png";
+                case "Ranger": return "Ranger_Bow_Texture.png";
+                case "Rogue": return "Rogue_Dagger_Texture.png";
+                case "Wizard": return "Wizard_Staff_Texture.png";
+                case "Cleric": return "Cleric_Staff_Texture.png";
+                default: return null;
+            }
+        }
+
+        private static void ApplyRpgCharacterMaterials(GameObject visual,string archetype)
+        {
+            var body=RpgCharacterMaterial(archetype+"_Texture.png","RPG "+archetype+" Body");
+            string weaponTex=WeaponTextureFor(archetype);
+            Material weapon=string.IsNullOrEmpty(weaponTex)?body:RpgCharacterMaterial(weaponTex,"RPG "+archetype+" Weapon");
+
+            foreach(var renderer in visual.GetComponentsInChildren<Renderer>(true))
+            {
+                var shared=renderer.sharedMaterials;
+                if(shared==null || shared.Length==0)
+                {
+                    renderer.sharedMaterial=body;
+                    continue;
+                }
+                for(int i=0;i<shared.Length;i++)
+                {
+                    string n=((shared[i]!=null?shared[i].name:"")+" "+renderer.name).ToLowerInvariant();
+                    bool isWeapon=n.Contains("sword")||n.Contains("bow")||n.Contains("dagger")||n.Contains("staff")||n.Contains("weapon");
+                    shared[i]=isWeapon?weapon:body;
+                }
+                renderer.sharedMaterials=shared;
+            }
+        }
+
+        private static RuntimeAnimatorController EnsureRpgController(string archetype,out AnimationClip idleClip)
+        {
+            string modelPath=QuaterniusCharacterRoot+"/Models/"+archetype+".fbx";
+            idleClip=FindClip(modelPath,"idle");
+            var runClip=FindClip(modelPath,"run");
+            var walkClip=FindClip(modelPath,"walk");
+            if(idleClip==null) throw new Exception("DOLZORE_RPG_IDLE_MISSING:"+archetype);
+            if(runClip==null && walkClip==null) throw new Exception("DOLZORE_RPG_MOVE_MISSING:"+archetype);
+
+            string path=GeneratedRoot+"/FirstTownRpg"+archetype+".controller";
+            if(AssetDatabase.LoadAssetAtPath<AnimatorController>(path)!=null) AssetDatabase.DeleteAsset(path);
+            var controller=AnimatorController.CreateAnimatorControllerAtPath(path);
+            controller.AddParameter("Speed",AnimatorControllerParameterType.Float);
+            var sm=controller.layers[0].stateMachine;
+            foreach(var child in sm.states) sm.RemoveState(child.state);
+
+            var idle=sm.AddState("Idle"); idle.motion=idleClip; sm.defaultState=idle;
+            var move=sm.AddState("Move"); move.motion=runClip??walkClip;
+            var toMove=idle.AddTransition(move); toMove.hasExitTime=false; toMove.duration=0.12f; toMove.AddCondition(AnimatorConditionMode.Greater,0.10f,"Speed");
+            var toIdle=move.AddTransition(idle); toIdle.hasExitTime=false; toIdle.duration=0.16f; toIdle.AddCondition(AnimatorConditionMode.Less,0.10f,"Speed");
+            EditorUtility.SetDirty(controller);
+            AssetDatabase.SaveAssets();
+            return controller;
+        }
+
+        private static GameObject RpgCharacter(string name,Vector3 p,float yaw,string archetype,bool player,Transform parent,RuntimeAnimatorController playerController=null,AnimationClip playerIdle=null)
+        {
+            string modelPath=QuaterniusCharacterRoot+"/Models/"+archetype+".fbx";
+            var visual=Spawn(QuaterniusCharacterRoot+"/Models",archetype,p,yaw,1.78f,parent,false);
+            visual.name=name+" Visual";
+            ApplyRpgCharacterMaterials(visual,archetype);
+
+            var animator=visual.GetComponent<Animator>();
+            if(animator==null) animator=visual.AddComponent<Animator>();
+
+            AnimationClip idleClip=playerIdle??FindClip(modelPath,"idle");
+            if(idleClip!=null)
+            {
+                float sample=Mathf.Min(idleClip.length*0.24f,0.35f);
+                idleClip.SampleAnimation(visual,sample);
+            }
+
+            if(!player)
+            {
+                animator.enabled=false;
+                return visual;
+            }
+
+            animator.runtimeAnimatorController=playerController;
+            var root=new GameObject(name);
+            root.transform.position=p;
+            root.transform.rotation=Quaternion.Euler(0f,yaw,0f);
+            root.transform.SetParent(parent,true);
+            visual.transform.SetParent(root.transform,true);
+            var cc=root.AddComponent<CharacterController>();
+            cc.height=1.80f; cc.radius=0.34f; cc.center=new Vector3(0,0.90f,0);
+            var walker=root.AddComponent<Dolzore.ThirdPersonWalker3D>();
+            walker.animator=animator;
+            return root;
+        }
+
         private static void AddLight(string name,Color color,float intensity,Vector3 euler,bool shadows)
         {
             var go=new GameObject(name);
@@ -399,6 +513,9 @@ namespace Dolzore.Editor
                 AdventurerRoot+"/Characters/Mage.fbx",
                 AdventurerRoot+"/Animations/Rig_Medium_General.fbx",
                 AdventurerRoot+"/Animations/Rig_Medium_MovementBasic.fbx",
+                QuaterniusCharacterRoot+"/Models/Warrior.fbx",
+                QuaterniusCharacterRoot+"/Models/Ranger.fbx",
+                QuaterniusCharacterRoot+"/Textures/Warrior_Texture.png",
                 QuaterniusRoot+"/Bell_Tower.obj",
                 QuaterniusRoot+"/Blacksmith.obj",
                 QuaterniusRoot+"/House_1.obj",
@@ -553,11 +670,10 @@ namespace Dolzore.Editor
             Spawn(TownRoot,"wall-arch",new Vector3(-1,0.05f,-8),0f,4.6f,root,false);
             Spawn(TownRoot,"wall-arch-top-detail",new Vector3(-1,4.0f,-8),0f,1.5f,root,false);
 
-            // Hero + residents use fantasy rigged characters; no modern skins / no T-pose acceptance.
-            var controller=EnsureAdventurerController(out var idleClip);
-            var player=FantasyCharacter("SORA",new Vector3(-1,0,-20),4f,"Knight","knight_texture.png",true,root,controller,idleClip);
-            string[] archetypes={"Mage","Ranger","Rogue","Druid","Engineer","Knight"};
-            string[] textures={"mage_texture.png","ranger_texture.png","rogue_texture.png","druid_texture.png","engineer_texture.png","knight_texture.png"};
+            // Human-proportioned Quaternius RPG characters replace the chibi prototype population.
+            var controller=EnsureRpgController("Warrior",out var warriorIdle);
+            var player=RpgCharacter("SORA",new Vector3(-1,0,-20),4f,"Warrior",true,root,controller,warriorIdle);
+            string[] archetypes={"Ranger","Rogue","Wizard","Cleric","Monk","Warrior"};
             Vector3[] npcPos={
                 new Vector3(-14,0,-5),new Vector3(-18,0,1),new Vector3(-16,0,6),new Vector3(12,0,3),
                 new Vector3(16,0,7),new Vector3(13,0,11),new Vector3(0,0,8),new Vector3(7,0,14),
@@ -566,7 +682,7 @@ namespace Dolzore.Editor
                 new Vector3(24,2.45f,35),new Vector3(-16,2.45f,42)
             };
             for(int i=0;i<npcPos.Length;i++)
-                FantasyCharacter("Resident "+(i+1),npcPos[i],(i*43)%360,archetypes[i%archetypes.Length],textures[i%textures.Length],false,root,controller,idleClip);
+                RpgCharacter("Resident "+(i+1),npcPos[i],(i*43)%360,archetypes[i%archetypes.Length],false,root);
 
             AddLight("Sun",Hex("#FFE1BC"),1.16f,new Vector3(48,-34,-8),true);
             AddLight("SkyFill",Hex("#BDD4E5"),0.18f,new Vector3(62,148,0),false);
