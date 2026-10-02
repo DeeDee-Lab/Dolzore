@@ -1,0 +1,290 @@
+{
+  "schema": "dolzore.animal_crossing.series_matrix.v1",
+  "authority_date_jst": "2026-10-02",
+  "canonical_issue": "DeeDee-Lab/Dolzore#40",
+  "entries": [
+    {
+      "key": "AF_N64",
+      "title_jp": "どうぶつの森",
+      "title_en": "Animal Forest",
+      "platform": "Nintendo 64",
+      "release_jp": "2001-04",
+      "role": "origin",
+      "core_changes": [
+        "real-time village life",
+        "persistent residents",
+        "home/debt loop",
+        "collection",
+        "events",
+        "NPC schedules"
+      ],
+      "technical_research": [
+        "zeldaret/af"
+      ]
+    },
+    {
+      "key": "AF_PLUS_GC",
+      "title_jp": "どうぶつの森+",
+      "title_en": null,
+      "platform": "Nintendo GameCube",
+      "release_jp": "2001",
+      "role": "GameCube expansion of N64 concept",
+      "core_changes": [
+        "expanded content/platform features",
+        "memory-card persistent town"
+      ],
+      "technical_research": [
+        "ACreTeam/ac-decomp lineage"
+      ]
+    },
+    {
+      "key": "AC_GC",
+      "title_jp": null,
+      "title_en": "Animal Crossing",
+      "platform": "Nintendo GameCube",
+      "release": "2002-2004 by region",
+      "role": "international GameCube lineage",
+      "core_changes": [
+        "regional localization/events/content"
+      ],
+      "technical_research": [
+        "ACreTeam/ac-decomp supports GAFE01_00 Rev 0 USA"
+      ]
+    },
+    {
+      "key": "AF_EPLUS_GC",
+      "title_jp": "どうぶつの森e+",
+      "title_en": null,
+      "platform": "Nintendo GameCube",
+      "release_jp": "2003",
+      "role": "expanded Japanese GameCube revision",
+      "core_changes": [
+        "additional content/e-Reader-related expansion"
+      ],
+      "technical_research": [
+        "GameCube lineage; version-specific research required"
+      ]
+    },
+    {
+      "key": "WW_DS",
+      "title_jp": "おいでよ どうぶつの森",
+      "title_en": "Animal Crossing: Wild World",
+      "platform": "Nintendo DS",
+      "release_jp": "2005-11",
+      "role": "portable/network generation",
+      "core_changes": [
+        "portable always-nearby village",
+        "local wireless",
+        "Nintendo Wi-Fi travel",
+        "reworked town presentation"
+      ],
+      "technical_research": [
+        "Universal-Team/WildEdit",
+        "Universal-Team/ACWW-Web-SaveEditor",
+        "ACWW_Research"
+      ]
+    },
+    {
+      "key": "CF_WII",
+      "title_jp": "街へいこうよ どうぶつの森",
+      "title_en": "Animal Crossing: City Folk / Let's Go to the City",
+      "platform": "Wii",
+      "release_jp": "2008-11-20",
+      "role": "living-room/network/social extension",
+      "core_changes": [
+        "city destination",
+        "WiiSpeak",
+        "WiiConnect24-oriented design",
+        "grass wear/path emergence",
+        "DS travel tool"
+      ],
+      "technical_research": [
+        "mattgj/actoolkit"
+      ]
+    },
+    {
+      "key": "NL_3DS",
+      "title_jp": "とびだせ どうぶつの森",
+      "title_en": "Animal Crossing: New Leaf",
+      "platform": "Nintendo 3DS",
+      "release_jp": "2012",
+      "role": "town-authority/customization generation",
+      "core_changes": [
+        "player mayor",
+        "public works projects",
+        "ordinances",
+        "shopping district",
+        "expanded exterior/home customization",
+        "island activities"
+      ],
+      "technical_research": [
+        "Universal-Team/LeafEdit",
+        "LeafEdit-Core"
+      ]
+    },
+    {
+      "key": "NL_WA_3DS",
+      "title_jp": "とびだせ どうぶつの森 amiibo+",
+      "title_en": "Animal Crossing: New Leaf – Welcome amiibo",
+      "platform": "Nintendo 3DS",
+      "release_jp": "2016-11-23",
+      "role": "New Leaf expansion/reissue",
+      "core_changes": [
+        "amiibo integration",
+        "updated content/features"
+      ],
+      "technical_research": [
+        "Universal-Team/LeafEdit"
+      ]
+    },
+    {
+      "key": "PLAZA_WIIU",
+      "title_jp": "どうぶつの森 こもれび広場",
+      "title_en": "Animal Crossing Plaza",
+      "platform": "Wii U",
+      "release": "2013",
+      "role": "social/companion application",
+      "core_changes": [
+        "Miiverse-oriented franchise social surface"
+      ],
+      "technical_research": []
+    },
+    {
+      "key": "HHD_3DS",
+      "title_jp": "どうぶつの森 ハッピーホームデザイナー",
+      "title_en": "Animal Crossing: Happy Home Designer",
+      "platform": "Nintendo 3DS",
+      "release_jp": "2015-07-30",
+      "role": "design-system spinoff",
+      "core_changes": [
+        "interior/exterior design as primary loop",
+        "client requests",
+        "public facility design",
+        "amiibo cards"
+      ],
+      "technical_research": [
+        "Universal-Team/LeafEdit"
+      ],
+      "official_scale_note": "official guide describes 5,250+ items and 387 clients"
+    },
+    {
+      "key": "AMIIBO_FEST_WIIU",
+      "title_jp": "どうぶつの森 amiiboフェスティバル",
+      "title_en": "Animal Crossing: amiibo Festival",
+      "platform": "Wii U",
+      "release_jp": "2015-11-21",
+      "role": "party-game spinoff",
+      "core_changes": [
+        "board-game calendar/event loop",
+        "amiibo progression",
+        "island escape minigame"
+      ],
+      "technical_research": []
+    },
+    {
+      "key": "PC_MOBILE",
+      "title_jp": "どうぶつの森 ポケットキャンプ",
+      "title_en": "Animal Crossing: Pocket Camp",
+      "platform": "iOS/Android",
+      "release_jp": "2017-11-21",
+      "role": "mobile service/live-ops generation",
+      "core_changes": [
+        "campsite management",
+        "request loops",
+        "craft materials",
+        "timed/seasonal events",
+        "large furniture catalog",
+        "service economy"
+      ],
+      "service_end_jst": "2024-11-29T00:00:00+09:00",
+      "technical_research": []
+    },
+    {
+      "key": "NH_SWITCH",
+      "title_jp": "あつまれ どうぶつの森",
+      "title_en": "Animal Crossing: New Horizons",
+      "platform": "Nintendo Switch",
+      "release": "2020-03-20",
+      "role": "island-authoring/crafting generation",
+      "core_changes": [
+        "deserted-island start",
+        "DIY/crafting",
+        "materials/tools",
+        "outdoor furniture",
+        "island construction/terraforming",
+        "Nook Miles",
+        "local/online multiplayer",
+        "large persistent island save"
+      ],
+      "technical_research": [
+        "kwsch/NHSE"
+      ]
+    },
+    {
+      "key": "HHP_DLC",
+      "title_jp": "ハッピーホームパラダイス",
+      "title_en": "Animal Crossing: New Horizons – Happy Home Paradise",
+      "platform": "Nintendo Switch DLC",
+      "release": "2021-11-05",
+      "role": "design profession expansion",
+      "core_changes": [
+        "vacation-home design",
+        "facility design",
+        "expanded furnishing techniques"
+      ],
+      "technical_research": [
+        "kwsch/NHSE version-specific structures"
+      ]
+    },
+    {
+      "key": "PCC_MOBILE",
+      "title_jp": "どうぶつの森 ポケットキャンプ コンプリート",
+      "title_en": "Animal Crossing: Pocket Camp Complete",
+      "platform": "iOS/Android",
+      "release": "2024-12-02",
+      "role": "paid offline-oriented preservation model",
+      "core_changes": [
+        "no additional in-app purchases",
+        "previously released content",
+        "10,000+ items",
+        "monthly seasonal events",
+        "Complete Tickets",
+        "Camper Cards/QR",
+        "Whistle Pass",
+        "Custom Designs import"
+      ],
+      "technical_research": []
+    },
+    {
+      "key": "NH_SWITCH2",
+      "title_jp": "あつまれ どうぶつの森 Nintendo Switch 2 Edition",
+      "title_en": "Animal Crossing: New Horizons – Nintendo Switch 2 Edition",
+      "platform": "Nintendo Switch 2",
+      "release": "2026-01-15",
+      "role": "enhanced-platform edition",
+      "core_changes": [
+        "higher resolution",
+        "Joy-Con 2 mouse controls",
+        "microphone megaphone",
+        "up to 12-player online on Switch 2 Edition",
+        "CameraPlay/GameChat",
+        "shared free 3.0 content"
+      ],
+      "current_update": "3.0.3 released 2026-04-29",
+      "technical_research": [
+        "kwsch/NHSE support state must be version-checked"
+      ]
+    }
+  ],
+  "series_design_arc": [
+    "persistent village life",
+    "portable/network accessibility",
+    "ambient/asynchronous connection",
+    "town-level authoring authority",
+    "design-focused spinoffs and amiibo",
+    "mobile live-ops/crafting",
+    "island-scale physical authoring/crafting",
+    "paid preservation/offline-oriented mobile model",
+    "higher-bandwidth input/social enhancements"
+  ]
+}
