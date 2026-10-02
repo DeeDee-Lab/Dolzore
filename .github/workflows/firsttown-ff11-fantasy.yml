@@ -1,0 +1,182 @@
+name: DOLZORE FirstTown FF11 Fantasy 3D
+
+on:
+  push:
+    branches: ["rebuild/firsttown-ff11-fantasy-20261002"]
+    paths:
+      - "game/unity/bootstrap/**"
+      - ".github/workflows/firsttown-ff11-fantasy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dolzore-firsttown-ff11-fantasy
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: [dolzore-site-osk222]
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: false
+
+      - name: Resolve Unity editor
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          if (([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'OSK222') { throw "DOLZORE_WRONG_HOST:$env:COMPUTERNAME" }
+          $unity="C:\Program Files\Unity\Hub\Editor\6000.5.1f1\Editor\Unity.exe"
+          if (-not (Test-Path $unity)) { throw "DOLZORE_UNITY_6000_5_1_NOT_FOUND" }
+          $webgl=Join-Path (Split-Path $unity -Parent) "Data\PlaybackEngines\WebGLSupport"
+          if (-not (Test-Path $webgl)) { throw "DOLZORE_WEBGL_MODULE_NOT_FOUND" }
+          "UNITY_EXE=$unity" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Materialize Unity project settings
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $settings=Join-Path $project "ProjectSettings\ProjectSettings.asset"
+          if (-not (Test-Path $settings)) {
+            $template=Join-Path $env:RUNNER_TEMP "DolzoreUnityTemplateFantasy"
+            if(Test-Path $template){Remove-Item $template -Recurse -Force}
+            $log=Join-Path $env:RUNNER_TEMP "dolzore-create.log"
+            $p=Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList @("-quit","-batchmode","-createProject",$template,"-logFile",$log) -Wait -PassThru
+            if($p.ExitCode -ne 0){if(Test-Path $log){Get-Content $log -Tail 300};throw "UNITY_CREATE_FAILED:$($p.ExitCode)"}
+            New-Item -ItemType Directory -Path $project -Force | Out-Null
+            Copy-Item (Join-Path $template "ProjectSettings") $project -Recurse -Force
+            Copy-Item (Join-Path $template "Packages") $project -Recurse -Force
+          }
+
+      - name: Sync authored Unity source
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $source=Join-Path $env:GITHUB_WORKSPACE "game\unity\bootstrap"
+          New-Item -ItemType Directory -Path (Join-Path $project "Assets") -Force | Out-Null
+          New-Item -ItemType Directory -Path (Join-Path $project "Packages") -Force | Out-Null
+          Copy-Item (Join-Path $source "Assets\*") (Join-Path $project "Assets") -Recurse -Force
+          Copy-Item (Join-Path $source "Packages\manifest.json") (Join-Path $project "Packages\manifest.json") -Force
+
+      - name: Fetch CC0 fantasy production kit
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          git lfs version
+          git lfs install
+          $lib=Join-Path $env:RUNNER_TEMP "jam-ready-assets"
+          if(Test-Path $lib){Remove-Item $lib -Recurse -Force}
+          git clone --depth 1 --filter=blob:none --sparse https://github.com/series-ai/jam-ready-assets.git $lib
+          Push-Location $lib
+          git sparse-checkout set kenney-fantasy-town-kit/3D/fantasy kenney-castle-kit/3D/fantasy kenney-animated-characters-protagonists/3D/characters
+          git lfs pull --include="kenney-fantasy-town-kit/3D/fantasy/**,kenney-castle-kit/3D/fantasy/**,kenney-animated-characters-protagonists/3D/characters/**"
+          Pop-Location
+
+          $assets=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore\Assets\External"
+          $town=Join-Path $assets "FantasyTown"
+          $castle=Join-Path $assets "Castle"
+          $chars=Join-Path $assets "Characters"
+          New-Item -ItemType Directory -Path $town,$castle,(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
+          Copy-Item (Join-Path $lib "kenney-fantasy-town-kit\3D\fantasy\Models\FBX format\*.fbx") $town -Force
+          if(Test-Path (Join-Path $lib "kenney-fantasy-town-kit\3D\fantasy\Models\Textures")){Copy-Item (Join-Path $lib "kenney-fantasy-town-kit\3D\fantasy\Models\Textures") $town -Recurse -Force}
+          Copy-Item (Join-Path $lib "kenney-castle-kit\3D\fantasy\Models\FBX format\*.fbx") $castle -Force
+          if(Test-Path (Join-Path $lib "kenney-castle-kit\3D\fantasy\Models\Textures")){Copy-Item (Join-Path $lib "kenney-castle-kit\3D\fantasy\Models\Textures") $castle -Recurse -Force}
+          Copy-Item (Join-Path $lib "kenney-animated-characters-protagonists\3D\characters\Model\characterMedium.fbx") (Join-Path $chars "Model") -Force
+          Copy-Item (Join-Path $lib "kenney-animated-characters-protagonists\3D\characters\Skins\*.png") (Join-Path $chars "Skins") -Force
+
+          $fbxCount=(Get-ChildItem $town -Filter *.fbx).Count + (Get-ChildItem $castle -Filter *.fbx).Count
+          $skinCount=(Get-ChildItem (Join-Path $chars "Skins") -Filter *.png).Count
+          Write-Host "DOLZORE_EXTERNAL_FBX_COUNT=$fbxCount"
+          Write-Host "DOLZORE_CHARACTER_SKINS=$skinCount"
+          if($fbxCount -lt 150){throw "DOLZORE_FANTASY_ASSET_SET_INCOMPLETE:$fbxCount"}
+
+      - name: Clear stale Unity lock
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $normalized=[System.IO.Path]::GetFullPath($project)
+          Get-CimInstance Win32_Process -Filter "Name='Unity.exe'" -ErrorAction SilentlyContinue | ForEach-Object {
+            $cmd=[string]$_.CommandLine
+            if($cmd -and $cmd.IndexOf($normalized,[System.StringComparison]::OrdinalIgnoreCase) -ge 0){Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue}
+          }
+          $lock=Join-Path $project "Temp\UnityLockfile"
+          if(Test-Path $lock){Remove-Item $lock -Force}
+
+      - name: Generate dense fantasy FirstTown
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $log=Join-Path $env:RUNNER_TEMP "dolzore-firsttown-fantasy-generate.log"
+          $args=@("-quit","-batchmode","-projectPath",$project,"-executeMethod","Dolzore.Editor.ProjectBootstrap.GenerateInitialSlice","-logFile",$log)
+          $p=Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline=(Get-Date).AddMinutes(10)
+          while(-not $p.HasExited -and (Get-Date)-lt $deadline){Start-Sleep -Seconds 2;$p.Refresh()}
+          if(-not $p.HasExited){Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue;if(Test-Path $log){Get-Content $log -Tail 1200};throw "DOLZORE_FANTASY_GENERATE_TIMEOUT"}
+          if(Test-Path $log){Get-Content $log -Tail 1200}
+          if($p.ExitCode -ne 0){throw "DOLZORE_FANTASY_GENERATE_FAILED:$($p.ExitCode)"}
+
+      - name: Verify real 3D preview
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          foreach($rel in @("Assets\Scenes\FirstTown3D.unity","BuildArtifacts\first-town-3d.png")){
+            $p=Join-Path $project $rel
+            if(-not (Test-Path $p)){throw "DOLZORE_FANTASY_MISSING:$rel"}
+            Write-Host "DOLZORE_FANTASY_OK=$rel"
+          }
+          $img=Join-Path $project "BuildArtifacts\first-town-3d.png"
+          $hash=(Get-FileHash $img -Algorithm SHA256).Hash.ToLowerInvariant()
+          Write-Host "DOLZORE_FIRSTTOWN_FANTASY_SCREENSHOT_SHA256=$hash"
+          $license=Join-Path $project "BuildArtifacts\FIRSTTOWN_EXTERNAL_ASSET_LICENSES.txt"
+          @(
+            "Kenney Fantasy Town Kit — CC0 1.0 — https://kenney.nl/assets/fantasy-town-kit",
+            "Kenney Castle Kit — CC0 1.0 — https://kenney.nl/assets/castle-kit",
+            "Kenney Animated Characters: Protagonists — CC0 1.0 — https://kenney.nl/"
+          ) | Set-Content $license -Encoding utf8
+
+      - name: Upload visual proof before WebGL
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-firsttown-ff11-fantasy-preview
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            game/unity/Dolzore/BuildArtifacts/first-town-3d.png
+            game/unity/Dolzore/Assets/Scenes/FirstTown3D.unity
+            game/unity/Dolzore/BuildArtifacts/FIRSTTOWN_EXTERNAL_ASSET_LICENSES.txt
+
+      - name: Build WebGL
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $project=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore"
+          $log=Join-Path $env:RUNNER_TEMP "dolzore-firsttown-fantasy-webgl.log"
+          $args=@("-quit","-batchmode","-projectPath",$project,"-buildTarget","WebGL","-executeMethod","Dolzore.Editor.ProjectBootstrap.BuildWebGLOnly","-logFile",$log)
+          $p=Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline=(Get-Date).AddMinutes(18)
+          while(-not $p.HasExited -and (Get-Date)-lt $deadline){Start-Sleep -Seconds 3;$p.Refresh()}
+          if(-not $p.HasExited){Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue;if(Test-Path $log){Get-Content $log -Tail 1000};throw "DOLZORE_FANTASY_WEBGL_TIMEOUT"}
+          if(Test-Path $log){Get-Content $log -Tail 1000}
+          if($p.ExitCode -ne 0){throw "DOLZORE_FANTASY_WEBGL_FAILED:$($p.ExitCode)"}
+          $index=Join-Path $project "Builds\WebGL\index.html"
+          if(-not (Test-Path $index)){throw "DOLZORE_FANTASY_WEBGL_INDEX_MISSING"}
+
+      - name: Upload complete FirstTown
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-firsttown-ff11-fantasy
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            game/unity/Dolzore/BuildArtifacts/first-town-3d.png
+            game/unity/Dolzore/Assets/Scenes/FirstTown3D.unity
+            game/unity/Dolzore/BuildArtifacts/FIRSTTOWN_EXTERNAL_ASSET_LICENSES.txt
+            game/unity/Dolzore/Builds/WebGL/**
