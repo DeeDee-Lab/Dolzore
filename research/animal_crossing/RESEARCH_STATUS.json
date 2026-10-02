@@ -1,7 +1,7 @@
 {
   "schema": "dolzore.animal_crossing.research_status.v1",
-  "updated_jst": "2026-10-03T07:35:00+09:00",
-  "state": "EXACT_PUBLIC_SOURCE_EXTRACTION_EXPANDED_1098_VALIDATED_CONTINUES",
+  "updated_jst": "2026-10-03T07:19:00+09:00",
+  "state": "ACTIVE_EXACT_EXTRACTION_523_FACTS",
   "canonical_repo": "DeeDee-Lab/Dolzore",
   "canonical_issue": "DeeDee-Lab/Dolzore#40",
   "canonical_path": "research/animal_crossing/",
@@ -53,12 +53,11 @@
     "switch2_official_runtime_feature_delta_no_private_engine_claim"
   ],
   "next_exact_actions": [
-    "mechanically extract Wild World full LeafEdit source expressions",
-    "mechanically catalog New Horizons public Structures/**/*.cs sizes/fields",
-    "finish remaining GameCube/N64 life-sim tables without duplicating already extracted files",
-    "cross-check City Folk with ACSE",
-    "update SOURCE_COVERAGE_MATRIX rows from PARTIAL_PUBLIC_SOURCE to PUBLIC_SOURCE_EXHAUSTED only after traversal proof",
-    "checkpoint after each generation state change"
+    "expand New Leaf/Welcome amiibo/HHD exact save and facility/design structures",
+    "expand Pocket Camp Complete remaining 221-table schema by domain, preserving exact field names/types",
+    "analyze Switch 2 Edition/runtime/input deltas from official sources and public lawful evidence",
+    "extract remaining GameCube event/audio helper enums and collection transition algorithms only where not already cataloged",
+    "run full 22+ JSONL parse recount after next batch and refresh catalog index"
   ],
   "copyright_truth": {
     "roms_or_disc_images_stored": false,
@@ -84,5 +83,20 @@
     "public_source_exhaustion_complete": false,
     "proprietary_internal_complete": false,
     "reason": "Several pinned public repositories still contain untraversed structures/modules. Some requested proprietary/server/runtime internals are not publicly available and will be marked SOURCE_UNAVAILABLE rather than inferred."
+  },
+  "exact_fact_count": 523,
+  "last_material_progress": {
+    "insect_spawn_tables": {
+      "tables": 61,
+      "entries": 576,
+      "scheduler_linked": true
+    },
+    "fish_spawn_tables": {
+      "tables": 62,
+      "entries": 665,
+      "scheduler_linked": true
+    },
+    "event_schedule_rows": 134,
+    "audio_state_facts": 10
   }
 }
