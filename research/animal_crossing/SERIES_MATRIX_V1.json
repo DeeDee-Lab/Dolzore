@@ -8,7 +8,7 @@
       "title_jp": "どうぶつの森",
       "title_en": "Animal Forest",
       "platform": "Nintendo 64",
-      "release_jp": "2001-04",
+      "release_jp": "2001-04-14",
       "role": "origin",
       "core_changes": [
         "real-time village life",
@@ -27,7 +27,7 @@
       "title_jp": "どうぶつの森+",
       "title_en": null,
       "platform": "Nintendo GameCube",
-      "release_jp": "2001",
+      "release_jp": "2001-12-14",
       "role": "GameCube expansion of N64 concept",
       "core_changes": [
         "expanded content/platform features",
@@ -56,7 +56,7 @@
       "title_jp": "どうぶつの森e+",
       "title_en": null,
       "platform": "Nintendo GameCube",
-      "release_jp": "2003",
+      "release_jp": "2003-06-27",
       "role": "expanded Japanese GameCube revision",
       "core_changes": [
         "additional content/e-Reader-related expansion"
@@ -70,7 +70,7 @@
       "title_jp": "おいでよ どうぶつの森",
       "title_en": "Animal Crossing: Wild World",
       "platform": "Nintendo DS",
-      "release_jp": "2005-11",
+      "release_jp": "2005-11-23",
       "role": "portable/network generation",
       "core_changes": [
         "portable always-nearby village",
@@ -107,7 +107,7 @@
       "title_jp": "とびだせ どうぶつの森",
       "title_en": "Animal Crossing: New Leaf",
       "platform": "Nintendo 3DS",
-      "release_jp": "2012",
+      "release_jp": "2012-11-08",
       "role": "town-authority/customization generation",
       "core_changes": [
         "player mayor",
@@ -286,5 +286,6 @@
     "island-scale physical authoring/crafting",
     "paid preservation/offline-oriented mobile model",
     "higher-bandwidth input/social enhancements"
-  ]
+  ],
+  "research_current_as_of": "2026-10-02"
 }
