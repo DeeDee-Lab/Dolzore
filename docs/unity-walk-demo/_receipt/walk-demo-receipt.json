@@ -1,0 +1,11 @@
+{
+  "engine": "Unity",
+  "scene": "Assets/Scenes/WalkDemo.unity",
+  "character": "Lunaria Walkable Character",
+  "character_source": "procedural Unity meshes/materials",
+  "character_image_texture_used": false,
+  "movement": ["W","A","S","D","ArrowKeys"],
+  "walk_animation": "runtime transform gait animation",
+  "webgl": true,
+  "acceptance": "PASS"
+}
