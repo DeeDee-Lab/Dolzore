@@ -1,3 +1,26 @@
+# CURRENT SOURCE REFRESH — 2026-10-02
+
+Canonical issue: DeeDee-Lab/Dolzore#40
+
+Official origin / early lineage:
+- https://www.nintendo.co.jp/n01/n64/software/nus_p_nafj/index.html — Animal Forest release/product facts.
+- https://www.nintendo.co.jp/n01/n64/software/nus_p_nafj/what/index.html — real-world time/offline village behavior.
+- https://www.nintendo.co.jp/ngc/gafj/index.html — どうぶつの森+ GameCube release/specs.
+- https://www.nintendo.co.jp/ngc/gaej/index.html — どうぶつの森e+ release/specs.
+- https://www.nintendo.co.jp/ds/admj/what/index.html — Wild World real-time/free-form life.
+- https://www.nintendo.co.jp/ds/admj/tsushin/index.html — Wild World local/Wi-Fi visiting.
+
+Current New Horizons lineage:
+- https://www.nintendo.com/jp/games/switch2/acbaa/index.html — Switch 2 Edition features/release.
+- https://en-americas-support.nintendo.com/app/answers/detail/a_id/49112 — update history; Ver.3.0.3 dated 2026-04-29.
+
+Pinned public reverse-engineering commits used for exact facts:
+- zeldaret/af @ 4ddba04604ee7b4c4cfc0b64f8ee4d094bb385be
+- ACreTeam/ac-decomp @ 09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c
+- Cuyler36/ACSE @ 23563b168f4afd705aa3b48da807978644c715df
+- marcrobledo/acnl-editor @ b76e89a7346b18600893c54adf8ca2a7845974e3
+- kwsch/NHSE @ cb0745415945776f73375bf0a434a8babf059307
+
 # ANIMAL CROSSING SOURCE INDEX V1
 
 ## Nintendo official — design/game facts
