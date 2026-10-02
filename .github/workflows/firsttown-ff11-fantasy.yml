@@ -72,7 +72,8 @@ jobs:
           $castle=Join-Path $assets "Castle"
           $chars=Join-Path $assets "Characters"
           $kay=Join-Path $assets "KayTown"
-          New-Item -ItemType Directory -Path $town,$castle,$kay,(Join-Path $town "Textures"),(Join-Path $castle "Textures"),(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
+          $adv=Join-Path $assets "Adventurers"
+          New-Item -ItemType Directory -Path $town,$castle,$kay,$adv,(Join-Path $adv "Characters"),(Join-Path $adv "Animations"),(Join-Path $town "Textures"),(Join-Path $castle "Textures"),(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
 
           function Fetch([string]$url,[string]$dest) {
             Write-Host "FETCH=$url"
@@ -86,8 +87,9 @@ jobs:
             "wall-wood-window-stone","wall-window-stone","wall-wood-window-small","wall-window-small",
             "wall-wood","wall","roof-high","roof-gable","balcony-wall-fence","overhang",
             "banner-red","banner-green","chimney","fountain-round","fountain-round-detail","fountain-center",
-            "stall-bench","cart","cart-high","wall-arch","wall-arch-top-detail",
-            "tree-high","tree-crooked","lantern","hedge","fence-gate"
+            "stall-bench","stall-red","stall-green","stall-stool","cart","cart-high","wall-arch","wall-arch-top-detail",
+            "tree-high","tree-high-round","tree-crooked","lantern","hedge","hedge-large","fence","fence-gate",
+            "pillar-stone","rock-small","rock-wide","stairs-wide-stone-handrail"
           )
           foreach($name in $townFiles){
             $url="$base/kenney-fantasy-town-kit/3D/fantasy/Models/FBX%20format/$name.fbx"
@@ -121,7 +123,17 @@ jobs:
           }
           Fetch "$kayBase/hexagons_medieval.png" (Join-Path $kay "hexagons_medieval.png")
 
-          $fbxCount=(Get-ChildItem $town -Filter *.fbx).Count + (Get-ChildItem $castle -Filter *.fbx).Count + (Get-ChildItem $kay -Filter *.fbx).Count
+          $advBase="$base/kaykit-adventurers/3D/characters"
+          foreach($name in @("Knight","Mage","Ranger","Rogue","Druid","Engineer")){
+            Fetch "$advBase/Characters/fbx/$name.fbx" (Join-Path $adv "Characters\$name.fbx")
+          }
+          foreach($name in @("knight_texture.png","mage_texture.png","ranger_texture.png","rogue_texture.png","druid_texture.png","engineer_texture.png")){
+            Fetch "$advBase/Characters/fbx/$name" (Join-Path $adv "Characters\$name")
+          }
+          Fetch "$advBase/Animations/fbx/Rig_Medium/Rig_Medium_General.fbx" (Join-Path $adv "Animations\Rig_Medium_General.fbx")
+          Fetch "$advBase/Animations/fbx/Rig_Medium/Rig_Medium_MovementBasic.fbx" (Join-Path $adv "Animations\Rig_Medium_MovementBasic.fbx")
+
+          $fbxCount=(Get-ChildItem $town -Filter *.fbx).Count + (Get-ChildItem $castle -Filter *.fbx).Count + (Get-ChildItem $kay -Filter *.fbx).Count + (Get-ChildItem (Join-Path $adv "Characters") -Filter *.fbx).Count
           $skinCount=(Get-ChildItem (Join-Path $chars "Skins") -Filter *.png).Count
           Write-Host "DOLZORE_EXTERNAL_FBX_COUNT=$fbxCount"
           Write-Host "DOLZORE_CHARACTER_SKINS=$skinCount"
