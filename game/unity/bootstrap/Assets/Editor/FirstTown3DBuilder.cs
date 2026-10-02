@@ -17,6 +17,7 @@ namespace Dolzore.Editor
         private const string CharacterRoot = "Assets/External/Characters";
         private const string KayRoot = "Assets/External/KayTown";
         private const string AdventurerRoot = "Assets/External/Adventurers";
+        private const string QuaterniusRoot = "Assets/External/QuaterniusVillage";
         private const string GeneratedRoot = "Assets/Art/Generated3D/FirstTownFF11";
 
         private static readonly Dictionary<string, Material> Materials = new Dictionary<string, Material>();
@@ -101,7 +102,12 @@ namespace Dolzore.Editor
         {
             var path=rootPath+"/"+file+".fbx";
             var prefab=AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if(prefab==null) throw new Exception("DOLZORE_MISSING_EXTERNAL_ASSET:"+path);
+            if(prefab==null)
+            {
+                path=rootPath+"/"+file+".obj";
+                prefab=AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            }
+            if(prefab==null) throw new Exception("DOLZORE_MISSING_EXTERNAL_ASSET:"+rootPath+"/"+file);
             var go=(GameObject)PrefabUtility.InstantiatePrefab(prefab);
             go.name=file;
             if(parent!=null) go.transform.SetParent(parent,true);
@@ -131,7 +137,12 @@ namespace Dolzore.Editor
         {
             var path=rootPath+"/"+file+".fbx";
             var prefab=AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if(prefab==null) throw new Exception("DOLZORE_MISSING_EXTERNAL_ASSET:"+path);
+            if(prefab==null)
+            {
+                path=rootPath+"/"+file+".obj";
+                prefab=AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            }
+            if(prefab==null) throw new Exception("DOLZORE_MISSING_EXTERNAL_ASSET:"+rootPath+"/"+file);
             var go=(GameObject)PrefabUtility.InstantiatePrefab(prefab);
             go.name=file;
             if(parent!=null) go.transform.SetParent(parent,true);
@@ -387,7 +398,11 @@ namespace Dolzore.Editor
                 AdventurerRoot+"/Characters/Knight.fbx",
                 AdventurerRoot+"/Characters/Mage.fbx",
                 AdventurerRoot+"/Animations/Rig_Medium_General.fbx",
-                AdventurerRoot+"/Animations/Rig_Medium_MovementBasic.fbx"
+                AdventurerRoot+"/Animations/Rig_Medium_MovementBasic.fbx",
+                QuaterniusRoot+"/Bell_Tower.obj",
+                QuaterniusRoot+"/Blacksmith.obj",
+                QuaterniusRoot+"/House_1.obj",
+                QuaterniusRoot+"/Stable.obj"
             };
             foreach(var p in mustExist) if(AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(p)==null) throw new Exception("DOLZORE_EXTERNAL_ASSET_IMPORT_FAILED:"+p);
 
@@ -445,19 +460,19 @@ namespace Dolzore.Editor
 
             // Street enclosure now uses complete low-poly authored buildings.
             // This keeps the FF11-like light geometry budget while avoiding fragile wall-piece assembly.
-            Spawn(KayRoot,"building_tavern_blue",new Vector3(-11,0,-23),18f,8.5f,root);
-            Spawn(KayRoot,"building_home_A_blue",new Vector3(10,0,-23),-12f,7.4f,root);
+            Spawn(QuaterniusRoot,"House_1",new Vector3(-11,0,-23),18f,8.3f,root);
+            Spawn(QuaterniusRoot,"House_2",new Vector3(10,0,-23),-12f,7.8f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(-10.0f,0,-13.0f),12f,6.6f,root);
-            Spawn(KayRoot,"building_home_A_blue",new Vector3(10.5f,0,-12.0f),-10f,6.4f,root);
+            Spawn(QuaterniusRoot,"House_3",new Vector3(10.5f,0,-12.0f),-10f,6.8f,root);
             Spawn(KayRoot,"building_market_blue",new Vector3(-17,0,-8),83f,7.5f,root);
-            Spawn(KayRoot,"building_townhall_blue",new Vector3(-18,0,8),96f,11.5f,root);
-            Spawn(KayRoot,"building_blacksmith_blue",new Vector3(17,0,-8),-78f,7.8f,root);
+            Spawn(QuaterniusRoot,"Bell_Tower",new Vector3(-18,0,8),96f,13.5f,root);
+            Spawn(QuaterniusRoot,"Blacksmith",new Vector3(17,0,-8),-78f,8.0f,root);
             Spawn(KayRoot,"building_workshop_blue",new Vector3(20,0,17),-78f,7.8f,root);
-            Spawn(KayRoot,"building_home_A_blue",new Vector3(-10.5f,0,8.0f),15f,6.2f,root);
+            Spawn(QuaterniusRoot,"House_4",new Vector3(-10.5f,0,8.0f),15f,6.6f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(12.5f,0,9.0f),-20f,6.5f,root);
-            Spawn(KayRoot,"building_home_A_blue",new Vector3(-12.5f,0,14.0f),35f,5.8f,root);
-            Spawn(KayRoot,"building_home_B_blue",new Vector3(16.0f,0,15.0f),-32f,6.0f,root);
-            Spawn(KayRoot,"building_home_B_blue",new Vector3(-11,0,18),30f,7.6f,root);
+            Spawn(QuaterniusRoot,"House_2",new Vector3(-12.5f,0,14.0f),35f,6.2f,root);
+            Spawn(QuaterniusRoot,"House_3",new Vector3(16.0f,0,15.0f),-32f,6.4f,root);
+            Spawn(QuaterniusRoot,"Stable",new Vector3(-11,0,18),30f,7.8f,root);
             Spawn(KayRoot,"building_church_blue",new Vector3(-6,0,32),10f,12.5f,root);
             Spawn(KayRoot,"building_castle_blue",new Vector3(22,2.45f,39),-18f,15.0f,root);
             Spawn(KayRoot,"building_barracks_blue",new Vector3(-14,2.45f,39),12f,9.5f,root);
