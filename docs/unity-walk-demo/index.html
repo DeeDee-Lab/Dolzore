@@ -117,6 +117,26 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
+
+                // DOLZORE walk-demo focus contract:
+                // WebGL keyboard input must stay attached to the game canvas.
+                canvas.setAttribute("tabindex", "0");
+                canvas.style.outline = "none";
+                const focusGame = () => {
+                  try { canvas.focus({ preventScroll: true }); }
+                  catch (_) { canvas.focus(); }
+                };
+                canvas.addEventListener("pointerdown", focusGame);
+                canvas.addEventListener("mousedown", focusGame);
+                canvas.addEventListener("touchstart", focusGame, { passive: true });
+                window.addEventListener("keydown", (event) => {
+                  if (["KeyW","KeyA","KeyS","KeyD","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(event.code)) {
+                    focusGame();
+                    event.preventDefault();
+                  }
+                }, { passive: false });
+                focusGame();
+
                 document.querySelector("#unity-fullscreen-button").onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
