@@ -1,0 +1,222 @@
+{
+  "schema": "dolzore.animal_crossing.source_coverage_matrix.v1",
+  "updated_jst": "2026-10-03T07:32:00+09:00",
+  "canonical_issue": "DeeDee-Lab/Dolzore#40",
+  "completion_semantics": {
+    "PUBLIC_SOURCE_EXHAUSTED": "All currently pinned lawful public source files for the defined scope have been traversed and exact facts persisted.",
+    "PARTIAL_PUBLIC_SOURCE": "Public source exists; extraction still has uncovered files/tables.",
+    "OFFICIAL_ONLY": "Only official product/design facts are available in current corpus; no lawful public internal structure source pinned.",
+    "SOURCE_UNAVAILABLE": "Requested proprietary/internal implementation is not publicly available or proven. Do not guess.",
+    "OUT_OF_SCOPE_PROTECTED_BODY": "Protected asset body exists but is not copied into research; use lawful source pointer/metadata only."
+  },
+  "generations": [
+    {
+      "generation": "Animal Forest N64",
+      "internal_source": "zeldaret/af@4ddba04604ee7b4c4cfc0b64f8ee4d094bb385be",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "Save/CommonData baseline",
+        "RTC/time",
+        "NPC schedules",
+        "field grid",
+        "weather algorithm",
+        "ecology constants",
+        "villager limits/memory baseline"
+      ],
+      "pending": [
+        "remaining structs/enums/actors/events/audio tables outside prioritized life-sim coverage"
+      ]
+    },
+    {
+      "generation": "Animal Crossing GameCube GAFE01_00",
+      "internal_source": "ACreTeam/ac-decomp@09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "Save/CommonData",
+        "villager memory/social",
+        "field/island",
+        "full annual event schedule",
+        "audio state machine tranche",
+        "full insect spawn tables",
+        "full fish spawn tables",
+        "spawn scheduler matrices"
+      ],
+      "pending": [
+        "remaining actor/system tables not yet mechanically cataloged",
+        "remaining shop/item/mail/house/event implementation details"
+      ]
+    },
+    {
+      "generation": "Wild World",
+      "internal_source": "Universal-Team/LeafEdit-Core + Cuyler36/ACSE",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "save regions",
+        "player/villager/town selected offsets",
+        "inventory and dresser counts"
+      ],
+      "pending": [
+        "mechanical full source-expression catalog for PlayerWW/TownWW/VillagerWW/HouseWW and checksum modules"
+      ]
+    },
+    {
+      "generation": "City Folk",
+      "internal_source": "mattgj/actoolkit + Cuyler36/ACSE",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "save size",
+        "CRC regions",
+        "inventory",
+        "shops",
+        "house grids",
+        "town map",
+        "appearance/emotions"
+      ],
+      "pending": [
+        "remaining toolkit modules and cross-check with ACSE structures"
+      ]
+    },
+    {
+      "generation": "New Leaf",
+      "internal_source": "marcrobledo/acnl-editor + Universal-Team/LeafEdit-Core",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "full public editor offset table",
+        "town/island/villager/player",
+        "shops",
+        "museum",
+        "ordinances",
+        "PWP bitset",
+        "turnip"
+      ],
+      "pending": [
+        "remaining source algorithms and exact building/PWP record layouts",
+        "full house/player secondary structures"
+      ]
+    },
+    {
+      "generation": "Welcome amiibo",
+      "internal_source": "marcrobledo/acnl-editor + Universal-Team/LeafEdit-Core",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "full public editor offset table",
+        "town/island/villager/player",
+        "storage/coupons/caravan deltas"
+      ],
+      "pending": [
+        "remaining plus-specific algorithms/structures"
+      ]
+    },
+    {
+      "generation": "Happy Home Designer",
+      "internal_source": "Universal-Team/LeafEdit-Core",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "Save checksum",
+        "player base",
+        "120 pattern slots",
+        "appearance",
+        "pattern metadata"
+      ],
+      "pending": [
+        "remaining HHD structures if modeled publicly"
+      ]
+    },
+    {
+      "generation": "amiibo Festival",
+      "internal_source": null,
+      "status": "OFFICIAL_ONLY",
+      "covered": [
+        "product/system role"
+      ],
+      "pending": [
+        "no pinned lawful public internal-data source"
+      ]
+    },
+    {
+      "generation": "Animal Crossing Plaza",
+      "internal_source": null,
+      "status": "OFFICIAL_ONLY",
+      "covered": [
+        "product/system role"
+      ],
+      "pending": [
+        "no pinned lawful public internal-data source"
+      ]
+    },
+    {
+      "generation": "Pocket Camp",
+      "internal_source": null,
+      "status": "SOURCE_UNAVAILABLE",
+      "covered": [
+        "official live-service/product facts"
+      ],
+      "pending": [
+        "server-side backend and authoritative live-service data model not publicly proven in current corpus"
+      ]
+    },
+    {
+      "generation": "Pocket Camp Complete",
+      "internal_source": "RealDarkCraft/Animal-Crossing-Pocket-Camp-Complete-Save-UnPacker@fe72ed7a5d22a129dbfa659136ca22a83d17d66d",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "C4FH/C4SH/C4SI container",
+        "SHA-256 wrapper",
+        "all 221 public save schema tables",
+        "selected product/offline facts"
+      ],
+      "pending": [
+        "remaining parser/repacker implementation details and other independent public schemas for cross-validation"
+      ]
+    },
+    {
+      "generation": "New Horizons 1.x-2.x",
+      "internal_source": "kwsch/NHSE@cb0745415945776f73375bf0a434a8babf059307",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "revision lineage",
+        "public save structure families"
+      ],
+      "pending": [
+        "full historical offset-class catalog if exhaustive cross-version comparison required"
+      ]
+    },
+    {
+      "generation": "New Horizons 3.0.x",
+      "internal_source": "kwsch/NHSE@cb0745415945776f73375bf0a434a8babf059307",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "full Main/Personal/PostBox 3.x offset expressions",
+        "item/building/terrain/player house/room/villager memory/turnip selected structures",
+        "3.x expanded field map"
+      ],
+      "pending": [
+        "full Structures/**/*.cs manifest and all publicly modeled field layouts"
+      ]
+    },
+    {
+      "generation": "Happy Home Paradise",
+      "internal_source": "New Horizons/NHSE save evidence where represented",
+      "status": "PARTIAL_PUBLIC_SOURCE",
+      "covered": [
+        "system-level design role; shared save lineage"
+      ],
+      "pending": [
+        "DLC-specific exact structures where identifiable in public source"
+      ]
+    },
+    {
+      "generation": "New Horizons Switch 2 Edition",
+      "internal_source": null,
+      "status": "OFFICIAL_ONLY",
+      "covered": [
+        "official 2026 features and update lineage"
+      ],
+      "pending": [
+        "proprietary runtime/render/input engine internals are SOURCE_UNAVAILABLE unless lawful public evidence emerges"
+      ]
+    }
+  ],
+  "protected_asset_rule": "Nintendo asset bodies, audio, dialogue, maps, models, textures, ROM/disc/save bodies are not copied into this repository. Structural facts and source references only.",
+  "completion_gate": "Do not claim 'all internal data complete'. Claim public-source exhaustion only after every PARTIAL_PUBLIC_SOURCE row is either PUBLIC_SOURCE_EXHAUSTED or explicitly narrowed to an unavailable/protected scope with evidence."
+}
