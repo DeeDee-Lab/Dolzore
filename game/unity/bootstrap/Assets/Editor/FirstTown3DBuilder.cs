@@ -74,8 +74,8 @@ namespace Dolzore.Editor
 
         private static void ApplyExternalAtlas(GameObject go,string rootPath)
         {
-            if(rootPath==TownRoot) SetLayerMaterial(go,Atlas("FantasyTownAtlas",TownRoot+"/Textures/variation-a.png",0.08f,"#D8C8AC"));
-            else if(rootPath.StartsWith(KayRoot,StringComparison.Ordinal)) SetLayerMaterial(go,Atlas("KayMedievalAtlas",KayRoot+"/hexagons_medieval.png",0.10f,"#C7B89F"));
+            if(rootPath==TownRoot) SetLayerMaterial(go,Atlas("FantasyTownAtlas",TownRoot+"/Textures/variation-a.png",0.08f,"#B9A990"));
+            else if(rootPath.StartsWith(KayRoot,StringComparison.Ordinal)) SetLayerMaterial(go,Atlas("KayMedievalAtlas",KayRoot+"/hexagons_medieval.png",0.10f,"#A59682"));
             else if(rootPath==CastleRoot) SetLayerMaterial(go,Atlas("CastleAtlas",CastleRoot+"/Textures/variation-a.png",0.08f,"#B7AE9D"));
         }
 
@@ -455,6 +455,8 @@ namespace Dolzore.Editor
             Spawn(KayRoot,"building_workshop_blue",new Vector3(20,0,17),-78f,7.8f,root);
             Spawn(KayRoot,"building_home_A_blue",new Vector3(-10.5f,0,8.0f),15f,6.2f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(12.5f,0,9.0f),-20f,6.5f,root);
+            Spawn(KayRoot,"building_home_A_blue",new Vector3(-12.5f,0,14.0f),35f,5.8f,root);
+            Spawn(KayRoot,"building_home_B_blue",new Vector3(16.0f,0,15.0f),-32f,6.0f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(-11,0,18),30f,7.6f,root);
             Spawn(KayRoot,"building_church_blue",new Vector3(-6,0,32),10f,12.5f,root);
             Spawn(KayRoot,"building_castle_blue",new Vector3(22,2.45f,39),-18f,15.0f,root);
@@ -540,8 +542,8 @@ namespace Dolzore.Editor
             Vector3[] npcPos={
                 new Vector3(-14,0,-5),new Vector3(-18,0,1),new Vector3(-16,0,6),new Vector3(12,0,3),
                 new Vector3(16,0,7),new Vector3(13,0,11),new Vector3(0,0,8),new Vector3(7,0,14),
-                new Vector3(-7,0,17),new Vector3(4,0,21),new Vector3(-2,0,-15),new Vector3(7,0,-18),
-                new Vector3(-8,0,-22),new Vector3(18,0,-6),new Vector3(-3,2.45f,38),new Vector3(14,2.45f,40),
+                new Vector3(-7,0,17),new Vector3(4,0,21),new Vector3(-13,0,-12),new Vector3(13,0,-10),
+                new Vector3(-17,0,-17),new Vector3(18,0,-6),new Vector3(-3,2.45f,38),new Vector3(14,2.45f,40),
                 new Vector3(24,2.45f,35),new Vector3(-16,2.45f,42)
             };
             for(int i=0;i<npcPos.Length;i++)
@@ -556,7 +558,7 @@ namespace Dolzore.Editor
             camGo.AddComponent<AudioListener>();
             var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=5.9f;rig.height=2.65f;
             camGo.transform.position=new Vector3(0f,2.9f,-25.0f);
-            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(3f,2.4f,8f)-camGo.transform.position,Vector3.up);
+            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(3f,1.55f,8f)-camGo.transform.position,Vector3.up);
 
             // Dedicated deterministic preview camera. The runtime follow camera can move during
             // component initialization, so CI screenshots must not depend on its transient pose.
@@ -568,8 +570,8 @@ namespace Dolzore.Editor
             preview.nearClipPlane=0.08f;
             preview.farClipPlane=240f;
             preview.fieldOfView=47f;
-            previewGo.transform.position=new Vector3(-0.3f,3.0f,-25.5f);
-            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(3.5f,2.35f,8.5f)-previewGo.transform.position,Vector3.up);
+            previewGo.transform.position=new Vector3(-0.2f,2.8f,-24.2f);
+            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(3.5f,1.55f,8.5f)-previewGo.transform.position,Vector3.up);
 
             EditorSceneManager.SaveScene(scene,ScenePath);
             Debug.Log("DOLZORE_FIRST_TOWN_3D_FF11_STYLE_BUILD=PASS");
