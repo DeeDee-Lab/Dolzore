@@ -1,0 +1,33 @@
+name: OSK222 Roblox Smoke Cleanup
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/osk222-roblox-smoke-cleanup.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: [dolzore-site-osk222]
+    timeout-minutes: 3
+    steps:
+      - name: Stop only Roblox Studio processes created by current smoke window
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          if ($env:COMPUTERNAME.ToUpperInvariant() -ne 'OSK222') { throw "WRONG_HOST:$env:COMPUTERNAME" }
+          $cutoff = [datetime]'2026-10-02T22:39:00'
+          $root = 'C:\Users\tec_users\AppData\Local\Roblox\Versions\'
+          $targets = Get-Process -Name RobloxStudioBeta -ErrorAction SilentlyContinue | Where-Object {
+            $_.StartTime -ge $cutoff -and $_.Path -and $_.Path.StartsWith($root,[System.StringComparison]::OrdinalIgnoreCase)
+          }
+          foreach($p in $targets){
+            Write-Output ("STOPPING_SMOKE_PID={0} START={1:o} PATH={2}" -f $p.Id,$p.StartTime,$p.Path)
+            Stop-Process -Id $p.Id -Force
+          }
+          Write-Output ("STOPPED_COUNT={0}" -f @($targets).Count)
+          Write-Output 'TARGET=OSK222'
+          Write-Output 'DC_RDC_USED=false'
