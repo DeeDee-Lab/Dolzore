@@ -168,6 +168,7 @@ jobs:
             @("House_2","9da9edd6887d76414e87d1d216406684da47d9d048f2d186780760098ea4eb28","b612714067fe27759cb7188ddcb2c9b7610c678910c2e0fdfd1e9b4ef19f7b58"),
             @("House_3","926020ac0da1407fba73f7924a5190bf642b59d64f5a168adc22579dea57e1f3","a64016896711c6772cab56ba8b381d4ced0634615d9c363654fb212b7b98d0ed"),
             @("House_4","ebfa070e6b4947a3b54b5da2eff1682120d0f310bd23dfbf47dbfc332c4f0c64","e9497dc78c38598aa3fc46d6c15d491bcfba316b069450bcb342d6407241400f"),
+            @("Sawmill","2b7a27612e6be65bbfeb9dee12d9c9af8d99e03fd854fb2ac51c13ac7427f2e8","822edbe46316c55c9e0d6a696d90181be81aa5b47a4631c2ec967bf9902358ef"),
             @("Stable","d86ef7ffa56b490bdfe1790cfe94cd82b6312dbe95c571a4028d4032cd8e4d1d","e88b5467dc08f2fa53479c04a198e651f0b6848839dc1cbe0b24355022a76e02")
           )
           foreach($q in $qFiles){
@@ -184,7 +185,7 @@ jobs:
           Write-Host "DOLZORE_QUATERNIUS_OBJ_COUNT=$objCount"
           Write-Host "DOLZORE_QUATERNIUS_RPG_CHAR_COUNT=$qcharCount"
           if($fbxCount -lt 30){throw "DOLZORE_FANTASY_ASSET_SET_INCOMPLETE:$fbxCount"}
-          if($objCount -lt 7){throw "DOLZORE_QUATERNIUS_SET_INCOMPLETE:$objCount"}
+          if($objCount -lt 8){throw "DOLZORE_QUATERNIUS_SET_INCOMPLETE:$objCount"}
           if($qcharCount -lt 6){throw "DOLZORE_QUATERNIUS_RPG_SET_INCOMPLETE:$qcharCount"}
 
       - name: Clear stale Unity lock
