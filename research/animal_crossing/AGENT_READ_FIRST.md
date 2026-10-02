@@ -94,15 +94,26 @@ Regional/version variants are tracked when they materially change data/content/s
 ## 4. Canonical reading order
 
 1. AGENT_READ_FIRST.md
-2. SERIES_MATRIX_V1.json
-3. CORE_DESIGN_DOCTRINE.md
-4. INTERNAL_ARCHITECTURE_V1.md
-5. DOLZORE_IMPLEMENTATION_CHECKLIST.md
-6. SOURCE_INDEX.md
-7. RESEARCH_STATUS.json
-8. Issue #40 latest checkpoint
+2. VERIFIED_FACT_RECORD_SCHEMA_V1.json
+3. FACT_CATALOG_INDEX.json
+4. every facts/*.jsonl listed by FACT_CATALOG_INDEX.json
+5. SERIES_MATRIX_V1.json
+6. TIME_SEASON_OFFLINE_SIMULATION.md
+7. VILLAGER_SOCIAL_SIMULATION.md
+8. WORLD_GENERATION_ECOLOGY.md
+9. ECONOMY_COLLECTION_PROGRESSION.md
+10. HOUSING_CUSTOMIZATION_CONTENT_PIPELINE.md
+11. SOCIAL_MULTIPLAYER_ARCHITECTURE.md
+12. AUDIO_ENVIRONMENT_GRAMMAR.md
+13. SAVE_DATA_GENERATION_MATRIX.md
+14. CORE_DESIGN_DOCTRINE.md
+15. INTERNAL_ARCHITECTURE_V1.md
+16. DOLZORE_IMPLEMENTATION_CHECKLIST.md
+17. SOURCE_INDEX.md
+18. RESEARCH_STATUS.json
+19. Issue #40 latest checkpoint
 
-Later exact catalogs will be inserted before interpretation files.
+Exact facts precede interpretation. If an interpretation conflicts with an exact fact or source record, the exact fact/source wins.
 
 ## 5. High-confidence series design facts
 
