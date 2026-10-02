@@ -73,9 +73,10 @@ jobs:
           $chars=Join-Path $assets "Characters"
           $kay=Join-Path $assets "KayTown"
           $adv=Join-Path $assets "Adventurers"
+          $quat=Join-Path $assets "QuaterniusVillage"
           $kayProps=Join-Path $kay "Props"
           $kayNature=Join-Path $kay "Nature"
-          New-Item -ItemType Directory -Path $town,$castle,$kay,$kayProps,$kayNature,$adv,(Join-Path $adv "Characters"),(Join-Path $adv "Animations"),(Join-Path $town "Textures"),(Join-Path $castle "Textures"),(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
+          New-Item -ItemType Directory -Path $town,$castle,$kay,$kayProps,$kayNature,$adv,$quat,(Join-Path $adv "Characters"),(Join-Path $adv "Animations"),(Join-Path $town "Textures"),(Join-Path $castle "Textures"),(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
 
           function Fetch([string]$url,[string]$dest) {
             Write-Host "FETCH=$url"
@@ -144,11 +145,32 @@ jobs:
           Fetch "$advBase/Animations/fbx/Rig_Medium/Rig_Medium_General.fbx" (Join-Path $adv "Animations\Rig_Medium_General.fbx")
           Fetch "$advBase/Animations/fbx/Rig_Medium/Rig_Medium_MovementBasic.fbx" (Join-Path $adv "Animations\Rig_Medium_MovementBasic.fbx")
 
+          # Quaternius Medieval Village Pack — CC0 — original OBJ/MTL preserved from pinned mirror.
+          $qBase="https://raw.githubusercontent.com/mr-highball/Phanes/main/assets/library/kits/quaternius-lowpoly-medieval-village-pack-surface-v1"
+          Fetch "$qBase/License.txt" (Join-Path $quat "License.txt")
+          $qOriginal="$qBase/Original"
+          $qFiles=@(
+            @("Bell_Tower","197140ba8ee3d0f69a4f968b985be4a273a7033dccc5ec596625eb6f124ce64c","7dd5a911b02c98e044197742d85624dfeedee144bfbbc233a7ddd454f361d131"),
+            @("Blacksmith","49b3ca2b02664239d6810b8816081db53b7d779558b94b12d2bf9a6421faa68a","eee6042ef6e520ab7a4af10a11478a848c4aa6de637d7e5a73035d5c22625ffe"),
+            @("House_1","3b9287272ad4bb51a269d3e39720ddccbf634cd223d29f5c0ac0356834b1a22e","c3241e56d572963003ebac7efa40c89e39d6e50d9d6de7274038904ba5316f8b"),
+            @("House_2","9da9edd6887d76414e87d1d216406684da47d9d048f2d186780760098ea4eb28","b612714067fe27759cb7188ddcb2c9b7610c678910c2e0fdfd1e9b4ef19f7b58"),
+            @("House_3","926020ac0da1407fba73f7924a5190bf642b59d64f5a168adc22579dea57e1f3","a64016896711c6772cab56ba8b381d4ced0634615d9c363654fb212b7b98d0ed"),
+            @("House_4","ebfa070e6b4947a3b54b5da2eff1682120d0f310bd23dfbf47dbfc332c4f0c64","e9497dc78c38598aa3fc46d6c15d491bcfba316b069450bcb342d6407241400f"),
+            @("Stable","d86ef7ffa56b490bdfe1790cfe94cd82b6312dbe95c571a4028d4032cd8e4d1d","e88b5467dc08f2fa53479c04a198e651f0b6848839dc1cbe0b24355022a76e02")
+          )
+          foreach($q in $qFiles){
+            Fetch "$qOriginal/$($q[1]).obj" (Join-Path $quat "$($q[0]).obj")
+            Fetch "$qOriginal/$($q[2]).mtl" (Join-Path $quat "$($q[0]).mtl")
+          }
+
           $fbxCount=(Get-ChildItem $town -Filter *.fbx).Count + (Get-ChildItem $castle -Filter *.fbx).Count + (Get-ChildItem $kay -Filter *.fbx -Recurse).Count + (Get-ChildItem (Join-Path $adv "Characters") -Filter *.fbx).Count
           $skinCount=(Get-ChildItem (Join-Path $chars "Skins") -Filter *.png).Count
           Write-Host "DOLZORE_EXTERNAL_FBX_COUNT=$fbxCount"
           Write-Host "DOLZORE_CHARACTER_SKINS=$skinCount"
+          $objCount=(Get-ChildItem $quat -Filter *.obj).Count
+          Write-Host "DOLZORE_QUATERNIUS_OBJ_COUNT=$objCount"
           if($fbxCount -lt 30){throw "DOLZORE_FANTASY_ASSET_SET_INCOMPLETE:$fbxCount"}
+          if($objCount -lt 7){throw "DOLZORE_QUATERNIUS_SET_INCOMPLETE:$objCount"}
 
       - name: Clear stale Unity lock
         shell: powershell
