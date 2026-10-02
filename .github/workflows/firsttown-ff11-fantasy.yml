@@ -71,7 +71,8 @@ jobs:
           $town=Join-Path $assets "FantasyTown"
           $castle=Join-Path $assets "Castle"
           $chars=Join-Path $assets "Characters"
-          New-Item -ItemType Directory -Path $town,$castle,(Join-Path $town "Textures"),(Join-Path $castle "Textures"),(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
+          $kay=Join-Path $assets "KayTown"
+          New-Item -ItemType Directory -Path $town,$castle,$kay,(Join-Path $town "Textures"),(Join-Path $castle "Textures"),(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
 
           function Fetch([string]$url,[string]$dest) {
             Write-Host "FETCH=$url"
@@ -108,7 +109,19 @@ jobs:
             Fetch "$base/kenney-animated-characters-protagonists/3D/characters/Skins/$skin" (Join-Path $chars "Skins\$skin")
           }
 
-          $fbxCount=(Get-ChildItem $town -Filter *.fbx).Count + (Get-ChildItem $castle -Filter *.fbx).Count
+          $kayBase="$base/kaykit-medieval-hexagon/3D/strategy-hex/Assets/fbx(unity)/buildings/blue"
+          $kayFiles=@(
+            "building_tavern_blue","building_home_A_blue","building_home_B_blue","building_market_blue",
+            "building_townhall_blue","building_blacksmith_blue","building_workshop_blue",
+            "building_church_blue","building_barracks_blue","building_castle_blue",
+            "building_watchtower_blue","building_well_blue"
+          )
+          foreach($name in $kayFiles){
+            Fetch "$kayBase/$name.fbx" (Join-Path $kay "$name.fbx")
+          }
+          Fetch "$kayBase/hexagons_medieval.png" (Join-Path $kay "hexagons_medieval.png")
+
+          $fbxCount=(Get-ChildItem $town -Filter *.fbx).Count + (Get-ChildItem $castle -Filter *.fbx).Count + (Get-ChildItem $kay -Filter *.fbx).Count
           $skinCount=(Get-ChildItem (Join-Path $chars "Skins") -Filter *.png).Count
           Write-Host "DOLZORE_EXTERNAL_FBX_COUNT=$fbxCount"
           Write-Host "DOLZORE_CHARACTER_SKINS=$skinCount"
