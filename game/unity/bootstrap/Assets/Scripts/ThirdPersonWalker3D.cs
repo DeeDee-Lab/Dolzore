@@ -10,6 +10,7 @@ namespace Dolzore
         public float turnSpeed=12f;
         public float jumpHeight=1.5f;
         public float gravity=-22f;
+        public Animator animator;
         private CharacterController cc;
         private float vertical;
 
@@ -34,6 +35,7 @@ namespace Dolzore
 
             Vector3 motion=dir*speed; motion.y=vertical;
             cc.Move(motion*Time.deltaTime);
+            if(animator!=null) animator.SetFloat("Speed",dir.magnitude*(speed/runSpeed));
 
             if(dir.sqrMagnitude>0.01f){
                 var target=Quaternion.LookRotation(dir,Vector3.up);
