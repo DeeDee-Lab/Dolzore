@@ -29,13 +29,55 @@ jobs:
         run: |
           rm -rf artifact
           mkdir -p artifact
-          gh run download 36952055351 \
+          gh run download 36953875618 \
             --repo DeeDee-Lab/Dolzore \
             --name dolzore-unity-walkable-chibi \
             --dir artifact
 
           test -f artifact/Builds/WalkDemo/index.html
           test -f artifact/BuildArtifacts/walk-demo-receipt.json
+
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("artifact/Builds/WalkDemo/index.html")
+          s=p.read_text(encoding="utf-8")
+          anchor='document.querySelector("#unity-fullscreen-button").onclick = () => {'
+          if anchor not in s:
+              raise SystemExit("DOLZORE_DPAD_ANCHOR_NOT_FOUND")
+          if "dolzore-dpad" not in s:
+              injection=r'''
+                const pad = document.createElement('div');
+                pad.id = 'dolzore-dpad';
+                pad.innerHTML = '<button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div>';
+                pad.style.cssText = 'position:fixed;right:22px;bottom:22px;z-index:9999;display:grid;gap:6px;justify-items:center;user-select:none;-webkit-user-select:none;';
+                pad.querySelector('div').style.cssText = 'display:flex;gap:6px';
+                document.body.appendChild(pad);
+                pad.querySelectorAll('button').forEach((button) => {
+                  button.style.cssText = 'width:58px;height:58px;border-radius:14px;border:2px solid rgba(255,255,255,.7);background:rgba(18,32,64,.88);color:white;font-size:25px;font-weight:700;touch-action:none;box-shadow:0 4px 18px rgba(0,0,0,.3)';
+                  const dir = button.dataset.dir;
+                  const press = (event) => {
+                    event.preventDefault();
+                    unityInstance.SendMessage('Lunaria Walkable Character', 'SetExternalInput', dir);
+                  };
+                  const release = (event) => {
+                    event.preventDefault();
+                    unityInstance.SendMessage('Lunaria Walkable Character', 'ClearExternalInput');
+                  };
+                  button.addEventListener('pointerdown', press);
+                  button.addEventListener('pointerup', release);
+                  button.addEventListener('pointercancel', release);
+                  button.addEventListener('pointerleave', release);
+                  button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    unityInstance.SendMessage('Lunaria Walkable Character', 'Nudge', dir);
+                  });
+                });
+
+              '''
+              s=s.replace(anchor, injection+anchor)
+              p.write_text(s, encoding="utf-8")
+          print("DOLZORE_DPAD_PATCH=PASS")
+          PY
 
           python - <<'PY'
           import json
