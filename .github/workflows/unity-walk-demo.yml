@@ -1,0 +1,289 @@
+name: Build Unity walkable chibi demo
+
+on:
+  push:
+    branches: ["feature/unity-walkable-chibi"]
+    paths:
+      - "game/unity/walkdemo/**"
+      - ".github/workflows/unity-walk-demo.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: dolzore-unity-walk-demo
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: [dolzore-site-osk222]
+    timeout-minutes: 35
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          clean: false
+
+      - name: Resolve validated Unity editor
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Write-Host "RUNNER_NAME=$env:RUNNER_NAME"
+          Write-Host "COMPUTERNAME=$env:COMPUTERNAME"
+          if (([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'OSK222') {
+            throw "DOLZORE_WRONG_HOST:$env:COMPUTERNAME"
+          }
+
+          $unity = "C:\Program Files\Unity\Hub\Editor\6000.5.1f1\Editor\Unity.exe"
+          if (-not (Test-Path $unity)) {
+            throw "DOLZORE_UNITY_6000_5_1_NOT_FOUND"
+          }
+
+          $webgl = Join-Path (Split-Path $unity -Parent) "Data\PlaybackEngines\WebGLSupport"
+          if (-not (Test-Path $webgl)) {
+            throw "DOLZORE_WEBGL_MODULE_NOT_FOUND"
+          }
+
+          "UNITY_EXE=$unity" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          Write-Host "UNITY_EXE=$unity"
+
+      - name: Materialize clean walk demo project
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $project = Join-Path $env:GITHUB_WORKSPACE "game\unity\WalkDemoProject"
+          $template = Join-Path $env:RUNNER_TEMP "DolzoreWalkDemoTemplate"
+          $createLog = Join-Path $env:RUNNER_TEMP "dolzore-walk-demo-create.log"
+
+          if (Test-Path $project) { Remove-Item $project -Recurse -Force }
+          if (Test-Path $template) { Remove-Item $template -Recurse -Force }
+
+          $args = @("-quit","-batchmode","-createProject",$template,"-logFile",$createLog)
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -Wait -PassThru
+
+          if (Test-Path $createLog) { Get-Content $createLog -Tail 220 }
+          if ($proc.ExitCode -ne 0) {
+            throw "DOLZORE_WALK_DEMO_PROJECT_CREATE_FAILED:$($proc.ExitCode)"
+          }
+
+          New-Item -ItemType Directory -Path $project -Force | Out-Null
+          Copy-Item -Path (Join-Path $template "ProjectSettings") -Destination $project -Recurse -Force
+          Copy-Item -Path (Join-Path $template "Packages") -Destination $project -Recurse -Force
+          Copy-Item -Path (Join-Path $template "Assets") -Destination $project -Recurse -Force
+
+          $packageManifest = Join-Path $env:GITHUB_WORKSPACE "game\unity\bootstrap\Packages\manifest.json"
+          Copy-Item -Path $packageManifest -Destination (Join-Path $project "Packages\manifest.json") -Force
+
+          $authored = Join-Path $env:GITHUB_WORKSPACE "game\unity\walkdemo\Assets"
+          Copy-Item -Path (Join-Path $authored "*") -Destination (Join-Path $project "Assets") -Recurse -Force
+
+          "WALK_PROJECT=$project" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          Write-Host "WALK_PROJECT=$project"
+
+      - name: Clear stale Unity lock for walk project only
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $normalized = [System.IO.Path]::GetFullPath($env:WALK_PROJECT)
+
+          $unityProcesses = Get-CimInstance Win32_Process -Filter "Name='Unity.exe'" -ErrorAction SilentlyContinue
+          foreach ($proc in $unityProcesses) {
+            $cmd = [string]$proc.CommandLine
+            if ($cmd -and $cmd.IndexOf($normalized, [System.StringComparison]::OrdinalIgnoreCase) -ge 0) {
+              Write-Host "DOLZORE_STOP_STALE_WALK_UNITY_PID=$($proc.ProcessId)"
+              Stop-Process -Id $proc.ProcessId -Force -ErrorAction SilentlyContinue
+            }
+          }
+
+          $lock = Join-Path $env:WALK_PROJECT "Temp\UnityLockfile"
+          if (Test-Path $lock) {
+            Remove-Item $lock -Force
+            Write-Host "DOLZORE_WALK_DEMO_STALE_LOCK_REMOVED=true"
+          }
+
+      - name: Compile scene and build WebGL
+        id: unity
+        continue-on-error: true
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $log = Join-Path $env:RUNNER_TEMP "dolzore-walk-demo-build.log"
+          "WALK_BUILD_LOG=$log" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+          $args = @(
+            "-quit",
+            "-batchmode",
+            "-projectPath",$env:WALK_PROJECT,
+            "-buildTarget","WebGL",
+            "-executeMethod","Dolzore.Editor.WalkDemoBuilder.BuildAndExport",
+            "-logFile",$log
+          )
+
+          $proc = Start-Process -FilePath "$env:UNITY_EXE" -ArgumentList $args -PassThru
+          $deadline = (Get-Date).AddMinutes(15)
+
+          while (-not $proc.HasExited -and (Get-Date) -lt $deadline) {
+            Start-Sleep -Seconds 3
+            $proc.Refresh()
+          }
+
+          if (-not $proc.HasExited) {
+            Write-Host "DOLZORE_WALK_DEMO_TIMEOUT_PID=$($proc.Id)"
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            if (Test-Path $log) { Get-Content $log -Tail 700 }
+            exit 124
+          }
+
+          $code = $proc.ExitCode
+          if (Test-Path $log) { Get-Content $log -Tail 700 }
+          Write-Host "DOLZORE_WALK_DEMO_UNITY_EXIT=$code"
+          exit $code
+
+      - name: Verify Unity walk demo receipts
+        if: steps.unity.outcome == 'success'
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+
+          $required = @(
+            "Assets\Scenes\WalkDemo.unity",
+            "BuildArtifacts\walk-demo.png",
+            "BuildArtifacts\walk-demo-receipt.json",
+            "Builds\WalkDemo\index.html"
+          )
+
+          foreach ($rel in $required) {
+            $path = Join-Path $env:WALK_PROJECT $rel
+            if (-not (Test-Path $path)) {
+              throw "DOLZORE_WALK_DEMO_MISSING_RECEIPT:$rel"
+            }
+            Write-Host "DOLZORE_WALK_DEMO_OK=$rel"
+          }
+
+          $receipt = Get-Content (Join-Path $env:WALK_PROJECT "BuildArtifacts\walk-demo-receipt.json") -Raw | ConvertFrom-Json
+          if ($receipt.engine -ne "Unity") { throw "DOLZORE_WALK_DEMO_NOT_UNITY" }
+          if ($receipt.character_image_texture_used -ne $false) { throw "DOLZORE_WALK_DEMO_IMAGE_CHARACTER_NOT_ALLOWED" }
+          if ($receipt.acceptance -ne "PASS") { throw "DOLZORE_WALK_DEMO_ACCEPTANCE_NOT_PASS" }
+
+          $previewHash = (Get-FileHash (Join-Path $env:WALK_PROJECT "BuildArtifacts\walk-demo.png") -Algorithm SHA256).Hash.ToLowerInvariant()
+          Write-Host "DOLZORE_WALK_DEMO_PREVIEW_SHA256=$previewHash"
+
+      - name: Upload Unity build receipts
+        if: steps.unity.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolzore-unity-walkable-chibi
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            game/unity/WalkDemoProject/BuildArtifacts/walk-demo.png
+            game/unity/WalkDemoProject/BuildArtifacts/walk-demo-receipt.json
+            game/unity/WalkDemoProject/Builds/WalkDemo/**
+
+      - name: Publish built WebGL to review branch
+        id: publish
+        if: steps.unity.outcome == 'success'
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+
+          $source = Join-Path $env:WALK_PROJECT "Builds\WalkDemo"
+          $worktree = Join-Path $env:RUNNER_TEMP "dolzore-walk-demo-publish"
+
+          if (Test-Path $worktree) {
+            git worktree remove --force $worktree 2>$null
+            if (Test-Path $worktree) { Remove-Item $worktree -Recurse -Force }
+          }
+
+          git fetch origin main
+          if ($LASTEXITCODE -ne 0) { throw "WALK_DEMO_FETCH_MAIN_FAILED" }
+
+          git worktree add -B publish/unity-walk-demo $worktree origin/main
+          if ($LASTEXITCODE -ne 0) { throw "WALK_DEMO_WORKTREE_FAILED" }
+
+          $target = Join-Path $worktree "docs\unity-walk-demo"
+          if (Test-Path $target) { Remove-Item $target -Recurse -Force }
+          New-Item -ItemType Directory -Path $target -Force | Out-Null
+          Copy-Item -Path (Join-Path $source "*") -Destination $target -Recurse -Force
+
+          $receiptDir = Join-Path $target "_receipt"
+          New-Item -ItemType Directory -Path $receiptDir -Force | Out-Null
+          Copy-Item -Path (Join-Path $env:WALK_PROJECT "BuildArtifacts\walk-demo-receipt.json") -Destination $receiptDir -Force
+          Copy-Item -Path (Join-Path $env:WALK_PROJECT "BuildArtifacts\walk-demo.png") -Destination $receiptDir -Force
+
+          Push-Location $worktree
+          git config user.name "DOLZORE Unity Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/unity-walk-demo
+          git diff --cached --quiet
+
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m "unity: publish walkable chibi WebGL demo"
+            if ($LASTEXITCODE -ne 0) { throw "WALK_DEMO_PUBLISH_COMMIT_FAILED" }
+          }
+
+          $sha = (git rev-parse HEAD).Trim()
+          git push --force origin HEAD:publish/unity-walk-demo
+          if ($LASTEXITCODE -ne 0) { throw "WALK_DEMO_PUBLISH_PUSH_FAILED" }
+          Pop-Location
+
+          "commit=$sha" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          Write-Host "DOLZORE_WALK_DEMO_PUBLISH_COMMIT=$sha"
+
+      - name: Record PDCA result on issue 37
+        if: always()
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UNITY_OUTCOME: ${{ steps.unity.outcome }}
+          PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
+          PUBLISH_COMMIT: ${{ steps.publish.outputs.commit }}
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $runUrl = "https://github.com/DeeDee-Lab/Dolzore/actions/runs/$env:GITHUB_RUN_ID"
+
+          if ($env:UNITY_OUTCOME -eq "success" -and $env:PUBLISH_OUTCOME -eq "success") {
+            $body = @"
+## Unity walk demo build checkpoint
+
+- GitHub Actions run: $runUrl
+- Unity build: PASS
+- WebGL publish staging: PASS
+- publish branch: publish/unity-walk-demo
+- publish commit: $env:PUBLISH_COMMIT
+- source branch: feature/unity-walkable-chibi
+- input: WASD / Arrow Keys
+- character source: procedural Unity meshes/materials
+- pasted character image: false
+
+Next: merge the generated WebGL-only publish branch to main/docs and verify the public GitHub Pages URL.
+"@
+          } else {
+            $tail = ""
+            if ($env:WALK_BUILD_LOG -and (Test-Path $env:WALK_BUILD_LOG)) {
+              $tail = (Get-Content $env:WALK_BUILD_LOG -Tail 40) -join [Environment]::NewLine
+            }
+            $body = @"
+## Unity walk demo build checkpoint
+
+- GitHub Actions run: $runUrl
+- Unity build outcome: $env:UNITY_OUTCOME
+- WebGL publish outcome: $env:PUBLISH_OUTCOME
+- source branch: feature/unity-walkable-chibi
+
+Build is NOT accepted yet. Relevant Unity log tail:
+
+$tail
+"@
+          }
+
+          gh issue comment 37 --repo DeeDee-Lab/Dolzore --body $body
+
+      - name: Fail workflow when Unity build failed
+        if: steps.unity.outcome != 'success'
+        shell: powershell
+        run: |
+          throw "DOLZORE_WALK_DEMO_UNITY_BUILD_NOT_ACCEPTED"
