@@ -1,0 +1,84 @@
+name: Publish Unity Walk Demo Artifact
+
+on:
+  push:
+    branches:
+      - feature/unity-walkable-chibi
+    paths:
+      - .github/workflows/publish-unity-walk-demo.yml
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download accepted Unity artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf artifact
+          mkdir -p artifact
+          gh run download 36952055351 \
+            --repo DeeDee-Lab/Dolzore \
+            --name dolzore-unity-walkable-chibi \
+            --dir artifact
+
+          test -f artifact/Builds/WalkDemo/index.html
+          test -f artifact/BuildArtifacts/walk-demo-receipt.json
+
+          python - <<'PY'
+          import json
+          p="artifact/BuildArtifacts/walk-demo-receipt.json"
+          d=json.load(open(p, encoding="utf-8"))
+          assert d["engine"] == "Unity"
+          assert d["character_image_texture_used"] is False
+          assert d["acceptance"] == "PASS"
+          assert d["webgl"] is True
+          print("UNITY_ARTIFACT_ACCEPTED")
+          PY
+
+      - name: Stage WebGL on publish branch
+        run: |
+          set -euo pipefail
+          worktree="$RUNNER_TEMP/dolzore-walk-demo-publish"
+          rm -rf "$worktree"
+
+          git fetch origin main
+          git worktree add -B publish/unity-walk-demo "$worktree" origin/main
+
+          target="$worktree/docs/unity-walk-demo"
+          rm -rf "$target"
+          mkdir -p "$target"
+          cp -a artifact/Builds/WalkDemo/. "$target/"
+
+          mkdir -p "$target/_receipt"
+          cp artifact/BuildArtifacts/walk-demo-receipt.json "$target/_receipt/"
+          cp artifact/BuildArtifacts/walk-demo.png "$target/_receipt/"
+
+          cd "$worktree"
+          git config user.name "DOLZORE Unity Publisher"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/unity-walk-demo
+
+          if ! git diff --cached --quiet; then
+            git commit -m "unity: publish walkable chibi WebGL demo"
+          fi
+
+          git push --force origin HEAD:publish/unity-walk-demo
+          echo "PUBLISH_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Summary
+        run: |
+          echo "Unity WebGL staged on publish/unity-walk-demo"
+          echo "PUBLISH_SHA=$PUBLISH_SHA"
