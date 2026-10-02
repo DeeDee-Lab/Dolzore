@@ -73,10 +73,11 @@ jobs:
           $chars=Join-Path $assets "Characters"
           $kay=Join-Path $assets "KayTown"
           $adv=Join-Path $assets "Adventurers"
+          $qchars=Join-Path $assets "QuaterniusRPG"
           $quat=Join-Path $assets "QuaterniusVillage"
           $kayProps=Join-Path $kay "Props"
           $kayNature=Join-Path $kay "Nature"
-          New-Item -ItemType Directory -Path $town,$castle,$kay,$kayProps,$kayNature,$adv,$quat,(Join-Path $adv "Characters"),(Join-Path $adv "Animations"),(Join-Path $town "Textures"),(Join-Path $castle "Textures"),(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
+          New-Item -ItemType Directory -Path $town,$castle,$kay,$kayProps,$kayNature,$adv,$qchars,$quat,(Join-Path $qchars "Models"),(Join-Path $qchars "Textures"),(Join-Path $adv "Characters"),(Join-Path $adv "Animations"),(Join-Path $town "Textures"),(Join-Path $castle "Textures"),(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
 
           function Fetch([string]$url,[string]$dest) {
             Write-Host "FETCH=$url"
@@ -145,6 +146,17 @@ jobs:
           Fetch "$advBase/Animations/fbx/Rig_Medium/Rig_Medium_General.fbx" (Join-Path $adv "Animations\Rig_Medium_General.fbx")
           Fetch "$advBase/Animations/fbx/Rig_Medium/Rig_Medium_MovementBasic.fbx" (Join-Path $adv "Animations\Rig_Medium_MovementBasic.fbx")
 
+          # Quaternius RPG Character Pack — CC0. Use a pinned public mirror with original files.
+          $qCharBase="https://raw.githubusercontent.com/mertgurgenyatagi/TurkeyWars/main/turkey-wars/assets/character_pack/RPG%20Characters%20-%20Nov%202020"
+          Fetch "$qCharBase/License.txt" (Join-Path $qchars "License.txt")
+          foreach($name in @("Warrior","Ranger","Rogue","Wizard","Cleric","Monk")){
+            Fetch "$qCharBase/FBX/$name.fbx" (Join-Path $qchars "Models\$name.fbx")
+            Fetch "$qCharBase/Textures/$($name)_Texture.png" (Join-Path $qchars "Textures\$($name)_Texture.png")
+          }
+          foreach($weapon in @("Warrior_Sword_Texture","Ranger_Bow_Texture","Rogue_Dagger_Texture","Wizard_Staff_Texture","Cleric_Staff_Texture")){
+            Fetch "$qCharBase/Textures/$weapon.png" (Join-Path $qchars "Textures\$weapon.png")
+          }
+
           # Quaternius Medieval Village Pack — CC0 — original OBJ/MTL preserved from pinned mirror.
           $qBase="https://raw.githubusercontent.com/mr-highball/Phanes/main/assets/library/kits/quaternius-lowpoly-medieval-village-pack-surface-v1"
           Fetch "$qBase/License.txt" (Join-Path $quat "License.txt")
@@ -168,9 +180,12 @@ jobs:
           Write-Host "DOLZORE_EXTERNAL_FBX_COUNT=$fbxCount"
           Write-Host "DOLZORE_CHARACTER_SKINS=$skinCount"
           $objCount=(Get-ChildItem $quat -Filter *.obj).Count
+          $qcharCount=(Get-ChildItem (Join-Path $qchars "Models") -Filter *.fbx).Count
           Write-Host "DOLZORE_QUATERNIUS_OBJ_COUNT=$objCount"
+          Write-Host "DOLZORE_QUATERNIUS_RPG_CHAR_COUNT=$qcharCount"
           if($fbxCount -lt 30){throw "DOLZORE_FANTASY_ASSET_SET_INCOMPLETE:$fbxCount"}
           if($objCount -lt 7){throw "DOLZORE_QUATERNIUS_SET_INCOMPLETE:$objCount"}
+          if($qcharCount -lt 6){throw "DOLZORE_QUATERNIUS_RPG_SET_INCOMPLETE:$qcharCount"}
 
       - name: Clear stale Unity lock
         shell: powershell
