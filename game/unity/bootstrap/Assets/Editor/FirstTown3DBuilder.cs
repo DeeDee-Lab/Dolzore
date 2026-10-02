@@ -616,10 +616,10 @@ namespace Dolzore.Editor
             Spawn(QuaterniusRoot,"House_2",new Vector3(12,0,-19),-14f,6.6f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(-10.0f,0,-13.0f),12f,6.6f,root);
             Spawn(QuaterniusRoot,"House_3",new Vector3(11.5f,0,-10.0f),-14f,6.1f,root);
-            Spawn(KayRoot,"building_market_blue",new Vector3(-17,0,-8),83f,7.5f,root);
+            Spawn(QuaterniusRoot,"House_4",new Vector3(-17,0,-8),83f,7.2f,root);
             Spawn(QuaterniusRoot,"Bell_Tower",new Vector3(-15,0,16),88f,11.5f,root);
             Spawn(QuaterniusRoot,"Blacksmith",new Vector3(18,0,-3),-76f,6.6f,root);
-            Spawn(KayRoot,"building_workshop_blue",new Vector3(20,0,17),-78f,7.8f,root);
+            Spawn(QuaterniusRoot,"Blacksmith",new Vector3(20,0,17),-78f,7.1f,root);
             Spawn(QuaterniusRoot,"House_4",new Vector3(-10.5f,0,8.0f),15f,6.6f,root);
             Spawn(KayRoot,"building_home_B_blue",new Vector3(12.5f,0,9.0f),-20f,6.5f,root);
             Spawn(QuaterniusRoot,"House_2",new Vector3(-12.5f,0,14.0f),35f,6.2f,root);
@@ -652,9 +652,21 @@ namespace Dolzore.Editor
             Spawn(TownRoot,"stall-stool",new Vector3(-4.8f,0,-10.1f),78f,0.85f,root,false);
             Spawn(TownRoot,"stall-stool",new Vector3(5.8f,0,-8.2f),-82f,0.85f,root,false);
 
+            // Facade windows break the remaining broad wall planes.
+            SpawnWidth(TownRoot,"wall-window-shutters",new Vector3(-8.9f,1.6f,-12.9f),12f,2.1f,root,false);
+            SpawnWidth(TownRoot,"wall-window-stone",new Vector3(-12.0f,1.6f,-12.3f),12f,2.1f,root,false);
+            SpawnWidth(TownRoot,"wall-window-small",new Vector3(8.6f,1.6f,-11.9f),-12f,2.0f,root,false);
+            SpawnWidth(TownRoot,"wall-window-shutters",new Vector3(11.4f,1.6f,-11.4f),-12f,2.0f,root,false);
+            SpawnWidth(TownRoot,"wall-window-stone",new Vector3(-10.4f,1.7f,6.1f),15f,2.0f,root,false);
+            SpawnWidth(TownRoot,"wall-window-shutters",new Vector3(12.0f,1.7f,7.0f),-20f,2.0f,root,false);
+
+            // Small foreground clutter breaks the rigid street edge.
+            Spawn(TownRoot,"cart",new Vector3(-5.8f,0,-6.2f),34f,1.5f,root,false);
+            Spawn(TownRoot,"hedge",new Vector3(7.4f,0,-4.5f),90f,0.85f,root,false);
+
             // Landmark square and market life.
-            BuildFountain(new Vector3(4,0.18f,7),root);
-            Spawn(KayRoot,"building_well_blue",new Vector3(7.5f,0.18f,11.5f),18f,3.2f,root,false);
+            BuildFountain(new Vector3(3.0f,0.18f,7.6f),root);
+            Spawn(KayRoot,"building_well_blue",new Vector3(8.4f,0.18f,11.2f),18f,3.2f,root,false);
             BuildMarket(new Vector3(-17,0.05f,2),92f,root);
             BuildMarket(new Vector3(15,0.05f,6),-83f,root);
             Spawn(TownRoot,"stall-green",new Vector3(-7.5f,0,-16.0f),88f,2.5f,root,false);
