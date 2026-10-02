@@ -457,31 +457,53 @@ namespace Dolzore.Editor
             if(!AssetDatabase.IsValidFolder("Assets/Art")) AssetDatabase.CreateFolder("Assets","Art");
             if(!AssetDatabase.IsValidFolder("Assets/Art/Generated3D")) AssetDatabase.CreateFolder("Assets/Art","Generated3D");
             if(!AssetDatabase.IsValidFolder(GeneratedRoot)) AssetDatabase.CreateFolder("Assets/Art/Generated3D","FirstTownFF11");
-            MakeCobble("cobble.png",Hex("#81786A"),Hex("#B2A58F"),Hex("#58534D"));
+            MakeCobble("cobble.png",Hex("#756B5E"),Hex("#A79A84"),Hex("#4B4741"),1307);
+            MakeCobble("walkway.png",Hex("#8C806E"),Hex("#B6A68E"),Hex("#5F584E"),2719);
             MakeNoise("plaster.png",Hex("#BBA98A"),Hex("#D5C5A5"),71);
             MakeNoise("grass.png",Hex("#526A3D"),Hex("#738A52"),91);
             MakeNoise("dirt.png",Hex("#6D5843"),Hex("#9A8062"),111);
             AssetDatabase.Refresh();
         }
 
-        private static void MakeCobble(string file,Color baseC,Color hi,Color seam)
+        private static void MakeCobble(string file,Color baseC,Color hi,Color seam,int seed)
         {
-            string path=GeneratedRoot+"/"+file; if(File.Exists(Path.GetFullPath(path))) return;
-            const int w=128,h=128; var tex=new Texture2D(w,h,TextureFormat.RGBA32,false);
+            string path=GeneratedRoot+"/"+file;
+            const int w=128,h=128;
+            var tex=new Texture2D(w,h,TextureFormat.RGBA32,false);
             var px=new Color32[w*h];
-            for(int y=0;y<h;y++) for(int x=0;x<w;x++)
+            for(int i=0;i<px.Length;i++) px[i]=seam;
+            var rng=new System.Random(seed);
+            const int rowH=14;
+            for(int row=0,y0=0;y0<h;row++,y0+=rowH)
             {
-                int row=y/16; int sx=x+((row&1)==0?0:13);
-                bool s=(y%16<=1)||(sx%26<=1);
-                float n=Mathf.PerlinNoise(x*0.07f,y*0.07f)*0.22f;
-                px[y*w+x]=s?seam:Color.Lerp(baseC,hi,n);
+                int y1=Mathf.Min(h,y0+rowH);
+                int x=-rng.Next(0,24);
+                while(x<w)
+                {
+                    int cw=rng.Next(17,34);
+                    float shade=0.10f+(float)rng.NextDouble()*0.28f;
+                    Color c=Color.Lerp(baseC,hi,shade);
+                    int left=Mathf.Max(0,x+2);
+                    int right=Mathf.Min(w,x+cw-1);
+                    int top=Mathf.Max(0,y0+2);
+                    int bottom=Mathf.Min(h,y1-1);
+                    for(int yy=top;yy<bottom;yy++)
+                        for(int xx=left;xx<right;xx++)
+                        {
+                            float p=Mathf.PerlinNoise((xx+seed)*0.055f,(yy-seed)*0.055f);
+                            px[yy*w+xx]=Color.Lerp(c,hi,p*0.08f);
+                        }
+                    x+=cw;
+                }
             }
-            tex.SetPixels32(px);tex.Apply();File.WriteAllBytes(Path.GetFullPath(path),tex.EncodeToPNG());UnityEngine.Object.DestroyImmediate(tex);
+            tex.SetPixels32(px);tex.Apply();
+            File.WriteAllBytes(Path.GetFullPath(path),tex.EncodeToPNG());
+            UnityEngine.Object.DestroyImmediate(tex);
         }
 
         private static void MakeNoise(string file,Color a,Color b,int seed)
         {
-            string path=GeneratedRoot+"/"+file; if(File.Exists(Path.GetFullPath(path))) return;
+            string path=GeneratedRoot+"/"+file;
             const int w=128,h=128; var tex=new Texture2D(w,h,TextureFormat.RGBA32,false);
             var rng=new System.Random(seed);var px=new Color32[w*h];
             for(int y=0;y<h;y++) for(int x=0;x<w;x++)
@@ -518,6 +540,7 @@ namespace Dolzore.Editor
                 QuaterniusCharacterRoot+"/Textures/Warrior_Texture.png",
                 QuaterniusRoot+"/Bell_Tower.obj",
                 QuaterniusRoot+"/Blacksmith.obj",
+                QuaterniusRoot+"/Sawmill.obj",
                 QuaterniusRoot+"/House_1.obj",
                 QuaterniusRoot+"/Stable.obj"
             };
@@ -549,7 +572,7 @@ namespace Dolzore.Editor
             var dirt=Textured("Dirt","dirt.png","#7C644D",new Vector2(7,7),0.05f);
             var plaster=Textured("Plaster","plaster.png","#B8A78A",new Vector2(3,3),0.09f);
             var stone=Flat("Stone","#7E7568",0.12f);
-            var walkway=Flat("Walkway","#877A68",0.10f);
+            var walkway=Textured("Walkway","walkway.png","#8B7D6A",new Vector2(7,7),0.08f);
             var dark=Flat("DarkWood","#4A3A31",0.10f);
 
             Cube("Ground",new Vector3(0,-0.55f,7),new Vector3(110,1,105),grass,root);
@@ -590,10 +613,10 @@ namespace Dolzore.Editor
             Spawn(QuaterniusRoot,"House_2",new Vector3(-12.5f,0,14.0f),35f,6.2f,root);
             Spawn(QuaterniusRoot,"House_3",new Vector3(16.0f,0,15.0f),-32f,6.4f,root);
             Spawn(QuaterniusRoot,"Stable",new Vector3(-11,0,18),30f,7.8f,root);
-            Spawn(KayRoot,"building_church_blue",new Vector3(-6,0,32),10f,12.5f,root);
-            Spawn(KayRoot,"building_castle_blue",new Vector3(22,2.45f,39),-18f,15.0f,root);
-            Spawn(KayRoot,"building_barracks_blue",new Vector3(-14,2.45f,39),12f,9.5f,root);
-            Spawn(KayRoot,"building_watchtower_blue",new Vector3(31,2.45f,45),-15f,12.0f,root);
+            Spawn(QuaterniusRoot,"Bell_Tower",new Vector3(-6,0,32),10f,12.0f,root);
+            Spawn(QuaterniusRoot,"Sawmill",new Vector3(22,2.45f,39),-18f,10.5f,root);
+            Spawn(QuaterniusRoot,"House_1",new Vector3(-14,2.45f,39),12f,8.2f,root);
+            Spawn(QuaterniusRoot,"Bell_Tower",new Vector3(31,2.45f,45),-15f,11.5f,root);
 
             // Landmark square and market life.
             BuildFountain(new Vector3(4,0.18f,7),root);
