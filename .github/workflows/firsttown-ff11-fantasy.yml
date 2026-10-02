@@ -67,33 +67,52 @@ jobs:
         shell: powershell
         run: |
           $ErrorActionPreference='Stop'
-          git lfs version
-          git lfs install
-          $lib=Join-Path $env:RUNNER_TEMP "jam-ready-assets"
-          if(Test-Path $lib){Remove-Item $lib -Recurse -Force}
-          git clone --depth 1 --filter=blob:none --sparse https://github.com/series-ai/jam-ready-assets.git $lib
-          Push-Location $lib
-          git sparse-checkout set kenney-fantasy-town-kit/3D/fantasy kenney-castle-kit/3D/fantasy kenney-animated-characters-protagonists/3D/characters
-          git lfs pull --include="kenney-fantasy-town-kit/3D/fantasy/**,kenney-castle-kit/3D/fantasy/**,kenney-animated-characters-protagonists/3D/characters/**"
-          Pop-Location
-
           $assets=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore\Assets\External"
           $town=Join-Path $assets "FantasyTown"
           $castle=Join-Path $assets "Castle"
           $chars=Join-Path $assets "Characters"
-          New-Item -ItemType Directory -Path $town,$castle,(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
-          Copy-Item (Join-Path $lib "kenney-fantasy-town-kit\3D\fantasy\Models\FBX format\*.fbx") $town -Force
-          if(Test-Path (Join-Path $lib "kenney-fantasy-town-kit\3D\fantasy\Models\Textures")){Copy-Item (Join-Path $lib "kenney-fantasy-town-kit\3D\fantasy\Models\Textures") $town -Recurse -Force}
-          Copy-Item (Join-Path $lib "kenney-castle-kit\3D\fantasy\Models\FBX format\*.fbx") $castle -Force
-          if(Test-Path (Join-Path $lib "kenney-castle-kit\3D\fantasy\Models\Textures")){Copy-Item (Join-Path $lib "kenney-castle-kit\3D\fantasy\Models\Textures") $castle -Recurse -Force}
-          Copy-Item (Join-Path $lib "kenney-animated-characters-protagonists\3D\characters\Model\characterMedium.fbx") (Join-Path $chars "Model") -Force
-          Copy-Item (Join-Path $lib "kenney-animated-characters-protagonists\3D\characters\Skins\*.png") (Join-Path $chars "Skins") -Force
+          New-Item -ItemType Directory -Path $town,$castle,(Join-Path $town "Textures"),(Join-Path $castle "Textures"),(Join-Path $chars "Model"),(Join-Path $chars "Skins") -Force | Out-Null
+
+          function Fetch([string]$url,[string]$dest) {
+            Write-Host "FETCH=$url"
+            Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile $dest
+            if((Get-Item $dest).Length -lt 256){ throw "DOLZORE_ASSET_TOO_SMALL:$dest" }
+          }
+
+          $base="https://media.githubusercontent.com/media/series-ai/jam-ready-assets/main"
+          $townFiles=@(
+            "wall-wood-window-shutters","wall-window-shutters","wall-wood-door","wall-door",
+            "wall-wood-window-stone","wall-window-stone","wall-wood-window-small","wall-window-small",
+            "wall-wood","wall","roof-high","roof-gable","balcony-wall-fence","overhang",
+            "banner-red","banner-green","chimney","fountain-round","fountain-round-detail","fountain-center",
+            "stall-bench","cart","cart-high","wall-arch","wall-arch-top-detail",
+            "tree-high","tree-crooked","lantern","hedge","fence-gate"
+          )
+          foreach($name in $townFiles){
+            $url="$base/kenney-fantasy-town-kit/3D/fantasy/Models/FBX%20format/$name.fbx"
+            Fetch $url (Join-Path $town "$name.fbx")
+          }
+          Fetch "$base/kenney-fantasy-town-kit/3D/fantasy/Models/Textures/variation-a.png" (Join-Path $town "Textures\variation-a.png")
+
+          $castleFiles=@("tower-square","gate","flag-banner-long")
+          foreach($name in $castleFiles){
+            $url="$base/kenney-castle-kit/3D/fantasy/Models/FBX%20format/$name.fbx"
+            Fetch $url (Join-Path $castle "$name.fbx")
+          }
+          foreach($v in @("a","b","c","d","e","f","g")){
+            Fetch "$base/kenney-castle-kit/3D/fantasy/Models/Textures/variation-$v.png" (Join-Path $castle "Textures\variation-$v.png")
+          }
+
+          Fetch "$base/kenney-animated-characters-protagonists/3D/characters/Model/characterMedium.fbx" (Join-Path $chars "Model\characterMedium.fbx")
+          foreach($skin in @("skaterFemaleA.png","skaterMaleA.png","criminalMaleA.png","cyborgFemaleA.png")){
+            Fetch "$base/kenney-animated-characters-protagonists/3D/characters/Skins/$skin" (Join-Path $chars "Skins\$skin")
+          }
 
           $fbxCount=(Get-ChildItem $town -Filter *.fbx).Count + (Get-ChildItem $castle -Filter *.fbx).Count
           $skinCount=(Get-ChildItem (Join-Path $chars "Skins") -Filter *.png).Count
           Write-Host "DOLZORE_EXTERNAL_FBX_COUNT=$fbxCount"
           Write-Host "DOLZORE_CHARACTER_SKINS=$skinCount"
-          if($fbxCount -lt 150){throw "DOLZORE_FANTASY_ASSET_SET_INCOMPLETE:$fbxCount"}
+          if($fbxCount -lt 30){throw "DOLZORE_FANTASY_ASSET_SET_INCOMPLETE:$fbxCount"}
 
       - name: Clear stale Unity lock
         shell: powershell
