@@ -1,6 +1,6 @@
-const test = require('node:test');
-const assert = require('node:assert/strict');
-const fs = require('fs');
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
 
 test('FF11 render watch is GitHub-only, structured, and no-false-inference', () => {
   const text = fs.readFileSync('.github/workflows/ff11-render-quantification-watch.yml', 'utf8');
