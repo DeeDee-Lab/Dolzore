@@ -382,8 +382,21 @@ namespace Dolzore.Editor
             cam.nearClipPlane=0.08f;cam.farClipPlane=220f;cam.fieldOfView=54f;
             camGo.AddComponent<AudioListener>();
             var rig=camGo.AddComponent<Dolzore.ThirdPersonCamera3D>();rig.target=player.transform;rig.distance=8.5f;rig.height=3.7f;
-            camGo.transform.position=new Vector3(7.8f,5.4f,-39f);
-            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(3f,2.2f,-8f)-camGo.transform.position,Vector3.up);
+            camGo.transform.position=new Vector3(0f,4.4f,-40f);
+            camGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,3.0f,16f)-camGo.transform.position,Vector3.up);
+
+            // Dedicated deterministic preview camera. The runtime follow camera can move during
+            // component initialization, so CI screenshots must not depend on its transient pose.
+            var previewGo=new GameObject("Preview Camera");
+            var preview=previewGo.AddComponent<Camera>();
+            preview.enabled=false;
+            preview.clearFlags=CameraClearFlags.SolidColor;
+            preview.backgroundColor=Hex("#9DB8C8");
+            preview.nearClipPlane=0.08f;
+            preview.farClipPlane=240f;
+            preview.fieldOfView=58f;
+            previewGo.transform.position=new Vector3(-1.5f,4.8f,-40.5f);
+            previewGo.transform.rotation=Quaternion.LookRotation(new Vector3(4f,3.1f,18f)-previewGo.transform.position,Vector3.up);
 
             EditorSceneManager.SaveScene(scene,ScenePath);
             Debug.Log("DOLZORE_FIRST_TOWN_3D_FF11_STYLE_BUILD=PASS");
