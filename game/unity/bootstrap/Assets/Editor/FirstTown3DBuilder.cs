@@ -88,7 +88,7 @@ namespace Dolzore.Editor
             go.transform.localScale=Vector3.one*s;
             go.transform.rotation=Quaternion.Euler(0f,yaw,0f);
             b=BoundsOf(go);
-            go.transform.position=bottomPos+Vector3.up*(bottomPos.y-b.min.y);
+            go.transform.position=bottomPos+Vector3.up*(-b.min.y);
             if(collider)
             {
                 b=BoundsOf(go);
@@ -118,7 +118,7 @@ namespace Dolzore.Editor
             go.transform.localScale=Vector3.one*(targetWidth/w);
             go.transform.rotation=Quaternion.Euler(0f,yaw,0f);
             b=BoundsOf(go);
-            go.transform.position=bottomPos+Vector3.up*(bottomPos.y-b.min.y);
+            go.transform.position=bottomPos+Vector3.up*(-b.min.y);
             if(collider)
             {
                 b=BoundsOf(go);
