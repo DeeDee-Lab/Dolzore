@@ -272,6 +272,11 @@ jobs:
           New-Item -ItemType Directory -Path $dst -Force | Out-Null
           Copy-Item (Join-Path $src "*") $dst -Recurse -Force
           if(-not (Test-Path (Join-Path $dst "index.html"))){throw "DOLZORE_PUBLIC_INDEX_MISSING"}
+          $buildDir=Join-Path $dst "Build"
+          if(-not (Test-Path $buildDir)){throw "DOLZORE_PUBLIC_BUILD_DIR_MISSING"}
+          $buildFiles=Get-ChildItem -LiteralPath $buildDir -File
+          if($buildFiles.Count -lt 3){throw "DOLZORE_PUBLIC_BUILD_FILES_INCOMPLETE:$($buildFiles.Count)"}
+          Write-Host "DOLZORE_PUBLIC_BUILD_FILES=$($buildFiles.Count)"
           @'
           <!doctype html>
           <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -286,7 +291,8 @@ jobs:
           $ErrorActionPreference='Stop'
           git config user.name "DOLZORE Release Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add docs/firsttown3d docs/firsttown.html
+          git add -f docs/firsttown3d
+          git add docs/firsttown.html
           git diff --cached --quiet
           if($LASTEXITCODE -eq 0){
             Write-Host "DOLZORE_PUBLIC_PAYLOAD_UNCHANGED=true"
