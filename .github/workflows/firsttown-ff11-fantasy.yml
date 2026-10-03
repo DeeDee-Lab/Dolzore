@@ -2,17 +2,17 @@ name: DOLZORE FirstTown FF11 Fantasy 3D
 
 on:
   push:
-    branches: ["rebuild/firsttown-ff11-fantasy-20261002"]
+    branches: ["publish/firsttown-3d-20261003"]
     paths:
       - "game/unity/bootstrap/**"
       - ".github/workflows/firsttown-ff11-fantasy.yml"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: dolzore-firsttown-ff11-fantasy
+  group: dolzore-firsttown-public-freeze
   cancel-in-progress: true
 
 jobs:
@@ -261,6 +261,39 @@ jobs:
           if($p.ExitCode -ne 0){throw "DOLZORE_FANTASY_WEBGL_FAILED:$($p.ExitCode)"}
           $index=Join-Path $project "Builds\WebGL\index.html"
           if(-not (Test-Path $index)){throw "DOLZORE_FANTASY_WEBGL_INDEX_MISSING"}
+
+      - name: Materialize static HP payload
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $src=Join-Path $env:GITHUB_WORKSPACE "game\unity\Dolzore\Builds\WebGL"
+          $dst=Join-Path $env:GITHUB_WORKSPACE "docs\firsttown3d"
+          if(Test-Path $dst){Remove-Item $dst -Recurse -Force}
+          New-Item -ItemType Directory -Path $dst -Force | Out-Null
+          Copy-Item (Join-Path $src "*") $dst -Recurse -Force
+          if(-not (Test-Path (Join-Path $dst "index.html"))){throw "DOLZORE_PUBLIC_INDEX_MISSING"}
+          @'
+          <!doctype html>
+          <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+          <meta http-equiv="refresh" content="0; url=firsttown3d/"><title>DOLZORE FirstTown</title></head>
+          <body><a href="firsttown3d/">DOLZORE FirstTownを開く</a></body></html>
+          '@ | Set-Content (Join-Path $env:GITHUB_WORKSPACE "docs\firsttown.html") -Encoding utf8
+          Write-Host "DOLZORE_PUBLIC_PAYLOAD=READY"
+
+      - name: Persist frozen public candidate
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          git config user.name "DOLZORE Release Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/firsttown3d docs/firsttown.html
+          git diff --cached --quiet
+          if($LASTEXITCODE -eq 0){
+            Write-Host "DOLZORE_PUBLIC_PAYLOAD_UNCHANGED=true"
+          } else {
+            git commit -m "publish: freeze FirstTown 3D WebGL candidate"
+            git push origin HEAD:publish/firsttown-3d-20261003
+          }
 
       - name: Upload complete FirstTown
         uses: actions/upload-artifact@v4
