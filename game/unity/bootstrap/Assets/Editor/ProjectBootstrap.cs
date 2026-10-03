@@ -79,7 +79,7 @@ namespace Dolzore.Editor
             PlayerSettings.runInBackground = true;
             PlayerSettings.colorSpace = ColorSpace.Linear;
             PlayerSettings.resizableWindow = true;
-            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Brotli;
+            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Disabled;
             QualitySettings.vSyncCount = 1;
         }
 
