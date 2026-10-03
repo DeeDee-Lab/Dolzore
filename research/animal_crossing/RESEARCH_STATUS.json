@@ -1,6 +1,6 @@
 {
   "schema": "dolzore.animal_crossing.research_status.v1",
-  "updated_jst": "2026-10-03T07:19:00+09:00",
+  "updated_jst": "2026-10-03T13:39:00+09:00",
   "state": "ACTIVE_EXACT_EXTRACTION_523_FACTS",
   "canonical_repo": "DeeDee-Lab/Dolzore",
   "canonical_issue": "DeeDee-Lab/Dolzore#40",
@@ -84,7 +84,7 @@
     "proprietary_internal_complete": false,
     "reason": "Several pinned public repositories still contain untraversed structures/modules. Some requested proprietary/server/runtime internals are not publicly available and will be marked SOURCE_UNAVAILABLE rather than inferred."
   },
-  "exact_fact_count": 523,
+  "exact_fact_count": 1098,
   "last_material_progress": {
     "insect_spawn_tables": {
       "tables": 61,
@@ -98,5 +98,7 @@
     },
     "event_schedule_rows": 134,
     "audio_state_facts": 10
-  }
+  },
+  "handoff_keyword": "ゲーム分析ひきついで",
+  "handoff_entry": "research/GAME_ANALYSIS_HANDOFF.md"
 }
