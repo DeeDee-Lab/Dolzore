@@ -684,7 +684,9 @@ namespace Dolzore.Editor
             Directory.CreateDirectory(output);
             BuildPlayerOptions options = new BuildPlayerOptions
             {
-                scenes = new[] { TitleScene, Town3DScene, TownScene },
+                // Public FirstTown release must boot directly into the true 3D town.
+                // Never include the legacy title/2D town in this release candidate.
+                scenes = new[] { Town3DScene },
                 locationPathName = output,
                 target = BuildTarget.WebGL,
                 options = BuildOptions.None
@@ -694,6 +696,8 @@ namespace Dolzore.Editor
             if (report.summary.result != BuildResult.Succeeded)
                 throw new InvalidOperationException("WebGL build failed: " + report.summary.result);
 
+            Debug.Log("DOLZORE_PUBLIC_START_SCENE=" + Town3DScene);
+            Debug.Log("DOLZORE_PUBLIC_SCENE_COUNT=1");
             Debug.Log("DOLZORE_WEBGL_SIZE=" + report.summary.totalSize);
         }
 
