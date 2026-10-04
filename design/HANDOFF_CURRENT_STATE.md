@@ -1,3 +1,19 @@
+# 2026-10-04 DIRECT-USER OVERRIDE — PUBLIC HP URL
+
+Retired/closed URL:
+`https://dolzore-web-runtime-production.up.railway.app/`
+
+This URL is NOT the current DOLZORE HP.
+Never present it as current.
+Do not invent a successor URL.
+Current canonical HP remains NONE until fresh verification + direct-user approval.
+
+`CURRENT_CANONICAL_HP_URL=NONE`
+`RETIRED_RUNTIME_HP_URL=https://dolzore-web-runtime-production.up.railway.app/`
+`RETIRED_URL_MUST_NOT_BE_PRESENTED_AS_CURRENT=true`
+
+---
+
 # DOLZORE HANDOFF — CURRENT STATE
 # 2026-10-01 HARD USER-VISIBLE VISUAL GATE
 
