@@ -21,7 +21,13 @@ Before any external URL replacement:
 8. canonical URL recorded here.
 
 Current canonical replacement URL:
+**NONE — no current canonical public HP is declared.**
+
+Retired/closed URL:
 `https://dolzore-web-runtime-production.up.railway.app/`
+- CLOSED/RETIRED by direct user correction on 2026-10-04 JST.
+- Must NOT be presented as the current DOLZORE HP.
+- Historical deployment evidence remains evidence only.
 
 Current known broken/new-host state:
 - `https://dolzore-official.lovable.app/` = 404
@@ -193,15 +199,20 @@ Migration is complete only when:
 - a final migration receipt is saved.
 
 `PUBLIC_URL_MIGRATION_PENDING=true`
-`NEW_CANONICAL_URL_VERIFIED=true`
+`NEW_CANONICAL_URL_VERIFIED=false`
 `EXTERNAL_LINKS_NOT_YET_CUT_OVER=true`
 `NO_FALSE_COMPLETION=true`
 
 
 ## 2026-09-30 emergency new-site recovery — externally verified
 
-Verified canonical replacement candidate:
+Historical verified replacement candidate (NOW RETIRED):
 `https://dolzore-web-runtime-production.up.railway.app/`
+
+Direct-user correction, 2026-10-04 JST:
+- this URL is a closed/retired HP;
+- it is not the current canonical HP;
+- no successor canonical HP may be invented without fresh verification and user approval.
 
 External acceptance performed against the actual public internet endpoint:
 - `/` = PASS
@@ -228,3 +239,16 @@ The old Lovable URL remains retired and must not become canonical again.
 
 Next:
 execute all migration inventory items and only then set `PUBLIC_URL_MIGRATION_PENDING=false`.
+
+
+## 2026-10-04 direct-user correction — retired Railway HP
+
+The URL below is RETIRED/CLOSED and must never be returned as the current HP:
+`https://dolzore-web-runtime-production.up.railway.app/`
+
+Until a replacement is explicitly verified and approved:
+`CURRENT_CANONICAL_HP_URL=NONE`
+`RETIRED_RUNTIME_HP_URL=https://dolzore-web-runtime-production.up.railway.app/`
+`RETIRED_URL_MUST_NOT_BE_PRESENTED_AS_CURRENT=true`
+`FRESH_PUBLIC_HP_VERIFICATION_REQUIRED=true`
+`NO_FALSE_COMPLETION=true`
