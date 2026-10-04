@@ -1,3 +1,18 @@
+# 2026-10-04 DIRECT-USER OVERRIDE — PUBLIC HP STATE
+
+The historical Railway URL below is CLOSED/RETIRED and is NOT the current DOLZORE HP:
+`https://dolzore-web-runtime-production.up.railway.app/`
+
+Do not return it as the current HP.
+Do not infer a replacement URL.
+A new canonical HP requires fresh public verification + direct-user approval.
+
+`CURRENT_CANONICAL_HP_URL=NONE`
+`RETIRED_RUNTIME_HP_URL=https://dolzore-web-runtime-production.up.railway.app/`
+`RETIRED_URL_MUST_NOT_BE_PRESENTED_AS_CURRENT=true`
+
+---
+
 # GAME MASTER CHECKPOINT — 2026-09-30 22:35 JST
 
 Resume phrase: **Gameひきついで**
