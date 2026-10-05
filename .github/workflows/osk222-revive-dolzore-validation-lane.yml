@@ -1,0 +1,69 @@
+name: Revive Dolzore validation lane on OSK222
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/osk222-revive-dolzore-validation-lane.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  revive:
+    runs-on: [dolzore-site-osk222]
+    timeout-minutes: 5
+    steps:
+      - name: Revive Automation validation runner and inspect OpenD
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (([string]$env:COMPUTERNAME).ToUpperInvariant() -ne 'OSK222') {
+            throw "WRONG_HOST:$env:COMPUTERNAME"
+          }
+
+          $runnerRoot = Join-Path $env:LOCALAPPDATA 'DOLZORE\AutomationRunnerV3'
+          $runnerCmd = Join-Path $runnerRoot 'run.cmd'
+          if (-not (Test-Path -LiteralPath $runnerCmd -PathType Leaf)) {
+            throw "DOLZORE_AUTOMATION_RUNNER_CMD_MISSING:$runnerCmd"
+          }
+
+          $existing = @(Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | Where-Object {
+            $_.Name -eq 'Runner.Listener.exe' -and
+            $_.ExecutablePath -and
+            $_.ExecutablePath.StartsWith($runnerRoot, [System.StringComparison]::OrdinalIgnoreCase)
+          })
+
+          if ($existing.Count -eq 0) {
+            Remove-Item Env:RUNNER_TRACKING_ID -ErrorAction SilentlyContinue
+            Start-Process -FilePath 'cmd.exe' -ArgumentList '/c', ('"' + $runnerCmd + '"') -WorkingDirectory $runnerRoot -WindowStyle Hidden
+            Write-Host 'DOLZORE_AUTOMATION_RUNNER_START_REQUESTED=true'
+            Start-Sleep -Seconds 8
+          } else {
+            Write-Host 'DOLZORE_AUTOMATION_RUNNER_ALREADY_RUNNING=true'
+          }
+
+          $after = @(Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | Where-Object {
+            $_.Name -eq 'Runner.Listener.exe' -and
+            $_.ExecutablePath -and
+            $_.ExecutablePath.StartsWith($runnerRoot, [System.StringComparison]::OrdinalIgnoreCase)
+          })
+          Write-Host ('DOLZORE_AUTOMATION_RUNNER_PROCESS_COUNT=' + $after.Count)
+          if ($after.Count -eq 0) {
+            throw 'DOLZORE_AUTOMATION_RUNNER_NOT_RUNNING'
+          }
+
+          $opend = @(Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | Where-Object {
+            $_.Name -in @('OpenD.exe','FutuOpenD.exe')
+          })
+          Write-Host ('DOLZORE_OPEND_PROCESS_COUNT=' + $opend.Count)
+
+          $listeners = @(Get-NetTCPConnection -State Listen -LocalPort 11111 -ErrorAction SilentlyContinue)
+          Write-Host ('DOLZORE_OPEND_11111_LISTENER_COUNT=' + $listeners.Count)
+          if ($listeners.Count -gt 0) {
+            Write-Host 'DOLZORE_OPEND_LISTENER_READY=true'
+          } else {
+            Write-Host 'DOLZORE_OPEND_LISTENER_READY=false'
+          }
+
+          Write-Host 'DOLZORE_REVIVE_LANE_COMPLETE=true'
