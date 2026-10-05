@@ -14,7 +14,7 @@ jobs:
     runs-on: [dolzore-site-osk222]
     timeout-minutes: 5
     steps:
-      - name: Revive Automation validation runner and inspect OpenD
+      - name: Revive Automation validation runner and persist reboot recovery
         shell: powershell
         run: |
           $ErrorActionPreference = 'Stop'
@@ -22,21 +22,35 @@ jobs:
             throw "WRONG_HOST:$env:COMPUTERNAME"
           }
 
-          $runnerRoot = Join-Path $env:LOCALAPPDATA 'DOLZORE\AutomationRunnerV3'
-          $runnerCmd = Join-Path $runnerRoot 'run.cmd'
-          if (-not (Test-Path -LiteralPath $runnerCmd -PathType Leaf)) {
-            throw "DOLZORE_AUTOMATION_RUNNER_CMD_MISSING:$runnerCmd"
+          $automationRoot = Join-Path $env:LOCALAPPDATA 'DOLZORE\AutomationRunnerV3'
+          $automationCmd = Join-Path $automationRoot 'run.cmd'
+          $siteRoot = Join-Path $env:LOCALAPPDATA 'GitHubActionsRunner\DolzoreSite'
+          $siteCmd = Join-Path $siteRoot 'run.cmd'
+
+          if (-not (Test-Path -LiteralPath $automationCmd -PathType Leaf)) {
+            throw "DOLZORE_AUTOMATION_RUNNER_CMD_MISSING:$automationCmd"
           }
+          if (-not (Test-Path -LiteralPath $siteCmd -PathType Leaf)) {
+            throw "DOLZORE_SITE_RUNNER_CMD_MISSING:$siteCmd"
+          }
+
+          $runKey = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run'
+          New-Item -Path $runKey -Force | Out-Null
+          $automationRunValue = 'cmd.exe /c ""' + $automationCmd + '""'
+          $siteRunValue = 'cmd.exe /c ""' + $siteCmd + '""'
+          New-ItemProperty -Path $runKey -Name 'DOLZORE-AutomationRunnerV3' -Value $automationRunValue -PropertyType String -Force | Out-Null
+          New-ItemProperty -Path $runKey -Name 'DOLZORE-SiteRunner' -Value $siteRunValue -PropertyType String -Force | Out-Null
+          Write-Host 'DOLZORE_RUNNER_HKCU_AUTOSTART_INSTALLED=true'
 
           $existing = @(Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | Where-Object {
             $_.Name -eq 'Runner.Listener.exe' -and
             $_.ExecutablePath -and
-            $_.ExecutablePath.StartsWith($runnerRoot, [System.StringComparison]::OrdinalIgnoreCase)
+            $_.ExecutablePath.StartsWith($automationRoot, [System.StringComparison]::OrdinalIgnoreCase)
           })
 
           if ($existing.Count -eq 0) {
             Remove-Item Env:RUNNER_TRACKING_ID -ErrorAction SilentlyContinue
-            Start-Process -FilePath 'cmd.exe' -ArgumentList '/c', ('"' + $runnerCmd + '"') -WorkingDirectory $runnerRoot -WindowStyle Hidden
+            Start-Process -FilePath 'cmd.exe' -ArgumentList '/c', ('"' + $automationCmd + '"') -WorkingDirectory $automationRoot -WindowStyle Hidden
             Write-Host 'DOLZORE_AUTOMATION_RUNNER_START_REQUESTED=true'
             Start-Sleep -Seconds 8
           } else {
@@ -46,7 +60,7 @@ jobs:
           $after = @(Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | Where-Object {
             $_.Name -eq 'Runner.Listener.exe' -and
             $_.ExecutablePath -and
-            $_.ExecutablePath.StartsWith($runnerRoot, [System.StringComparison]::OrdinalIgnoreCase)
+            $_.ExecutablePath.StartsWith($automationRoot, [System.StringComparison]::OrdinalIgnoreCase)
           })
           Write-Host ('DOLZORE_AUTOMATION_RUNNER_PROCESS_COUNT=' + $after.Count)
           if ($after.Count -eq 0) {
