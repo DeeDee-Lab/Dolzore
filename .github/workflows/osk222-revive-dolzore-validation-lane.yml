@@ -34,13 +34,24 @@ jobs:
             throw "DOLZORE_SITE_RUNNER_CMD_MISSING:$siteCmd"
           }
 
-          $runKey = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run'
-          New-Item -Path $runKey -Force | Out-Null
+          $regPath = 'Software\Microsoft\Windows\CurrentVersion\Run'
+          $cu = [Microsoft.Win32.Registry]::CurrentUser
+          $runKey = $cu.OpenSubKey($regPath, $true)
+          if ($null -eq $runKey) {
+            $runKey = $cu.CreateSubKey($regPath, $true)
+          }
           $automationRunValue = 'cmd.exe /c ""' + $automationCmd + '""'
           $siteRunValue = 'cmd.exe /c ""' + $siteCmd + '""'
-          New-ItemProperty -Path $runKey -Name 'DOLZORE-AutomationRunnerV3' -Value $automationRunValue -PropertyType String -Force | Out-Null
-          New-ItemProperty -Path $runKey -Name 'DOLZORE-SiteRunner' -Value $siteRunValue -PropertyType String -Force | Out-Null
+          try {
+            $runKey.SetValue('DOLZORE-AutomationRunnerV3', $automationRunValue, [Microsoft.Win32.RegistryValueKind]::String)
+            $runKey.SetValue('DOLZORE-SiteRunner', $siteRunValue, [Microsoft.Win32.RegistryValueKind]::String)
+          }
+          finally {
+            $runKey.Dispose()
+          }
           Write-Host 'DOLZORE_RUNNER_HKCU_AUTOSTART_INSTALLED=true'
+          Write-Host 'DOLZORE_RUN_KEY_PRESERVED=true'
+          Write-Host 'DOLZORE_RUNNER_GUARDIAN_IS_PRIMARY_RECOVERY=true'
 
           $existing = @(Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | Where-Object {
             $_.Name -eq 'Runner.Listener.exe' -and
