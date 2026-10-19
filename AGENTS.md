@@ -1,3 +1,11 @@
+## Latest 2026-10-19 direct-user global policy — GLOBAL_DC_RDC_ABSOLUTE_DENY_20261019
+
+Exact user originals:
+> DCは利用きんしです
+> DC利用禁止はすべてのえーじぇんとが理解し、守れるようにきろくしてください。
+
+**All agents/owners/Primary/Builders/Inspector/Runtime:** DO NOT invoke or indirectly use Desktop Commander (DC), DesktopCommanderRemote or Remote Desktop Commander (RDC) for **any** operation, including read-only device/status checks, `list_devices`, `ping`, `read_file`, diagnostics and background execution. Prior authorizations are superseded, no exception without a newer direct user task-specific approval. Do not alter the user's personal installed software. Use approved non-DC source/data channels. Mandatory read-first plus live `DC_RDC_POLICY_ACK` and zero-call audit; no claim of actual all-agent runtime enforcement without distinct receipts. Authority: https://github.com/DeeDee-Lab/TECBUILD-Agent-Hub/issues/239#issuecomment-6258680522 and AgentHub canonical Manifest. Preserve old evidence.
+
 # Read-first agent rule — owning Agent codes directly
 
 Latest direct user directive 2026-10-16 — applies to ALL existing and future project agents. Canonical source: https://github.com/DeeDee-Lab/TECBUILD-Agent-Hub/issues/239#issuecomment-6205586111 and https://github.com/DeeDee-Lab/TECBUILD-Agent-Hub/blob/main/AGENTS.md .
