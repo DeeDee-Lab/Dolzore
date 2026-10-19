@@ -1,3 +1,11 @@
+## 2026-10-19 — GLOBAL_DC_RDC_ABSOLUTE_DENY_20261019 newest direct user prohibition
+
+Direct originals:
+> DCは利用きんしです
+> DC利用禁止はすべてのえーじぇんとが理解し、守れるようにきろくしてください。
+
+Every Agent and successor: never invoke Desktop Commander (DC), DesktopCommanderRemote, Remote Desktop Commander (RDC) via any command/tool, including read-only device/status discovery, list_devices/ping, remote files/processes or an indirect wrapper. No old exception, no status-check exception. Only new direct user explicit task-specific authorization can change. Does not restrict the user's own personal tools; agents do not tamper with installed software. Read canonical AgentHub policy before any tool use and prove DC_RDC_POLICY_ACK / live zero-call independently. Source https://github.com/DeeDee-Lab/TECBUILD-Agent-Hub/issues/239#issuecomment-6258680522 . Actual runtime guard and all-agent PG ACK UNVERIFIED. Other older repo instructions follow, unless in conflict.
+
 # Claude Code is read-only researcher; coding requires explicit user approval
 
 Latest direct user directive 2026-10-16 — applies to ALL existing and future project agents. Canonical source: https://github.com/DeeDee-Lab/TECBUILD-Agent-Hub/issues/239#issuecomment-6205586111 and https://github.com/DeeDee-Lab/TECBUILD-Agent-Hub/blob/main/AGENTS.md .
