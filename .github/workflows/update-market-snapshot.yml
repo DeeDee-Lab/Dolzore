@@ -38,6 +38,31 @@ jobs:
           python scripts/update_market_snapshot.py \
             --output docs/data/smartbuy-projectors.json
 
+      - name: Verify fresh market snapshot contract
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          path = Path("docs/data/smartbuy-projectors.json")
+          payload = json.loads(path.read_text(encoding="utf-8"))
+          generated = datetime.fromisoformat(payload["generatedAt"])
+          if generated.tzinfo is None:
+              raise SystemExit("SMARTBUY_SNAPSHOT_INVALID: generatedAt must be timezone-aware")
+          age_seconds = (datetime.now(timezone.utc) - generated).total_seconds()
+          if not -120 <= age_seconds <= 3600:
+              raise SystemExit(f"SMARTBUY_SNAPSHOT_STALE: generatedAt age={age_seconds:.0f}s")
+          if payload.get("schemaVersion") != 3 or not payload.get("trackedModels"):
+              raise SystemExit("SMARTBUY_SNAPSHOT_INVALID: schema or trackedModels")
+          for key in ("used", "observedUsed", "newItems", "modelSummaries"):
+              if not isinstance(payload.get(key), list):
+                  raise SystemExit(f"SMARTBUY_SNAPSHOT_INVALID: {key}")
+          print(f"SMARTBUY_SNAPSHOT_FRESH=true age_seconds={age_seconds:.0f} "
+                f"used={len(payload['used'])} observed={len(payload['observedUsed'])} "
+                f"new={len(payload['newItems'])} models={len(payload['trackedModels'])}")
+          PY
+
       - name: Validate public-site contracts
         run: python -m unittest discover -s tests -p "test_*.py" -v
 
