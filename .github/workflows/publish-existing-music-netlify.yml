@@ -1,14 +1,5 @@
 name: Publish Existing DOLZORE Music HP to Netlify
 on:
-  push:
-    branches: [fix/reuse-original-music-site-netlify-20261023]
-    paths:
-      - "music-shop/**"
-      - "docs/music/**"
-      - "docs/site.js"
-      - "docs/styles.css"
-      - "docs/data/tracks.json"
-      - ".github/workflows/publish-existing-music-netlify.yml"
   workflow_dispatch:
 permissions:
   contents: read
