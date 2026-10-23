@@ -1,0 +1,34 @@
+name: DOLZORE Original Music HP Preview Build
+on:
+  pull_request:
+    paths:
+      - "music-shop/**"
+      - "docs/music/**"
+      - "docs/data/tracks.json"
+      - "docs/site.js"
+      - "docs/styles.css"
+      - "docs/assets/dolzore-jukebox.png"
+      - ".github/workflows/original-music-hp-preview-test.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-site-guarded-export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build original HTML/CSS/JS without publishing paid media or reopening town
+        run: python3 music-shop/build.py
+      - name: Validate actual original site export and safety conditions
+        run: python3 -m unittest discover -s music-shop -p 'test_*.py' -v
+      - name: Confirm no paid source audio is in public output
+        run: |
+          if find music-shop/dist -type f \( -iname '*.mp3' -o -iname '*.wav' -o -iname '*.flac' -o -iname '*.m4a' \) | grep -q .; then
+            echo "FAIL: paid source audio included" >&2
+            exit 1
+          fi
+          test -f music-shop/dist/music/index.html
+          test -f music-shop/dist/tokusho/index.html
