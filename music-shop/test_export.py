@@ -67,6 +67,27 @@ class ExistingMusicShopExportTest(unittest.TestCase):
         for p in OUT.rglob("*.html"):
             self.assertNotIn('href="../journal/"', p.read_text(encoding="utf-8"))
 
+    def test_public_pages_do_not_advertise_production_method(self):
+        # Owner-requested copy removal; factual provenance in source metadata is retained.
+        for page in OUT.rglob("*.html"):
+            rendered_source = page.read_text(encoding="utf-8")
+            for banned in ("AIを用いて生成", "AI生成", "AI-GENERATED", "AIが作成", "人工知能"):
+                self.assertNotIn(banned, rendered_source, f"{page}: {banned}")
+
+    def test_original_commerce_and_license_copy_survives(self):
+        legal = (OUT / "legal/index.html").read_text(encoding="utf-8")
+        terms = (OUT / "terms/index.html").read_text(encoding="utf-8")
+        music = (OUT / "music/index.html").read_text(encoding="utf-8")
+        catalog = json.loads((OUT / "data/tracks.json").read_text(encoding="utf-8"))
+        self.assertIn("1曲 ¥200、買い切り。", legal)
+        self.assertIn("商用動画・収益化動画で使用できます。", legal)
+        self.assertIn("Content ID", legal)
+        self.assertIn("Stripe", terms)
+        self.assertIn("BUY THIS TRACK", music)
+        self.assertEqual(len(catalog["tracks"]), 60)
+        self.assertEqual(sum(bool(t.get("previewReady")) for t in catalog["tracks"]), 6)
+        self.assertTrue(catalog["policy"]["generatedWithAI"])
+
     def test_null_disc_no_longer_crashes_preview_audio(self):
         js = (OUT / "site.js").read_text(encoding="utf-8")
         self.assertIn("disc?.classList", js)
