@@ -34,14 +34,18 @@ class ExistingMusicShopExportTest(unittest.TestCase):
         self.assertEqual({x["priceYen"] for x in exported["tracks"]}, {200})
         self.assertEqual(sum(bool(x.get("previewReady")) for x in exported["tracks"]), 6)
 
-    def test_customer_cannot_click_unverified_stripe(self):
+    def test_original_stripe_purchase_links_are_enabled(self):
         music = (OUT / "music/index.html").read_text(encoding="utf-8")
         script = (OUT / "site.js").read_text(encoding="utf-8")
-        self.assertIn("販売再開準備中", music)
-        self.assertIn('aria-disabled="true"', music)
-        self.assertNotIn("purchase.href=track.purchaseUrl", script)
-        self.assertIn('purchase.removeAttribute("href")', script)
-        self.assertNotIn('data-purchase href="#"', music)
+        catalog = json.loads((OUT / "data/tracks.json").read_text(encoding="utf-8"))
+        self.assertIn('data-purchase href="#"', music)
+        self.assertIn("BUY THIS TRACK", music)
+        self.assertIn("purchase.href=track.purchaseUrl;", script)
+        self.assertNotIn('aria-disabled="true"', music)
+        self.assertNotIn("販売再開準備中", music)
+        self.assertEqual(len({t["purchaseUrl"] for t in catalog["tracks"]}), 60)
+        self.assertTrue(all(t["purchaseUrl"].startswith("https://buy.stripe.com/")
+                            for t in catalog["tracks"]))
 
     def test_only_whitelisted_site_content_and_no_full_audio(self):
         self.assertFalse((OUT / "town-game.js").exists())
@@ -58,8 +62,8 @@ class ExistingMusicShopExportTest(unittest.TestCase):
 
     def test_legacy_closure_and_search_controls_are_preserved(self):
         self.assertIn("Closed", (SRC / "index.html").read_text(encoding="utf-8"))
-        self.assertIn("noindex,nofollow", (OUT / "music/index.html").read_text(encoding="utf-8"))
-        self.assertIn("Disallow: /", (OUT / "robots.txt").read_text(encoding="utf-8"))
+        self.assertIn("index,follow", (OUT / "music/index.html").read_text(encoding="utf-8"))
+        self.assertIn("Allow: /", (OUT / "robots.txt").read_text(encoding="utf-8"))
         for p in OUT.rglob("*.html"):
             self.assertNotIn('href="../journal/"', p.read_text(encoding="utf-8"))
 
