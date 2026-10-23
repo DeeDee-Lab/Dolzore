@@ -89,7 +89,15 @@ def build() -> None:
         'color:#261c30">販売再開準備中：試聴・表示の確認ページです。'
         '購入後の提供方法と販売権利を確認するまで、決済は受け付けません。</p>',
     )
+    # The music-only recovery must not point visitors into unexported Journal
+    # pages or the retired world. Modify ONLY the generated files.
+    music_html = re.sub(r'<a[^>]+href="../journal/"[^>]*>[^<]*</a>', '', music_html)
     music.write_text(music_html, encoding="utf-8")
+    for name in LEGAL_ROUTES:
+        legal_file = OUTPUT / name / "index.html"
+        legal_html = legal_file.read_text(encoding="utf-8")
+        legal_html = re.sub(r'<a[^>]+href="../journal/"[^>]*>[^<]*</a>', '', legal_html)
+        legal_file.write_text(legal_html, encoding="utf-8")
     if '販売再開準備中' not in music_html:
         raise AssertionError("Not marked as a preview-only shop")
 
