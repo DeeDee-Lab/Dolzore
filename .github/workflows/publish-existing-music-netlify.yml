@@ -1,0 +1,37 @@
+name: Publish Existing DOLZORE Music HP to Netlify
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: dolzore-music-store-netlify-production
+  cancel-in-progress: false
+jobs:
+  publish-original-music-hp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build original HP and test commercial links
+        run: |
+          python3 music-shop/build.py
+          python3 -m unittest discover -s music-shop -p 'test_*.py' -v
+      - name: Publish on existing isolated Netlify site
+        env:
+          NETLIFY_AUTH_TOKEN_A: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_AUTH_TOKEN_B: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_AUTH_TOKEN_C: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+        run: |
+          token="${NETLIFY_AUTH_TOKEN_A:-${NETLIFY_AUTH_TOKEN_B:-${NETLIFY_AUTH_TOKEN_C:-}}}"
+          if [ -z "$token" ]; then
+            echo "::error::NETLIFY_DEPLOY_CREDENTIAL_MISSING: a GitHub Actions secret NETLIFY_AUTH_TOKEN, NETLIFY_TOKEN or NETLIFY_ACCESS_TOKEN is required in this repo before deployment."
+            exit 3
+          fi
+          npx -y netlify-cli@latest deploy --prod --dir=music-shop/dist --site=d1edeac2-5299-4b69-9442-653d1dcbbc53 --auth="$token" --message="DOLZORE music original storefront $GITHUB_SHA"
+      - name: Print expected verification paths
+        run: |
+          echo "NETLIFY_EXPECTED_URL=https://dolzore-music-store.netlify.app/music/"
+          echo "DO_NOT_MARK_DONE_UNTIL_EXTERNAL_HTTPS_200_AND_STRIPE_LINKS_ARE_VERIFIED"
