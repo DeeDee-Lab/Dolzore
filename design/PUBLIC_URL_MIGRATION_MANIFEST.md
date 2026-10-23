@@ -252,3 +252,38 @@ Until a replacement is explicitly verified and approved:
 `RETIRED_URL_MUST_NOT_BE_PRESENTED_AS_CURRENT=true`
 `FRESH_PUBLIC_HP_VERIFICATION_REQUIRED=true`
 `NO_FALSE_COMPLETION=true`
+
+## 2026-10-23 16:55 JST — NETLIFY REAL PRODUCTION DEPLOY AND EXTERNAL READBACK
+
+**This newest dated update supersedes the older status "NONE — no current canonical public HP declared" for discovery of an actually published website, but it does not claim that all social-profile migrations or commercial end-to-end checkout tests have been completed.** Preserve the earlier legacy-closure history above.
+
+Verified new live DOLZORE Creator BGM website:
+https://dolzore-music-store.netlify.app/
+Original 60-track jukebox:
+https://dolzore-music-store.netlify.app/music/
+Netlify site: dolzore-music-store / d1edeac2-5299-4b69-9442-653d1dcbbc53
+Netlify production deploy: 6adb12cd37a07a1d5d43fefe
+Production published_at: 2026-10-23T07:55:10.931Z = 2026-10-23 16:55:10 JST
+Deployment status: ready, error_message null, 13 changed files uploaded, 9 pages and 4 assets.
+GitHub source SHA: de1ab32057923e5a542fd63c6bed9251ec52bc0a (main; original HP reuse PR #45 merged).
+Netlify production HTTPS: https://dolzore-music-store.netlify.app
+
+External independent readback succeeded for:
+- https://dolzore-music-store.netlify.app/ (redirected to original JUKEBOX content, selected BGM-001, Stripe buy link present)
+- /music/ (original DOLZORE JUKEBOX 60 TRACKS title, ¥200, old retained design)
+- /data/tracks.json (public schemaVersion 3; original 60-track catalogue payload, 6 preview ready; all original Stripe references retained by build)
+- /legal/ (renders original purchase/legal links)
+- /tokusho/ (renders Japanese designated seller/price/payment/download legal disclosure)
+- /assets/dolzore-jukebox.png (original original site image delivered).
+No 404 was reported for these inspected real pages/assets. Browser observed anchor https://buy.stripe.com/8x25kE4NT3L45yL0QCbbG02 for BGM-001; do not claim a credit-card transaction completed.
+External browser click/play automation could NOT start because the optional third-party browser automation wallet was out of funds. Therefore PLAY action, 6 actual audio samples, individual 60-click checkout navigation, desktop/mobile acceptance and payment-fulfillment receipt remain UNVERIFIED by independent interactive tests. This does NOT affect factual ready/HTTP live site status.
+
+**CURRENT VERIFIED PUBLIC URL:** https://dolzore-music-store.netlify.app/
+**PUBLIC_DEPLOY_READY=true**
+**GITHUB_ORIGINAL_HP_SOURCE_REUSED=true**
+**RAILWAY_USED=false**
+**LEGACY_GITHUB_PAGES_STAYS_CLOSED=true**
+**LIVE_PAYMENT_TRANSACTION_TESTED=false**
+**PUBLIC_SOCIAL_MIGRATION_PENDING=true**
+**DESKTOP_MOBILE_OWNER_ACCEPTANCE_PENDING=true**
+**Do not claim all external references migrated yet**. Follow inventory above to replace old URLs after final owner view/checkout acceptance.
