@@ -1,47 +1,57 @@
-# DOLZORE MUSIC — Reuse EXISTING website only
+# DOLZORE MUSIC — existing homepage relaunch (no redesign)
 
-User's exact correction on 2026-10-23: 「過去にHPはつくっています。今閉鎖していますが存在します」.
+## User exact directions, 2026-10-23
+- 「Dolzoreの音源販売ページを再開しましょう」
+- 「Railwayを使用せずすすめてください。」
+- 「過去にHPはつくっています。今閉鎖していますが存在します」
+- 「決済ページを作成されています。HP公開すればそのまま運用できます。」
 
-ORIGINAL WEB DESIGN is still present in this same GitHub repository (DeeDee-Lab/Dolzore), NOT a new website to build:
-- docs/music/index.html : original complete pixel-art jukebox, 60 track titles and preview UI
-- docs/site.js and docs/styles.css : original JavaScript/music controls and design
-- docs/assets/dolzore-jukebox.png : original visual
-- docs/data/tracks.json : original 60-entry catalog, 200 JPY per track, existing Stripe purchase URLs
-- docs/legal, terms, privacy, refund, tokusho, disclosure, support : original disclosure and support pages
-- music-only-site-20260928 : archived original development branch
+Original source lives in this SAME repo (DeeDee-Lab/Dolzore):
+- docs/music/index.html: original retro JUKEBOX, NOT new layout
+- docs/site.js, docs/styles.css, docs/assets/dolzore-jukebox.png: original JS/CSS/art
+- docs/data/tracks.json: EXACT 60 BGM entries, 60 unique existing Stripe Payment Links and original ¥200 prices
+- docs/legal, docs/terms, docs/privacy, docs/refund, docs/tokusho, docs/disclosure, docs/support: existing law/support
+- Historical development branch: music-only-site-20260928
+- Legacy docs/index.html intentionally displays Closed; original GitHub Pages URL was deactivated by owner order on 2026-09-30. DO NOT expose closed old town or undo this global closure.
+- Railway original runtime also deliberately retired by owner 2026-10-04. NEVER use Railway.
 
-GITHUB PAGES OLD SITE was closed by user's explicit decision (2026-09-30); docs/index.html is intentionally a closure page. Never expose the older Unity town or re-enable GitHub Pages by accident. Railway HP is retired (2026-10-04). User explicitly forbids Railway now.
+## Reusing original HP without disclosing paid audio
+The build script music-shop/build.py copies ONLY the original music, legal, CSS, JS, 60-track catalog and jukebox art to music-shop/dist. The root directs to the original /music/ page.
+All 60 preexisting Stripe purchase URLs remain linked to the buy CTA in the exported site. NO new payment pages, accounts or prices are made. Existing six sample previews are kept, 54 remain not-yet-preview-ready, and paid original MP3 master files are not included.
+The original docs/ directory is not overwritten. Export-only null DOM reference in the player gets a guard.
 
-Existing new empty Netlify PROJECT is only an ISOLATED HOST DESTINATION, never the source or a redesign:
-name: dolzore-music-store
-siteId: d1edeac2-5299-4b69-9442-653d1dcbbc53
-admin: https://app.netlify.com/projects/dolzore-music-store
-This project is empty until its first actual deploy (not yet verified).
-Do not overwrite dolzore-official-recovery or dolzore-unity-walk-demo.
+## Netlify independent hosting target (created; not yet deployed)
+Site: dolzore-music-store
+Netlify site ID: d1edeac2-5299-4b69-9442-653d1dcbbc53
+Netlify admin: https://app.netlify.com/projects/dolzore-music-store
+Expected public URL after deploy: https://dolzore-music-store.netlify.app/music/
+Currently the Netlify site URL has been observed returning HTTP 404 (no deploy).
+There are two other Netlify sites (dolzore-official-recovery, dolzore-unity-walk-demo) which must never be overwritten.
 
-## Packaging of original sources for Netlify
-- Git repository: DeeDee-Lab/Dolzore
+Setup to deploy via Netlify UI Git integration:
+- Repository: DeeDee-Lab/Dolzore
+- Production branch: main (after reviewed PR #45 merged)
 - Base directory: music-shop
-- Config: music-shop/netlify.toml
 - Build command: python3 build.py
 - Publish directory relative to base: dist
-- Local isolated verification: python3 music-shop/build.py; python3 -m unittest discover -s music-shop -p 'test_*.py' -v
-- Root of exported output points to original docs/music/index.html.
-- Export whitelist excludes old town/Canvas and unrelated products; does not include paid master audio.
-- Temporary public-preview safety: the exported purchase control is disabled until license, Stripe payment and fulfillment tests prove purchase is safe. Catalog retains original Stripe URLs unchanged.
-- Source docs/* site content is UNCHANGED by the adapter; only the export is transformed.
+Netlify UI repo link does not require adding a new GitHub action Netlify API token or ZIP upload.
 
-## Cutover acceptance
-1. Build and test original HTML, CSS, JS, pixel artwork and 60 canonical records.
-2. Test real 6 sample media and mark the 54 missing previews correctly.
-3. Verify separate royalty/licensing rights for each original Picsart source and standalone MP3 sale.
-4. Verify existing Stripe Payment Link live price and purchase fulfillment/receipt/download refund support.
-5. Verify legal disclosure, mobile/desktop, HTTPS and generated live Netlify URL.
-6. Obtain user acceptance for production purchase mode.
-7. Open sales and only then update social profiles/ads according to design/PUBLIC_URL_MIGRATION_MANIFEST.md.
+## Latest CI and failed deploy facts
+Current branch PR: https://github.com/DeeDee-Lab/Dolzore/pull/45
+Dedicated music build/test: all six passed (including original Stripe CTA and 60 distinct urls).
+GitHub-hosted Ubuntu only; no self-hosted OSK222.
+Actual Netlify production deploy attempt: GitHub Actions run 39914850771.
+- Build and tests succeeded.
+- Deploy failed: NETLIFY_DEPLOY_CREDENTIAL_MISSING.
+- All three expected GitHub repository secrets (NETLIFY_AUTH_TOKEN, NETLIFY_TOKEN, NETLIFY_ACCESS_TOKEN) were empty.
+- This failure does not imply missing Stripe checkout pages.
+- GitHub Actions existing 4 baseline failures concern stale old homepage/index expectations and sensitive marker scanning. Separate triage; never falsely claim global CI success.
+GitHub repo Netlify secret is optional if using Netlify's native Git integration.
 
-Status at 2026-10-23: an isolated pull request is preparing original-website reuse. No production source switch and NO VERIFIED Netlify DEPLOY. GitHub writes are not evidence of deployment. No Railway.
+## Post-deploy real verification
+Verify public HTTPS 200, original visual juke/music page, 60 songs, six actual previews, 60 preexisting Stripe href destinations, legal/supported pages, desktop/mobile.
+Two sampled Stripe checkout pages returned empty_content to browser fetch, so credit card purchase and fulfillment were NOT technically verified this turn; user directly assures payment pages already built. No further payment pages are to be created.
+Do not change canonical social URLs until new site live and verified. See design/PUBLIC_URL_MIGRATION_MANIFEST.md.
+Do not make legal guarantees about underlying third-party music model rights without proof; retain as a risk, not misstate it as a missing checkout page.
 
-PDCA PLAN recover ORIGINAL already built HP; DO export adapter and regression tests; CHECK build/preview/checkout/license gates; ACT deploy verified existing HP and selectively unfreeze purchased track delivery.
-
-REUSE_ORIGINAL_WEBSITE=true / NO_REDESIGN=true / RAILWAY_FORBIDDEN=true / GITHUB_PAGES_OLD_CLOSED=true / NETLIFY_FIRST_DEPLOY_PENDING=true
+PDCA: P restore existing site; D isolated export and purchase controls; C six tests pass, production Netlify blocked by missing auth only; A link existing repo to Netlify site and verify live operation.
