@@ -62,6 +62,7 @@ def build() -> None:
     )
     music = OUTPUT / "music/index.html"
     music_html = music.read_text(encoding="utf-8")
+    music_html = music_html.replace('name="robots" content="index,follow"', 'name="robots" content="noindex,nofollow"')
     old_cta = ('<a class="purchase-v6" data-purchase href="#" '
                'target="_blank" rel="noopener noreferrer">')
     if old_cta not in music_html:
