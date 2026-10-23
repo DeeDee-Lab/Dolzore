@@ -56,9 +56,9 @@ def build() -> None:
         '<a href="/music/">DOLZORE JUKEBOXを開く</a></html>',
         encoding="utf-8",
     )
-    # Safe until final authorization; never advertise unfinished checkouts.
+    # Public music room only; previously closed GitHub Pages stays closed.
     (OUTPUT / "robots.txt").write_text(
-        "User-agent: *\nDisallow: /\n", encoding="utf-8"
+        "User-agent: *\nAllow: /\n", encoding="utf-8"
     )
     music = OUTPUT / "music/index.html"
     music_html = music.read_text(encoding="utf-8")
