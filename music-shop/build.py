@@ -3,8 +3,8 @@
 
 Preserves the original website files under docs/, never re-enables the
 previously closed GitHub Pages / Unity legacy world, and never publishes
-full paid MP3s. The exported storefront is checkout-disabled until all
-license and purchase-delivery acceptance checks have passed.
+full paid MP3s. Existing Stripe checkout links remain authoritative and
+are used directly without creating new payment pages.
 """
 from __future__ import annotations
 
@@ -50,7 +50,7 @@ def build() -> None:
     (OUTPUT / "index.html").write_text(
         '<!doctype html><html lang="ja"><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
-        '<meta name="robots" content="noindex,nofollow">'
+        '<meta name="robots" content="index,follow">'
         '<meta http-equiv="refresh" content="0;url=/music/">'
         '<title>DOLZORE MUSIC</title>'
         '<a href="/music/">DOLZORE JUKEBOXを開く</a></html>',
@@ -62,34 +62,12 @@ def build() -> None:
     )
     music = OUTPUT / "music/index.html"
     music_html = music.read_text(encoding="utf-8")
-    music_html = music_html.replace('name="robots" content="index,follow"', 'name="robots" content="noindex,nofollow"')
-    old_cta = ('<a class="purchase-v6" data-purchase href="#" '
-               'target="_blank" rel="noopener noreferrer">')
-    if old_cta not in music_html:
-        raise AssertionError("Original purchase control changed: review export guard")
-    music_html = music_html.replace(
-        old_cta, '<div class="purchase-v6" data-purchase aria-disabled="true">'
-    ).replace(
-        '<span>BUY THIS TRACK</span><strong>¥200</strong></a>',
-        '<span>販売再開準備中</span><strong>¥200</strong></div>',
-    )
-    music_html = music_html.replace(
-        "20秒試聴して1曲¥200で購入できます。",
-        "20秒試聴できます。購入の再開は確認中です。",
-    ).replace(
-        "商用・収益化動画OK。",
-        "ライセンス条件を最終確認中。",
-    ).replace(
-        "1曲¥200・買い切り、商用・収益化動画でも使えます。",
-        "1曲¥200・買い切りでの販売再開を準備中です。",
-    )
-    music_html = music_html.replace(
-        '<main class="music-v6-main" data-jukebox>',
-        '<main class="music-v6-main" data-jukebox><p role="status" '
-        'style="margin:1rem auto;max-width:1120px;padding:1rem;background:#fff2bd;'
-        'color:#261c30">販売再開準備中：試聴・表示の確認ページです。'
-        '購入後の提供方法と販売権利を確認するまで、決済は受け付けません。</p>',
-    )
+
+    # Restore the site's ORIGINAL buy controls and exact Stripe links, without
+    # creating or altering checkout accounts, prices or digital delivery.
+    if '<a class="purchase-v6" data-purchase href="#"' not in music_html:
+        raise AssertionError("Original Stripe purchase CTA changed")
+
     # The music-only recovery must not point visitors into unexported Journal
     # pages or the retired world. Modify ONLY the generated files.
     music_html = re.sub(r'<a[^>]+href="../journal/"[^>]*>[^<]*</a>', '', music_html)
@@ -99,21 +77,14 @@ def build() -> None:
         legal_html = legal_file.read_text(encoding="utf-8")
         legal_html = re.sub(r'<a[^>]+href="../journal/"[^>]*>[^<]*</a>', '', legal_html)
         legal_file.write_text(legal_html, encoding="utf-8")
-    if '販売再開準備中' not in music_html:
-        raise AssertionError("Not marked as a preview-only shop")
 
     script = OUTPUT / "site.js"
     source_js = script.read_text(encoding="utf-8")
     # Existing main original shop is missing the optional animation disc
     # on its HTML screen. Guard null instead of crashing on playback.
     source_js = source_js.replace("disc.classList", "disc?.classList")
-    source_js = source_js.replace(
-        "purchase.href=track.purchaseUrl;",
-        'purchase.removeAttribute("href");'
-        'purchase.setAttribute("aria-disabled","true");',
-    )
-    if "purchase.href=track.purchaseUrl;" in source_js:
-        raise AssertionError("Live purchase binding escaped checkout guard")
+    if "purchase.href=track.purchaseUrl;" not in source_js:
+        raise AssertionError("Existing Stripe purchase binding missing")
     script.write_text(source_js, encoding="utf-8")
 
     for p in OUTPUT.rglob("*"):
@@ -121,7 +92,7 @@ def build() -> None:
             raise AssertionError(f"Unexpected public audio master: {p}")
     print(f"REUSING ORIGINAL HP docs/music: {len(tracks)} tracks; "
           f"{sum(bool(t.get('previewReady')) for t in tracks)} existing preview flags")
-    print(f"READY_FOR_ISOLATED_PREVIEW={OUTPUT} / checkout=DISABLED")
+    print(f"READY_FOR_DEPLOYMENT={OUTPUT} / original_Stripe_links=ENABLED")
 
 
 if __name__ == "__main__":
