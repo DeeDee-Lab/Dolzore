@@ -25,6 +25,10 @@ MODELS={
     "JMGO N1S Ultra 4K":{"terms":["n1sultra4k","n1s ultra 4k"],"strong":None,"consider":None},
     "Epson EH-LS800":{"terms":["ehls800","eh-ls800"],"strong":None,"consider":None},
     "BenQ X3100i":{"terms":["x3100i"],"strong":None,"consider":None},
+    "NOMVDIC P1000":{"terms":["nomvdicp1000","p1000 4k","p1000"],"strong":65000,"consider":80000},
+    "BenQ X500i":{"terms":["x500i"],"strong":90000,"consider":110000},
+    "Optoma GT2160HDR":{"terms":["gt2160hdr"],"strong":100000,"consider":130000},
+    "BenQ W2720i":{"terms":["w2720i"],"strong":130000,"consider":160000},
 }
 
 MARKETS={
@@ -249,6 +253,10 @@ def main(output:Path):
         for fut in concurrent.futures.as_completed(futs):
             row=fut.result()
             if row: rows.append(row)
+
+    # Do not publish a fresh timestamp when every marketplace is blocked.
+    if not rows:
+        raise RuntimeError("NO_VERIFIED_DETAIL_LISTINGS: preserving last published snapshot")
 
     # De-duplicate exact listing URLs.
     unique={r["url"]:r for r in rows}
