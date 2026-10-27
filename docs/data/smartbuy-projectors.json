@@ -1,59 +1,39 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-09-30T02:09:58.471103+00:00",
+  "generatedAt": "2026-10-27T05:14:41.632941+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
   "newItems": [],
   "observedUsed": [
     {
-      "title": " ViewSonic X10-4K 4K UHD 短焦点スマートLEDプ... - Yahoo!オークション",
-      "model": "ViewSonic X10-4K",
-      "market": "yahoo_auction",
-      "marketLabel": "Yahoo!オークション",
-      "price": 72800,
-      "priceStatus": "over_target",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/3d98737b80432900cf1534b4b5a67963d416705e8c8a828ca33da4b9c4478efe/i-img1200x900-17901387733240lnamj033.jpg",
-      "url": "https://auctions.yahoo.co.jp/jp/auction/m1245633828"
-    },
-    {
       "title": "【正規品】ViewSonic X10-4K 4Kプロジェクター ID275｜Yahoo!フリマ（旧PayPayフリマ）",
       "model": "ViewSonic X10-4K",
       "market": "yahoo_flea",
       "marketLabel": "Yahoo!フリマ",
-      "price": 90000,
+      "price": 76000,
       "priceStatus": "over_target",
       "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
     },
     {
-      "title": "BenQ X3100i-JP ホームプロジェクター ベンキュ... - Yahoo!オークション",
-      "model": "BenQ X3100i",
-      "market": "yahoo_auction",
-      "marketLabel": "Yahoo!オークション",
-      "price": 139989,
-      "priceStatus": "market_price",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/cd041539b200398b3aaa41b2ca7ac704aa73904a4386eff05f830df54ce9562a/i-img900x900-17906907007248uyajfw35.jpg",
-      "url": "https://auctions.yahoo.co.jp/jp/auction/x1246393959"
+      "title": "【極美品】BenQ TK700STi 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
+      "model": "BenQ TK700STi",
+      "market": "yahoo_flea",
+      "marketLabel": "Yahoo!フリマ",
+      "price": 139800,
+      "priceStatus": "over_target",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/1f4f68f4028e692299a6b0837540d70f72d87ea1/i-img1080x1080-1792681650921qj0ymz.jpg",
+      "url": "https://paypayfleamarket.yahoo.co.jp/item/z709305148"
     },
     {
-      "title": "【未開封】N1S Ultra 4K 3色レーザー プロジェク... - Yahoo!オークション",
-      "model": "JMGO N1S Ultra 4K",
-      "market": "yahoo_auction",
-      "marketLabel": "Yahoo!オークション",
-      "price": 160000,
-      "priceStatus": "market_price",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/e4c8a6d2909351524bf3abaf7356ce22ba5b510b1a769553605140bd0acff918/i-img1200x948-17895615871084tadsbm342.jpg",
-      "url": "https://auctions.yahoo.co.jp/jp/auction/v1244828746"
-    },
-    {
-      "title": "EPSON EH-LS800B dreamio LCD プロジェクター エ... - Yahoo!オークション",
-      "model": "Epson EH-LS800",
-      "market": "yahoo_auction",
-      "marketLabel": "Yahoo!オークション",
-      "price": 253000,
-      "priceStatus": "market_price",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/34d8e2b2484dc352c38cc5926de6bfed14a7d94c91c44aaafe61901742bf3188/i-img1200x1200-17904961446581fo9er638.jpg",
-      "url": "https://auctions.yahoo.co.jp/jp/auction/1246103469"
+      "title": "BenQ TK705STi 4K 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
+      "model": "BenQ TK705STi",
+      "market": "yahoo_flea",
+      "marketLabel": "Yahoo!フリマ",
+      "price": 180000,
+      "priceStatus": "over_target",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/b436014571468d2d3339ce6bc5bafba9d5d1f548/i-img1200x1200-1792278880592g2r2f5.jpg",
+      "url": "https://paypayfleamarket.yahoo.co.jp/item/z705680886"
     }
   ],
   "modelSummaries": [
@@ -61,14 +41,32 @@
       "model": "BenQ TK700STi",
       "strongBuy": 75000,
       "consider": 90000,
-      "bestUsed": null,
+      "bestUsed": {
+        "title": "【極美品】BenQ TK700STi 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
+        "model": "BenQ TK700STi",
+        "market": "yahoo_flea",
+        "marketLabel": "Yahoo!フリマ",
+        "price": 139800,
+        "priceStatus": "over_target",
+        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/1f4f68f4028e692299a6b0837540d70f72d87ea1/i-img1080x1080-1792681650921qj0ymz.jpg",
+        "url": "https://paypayfleamarket.yahoo.co.jp/item/z709305148"
+      },
       "bestNew": null
     },
     {
       "model": "BenQ TK705STi",
       "strongBuy": 130000,
       "consider": 145000,
-      "bestUsed": null,
+      "bestUsed": {
+        "title": "BenQ TK705STi 4K 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
+        "model": "BenQ TK705STi",
+        "market": "yahoo_flea",
+        "marketLabel": "Yahoo!フリマ",
+        "price": 180000,
+        "priceStatus": "over_target",
+        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/b436014571468d2d3339ce6bc5bafba9d5d1f548/i-img1200x1200-1792278880592g2r2f5.jpg",
+        "url": "https://paypayfleamarket.yahoo.co.jp/item/z705680886"
+      },
       "bestNew": null
     },
     {
@@ -90,14 +88,14 @@
       "strongBuy": 60000,
       "consider": 65000,
       "bestUsed": {
-        "title": " ViewSonic X10-4K 4K UHD 短焦点スマートLEDプ... - Yahoo!オークション",
+        "title": "【正規品】ViewSonic X10-4K 4Kプロジェクター ID275｜Yahoo!フリマ（旧PayPayフリマ）",
         "model": "ViewSonic X10-4K",
-        "market": "yahoo_auction",
-        "marketLabel": "Yahoo!オークション",
-        "price": 72800,
+        "market": "yahoo_flea",
+        "marketLabel": "Yahoo!フリマ",
+        "price": 76000,
         "priceStatus": "over_target",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/3d98737b80432900cf1534b4b5a67963d416705e8c8a828ca33da4b9c4478efe/i-img1200x900-17901387733240lnamj033.jpg",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/m1245633828"
+        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
+        "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
       },
       "bestNew": null
     },
@@ -119,48 +117,49 @@
       "model": "JMGO N1S Ultra 4K",
       "strongBuy": null,
       "consider": null,
-      "bestUsed": {
-        "title": "【未開封】N1S Ultra 4K 3色レーザー プロジェク... - Yahoo!オークション",
-        "model": "JMGO N1S Ultra 4K",
-        "market": "yahoo_auction",
-        "marketLabel": "Yahoo!オークション",
-        "price": 160000,
-        "priceStatus": "market_price",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/e4c8a6d2909351524bf3abaf7356ce22ba5b510b1a769553605140bd0acff918/i-img1200x948-17895615871084tadsbm342.jpg",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/v1244828746"
-      },
+      "bestUsed": null,
       "bestNew": null
     },
     {
       "model": "Epson EH-LS800",
       "strongBuy": null,
       "consider": null,
-      "bestUsed": {
-        "title": "EPSON EH-LS800B dreamio LCD プロジェクター エ... - Yahoo!オークション",
-        "model": "Epson EH-LS800",
-        "market": "yahoo_auction",
-        "marketLabel": "Yahoo!オークション",
-        "price": 253000,
-        "priceStatus": "market_price",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/34d8e2b2484dc352c38cc5926de6bfed14a7d94c91c44aaafe61901742bf3188/i-img1200x1200-17904961446581fo9er638.jpg",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/1246103469"
-      },
+      "bestUsed": null,
       "bestNew": null
     },
     {
       "model": "BenQ X3100i",
       "strongBuy": null,
       "consider": null,
-      "bestUsed": {
-        "title": "BenQ X3100i-JP ホームプロジェクター ベンキュ... - Yahoo!オークション",
-        "model": "BenQ X3100i",
-        "market": "yahoo_auction",
-        "marketLabel": "Yahoo!オークション",
-        "price": 139989,
-        "priceStatus": "market_price",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/user/cd041539b200398b3aaa41b2ca7ac704aa73904a4386eff05f830df54ce9562a/i-img900x900-17906907007248uyajfw35.jpg",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/x1246393959"
-      },
+      "bestUsed": null,
+      "bestNew": null
+    },
+    {
+      "model": "NOMVDIC P1000",
+      "strongBuy": 65000,
+      "consider": 80000,
+      "bestUsed": null,
+      "bestNew": null
+    },
+    {
+      "model": "BenQ X500i",
+      "strongBuy": 90000,
+      "consider": 110000,
+      "bestUsed": null,
+      "bestNew": null
+    },
+    {
+      "model": "Optoma GT2160HDR",
+      "strongBuy": 100000,
+      "consider": 130000,
+      "bestUsed": null,
+      "bestNew": null
+    },
+    {
+      "model": "BenQ W2720i",
+      "strongBuy": 130000,
+      "consider": 160000,
+      "bestUsed": null,
       "bestNew": null
     }
   ],
@@ -214,6 +213,26 @@
       "model": "BenQ X3100i",
       "strongBuy": null,
       "consider": null
+    },
+    {
+      "model": "NOMVDIC P1000",
+      "strongBuy": 65000,
+      "consider": 80000
+    },
+    {
+      "model": "BenQ X500i",
+      "strongBuy": 90000,
+      "consider": 110000
+    },
+    {
+      "model": "Optoma GT2160HDR",
+      "strongBuy": 100000,
+      "consider": 130000
+    },
+    {
+      "model": "BenQ W2720i",
+      "strongBuy": 130000,
+      "consider": 160000
     }
   ],
   "trackedModels": [
@@ -226,7 +245,11 @@
     "XGIMI HORIZON S Max",
     "JMGO N1S Ultra 4K",
     "Epson EH-LS800",
-    "BenQ X3100i"
+    "BenQ X3100i",
+    "NOMVDIC P1000",
+    "BenQ X500i",
+    "Optoma GT2160HDR",
+    "BenQ W2720i"
   ],
   "note": "Verified live listings are retained even when above target so the page can show current market price and a WAIT decision. Recommendation remains separate."
 }
