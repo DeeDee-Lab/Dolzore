@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-10-28T01:26:29.990543+00:00",
+  "generatedAt": "2026-10-28T08:37:42.916220+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
   "newItems": [],
@@ -16,21 +16,11 @@
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
     },
     {
-      "title": "【美品】XGIMI AURA XM03A 4K プロジェクター ID245｜Yahoo!フリマ（旧PayPayフリマ）",
-      "model": "XGIMI AURA",
-      "market": "yahoo_flea",
-      "marketLabel": "Yahoo!フリマ",
-      "price": 113000,
-      "priceStatus": "over_target",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-17893580689266p7n6j.jpg",
-      "url": "https://paypayfleamarket.yahoo.co.jp/item/z682939708"
-    },
-    {
       "title": "【極美品】BenQ TK700STi 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
       "model": "BenQ TK700STi",
       "market": "yahoo_flea",
       "marketLabel": "Yahoo!フリマ",
-      "price": 139800,
+      "price": 138400,
       "priceStatus": "over_target",
       "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/1f4f68f4028e692299a6b0837540d70f72d87ea1/i-img1080x1080-1792681650921qj0ymz.jpg",
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z709305148"
@@ -56,7 +46,7 @@
         "model": "BenQ TK700STi",
         "market": "yahoo_flea",
         "marketLabel": "Yahoo!フリマ",
-        "price": 139800,
+        "price": 138400,
         "priceStatus": "over_target",
         "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/1f4f68f4028e692299a6b0837540d70f72d87ea1/i-img1080x1080-1792681650921qj0ymz.jpg",
         "url": "https://paypayfleamarket.yahoo.co.jp/item/z709305148"
@@ -113,16 +103,7 @@
       "model": "XGIMI AURA",
       "strongBuy": 90000,
       "consider": 100000,
-      "bestUsed": {
-        "title": "【美品】XGIMI AURA XM03A 4K プロジェクター ID245｜Yahoo!フリマ（旧PayPayフリマ）",
-        "model": "XGIMI AURA",
-        "market": "yahoo_flea",
-        "marketLabel": "Yahoo!フリマ",
-        "price": 113000,
-        "priceStatus": "over_target",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-17893580689266p7n6j.jpg",
-        "url": "https://paypayfleamarket.yahoo.co.jp/item/z682939708"
-      },
+      "bestUsed": null,
       "bestNew": null
     },
     {
