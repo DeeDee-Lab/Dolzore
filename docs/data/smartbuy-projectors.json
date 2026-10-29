@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-10-28T21:09:18.602433+00:00",
+  "generatedAt": "2026-10-29T01:01:08.028910+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
   "newItems": [],
@@ -14,6 +14,16 @@
       "priceStatus": "over_target",
       "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
+    },
+    {
+      "title": "【美品】XGIMI AURA XM03A 4K プロジェクター ID245｜Yahoo!フリマ（旧PayPayフリマ）",
+      "model": "XGIMI AURA",
+      "market": "yahoo_flea",
+      "marketLabel": "Yahoo!フリマ",
+      "price": 113000,
+      "priceStatus": "over_target",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-17893580689266p7n6j.jpg",
+      "url": "https://paypayfleamarket.yahoo.co.jp/item/z682939708"
     },
     {
       "title": "【極美品】BenQ TK700STi 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
@@ -103,7 +113,16 @@
       "model": "XGIMI AURA",
       "strongBuy": 90000,
       "consider": 100000,
-      "bestUsed": null,
+      "bestUsed": {
+        "title": "【美品】XGIMI AURA XM03A 4K プロジェクター ID245｜Yahoo!フリマ（旧PayPayフリマ）",
+        "model": "XGIMI AURA",
+        "market": "yahoo_flea",
+        "marketLabel": "Yahoo!フリマ",
+        "price": 113000,
+        "priceStatus": "over_target",
+        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-17893580689266p7n6j.jpg",
+        "url": "https://paypayfleamarket.yahoo.co.jp/item/z682939708"
+      },
       "bestNew": null
     },
     {
