@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-01T15:13:49.994618+00:00",
+  "generatedAt": "2026-11-01T19:44:05.419992+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
   "newItems": [],
@@ -14,16 +14,6 @@
       "priceStatus": "over_target",
       "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
-    },
-    {
-      "title": "xgimi aura 2箇所ほどドット抜けあります｜Yahoo!フリマ（旧PayPayフリマ）",
-      "model": "XGIMI AURA",
-      "market": "yahoo_flea",
-      "marketLabel": "Yahoo!フリマ",
-      "price": 110000,
-      "priceStatus": "over_target",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0110/users/4d2d5068fe66811fd84d736ba331c80e763f45fa/i-img1200x1200-1760453226585ikfk20.jpg",
-      "url": "https://paypayfleamarket.yahoo.co.jp/item/z498457678"
     },
     {
       "title": "【極美品】BenQ TK700STi 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
@@ -113,16 +103,7 @@
       "model": "XGIMI AURA",
       "strongBuy": 90000,
       "consider": 100000,
-      "bestUsed": {
-        "title": "xgimi aura 2箇所ほどドット抜けあります｜Yahoo!フリマ（旧PayPayフリマ）",
-        "model": "XGIMI AURA",
-        "market": "yahoo_flea",
-        "marketLabel": "Yahoo!フリマ",
-        "price": 110000,
-        "priceStatus": "over_target",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0110/users/4d2d5068fe66811fd84d736ba331c80e763f45fa/i-img1200x1200-1760453226585ikfk20.jpg",
-        "url": "https://paypayfleamarket.yahoo.co.jp/item/z498457678"
-      },
+      "bestUsed": null,
       "bestNew": null
     },
     {
