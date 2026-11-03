@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-02T23:34:20.831384+00:00",
+  "generatedAt": "2026-11-03T06:52:06.114582+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
   "newItems": [],
@@ -20,7 +20,7 @@
       "model": "BenQ TK700STi",
       "market": "yahoo_flea",
       "marketLabel": "Yahoo!フリマ",
-      "price": 134000,
+      "price": 129800,
       "priceStatus": "over_target",
       "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/1f4f68f4028e692299a6b0837540d70f72d87ea1/i-img1080x1080-1792681650921qj0ymz.jpg",
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z709305148"
@@ -46,7 +46,7 @@
         "model": "BenQ TK700STi",
         "market": "yahoo_flea",
         "marketLabel": "Yahoo!フリマ",
-        "price": 134000,
+        "price": 129800,
         "priceStatus": "over_target",
         "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/1f4f68f4028e692299a6b0837540d70f72d87ea1/i-img1080x1080-1792681650921qj0ymz.jpg",
         "url": "https://paypayfleamarket.yahoo.co.jp/item/z709305148"
