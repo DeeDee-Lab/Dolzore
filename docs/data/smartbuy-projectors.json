@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-04T09:18:00.354753+00:00",
+  "generatedAt": "2026-11-04T17:22:57.885702+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
   "newItems": [],
@@ -22,8 +22,8 @@
       "marketLabel": "Yahoo!フリマ",
       "price": 129800,
       "priceStatus": "over_target",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/1f4f68f4028e692299a6b0837540d70f72d87ea1/i-img1080x1080-1792681650921qj0ymz.jpg",
-      "url": "https://paypayfleamarket.yahoo.co.jp/item/z709305148"
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/user/493e255119686254f4f4bd1e2b3cb36104c4574a7891ff7b8d64aa750926d76c/i-img1080x1080-17926817227622ekk9wt36.jpg",
+      "url": "https://paypayfleamarket.yahoo.co.jp/item/p1249355908"
     },
     {
       "title": "BenQ TK705STi 4K 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
@@ -48,8 +48,8 @@
         "marketLabel": "Yahoo!フリマ",
         "price": 129800,
         "priceStatus": "over_target",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/users/1f4f68f4028e692299a6b0837540d70f72d87ea1/i-img1080x1080-1792681650921qj0ymz.jpg",
-        "url": "https://paypayfleamarket.yahoo.co.jp/item/z709305148"
+        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/user/493e255119686254f4f4bd1e2b3cb36104c4574a7891ff7b8d64aa750926d76c/i-img1080x1080-17926817227622ekk9wt36.jpg",
+        "url": "https://paypayfleamarket.yahoo.co.jp/item/p1249355908"
       },
       "bestNew": null
     },
