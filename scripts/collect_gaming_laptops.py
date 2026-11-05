@@ -180,20 +180,25 @@ def match_listing(market_name, url, target, session=requests):
 def discover_tasks():
     tasks = [(market_name, url) for market_name, url in SEED_URLS]
     counts = Counter()
+    search_jobs = []
     for model in MODEL_ALIASES:
-        aliases = MODEL_ALIASES[model]
-        queries = [model + " RTX 4060", aliases[0] + " RTX4060"]
-        if model.startswith("Lenovo"):
-            queries.append("Legion Slim 5 14APH8 RTX4060")
         for market_name in USED_MARKETS:
-            for query in queries[:2]:
-                try:
-                    links = market.discover_links(query, market_name)
-                    counts[market_name] += 1
-                    for link, _ in links[:3]:
-                        tasks.append((market_name, link))
-                except Exception:
-                    counts["discovery_error"] += 1
+            query = model + " RTX 4060"
+            if model.startswith("Lenovo"):
+                query = "Legion Slim 5 14APH8 RTX4060"
+            search_jobs.append((model, market_name, query))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+        futures = {pool.submit(market.discover_links, query, vendor): vendor
+                   for _, vendor, query in search_jobs}
+        for f in concurrent.futures.as_completed(futures):
+            vendor = futures[f]
+            try:
+                links = f.result()
+                counts[vendor] += 1
+                for link, _ in links[:3]:
+                    tasks.append((vendor, link))
+            except Exception:
+                counts["discovery_error"] += 1
     return list(dict.fromkeys(tasks)), dict(counts)
 
 def main(target_path=TARGET_PATH, output_path=OUTPUT_PATH):
