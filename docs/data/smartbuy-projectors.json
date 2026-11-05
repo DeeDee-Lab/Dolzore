@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-04T23:43:04.260906+00:00",
+  "generatedAt": "2026-11-05T06:51:15.946073+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
   "newItems": [],
@@ -14,16 +14,6 @@
       "priceStatus": "over_target",
       "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
-    },
-    {
-      "title": "【極美品】BenQ TK700STi 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
-      "model": "BenQ TK700STi",
-      "market": "yahoo_flea",
-      "marketLabel": "Yahoo!フリマ",
-      "price": 129800,
-      "priceStatus": "over_target",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/user/493e255119686254f4f4bd1e2b3cb36104c4574a7891ff7b8d64aa750926d76c/i-img1080x1080-17926817227622ekk9wt36.jpg",
-      "url": "https://paypayfleamarket.yahoo.co.jp/item/p1249355908"
     },
     {
       "title": "BenQ TK705STi 4K 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
@@ -41,16 +31,7 @@
       "model": "BenQ TK700STi",
       "strongBuy": 75000,
       "consider": 90000,
-      "bestUsed": {
-        "title": "【極美品】BenQ TK700STi 短焦点プロジェクター｜Yahoo!フリマ（旧PayPayフリマ）",
-        "model": "BenQ TK700STi",
-        "market": "yahoo_flea",
-        "marketLabel": "Yahoo!フリマ",
-        "price": 129800,
-        "priceStatus": "over_target",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/user/493e255119686254f4f4bd1e2b3cb36104c4574a7891ff7b8d64aa750926d76c/i-img1080x1080-17926817227622ekk9wt36.jpg",
-        "url": "https://paypayfleamarket.yahoo.co.jp/item/p1249355908"
-      },
+      "bestUsed": null,
       "bestNew": null
     },
     {
