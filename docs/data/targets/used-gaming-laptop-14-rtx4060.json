@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "targetId": "used-gaming-laptop-14-rtx4060",
+  "label": "中古14インチ級ゲーミングノートPC",
+  "category": "gaming_laptop",
+  "condition": "used",
+  "priceJPY": {
+    "min": 80000,
+    "max": 130000
+  },
+  "screenInches": {
+    "min": 13.5,
+    "max": 14.5,
+    "preferred": 14
+  },
+  "maxWeightKg": 1.7,
+  "gpu": {
+    "minimum": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "acceptedLaptopGpuModels": [
+      "4060",
+      "4070",
+      "4080",
+      "4090",
+      "5060",
+      "5070",
+      "5070 Ti",
+      "5080",
+      "5090"
+    ],
+    "rejectIntegratedOnly": true,
+    "rejectDesktopCardListings": true
+  },
+  "memoryGB": {
+    "min": 16,
+    "preferred": 32
+  },
+  "ssdGB": {
+    "min": 512
+  },
+  "models": [
+    "ASUS ROG Zephyrus G14",
+    "ASUS TUF Gaming A14",
+    "HP OMEN Transcend 14",
+    "Lenovo Legion Slim 5 14"
+  ],
+  "sellerMarkets": [
+    "mercari",
+    "yahoo_flea",
+    "hardoff",
+    "secondstreet",
+    "yahoo_auction",
+    "rakuma"
+  ],
+  "policy": {
+    "individualListingRequired": true,
+    "excludeSold": true,
+    "excludeDamagedOrUntested": true,
+    "notConfirmedMeansHold": true,
+    "neverAutoBuy": true,
+    "acceptUnknownModelWeightAsHoldOnly": true,
+    "resultsLimit": 10
+  },
+  "collection": {
+    "runner": "github-actions-public-dolzore",
+    "mode": "one_shot",
+    "noRailway": true
+  },
+  "ownerApproval": {
+    "uiTargetCrud": "pending",
+    "emailNotRequiredForGitHubTarget": true
+  }
+}
