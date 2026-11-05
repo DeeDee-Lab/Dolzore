@@ -1,0 +1,98 @@
+name: SmartBuy one-shot 14in RTX4060 used laptop scan
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/collect_gaming_laptops.py"
+      - "tests/test_gaming_laptop_collector.py"
+      - "docs/data/targets/used-gaming-laptop-14-rtx4060.json"
+      - ".github/workflows/collect-gaming-laptops-once.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/collect_gaming_laptops.py"
+      - "tests/test_gaming_laptop_collector.py"
+      - "docs/data/targets/used-gaming-laptop-14-rtx4060.json"
+      - ".github/workflows/collect-gaming-laptops-once.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smartbuy-laptop-14-one-shot
+  cancel-in-progress: false
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install existing market parser dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Compile and run isolated used laptop contract tests
+        run: |
+          python -m py_compile scripts/collect_gaming_laptops.py
+          python -m unittest discover -s tests -p "test_gaming_laptop_collector.py" -v
+
+  collect-once:
+    if: github.event_name != 'pull_request'
+    needs: contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install existing market parser dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Search secondhand market pages once
+        run: |
+          python scripts/collect_gaming_laptops.py --target docs/data/targets/used-gaming-laptop-14-rtx4060.json --output docs/data/smartbuy-gaming-laptops.json
+      - name: Validate machine-readable receipt and conservative BUY verdict
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          p=json.loads(Path("docs/data/smartbuy-gaming-laptops.json").read_text(encoding="utf-8"))
+          assert p["schemaVersion"]==1
+          assert p["targetId"]=="used-gaming-laptop-14-rtx4060"
+          assert p["verifiedBuyCount"]==0
+          assert isinstance(p["results"],list) and len(p["results"])<=10
+          assert (datetime.now(timezone.utc)-datetime.fromisoformat(p["generatedAt"])).total_seconds()<900
+          for row in p["results"]:
+              assert row["url"].startswith("https://")
+              assert row["decision"] in ("CONSIDER","HOLD","WAIT")
+              assert row["inventory"]=="unconfirmed_at_checkout"
+          print("SMARTBUY_LAPTOP_ONE_SHOT_REPORT_VALID=true")
+          print("QUALIFIED="+str(p["qualifiedForConsiderCount"])+" OBSERVED="+str(p["observedCount"])+" INSPECTED="+str(p["detailPagesInspected"]))
+          PY
+      - name: Commit only laptop scan output (does not trigger recurring collection)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "smartbuy-laptop-market-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data/smartbuy-gaming-laptops.json
+          git commit -m "SmartBuy one-shot laptop scan result [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main || { git rebase --abort || true; sleep 2; continue; }
+            if git push origin HEAD:main; then
+              echo "SMARTBUY_LAPTOP_REPORT_PERSISTED=true"
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "SMARTBUY_LAPTOP_REPORT_PERSISTED=false" >&2
+          exit 1
