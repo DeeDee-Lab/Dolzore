@@ -1,9 +1,20 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-06T18:00:49.574640+00:00",
+  "generatedAt": "2026-11-06T23:12:29.615090+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
-  "newItems": [],
+  "newItems": [
+    {
+      "title": "Amazon.co.jp: BenQ 4K ゲーミングプロジェクター (TK700STi) : 家電＆カメラ",
+      "model": "BenQ TK700STi",
+      "market": "amazon",
+      "marketLabel": "Amazon",
+      "price": 131740,
+      "priceStatus": "new_market",
+      "imageUrl": null,
+      "url": "https://www.amazon.co.jp/TK700STi-%E7%9F%AD%E7%84%A6%E7%82%B9%E3%82%B2%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%BF%E3%83%BC-000ANSI%E3%83%AB%E3%83%BC%E3%83%A1%E3%83%B3-240Hz%E5%AF%BE%E5%BF%9C-5W%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E5%86%85%E8%94%B5/dp/B08ZSN4KCW"
+    }
+  ],
   "observedUsed": [
     {
       "title": "【正規品】ViewSonic X10-4K 4Kプロジェクター ID275｜Yahoo!フリマ（旧PayPayフリマ）",
@@ -32,7 +43,16 @@
       "strongBuy": 75000,
       "consider": 90000,
       "bestUsed": null,
-      "bestNew": null
+      "bestNew": {
+        "title": "Amazon.co.jp: BenQ 4K ゲーミングプロジェクター (TK700STi) : 家電＆カメラ",
+        "model": "BenQ TK700STi",
+        "market": "amazon",
+        "marketLabel": "Amazon",
+        "price": 131740,
+        "priceStatus": "new_market",
+        "imageUrl": null,
+        "url": "https://www.amazon.co.jp/TK700STi-%E7%9F%AD%E7%84%A6%E7%82%B9%E3%82%B2%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%BF%E3%83%BC-000ANSI%E3%83%AB%E3%83%BC%E3%83%A1%E3%83%B3-240Hz%E5%AF%BE%E5%BF%9C-5W%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E5%86%85%E8%94%B5/dp/B08ZSN4KCW"
+      }
     },
     {
       "model": "BenQ TK705STi",
