@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-17T04:31:50.758795+00:00",
+  "generatedAt": "2026-11-17T14:29:01.138548+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [
     {
@@ -25,6 +25,16 @@
       "priceStatus": "strong_buy",
       "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/users/572009cd959b738ec192d8d9237a2a7364dc22dd/i-img1200x1200-1794812927977r1acvi.jpg",
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z725385986"
+    },
+    {
+      "title": "【正規品】ViewSonic X10-4K 4Kプロジェクター ID275｜Yahoo!フリマ（旧PayPayフリマ）",
+      "model": "ViewSonic X10-4K",
+      "market": "yahoo_flea",
+      "marketLabel": "Yahoo!フリマ",
+      "price": 70000,
+      "priceStatus": "over_target",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
+      "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
     },
     {
       "title": "BenQ TK705STi 4K 短焦点プロジェクター 家庭用/3000ANSIルーメン/LED/自動縦横台形補正/Googlep｜Yahoo!フリマ（旧PayPayフリマ）",
@@ -88,7 +98,16 @@
       "model": "ViewSonic X10-4K",
       "strongBuy": 60000,
       "consider": 65000,
-      "bestUsed": null,
+      "bestUsed": {
+        "title": "【正規品】ViewSonic X10-4K 4Kプロジェクター ID275｜Yahoo!フリマ（旧PayPayフリマ）",
+        "model": "ViewSonic X10-4K",
+        "market": "yahoo_flea",
+        "marketLabel": "Yahoo!フリマ",
+        "price": 70000,
+        "priceStatus": "over_target",
+        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
+        "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
+      },
       "bestNew": null
     },
     {
