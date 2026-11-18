@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-18T04:25:39.743459+00:00",
+  "generatedAt": "2026-11-18T14:02:39.409174+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [
     {
@@ -35,16 +35,6 @@
       "priceStatus": "over_target",
       "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0209/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img900x1200-1790482942035k4nyje.jpg",
       "url": "https://paypayfleamarket.yahoo.co.jp/item/z692891892"
-    },
-    {
-      "title": "BenQ TK705STi 4K 短焦点プロジェクター 家庭用/3000ANSIルーメン/LED/自動縦横台形補正/Googlep｜Yahoo!フリマ（旧PayPayフリマ）",
-      "model": "BenQ TK705STi",
-      "market": "yahoo_flea",
-      "marketLabel": "Yahoo!フリマ",
-      "price": 292730,
-      "priceStatus": "over_target",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/user/097632e62078d8f5a38136798f3b714c4d8db9107808c105c519a6b33baf3442/i-img500x500-17917178845397yqksyk275.jpg",
-      "url": "https://paypayfleamarket.yahoo.co.jp/item/r1247955893"
     }
   ],
   "modelSummaries": [
@@ -68,16 +58,7 @@
       "model": "BenQ TK705STi",
       "strongBuy": 130000,
       "consider": 145000,
-      "bestUsed": {
-        "title": "BenQ TK705STi 4K 短焦点プロジェクター 家庭用/3000ANSIルーメン/LED/自動縦横台形補正/Googlep｜Yahoo!フリマ（旧PayPayフリマ）",
-        "model": "BenQ TK705STi",
-        "market": "yahoo_flea",
-        "marketLabel": "Yahoo!フリマ",
-        "price": 292730,
-        "priceStatus": "over_target",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/user/097632e62078d8f5a38136798f3b714c4d8db9107808c105c519a6b33baf3442/i-img500x500-17917178845397yqksyk275.jpg",
-        "url": "https://paypayfleamarket.yahoo.co.jp/item/r1247955893"
-      },
+      "bestUsed": null,
       "bestNew": null
     },
     {
