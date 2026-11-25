@@ -1,0 +1,51 @@
+# Extracted from smartbuy-production-http-check.yml; read-only HTTP acceptance.
+import os
+os.environ['SMARTBUY_URL'] = 'https://smartbuy-hub-one.vercel.app'
+import json
+import os
+import urllib.request
+from datetime import datetime, timezone
+
+base = os.environ["SMARTBUY_URL"].rstrip("/")
+def fetch(path):
+    request = urllib.request.Request(
+        base + path,
+        headers={"User-Agent": "SmartBuy-Production-Smoke/1.0"}
+    )
+    with urllib.request.urlopen(request, timeout=20) as response:
+        data = response.read(1500000)
+        print(f"SMARTBUY_HTTP path={path} status={response.status} bytes={len(data)} content_type={response.headers.get('Content-Type')}", flush=True)
+        assert response.status == 200, f"{path} HTTP {response.status}"
+        return data.decode("utf-8")
+
+html = fetch("/")
+css = fetch("/styles.css")
+js = fetch("/app.js")
+latest = json.loads(fetch("/data/latest.json"))
+runs = json.loads(fetch("/data/runs.json"))
+
+assert "<title>SmartBuy Hub</title>" in html, "Missing SmartBuy index; deployment not serving expected root"
+assert "SMARTBUY" in css.upper() or ".shell" in css, "CSS bundle invalid"
+assert "./data/latest.json" in js, "Browser cannot read static market data"
+assert "publicGitHubMarketFallback" in js, "Latest DOLZORE public feed fallback missing"
+assert "github.com/DeeDee-Lab/Dolzore/actions" in js, "Wrong Actions refresh target"
+assert "/api/collection-request" not in js, "Old Railway API remains"
+assert latest["schema_version"] == "1.0-url-control-plane"
+assert isinstance(latest.get("recommendations"), list)
+assert isinstance(runs, list)
+assert latest.get("system", {}).get("source") == "DOLZORE-public-github-observation"
+
+public_feed = urllib.request.Request(
+    "https://raw.githubusercontent.com/DeeDee-Lab/Dolzore/main/docs/data/smartbuy-projectors.json",
+    headers={"User-Agent": "SmartBuy-Production-Smoke/1.0"}
+)
+with urllib.request.urlopen(public_feed, timeout=20) as response:
+    market = json.loads(response.read(800000).decode("utf-8"))
+    cors = response.headers.get("Access-Control-Allow-Origin", "")
+    print("PUBLIC_FEED_HTTP=200 CORS=" + cors)
+    assert cors in ("*", "https://smartbuy-hub-one.vercel.app"), "Browser CORS disallows public market feed"
+age = (datetime.now(timezone.utc) - datetime.fromisoformat(market["generatedAt"]).astimezone(timezone.utc)).total_seconds()
+print(f"PUBLIC_FEED age_seconds={age:.0f} observed={len(market.get('observedUsed', []))}")
+assert -120 <= age <= 172800, "Public market feed stale"
+assert isinstance(market.get("observedUsed"), list)
+print("SMARTBUY_PRODUCTION_SMOKE_PASS=true")
