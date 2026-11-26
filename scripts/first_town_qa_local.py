@@ -27,6 +27,30 @@ MARKERS = {"FIRST_TOWN_QA_PASS", "WORLD_SIZE_1536x1152=PASS", "SCROLLING_CAMERA=
            "MOVE_JUMP_BGM_CONTROLS=PASS", "MOBILE_CONTROLS=PASS", "HORIZONTAL_OVERFLOW=0"}
 
 
+# Explicit profiles, not user-supplied executable paths. Keep the original
+# First Town interface intact while sharing the isolated browser carrier.
+PROFILES = {
+    "first-town": {"pins": PINS, "qa": QA, "output": "qa-first-town", "shots": SHOTS,
+                   "markers": MARKERS, "schema": "dolzore-first-town-local/v1"},
+    "slice1": {
+        "pins": {".github/workflows/slice-qa-cloud.yml": "34075da936902ca9b4b7a61b71cdff5a73b95356",
+                 "tests/game_slice_qa.py": "c6055ad07847637d3029e674deba6fd136a9dc3f"},
+        "qa": "tests/game_slice_qa.py", "output": "qa-slice1",
+        "shots": frozenset({"desktop-slice1.png", "mobile-slice1.png"}),
+        "markers": frozenset({"SLICE1_QA_PASS", "CHARACTERS_4=PASS", "MOVEMENT=PASS", "SPACE_JUMP=PASS",
+                              "ENTER_RESERVED_FOR_INTERACTION=PASS", "BGM_TOGGLE_PERSISTENCE=PASS",
+                              "MOBILE_CONTROLS=PASS", "HORIZONTAL_OVERFLOW=0"}),
+        "schema": "dolzore-slice1-local/v1",
+    },
+}
+
+
+def get_profile(name):
+    if not isinstance(name, str) or name not in PROFILES:
+        raise ValueError("UNKNOWN_QA_PROFILE")
+    return PROFILES[name]
+
+
 def blob(data):
     return hashlib.sha1(f"blob {len(data)}\0".encode() + data).hexdigest()
 
@@ -45,7 +69,7 @@ def clean_env(home, browsers):
     return env
 
 
-def checkout(root, sha, env, *, pristine):
+def checkout(root, sha, env, *, pristine, pins=PINS):
     def git(*args):
         return subprocess.check_output(["git", "-C", str(root), *args], env=env, timeout=30)
     if not re.fullmatch(r"[0-9a-f]{40}", sha) or Path(os.fsdecode(git("rev-parse", "--show-toplevel").rstrip())).resolve() != root or git("rev-parse", "HEAD").decode().strip() != sha:
@@ -54,7 +78,7 @@ def checkout(root, sha, env, *, pristine):
         raise ValueError("CHECKOUT_NOT_PRISTINE")
     if git("diff", "--name-only", "HEAD"):
         raise ValueError("TRACKED_SOURCE_CHANGED")
-    for path, expected in PINS.items():
+    for path, expected in pins.items():
         file = root / path
         data = git("show", f"{sha}:{path}")
         if file.resolve() != file or blob(data) != expected or file.read_bytes() != data:
@@ -87,13 +111,13 @@ def local_site(docs, port=8765):
         thread.join(timeout=5)
 
 
-def screenshot_receipt(folder, qa_log):
-    if folder.is_symlink() or not folder.is_dir() or set(qa_log.splitlines()) & MARKERS != MARKERS:
+def screenshot_receipt(folder, qa_log, *, shots=SHOTS, markers=MARKERS):
+    if folder.is_symlink() or not folder.is_dir() or set(qa_log.splitlines()) & markers != markers:
         raise ValueError("QA_MARKERS_OR_DIRECTORY_MISSING")
-    if {p.name for p in folder.iterdir()} != SHOTS:
+    if {p.name for p in folder.iterdir()} != shots:
         raise ValueError("SCREENSHOT_SET_MISMATCH")
     result = {}
-    for name in sorted(SHOTS):
+    for name in sorted(shots):
         file = folder / name
         if file.is_symlink() or not file.is_file() or not 8 < file.stat().st_size <= 32 * 1024 * 1024:
             raise ValueError("INVALID_SCREENSHOT:" + name)
@@ -104,19 +128,20 @@ def screenshot_receipt(folder, qa_log):
     return result
 
 
-def run(root, sha, evidence, python, browsers, *, approved=False, timeout=1200):
+def run(root, sha, evidence, python, browsers, *, approved=False, timeout=1200, profile="first-town"):
+    spec = get_profile(profile)
     if not approved or os.name != "nt" or os.getenv("COMPUTERNAME") != "OSK222" or not 1 <= timeout <= 1200:
         raise ValueError("APPROVED_OSK222_BROWSER_ISOLATION_REQUIRED")
     root, evidence, python, browsers = (Path(p).resolve() for p in (root, evidence, python, browsers))
     if root.is_relative_to(evidence) or evidence.is_relative_to(root) or any(p.is_relative_to(root) or not p.exists() for p in (python, browsers)):
         raise ValueError("EXTERNAL_EVIDENCE_AND_TOOLCHAIN_REQUIRED")
     env = clean_env(evidence, browsers)
-    checkout(root, sha, env, pristine=True)
+    checkout(root, sha, env, pristine=True, pins=spec["pins"])
     version = subprocess.check_output([str(python), "--version"], env=env, timeout=10).decode().strip()
     if version != "Python 3.12.10":
         raise ValueError("APPROVED_PYTHON_VERSION_REQUIRED")
     evidence.mkdir(exist_ok=False)
-    receipt = {"schema": "dolzore-first-town-local/v1", "source_sha": sha, "pins": PINS,
+    receipt = {"schema": spec["schema"], "source_sha": sha, "pins": spec["pins"],
                "python_version": version, "steps": [], "status": "FAIL", "runtime_acceptance": "NOT_ESTABLISHED",
                "migration_complete": False, "actions_disable_authorized": False}
     deadline = time.monotonic() + timeout
@@ -140,17 +165,17 @@ def run(root, sha, evidence, python, browsers, *, approved=False, timeout=1200):
         counts = re.findall(r"^Ran (\d+) tests? in [0-9.]+s\s*$", contract, re.M)
         if not counts or int(counts[-1]) == 0:
             raise ValueError("NO_EXECUTED_CONTRACT_TESTS")
-        checkout(root, sha, env, pristine=False)
-        if (root / "qa-first-town").exists():
+        checkout(root, sha, env, pristine=False, pins=spec["pins"])
+        if (root / spec["output"]).exists():
             raise ValueError("PREEXISTING_SCREENSHOTS")
         with local_site(root / "docs"):
-            qa_log = step("first-town", [QA])
-        fingerprints = screenshot_receipt(root / "qa-first-town", qa_log)
-        checkout(root, sha, env, pristine=False)
+            qa_log = step(profile, [spec["qa"]])
+        fingerprints = screenshot_receipt(root / spec["output"], qa_log, shots=spec["shots"], markers=spec["markers"])
+        checkout(root, sha, env, pristine=False, pins=spec["pins"])
         shots = evidence / "screenshots"
         shots.mkdir()
         for name, expected in fingerprints.items():
-            data = (root / "qa-first-town" / name).read_bytes()
+            data = (root / spec["output"] / name).read_bytes()
             if digest(data) != expected:
                 raise ValueError("SCREENSHOT_DRIFT")
             with (shots / name).open("xb") as out:
@@ -176,10 +201,11 @@ def main():
     for arg in ("checkout", "evidence", "python", "browsers"):
         parser.add_argument("--" + arg, required=True, type=Path)
     parser.add_argument("--approved-sha", required=True)
+    parser.add_argument("--profile", choices=tuple(PROFILES), default="first-town")
     parser.add_argument("--run-isolated", action="store_true")
     args = parser.parse_args()
     try:
-        return run(args.checkout, args.approved_sha, args.evidence, args.python, args.browsers, approved=args.run_isolated)
+        return run(args.checkout, args.approved_sha, args.evidence, args.python, args.browsers, approved=args.run_isolated, profile=args.profile)
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         print("FIRST_TOWN_LOCAL_REJECTED:" + str(exc), file=sys.stderr)
         return 2
