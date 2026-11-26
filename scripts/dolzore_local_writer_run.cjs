@@ -29,11 +29,11 @@ function plan(profile,event){
  requireOk(profile!=="media"||event!=="pull_request","media PR trigger absent");
  const marketTest=["-m","unittest","discover","-s","tests","-p","test_market_snapshot_contract.py","-v"];
  const commands=profile==="market"?[
-  {name:"compile",args:["-m","py_compile",p.script],seconds:300},
-  {name:"contract_before",args:marketTest,seconds:300},
-  ...(event==="pull_request"?[]:[{name:"collect",args:[p.script,"--output",p.data],seconds:900},{name:"contract_after",args:marketTest,seconds:900}])
- ]:[{name:"collect",args:[p.script,"--file",p.data],seconds:600},{name:"contract_after",args:["-m","unittest","discover","-s","tests","-p","test_*.py","-v"],seconds:600}];
- return {profile,event,commands,collect:event!=="pull_request",target:p.data,deadlineSeconds:profile==="media"?600:event==="pull_request"?300:1200};
+  {name:"compile",phase:"contract",args:["-m","py_compile",p.script],seconds:300},
+  {name:"contract_before",phase:"contract",args:marketTest,seconds:300},
+  ...(event==="pull_request"?[]:[{name:"collect",phase:"update",args:[p.script,"--output",p.data],seconds:900},{name:"contract_after",phase:"update",args:marketTest,seconds:900}])
+ ]:[{name:"collect",phase:"update",args:[p.script,"--file",p.data],seconds:600},{name:"contract_after",phase:"update",args:["-m","unittest","discover","-s","tests","-p","test_*.py","-v"],seconds:600}];
+ return {profile,event,commands,collect:event!=="pull_request",target:p.data,phaseSeconds:{contract:300,update:profile==="media"?600:900},deadlineSeconds:profile==="media"?600:event==="pull_request"?300:1200};
 }
 function execute(profile,event,ops){
  const p=plan(profile,event);
@@ -41,14 +41,18 @@ function execute(profile,event,ops){
   ops.preflight(p);
   ops.begin(p);
   const original=ops.snapshot(p.target);
+  let phase=null,collected=null;
   for(const cmd of p.commands){
+   if(phase!==cmd.phase){phase=cmd.phase;ops.phase(phase,p.phaseSeconds[phase]);}
    const result=ops.run(cmd);
    requireOk(result.status===0&&!result.error,"STEP_FAILED:"+cmd.name);
-   if(cmd.name.startsWith("contract"))requireOk(/Ran [1-9][0-9]* tests?\b/.test(result.log)&&/^OK(?:\s|$)/m.test(result.log)&&!/\bskipped=/.test(result.log),"CONTRACT_NOT_ALL_PASS:"+cmd.name);
+   if(cmd.name.startsWith("contract"))requireOk(/Ran [1-9][0-9]* tests?\b/.test(result.log)&&/^OK[ \t]*\r?$/m.test(result.log)&&!/\b(?:skipped|expected failures|unexpected successes)=/.test(result.log),"CONTRACT_NOT_ALL_PASS:"+cmd.name);
+   if(cmd.name==="collect"){ops.checkDiff(p.target);collected=ops.readTarget(p.target);ops.validate(p,original,collected);}
   }
   const current=ops.readTarget(p.target);
   ops.checkDiff(p.collect?p.target:null);
   if(!p.collect){requireOk(original===current,"PR changed data");return ops.finish({profile,event,state:"CI_ONLY_PASS",candidate:false,publication_authorized:false})}
+  requireOk(collected===current,"candidate changed after validation");
   const staged=ops.stage(p,original,current);
   requireOk(staged.stage_status==="STAGED"&&staged.profile===profile&&staged.publication_authorized===false&&staged.production_writer_authorized===false,"stage receipt boundary");
   return ops.finish({profile,event,state:"LOCAL_STAGE_PREPARED",candidate:true,stage:staged,publication_authorized:false});
@@ -58,16 +62,18 @@ function selftest(){
  let n=0;const ok=x=>{requireOk(x,"test failed");n++};const reject=fn=>{let bad=false;try{fn()}catch(e){bad=true}ok(bad)};
  function fixture(opts={}){
   const trace=[];let locked=false;
-  const ops={lock(fn){if(opts.locked)throw Error("LOCK");locked=true;trace.push("lock");try{return fn()}finally{locked=false;trace.push("unlock")}},preflight(){requireOk(locked,"not locked");trace.push("preflight");if(opts.drift)throw Error("drift")},begin(){trace.push("begin")},snapshot(){return "old"},run(c){requireOk(locked,"not locked");trace.push(c.name);return {status:opts.fail===c.name?1:0,log:opts.empty?"Ran 0 tests\nOK":opts.skip?"Ran 2 tests\nOK (skipped=1)":"Ran 2 tests\nOK\n"}},readTarget(){return opts.changed?"new":"old"},checkDiff(p){trace.push("diff");if(opts.extra)throw Error("extra")},stage(p){trace.push("stage");return {stage_status:"STAGED",profile:p.profile,publication_authorized:!!opts.authority,production_writer_authorized:false}},finish(r){trace.push("finish");return r}};
+  const ops={lock(fn){if(opts.locked)throw Error("LOCK");locked=true;trace.push("lock");try{return fn()}finally{locked=false;trace.push("unlock")}},preflight(){requireOk(locked,"not locked");trace.push("preflight");if(opts.drift)throw Error("drift")},begin(){trace.push("begin")},phase(p,n){trace.push("phase:"+p+":"+n)},snapshot(){return "old"},run(c){requireOk(locked,"not locked");trace.push(c.name);return {status:opts.fail===c.name?1:0,log:opts.empty?"Ran 0 tests\nOK":opts.skip?"Ran 2 tests\nOK (skipped=1)":"Ran 2 tests\nOK\n"}},readTarget(){return opts.tamper&&trace.includes("contract_after")?"tampered":opts.changed?"new":"old"},validate(){trace.push("validate");if(opts.invalid)throw Error("invalid candidate")},checkDiff(p){trace.push("diff");if(opts.extra)throw Error("extra")},stage(p){trace.push("stage");return {stage_status:"STAGED",profile:p.profile,publication_authorized:!!opts.authority,production_writer_authorized:false}},finish(r){trace.push("finish");return r}};
   return {ops,trace};
  }
  let f=fixture();ok(execute("market","pull_request",f.ops).state==="CI_ONLY_PASS");ok(!f.trace.includes("collect")&&!f.trace.includes("stage"));
- f=fixture({changed:true});ok(execute("market","schedule",f.ops).state==="LOCAL_STAGE_PREPARED");ok(f.trace.join(",")==="lock,preflight,begin,compile,contract_before,collect,contract_after,diff,stage,finish,unlock");
- f=fixture();ok(execute("media","workflow_dispatch",f.ops).candidate);ok(f.trace.join(",")==="lock,preflight,begin,collect,contract_after,diff,stage,finish,unlock");
+ f=fixture({changed:true});ok(execute("market","schedule",f.ops).state==="LOCAL_STAGE_PREPARED");ok(f.trace.join(",")==="lock,preflight,begin,phase:contract:300,compile,contract_before,phase:update:900,collect,diff,validate,contract_after,diff,stage,finish,unlock");
+ f=fixture();ok(execute("media","workflow_dispatch",f.ops).candidate);ok(f.trace.join(",")==="lock,preflight,begin,phase:update:600,collect,diff,validate,contract_after,diff,stage,finish,unlock");
  reject(()=>plan("media","pull_request"));reject(()=>plan("market","bad"));reject(()=>plan("bad","push"));
- for(const opts of [{locked:true},{drift:true},{fail:"compile"},{fail:"contract_before"},{fail:"collect"},{fail:"contract_after"},{empty:true},{skip:true},{extra:true},{authority:true}]){f=fixture(opts);reject(()=>execute("market","schedule",f.ops));ok(!f.trace.includes("finish"))}
+ for(const opts of [{locked:true},{drift:true},{fail:"compile"},{fail:"contract_before"},{fail:"collect"},{fail:"contract_after"},{empty:true},{skip:true},{extra:true},{authority:true},{invalid:true},{tamper:true}]){f=fixture(opts);reject(()=>execute("market","schedule",f.ops));ok(!f.trace.includes("finish"))}
  f=fixture({changed:true});reject(()=>execute("market","pull_request",f.ops));ok(!f.trace.includes("stage"));
  ok(plan("market","push").deadlineSeconds===1200&&plan("media","push").deadlineSeconds===600);
+ f=fixture({invalid:true});reject(()=>execute("market","push",f.ops));ok(!f.trace.includes("contract_after")&&!f.trace.includes("stage"));
+ f=fixture({tamper:true});reject(()=>execute("media","push",f.ops));ok(!f.trace.includes("stage"));
  return n;
 }
 module.exports={pins,plan,execute,selftest};
@@ -88,13 +94,14 @@ function main(argv){
  Object.assign(env,{GIT_NO_REPLACE_OBJECTS:"1",GIT_NO_LAZY_FETCH:"1",GIT_TERMINAL_PROMPT:"0",GIT_OPTIONAL_LOCKS:"0",PYTHONUTF8:"1",PYTHONDONTWRITEBYTECODE:"1",PYTHONNOUSERSITE:"1"});
  const git=(...args)=>cp.execFileSync("git",["-c","protocol.allow=never","-C",root,...args],{env,timeout:30000,maxBuffer:16*1024*1024});
  const status=()=>git("status","--porcelain=v1","-z","--untracked-files=all").toString();
- let runDir,started,deadline;
- const runRaw=(args,seconds)=>cp.spawnSync(python,args,{cwd:root,env,timeout:Math.max(1,Math.min(seconds*1000,deadline-Date.now())),maxBuffer:4*1024*1024,windowsHide:true,encoding:"utf8"});
+ let runDir,started,deadline,uncertain=false;
+ const runRaw=(args,seconds)=>{requireOk(Date.now()<deadline,"phase timeout");const r=cp.spawnSync(python,args,{cwd:root,env,timeout:Math.max(1,Math.min(seconds*1000,deadline-Date.now())),killSignal:"SIGKILL",maxBuffer:4*1024*1024,windowsHide:true,encoding:"utf8"});if(r.error||r.signal||r.status===null)uncertain=true;return r};
  const ops={
-  lock(fn){const lock=path.join(stageRoot,".dolzore-data-writers-collection.lock");fs.mkdirSync(lock);try{return fn()}finally{fs.rmdirSync(lock)}},
+  lock(fn){const lock=path.join(stageRoot,".dolzore-data-writers-collection.lock");fs.mkdirSync(lock);try{return fn()}finally{if(!uncertain)fs.rmdirSync(lock)}},
   preflight(p){
    requireOk(fs.realpathSync(git("rev-parse","--show-toplevel").toString().trim())===root&&git("rev-parse","HEAD").toString().trim()===pins.base&&!status(),"pinned clean original checkout required");
    requireOk(fs.lstatSync(path.join(root,".git")).isDirectory()&&!fs.existsSync(path.join(root,".git","objects","info","alternates")),"standalone checkout required");
+   requireOk(!fs.existsSync(path.join(evidence,runId))&&!fs.existsSync(path.join(stageRoot,runId))&&!fs.existsSync(path.join(stageRoot,".dolzore-data-writers.lock")),"existing run or stage lock");
    const x=pins[p.profile];for(const [file,hash] of [[x.workflow,x.workflowBlob],[x.script,x.scriptBlob],[x.data,x.dataBlob],...(x.test?[[x.test,x.testBlob]]:[])]){const full=path.join(root,file);requireOk(fs.realpathSync(full)===full&&blob(read(full))===hash&&blob(git("show",pins.base+":"+file))===hash,"pin mismatch "+file)}
    requireOk(blob(read(stageScript))===pins.stage,"stage carrier drift");
    const b=read(depPath);requireOk(sha(b)===depSha,"dependency inventory hash drift");const expected=JSON.parse(b);requireOk(expected&&typeof expected.requests==="string"&&typeof expected.beautifulsoup4==="string","approved dependency versions required");
@@ -102,10 +109,12 @@ function main(argv){
    const probe=runRaw(["-I","-c","import json,sys,importlib.metadata as m; print(json.dumps({'python':list(sys.version_info[:2]),'requests':m.version('requests'),'beautifulsoup4':m.version('beautifulsoup4')}))"],30);
    requireOk(probe.status===0&&!probe.error,"dependency probe failed");const actual=JSON.parse(probe.stdout);requireOk(JSON.stringify(actual.python)==="[3,11]"&&actual.requests===expected.requests&&actual.beautifulsoup4===expected.beautifulsoup4,"dependency version mismatch");
   },
-  begin(p){runDir=path.join(evidence,runId);fs.mkdirSync(runDir);started=new Date().toISOString();deadline=Date.now()+p.deadlineSeconds*1000;write(path.join(runDir,"intent.json"),JSON.stringify({profile,event,runId,base:pins.base,depSha,started})+"\n")},
+  begin(p){const dir=path.join(evidence,runId);fs.mkdirSync(dir);runDir=dir;started=new Date().toISOString();write(path.join(runDir,"intent.json"),JSON.stringify({profile,event,runId,base:pins.base,depSha,started})+"\n")},
+  phase(name,seconds){deadline=Date.now()+seconds*1000;write(path.join(runDir,"phase-"+name+".json"),JSON.stringify({name,seconds,started:new Date().toISOString()})+"\n")},
   snapshot(target){const b=read(path.join(root,target));write(path.join(runDir,"original.json"),b);return sha(b)},
   run(c){requireOk(Date.now()<deadline,"whole run timeout");const result=runRaw(c.args,c.seconds),log=(result.stdout||"")+"\n"+(result.stderr||"");write(path.join(runDir,c.name+".log"),log);return {status:result.status,error:result.error,log}},
   readTarget(target){return sha(read(path.join(root,target)))},
+  validate(p,original,current){const output=path.join(root,p.target),old=path.join(runDir,"original.json");requireOk(sha(read(old))===original&&sha(read(output))===current,"validation input drift");const command="import runpy,sys,pathlib,datetime; m=runpy.run_path(sys.argv[1]); m['validate'](sys.argv[2],pathlib.Path(sys.argv[3]).read_bytes(),pathlib.Path(sys.argv[4]).read_bytes(),datetime.datetime.now(datetime.timezone.utc))";const r=runRaw(["-I","-c",command,stageScript,profile,old,output],60);write(path.join(runDir,"validate.log"),(r.stdout||"")+"\n"+(r.stderr||""));requireOk(r.status===0&&!r.error,"candidate validation failed")},
   checkDiff(target){
    requireOk(git("rev-parse","HEAD").toString().trim()===pins.base,"HEAD drift");
    const tracked=git("diff","--name-only","-z","HEAD").toString().split("\0").filter(Boolean),staged=git("diff","--cached","--name-only","-z").toString(),untracked=git("ls-files","--others","--exclude-standard","-z").toString();
@@ -120,6 +129,6 @@ function main(argv){
   },
   finish(result){const receipt={...result,schema:"dolzore-local-writer-run/v1",runId,source_commit:pins.base,started,finished:new Date().toISOString(),dependency_inventory_sha256:depSha,production_writer_authorized:false,runtime_acceptance:"NOT_ESTABLISHED",remote_write:false};write(path.join(runDir,"result.json"),JSON.stringify(receipt)+"\n");return receipt}
  };
- try{console.log(JSON.stringify(execute(profile,event,ops)))}catch(err){if(runDir&&fs.existsSync(runDir)){try{write(path.join(runDir,"failure.json"),JSON.stringify({state:"FAILED",reason:String(err.message).slice(0,300),publication_authorized:false})+"\n")}catch{}}throw err}
+ try{console.log(JSON.stringify(execute(profile,event,ops)))}catch(err){if(runDir&&fs.existsSync(runDir)){try{write(path.join(runDir,"failure.json"),JSON.stringify({state:"FAILED",reason:String(err.message).slice(0,300),lock_retained_for_hq:uncertain,publication_authorized:false})+"\n")}catch{}}throw err}
 }
 if(require.main===module){try{main(process.argv.slice(2))}catch(e){console.error("DOLZORE_LOCAL_WRITER_REJECTED: "+e.message);process.exitCode=2}}
