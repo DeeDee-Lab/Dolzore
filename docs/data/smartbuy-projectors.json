@@ -1,31 +1,10 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-27T10:55:34.722000+00:00",
+  "generatedAt": "2026-11-27T20:00:22.859598+00:00",
   "source": "github-hosted-public-market-snapshot",
   "used": [],
-  "newItems": [
-    {
-      "title": "Amazon.co.jp: エプソン ドリーミオ ホームプロジェクター EH-LS800B 4KE 4000lm : 家電＆カメラ",
-      "model": "Epson EH-LS800",
-      "market": "amazon",
-      "marketLabel": "Amazon",
-      "price": 284980,
-      "priceStatus": "new_market",
-      "imageUrl": null,
-      "url": "https://www.amazon.co.jp/%E3%82%A8%E3%83%97%E3%82%BD%E3%83%B3-%E3%83%89%E3%83%AA%E3%83%BC%E3%83%9F%E3%82%AA-%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%BF%E3%83%BC-EH-LS800B-4KE-4000lm/dp/B0BFWZHF45"
-    }
-  ],
+  "newItems": [],
   "observedUsed": [
-    {
-      "title": "ViewSonic X10-4K 短焦点プロジェクター 2400lm ID316｜Yahoo!フリマ（旧PayPayフリマ）",
-      "model": "ViewSonic X10-4K",
-      "market": "yahoo_flea",
-      "marketLabel": "Yahoo!フリマ",
-      "price": 85500,
-      "priceStatus": "over_target",
-      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img1200x1197-1795359468024d2i3q8.jpg",
-      "url": "https://paypayfleamarket.yahoo.co.jp/item/z729843688"
-    },
     {
       "title": "BenQ TK705STi 4K 短焦点プロジェクター 家庭用/3000ANSIルーメン/LED/自動縦横台形補正/Googlep｜Yahoo!フリマ（旧PayPayフリマ）",
       "model": "BenQ TK705STi",
@@ -79,16 +58,7 @@
       "model": "ViewSonic X10-4K",
       "strongBuy": 60000,
       "consider": 65000,
-      "bestUsed": {
-        "title": "ViewSonic X10-4K 短焦点プロジェクター 2400lm ID316｜Yahoo!フリマ（旧PayPayフリマ）",
-        "model": "ViewSonic X10-4K",
-        "market": "yahoo_flea",
-        "marketLabel": "Yahoo!フリマ",
-        "price": 85500,
-        "priceStatus": "over_target",
-        "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/users/d4f3efa007fd85e6af75552f41f6035073b9d927/i-img1200x1197-1795359468024d2i3q8.jpg",
-        "url": "https://paypayfleamarket.yahoo.co.jp/item/z729843688"
-      },
+      "bestUsed": null,
       "bestNew": null
     },
     {
@@ -117,16 +87,7 @@
       "strongBuy": null,
       "consider": null,
       "bestUsed": null,
-      "bestNew": {
-        "title": "Amazon.co.jp: エプソン ドリーミオ ホームプロジェクター EH-LS800B 4KE 4000lm : 家電＆カメラ",
-        "model": "Epson EH-LS800",
-        "market": "amazon",
-        "marketLabel": "Amazon",
-        "price": 284980,
-        "priceStatus": "new_market",
-        "imageUrl": null,
-        "url": "https://www.amazon.co.jp/%E3%82%A8%E3%83%97%E3%82%BD%E3%83%B3-%E3%83%89%E3%83%AA%E3%83%BC%E3%83%9F%E3%82%AA-%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%BF%E3%83%BC-EH-LS800B-4KE-4000lm/dp/B0BFWZHF45"
-      }
+      "bestNew": null
     },
     {
       "model": "BenQ X3100i",
