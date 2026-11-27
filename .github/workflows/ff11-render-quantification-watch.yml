@@ -1,0 +1,144 @@
+name: FF11 Render Quantification Watch
+
+on:
+  schedule:
+    - cron: '10 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: ff11-render-quantification-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Compare canonical FF11 render status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const crypto = require('crypto');
+            const path = 'research/ff11/RENDER_ASSET_QUANTIFICATION_STATUS_V1.json';
+            const raw = fs.readFileSync(path, 'utf8');
+            const current = JSON.parse(raw);
+            if (current.schema !== 'dolzore.ff11.render_asset_quantification_status.v1') {
+              throw new Error('FF11_RENDER_STATUS_SCHEMA_INVALID');
+            }
+            const tracked = {
+              metrics: current.metrics || {},
+              spc_source: {
+                manifest_scan_id: current.spc_source?.manifest_scan_id || null,
+                manifest_sha256: current.spc_source?.manifest_sha256 || null,
+                later_internal_pass_run: current.spc_source?.later_internal_pass_run || null,
+                later_internal_pass_scan_id: current.spc_source?.later_internal_pass_scan_id || null,
+              },
+              parser: {
+                repository: current.parser?.repository || null,
+                commit: current.parser?.commit || null,
+                files: current.parser?.files || {},
+              },
+              no_false_completion: current.no_false_completion === true,
+            };
+            const canonical = JSON.stringify(tracked);
+            const digest = crypto.createHash('sha256').update(canonical, 'utf8').digest('hex');
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: 25,
+              per_page: 100,
+            });
+            const prefix = 'FF11_RENDER_WATCH_STATE_V1';
+            const previousComment = [...comments].reverse().find(c =>
+              typeof c.body === 'string' && c.body.startsWith(prefix + '\n')
+            );
+            let previous = null;
+            if (previousComment) {
+              const match = previousComment.body.match(/~~~json\n([\s\S]*?)\n~~~/);
+              if (match) {
+                try { previous = JSON.parse(match[1]); } catch (_) {}
+              }
+            }
+
+            const state = {
+              schema: 'dolzore.ff11.render_watch_state.v1',
+              digest,
+              source_path: path,
+              source_commit: context.sha,
+              canonical_issue: 'DeeDee-Lab/Dolzore#25',
+              tracked,
+            };
+
+            if (!previous) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: 25,
+                body: [
+                  prefix,
+                  '',
+                  'Baseline captured for external FF11 render-quantification monitoring. No metric change notification is implied.',
+                  '',
+                  '~~~json',
+                  JSON.stringify(state, null, 2),
+                  '~~~',
+                ].join('\n'),
+              });
+              core.info('FF11_RENDER_WATCH_BASELINE_CAPTURED=true');
+              return;
+            }
+
+            if (previous.digest === digest) {
+              core.info('FF11_RENDER_WATCH_MATERIAL_CHANGE=false');
+              return;
+            }
+
+            const prevTracked = previous.tracked || {};
+            const changes = [];
+            const keys = new Set([
+              ...Object.keys(prevTracked.metrics || {}),
+              ...Object.keys(tracked.metrics || {}),
+            ]);
+            for (const key of [...keys].sort()) {
+              const before = (prevTracked.metrics || {})[key];
+              const after = (tracked.metrics || {})[key];
+              if (JSON.stringify(before) !== JSON.stringify(after)) {
+                changes.push({ metric: key, before: before ?? null, after: after ?? null });
+              }
+            }
+            if (JSON.stringify(prevTracked.spc_source || {}) !== JSON.stringify(tracked.spc_source || {})) {
+              changes.push({ metric: 'spc_source_identity', before: prevTracked.spc_source || null, after: tracked.spc_source });
+            }
+            if (JSON.stringify(prevTracked.parser || {}) !== JSON.stringify(tracked.parser || {})) {
+              changes.push({ metric: 'parser_identity', before: prevTracked.parser || null, after: tracked.parser });
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: 25,
+              body: [
+                prefix,
+                '',
+                'FF11 render-quantification material update detected from canonical structured status. Unconfirmed values are not inferred.',
+                '',
+                'Changed fields:',
+                ...changes.map(c => '- ' + c.metric + ': ' + JSON.stringify(c.before) + ' -> ' + JSON.stringify(c.after)),
+                '',
+                'Source path: ' + path + ' @ ' + context.sha,
+                '',
+                '~~~json',
+                JSON.stringify(state, null, 2),
+                '~~~',
+              ].join('\n'),
+            });
+            core.info('FF11_RENDER_WATCH_MATERIAL_CHANGE=true');
