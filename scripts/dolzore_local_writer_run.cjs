@@ -35,6 +35,19 @@ function plan(profile,event){
  ]:[{name:"collect",phase:"update",args:[p.script,"--file",p.data],seconds:600},{name:"contract_after",phase:"update",args:["-m","unittest","discover","-s","tests","-p","test_*.py","-v"],seconds:600}];
  return {profile,event,commands,collect:event!=="pull_request",target:p.data,phaseSeconds:{contract:300,update:profile==="media"?600:900},deadlineSeconds:profile==="media"?600:event==="pull_request"?300:1200};
 }
+// Strict final unittest summary; do not accept a stray OK from earlier output.
+function allTestsPass(log){
+ if(typeof log!=="string")return false;
+ const lines=log.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+ const runs=lines.filter(x=>/^Ran\s+\d+\s+tests?\b/.test(x));
+ const oks=lines.filter(x=>/^OK(?:\s|$)/.test(x));
+ if(runs.length!==1||oks.length!==1||lines.at(-1)!=="OK")return false;
+ const match=/^Ran ([1-9][0-9]*) tests?(?: in [0-9]+(?:\.[0-9]+)?s)?$/.exec(runs[0]);
+ if(!match||!Number.isSafeInteger(Number(match[1])))return false;
+ if(lines.indexOf(runs[0])>=lines.length-1)return false;
+ if(lines.slice(lines.indexOf(runs[0])+1,-1).some(x=>!/^[-=]+$/.test(x)))return false;
+ return !lines.some(x=>/^(?:FAILED\b|Traceback \(most recent call last\):|ERROR:|FAIL:)/.test(x)||/\b(?:skipped|expected failures|unexpected successes)=/.test(x));
+}
 function execute(profile,event,ops){
  const p=plan(profile,event);
  return ops.lock(()=>{
@@ -46,7 +59,7 @@ function execute(profile,event,ops){
    if(phase!==cmd.phase){phase=cmd.phase;ops.phase(phase,p.phaseSeconds[phase]);}
    const result=ops.run(cmd);
    requireOk(result.status===0&&!result.error,"STEP_FAILED:"+cmd.name);
-   if(cmd.name.startsWith("contract"))requireOk(/Ran [1-9][0-9]* tests?\b/.test(result.log)&&/^OK[ \t]*\r?$/m.test(result.log)&&!/\b(?:skipped|expected failures|unexpected successes)=/.test(result.log),"CONTRACT_NOT_ALL_PASS:"+cmd.name);
+   if(cmd.name.startsWith("contract"))requireOk(allTestsPass(result.log),"CONTRACT_NOT_ALL_PASS:"+cmd.name);
    if(cmd.name==="collect"){ops.checkDiff(p.target);collected=ops.readTarget(p.target);ops.validate(p,original,collected);}
   }
   const current=ops.readTarget(p.target);
@@ -74,9 +87,12 @@ function selftest(){
  ok(plan("market","push").deadlineSeconds===1200&&plan("media","push").deadlineSeconds===600);
  f=fixture({invalid:true});reject(()=>execute("market","push",f.ops));ok(!f.trace.includes("contract_after")&&!f.trace.includes("stage"));
  f=fixture({tamper:true});reject(()=>execute("media","push",f.ops));ok(!f.trace.includes("stage"));
+ for(const log of ["Ran 2 tests\nOK\nFAILED (failures=1)\n","Ran 2 tests\nOK\nRan 0 tests\n","Ran 2 tests\nOK\nOK\n","Ran 2 tests\nOK\nTraceback (most recent call last):\n","Ran 999999999999999999999 tests\nOK\n"]){ok(!allTestsPass(log));f=fixture();f.ops.run=()=>({status:0,log});reject(()=>execute("market","pull_request",f.ops));}
+ ok(allTestsPass("test_x ... ok\n---\nRan 1 test in 0.001s\n\nOK\n"));
+ ok(allTestsPass("Ran 2 tests in 1s\r\n\r\nOK\r\n"));
  return n;
 }
-module.exports={pins,plan,execute,selftest};
+module.exports={pins,plan,execute,selftest,allTestsPass};
 
 function main(argv){
  const fs=require("node:fs"),path=require("node:path"),cp=require("node:child_process"),crypto=require("node:crypto");
